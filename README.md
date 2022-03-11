@@ -1,4 +1,6 @@
-# ign-frontend
+# Schrodinger Hat Website
+
+Autodeployed on netlify
 
 ## Project setup
 ```
