@@ -12,7 +12,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <h1>Schrodinger Hat Website</h1>
+  <h1>Schrodinger's Hat Website</h1>
   
   <a href="https://github.com/Schrodinger-Hat/schrodinger-hat-website">
     <img src="src/assets/logo-64.png" alt="Logo" width="80" height="80">
@@ -21,7 +21,7 @@
 
   <p align="center">
     <br />
-    <a href="https://github.com/Schrodinger-Hat/schrodinger-hat-website"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/Schrodinger-Hat/schrodinger-hat-website/wiki"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="https://github.com/Schrodinger-Hat/schrodinger-hat-website">View Demo</a>
