@@ -1,7 +1,4 @@
 # Schrodinger Hat Website
-
-Autodeployed on netlify
-
 <div id="top"></div>
 
 [![Contributors][contributors-shield]][contributors-url]
@@ -22,14 +19,14 @@ Autodeployed on netlify
   <p align="center">
     An awesome README template to jumpstart your projects!
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/Schrodinger-Hat/schrodinger-hat-website"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
+    <a href="https://github.com/Schrodinger-Hat/schrodinger-hat-website">View Demo</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
+    <a href="https://github.com/Schrodinger-Hat/schrodinger-hat-website/issues">Report Bug</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+    <a href="https://github.com/Schrodinger-Hat/schrodinger-hat-website/issues">Request Feature</a>
   </p>
 </div>
 
@@ -43,13 +40,6 @@ Autodeployed on netlify
       <a href="#about-the-project">About The Project</a>
       <ul>
         <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
@@ -77,15 +67,6 @@ Project description
 * [Next.js](https://nextjs.org/)
 * [React.js](https://reactjs.org/)
 * [Vue.js](https://vuejs.org/)
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-<!-- GETTING STARTED -->
-## Getting Started
-
-To get started follow the instructions
 
 
 <!-- USAGE EXAMPLES -->
@@ -115,11 +96,6 @@ npm run test:e2e
 ```
 npm run lint
 ```
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
 <!-- ROADMAP -->
 ## Roadmap
 
@@ -128,9 +104,6 @@ npm run lint
 - [ ] Pizza
 
 Take a look at the [open issues](https://github.com/Schrodinger-Hat/schrodinger-hat-website/issues) for a full list of requests and issues.
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
 
 
 <!-- CONTRIBUTING -->
@@ -143,15 +116,9 @@ For more infos checkout CONTRIBUTIONS.md
 If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
 Don't forget to give the project a star! Thanks again!
 
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
 
 <!-- LICENSE -->
 ## License
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
 
 
 <!-- CONTACT -->
@@ -160,9 +127,6 @@ Don't forget to give the project a star! Thanks again!
 Schrodinger's Hat Team - [@schrodinger_hat](https://twitter.com/schrodinger_hat)
 
 Project Link: [https://github.com/Schrodinger-Hat/schrodinger-hat-website](https://github.com/Schrodinger-Hat/schrodinger-hat-website)
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
