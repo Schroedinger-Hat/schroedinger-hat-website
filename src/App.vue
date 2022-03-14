@@ -21,7 +21,7 @@ export default {
   components: {
     Navbar,
     Contributing,
-    Footer,
-  },
+    Footer
+  }
 };
 </script>
