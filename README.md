@@ -12,7 +12,8 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  #Schrodinger Hat Website
+  #Schrodinger Hat Website  
+  
   <a href="https://github.com/Schrodinger-Hat/schrodinger-hat-website">
     <img src="src/assets/logo-64.png" alt="Logo" width="80" height="80">
   </a>
