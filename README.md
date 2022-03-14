@@ -1,8 +1,6 @@
-# Schrodinger Hat Website
-<div id="top"></div>
 
 <div align='center'>
-  
+  # Schrodinger Hat Website
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
