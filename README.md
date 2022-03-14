@@ -1,6 +1,8 @@
 
 <div align='center'>
-  # Schrodinger Hat Website
+# Schrodinger Hat Website
+  
+  
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
@@ -15,10 +17,8 @@
     <img src="src/assets/logo-64.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Best-README-Template</h3>
 
   <p align="center">
-    An awesome README template to jumpstart your projects!
     <br />
     <a href="https://github.com/Schrodinger-Hat/schrodinger-hat-website"><strong>Explore the docs »</strong></a>
     <br />
