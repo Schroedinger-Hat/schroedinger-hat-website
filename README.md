@@ -1,6 +1,5 @@
 
 <div align='center'>
-# Schrodinger Hat Website
   
   
 [![Contributors][contributors-shield]][contributors-url]
@@ -13,7 +12,8 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
+  #Schrodinger Hat Website
+  <a href="https://github.com/Schrodinger-Hat/schrodinger-hat-website">
     <img src="src/assets/logo-64.png" alt="Logo" width="80" height="80">
   </a>
 
