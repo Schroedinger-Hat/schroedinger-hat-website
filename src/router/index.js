@@ -5,6 +5,8 @@ import RedirectVideo from '../views/RedirectVideo.vue';
 import CodeConduct from '../views/CodeConduct.vue';
 import EventList from '../views/EventList.vue';
 import Event from '../views/Event.vue';
+import Team from '../views/Team.vue';
+import TeamMember from '../views/TeamMember.vue';
 
 Vue.use(VueRouter);
 
@@ -33,6 +35,16 @@ const routes = [
     path: '/events/:event',
     name: 'Event',
     component: Event,
+  },
+  {
+    path: '/team',
+    name: 'Team',
+    component: Team,
+  },
+  {
+    path: '/team/:member',
+    name: 'TeamMember',
+    component: TeamMember,
   },
 ];
 
