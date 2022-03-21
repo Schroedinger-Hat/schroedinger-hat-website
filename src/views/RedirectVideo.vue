@@ -15,7 +15,8 @@ export default {
     Main,
   },
   created() {
-    window.location.href = 'https://www.youtube.com/playlist?list=UU1QLLgrGrPmlaFhS0orykCA&playnext=1&index=1';
+    window.location.href =
+      'https://www.youtube.com/playlist?list=UU1QLLgrGrPmlaFhS0orykCA&playnext=1&index=1';
   },
 };
 </script>
@@ -56,5 +57,4 @@ export default {
     }
   }
 }
-
 </style>

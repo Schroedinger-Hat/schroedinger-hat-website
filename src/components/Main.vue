@@ -3,12 +3,21 @@
     <div class="middle-section">
       <h1>{{ $t('message.main.h1') }}</h1>
       <h2>{{ $t('message.main.h2') }}</h2>
-      <a class="btn btn-primary" target="_blank"
-        href="https://www.youtube.com/channel/UC1QLLgrGrPmlaFhS0orykCA">YouTube</a>
-      <a class="btn btn-info" target="_blank"
-        href="https://open.spotify.com/show/7yfkQCV6hrPIqflSqJDB2P">Spotify</a>
-      <a class="btn btn-info" target="_blank"
-        href="https://opencollective.com/schrodinger-hat">OpenCollective</a>
+      <a
+        class="btn btn-primary"
+        target="_blank"
+        href="https://www.youtube.com/channel/UC1QLLgrGrPmlaFhS0orykCA"
+        >YouTube</a
+      >
+      <a
+        class="btn btn-info"
+        target="_blank"
+        href="https://open.spotify.com/show/7yfkQCV6hrPIqflSqJDB2P"
+        >Spotify</a
+      >
+      <a class="btn btn-info" target="_blank" href="https://opencollective.com/schrodinger-hat"
+        >OpenCollective</a
+      >
     </div>
   </div>
 </template>
@@ -35,7 +44,7 @@ export default {
   }
   h2 {
     font-weight: 100;
-    margin-top: .3em;
+    margin-top: 0.3em;
   }
 
   .btn {

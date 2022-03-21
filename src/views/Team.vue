@@ -5,37 +5,37 @@
         <div class="headline">
           <h1>{{ $t(`message.navbar.team`) }}</h1>
         </div>
-        <div
-            v-for="teammember in team"
-            :key="teammember.github"
-          >
+        <div v-for="teammember in team" :key="teammember.github">
           <div class="blog-card">
             <div class="meta">
               <div
                 class="photo"
-                :style="
-                  `background-image: url( ${$t(`team.${teammember}.image`)} );`
-                "
+                :style="`background-image: url( ${$t(`team.${teammember}.image`)} );`"
               ></div>
               <div
                 class="photo-secondary"
-                :style="
-                  `background-image: url( ${$t(`team.${teammember}.secondary_image`)} );`
-                "
+                :style="`background-image: url( ${$t(`team.${teammember}.secondary_image`)} );`"
               ></div>
             </div>
             <div class="description">
               <h1>{{ $t(`team.${teammember}.name`) }}</h1>
-              <a v-bind:href="$t(`team.${teammember}.github_url`)" target="_blank">
-                <h2>{{ $t(`team.${teammember}.github`) }}</h2>
-              </a>
-              <p v-html="$t(`team.${teammember}.description`)">
-              </p>
+              <div class="socialIcons">
+                <a v-if="$t(`team.${teammember}.github_url`).length > 1" v-bind:href="$t(`team.${teammember}.github_url`)" target="_blank">
+                  <i class="mobile-menu-icon fab fa-github"></i>
+                </a>
+                <a v-if="$t(`team.${teammember}.linkedin_url`).length > 1"  v-bind:href="$t(`team.${teammember}.linkedin_url`)" target="_blank">
+                  <i class="mobile-menu-icon fab fa-linkedin"></i>
+                </a>
+                <a v-if="$t(`team.${teammember}.twitter_url`).length > 1"  v-bind:href="$t(`team.${teammember}.twitter_url`)" target="_blank">
+                  <i class="mobile-menu-icon fab fa-twitter"></i>
+                </a>
+              </div>
+              <p v-html="$t(`team.${teammember}.description`)"></p>
               <router-link
                 :key="team.permalink"
                 :to="`/team/${$t(`team.${teammember}.permalink`)}`"
               >
-                <p class="user-profile-link">Link a profilo</p>
+                <p class="user-profile-link">{{$t(linkText)}}</p>
               </router-link>
             </div>
           </div>
@@ -53,6 +53,7 @@ export default {
   data() {
     return {
       team: Object.keys(text.it.team),
+      linkText: text.it.links,
     };
   },
 };
@@ -79,7 +80,7 @@ $color_grey_dark: $nord2;
     margin: 1rem auto;
     box-shadow: 0 3px 7px -1px rgba(#000, 0.1);
     margin-bottom: 1.6%;
-background-image: linear-gradient(to right top, #051937, #21273f, #343647, #46464f, #575757);
+    background-image: $color_white;
     line-height: 1.4;
     font-family: sans-serif;
     border-radius: 5px;
@@ -91,17 +92,17 @@ background-image: linear-gradient(to right top, #051937, #21273f, #343647, #4646
     }
     &:hover {
       .photo {
-      display: none;
+        display: none;
       }
 
       .photo-secondary {
-      display: block;
-    }
+        display: block;
+      }
     }
     .meta {
       position: relative;
       z-index: 0;
-      height: 200px;
+      height: auto;
       background: $color_white;
       border-radius: 100%;
     }
@@ -123,6 +124,15 @@ background-image: linear-gradient(to right top, #051937, #21273f, #343647, #4646
       background-position: center;
     }
 
+    .socialIcons {
+      padding: .2em 0;
+
+      a {
+        display: inline-block;
+        margin: 0.2em;
+      }
+    }
+
     .description {
       padding: 2rem;
       position: relative;
@@ -131,7 +141,7 @@ background-image: linear-gradient(to right top, #051937, #21273f, #343647, #4646
       h2,
       p {
         font-family: Poppins, sans-serif;
-        color: $color_white;
+        color: $color_grey_dark;
       }
       h1 {
         line-height: 1;
@@ -159,7 +169,7 @@ background-image: linear-gradient(to right top, #051937, #21273f, #343647, #4646
     @media (min-width: 640px) {
       flex-direction: row;
       max-width: 700px;
-      height: 200px;
+      height: auto;
       justify-content: space-around;
       align-items: center;
       align-content: space-between;
@@ -189,7 +199,8 @@ background-image: linear-gradient(to right top, #051937, #21273f, #343647, #4646
     background: $nord2;
     .description {
       background: $nord2;
-      h2, .read-more a {
+      h2,
+      .read-more a {
         color: $nord4;
       }
       &:before {

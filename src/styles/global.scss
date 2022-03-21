@@ -7,7 +7,7 @@ html {
   background: $bg-primary;
   color: $text-primary;
   transition: all 400ms ease-in-out 0s;
-  
+
   * {
     color: $text-primary;
     text-decoration: none;
@@ -41,12 +41,12 @@ html {
   .btn {
     display: inline-flex;
     align-items: center;
-    margin: 0 .5em;
+    margin: 0 0.5em;
     font-size: 1.1em;
     vertical-align: middle;
     text-decoration: none;
     border-radius: 0.25em;
-    padding: .675em 1.5em;
+    padding: 0.675em 1.5em;
     transition: all 200ms ease-in 0s;
     cursor: pointer;
 
