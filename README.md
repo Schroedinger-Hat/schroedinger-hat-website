@@ -1,4 +1,3 @@
-
 <div align='center'>
   
   
@@ -18,7 +17,6 @@
     <img src="src/assets/logo-64.png" alt="Logo" width="80" height="80">
   </a>
 
-
   <p align="center">
     <br />
     <a href="https://github.com/Schrodinger-Hat/schrodinger-hat-website/wiki"><strong>Explore the docs »</strong></a>
@@ -31,8 +29,6 @@
     <a href="https://github.com/Schrodinger-Hat/schrodinger-hat-website/issues">Request Feature</a>
   </p>
 </div>
-
-
 
 <!-- TABLE OF CONTENTS -->
 <details>
@@ -52,50 +48,60 @@
   </ol>
 </details>
 
-
-
 <!-- ABOUT THE PROJECT -->
+
 ## About The Project
 
 Project description
 
-
-
 ### Tech stack
 
-* [Next.js](https://nextjs.org/)
-* [React.js](https://reactjs.org/)
-* [Vue.js](https://vuejs.org/)
-
+- [Next.js](https://nextjs.org/)
+- [React.js](https://reactjs.org/)
+- [Vue.js](https://vuejs.org/)
 
 <!-- USAGE EXAMPLES -->
+
 ## Usage
+
 ### Project setup
+
 ```
 npm install
 ```
+
 ### Compiles and hot-reloads for development
+
 ```
 npm run serve
 ```
 
 ### Compiles and minifies for production
+
 ```
 npm run build
 ```
+
 ### Run your unit tests
+
 ```
 npm run test:unit
 ```
+
 ### Run your end-to-end tests
+
 ```
 npm run test:e2e
 ```
+
 ### Lints and fixes files
+
 ```
 npm run lint
 ```
+
 <!-- ROADMAP -->
+
 ## Roadmap
 
 - [x] Project started
@@ -104,8 +110,8 @@ npm run lint
 
 Take a look at the [open issues](https://github.com/Schrodinger-Hat/schrodinger-hat-website/issues) for a full list of requests and issues.
 
-
 <!-- CONTRIBUTING -->
+
 ## Contributing
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
@@ -115,12 +121,12 @@ For more infos checkout CONTRIBUTIONS.md
 If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
 Don't forget to give the project a star! Thanks again!
 
-
 <!-- LICENSE -->
+
 ## License
 
-
 <!-- CONTACT -->
+
 ## Contact
 
 Schrodinger's Hat Team - [@schrodinger_hat](https://twitter.com/schrodinger_hat)
@@ -129,6 +135,7 @@ Project Link: [https://github.com/Schrodinger-Hat/schrodinger-hat-website](https
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+
 [contributors-shield]: https://img.shields.io/github/contributors/Schrodinger-Hat/schrodinger-hat-website.svg?style=for-the-badge
 [contributors-url]: https://github.com/Schrodinger-Hat/schrodinger-hat-website/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/Schrodinger-Hat/schrodinger-hat-website.svg?style=for-the-badge

@@ -3,7 +3,7 @@
     <div class="inner-header-container">
       <div class="logo">
         <router-link to="/">
-          <img alt="SH logo" width="36" src="../../assets/logo-64.png">
+          <img alt="SH logo" width="36" src="../../assets/logo-64.png" />
           <span>S<i class="title-part-1">chrödinger</i> H<i class="title-part-2">at</i></span>
         </router-link>
       </div>
@@ -12,9 +12,7 @@
           <router-link to="/team">{{ $t('message.navbar.team') }}</router-link>
           <router-link to="/events">{{ $t('message.navbar.events') }}</router-link>
           <router-link to="/code-of-conduct">{{ $t('message.navbar.codeofconduct') }}</router-link>
-          <a href="https://ign.schrodinger-hat.it" target="_blank">
-            ImageGoNord
-          </a>
+          <a href="https://ign.schrodinger-hat.it" target="_blank"> ImageGoNord </a>
           <a href="https://github.com/Schrodinger-Hat" target="_blank">
             <i class="mobile-menu-icon fab fa-github"></i>
           </a>
@@ -55,10 +53,13 @@ export default Vue.component('Navbar', {
       event.preventDefault();
       document.body.parentNode.classList.toggle('dark-theme');
       let iconElement = event.target;
-      iconElement = (iconElement.tagName === 'A') ? iconElement.children[0] : iconElement;
+      iconElement = iconElement.tagName === 'A' ? iconElement.children[0] : iconElement;
 
       let darkModeValue = 'yes';
-      darkModeValue = (localStorage.getItem('darkMode') === 'yes' && iconElement.className.indexOf('fa-sun') !== -1) ? 'no' : 'yes';
+      darkModeValue =
+        localStorage.getItem('darkMode') === 'yes' && iconElement.className.indexOf('fa-sun') !== -1
+          ? 'no'
+          : 'yes';
 
       iconElement.classList.toggle('fa-moon');
       iconElement.classList.toggle('fa-sun');
@@ -72,7 +73,6 @@ export default Vue.component('Navbar', {
 <!-- La navbar potrebbe essere un componente a sè, per maggior leggibilità -->
 <!-- Il logo potrebbe essere un componente a sè -->
 <style scoped lang="scss">
-
 header {
   margin: auto;
   text-align: left;
@@ -88,7 +88,7 @@ header {
     -webkit-box-pack: justify;
     justify-content: space-between;
     margin: 0px auto;
-    padding: 0 .5em;
+    padding: 0 0.5em;
 
     .logo {
       display: flex;
@@ -146,7 +146,7 @@ header {
           cursor: pointer;
           font-size: 1.2em;
 
-          &:nth-child(-n+3) {
+          &:nth-child(-n + 3) {
             display: none;
           }
 
@@ -176,7 +176,7 @@ header {
             display: none;
           }
           a {
-            &:nth-child(-n+3) {
+            &:nth-child(-n + 3) {
               display: inline;
             }
           }
@@ -201,5 +201,4 @@ header {
     }
   }
 }
-
 </style>

@@ -6,7 +6,12 @@
       <div class="container contributing-container-text">
         <div class="inner-text">
           <h4>{{ $t('message.contributing.title') }}</h4>
-          <p><b>Schrödinger Hat</b> {{ $t('message.contributing.is-a-project') }} <a class="external-link-color" href="https://github.com/Schrodinger-Hat" target="_blank">GitHub</a>.</p>
+          <p>
+            <b>Schrödinger Hat</b> {{ $t('message.contributing.is-a-project') }}
+            <a class="external-link-color" href="https://github.com/Schrodinger-Hat" target="_blank"
+              >GitHub</a
+            >.
+          </p>
           <p v-html="$t('message.contributing.cta')"></p>
           <p class="social">
             <a href="https://opencollective.com/schrodinger-hat" target="_blank">
@@ -33,7 +38,7 @@
           <h4 style="padding: 15px 0">Community Partners</h4>
           <div class="partner-image">
             <a href="https://www.grusp.org/" target="_blank" class="sponsor-image">
-              <img width="200" src="/img/grusp.jpeg" alt="Grusp Logo">
+              <img width="200" src="/img/grusp.jpeg" alt="Grusp Logo" />
             </a>
           </div>
         </div>
@@ -58,7 +63,6 @@ export default {
 
 <!-- da rifare -->
 <style scoped lang="scss">
-
 .contributing-container {
   position: relative;
 
@@ -78,7 +82,7 @@ export default {
 
   .social {
     a {
-      padding: 0 .5em;
+      padding: 0 0.5em;
       font-size: 1.2em;
     }
   }
@@ -90,7 +94,7 @@ export default {
   margin: 0px auto;
 
   .inner-text {
-    padding: 0 .5em;
+    padding: 0 0.5em;
     h4 {
       font-size: 2.2em;
       margin: 0 0;
@@ -124,5 +128,4 @@ export default {
     }
   }
 }
-
 </style>

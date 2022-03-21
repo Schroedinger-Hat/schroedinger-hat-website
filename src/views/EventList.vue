@@ -6,17 +6,15 @@
           <h1>{{ $t(`message.navbar.events`) }}</h1>
         </div>
         <router-link
-            v-for="event in events"
-            :key="event.permalink"
-            :to="`/events/${$t(`events.${event}.permalink`)}`"
-          >
+          v-for="event in events"
+          :key="event.permalink"
+          :to="`/events/${$t(`events.${event}.permalink`)}`"
+        >
           <div class="blog-card">
             <div class="meta">
               <div
                 class="photo"
-                :style="
-                  `background-image: url( ${$t(`events.${event}.image`)} );`
-                "
+                :style="`background-image: url( ${$t(`events.${event}.image`)} );`"
               ></div>
             </div>
             <div class="description">
@@ -24,7 +22,7 @@
               <h2>{{ $t(`events.${event}.date`) }} | {{ $t(`events.${event}.location`) }}</h2>
               <p>
                 {{ $t(`events.${event}.subtitle`) }}
-                <br/><br/>
+                <br /><br />
               </p>
               <!-- <div class="sponsors">
                 <div class="logos" v-html="$t(`events.${event}.sponsors`)"></div>
@@ -153,7 +151,7 @@ $color_grey_dark: $nord2;
         flex-basis: 60%;
         &:before {
           transform: skewX(-3deg);
-          content: "";
+          content: '';
           background: #fff;
           width: 30px;
           position: absolute;
@@ -182,7 +180,8 @@ $color_grey_dark: $nord2;
     background: $nord2;
     .description {
       background: $nord2;
-      h2, .read-more a {
+      h2,
+      .read-more a {
         color: $nord4;
       }
       &:before {

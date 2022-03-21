@@ -5,7 +5,7 @@
       <div class="inner-footer-container">
         <div class="logo">
           <router-link to="/">
-            <img alt="SH logo" width="36" src="../../assets/logo-64.png">
+            <img alt="SH logo" width="36" src="../../assets/logo-64.png" />
             <span>S<i class="title-part-1">chrödinger</i> H<i class="title-part-2">at</i></span>
           </router-link>
         </div>
@@ -32,7 +32,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
 footer {
   position: relative;
   .canvas-container {
@@ -72,7 +71,7 @@ footer {
     -webkit-box-pack: justify;
     justify-content: space-between;
     margin: 0px auto;
-    padding: 0 .5em;
+    padding: 0 0.5em;
 
     .logo {
       display: flex;
@@ -176,5 +175,4 @@ footer {
     }
   }
 }
-
 </style>
