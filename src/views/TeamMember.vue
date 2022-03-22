@@ -10,13 +10,13 @@
             ></div>
           </div>
         <div class="socialIcons">
-          <a v-if="$t(`team.${teammember}.github_url`).length > 1" v-bind:href="$t(`team.${teammember}.github_url`)" target="_blank">
+          <a v-if="$t(`team.${teamMember}.github_url`).length > 1" v-bind:href="$t(`team.${teamMember}.github_url`)" target="_blank">
             <i class="mobile-menu-icon fab fa-github"></i>
           </a>
-          <a v-if="$t(`team.${teammember}.linkedin_url`).length > 1"  v-bind:href="$t(`team.${teammember}.linkedin_url`)" target="_blank">
+          <a v-if="$t(`team.${teamMember}.linkedin_url`).length > 1"  v-bind:href="$t(`team.${teamMember}.linkedin_url`)" target="_blank">
             <i class="mobile-menu-icon fab fa-linkedin"></i>
           </a>
-          <a v-if="$t(`team.${teammember}.twitter_url`).length > 1"  v-bind:href="$t(`team.${teammember}.twitter_url`)" target="_blank">
+          <a v-if="$t(`team.${teamMember}.twitter_url`).length > 1"  v-bind:href="$t(`team.${teamMember}.twitter_url`)" target="_blank">
             <i class="mobile-menu-icon fab fa-twitter"></i>
           </a>
          </div>
