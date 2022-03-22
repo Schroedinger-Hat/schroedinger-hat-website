@@ -3,7 +3,7 @@
     <div class="container">
       <div class="content">
         <h1>{{ $t(`team.${teamMember}.name`) }}</h1>
-          <div class="meta">
+          <div>
             <div
               class="photo"
               :style="`background-image: url(${$t(`team.${teamMember}.image`)});`"
