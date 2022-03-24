@@ -27,41 +27,53 @@
     },
     "links": "Vai al profilo",
     "team": {
-      "markjackson": {
-        "name": "Mark Jackson",
-        "github": "markjackson",
-        "github_url": "",
-        "linkedin_url": "https://www.linkedin.com/company/schrodinger-hat/",
-        "twitter_url": "https://twitter.com/schrodinger_hat",
-        "image": "/img/_dev/pic1.png",
-        "secondary_image": "/img/_dev/pic1.png",
-        "description": "Walk on a keyboard sit on human and bite off human's toes but chase dog then run away. Scratch my tummy actually i hate you now fight me disappear for four days and return home with an expensive injury; bite the vet, pee on walls it smells like breakfast sniff other cat's butt and hang jaw half open thereafter or demand to be let outside at once",
-        "website": "https://markjackson.com",
-        "permalink": "markjackson"
+      "mikilombardi": {
+        "name": "Miki Lombardi",
+        "github": "thejoin95",
+        "github_url": "https://github.com/thejoin95",
+        "linkedin_url": "https://www.linkedin.com/in/miki-lombardi/",
+        "twitter_url": "https://twitter.com/thejoin95",
+        "image": "/img/_dev/mikilombardi.jpeg",
+        "secondary_image": "/img/_dev/mikilombardi.jpeg",
+        "description": "Mi definisco un passion driven developer, guidato dalla creatività che ha un sacco di altre passioni: basket, ciclismo, fotografia sono solo alcune di queste. Dal 2014 ho prestato la mia esperienza nel campo dello sviluppo software a Firenze, in Italia.\nHo lavorato come ingegnere del software e architetto di soluzioni per oltre 8 anni sia in società di prodotti che di consulenza, traendo il meglio da entrambi i mondi. Attualmente lavoro come Software Engineer presso Growens, dove sto sviluppando e ottimizzando la piattaforma di email marketing in un team Agile (SCRUM) in full remote.\nNel tempo libero girovago, creo eventi, partecipo a conferenze nazionali e internazionali cercando di vivere la vita al migliore delle mie possibilità!",
+        "website": "https://www.mikilombardi.com/",
+        "permalink": "mikilombardi"
       },
-      "julietta": {
-        "name": "Julie Sanders",
-        "github": "julietta",
-        "github_url": "https://github.com/julietta",
-        "linkedin_url": "https://www.linkedin.com/company/schrodinger-hat/",
-        "twitter_url": "https://twitter.com/schrodinger_hat",
-        "image": "/img/_dev/pic2.png",
-        "secondary_image": "/img/_dev/pic2.png",
-        "description": "hand scratch for shred all toilet paper and spread around the house but human is in bath tub, emergency! drowning! meooowww! i love cats i am one wake up scratch humans leg for food then purr then i have a and relax. Pee on walls it smells like breakfast meow to be let out go into a room to decide",
-        "website": "https://julietta.it",
-        "permalink": "julietta"
+      "gabrielepuliti": {
+        "name": "Gabriele Puliti",
+        "github": "Wabri",
+        "github_url": "https://github.com/Wabri",
+        "linkedin_url": "https://www.linkedin.com/in/%F0%9F%90%A7gabriele-puliti-b62915a9/",
+        "twitter_url": "https://twitter.com/WabriDev",
+        "image": "/img/_dev/gabrielepuliti.png",
+        "secondary_image": "/img/_dev/gabrielepuliti.png",
+        "description": "Ho una dipendenza da tmux e vim. Il mio linguaggio preferito è japyrush, se non l'avete mai sentito è perchè l'ho appena inventato usando i linguaggi che ho usato e uso maggiormente: java, python, ruby e bash. Non mi parlate di frontend perchè non ci capisco niente, ma se volete parlare della vostra rice linux sono tutto orecchi. Sono un appassionato di Storia da quasi sempre, ho provato a diventare un astrofisico fallendo miseramente e mi piace fare lunghe camminate sia in città che nella natura. I use Arch BTW.",
+        "website": "",
+        "permalink": "gabrielepuliti"
       },
-      "parker": {
-        "name": "Robin Parker",
-        "github": "parker",
-        "github_url": "https://github.com/parker",
+      "lorenzopieri": {
+        "name": "Lorenzo Pieri",
+        "github": "404answernotfound",
+        "github_url": "https://github.com/404answernotfound",
         "linkedin_url": "https://www.linkedin.com/company/schrodinger-hat/",
+        "twitter_url": "https://twitter.com/404answnotfound",
+        "image": "/img/_dev/lorenzopieri.png",
+        "secondary_image": "/img/_dev/lorenzopieri.png",
+        "description": "Scopritore di problemi a soluzioni note. Tanti argomenti diversi e troppe poche ore durante la giornata, trovo divertente insegnare cose complicate in parole semplici, raccontare storie con metodi poco ortodossi e passare il tempo a scrivere codice, anche questa un'arte a tutti gli effetti. Credo fortemente nell'unione tra scienza e valore umano (ndr. divertirsi a fare ciò che si ama) e partecipo con passione a non-profit e progetti intenzionati a portare maggiore valore culturale e conoscenza a coloro che ne sono interessati e affascinati.",
+        "website": "https://404answernotfound.eu/",
+        "permalink": "lorenzopieri"
+      },
+      "nicpuppa": {
+        "name": "Nic Puppa",
+        "github": "nicpuppa",
+        "github_url": "https://github.com/nicpuppa",
+        "linkedin_url": "https://www.linkedin.com/in/nicola-puppa-b67a4911a/",
         "twitter_url": "",
-        "image": "/img/_dev/pic5.png",
-        "secondary_image": "/img/_dev/pic5.png",
-        "description": "next, so play with it until it dies of shock is good you understand your place in my world. Destroy house in 5 seconds throwup on your pillow.",
-        "website": "https://parker.it",
-        "permalink": "parker"
+        "image": "/img/_dev/nicpuppa.png",
+        "secondary_image": "/img/_dev/nicpuppa.png",
+        "description": "Globetrotter (covid permettendo), amante delle bibite gassate e climber. Amo le sfide. Mi piace studiare quello che mi interessa. Sono sintetico.",
+        "website": "",
+        "permalink": "nicpuppa"
       }
     },
     "events": {
@@ -125,41 +137,53 @@
     },
     "links": "Check out the user's profile",
     "team": {
-      "markjackson": {
-        "name": "Mark Jackson",
-        "github": "markjackson",
-        "github_url": "",
-        "linkedin_url": "https://www.linkedin.com/company/schrodinger-hat/",
-        "twitter_url": "https://twitter.com/schrodinger_hat",
-        "image": "/img/_dev/pic1.png",
-        "secondary_image": "/img/_dev/pic1.png",
-        "description": "Walk on a keyboard sit on human and bite off human's toes but chase dog then run away. Scratch my tummy actually i hate you now fight me disappear for four days and return home with an expensive injury; bite the vet, pee on walls it smells like breakfast sniff other cat's butt and hang jaw half open thereafter or demand to be let outside at once",
-        "website": "https://markjackson.com",
-        "permalink": "markjackson"
+      "mikilombardi": {
+        "name": "Miki Lombardi",
+        "github": "thejoin95",
+        "github_url": "https://github.com/thejoin95",
+        "linkedin_url": "https://www.linkedin.com/in/miki-lombardi/",
+        "twitter_url": "https://twitter.com/thejoin95",
+        "image": "/img/_dev/mikilombardi.jpeg",
+        "secondary_image": "/img/_dev/mikilombardi.jpeg",
+        "description": "Mi definisco un passion driven developer, guidato dalla creatività che ha un sacco di altre passioni: basket, ciclismo, fotografia sono solo alcune di queste. Dal 2014 ho prestato la mia esperienza nel campo dello sviluppo software a Firenze, in Italia.\nHo lavorato come ingegnere del software e architetto di soluzioni per oltre 8 anni sia in società di prodotti che di consulenza, traendo il meglio da entrambi i mondi. Attualmente lavoro come Software Engineer presso Growens, dove sto sviluppando e ottimizzando la piattaforma di email marketing in un team Agile (SCRUM) in full remote.\nNel tempo libero girovago, creo eventi, partecipo a conferenze nazionali e internazionali cercando di vivere la vita al migliore delle mie possibilità!",
+        "website": "https://www.mikilombardi.com/",
+        "permalink": "mikilombardi"
       },
-      "julietta": {
-        "name": "Julie Sanders",
-        "github": "julietta",
-        "github_url": "https://github.com/julietta",
-        "linkedin_url": "https://www.linkedin.com/company/schrodinger-hat/",
-        "twitter_url": "https://twitter.com/schrodinger_hat",
-        "image": "/img/_dev/pic2.png",
-        "secondary_image": "/img/_dev/pic2.png",
-        "description": "hand scratch for shred all toilet paper and spread around the house but human is in bath tub, emergency! drowning! meooowww! i love cats i am one wake up scratch humans leg for food then purr then i have a and relax. Pee on walls it smells like breakfast meow to be let out go into a room to decide",
-        "website": "https://julietta.it",
-        "permalink": "julietta"
+      "gabrielepuliti": {
+        "name": "Gabriele Puliti",
+        "github": "Wabri",
+        "github_url": "https://github.com/Wabri",
+        "linkedin_url": "https://www.linkedin.com/in/%F0%9F%90%A7gabriele-puliti-b62915a9/",
+        "twitter_url": "https://twitter.com/WabriDev",
+        "image": "/img/_dev/gabrielepuliti.png",
+        "secondary_image": "/img/_dev/gabrielepuliti.png",
+        "description": "Ho una dipendenza da tmux e vim. Il mio linguaggio preferito è japyrush, se non l'avete mai sentito è perchè l'ho appena inventato usando i linguaggi che ho usato e uso maggiormente: java, python, ruby e bash. Non mi parlate di frontend perchè non ci capisco niente, ma se volete parlare della vostra rice linux sono tutto orecchi. Sono un appassionato di Storia da quasi sempre, ho provato a diventare un astrofisico fallendo miseramente e mi piace fare lunghe camminate sia in città che nella natura. I use Arch BTW.",
+        "website": "",
+        "permalink": "gabrielepuliti"
       },
-      "parker": {
-        "name": "Robin Parker",
-        "github": "parker",
-        "github_url": "https://github.com/parker",
+      "lorenzopieri": {
+        "name": "Lorenzo Pieri",
+        "github": "404answernotfound",
+        "github_url": "https://github.com/404answernotfound",
         "linkedin_url": "https://www.linkedin.com/company/schrodinger-hat/",
+        "twitter_url": "https://twitter.com/404answnotfound",
+        "image": "/img/_dev/lorenzopieri.png",
+        "secondary_image": "/img/_dev/lorenzopieri.png",
+        "description": "Scopritore di problemi a soluzioni note. Tanti argomenti diversi e troppe poche ore durante la giornata, trovo divertente insegnare cose complicate in parole semplici, raccontare storie con metodi poco ortodossi e passare il tempo a scrivere codice, anche questa un'arte a tutti gli effetti. Credo fortemente nell'unione tra scienza e valore umano (ndr. divertirsi a fare ciò che si ama) e partecipo con passione a non-profit e progetti intenzionati a portare maggiore valore culturale e conoscenza a coloro che ne sono interessati e affascinati.",
+        "website": "https://404answernotfound.eu/",
+        "permalink": "lorenzopieri"
+      },
+      "nicpuppa": {
+        "name": "Nic Puppa",
+        "github": "nicpuppa",
+        "github_url": "https://github.com/nicpuppa",
+        "linkedin_url": "https://www.linkedin.com/in/nicola-puppa-b67a4911a/",
         "twitter_url": "",
-        "image": "/img/_dev/pic5.png",
-        "secondary_image": "/img/_dev/pic5.png",
-        "description": "next, so play with it until it dies of shock is good you understand your place in my world. Destroy house in 5 seconds throwup on your pillow.",
-        "website": "https://parker.it",
-        "permalink": "parker"
+        "image": "/img/_dev/nicpuppa.png",
+        "secondary_image": "/img/_dev/nicpuppa.png",
+        "description": "Globetrotter (covid permettendo), amante delle bibite gassate e climber. Amo le sfide. Mi piace studiare quello che mi interessa. Sono sintetico.",
+        "website": "",
+        "permalink": "nicpuppa"
       }
     },
     "events": {
