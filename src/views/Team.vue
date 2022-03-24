@@ -3,7 +3,7 @@
     <div class="container">
       <div class="content">
         <div class="headline">
-          <h1>{{ $t(`message.navbar.team`) }}</h1>
+          <h1>Schrödinger Hat's fam</h1>
         </div>
         <div v-for="teammember in team" :key="teammember.github">
           <div class="blog-card">
