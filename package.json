@@ -12,7 +12,6 @@
   },
   "dependencies": {
     "core-js": "^3.21.1",
-    "node-sass": "^7.0.1",
     "register-service-worker": "^1.7.2",
     "vue": "^2.6.14",
     "vue-i18n": "^8.27.0",
@@ -35,6 +34,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-vue": "^6.2.2",
     "prettier": "^2.5.1",
+    "sass": "^1.49.9",
     "sass-loader": "^8.0.2",
     "vue-template-compiler": "^2.6.14"
   },
