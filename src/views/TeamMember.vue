@@ -19,6 +19,9 @@
           <a v-if="$t(`team.${teamMember}.twitter_url`).length > 1"  v-bind:href="$t(`team.${teamMember}.twitter_url`)" target="_blank">
             <i class="mobile-menu-icon fab fa-twitter"></i>
           </a>
+          <a v-if="$t(`team.${teamMember}.website`).length > 1" v-bind:href="$t(`team.${teamMember}.website`)" target="_blank">
+                  <i class="mobile-menu-icon fa fa-cloud"></i>
+                </a>
          </div>
         <div class="description" v-html="$t(`team.${teamMember}.description`)"></div>
       </div>

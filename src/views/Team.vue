@@ -12,10 +12,13 @@
                 class="photo"
                 :style="`background-image: url( ${$t(`team.${teammember}.image`)} );`"
               ></div>
-              <div
+              <!-- 
+                ### IMPORTANT ### Do we want a secondary picture?
+                <div
                 class="photo-secondary"
                 :style="`background-image: url( ${$t(`team.${teammember}.secondary_image`)} );`"
               ></div>
+              -->
             </div>
             <div class="description">
               <h1>{{ $t(`team.${teammember}.name`) }}</h1>
@@ -28,6 +31,9 @@
                 </a>
                 <a v-if="$t(`team.${teammember}.twitter_url`).length > 1"  v-bind:href="$t(`team.${teammember}.twitter_url`)" target="_blank">
                   <i class="mobile-menu-icon fab fa-twitter"></i>
+                </a>
+                <a v-if="$t(`team.${teammember}.website`).length > 1" v-bind:href="$t(`team.${teammember}.website`)" target="_blank">
+                  <i class="mobile-menu-icon fa fa-cloud"></i>
                 </a>
               </div>
               <p v-html="$t(`team.${teammember}.description`)"></p>
@@ -90,15 +96,16 @@ $color_grey_dark: $nord2;
     li {
       color: $color_white;
     }
-    &:hover {
-      .photo {
-        display: none;
-      }
+    // ONLY FOR SECONDARY PICTURE
+    // &:hover {
+    //   .photo {
+    //     display: none;
+    //   }
 
-      .photo-secondary {
-        display: block;
-      }
-    }
+    //   .photo-secondary {
+    //     display: block;
+    //   }
+    // }
     .meta {
       position: relative;
       z-index: 0;
