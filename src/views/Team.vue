@@ -110,8 +110,9 @@ $color_grey_dark: $nord2;
       position: relative;
       z-index: 0;
       height: auto;
-      background: $color_white;
       border-radius: 100%;
+      text-align: center;
+      margin: 2em auto 0;
     }
     .photo {
       border-radius: 100%;
@@ -148,7 +149,6 @@ $color_grey_dark: $nord2;
       h2,
       p {
         font-family: Poppins, sans-serif;
-        color: $color_grey_dark;
       }
       h1 {
         line-height: 1;
@@ -162,7 +162,6 @@ $color_grey_dark: $nord2;
       }
       .user-profile-link {
         font-weight: bold;
-        color: $color_grey_dark;
       }
     }
     p {
@@ -204,11 +203,14 @@ $color_grey_dark: $nord2;
 .#{$dark-mode-class} {
   .blog-card {
     background: $nord2;
+    color: $color_white;
     .description {
       background: $nord2;
-      h2,
-      .read-more a {
+      color: #fff !important;
+      h1,
+      .p a {
         color: $nord4;
+        color: #fff;
       }
       &:before {
         background: $nord2;
