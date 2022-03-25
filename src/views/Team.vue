@@ -206,11 +206,10 @@ $color_grey_dark: $nord2;
     color: $color_white;
     .description {
       background: $nord2;
-      color: #fff !important;
       h1,
       .p a {
         color: $nord4;
-        color: #fff;
+        color: $color_white;
       }
       &:before {
         background: $nord2;
