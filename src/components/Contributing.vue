@@ -29,8 +29,8 @@
             <a href="https://www.instagram.com/schrodinger_hat/" target="_blank">
               <i class="fab fa-instagram external-link-color"></i>
             </a>
-            <a href="https://t.me/joinchat/UrdY3eCmpyi_MuH_" target="_blank">
-              <i class="fab fa-telegram external-link-color"></i>
+            <a href="https://discord.gg/RTXr8A3eFn" target="_blank">
+              <i class="fab fa-discord external-link-color"></i>
             </a>
           </p>
         </div>
