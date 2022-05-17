@@ -38,7 +38,7 @@
           <h4 style="padding: 15px 0">Community Partners</h4>
           <div class="partner-image">
             <a href="https://www.grusp.org/" target="_blank" class="sponsor-image">
-              <img width="200" src="/img/grusp.jpeg" alt="Grusp Logo" />
+              <img width="200" src="/img/grusp.png" alt="Grusp Logo" />
             </a>
           </div>
         </div>
