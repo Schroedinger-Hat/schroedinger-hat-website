@@ -40,6 +40,9 @@
             <a href="https://www.grusp.org/" target="_blank" class="sponsor-image">
               <img width="200" src="/img/grusp.png" alt="Grusp Logo" />
             </a>
+            <a href="https://pisa.dev/" target="_blank" class="sponsor-image">
+              <img width="200" src="/img/pisa-dev.svg" alt="Pisa.Dev Logo" />
+            </a>
           </div>
         </div>
       </div>
@@ -99,6 +102,12 @@ export default {
       font-size: 2.2em;
       margin: 0 0;
     }
+  }
+
+  .partner-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
