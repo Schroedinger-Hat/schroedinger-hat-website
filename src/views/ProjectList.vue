@@ -9,11 +9,9 @@
           <input class="search-input" :placeholder="$t(`message.common.search-placeholder`)" type="text">
           <div class="search-category">
             <!-- <button class="btn btn-info" @click="openDropdown">{{ $t(`message.common.search-category`) }} <i class="fab fa-chevron-down"></i></button> -->
-            <AppDropdown :text="$t(`message.common.search-category`)" >
-              <AppDropdownContent>
+            <Dropdown :text="$t(`message.common.search-category`)" header="Seleziona categoria">
                 <a>Eventi</a>
-              </AppDropdownContent>
-            </AppDropdown>
+            </Dropdown>
           </div>
           <button class="btn btn-primary">{{ $t(`message.common.search-button`) }}</button>
         </div>
@@ -35,14 +33,12 @@
 // };
 
 import Vue from 'vue';
-import AppDropdown from '../components/atoms/Dropdown/AppDropdown.vue';
-import AppDropdownContent from '../components/atoms/Dropdown/AppDropdownContent.vue';
+import Dropdown from '../components/atoms/Dropdown/Dropdown.vue';
 
 export default Vue.component('Projects', {
   props: {},
   components: {
-    AppDropdown,
-    AppDropdownContent,
+    Dropdown,
   }
 });
 </script>
