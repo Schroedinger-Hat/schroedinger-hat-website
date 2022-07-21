@@ -15,6 +15,9 @@
           </div>
           <button class="btn btn-primary">{{ $t(`message.common.search-button`) }}</button>
         </div>
+        <div id="projects">
+          {{projects}}
+        </div>
       </div>
     </div>
   </div>
@@ -33,12 +36,24 @@
 // };
 
 import Vue from 'vue';
+import axios from "axios";
 import Dropdown from '../components/atoms/Dropdown/Dropdown.vue';
 
 export default Vue.component('Projects', {
+  el: '#projects',
   props: {},
   components: {
     Dropdown,
+  },
+  data () {
+    return {
+      projects: null
+    }
+  },
+  mounted () {
+    axios
+      .get('https://api.github.com/users/Schrodinger-Hat/repos')
+      .then((response) => {(this.projects = response.data)})
   }
 });
 </script>
