@@ -95,6 +95,10 @@ export default {
   width: 100%;
   text-align: center;
   margin: 0px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
   .inner-text {
     padding: 0 0.5em;
@@ -108,6 +112,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
   }
 }
 
