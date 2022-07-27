@@ -75,27 +75,27 @@
         "website": "",
         "permalink": "nicpuppa"
       },
-      "Agny": {
+      "AngyDev": {
         "name": "Angela Busato",
         "github": "AngyDev",
         "github_url": "https://github.com/AngyDev",
         "linkedin_url": "https://www.linkedin.com/in/angela-busato-91145ab1/",
         "twitter_url": "https://twitter.com/angela_busato",
-        "image": "/img/_dev/Agny.jpg",
-        "secondary_image": "/img/_dev/Agny.jpg",
+        "image": "/img/_dev/Angy.jpg",
+        "secondary_image": "/img/_dev/Angy.jpg",
         "description": "Sono un'esploratrice, mi piace la ricerca e la sperimentazione negli ambiti più disparati, programmazione, fotografia, stampa 3D, e fai da te sono i primi della mia lista. Nel tempo libero mi piace viaggiare e conoscere nuovi posti, persone, culture ma soprattutto conoscere il cibo, ci sono sempre cose nuove da scoprire.",
         "website": "",
-        "permalink": "AgnyDev"
+        "permalink": "AngyDev"
       },
       "DanerSound": {
         "name": "Andre Cristhian",
-        "github": "DannerSound",
-        "github_url": "https://github.com/DannerSound",
-        "linkedin_url": "https://www.linkedin.com/in/angela-busato-91145ab1/",
+        "github": "DanerSound",
+        "github_url": "https://github.com/DanerSound",
+        "linkedin_url": "https://www.linkedin.com/in/andre-cristhian-barreto-donayre/",
         "twitter_url": " ",
         "image": "/img/_dev/Danersound.jpg",
         "secondary_image": "/img/_dev/Danersound.jpg",
-        "description": "Sono un'esploratrice, mi piace la ricerca e la sperimentazione negli ambiti più disparati, programmazione, fotografia, stampa 3D, e fai da te sono i primi della mia lista. Nel tempo libero mi piace viaggiare e conoscere nuovi posti, persone, culture ma soprattutto conoscere il cibo, ci sono sempre cose nuove da scoprire.",
+        "description": "Mi piace pensare che possono costruire qualsiasi cosa, infatti nella mia mente ho gia progettato la macchina del tempo e il nervgear, ho solo problemi a trovare dei finanziatori disposti ad investire nella mia follia... chi sono io? beh sono un ex tecnico del suono che adesso sta riprendendo la via dell'informatico! nel tempo libero e quando non ho voglia di studiare cerco mi montare circuiti usando arduino, creando dei corto il 90% delle volte...dopo tutto brusciando i compotenti si impara!",
         "website": "",
         "permalink": "DanerSound"
       },
@@ -106,7 +106,7 @@
         "linkedin_url": "https://www.linkedin.com/in/davideimola/",
         "twitter_url": " ",
         "image": "/img/_dev/davideimola.jpg",
-        "secondary_image": "/img/_dev/Agny.jpg",
+        "secondary_image": "/img/_dev/davideimola.jpg",
         "description": "Mettetemi in mano un Cloud provider e mi vedrete felice come un bimbo. Sono un grande appassionato di automazione, approcci cloud-native e tutto quella roba da DevOps Sith. Nel mio tempo libero, faccio roba da nerd (che strano!), quindi leggo fumetti e manga, vedo film e tanta altra roba molto cool (perchè io ci credo)!",
         "website": "https://davideimola.com",
         "permalink": "davideimola"
@@ -269,21 +269,21 @@
         "website": "",
         "permalink": "nicpuppa"
       },
-      "Agny": {
+      "AngyDev": {
         "name": "Angela Busato",
         "github": "AngyDev",
         "github_url": "https://github.com/AngyDev",
         "linkedin_url": "https://www.linkedin.com/in/angela-busato-91145ab1/",
         "twitter_url": "https://twitter.com/angela_busato",
-        "image": "/img/_dev/Agny.jpg",
-        "secondary_image": "/img/_dev/Agny.jpg",
+        "image": "/img/_dev/Angy.jpg",
+        "secondary_image": "/img/_dev/Angy.jpg",
         "description": "Sono un'esploratrice, mi piace la ricerca e la sperimentazione negli ambiti più disparati, programmazione, fotografia, stampa 3D, e fai da te sono i primi della mia lista. Nel tempo libero mi piace viaggiare e conoscere nuovi posti, persone, culture ma soprattutto conoscere il cibo, ci sono sempre cose nuove da scoprire.",
         "website": "",
-        "permalink": "Agny"
+        "permalink": "AngyDev"
       },
       "DanerSound": {
         "name": "Andre Cristhian",
-        "github": "DannerSound",
+        "github": "DanerSound",
         "github_url": "https://github.com/DanerSound",
         "linkedin_url": "https://www.linkedin.com/in/andre-cristhian-barreto-donayre/",
         "twitter_url": " ",
@@ -346,7 +346,7 @@
         "github": "aldexxx86",
         "github_url": "https://github.com/aldexxx86",
         "linkedin_url": "https://www.linkedin.com/in/matteo-alderighi/",
-        "twitter_url":" ",
+        "twitter_url": " ",
         "image": "/img/_dev/aldexxx86.jpg",
         "secondary_image": "/img/_dev/aldexxx86.jpg",
         "description": "Sono una persona creativa che ha trovato nel mondo della programmazione una delle proprie passioni, un'altra passione è quella del mondo delle automobili. Ho iniziato da piccolo smontando computer e creando semplici siti statici in HTML, da circa 14 anni sono Full Stack Developer presso una piccola azienda software di Firenze, sono un fan del Clean Coding e non apprezzo particolarmente gli ORM.",
