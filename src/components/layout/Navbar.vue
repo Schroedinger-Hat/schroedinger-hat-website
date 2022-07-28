@@ -12,7 +12,7 @@
           <router-link to="/team">{{ $t('message.navbar.team') }}</router-link>
           <router-link to="/events">{{ $t('message.navbar.events') }}</router-link>
           <router-link to="/code-of-conduct">{{ $t('message.navbar.codeofconduct') }}</router-link>
-          <a href="https://ign.schrodinger-hat.it" target="_blank"> ImageGoNord </a>
+          <a id="gonord" href="https://ign.schrodinger-hat.it" target="_blank"> ImageGoNord </a>
           <a href="https://github.com/Schrodinger-Hat" target="_blank">
             <i class="mobile-menu-icon fab fa-github"></i>
           </a>
@@ -98,7 +98,7 @@ header {
       span {
         font-size: 1.8em;
         font-weight: 600;
-        margin-left: 0.3em;
+        margin-left: 0.5em;
         vertical-align: super;
         transition: opacity 200ms ease-in-out 0s;
 
@@ -140,8 +140,7 @@ header {
 
         a {
           border-radius: 0.25em;
-          margin: 0 0.25em;
-          padding: 0.2em 0.5em;
+          margin: 0 0.4em;
           transition: background-color 100ms ease-in-out 0s;
           cursor: pointer;
           font-size: 1.2em;
@@ -184,6 +183,14 @@ header {
       }
     }
   }
+}
+@media (max-width: 900px) {
+ .logo span {
+  pointer-events:none;
+ }
+ #gonord{
+  display:none;
+ }
 }
 
 .#{$dark-mode-class} {
