@@ -118,6 +118,7 @@ export default {
     flex: auto;
     flex-wrap: wrap;
     align-items: center;
+    justify-content: center;
   }
 }
 
