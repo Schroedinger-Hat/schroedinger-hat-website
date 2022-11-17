@@ -8,7 +8,12 @@
           <span>{{ header }}</span>
           <button @click="toggle" class="dropdown-close-button">X</button>
         </header>
-        <slot/>
+        <div class="dropdown-list">
+          <label class="dropdown-list-select" for="" v-for="(category, index) in categories" :key="index">
+            <input type="checkbox" :value="category" v-model="checkedCategories" @change="selectCategory(checkedCategories)">
+            <span>{{ $t(category) }}</span>
+          </label>
+        </div>
       </div>
   </div>
 </template>
@@ -20,15 +25,20 @@
     props: {
       text: String,
       header: String,
+      categories: Array
     },
     data(){
       return {
+        checkedCategories: [],
         active: false,
       }
     },
     methods: {
       toggle() {
         this.active = !this.active;
+      },
+      selectCategory(checkedCategories) {
+        this.$emit('clicked', checkedCategories);
       }
     }
   } 
@@ -52,6 +62,26 @@
     border: none;
     background: none;
   }
+
+  &-list {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    margin-bottom: -1px;
+    flex: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    &-select {
+      display: flex;
+      align-items: center;
+      padding: 0.40rem 1rem;
+      cursor: pointer;
+      border: 0;
+      border-bottom: 1px solid hsla(210,18%,87%,1);
+      width: 100%;
+    }
+  }
 }
 .dropdown-content {
   position: absolute;
@@ -64,5 +94,6 @@
   border-radius: 0.25em;
   // padding: 0 0.5em;
   transform-origin: top right;
+  z-index: 9999;
 }
 </style>

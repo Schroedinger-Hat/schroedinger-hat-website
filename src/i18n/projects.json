@@ -1,0 +1,57 @@
+{
+  "it": {
+    "projects": [
+      {
+        "name": "Schrodinger Hat Web Site",
+        "gitUrl": "https://github.com/Schrodinger-Hat/schrodinger-hat-website",
+        "redditUrl": "",
+        "discordUrl": "https://discord.com/channels/963080048380895352/963134916953014342",
+        "description": "This is the web site project of the cumminity",
+        "category": "GitHub",
+        "tags": ["javascript", "vue", "web"],
+        "owners": [
+          {
+            "name": "Davide",
+            "surname": "Imola",
+            "avatar": "/img/avatar/14623986.jpeg"
+          }
+        ]
+      },
+      {
+        "name": "Image Go Nord",
+        "gitUrl": "https://github.com/Schrodinger-Hat/ImageGoNord",
+        "redditUrl": "https://www.reddit.com/r/ImageGoNord/",
+        "discordUrl": "https://discord.com/channels/963080048380895352/963182063069065226",
+        "description": "This is the Image Go Nord project",
+        "category": "Evento",
+        "tags": ["python", "opensource", "vue"],
+        "owners": [
+          {
+            "name": "Gabriele",
+            "surname": "Puliti",
+            "avatar": "/img/avatar/gabrielepuliti.jpeg"
+          }
+        ]
+      },
+      {
+        "name": "Schrodinger Hat Web Site",
+        "gitUrl": "https://github.com/Schrodinger-Hat/schrodinger-hat-website",
+        "redditUrl": "",
+        "discordUrl": "https://discord.com/channels/963080048380895352/963134916953014342",
+        "description": "This is the web site project of the cumminity",
+        "category": "Podcast",
+        "tags": ["javascript", "vue", "web"],
+        "owners": [
+          {
+            "name": "Davide",
+            "surname": "Imola",
+            "avatar": "/img/avatar/14623986.jpeg"
+          }
+        ]
+      }
+    ],
+    "categories": ["Evento", "Podcast", "Video", "GitHub"],
+    "tags": ["javascript", "vue", "web", "python", "opensource"]
+  }
+}
+
