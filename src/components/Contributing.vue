@@ -38,10 +38,13 @@
           <h4 style="padding: 15px 0">Community Partners</h4>
           <div class="partner-image">
             <a href="https://www.grusp.org/" target="_blank" class="sponsor-image">
-              <img width="200" src="/img/grusp.png" alt="Grusp Logo" />
+              <img width="125" src="/img/grusp-logo.png" alt="Grusp Logo" />
             </a>
             <a href="https://pisa.dev/" target="_blank" class="sponsor-image">
               <img width="200" src="/img/pisa-dev.svg" alt="Pisa.Dev Logo" />
+            </a>
+            <a href="https://www.theredcode.it/" target="_blank" class="sponsor-image">
+              <img width="125" src="/img/the-red-code-logo.png" alt="The Red Code Logo" />
             </a>
           </div>
         </div>
@@ -113,6 +116,10 @@ export default {
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
+  }
+
+  .sponsor-image {
+    padding: 0.3125em 0.625em;
   }
 }
 
