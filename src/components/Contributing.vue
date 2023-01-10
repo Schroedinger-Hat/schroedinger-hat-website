@@ -49,6 +49,9 @@
             <a href="https://www.wearedevelopers.com/" target="_blank" class="sponsor-image">
               <img width="200" src="/img/WeAreDevelopers_logo.svg" alt="WeAreDevelopers Logo" />
             </a>
+            <a href="https://www.pignolalug.it/" target="_blank" rel="noreferrer">
+              <img width="125" src="/img/plug_logo.svg" alt="Plug" />
+            </a>
           </div>
         </div>
       </div>
