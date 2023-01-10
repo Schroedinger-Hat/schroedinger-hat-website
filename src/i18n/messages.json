@@ -5,7 +5,8 @@
         "read-more": "Leggi di più",
         "go-to-event": "Registrati",
         "go-to-donation": "Supportaci",
-        "go-to-cfp": "Sessionize CFP"
+        "go-to-cfp": "Sessionize CFP",
+        "go-to-conference-website": "Visita il sito"
       },
       "navbar": {
         "team": "Team",
@@ -161,6 +162,22 @@
       }
     },
     "events": {
+      "open-source-day-2023-florence": {
+        "title": "Open Source Day 2023 - Firenze",
+        "image": "https://images.unsplash.com/photo-1489389944381-3471b5b30f04?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
+        "subtitle": "Stiamo per tornare con una nuova edizione dell'Open Source Day. In questa stagione distruggeremo tutto. Unisciti a noi il 24 marzo 2023!",
+        "description": "",
+        "date": "2023-03-24 09:00",
+        "location": "Nana Bianca, Firenze",
+        "location-link": "https://www.google.com/maps/place/Nana+Bianca/@43.7705948,11.2435774,15z/data=!4m2!3m1!1s0x0:0x19231949d609929a?sa=X&ved=2ahUKEwj-y42U_bz8AhUNhf0HHWzaAO4Q_BJ6BAhrEAg",
+        "sponsors": "",
+        "comunity-sponsors": "",
+        "signup-link": "",
+        "donation": "",
+        "cfp": "",
+        "permalink": "open-source-day-2023-florence",
+        "conference-website": "https://2023.osday.dev"
+      },
       "open-source-day-2021-florence-student-hotel": {
         "title": "Open Source Day 2021 - Firenze",
         "image": "https://images.unsplash.com/photo-1489389944381-3471b5b30f04?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
@@ -199,7 +216,8 @@
         "read-more": "Read more",
         "go-to-event": "Sign Up",
         "go-to-donation": "Support us",
-        "go-to-cfp": "Sessionize CFP"
+        "go-to-cfp": "Sessionize CFP",
+        "go-to-conference-website": "Visit website"
       },
       "navbar": {
         "team": "Team",
@@ -355,6 +373,22 @@
       }
     },
     "events": {
+      "open-source-day-2023-florence": {
+        "title": "Open Source Day 2023 - Firenze",
+        "image": "https://images.unsplash.com/photo-1489389944381-3471b5b30f04?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
+        "subtitle": "We are coming back with a new edition of the Open Source Day conference. In this season we are going to smash everything. Join us on the 24th of March 2023!",
+        "description": "",
+        "date": "2023-03-24 09:00",
+        "location": "Nana Bianca, Firenze",
+        "location-link": "https://www.google.com/maps/place/Nana+Bianca/@43.7705948,11.2435774,15z/data=!4m2!3m1!1s0x0:0x19231949d609929a?sa=X&ved=2ahUKEwj-y42U_bz8AhUNhf0HHWzaAO4Q_BJ6BAhrEAg",
+        "sponsors": "",
+        "comunity-sponsors": "",
+        "signup-link": "",
+        "donation": "",
+        "cfp": "",
+        "permalink": "open-source-day-2023-florence",
+        "conference-website": "https://2023.osday.dev"
+      },
       "open-source-day-2021-florence-student-hotel": {
         "title": "Open Source Day 2021 - Florence",
         "image": "https://images.unsplash.com/photo-1489389944381-3471b5b30f04?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
@@ -368,7 +402,8 @@
         "signup-link": "https://www.eventbrite.it/e/biglietti-open-source-day-2021-firenze-166034195749",
         "cfp": "https://sessionize.com/open-source-day-2021-florence/",
         "donation": "https://opencollective.com/schrodinger-hat",
-        "permalink": "open-source-day-2021-florence-student-hotel"
+        "permalink": "open-source-day-2021-florence-student-hotel",
+        "conference-website": ""
       },
       "typing-day-florence-2021-student-hotel": {
         "title": "Typing Day 2021 - Florence",
@@ -383,7 +418,8 @@
         "signup-link": "",
         "donation": "",
         "cfp": "",
-        "permalink": "typing-day-florence-2021-student-hotel"
+        "permalink": "typing-day-florence-2021-student-hotel",
+        "conference-website": ""
       }
     }
   }

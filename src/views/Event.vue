@@ -19,7 +19,7 @@
         <p>
           <i>{{ $t(`events.${eventKey}.subtitle`) }}</i>
         </p>
-        <div class="description" v-html="$t(`events.${eventKey}.description`)"></div>
+        <div v-if="$t(`events.${eventKey}.description`) !== ''" class="description" v-html="$t(`events.${eventKey}.description`)"></div>
         <div class="cta">
           <a
             v-if="$t(`events.${eventKey}.signup-link`) !== ''"
@@ -42,10 +42,17 @@
             :href="$t(`events.${eventKey}.donation`)"
             >{{ $t(`message.common.go-to-donation`) }}</a
           >
+          <a
+            v-if="$t(`events.${eventKey}.conference-website`) !== ''"
+            class="btn btn-primary"
+            target="_blank"
+            :href="$t(`events.${eventKey}.conference-website`)"
+            >{{ $t(`message.common.go-to-conference-website`) }}</a
+          >
         </div>
         <div class="sponsors">
           <br />
-          <h3>Sponsors</h3>
+          <h3 v-if="$t(`events.${eventKey}.sponsors`) !== ''">Sponsors</h3>
           <div class="sponsor-logos" v-html="$t(`events.${eventKey}.sponsors`)"></div>
           <br /><br />
           <h3 v-if="$t(`events.${eventKey}.comunity-sponsors`) !== ''">Community Sponsors</h3>
