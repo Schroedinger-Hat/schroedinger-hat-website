@@ -3,7 +3,10 @@ module.exports = {
   env: {
     es2021: true
   },
-  extends: ['plugin:vue/essential', '@vue/airbnb', 'prettier'],
+  extends:
+   ['plugin:vue/essential',
+    'plugin:vue/vue3-recommended',
+    'prettier'],
   plugins: ['prettier'],
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
