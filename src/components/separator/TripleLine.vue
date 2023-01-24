@@ -20,11 +20,7 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'SeparatorTripleLine',
-  props: {},
-};
+<script setup lang="ts">
 </script>
 
 <style scoped lang="scss">

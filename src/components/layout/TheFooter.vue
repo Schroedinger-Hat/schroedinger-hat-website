@@ -1,3 +1,7 @@
+<script setup lang="ts">
+import SeparatorTripleLine from '@/components/separator/TripleLine.vue';
+</script>
+
 <template>
   <footer>
     <SeparatorTripleLine />
@@ -18,18 +22,6 @@
     </div>
   </footer>
 </template>
-
-<script>
-import SeparatorTripleLine from '@/components/separator/TripleLine.vue';
-
-export default {
-  name: 'Footer',
-  props: {},
-  components: {
-    SeparatorTripleLine,
-  },
-};
-</script>
 
 <style scoped lang="scss">
 footer {

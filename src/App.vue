@@ -1,27 +1,15 @@
+<script setup lang="ts">
+import TheNavbar from './components/layout/TheNavbar.vue';
+import TheContributing from './components/TheContributing.vue';
+import TheFooter from './components/layout/TheFooter.vue';
+</script>
+
 <template>
   <div id="app">
-    <Navbar />
+    <TheNavbar />
     <router-view />
-    <Contributing />
-    <Footer />
+    <TheContributing />
+    <TheFooter />
   </div>
 </template>
 
-<style lang="scss">
-/* app */
-</style>
-
-<script>
-import Navbar from '@/components/layout/Navbar.vue';
-import Contributing from '@/components/Contributing.vue';
-import Footer from '@/components/layout/Footer.vue';
-
-export default {
-  name: 'App',
-  components: {
-    Navbar,
-    Contributing,
-    Footer,
-  },
-};
-</script>

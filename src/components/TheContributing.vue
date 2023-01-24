@@ -1,3 +1,9 @@
+
+<script setup>
+import NyanCat from '@/components/NyanCat.vue';
+import SeparatorSingleLine from '@/components/separator/SingleLine.vue';
+</script>
+
 <template>
   <section class="contributing-container">
     <NyanCat />
@@ -8,9 +14,7 @@
           <h4>{{ $t('message.contributing.title') }}</h4>
           <p>
             <b>Schrödinger Hat</b> {{ $t('message.contributing.is-a-project') }}
-            <a class="external-link-color" href="https://github.com/Schrodinger-Hat" target="_blank"
-              >GitHub</a
-            >.
+            <a class="external-link-color" href="https://github.com/Schrodinger-Hat" target="_blank">GitHub</a>.
           </p>
           <p v-html="$t('message.contributing.cta')"></p>
           <p class="social">
@@ -59,21 +63,6 @@
   </section>
 </template>
 
-<script>
-import NyanCat from '@/components/NyanCat.vue';
-import SeparatorSingleLine from '@/components/separator/SingleLine.vue';
-
-export default {
-  name: 'Contributing',
-  props: {},
-  components: {
-    NyanCat,
-    SeparatorSingleLine,
-  },
-};
-</script>
-
-<!-- da rifare -->
 <style scoped lang="scss">
 .contributing-container {
   position: relative;
@@ -111,6 +100,7 @@ export default {
 
   .inner-text {
     padding: 0 0.5em;
+
     h4 {
       font-size: 2.2em;
       margin: 0 0;
@@ -145,6 +135,7 @@ export default {
   .contributing-container {
     .background-svg {
       margin-bottom: -5px;
+
       .single-line {
         fill: $dark-bg-secondary;
       }

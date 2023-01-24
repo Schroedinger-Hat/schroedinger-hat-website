@@ -1,3 +1,40 @@
+//TODO Add typescript and handle new types
+//TODO Install VueUse and set the dark mode
+<script setup>
+import MobileMenu from '@/components/layout/MobileMenu.vue'
+import { onMounted } from 'vue';
+
+onMounted(() => {
+  if (localStorage.getItem('darkMode') === 'yes') {
+    document.querySelector('.dark-mode-icon').parentNode.click();
+  }
+})
+
+const toggleMobileMenu = (event) => {
+  event.preventDefault();
+  document.querySelector('.mobile-menu-container').classList.toggle('loaded');
+  document.body.classList.toggle('overflow-hidden');
+}
+
+const toggleDarkMode = () => {
+  event.preventDefault();
+  document.body.parentNode.classList.toggle('dark-theme');
+  let iconElement = event.target;
+  iconElement = iconElement.tagName === 'A' ? iconElement.children[0] : iconElement;
+
+  let darkModeValue = 'yes';
+  darkModeValue =
+    localStorage.getItem('darkMode') === 'yes' && iconElement.className.indexOf('fa-sun') !== -1
+      ? 'no'
+      : 'yes';
+
+  iconElement.classList.toggle('fa-moon');
+  iconElement.classList.toggle('fa-sun');
+
+  localStorage.setItem('darkMode', darkModeValue);
+}
+</script>
+
 <template>
   <header class="container">
     <div class="inner-header-container">
@@ -16,10 +53,10 @@
           <a href="https://github.com/Schrodinger-Hat" target="_blank">
             <i class="mobile-menu-icon fab fa-github"></i>
           </a>
-          <a class="hamburger-none-md" @click="toggleMobileMenu" href="#">
+          <a class="hamburger-none-md" href="#" @click="toggleMobileMenu">
             <i class="mobile-menu-icon fas fa-hamburger"></i>
           </a>
-          <a @click="toggleDarkMode" href="#">
+          <a href="#" @click="toggleDarkMode">
             <i class="dark-mode-icon fas fa-moon"></i>
           </a>
         </div>
@@ -28,47 +65,6 @@
     <MobileMenu />
   </header>
 </template>
-
-<script>
-import Vue from 'vue';
-import MobileMenu from '@/components/layout/MobileMenu.vue';
-
-export default Vue.component('Navbar', {
-  props: {},
-  components: {
-    MobileMenu,
-  },
-  mounted() {
-    if (localStorage.getItem('darkMode') === 'yes') {
-      document.querySelector('.dark-mode-icon').parentNode.click();
-    }
-  },
-  methods: {
-    toggleMobileMenu: (event) => {
-      event.preventDefault();
-      document.querySelector('.mobile-menu-container').classList.toggle('loaded');
-      document.body.classList.toggle('overflow-hidden');
-    },
-    toggleDarkMode: (event) => {
-      event.preventDefault();
-      document.body.parentNode.classList.toggle('dark-theme');
-      let iconElement = event.target;
-      iconElement = iconElement.tagName === 'A' ? iconElement.children[0] : iconElement;
-
-      let darkModeValue = 'yes';
-      darkModeValue =
-        localStorage.getItem('darkMode') === 'yes' && iconElement.className.indexOf('fa-sun') !== -1
-          ? 'no'
-          : 'yes';
-
-      iconElement.classList.toggle('fa-moon');
-      iconElement.classList.toggle('fa-sun');
-
-      localStorage.setItem('darkMode', darkModeValue);
-    },
-  },
-});
-</script>
 
 <!-- La navbar potrebbe essere un componente a sè, per maggior leggibilità -->
 <!-- Il logo potrebbe essere un componente a sè -->
@@ -174,6 +170,7 @@ header {
           .hamburger-none-md {
             display: none;
           }
+
           a {
             &:nth-child(-n + 3) {
               display: inline;
@@ -184,13 +181,15 @@ header {
     }
   }
 }
+
 @media (max-width: 900px) {
- .logo span {
-  pointer-events:none;
- }
- #gonord{
-  display:none;
- }
+  .logo span {
+    pointer-events: none;
+  }
+
+  #gonord {
+    display: none;
+  }
 }
 
 .#{$dark-mode-class} {
