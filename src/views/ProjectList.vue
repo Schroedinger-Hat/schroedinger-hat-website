@@ -24,45 +24,48 @@
           </div>
           <button class="btn btn-primary" @click="searchProejct">{{ $t(`message.common.search-button`) }}</button>
         </div>
-        <div id="projects" v-for="project in projects" :key="project.id">
-        <div class="project-card">
-          <div class="description">
-            <div class="project-card-header">
-                <h1 class="project-card-title">
-                  <a href="">{{$t(project.name)}}</a>
-                  <span class="project-card-category">{{$t(project.category)}}</span>
-                </h1>
-                <div>
-                  <a class="icon" :href="project.gitUrl" target="_blank">
-                    <i class="mobile-menu-icon fab fa-github"></i>
-                  </a>
-                  <a class="icon" :href="project.redditUrl" target="_blank">
-                    <i class="mobile-menu-icon fab fa-reddit"></i>
-                  </a>
-                  <a class="icon" :href="project.discordUrl" target="_blank">
-                    <i class="mobile-menu-icon fab fa-discord"></i>
-                  </a>
+        <div id="projects" v-for="item in pageOfItems" :key="item.id" :pagination="true">
+          <div class="project-card">
+            <div class="description">
+              <div class="project-card-header">
+                  <h1 class="project-card-title">
+                    <a href="">{{$t(item.name)}}</a>
+                    <span class="project-card-category">{{$t(item.category)}}</span>
+                  </h1>
+                  <div>
+                    <a class="icon" :href="item.gitUrl" target="_blank">
+                      <i class="mobile-menu-icon fab fa-github"></i>
+                    </a>
+                    <a class="icon" :href="item.redditUrl" target="_blank">
+                      <i class="mobile-menu-icon fab fa-reddit"></i>
+                    </a>
+                    <a class="icon" :href="item.discordUrl" target="_blank">
+                      <i class="mobile-menu-icon fab fa-discord"></i>
+                    </a>
+                  </div>
+              </div>
+                <p>{{item.description}}</p>
+                <div class="project-card-tags-container">
+                  <div class="project-card-tags" v-for="tag in item.tags" :key="tag.id">
+                    <span>{{$t(tag)}}</span>
+                  </div>
+                </div>
+                <div class="project-card-owners-container">
+                  <div class="project-card-owners" v-for="owner in item.owners" :key="owner.id">
+                    <div>
+                      <img class="avatar" :src="owner.avatar" alt="" width="40" height="40">
+                    </div>
+                    <div class="project-card-owners-name">
+                      <span>{{owner.name}}</span>
+                      <span>{{owner.surname}}</span>
+                    </div>
+                  </div>
                 </div>
             </div>
-              <p>{{project.description}}</p>
-              <div class="project-card-tags-container">
-                <div class="project-card-tags" v-for="tag in project.tags" :key="tag.id">
-                  <span>{{$t(tag)}}</span>
-                </div>
-              </div>
-              <div class="project-card-owners-container">
-                <div class="project-card-owners" v-for="owner in project.owners" :key="owner.id">
-                  <div>
-                    <img class="avatar" :src="owner.avatar" alt="" width="40" height="40">
-                  </div>
-                  <div class="project-card-owners-name">
-                    <span>{{owner.name}}</span>
-                    <span>{{owner.surname}}</span>
-                  </div>
-                </div>
-              </div>
           </div>
         </div>
+        <div>
+            <jw-pagination :items="projects" @changePage="onChangePage" :pageSize="3"></jw-pagination>
         </div>
       </div>
     </div>
@@ -82,22 +85,25 @@
 // };
 
 import Vue from 'vue';
+import JwPagination from 'jw-vue-pagination';
 import text from '../i18n/projects.json';
 import Dropdown from '../components/atoms/Dropdown/Dropdown.vue';
 
 export default Vue.component('Projects', {
-  el: '#projects',
+  name: 'projects',
   props: {},
   components: {
     Dropdown,
+    JwPagination
   },
   data () {
     return {
-      projects: '',
+      projects: [],
       categories: text.it.categories,
       tags: text.it.tags,
       selectedCategory: [],
-      selectedTag: []
+      selectedTag: [],
+      pageOfItems: []
     }
   },
   mounted() {
@@ -129,6 +135,9 @@ export default Vue.component('Projects', {
     },
     selectTag (value) {
       this.selectedTag = [...value];
+    },
+    onChangePage(pageOfItems) {
+        this.pageOfItems = pageOfItems;
     }
   }
 });
