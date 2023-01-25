@@ -1,52 +1,45 @@
-import Home from '../views/Home.vue'
-import RedirectVideo from '../views/RedirectVideo.vue'
-import CodeConduct from '../views/CodeConduct.vue'
-import EventList from '../views/EventList.vue'
-import Event from '../views/Event.vue'
-import Team from '../views/Team.vue'
-import TeamMember from '../views/TeamMember.vue'
-
+import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
   {
     path: '/',
     name: 'Home',
-    component: () => import(''),
+    component: () => import('./views/Home.vue'),
   },
   {
     path: '/video',
     name: 'RedirectVideo',
-    component: RedirectVideo,
+    component: () => import('./views/RedirectVideo.vue'),
   },
   {
     path: '/code-of-conduct',
     name: 'CodeOfConduct',
-    component: CodeConduct,
+    component: () => import('./views/CodeConduct.vue'),
   },
   {
     path: '/events',
     name: 'EventList',
-    component: EventList,
+    component: () => import('./views/EventList.vue'),
   },
   {
     path: '/events/:event',
     name: 'Event',
-    component: Event,
+    component: () => import('./views/Event.vue'),
   },
   {
     path: '/team',
     name: 'Team',
-    component: Team,
+    component: () => import('./views/Team.vue'),
   },
   {
     path: '/team/:member',
     name: 'TeamMember',
-    component: TeamMember,
+    component: () => import('./views/TeamMember.vue'),
   },
 ]
 
-const router = new VueRouter({
-  mode: 'history',
+const router = createRouter({
+  history: createWebHistory(),
   routes,
 })
 

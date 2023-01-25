@@ -1,12 +1,13 @@
-import Vue from 'vue';
-import VueI18n from 'vue-i18n';
-import App from './App.vue';
-import './registerServiceWorker';
-import router from './router';
-import messages from './i18n/messages.json';
-import { createApp } from 'vue';
+// import VueI18n from 'vue-i18n';
+import { createApp } from 'vue'
+import App from './App.vue'
+import router from './router'
+import messages from './i18n/messages.json'
+import './registerServiceWorker'
 
 const app = createApp(App)
+
+app.use(router)
 app.mount('#app')
 
 // Vue.config.productionTip = false;
@@ -22,6 +23,3 @@ app.mount('#app')
 //   i18n,
 //   render: (h) => h(App),
 // }).$mount('#app');
-
-
-
