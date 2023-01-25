@@ -8,24 +8,26 @@
     "build": "vite build",
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
-    "lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix src",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "format": "prettier -w .",
     "tsc": "tsc"
   },
   "dependencies": {
     "register-service-worker": "^1.7.2",
     "vue": "^3.2.45",
-    "vue-i18n": "^8.27.0",
-    "vue-router": "^3.5.3"
+    "vue-i18n": "^9.2.2",
+    "vue-router": "^4.1.6"
   },
   "devDependencies": {
+    "@antfu/eslint-config": "^0.34.1",
     "@types/node": "^18.11.18",
     "@vitejs/plugin-vue": "^4.0.0",
     "eslint": "^8.32.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-vue": "^8.7.1",
+    "eslint-plugin-vue": "^9.9.0",
     "prettier": "^2.5.1",
     "sass": "^1.49.9",
     "typescript": "^4.9.4",
