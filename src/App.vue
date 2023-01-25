@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import TheNavbar from './components/layout/TheNavbar.vue'
-import TheContributing from './components/TheContributing.vue'
-import TheFooter from './components/layout/TheFooter.vue'
+import TheContributing from '@/components/TheContributing.vue'
+import TheFooter from '@/components/layout/TheFooter.vue'
+import TheNavbar from '@/components/layout/TheNavbar.vue'
 </script>
 
 <template>

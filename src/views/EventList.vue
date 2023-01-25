@@ -1,3 +1,16 @@
+<script>
+import text from '../i18n/messages.json'
+
+export default {
+  name: 'EventList',
+  data() {
+    return {
+      events: Object.keys(text.it.events),
+    }
+  },
+}
+</script>
+
 <template>
   <div class="eventlist">
     <div class="container">
@@ -15,14 +28,14 @@
               <div
                 class="photo"
                 :style="`background-image: url( ${$t(`events.${event}.image`)} );`"
-              ></div>
+              />
             </div>
             <div class="description">
               <h1>{{ $t(`events.${event}.title`) }}</h1>
               <h2>{{ $t(`events.${event}.date`) }} | {{ $t(`events.${event}.location`) }}</h2>
               <p>
                 {{ $t(`events.${event}.subtitle`) }}
-                <br /><br />
+                <br><br>
               </p>
               <!-- <div class="sponsors">
                 <div class="logos" v-html="$t(`events.${event}.sponsors`)"></div>
@@ -38,18 +51,6 @@
   </div>
 </template>
 
-<script>
-import text from '../i18n/messages.json';
-
-export default {
-  name: 'EventList',
-  data() {
-    return {
-      events: Object.keys(text.it.events),
-    };
-  },
-};
-</script>
 <style scoped lang="scss">
 $color_white: #fff;
 $color_prime: $nord3;

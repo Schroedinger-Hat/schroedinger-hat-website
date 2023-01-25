@@ -1,3 +1,12 @@
+<script>
+export default {
+  name: 'Main',
+  props: {
+    msg: String,
+  },
+}
+</script>
+
 <template>
   <div class="main">
     <div class="middle-section">
@@ -7,29 +16,16 @@
         class="btn btn-primary"
         target="_blank"
         href="https://www.youtube.com/channel/UC1QLLgrGrPmlaFhS0orykCA"
-        >YouTube</a
-      >
+      >YouTube</a>
       <a
         class="btn btn-info"
         target="_blank"
         href="https://open.spotify.com/show/7yfkQCV6hrPIqflSqJDB2P"
-        >Spotify</a
-      >
-      <a class="btn btn-info" target="_blank" href="https://opencollective.com/schrodinger-hat"
-        >OpenCollective</a
-      >
+      >Spotify</a>
+      <a class="btn btn-info" target="_blank" href="https://opencollective.com/schrodinger-hat">OpenCollective</a>
     </div>
   </div>
 </template>
-
-<script>
-export default {
-  name: 'Main',
-  props: {
-    msg: String,
-  },
-};
-</script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">

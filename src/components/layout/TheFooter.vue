@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import SeparatorTripleLine from '@/components/separator/TripleLine.vue';
+import SeparatorTripleLine from '@/components/separator/TripleLine.vue'
 </script>
 
 <template>
@@ -9,7 +9,7 @@ import SeparatorTripleLine from '@/components/separator/TripleLine.vue';
       <div class="inner-footer-container">
         <div class="logo">
           <router-link to="/">
-            <img alt="SH logo" width="36" src="../../assets/logo-64.png" />
+            <img alt="SH logo" width="36" src="../../assets/logo-64.png">
             <span>S<i class="title-part-1">chrödinger</i> H<i class="title-part-2">at</i></span>
           </router-link>
         </div>

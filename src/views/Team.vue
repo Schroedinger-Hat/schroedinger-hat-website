@@ -1,3 +1,17 @@
+<script>
+import text from '../i18n/messages.json'
+
+export default {
+  name: 'Team',
+  data() {
+    return {
+      team: Object.keys(text.it.team),
+      linkText: text.it.links,
+    }
+  },
+}
+</script>
+
 <template>
   <div class="teamList">
     <div class="container">
@@ -11,8 +25,8 @@
               <div
                 class="photo"
                 :style="`background-image: url( ${$t(`team.${teammember}.image`)} );`"
-              ></div>
-              <!-- 
+              />
+              <!--
                 ### IMPORTANT ### Do we want a secondary picture?
                 <div
                 class="photo-secondary"
@@ -23,25 +37,27 @@
             <div class="description">
               <h1>{{ $t(`team.${teammember}.name`) }}</h1>
               <div class="socialIcons">
-                <a v-if="$t(`team.${teammember}.github_url`).length > 1" v-bind:href="$t(`team.${teammember}.github_url`)" target="_blank">
-                  <i class="mobile-menu-icon fab fa-github"></i>
+                <a v-if="$t(`team.${teammember}.github_url`).length > 1" :href="$t(`team.${teammember}.github_url`)" target="_blank">
+                  <i class="mobile-menu-icon fab fa-github" />
                 </a>
-                <a v-if="$t(`team.${teammember}.linkedin_url`).length > 1"  v-bind:href="$t(`team.${teammember}.linkedin_url`)" target="_blank">
-                  <i class="mobile-menu-icon fab fa-linkedin"></i>
+                <a v-if="$t(`team.${teammember}.linkedin_url`).length > 1" :href="$t(`team.${teammember}.linkedin_url`)" target="_blank">
+                  <i class="mobile-menu-icon fab fa-linkedin" />
                 </a>
-                <a v-if="$t(`team.${teammember}.twitter_url`).length > 1"  v-bind:href="$t(`team.${teammember}.twitter_url`)" target="_blank">
-                  <i class="mobile-menu-icon fab fa-twitter"></i>
+                <a v-if="$t(`team.${teammember}.twitter_url`).length > 1" :href="$t(`team.${teammember}.twitter_url`)" target="_blank">
+                  <i class="mobile-menu-icon fab fa-twitter" />
                 </a>
-                <a v-if="$t(`team.${teammember}.website`).length > 1" v-bind:href="$t(`team.${teammember}.website`)" target="_blank">
-                  <i class="mobile-menu-icon fa fa-cloud"></i>
+                <a v-if="$t(`team.${teammember}.website`).length > 1" :href="$t(`team.${teammember}.website`)" target="_blank">
+                  <i class="mobile-menu-icon fa fa-cloud" />
                 </a>
               </div>
-              <p v-html="$t(`team.${teammember}.description`)"></p>
+              <p v-html="$t(`team.${teammember}.description`)" />
               <router-link
                 :key="team.permalink"
                 :to="`/team/${$t(`team.${teammember}.permalink`)}`"
               >
-                <p class="user-profile-link">{{$t(linkText)}}</p>
+                <p class="user-profile-link">
+                  {{ $t(linkText) }}
+                </p>
               </router-link>
             </div>
           </div>
@@ -51,19 +67,6 @@
   </div>
 </template>
 
-<script>
-import text from '../i18n/messages.json';
-
-export default {
-  name: 'Team',
-  data() {
-    return {
-      team: Object.keys(text.it.team),
-      linkText: text.it.links,
-    };
-  },
-};
-</script>
 <style scoped lang="scss">
 $color_white: #fff;
 $color_prime: $nord3;

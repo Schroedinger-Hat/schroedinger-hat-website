@@ -1,7 +1,6 @@
-
-<script setup>
-import NyanCat from '@/components/NyanCat.vue';
-import SeparatorSingleLine from '@/components/separator/SingleLine.vue';
+<script setup lang="ts">
+import NyanCat from '@/components/NyanCat.vue'
+import SeparatorSingleLine from '@/components/separator/SingleLine.vue'
 </script>
 
 <template>
@@ -16,45 +15,47 @@ import SeparatorSingleLine from '@/components/separator/SingleLine.vue';
             <b>Schrödinger Hat</b> {{ $t('message.contributing.is-a-project') }}
             <a class="external-link-color" href="https://github.com/Schrodinger-Hat" target="_blank">GitHub</a>.
           </p>
-          <p v-html="$t('message.contributing.cta')"></p>
+          <p v-html="$t('message.contributing.cta')" />
           <p class="social">
             <a href="https://opencollective.com/schrodinger-hat" target="_blank">
-              <i class="fas fa-donate external-link-color"></i>
+              <i class="fas fa-donate external-link-color" />
             </a>
             <a href="https://www.facebook.com/schrodingerhat" target="_blank">
-              <i class="fab fa-facebook external-link-color"></i>
+              <i class="fab fa-facebook external-link-color" />
             </a>
             <a href="https://twitter.com/schrodinger_hat" target="_blank">
-              <i class="fab fa-twitter external-link-color"></i>
+              <i class="fab fa-twitter external-link-color" />
             </a>
             <a href="https://www.linkedin.com/company/schrodinger-hat/" target="_blank">
-              <i class="fab fa-linkedin external-link-color"></i>
+              <i class="fab fa-linkedin external-link-color" />
             </a>
             <a href="https://www.instagram.com/schrodinger_hat/" target="_blank">
-              <i class="fab fa-instagram external-link-color"></i>
+              <i class="fab fa-instagram external-link-color" />
             </a>
             <a href="https://discord.gg/RTXr8A3eFn" target="_blank">
-              <i class="fab fa-discord external-link-color"></i>
+              <i class="fab fa-discord external-link-color" />
             </a>
           </p>
         </div>
         <div class="inner-text">
-          <h4 style="padding: 15px 0">Community Partners</h4>
+          <h4 style="padding: 15px 0">
+            Community Partners
+          </h4>
           <div class="partner-image">
             <a href="https://www.grusp.org/" target="_blank" class="sponsor-image">
-              <img width="125" src="/img/grusp-logo.png" alt="Grusp Logo" />
+              <img width="125" src="/img/grusp-logo.png" alt="Grusp Logo">
             </a>
             <a href="https://pisa.dev/" target="_blank" class="sponsor-image">
-              <img width="200" src="/img/pisa-dev.svg" alt="Pisa.Dev Logo" />
+              <img width="200" src="/img/pisa-dev.svg" alt="Pisa.Dev Logo">
             </a>
             <a href="https://www.theredcode.it/" target="_blank" class="sponsor-image">
-              <img width="125" src="/img/the-red-code-logo.png" alt="The Red Code Logo" />
+              <img width="125" src="/img/the-red-code-logo.png" alt="The Red Code Logo">
             </a>
             <a href="https://www.wearedevelopers.com/" target="_blank" class="sponsor-image">
-              <img width="200" src="/img/WeAreDevelopers_logo.svg" alt="WeAreDevelopers Logo" />
+              <img width="200" src="/img/WeAreDevelopers_logo.svg" alt="WeAreDevelopers Logo">
             </a>
             <a href="https://www.pignolalug.it/" target="_blank" rel="noreferrer">
-              <img width="125" src="/img/plug_logo.svg" alt="Plug" />
+              <img width="125" src="/img/plug_logo.svg" alt="Plug">
             </a>
           </div>
         </div>

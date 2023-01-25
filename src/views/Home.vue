@@ -1,3 +1,14 @@
+<script>
+import Main from '@/components/Main.vue'
+
+export default {
+  name: 'Home',
+  components: {
+    Main,
+  },
+}
+</script>
+
 <template>
   <div class="home">
     <div class="container">
@@ -6,16 +17,6 @@
   </div>
 </template>
 
-<script>
-import Main from '@/components/Main.vue';
-
-export default {
-  name: 'Home',
-  components: {
-    Main,
-  },
-};
-</script>
 <style scoped lang="scss">
 .canvas-container {
   svg {

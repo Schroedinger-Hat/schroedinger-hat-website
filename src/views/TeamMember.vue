@@ -1,54 +1,53 @@
-<template>
-  <div class="team">
-    <div class="container">
-      <div class="content">
-        <h1>{{ $t(`team.${teamMember}.name`) }}</h1>
-          <div>
-            <div
-              class="photo"
-              :style="`background-image: url(${$t(`team.${teamMember}.image`)});`"
-            ></div>
-          </div>
-        <div class="socialIcons">
-          <a v-if="$t(`team.${teamMember}.github_url`).length > 1" v-bind:href="$t(`team.${teamMember}.github_url`)" target="_blank">
-            <i class="mobile-menu-icon fab fa-github"></i>
-          </a>
-          <a v-if="$t(`team.${teamMember}.linkedin_url`).length > 1"  v-bind:href="$t(`team.${teamMember}.linkedin_url`)" target="_blank">
-            <i class="mobile-menu-icon fab fa-linkedin"></i>
-          </a>
-          <a v-if="$t(`team.${teamMember}.twitter_url`).length > 1"  v-bind:href="$t(`team.${teamMember}.twitter_url`)" target="_blank">
-            <i class="mobile-menu-icon fab fa-twitter"></i>
-          </a>
-          <a v-if="$t(`team.${teamMember}.website`).length > 1" v-bind:href="$t(`team.${teamMember}.website`)" target="_blank">
-                  <i class="mobile-menu-icon fa fa-cloud"></i>
-                </a>
-         </div>
-        <div class="description" v-html="$t(`team.${teamMember}.description`)"></div>
-      </div>
-    </div>
-  </div>
-</template>
-
 <script>
-import text from '../i18n/messages.json';
+import text from '../i18n/messages.json'
 
 export default {
   name: 'Team',
   data() {
     return {
       teamMember: '',
-    };
-  },
-  mounted() {
-    const teamMember = this.$route.params.member;
-    if (text.it.team[teamMember] !== undefined) {
-      this.teamMember = teamMember;
     }
   },
-};
+  mounted() {
+    const teamMember = this.$route.params.member
+    if (text.it.team[teamMember] !== undefined)
+      this.teamMember = teamMember
+  },
+}
 </script>
-<style scoped lang="scss">
 
+<template>
+  <div class="team">
+    <div class="container">
+      <div class="content">
+        <h1>{{ $t(`team.${teamMember}.name`) }}</h1>
+        <div>
+          <div
+            class="photo"
+            :style="`background-image: url(${$t(`team.${teamMember}.image`)});`"
+          />
+        </div>
+        <div class="socialIcons">
+          <a v-if="$t(`team.${teamMember}.github_url`).length > 1" :href="$t(`team.${teamMember}.github_url`)" target="_blank">
+            <i class="mobile-menu-icon fab fa-github" />
+          </a>
+          <a v-if="$t(`team.${teamMember}.linkedin_url`).length > 1" :href="$t(`team.${teamMember}.linkedin_url`)" target="_blank">
+            <i class="mobile-menu-icon fab fa-linkedin" />
+          </a>
+          <a v-if="$t(`team.${teamMember}.twitter_url`).length > 1" :href="$t(`team.${teamMember}.twitter_url`)" target="_blank">
+            <i class="mobile-menu-icon fab fa-twitter" />
+          </a>
+          <a v-if="$t(`team.${teamMember}.website`).length > 1" :href="$t(`team.${teamMember}.website`)" target="_blank">
+            <i class="mobile-menu-icon fa fa-cloud" />
+          </a>
+        </div>
+        <div class="description" v-html="$t(`team.${teamMember}.description`)" />
+      </div>
+    </div>
+  </div>
+</template>
+
+<style scoped lang="scss">
 .photo {
   border-radius: 100%;
   width: 128px;
@@ -66,7 +65,6 @@ export default {
     text-align: center;
   }
 }
-
 
 .socialIcons {
   padding: .2em 0;

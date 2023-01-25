@@ -1,37 +1,36 @@
-//TODO Add typescript and handle new types
-//TODO Install VueUse and set the dark mode
-<script setup>
+<!-- TODO Add typescript and handle new types -->
+<!-- TODO Install VueUse and set the dark mode -->
+<script setup lang='ts'>
+import { onMounted } from 'vue'
 import MobileMenu from '@/components/layout/MobileMenu.vue'
-import { onMounted } from 'vue';
 
 onMounted(() => {
-  if (localStorage.getItem('darkMode') === 'yes') {
-    document.querySelector('.dark-mode-icon').parentNode.click();
-  }
+  if (localStorage.getItem('darkMode') === 'yes')
+    document.querySelector('.dark-mode-icon').parentNode.click()
 })
 
 const toggleMobileMenu = (event) => {
-  event.preventDefault();
-  document.querySelector('.mobile-menu-container').classList.toggle('loaded');
-  document.body.classList.toggle('overflow-hidden');
+  event.preventDefault()
+  document.querySelector('.mobile-menu-container').classList.toggle('loaded')
+  document.body.classList.toggle('overflow-hidden')
 }
 
 const toggleDarkMode = () => {
-  event.preventDefault();
-  document.body.parentNode.classList.toggle('dark-theme');
-  let iconElement = event.target;
-  iconElement = iconElement.tagName === 'A' ? iconElement.children[0] : iconElement;
+  event.preventDefault()
+  document.body.parentNode.classList.toggle('dark-theme')
+  let iconElement = event.target
+  iconElement = iconElement.tagName === 'A' ? iconElement.children[0] : iconElement
 
-  let darkModeValue = 'yes';
-  darkModeValue =
-    localStorage.getItem('darkMode') === 'yes' && iconElement.className.indexOf('fa-sun') !== -1
+  let darkModeValue = 'yes'
+  darkModeValue
+    = localStorage.getItem('darkMode') === 'yes' && iconElement.className.includes('fa-sun')
       ? 'no'
-      : 'yes';
+      : 'yes'
 
-  iconElement.classList.toggle('fa-moon');
-  iconElement.classList.toggle('fa-sun');
+  iconElement.classList.toggle('fa-moon')
+  iconElement.classList.toggle('fa-sun')
 
-  localStorage.setItem('darkMode', darkModeValue);
+  localStorage.setItem('darkMode', darkModeValue)
 }
 </script>
 
@@ -40,24 +39,30 @@ const toggleDarkMode = () => {
     <div class="inner-header-container">
       <div class="logo">
         <router-link to="/">
-          <img alt="SH logo" width="36" src="../../assets/logo-64.png" />
+          <img alt="SH logo" width="36" src="../../assets/logo-64.png">
           <span>S<i class="title-part-1">chrödinger</i> H<i class="title-part-2">at</i></span>
         </router-link>
       </div>
       <nav>
         <div class="navbar">
-          <router-link to="/team">{{ $t('message.navbar.team') }}</router-link>
-          <router-link to="/events">{{ $t('message.navbar.events') }}</router-link>
-          <router-link to="/code-of-conduct">{{ $t('message.navbar.codeofconduct') }}</router-link>
+          <router-link to="/team">
+            {{ $t('message.navbar.team') }}
+          </router-link>
+          <router-link to="/events">
+            {{ $t('message.navbar.events') }}
+          </router-link>
+          <router-link to="/code-of-conduct">
+            {{ $t('message.navbar.codeofconduct') }}
+          </router-link>
           <a id="gonord" href="https://ign.schrodinger-hat.it" target="_blank"> ImageGoNord </a>
           <a href="https://github.com/Schrodinger-Hat" target="_blank">
-            <i class="mobile-menu-icon fab fa-github"></i>
+            <i class="mobile-menu-icon fab fa-github" />
           </a>
           <a class="hamburger-none-md" href="#" @click="toggleMobileMenu">
-            <i class="mobile-menu-icon fas fa-hamburger"></i>
+            <i class="mobile-menu-icon fas fa-hamburger" />
           </a>
           <a href="#" @click="toggleDarkMode">
-            <i class="dark-mode-icon fas fa-moon"></i>
+            <i class="dark-mode-icon fas fa-moon" />
           </a>
         </div>
       </nav>
@@ -82,7 +87,6 @@ header {
     -webkit-box-align: center;
     align-items: center;
     -webkit-box-pack: justify;
-    justify-content: space-between;
     margin: 0px auto;
     padding: 0 0.5em;
 
