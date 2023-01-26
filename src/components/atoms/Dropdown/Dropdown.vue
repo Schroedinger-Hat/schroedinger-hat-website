@@ -1,7 +1,8 @@
 <template>
   <div class="dropdown">
-      <button @click="toggle" class="btn btn-info">{{ text }}
-        <i class="fab fa-chevron-down"></i>
+      <button @click="toggle" class="btn btn-info" style="margin-right: 0">{{ text }}
+        <!-- <i class="fab fa-solid fa-chevron-down"></i> -->
+        <img class="btn-icon" src="img/icons/caret-down-solid.svg" alt="">
       </button>
       <div v-if="active" class="dropdown-content">
         <header class="dropdown-header">
@@ -95,5 +96,10 @@
   // padding: 0 0.5em;
   transform-origin: top right;
   z-index: 9999;
+}
+
+.btn-icon {
+  width: 20px;
+  height: 20px;
 }
 </style>

@@ -22,7 +22,7 @@
               header="Seleziona categoria" 
               :categories="categories" />
           </div>
-          <button class="btn btn-primary" @click="searchProejct">{{ $t(`message.common.search-button`) }}</button>
+          <button class="btn btn-primary" @click="searchProejct" style="margin-right: 0">{{ $t(`message.common.search-button`) }}</button>
         </div>
         <div id="projects" v-for="item in pageOfItems" :key="item.id" :pagination="true">
           <div class="project-card">
