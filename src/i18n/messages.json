@@ -48,7 +48,7 @@
         "twitter_url": "https://twitter.com/WabriDev",
         "image": "/img/_dev/gabrielepuliti.png",
         "secondary_image": "/img/_dev/gabrielepuliti.png",
-        "description": "Ho una dipendenza da tmux e vim. Il mio linguaggio preferito è japyrush, se non l'avete mai sentito è perchè l'ho appena inventato usando i linguaggi che ho usato e uso maggiormente: java, python, ruby e bash. Non mi parlate di frontend perchè non ci capisco niente, ma se volete parlare della vostra rice linux sono tutto orecchi. Sono un appassionato di Storia da quasi sempre, ho provato a diventare un astrofisico fallendo miseramente e mi piace fare lunghe camminate sia in città che nella natura. I use Arch BTW.",
+        "description": "Ho una dipendenza da tmux e vim. Non mi parlate di frontend perchè non ci capisco niente, ma se volete parlare della vostra rice linux sono tutto orecchi. Sono un appassionato di Storia da quasi sempre, ho provato a diventare un astrofisico fallendo miseramente e mi piace fare lunghe camminate sia in città che nella natura.",
         "website": "",
         "permalink": "gabrielepuliti"
       },
@@ -112,30 +112,6 @@
         "website": "https://davideimola.com",
         "permalink": "davideimola"
       },
-      "rgiachin": {
-        "name": "Riccardo Giachin",
-        "github": "RiccardoGiachin",
-        "github_url": "https://github.com/RiccardoGiachin",
-        "linkedin_url": "https://www.linkedin.com/in/riccardo-giachin-189025190/",
-        "twitter_url": " ",
-        "image": "/img/_dev/rgiachin.jpg",
-        "secondary_image": "/img/_dev/rgiachin.jpg",
-        "description": "Finto Giocatore di football americano. Amo il gioco di squadra, e imparare ogni giorno qualcosa di nuovo. Sviluppo APP per divertimento e lavoro. In ricerca perenne del sonno perduto e di progetti divertenti.",
-        "website": " ",
-        "permalink": "rgiachin"
-      },
-      "gianfabiopezzolla": {
-        "name": "Gianfabio Pezzolla",
-        "github": "gianfabiopezzolla",
-        "github_url": "https://github.com/gianfabiopezzolla",
-        "linkedin_url": "https://www.linkedin.com/in/gianfabiopezzolla/",
-        "twitter_url": "https://twitter.com/GianfabioPez",
-        "image": "/img/_dev/gianfabiopezzolla.jpg",
-        "secondary_image": "/img/_dev/gianfabiopezzolla.jpg",
-        "description": "Prima di tutto amo scrivere codice.Mi obbliga a risolvere problemi pratici. Il codice è un rebus continuo dove ho la possibilità di mischiare matematica, fantasia, principi e tecnica. Amo poterli applicare con il fine di migliore la qualità della vita di chi mi sta intorno. Questa motivazione mi spinge al miglioramento da quando ho scritto il mio primo programma.Amo interfacciarmi con la squadra e con i clienti. Preferisco mettere in primis sempre la persona, la trasparenza e la correttezza. Dal primo contratto mi è stata data l'opportunità, a seguito del mio impegno, di guidare il team di sviluppatori, così come quella di poter interfacciarmi direttamente con i clienti, prendendo parte a tavoli importanti come quelli di Anytime Fitness, Siae, Snai, e altri . Odio parlare senza sapere. Questo mi ha spinto a conoscere il più possibile del settore informatico. Sia per una crescita personale che per ispirare fiducia e sicurezza quando si propone una soluzione al cliente .Amo sapermi adattare ai diversi contesti e livelli. Penso sia necessario sapere quando ascoltare, quando parlare, quando essere proattivo e quando meno, e non meno importante, saper parlare in maniera più tecnica con i tecnici e in maniera più formale con chi ricopre ruoli di rilievo.Amo poter condividere quello che imparo con gli altri del team così come con chi fa il mio lavoro tutti i giorni, per questo sono attivo qui su LinkedIn, così come su altre piattaforme a noi familiari come GitHub e Stack Overflow.Anche quando lascio il lavoro continuo ad allenarmi nella programmazione, così come a studiare per acquisire nozioni nuove. Cerco di farlo gestendo il mio tempo libero al meglio, in modo da poter stare con mia moglie e mia figlia, che mi coinvolgono in esperienze sempre nuove. Da un semplice film ad un viaggio .Credo che ci sia un tempo per tutto. Ho studiato chitarra per anni, ho fatto diversi sport tra cui basket e kick boxing, ho fatto volontariato per un po' di tempo e ho accresciuto la mia fede. Tutte queste esperienze mi hanno insegnato che la perseveranza, l'abnegazione e il prendersi cura di qualcuno o qualcosa è fondamentale nella vita .Ora sono in Faberbee e mi occupo di blockchain, microservizi, metodologie agile e frontend. Tutto finalizzato all'evoluzione degli smart contracts. Credo possano agevolare la vita di molti nel prossimo futuro",
-        "website": " ",
-        "permalink": "gianfabiopezzolla"
-      },
       "ludusrusso": {
         "name": "Ludovico Russo",
         "github": "ludusrusso",
@@ -147,18 +123,6 @@
         "description": "Mi definisco Adaptive Developer, grazie alla mia capacità di imparare velocemente e di adattarmi alle esigenze sempre in evoluzione dei progetti. Sviluppo per professione dal 2018, ma prima ho fatto di tutto, ero un ricercatore esperto di Cloud Robotics e ho all'attivo un paio di startup fallite 🚀. Nel tempo libero leggo e faccio esperimenti con stampa 3D e robotica. Ho anche un blog e un canale twitch dove saltuarimanete faccio divulgazione in ambito sviluppo software.",
         "website": "https://www.ludusrusso.dev/",
         "permalink": "ludusrusso"
-      },
-      "aldexxx86": {
-        "name": "Matteo Alderighi",
-        "github": "aldexxx86",
-        "github_url": "https://github.com/aldexxx86",
-        "linkedin_url": "https://www.linkedin.com/in/matteo-alderighi/",
-        "twitter_url": " ",
-        "image": "/img/_dev/aldexxx86.jpg",
-        "secondary_image": "/img/_dev/aldexxx86.jpg",
-        "description": "Sono una persona creativa che ha trovato nel mondo della programmazione una delle proprie passioni, un'altra passione è quella del mondo delle automobili. Ho iniziato da piccolo smontando computer e creando semplici siti statici in HTML, da circa 14 anni sono Full Stack Developer presso una piccola azienda software di Firenze, sono un fan del Clean Coding e non apprezzo particolarmente gli ORM.",
-        "website": " ",
-        "permalink": "aldexxx86"
       }
     },
     "events": {
@@ -259,7 +223,7 @@
         "twitter_url": "https://twitter.com/WabriDev",
         "image": "/img/_dev/gabrielepuliti.png",
         "secondary_image": "/img/_dev/gabrielepuliti.png",
-        "description": "Ho una dipendenza da tmux e vim. Il mio linguaggio preferito è japyrush, se non l'avete mai sentito è perchè l'ho appena inventato usando i linguaggi che ho usato e uso maggiormente: java, python, ruby e bash. Non mi parlate di frontend perchè non ci capisco niente, ma se volete parlare della vostra rice linux sono tutto orecchi. Sono un appassionato di Storia da quasi sempre, ho provato a diventare un astrofisico fallendo miseramente e mi piace fare lunghe camminate sia in città che nella natura. I use Arch BTW.",
+        "description": "Ho una dipendenza da tmux e vim. Non mi parlate di frontend perchè non ci capisco niente, ma se volete parlare della vostra rice linux sono tutto orecchi. Sono un appassionato di Storia da quasi sempre, ho provato a diventare un astrofisico fallendo miseramente e mi piace fare lunghe camminate sia in città che nella natura.",
         "website": "",
         "permalink": "gabrielepuliti"
       },
@@ -323,30 +287,6 @@
         "website": "https://davideimola.com",
         "permalink": "davideimola"
       },
-      "rgiachin": {
-        "name": "Riccardo Giachin",
-        "github": "RiccardoGiachin",
-        "github_url": "https://github.com/RiccardoGiachin",
-        "linkedin_url": "https://www.linkedin.com/in/riccardo-giachin-189025190/",
-        "twitter_url": " ",
-        "image": "/img/_dev/rgiachin.jpg",
-        "secondary_image": "/img/_dev/rgiachin.jpg",
-        "description": "Finto Giocatore di football americano. Amo il gioco di squadra, e imparare ogni giorno qualcosa di nuovo. Sviluppo APP per divertimento e lavoro. In ricerca perenne del sonno perduto e di progetti divertenti.",
-        "website": " ",
-        "permalink": "rgiachin"
-      },
-      "gianfabiopezzolla": {
-        "name": "Gianfabio Pezzolla",
-        "github": "gianfabiopezzolla",
-        "github_url": "https://github.com/gianfabiopezzolla",
-        "linkedin_url": "https://www.linkedin.com/in/gianfabiopezzolla/",
-        "twitter_url": "https://twitter.com/GianfabioPez",
-        "image": "/img/_dev/gianfabiopezzolla.jpg",
-        "secondary_image": "/img/_dev/gianfabiopezzolla.jpg",
-        "description": "Prima di tutto amo scrivere codice.Mi obbliga a risolvere problemi pratici. Il codice è un rebus continuo dove ho la possibilità di mischiare matematica, fantasia, principi e tecnica. Amo poterli applicare con il fine di migliore la qualità della vita di chi mi sta intorno. Questa motivazione mi spinge al miglioramento da quando ho scritto il mio primo programma.Amo interfacciarmi con la squadra e con i clienti. Preferisco mettere in primis sempre la persona, la trasparenza e la correttezza. Dal primo contratto mi è stata data l'opportunità, a seguito del mio impegno, di guidare il team di sviluppatori, così come quella di poter interfacciarmi direttamente con i clienti, prendendo parte a tavoli importanti come quelli di Anytime Fitness, Siae, Snai, e altri . Odio parlare senza sapere. Questo mi ha spinto a conoscere il più possibile del settore informatico. Sia per una crescita personale che per ispirare fiducia e sicurezza quando si propone una soluzione al cliente .Amo sapermi adattare ai diversi contesti e livelli. Penso sia necessario sapere quando ascoltare, quando parlare, quando essere proattivo e quando meno, e non meno importante, saper parlare in maniera più tecnica con i tecnici e in maniera più formale con chi ricopre ruoli di rilievo.Amo poter condividere quello che imparo con gli altri del team così come con chi fa il mio lavoro tutti i giorni, per questo sono attivo qui su LinkedIn, così come su altre piattaforme a noi familiari come GitHub e Stack Overflow.Anche quando lascio il lavoro continuo ad allenarmi nella programmazione, così come a studiare per acquisire nozioni nuove. Cerco di farlo gestendo il mio tempo libero al meglio, in modo da poter stare con mia moglie e mia figlia, che mi coinvolgono in esperienze sempre nuove. Da un semplice film ad un viaggio .Credo che ci sia un tempo per tutto. Ho studiato chitarra per anni, ho fatto diversi sport tra cui basket e kick boxing, ho fatto volontariato per un po' di tempo e ho accresciuto la mia fede. Tutte queste esperienze mi hanno insegnato che la perseveranza, l'abnegazione e il prendersi cura di qualcuno o qualcosa è fondamentale nella vita .Ora sono in Faberbee e mi occupo di blockchain, microservizi, metodologie agile e frontend. Tutto finalizzato all'evoluzione degli smart contracts. Credo possano agevolare la vita di molti nel prossimo futuro",
-        "website": " ",
-        "permalink": "gianfabiopezzolla"
-      },
       "ludusrusso": {
         "name": "Ludovico Russo",
         "github": "ludusrusso",
@@ -358,18 +298,6 @@
         "description": "Mi definisco Adaptive Developer, grazie alla mia capacità di imparare velocemente e di adattarmi alle esigenze sempre in evoluzione dei progetti. Sviluppo per professione dal 2018, ma prima ho fatto di tutto, ero un ricercatore esperto di Cloud Robotics e ho all'attivo un paio di startup fallite 🚀. Nel tempo libero leggo e faccio esperimenti con stampa 3D e robotica. Ho anche un blog e un canale twitch dove saltuarimanete faccio divulgazione in ambito sviluppo software.",
         "website": "https://www.ludusrusso.dev/",
         "permalink": "ludusrusso"
-      },
-      "aldexxx86": {
-        "name": "Matteo Alderighi",
-        "github": "aldexxx86",
-        "github_url": "https://github.com/aldexxx86",
-        "linkedin_url": "https://www.linkedin.com/in/matteo-alderighi/",
-        "twitter_url": " ",
-        "image": "/img/_dev/aldexxx86.jpg",
-        "secondary_image": "/img/_dev/aldexxx86.jpg",
-        "description": "Sono una persona creativa che ha trovato nel mondo della programmazione una delle proprie passioni, un'altra passione è quella del mondo delle automobili. Ho iniziato da piccolo smontando computer e creando semplici siti statici in HTML, da circa 14 anni sono Full Stack Developer presso una piccola azienda software di Firenze, sono un fan del Clean Coding e non apprezzo particolarmente gli ORM.",
-        "website": " ",
-        "permalink": "aldexxx86"
       }
     },
     "events": {
