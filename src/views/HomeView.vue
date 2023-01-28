@@ -1,18 +1,11 @@
-<script>
-import Main from '@/components/Main.vue'
-
-export default {
-  name: 'Home',
-  components: {
-    Main,
-  },
-}
+<script setup lang="ts">
+import TheMain from '@/components/TheMain.vue'
 </script>
 
 <template>
   <div class="home">
     <div class="container">
-      <Main />
+      <TheMain />
     </div>
   </div>
 </template>
