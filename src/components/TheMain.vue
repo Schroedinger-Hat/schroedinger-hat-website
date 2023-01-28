@@ -1,17 +1,14 @@
-<script>
-export default {
-  name: 'Main',
-  props: {
-    msg: String,
-  },
-}
+<script setup lang="ts">
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 </script>
 
 <template>
   <div class="main">
     <div class="middle-section">
-      <h1>{{ $t('message.main.h1') }}</h1>
-      <h2>{{ $t('message.main.h2') }}</h2>
+      <h1>{{ t('message.main.h1') }}</h1>
+      <h2>{{ t('message.main.h2') }}</h2>
       <a
         class="btn btn-primary"
         target="_blank"
@@ -27,7 +24,6 @@ export default {
   </div>
 </template>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .middle-section {
   text-align: center;
