@@ -1,23 +1,28 @@
-<script>
-import text from '../i18n/messages.json'
+<script setup lang="ts">
+import { onMounted, ref } from 'vue'
+import type { RouteParamValue } from 'vue-router'
+import { useRoute } from 'vue-router'
 
-export default {
-  name: 'Team',
-  data() {
-    return {
-      teamMember: '',
-    }
-  },
-  mounted() {
-    const teamMember = this.$route.params.member
-    if (text.it.team[teamMember] !== undefined)
-      this.teamMember = teamMember
-  },
+const teamMember = ref('')
+const route = useRoute()
+
+const getTeamMemberName = () => {
+  if (!route.params.member)
+    getTeamMemberName()
+
+  else
+    teamMember.value = route.params.member as RouteParamValue
 }
+
+onMounted(() => {
+  getTeamMemberName()
+})
 </script>
 
 <template>
-  <div class="team">
+  <!-- //TODO Add loader -->
+  <span v-if="!teamMember">Add loader</span>
+  <div v-else class="team">
     <div class="container">
       <div class="content">
         <h1>{{ $t(`team.${teamMember}.name`) }}</h1>

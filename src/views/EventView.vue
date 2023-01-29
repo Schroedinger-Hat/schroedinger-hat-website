@@ -43,7 +43,7 @@ const getCalendarLink = () => {
 
 <template>
   <!-- //TODO Add loader -->
-  <span v-if="!eventKey">No route param</span>
+  <span v-if="!eventKey">Add loader</span>
   <div v-else class="event">
     <div class="container">
       <div class="content">

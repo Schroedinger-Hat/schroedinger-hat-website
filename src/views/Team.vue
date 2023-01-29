@@ -1,15 +1,8 @@
-<script>
-import text from '../i18n/messages.json'
+<script setup lang="ts">
+import text from '@/i18n/messages'
 
-export default {
-  name: 'Team',
-  data() {
-    return {
-      team: Object.keys(text.it.team),
-      linkText: text.it.links,
-    }
-  },
-}
+const team = Object.keys(text.it.team)
+const linkText = text.it.links
 </script>
 
 <template>
@@ -19,7 +12,7 @@ export default {
         <div class="headline">
           <h1>Schrödinger Hat's fam</h1>
         </div>
-        <div v-for="teammember in team" :key="teammember.github">
+        <div v-for="teammember in team" :key="teammember">
           <div class="blog-card">
             <div class="meta">
               <div
@@ -52,8 +45,7 @@ export default {
               </div>
               <p v-html="$t(`team.${teammember}.description`)" />
               <router-link
-                :key="team.permalink"
-                :to="`/team/${$t(`team.${teammember}.permalink`)}`"
+                :to="{ name: 'TeamMember', params: { member: teammember } }"
               >
                 <p class="user-profile-link">
                   {{ $t(linkText) }}
