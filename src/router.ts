@@ -3,7 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 const routes = [
   {
     path: '/',
-    name: 'Home',
+    name: 'HomeView',
     component: () => import('@/views/HomeView.vue'),
   },
   {
@@ -23,8 +23,8 @@ const routes = [
   },
   {
     path: '/events/:event',
-    name: 'Event',
-    component: () => import('@/views/Event.vue'),
+    name: 'EventView',
+    component: () => import('@/views/EventView.vue'),
   },
   {
     path: '/team',

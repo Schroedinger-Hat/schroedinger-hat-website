@@ -1,7 +1,4 @@
-<script>
-export default {
-  name: 'CodeConduct',
-}
+<script setup lang="ts">
 </script>
 
 <template>
