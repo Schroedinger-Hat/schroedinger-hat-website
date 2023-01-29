@@ -1,14 +1,7 @@
-<script>
-import text from '../i18n/messages.json'
+<script setup lang="ts">
+import text from '../i18n/messages'
 
-export default {
-  name: 'EventList',
-  data() {
-    return {
-      events: Object.keys(text.it.events),
-    }
-  },
-}
+const events = Object.keys(text.it.events)
 </script>
 
 <template>
@@ -20,8 +13,8 @@ export default {
         </div>
         <router-link
           v-for="event in events"
-          :key="event.permalink"
-          :to="`/events/${$t(`events.${event}.permalink`)}`"
+          :key="event"
+          :to="{ name: 'EventView', params: { event } }"
         >
           <div class="blog-card">
             <div class="meta">
