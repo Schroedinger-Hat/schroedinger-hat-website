@@ -52,6 +52,9 @@
             <a href="https://www.pignolalug.it/" target="_blank" rel="noreferrer">
               <img width="125" src="/img/plug_logo.svg" alt="Plug" />
             </a>
+            <a href="https://flutterheroes.com/" target="_blank" rel="noreferrer">
+              <img width="200" src="/img/fh_logo.png" alt="Flutter Heroes" />
+            </a>
           </div>
         </div>
       </div>
