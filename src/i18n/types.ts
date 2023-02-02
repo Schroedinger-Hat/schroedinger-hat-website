@@ -20,7 +20,7 @@ export interface Messages {
     pages: {
       [key in PagesMessage]: string
     }
-    links: string
+    goToProfile: string
     team: TeamMessage
     events: EventMessage
   }
