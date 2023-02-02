@@ -29,10 +29,10 @@ const routes = [
   {
     path: '/team',
     name: 'Team',
-    component: () => import('@/views/Team.vue'),
+    component: () => import('@/views/TeamPage.vue'),
   },
   {
-    path: '/team/:member',
+    path: '/team/:teamMember',
     name: 'TeamMember',
     component: () => import('@/views/TeamMember.vue'),
   },
