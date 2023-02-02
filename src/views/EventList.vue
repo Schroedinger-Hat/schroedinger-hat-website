@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import text from '../i18n/messages'
+import messages from '../i18n/messages'
 
-const events = Object.keys(text.it.events)
+const events = Object.keys(messages.it.events)
 </script>
 
 <template>

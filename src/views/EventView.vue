@@ -2,7 +2,7 @@
 import { type Ref, onMounted, ref } from 'vue'
 import { type RouteParamValue, useRoute } from 'vue-router'
 import { useI18n } from 'vue-i18n'
-import text from '../i18n/messages'
+import messages from '../i18n/messages'
 import { type EventMessageName } from '@/i18n/types'
 
 const { t } = useI18n()
@@ -24,8 +24,8 @@ onMounted(() => {
 const getCalendarLink = () => {
   let calendarString = 'http://www.google.com/calendar/event?action=TEMPLATE&dates='
   try {
-    const { title, location } = text.it.events[eventKey.value as EventMessageName]
-    const [date, time] = text.it.events[eventKey.value as EventMessageName].date.split(' ')
+    const { title, location } = messages.it.events[eventKey.value as EventMessageName]
+    const [date, time] = messages.it.events[eventKey.value as EventMessageName].date.split(' ')
     const startUTCDate = new Date(`${date} ${time}`)
     const startDate = startUTCDate.toISOString().replace(/[:-]/g, '').replace('.000Z', 'Z')
     startUTCDate.setTime(startUTCDate.getTime() + 3600 * 2 * 1000)
