@@ -78,12 +78,15 @@ header {
   margin: auto;
   text-align: left;
   height: 5em;
+  position: relative;
+  z-index: $z-header;
   display: flex;
   padding: 0 !important;
 
   .inner-header-container {
     width: 100%;
     display: flex;
+    justify-content: space-between;
     -webkit-box-align: center;
     align-items: center;
     -webkit-box-pack: justify;
