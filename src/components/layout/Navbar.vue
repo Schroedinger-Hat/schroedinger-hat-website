@@ -76,6 +76,8 @@ export default Vue.component('Navbar', {
 header {
   margin: auto;
   text-align: left;
+  position: relative;
+  z-index: $z-header;
   height: 5em;
   display: flex;
   padding: 0 !important;
