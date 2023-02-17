@@ -55,6 +55,9 @@
             <a href="https://flutterheroes.com/" target="_blank" rel="noreferrer">
               <img width="200" src="/img/fh_logo.png" alt="Flutter Heroes" />
             </a>
+            <a href="https://pycon.it/en" target="_blank" rel="noreferrer">
+              <img width="200" src="/img/pycon-logo.png" alt="PyCon Ialia" />
+            </a>
           </div>
         </div>
       </div>
@@ -128,7 +131,7 @@ export default {
   }
 
   .sponsor-image {
-    padding: 0.3125em 0.625em;
+    padding: 1em 0.625em;
   }
 }
 
