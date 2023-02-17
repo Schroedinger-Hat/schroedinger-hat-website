@@ -49,13 +49,13 @@
             <a href="https://www.wearedevelopers.com/" target="_blank" class="sponsor-image">
               <img width="200" src="/img/WeAreDevelopers_logo.svg" alt="WeAreDevelopers Logo" />
             </a>
-            <a href="https://www.pignolalug.it/" target="_blank" rel="noreferrer">
+            <a href="https://www.pignolalug.it/" target="_blank" rel="noreferrer" class="sponsor-image">
               <img width="125" src="/img/plug_logo.svg" alt="Plug" />
             </a>
-            <a href="https://flutterheroes.com/" target="_blank" rel="noreferrer">
+            <a href="https://flutterheroes.com/" target="_blank" rel="noreferrer" class="sponsor-image">
               <img width="200" src="/img/fh_logo.png" alt="Flutter Heroes" />
             </a>
-            <a href="https://pycon.it/en" target="_blank" rel="noreferrer">
+            <a href="https://pycon.it/en" target="_blank" rel="noreferrer" class="sponsor-image">
               <img width="200" src="/img/pycon-logo.png" alt="PyCon Ialia" />
             </a>
           </div>
@@ -131,7 +131,7 @@ export default {
   }
 
   .sponsor-image {
-    padding: 1em 0.625em;
+    padding: 0.425em 0.625em;
   }
 }
 
