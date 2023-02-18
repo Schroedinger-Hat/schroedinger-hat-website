@@ -1,5 +1,3 @@
-<!-- TODO Add typescript and handle new types -->
-<!-- TODO Install VueUse and set the dark mode -->
 <script setup lang='ts'>
 import { computed } from 'vue'
 import { useDark, useToggle } from '@vueuse/core'
@@ -12,34 +10,7 @@ const themeIcon = computed(() => {
   return isDark.value ? 'fa-sun' : 'fa-moon'
 })
 
-// onMounted(() => {
-//   if (localStorage.getItem('darkMode') === 'yes')
-//     document.querySelector('.dark-mode-icon').parentNode.click()
-// })
-//
-// const toggleMobileMenu = (event) => {
-//   event.preventDefault()
-//   document.querySelector('.mobile-menu-container').classList.toggle('loaded')
-//   document.body.classList.toggle('overflow-hidden')
-// }
-//
-// const toggleDarkMode = () => {
-//   event.preventDefault()
-//   document.body.parentNode.classList.toggle('dark-theme')
-//   let iconElement = event.target
-//   iconElement = iconElement.tagName === 'A' ? iconElement.children[0] : iconElement
-//
-//   let darkModeValue = 'yes'
-//   darkModeValue
-//     = localStorage.getItem('darkMode') === 'yes' && iconElement.className.includes('fa-sun')
-//       ? 'no'
-//       : 'yes'
-//
-//   iconElement.classList.toggle('fa-moon')
-//   iconElement.classList.toggle('fa-sun')
-//
-//   localStorage.setItem('darkMode', darkModeValue)
-// }
+const [showMobileMenu, toggleMobileMenu] = useToggle()
 </script>
 
 <template>
@@ -66,16 +37,19 @@ const themeIcon = computed(() => {
           <a href="https://github.com/Schrodinger-Hat" target="_blank">
             <i class="mobile-menu-icon fab fa-github" />
           </a>
-          <a class="hamburger-none-md" href="#" @click="toggleMobileMenu">
+          <button class="hamburger-none-md" @click="toggleMobileMenu()">
             <i class="mobile-menu-icon fas fa-hamburger" />
-          </a>
+          </button>
           <button @click="toggleDark()">
             <i class="fas" :class="themeIcon" />
           </button>
         </div>
       </nav>
     </div>
-    <MobileMenu />
+    <MobileMenu
+      :class="{ loaded: showMobileMenu }"
+      @close-menu="toggleMobileMenu()"
+    />
   </header>
 </template>
 

@@ -1,30 +1,33 @@
 <script setup lang="ts">
-// import { watch } from 'vue';
-
-// watch: {
-//   $route() {
-//     if (document.querySelector('.mobile-menu-container').classList.contains('loaded')) {
-//       document.querySelector('.mobile-menu-container').classList.toggle('loaded');
-//       document.body.classList.toggle('overflow-hidden');
-//     }
-//   },
+const emit = defineEmits<{
+  (e: 'closeMenu'): void
+}>()
 </script>
 
 <template>
   <div class="mobile-menu-container">
     <nav>
       <div class="navbar">
-        <a href="https://github.com/Schrodinger-Hat" target="_blank">GitHub</a>
-        <router-link to="/team">
+        <a
+          href="https://github.com/Schrodinger-Hat"
+          target="_blank"
+          @click="emit('closeMenu')"
+        >GitHub
+        </a>
+        <router-link to="/team" @click="emit('closeMenu')">
           {{ $t('message.navbar.team') }}
         </router-link>
-        <router-link to="/events">
+        <router-link to="/events" @click="emit('closeMenu')">
           {{ $t('message.navbar.events') }}
         </router-link>
-        <router-link to="/code-of-conduct">
+        <router-link to="/code-of-conduct" @click="emit('closeMenu')">
           {{ $t('message.navbar.codeofconduct') }}
         </router-link>
-        <a href="https://ign.schrodinger-hat.it" target="_blank"> ImageGoNord </a>
+        <a
+          href="https://ign.schrodinger-hat.it"
+          target="_blank"
+          @click="emit('closeMenu')"
+        > ImageGoNord </a>
       </div>
     </nav>
   </div>
