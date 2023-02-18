@@ -1,24 +1,24 @@
-<script>
-export default {
-  name: 'NyanCat',
-  mounted: () => {
-    let scrollInterval = null
-    scrollInterval = setInterval(() => {
-      const parentScrollHeight = document.querySelector('.nyancat-wrapper').parentNode.scrollHeight
-      if (window.pageYOffset >= parentScrollHeight - 400) {
-        document.querySelector('.nyancat-wrapper').classList.add('loaded')
+<script setup lang="ts">
+import { onMounted } from 'vue'
 
-        setTimeout(() => {
-          const nyancatWrapper = document.querySelector('.nyancat-wrapper')
-          nyancatWrapper.classList.remove('loaded')
-          nyancatWrapper.style.display = 'none'
-        }, 8000)
+onMounted(() => {
+  const scrollInterval = setInterval(() => {
+  // TODO: Fix this TS error
+  // @ts-expect-error: Need to find out this type
+    const parentScrollHeight = document.querySelector('.nyancat-wrapper').parentNode.scrollHeight
+    if (window.pageYOffset >= parentScrollHeight - 400) {
+      document.querySelector('.nyancat-wrapper')!.classList.add('loaded')
 
-        clearInterval(scrollInterval)
-      }
-    }, 200)
-  },
-}
+      setTimeout(() => {
+        const nyancatWrapper: HTMLDivElement = document.querySelector('.nyancat-wrapper')!
+        nyancatWrapper.classList.remove('loaded')
+        nyancatWrapper.style.display = 'none'
+      }, 8000)
+
+      clearInterval(scrollInterval)
+    }
+  }, 200)
+})
 </script>
 
 <template>
