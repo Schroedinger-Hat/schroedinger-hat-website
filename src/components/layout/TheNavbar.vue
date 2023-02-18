@@ -1,37 +1,45 @@
 <!-- TODO Add typescript and handle new types -->
 <!-- TODO Install VueUse and set the dark mode -->
 <script setup lang='ts'>
-import { onMounted } from 'vue'
+import { computed } from 'vue'
+import { useDark, useToggle } from '@vueuse/core'
 import MobileMenu from '@/components/layout/MobileMenu.vue'
 
-onMounted(() => {
-  if (localStorage.getItem('darkMode') === 'yes')
-    document.querySelector('.dark-mode-icon').parentNode.click()
+const isDark = useDark()
+const toggleDark = useToggle(isDark)
+
+const themeIcon = computed(() => {
+  return isDark.value ? 'fa-sun' : 'fa-moon'
 })
 
-const toggleMobileMenu = (event) => {
-  event.preventDefault()
-  document.querySelector('.mobile-menu-container').classList.toggle('loaded')
-  document.body.classList.toggle('overflow-hidden')
-}
-
-const toggleDarkMode = () => {
-  event.preventDefault()
-  document.body.parentNode.classList.toggle('dark-theme')
-  let iconElement = event.target
-  iconElement = iconElement.tagName === 'A' ? iconElement.children[0] : iconElement
-
-  let darkModeValue = 'yes'
-  darkModeValue
-    = localStorage.getItem('darkMode') === 'yes' && iconElement.className.includes('fa-sun')
-      ? 'no'
-      : 'yes'
-
-  iconElement.classList.toggle('fa-moon')
-  iconElement.classList.toggle('fa-sun')
-
-  localStorage.setItem('darkMode', darkModeValue)
-}
+// onMounted(() => {
+//   if (localStorage.getItem('darkMode') === 'yes')
+//     document.querySelector('.dark-mode-icon').parentNode.click()
+// })
+//
+// const toggleMobileMenu = (event) => {
+//   event.preventDefault()
+//   document.querySelector('.mobile-menu-container').classList.toggle('loaded')
+//   document.body.classList.toggle('overflow-hidden')
+// }
+//
+// const toggleDarkMode = () => {
+//   event.preventDefault()
+//   document.body.parentNode.classList.toggle('dark-theme')
+//   let iconElement = event.target
+//   iconElement = iconElement.tagName === 'A' ? iconElement.children[0] : iconElement
+//
+//   let darkModeValue = 'yes'
+//   darkModeValue
+//     = localStorage.getItem('darkMode') === 'yes' && iconElement.className.includes('fa-sun')
+//       ? 'no'
+//       : 'yes'
+//
+//   iconElement.classList.toggle('fa-moon')
+//   iconElement.classList.toggle('fa-sun')
+//
+//   localStorage.setItem('darkMode', darkModeValue)
+// }
 </script>
 
 <template>
@@ -61,9 +69,9 @@ const toggleDarkMode = () => {
           <a class="hamburger-none-md" href="#" @click="toggleMobileMenu">
             <i class="mobile-menu-icon fas fa-hamburger" />
           </a>
-          <a href="#" @click="toggleDarkMode">
-            <i class="dark-mode-icon fas fa-moon" />
-          </a>
+          <button @click="toggleDark()">
+            <i class="fas" :class="themeIcon" />
+          </button>
         </div>
       </nav>
     </div>
@@ -141,8 +149,26 @@ header {
         -webkit-box-pack: justify;
         justify-content: space-between;
 
-        a {
+        a{
           border-radius: 0.25em;
+          margin: 0 0.4em;
+          transition: background-color 100ms ease-in-out 0s;
+          cursor: pointer;
+          font-size: 1.2em;
+
+          &:nth-child(-n + 3) {
+            display: none;
+          }
+
+          &:hover {
+            background-color: $bg-secondary;
+          }
+        }
+
+        button {
+          border-radius: 0.25em;
+          background-color: transparent;
+          border: none;
           margin: 0 0.4em;
           transition: background-color 100ms ease-in-out 0s;
           cursor: pointer;
@@ -204,7 +230,7 @@ header {
     .inner-header-container {
       nav {
         .navbar {
-          a {
+          a,button {
             &:hover {
               background-color: $dark-bg-secondary;
             }
