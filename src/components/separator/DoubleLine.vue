@@ -1,7 +1,4 @@
-<script>
-export default {
-  name: 'SeparatorDoubleLine',
-}
+<script setup lang="ts">
 </script>
 
 <template>

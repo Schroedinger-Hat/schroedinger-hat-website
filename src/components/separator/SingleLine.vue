@@ -1,8 +1,4 @@
-<script>
-export default {
-  name: 'SeparatorSingleLine',
-  props: {},
-}
+<script setup lang="ts">
 </script>
 
 <template>
