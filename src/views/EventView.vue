@@ -96,13 +96,13 @@ const getCalendarLink = () => {
           </h3>
           <div class="sponsor-logos" v-html="t(`events.${eventKey}.sponsors`)" />
           <br><br>
-          <h3 v-if="t(`events.${eventKey}.comunity-sponsors`) !== ''">
+          <h3 v-if="t(`events.${eventKey}.community-sponsors`) !== ''">
             Community Sponsors
           </h3>
           <div
-            v-if="t(`events.${eventKey}.comunity-sponsors`) !== ''"
+            v-if="t(`events.${eventKey}.community-sponsors`) !== ''"
             class="sponsor-logos"
-            v-html="t(`events.${eventKey}.comunity-sponsors`)"
+            v-html="t(`events.${eventKey}.community-sponsors`)"
           />
         </div>
       </div>

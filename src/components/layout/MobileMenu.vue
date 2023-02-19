@@ -15,13 +15,13 @@ const emit = defineEmits<{
         >GitHub
         </a>
         <router-link to="/team" @click="emit('closeMenu')">
-          {{ $t('message.navbar.team') }}
+          {{ $t('navbar.team') }}
         </router-link>
         <router-link to="/events" @click="emit('closeMenu')">
-          {{ $t('message.navbar.events') }}
+          {{ $t('navbar.events') }}
         </router-link>
         <router-link to="/code-of-conduct" @click="emit('closeMenu')">
-          {{ $t('message.navbar.codeofconduct') }}
+          {{ $t('navbar.codeOfConduct') }}
         </router-link>
         <a
           href="https://ign.schrodinger-hat.it"

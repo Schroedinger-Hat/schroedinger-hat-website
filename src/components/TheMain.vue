@@ -1,14 +1,11 @@
 <script setup lang="ts">
-import { useI18n } from 'vue-i18n'
-
-const { t } = useI18n()
 </script>
 
 <template>
   <div class="main">
     <div class="middle-section">
-      <h1>{{ t('message.main.h1') }}</h1>
-      <h2>{{ t('message.main.h2') }}</h2>
+      <h1>{{ $t('main.h1') }}</h1>
+      <h2>{{ $t('main.h2') }}</h2>
       <a
         class="btn btn-primary"
         target="_blank"

@@ -10,12 +10,12 @@ import SeparatorSingleLine from '@/components/separator/SingleLine.vue'
     <div class="bg-secondary">
       <div class="container contributing-container-text">
         <div class="inner-text">
-          <h4>{{ $t('message.contributing.title') }}</h4>
+          <h4>{{ $t('contributing.title') }}</h4>
           <p>
-            <b>Schrödinger Hat</b> {{ $t('message.contributing.is-a-project') }}
+            <b>Schrödinger Hat</b> {{ $t('contributing.is-a-project') }}
             <a class="external-link-color" href="https://github.com/Schrodinger-Hat" target="_blank">GitHub</a>.
           </p>
-          <p v-html="$t('message.contributing.cta')" />
+          <p v-html="$t('contributing.cta')" />
           <p class="social">
             <a href="https://opencollective.com/schrodinger-hat" target="_blank">
               <i class="fas fa-donate external-link-color" />

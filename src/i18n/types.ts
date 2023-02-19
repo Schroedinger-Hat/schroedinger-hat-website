@@ -1,29 +1,38 @@
-export interface Messages {
-  [key: LanguageCode]: {
-    message: {
-      common: {
-        [key in CommonMessage]: string
-      }
+export type MessageType = {
+  [key in LanguageCodes]: MessageContent
+}
+
+interface MessageContent {
+  message: {
+    common: {
+      [key in CommonMessage]: string
     }
-    navbar: {
-      team: string
-      events: string
-      codeOfConduct: string
-    }
-    main: {
-      h1: string
-      h2: string
-    }
-    contributing: {
-      [key in ContributionMessage]: string
-    }
-    pages: {
-      [key in PagesMessage]: string
-    }
-    goToProfile: string
-    team: TeamMessage
-    events: EventMessage
   }
+  navbar: {
+    team: string
+    events: string
+    codeOfConduct: string
+  }
+  main: {
+    h1: string
+    h2: string
+    links: {
+      youtube: string
+      spotify: string
+      openCollective: string
+    }
+  }
+  contributing: {
+    [key in ContributionMessage]: string
+  }
+  pages: {
+    [key in PagesMessage]: string
+  }
+  redirect: {
+    profile: string
+  }
+  team: TeamMessage
+  events: EventMessage
 }
 
 interface TeamMessage {
@@ -65,7 +74,7 @@ interface EventInfo {
 
 }
 
-type LanguageCode = string
+type LanguageCodes = 'it' | 'en'
 
 type CommonMessage =
   'read-more' |

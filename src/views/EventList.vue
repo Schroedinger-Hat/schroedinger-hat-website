@@ -9,7 +9,7 @@ const events = Object.keys(messages.it.events)
     <div class="container">
       <div class="content">
         <div class="headline">
-          <h1>{{ $t(`message.navbar.events`) }}</h1>
+          <h1>{{ $t(`navbar.events`) }}</h1>
         </div>
         <router-link
           v-for="event in events"

@@ -25,13 +25,13 @@ const [showMobileMenu, toggleMobileMenu] = useToggle()
       <nav>
         <div class="navbar">
           <router-link to="/team">
-            {{ $t('message.navbar.team') }}
+            {{ $t('navbar.team') }}
           </router-link>
           <router-link to="/events">
-            {{ $t('message.navbar.events') }}
+            {{ $t('navbar.events') }}
           </router-link>
           <router-link to="/code-of-conduct">
-            {{ $t('message.navbar.codeofconduct') }}
+            {{ $t('navbar.codeOfConduct') }}
           </router-link>
           <a id="gonord" href="https://ign.schrodinger-hat.it" target="_blank"> ImageGoNord </a>
           <a href="https://github.com/Schrodinger-Hat" target="_blank">
