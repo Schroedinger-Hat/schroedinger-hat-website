@@ -195,7 +195,7 @@
       "contributing": {
         "title": "Contribute",
         "is-a-project": "is an open source project on",
-        "cta": "If you have an idea, a tool, a topic or something else to propose, you can <a class=\"external-link-color\" target=\"_blank\" href=\"https://github.com/Schrodinger-Hat/idea/issues/new/choose\">open an issue on GitHub</a><br>Or contact us via social networks."
+        "cta": "If you have an idea, a tool, a topic or something else to propose, you can <a class=\"external-link-color\" target=\"_blank\" href=\"https://github.com/Schrodinger-Hat/schrodinger-hat-website/issues/new/choose\">open an issue on GitHub</a><br>Or contact us via social networks."
       }
     },
     "pages": {
