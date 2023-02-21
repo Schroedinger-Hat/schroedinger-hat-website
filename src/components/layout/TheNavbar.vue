@@ -46,10 +46,13 @@ const [showMobileMenu, toggleMobileMenu] = useToggle()
         </div>
       </nav>
     </div>
-    <MobileMenu
-      :class="{ loaded: showMobileMenu }"
-      @close-menu="toggleMobileMenu()"
-    />
+    <transition name="slide">
+      <MobileMenu
+        v-if="showMobileMenu"
+        :class="{ loaded: showMobileMenu }"
+        @close-menu="toggleMobileMenu()"
+      />
+    </transition>
   </header>
 </template>
 
@@ -213,5 +216,18 @@ header {
       }
     }
   }
+}
+
+.slide-enter-active,
+.slide-leave-active {
+  bottom: 0;
+  opacity: 1;
+  transition: bottom 0.25s ease-out 0s, opacity 0.3s ease-in-out 0s;
+}
+
+.slide-enter-from,
+.slide-leave-to {
+  opacity: 0;
+  bottom: 100vh;
 }
 </style>
