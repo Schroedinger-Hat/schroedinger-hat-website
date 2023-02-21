@@ -15,16 +15,29 @@ const emit = defineEmits<{
         <div class="navbar">
           <a href="https://github.com/Schrodinger-Hat" target="_blank" @click="emit('onCloseMenu')">GitHub
           </a>
-          <router-link to="/team" @click="emit('onCloseMenu')">
+          <router-link
+            :to="{ name: 'Team' }"
+            @click="emit('onCloseMenu')"
+          >
             {{ $t('navbar.team') }}
           </router-link>
-          <router-link to="/events" @click="emit('onCloseMenu')">
+          <router-link
+            :to="{ name: 'EventList' }"
+            @click="emit('onCloseMenu')"
+          >
             {{ $t('navbar.events') }}
           </router-link>
-          <router-link to="/code-of-conduct" @click="emit('onCloseMenu')">
+          <router-link
+            :to="{ name: 'CodeOfConduct' }"
+            @click="emit('onCloseMenu')"
+          >
             {{ $t('navbar.codeOfConduct') }}
           </router-link>
-          <a href="https://ign.schrodinger-hat.it" target="_blank" @click="emit('onCloseMenu')"> ImageGoNord </a>
+          <a
+            href="https://ign.schrodinger-hat.it"
+            target="_blank"
+            @click="emit('onCloseMenu')"
+          > ImageGoNord </a>
         </div>
       </nav>
     </div>

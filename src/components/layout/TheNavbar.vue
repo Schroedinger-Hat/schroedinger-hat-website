@@ -24,17 +24,20 @@ const [showMobileMenu, toggleMobileMenu] = useToggle()
       </div>
       <nav>
         <div class="navbar">
-          <router-link to="/team">
+          <router-link :to="{ name: 'Team' }">
             {{ $t('navbar.team') }}
           </router-link>
-          <router-link to="/events">
+          <router-link :to="{ name: 'EventList' }">
             {{ $t('navbar.events') }}
           </router-link>
-          <router-link to="/code-of-conduct">
+          <router-link :to="{ name: 'CodeOfConduct' }">
             {{ $t('navbar.codeOfConduct') }}
           </router-link>
           <a id="gonord" href="https://ign.schrodinger-hat.it" target="_blank"> ImageGoNord </a>
-          <a href="https://github.com/Schrodinger-Hat" target="_blank">
+          <a
+            href="https://github.com/Schrodinger-Hat"
+            target="_blank"
+          >
             <i class="mobile-menu-icon fab fa-github" />
           </a>
           <button class="hamburger-none-md" @click="toggleMobileMenu()">
