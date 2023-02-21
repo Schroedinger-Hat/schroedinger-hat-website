@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { type Ref, onMounted, ref } from 'vue'
 import type { RouteParamValue } from 'vue-router'
 import { useRoute } from 'vue-router'
 
-const teamMember = ref('')
+const member: Ref<null | string> = ref(null)
 const route = useRoute()
 
 const getTeamMemberName = () => {
@@ -11,7 +11,7 @@ const getTeamMemberName = () => {
     getTeamMemberName()
 
   else
-    teamMember.value = route.params.member as RouteParamValue
+    member.value = route.params.member as RouteParamValue
 }
 
 onMounted(() => {
@@ -21,32 +21,32 @@ onMounted(() => {
 
 <template>
   <!-- //TODO Add loader -->
-  <span v-if="!teamMember">Add loader</span>
+  <span v-if="!member">Loading...</span>
   <div v-else class="team">
     <div class="container">
       <div class="content">
-        <h1>{{ $t(`team.${teamMember}.name`) }}</h1>
+        <h1>{{ $t(`team.${member}.name`) }}</h1>
         <div>
           <div
             class="photo"
-            :style="`background-image: url(${$t(`team.${teamMember}.image`)});`"
+            :style="`background-image: url(${$t(`team.${member}.image`)});`"
           />
         </div>
         <div class="socialIcons">
-          <a v-if="$t(`team.${teamMember}.github_url`).length > 1" :href="$t(`team.${teamMember}.github_url`)" target="_blank">
+          <a v-if="$t(`team.${member}.github_url`).length > 1" :href="$t(`team.${member}.github_url`)" target="_blank">
             <i class="mobile-menu-icon fab fa-github" />
           </a>
-          <a v-if="$t(`team.${teamMember}.linkedin_url`).length > 1" :href="$t(`team.${teamMember}.linkedin_url`)" target="_blank">
+          <a v-if="$t(`team.${member}.linkedin_url`).length > 1" :href="$t(`team.${member}.linkedin_url`)" target="_blank">
             <i class="mobile-menu-icon fab fa-linkedin" />
           </a>
-          <a v-if="$t(`team.${teamMember}.twitter_url`).length > 1" :href="$t(`team.${teamMember}.twitter_url`)" target="_blank">
+          <a v-if="$t(`team.${member}.twitter_url`).length > 1" :href="$t(`team.${member}.twitter_url`)" target="_blank">
             <i class="mobile-menu-icon fab fa-twitter" />
           </a>
-          <a v-if="$t(`team.${teamMember}.website`).length > 1" :href="$t(`team.${teamMember}.website`)" target="_blank">
+          <a v-if="$t(`team.${member}.website`).length > 1" :href="$t(`team.${member}.website`)" target="_blank">
             <i class="mobile-menu-icon fa fa-cloud" />
           </a>
         </div>
-        <div class="description" v-html="$t(`team.${teamMember}.description`)" />
+        <div class="description" v-html="$t(`team.${member}.description`)" />
       </div>
     </div>
   </div>

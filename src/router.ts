@@ -32,7 +32,7 @@ const routes = [
     component: () => import('@/views/TeamPage.vue'),
   },
   {
-    path: '/team/:teamMember',
+    path: '/team/:member',
     name: 'TeamMember',
     component: () => import('@/views/TeamMember.vue'),
   },

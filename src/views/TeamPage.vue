@@ -13,52 +13,52 @@ const { t } = useI18n()
         <div class="headline">
           <h1>Schrödinger Hat's fam</h1>
         </div>
-        <div v-for="teamMember in team" :key="teamMember">
+        <div v-for="member in team" :key="member">
           <div class="blog-card">
             <div class="meta">
               <div
                 class="photo"
-                :style="`background-image: url( ${$t(`team.${teamMember}.image`)} );`"
+                :style="`background-image: url( ${$t(`team.${member}.image`)} );`"
               />
               <!--
                 ### IMPORTANT ### Do we want a secondary picture?
                 <div
                 class="photo-secondary"
-                :style="`background-image: url( ${$t(`team.${teamMember}.secondary_image`)} );`"
+                :style="`background-image: url( ${$t(`team.${member}.secondary_image`)} );`"
               ></div>
               -->
             </div>
             <div class="description">
-              <h1>{{ $t(`team.${teamMember}.name`) }}</h1>
+              <h1>{{ $t(`team.${member}.name`) }}</h1>
               <div class="socialIcons">
                 <a
-                  v-if="$t(`team.${teamMember}.github_url`).length > 1"
-                  :href="$t(`team.${teamMember}.github_url`)" target="_blank"
+                  v-if="$t(`team.${member}.github_url`).length > 1"
+                  :href="$t(`team.${member}.github_url`)" target="_blank"
                 >
                   <i class="mobile-menu-icon fab fa-github" />
                 </a>
                 <a
-                  v-if="$t(`team.${teamMember}.linkedin_url`).length > 1"
-                  :href="$t(`team.${teamMember}.linkedin_url`)" target="_blank"
+                  v-if="$t(`team.${member}.linkedin_url`).length > 1"
+                  :href="$t(`team.${member}.linkedin_url`)" target="_blank"
                 >
                   <i class="mobile-menu-icon fab fa-linkedin" />
                 </a>
                 <a
-                  v-if="$t(`team.${teamMember}.twitter_url`).length > 1"
-                  :href="$t(`team.${teamMember}.twitter_url`)" target="_blank"
+                  v-if="$t(`team.${member}.twitter_url`).length > 1"
+                  :href="$t(`team.${member}.twitter_url`)" target="_blank"
                 >
                   <i class="mobile-menu-icon fab fa-twitter" />
                 </a>
                 <a
-                  v-if="$t(`team.${teamMember}.website`).length > 1"
-                  :href="$t(`team.${teamMember}.website`)" target="_blank"
+                  v-if="$t(`team.${member}.website`).length > 1"
+                  :href="$t(`team.${member}.website`)" target="_blank"
                 >
                   <i class="mobile-menu-icon fa fa-cloud" />
                 </a>
               </div>
-              <p v-html="$t(`team.${teamMember}.description`)" />
+              <p v-html="$t(`team.${member}.description`)" />
               <router-link
-                :to="{ name: 'TeamMember', params: { teamMember } }"
+                :to="{ name: 'TeamMember', params: { member } }"
               >
                 <p class="user-profile-link">
                   {{ t('redirect.profile') }}
