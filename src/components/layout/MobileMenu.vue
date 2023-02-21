@@ -11,9 +11,26 @@ const emit = defineEmits<{
 <template>
   <transition name="slide">
     <div v-if="props.showMobileMenu" class="mobile-menu-container">
+      <div class="mobile-menu-header">
+        <div class="logo">
+          <router-link
+            :to="{ name: 'HomeView' }"
+            @click="emit('onCloseMenu')"
+          >
+            <img alt="SH logo" width="36" src="../../assets/logo-64.png">
+          </router-link>
+        </div>
+        <button class="close-header" @click="emit('onCloseMenu')">
+          <i class="mobile-menu-icon fab fa-xmark" />
+        </button>
+      </div>
       <nav>
         <div class="navbar">
-          <a href="https://github.com/Schrodinger-Hat" target="_blank" @click="emit('onCloseMenu')">GitHub
+          <a
+            href="https://github.com/Schrodinger-Hat"
+            target="_blank"
+            @click="emit('onCloseMenu')"
+          >GitHub
           </a>
           <router-link
             :to="{ name: 'Team' }"
@@ -89,5 +106,12 @@ const emit = defineEmits<{
 .slide-leave-to {
   opacity: 0;
   bottom: 100vh;
+}
+
+.mobile-menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
 }
 </style>

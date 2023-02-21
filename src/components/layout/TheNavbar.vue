@@ -38,10 +38,10 @@ const [showMobileMenu, toggleMobileMenu] = useToggle()
             href="https://github.com/Schrodinger-Hat"
             target="_blank"
           >
-            <i class="mobile-menu-icon fab fa-github" />
+            <i class="fab fa-github" />
           </a>
           <button class="hamburger-none-md" @click="toggleMobileMenu()">
-            <i class="mobile-menu-icon fas fa-hamburger" />
+            <i class="fas fa-hamburger" />
           </button>
           <button @click="toggleDark()">
             <i class="fas" :class="themeIcon" />
@@ -49,6 +49,7 @@ const [showMobileMenu, toggleMobileMenu] = useToggle()
         </div>
       </nav>
     </div>
+    <!--  Add v-if for higher breakpoints -->
     <MobileMenu
       :show-mobile-menu="showMobileMenu"
       @on-close-menu="toggleMobileMenu()"
