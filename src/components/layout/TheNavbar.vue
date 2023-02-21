@@ -48,7 +48,7 @@ const [showMobileMenu, toggleMobileMenu] = useToggle()
     </div>
     <MobileMenu
       :show-mobile-menu="showMobileMenu"
-      @close-menu="toggleMobileMenu()"
+      @on-close-menu="toggleMobileMenu()"
     />
   </header>
 </template>

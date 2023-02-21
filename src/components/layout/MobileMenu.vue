@@ -1,5 +1,5 @@
 <script setup lang="ts">
-defineProps<{
+const props = defineProps<{
   showMobileMenu: Boolean
 }>()
 
@@ -10,7 +10,7 @@ const emit = defineEmits<{
 
 <template>
   <transition name="slide">
-    <div v-if="showMobileMenu" class="mobile-menu-container">
+    <div v-if="props.showMobileMenu" class="mobile-menu-container">
       <nav>
         <div class="navbar">
           <a href="https://github.com/Schrodinger-Hat" target="_blank" @click="emit('onCloseMenu')">GitHub
