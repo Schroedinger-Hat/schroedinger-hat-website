@@ -1,6 +1,7 @@
 <script setup lang="ts">
 const props = defineProps<{
   showMobileMenu: Boolean
+  smallerThanLg: Boolean
 }>()
 
 const emit = defineEmits<{
@@ -10,7 +11,7 @@ const emit = defineEmits<{
 
 <template>
   <transition name="slide">
-    <div v-if="props.showMobileMenu" class="mobile-menu-container">
+    <div v-if="props.showMobileMenu && props.smallerThanLg" class="mobile-menu-container">
       <div class="mobile-menu-header">
         <div class="logo">
           <router-link
@@ -21,7 +22,7 @@ const emit = defineEmits<{
           </router-link>
         </div>
         <button class="close-header" @click="emit('onCloseMenu')">
-          <i class="mobile-menu-icon fab fa-xmark" />
+          <i class="fas fa-hamburger" />
         </button>
       </div>
       <nav>
@@ -113,5 +114,19 @@ const emit = defineEmits<{
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
+}
+
+button {
+  border-radius: 0.25em;
+  background-color: transparent;
+  border: none;
+  margin: 0 0.4em;
+  transition: background-color 100ms ease-in-out 0s;
+  cursor: pointer;
+  font-size: 1.2em;
+
+  &:hover {
+    background-color: $bg-secondary;
+  }
 }
 </style>

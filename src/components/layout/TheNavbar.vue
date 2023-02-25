@@ -1,10 +1,13 @@
 <script setup lang='ts'>
 import { computed } from 'vue'
 import { useDark, useToggle } from '@vueuse/core'
+import { useBreakpoints, breakpointsTailwind } from '@vueuse/core';
 import MobileMenu from '@/components/layout/MobileMenu.vue'
 
 const isDark = useDark()
 const toggleDark = useToggle(isDark)
+const breakpoints = useBreakpoints(breakpointsTailwind)
+const smallerThanLg = breakpoints.smaller('lg')
 
 const themeIcon = computed(() => {
   return isDark.value ? 'fa-sun' : 'fa-moon'
@@ -49,9 +52,9 @@ const [showMobileMenu, toggleMobileMenu] = useToggle()
         </div>
       </nav>
     </div>
-    <!--  Add v-if for higher breakpoints -->
     <MobileMenu
       :show-mobile-menu="showMobileMenu"
+      :smaller-than-lg="smallerThanLg"
       @on-close-menu="toggleMobileMenu()"
     />
   </header>
