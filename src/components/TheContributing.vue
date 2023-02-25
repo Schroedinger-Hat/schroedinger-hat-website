@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import NyanCat from '@/components/NyanCat.vue'
 import SeparatorSingleLine from '@/components/separator/SingleLine.vue'
+
+const SHGitHubRepo = 'https://github.com/Schrodinger-Hat'
+const SHGitHubWebsiteRepo = 'https://github.com/Schrodinger-Hat/schrodinger-hat-website/issues/new/choose'
 </script>
 
 <template>
@@ -13,9 +16,16 @@ import SeparatorSingleLine from '@/components/separator/SingleLine.vue'
           <h4>{{ $t('contributing.title') }}</h4>
           <p>
             <b>Schrödinger Hat</b> {{ $t('contributing.is-a-project') }}
-            <a class="external-link-color" href="https://github.com/Schrodinger-Hat" target="_blank">GitHub</a>.
+            <a class="external-link-color" :href="SHGitHubRepo" target="_blank">GitHub</a>.
           </p>
-          <p v-html="$t('contributing.cta')" />
+          <p>
+            {{ $t('contributing.cta') }}
+            <a class="external-link-color" target="_blank" :href="SHGitHubWebsiteRepo">
+              {{ $t('contributing.external-link') }}
+            </a>
+            <br>
+            {{ $t('contributing.cta-2') }}
+          </p>
           <p class="social">
             <a href="https://opencollective.com/schrodinger-hat" target="_blank">
               <i class="fas fa-donate external-link-color" />
