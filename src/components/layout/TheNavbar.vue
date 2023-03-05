@@ -1,7 +1,6 @@
 <script setup lang='ts'>
 import { computed } from 'vue'
-import { useDark, useToggle } from '@vueuse/core'
-import { useBreakpoints, breakpointsTailwind } from '@vueuse/core';
+import { breakpointsTailwind, useBreakpoints, useDark, useToggle } from '@vueuse/core'
 import MobileMenu from '@/components/layout/MobileMenu.vue'
 
 const isDark = useDark()
@@ -37,10 +36,7 @@ const [showMobileMenu, toggleMobileMenu] = useToggle()
             {{ $t('navbar.codeOfConduct') }}
           </router-link>
           <a id="gonord" href="https://ign.schrodinger-hat.it" target="_blank"> ImageGoNord </a>
-          <a
-            href="https://github.com/Schrodinger-Hat"
-            target="_blank"
-          >
+          <a href="https://github.com/Schrodinger-Hat" target="_blank">
             <i class="fab fa-github" />
           </a>
           <button class="hamburger-none-md" @click="toggleMobileMenu()">
@@ -128,7 +124,7 @@ header {
         -webkit-box-pack: justify;
         justify-content: space-between;
 
-        a{
+        a {
           border-radius: 0.25em;
           margin: 0 0.4em;
           transition: background-color 100ms ease-in-out 0s;
@@ -209,7 +205,9 @@ header {
     .inner-header-container {
       nav {
         .navbar {
-          a,button {
+
+          a,
+          button {
             &:hover {
               background-color: $dark-bg-secondary;
             }
