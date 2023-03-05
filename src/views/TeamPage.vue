@@ -20,13 +20,6 @@ const { t } = useI18n()
                 class="photo"
                 :style="`background-image: url( ${$t(`team.${member}.image`)} );`"
               />
-              <!--
-                ### IMPORTANT ### Do we want a secondary picture?
-                <div
-                class="photo-secondary"
-                :style="`background-image: url( ${$t(`team.${member}.secondary_image`)} );`"
-              ></div>
-              -->
             </div>
             <div class="description">
               <h1>{{ $t(`team.${member}.name`) }}</h1>
@@ -104,16 +97,6 @@ $color_grey_dark: $nord2;
     li {
       color: $color_white;
     }
-    // ONLY FOR SECONDARY PICTURE
-    // &:hover {
-    //   .photo {
-    //     display: none;
-    //   }
-
-    //   .photo-secondary {
-    //     display: block;
-    //   }
-    // }
     .meta {
       position: relative;
       z-index: 0;
