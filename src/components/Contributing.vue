@@ -58,6 +58,15 @@
             <a href="https://pycon.it/en" target="_blank" rel="noreferrer" class="sponsor-image">
               <img width="200" src="/img/pycon-logo.png" alt="PyCon Ialia" />
             </a>
+            <a href="https://www.devdreams.it/" target="_blank" rel="noreferrer" class="sponsor-image">
+              <img width="150" src="/img/devdreams.png" alt="DevDreams" />
+            </a>
+            <a href="https://www.codemotion.com/" target="_blank" rel="noreferrer" class="sponsor-image">
+              <img width="300" src="/img/codemotion_logo.svg" alt="Codemotion" />
+            </a>
+            <a href="https://www.gdgpisa.it/" target="_blank" rel="noreferrer" class="sponsor-image">
+              <img width="150" src="/img/gdgp.svg" alt="GDG Pisa" />
+            </a>
           </div>
         </div>
       </div>
