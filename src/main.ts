@@ -3,7 +3,7 @@ import { createI18n } from 'vue-i18n'
 import App from '@/App.vue'
 import router from '@/router'
 import messages from '@/i18n/messages'
-import '@/registerServiceWorker'
+import './registerServiceWorker'
 
 const i18n = createI18n({
   legacy: false,
