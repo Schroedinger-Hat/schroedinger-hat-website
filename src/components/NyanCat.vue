@@ -44,11 +44,11 @@ onMounted(() => {
 
   @while $start <=$end {
     @if $start < $end {
-      $str: $str +0 #{$start}#{'px,'};
+      $str: $str + 0 #{$start}#{'px,'};
     }
 
     @if $start ==$end {
-      $str: $str +0 #{$start}#{'px'};
+      $str: $str + 0 #{$start}#{'px'};
     }
 
     $start: $start + $increment;
