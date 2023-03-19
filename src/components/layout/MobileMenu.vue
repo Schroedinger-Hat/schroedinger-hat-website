@@ -15,43 +15,49 @@ const emit = defineEmits<{
       <div class="mobile-menu-header">
         <div class="logo">
           <router-link
-            :to="{ name: 'HomeView' }"
+            data-test="mobile-homepage-link"
+            :to="{ name: 'Home' }"
             @click="emit('onCloseMenu')"
           >
             <img alt="SH logo" width="36" src="../../assets/logo-64.png">
           </router-link>
         </div>
-        <button class="close-header" @click="emit('onCloseMenu')">
+        <button class="close-header" data-test="mobile-burger-menu-cta" @click="emit('onCloseMenu')">
           <i class="fas fa-hamburger" />
         </button>
       </div>
       <nav>
-        <div class="navbar">
+        <div class="navbar" data-test="mobile-nav-link-wrapper">
           <a
+            data-test="mobile-github-page-link"
             href="https://github.com/Schrodinger-Hat"
             target="_blank"
             @click="emit('onCloseMenu')"
           >GitHub
           </a>
           <router-link
+            data-test="mobile-team-page-link"
             :to="{ name: 'Team' }"
             @click="emit('onCloseMenu')"
           >
             {{ $t('navbar.team') }}
           </router-link>
           <router-link
+            data-test="mobile-event-page-link"
             :to="{ name: 'EventList' }"
             @click="emit('onCloseMenu')"
           >
             {{ $t('navbar.events') }}
           </router-link>
           <router-link
+            data-test="mobile-conduct-page-link"
             :to="{ name: 'CodeOfConduct' }"
             @click="emit('onCloseMenu')"
           >
             {{ $t('navbar.codeOfConduct') }}
           </router-link>
           <a
+            data-test="mobile-go-nord-page-link"
             href="https://ign.schrodinger-hat.it"
             target="_blank"
             @click="emit('onCloseMenu')"
