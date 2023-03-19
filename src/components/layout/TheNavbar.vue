@@ -17,38 +17,44 @@ const [showMobileMenu, toggleMobileMenu] = useToggle()
 
 <template>
   <header class="container">
-    <div class="inner-header-container">
+    <div class="inner-header-container" data-test="nav-wrapper">
       <div class="logo">
-        <router-link to="/">
+        <router-link :to="{ name: 'Home' }" data-test="nav-logo-button">
           <img alt="SH logo" width="36" src="../../assets/logo-64.png">
-          <span>S<i class="title-part-1">chrödinger</i> H<i class="title-part-2">at</i></span>
+          <span data-test="logo-text">S<i class="title-part-1">chrödinger</i> H<i class="title-part-2">at</i></span>
         </router-link>
       </div>
       <nav>
-        <div class="navbar">
-          <router-link :to="{ name: 'Team' }">
+        <div class="navbar" data-test="nav-link-wrapper">
+          <router-link :to="{ name: 'Team' }" data-test="nav-team-page-link">
             {{ $t('navbar.team') }}
           </router-link>
-          <router-link :to="{ name: 'EventList' }">
+          <router-link :to="{ name: 'EventList' }" data-test="nav-event-page-link">
             {{ $t('navbar.events') }}
           </router-link>
-          <router-link :to="{ name: 'CodeOfConduct' }">
+          <router-link :to="{ name: 'CodeOfConduct' }" data-test="nav-conduct-page-link">
             {{ $t('navbar.codeOfConduct') }}
           </router-link>
-          <a id="gonord" href="https://ign.schrodinger-hat.it" target="_blank"> ImageGoNord </a>
-          <a href="https://github.com/Schrodinger-Hat" target="_blank">
+          <a
+            id="gonord" href="https://ign.schrodinger-hat.it" target="_blank"
+            data-test="nav-go-nord-page-link"
+          >
+            ImageGoNord
+          </a>
+          <a href="https://github.com/Schrodinger-Hat" target="_blank" data-test="nav-github-page-link">
             <i class="fab fa-github" />
           </a>
-          <button class="hamburger-none-md" @click="toggleMobileMenu()">
+          <button class="hamburger-none-md" data-test="nav-burger-menu-cta" @click="toggleMobileMenu()">
             <i class="fas fa-hamburger" />
           </button>
-          <button @click="toggleDark()">
+          <button data-test="nav-theme-cta" @click="toggleDark()">
             <i class="fas" :class="themeIcon" />
           </button>
         </div>
       </nav>
     </div>
     <MobileMenu
+      data-test="mobile-menu"
       :show-mobile-menu="showMobileMenu"
       :smaller-than-lg="smallerThanLg"
       @on-close-menu="toggleMobileMenu()"
