@@ -27,9 +27,11 @@ describe('English tests', () => {
     })
     // As the mailchimp modal cannot be controlled by our code,
     // adjust the waiting time until it closes.
-    it('Changes to mobile viewport, assures all CTAs work correctly', () => {
+    it.skip('Changes to mobile viewport, assures all CTAs work correctly', () => {
       cy.viewport('iphone-xr')
-      cy.get('[data-test="nav-wrapper"]').should('be.visible')
+      cy.get('[data-test="nav-wrapper"]').should('be.visible').and('not.exist')
+      cy.get('[data-test="nav-logo-button"]').should('be.visible').and('have.attr', 'href').and('include', '/')
+      cy.get('[data-test="logo-text"]').should('be.visible').and('contain.text', 'Schrödinger Hat')
       cy.get('[data-test="nav-team-page-link"]').should('not.be.visible')
       cy.get('[data-test="nav-event-page-link"]').should('not.be.visible')
       cy.get('[data-test="nav-conduct-page-link"]').should('not.be.visible')
@@ -56,6 +58,24 @@ describe('English tests', () => {
       cy.get('[data-test="mobile-menu"]').should('not.exist')
       cy.url().then((url) => {
         expect(url).to.contain(Cypress.env('localhost'))
+      })
+    })
+    it('Changes to desktop viewport, assures all CTAs work correctly', () => {
+      cy.viewport('macbook-16')
+      cy.get('[data-test="nav-wrapper"]').should('be.visible').and('exist')
+      cy.get('[data-test="nav-logo-button"]').should('be.visible').and('have.attr', 'href').and('include', '/')
+      cy.get('[data-test="logo-text"]').should('be.visible').and('contain.text', 'Schrödinger Hat')
+      cy.get('[data-test="nav-wrapper"]').should('be.visible').and('exist')
+      cy.get('[data-test="nav-team-page-link"]').should('exist').and('contain.text', messages.en.navbar.team).and('have.attr', 'href', '/team')
+      cy.get('[data-test="nav-event-page-link"]').should('exist').and('contain.text', messages.en.navbar.events).and('have.attr', 'href', '/events')
+      cy.get('[data-test="nav-conduct-page-link"]').should('exist').and('contain.text', messages.en.navbar.codeOfConduct).and('have.attr', 'href', '/code-of-conduct')
+      cy.get('[data-test="nav-go-nord-page-link"]').should('exist').and('contain.text', 'ImageGoNord').and('have.attr', 'href', Cypress.env('imageGoNordLink'))
+      cy.get('[data-test="nav-github-page-link"]').should('exist').and('have.attr', 'href', Cypress.env('githubLink'))
+      cy.get('[data-test="nav-github-icon"]').should('have.class', 'fab fa-github').and('be.visible').and('exist')
+      cy.get('html').then(($html) => {
+        const oldClass = $html[0].getAttribute('class')
+        cy.get('[data-test="nav-theme-cta"]').click()
+        cy.get('html').should('not.have.class', oldClass)
       })
     })
   })

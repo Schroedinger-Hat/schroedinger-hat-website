@@ -42,13 +42,13 @@ const [showMobileMenu, toggleMobileMenu] = useToggle()
             ImageGoNord
           </a>
           <a href="https://github.com/Schrodinger-Hat" target="_blank" data-test="nav-github-page-link">
-            <i class="fab fa-github" />
+            <i class="fab fa-github" data-test="nav-github-icon" />
           </a>
           <button class="hamburger-none-md" data-test="nav-burger-menu-cta" @click="toggleMobileMenu()">
-            <i class="fas fa-hamburger" />
+            <i class="fas fa-hamburger" data-test="nav-hamburget-icon" />
           </button>
           <button data-test="nav-theme-cta" @click="toggleDark()">
-            <i class="fas" :class="themeIcon" />
+            <i class="fas" :class="themeIcon" data-test="nav-theme-icon" />
           </button>
         </div>
       </nav>
