@@ -9,6 +9,10 @@ const { t } = useI18n()
 <template>
   <div class="teamList" data-test="team-list">
     <div class="container">
+      <div class="headline">
+        <h1>Schrödinger Hat's fam</h1>
+      </div>
+      <!-- change - text moved out of grid el -->
       <div class="content">
         <div class="headline">
           <h1 data-test="team-list-header">
@@ -66,10 +70,7 @@ const { t } = useI18n()
                   <i class="mobile-menu-icon fa fa-cloud" />
                 </a>
               </div>
-              <p
-                :data-test="`team-member-${member}-description`"
-                v-html="$t(`team.${member}.description`)"
-              />
+
               <router-link
                 :data-test="`team-member-${member}-page-link`"
                 :to="{ name: 'TeamMember', params: { member } }"
@@ -96,18 +97,25 @@ $color_grey: $nord4;
 $color_grey_dark: $nord2;
 
 .teamList {
-  .content {
-    padding: 1.5em 3em;
-  }
-
-  .headline {
+  .headline { //change - text moved out of grid and centered
     margin: auto;
     max-width: 700px;
+    text-align: center; 
+  }
+  .content {
+    padding: 1.5em 3em;
+
+    //change - grid
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
   }
 
+
   .blog-card {
-    display: flex;
-    flex-direction: column;
+    // display: flex;
+    // flex-direction: column;
+    //change - to delete, all el in card on y-axis
     margin: 1rem auto;
     box-shadow: 0 3px 7px -1px rgba(#000, 0.1);
     margin-bottom: 1.6%;
@@ -128,11 +136,16 @@ $color_grey_dark: $nord2;
       border-radius: 100%;
       text-align: center;
       margin: 2em auto 0;
+
+      //change - center photo into card
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
     .photo {
       border-radius: 100%;
-      width: 128px;
-      height: 128px;
+      width: 128px; //change - increase dimension
+      height: 128px; //change - increase dimension
       display: block;
       background-size: cover;
       background-position: center;
@@ -140,8 +153,8 @@ $color_grey_dark: $nord2;
 
     .photo-secondary {
       border-radius: 100%;
-      width: 128px;
-      height: 128px;
+      width: 128px; //change - increase dimension
+      height: 128px; //change - increase dimension
       display: none;
       background-size: cover;
       background-position: center;
@@ -160,6 +173,10 @@ $color_grey_dark: $nord2;
       padding: 2rem;
       position: relative;
       z-index: 1;
+
+      //change
+      text-align: center;
+
       h1,
       h2,
       p {
@@ -187,33 +204,31 @@ $color_grey_dark: $nord2;
       }
     }
 
-    @media (min-width: 640px) {
-      flex-direction: row;
-      max-width: 700px;
-      height: auto;
-      justify-content: space-around;
-      align-items: center;
-      align-content: space-between;
-      .meta {
-        flex-basis: auto;
-        height: auto;
-      }
-      .description {
-        flex-basis: 60%;
-      }
-      &.alt {
-        flex-direction: row-reverse;
-        .description {
-          &:before {
-            left: inherit;
-            right: -10px;
-            transform: skew(3deg);
-          }
-        }
-      }
-    }
   }
 }
+
+//change - responsove design added for tablet (ts-md)
+@media (min-width: 640px) {
+
+  .teamList{
+    .content {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+  }
+}
+
+//change - responsove design added for tablet (ts-lg)
+@media (min-width: 1024px) {
+  .teamList{
+    .content {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  
+  }
+
+}
+
 
 .#{$dark-mode-class} {
   .blog-card {
