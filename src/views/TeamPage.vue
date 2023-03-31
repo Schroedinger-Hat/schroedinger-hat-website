@@ -138,11 +138,20 @@ $color_grey_dark: $nord2;
     }
 
     .socialIcons {
-      padding: .2em 0;
+      padding: 1em; //a little increase
 
       a {
         display: inline-block;
         margin: 0.2em;
+
+        //change - add hover effect on social icons
+        .mobile-menu-icon {
+          font-size: 1.2em; //a little increase
+        }
+        
+        &:hover .mobile-menu-icon {
+          color: #dc0b11; //to save into variable
+        }
       }
     }
 
