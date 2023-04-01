@@ -4,12 +4,19 @@ import messages from '@/i18n/messages'
 describe('English tests', {
   env: {
     // Modify with your local environment url
+    discordURL: 'https://discord.gg/RTXr8A3eFn',
+    facebookURL: 'https://www.facebook.com/schrodingerhat',
+    githubURL: 'https://github.com/Schrodinger-Hat',
+    githubWebsiteRepoURL: 'https://github.com/Schrodinger-Hat/schrodinger-hat-website/issues/new/choose',
+    imageGoNordURL: 'https://ign.schrodinger-hat.it',
+    instagramURL: 'https://www.instagram.com/schrodinger_hat/',
+    linkedinURL: 'https://www.linkedin.com/company/schrodinger-hat/',
     localhost: 'http://localhost:5173',
-    githubLink: 'https://github.com/Schrodinger-Hat',
-    imageGoNordLink: 'https://ign.schrodinger-hat.it',
-    youtube: 'https://www.youtube.com/channel/UC1QLLgrGrPmlaFhS0orykCA',
-    spotify: 'https://open.spotify.com/show/7yfkQCV6hrPIqflSqJDB2P',
-    openCollective: 'https://opencollective.com/schrodinger-hat',
+    openCollectiveURL: 'https://opencollective.com/schrodinger-hat',
+    spotifyURL: 'https://open.spotify.com/show/7yfkQCV6hrPIqflSqJDB2P',
+    twitterURL: 'https://twitter.com/schrodinger_hat',
+    youtubeURL: 'https://www.youtube.com/channel/UC1QLLgrGrPmlaFhS0orykCA',
+
   },
 }, () => {
   beforeEach(() => {
@@ -37,7 +44,7 @@ describe('English tests', {
       cy.get('[data-test="nav-event-page-link"]').should('not.be.visible')
       cy.get('[data-test="nav-conduct-page-link"]').should('not.be.visible')
       cy.get('[data-test="nav-go-nord-page-link"]').should('not.be.visible')
-      cy.get('[data-test="nav-github-page-link"]').should('have.attr', 'href').and('include', Cypress.env('githubLink'))
+      cy.get('[data-test="nav-github-page-link"]').should('have.attr', 'href').and('include', Cypress.env('githubURL'))
       cy.get('html').then(($html) => {
         const oldClass = $html[0].getAttribute('class')
         cy.get('[data-test="nav-theme-cta"]').click()
@@ -53,7 +60,7 @@ describe('English tests', {
       cy.get('[data-test="mobile-github-page-link"]')
         .should('exist')
         .and('contain.text', 'GitHub')
-        .and('have.attr', 'href', Cypress.env('githubLink'))
+        .and('have.attr', 'href', Cypress.env('githubURL'))
         .and('have.attr', 'target', '_blank')
       cy.get('[data-test="mobile-team-page-link"]')
         .should('exist')
@@ -70,7 +77,7 @@ describe('English tests', {
       cy.get('[data-test="mobile-go-nord-page-link"]')
         .should('exist')
         .and('contain.text', 'ImageGoNord')
-        .and('have.attr', 'href', Cypress.env('imageGoNordLink'))
+        .and('have.attr', 'href', Cypress.env('imageGoNordURL'))
         .and('have.attr', 'target', '_blank')
       cy.get('[data-test="mobile-homepage-link"]').should('exist')
         .and('have.attr', 'href', '/').click()
@@ -100,11 +107,11 @@ describe('English tests', {
       cy.get('[data-test="nav-go-nord-page-link"]')
         .should('exist')
         .and('contain.text', 'ImageGoNord')
-        .and('have.attr', 'href', Cypress.env('imageGoNordLink'))
+        .and('have.attr', 'href', Cypress.env('imageGoNordURL'))
         .and('have.attr', 'target', '_blank')
       cy.get('[data-test="nav-github-page-link"]')
         .should('exist')
-        .and('have.attr', 'href', Cypress.env('githubLink'))
+        .and('have.attr', 'href', Cypress.env('githubURL'))
         .and('have.attr', 'target', '_blank')
       cy.get('[data-test="nav-github-icon"]').should('have.class', 'fab fa-github').and('be.visible').and('exist')
       cy.get('html').then(($html) => {
@@ -114,6 +121,134 @@ describe('English tests', {
       })
     })
   })
+  describe('Contributing section tests', () => {
+    it('Changes to mobile viewport and assures all elements are rendered correctly', () => {
+      cy.viewport('iphone-xr')
+      cy.get('[data-test="contributing-section"]').should('be.visible').and('exist').scrollIntoView()
+      // TODO: Rewrite test once nyan cat is disabled on mobile
+      cy.get('[data-test="nyan-cat"]').then(($element) => {
+        cy.wrap($element).should('not.have.class', 'loaded')
+        cy.wait(300)
+        cy.wrap($element).should('have.class', 'loaded')
+        cy.wait(8000)
+        cy.wrap($element).should('have.css', 'display', 'none')
+      })
+      cy.get('[data-test="contributing-title"]')
+        .should('be.visible')
+        .and('contain.text', messages.en.contributing.title)
+      cy.get('[data-test="contributing-description"]')
+        .should('be.visible')
+      // TODO: Fix this way of assuring the text exists
+        .and('contain.text', `Schrödinger Hat ${messages.en.contributing['is-a-project']} GitHub`)
+      cy.get('[data-test="contributing-github-link"]')
+        .should('be.visible')
+        .and('exist')
+        .and('have.attr', 'href', Cypress.env('githubURL'))
+        .and('have.attr', 'target', '_blank')
+      cy.get('[data-test="contributing-cta"]')
+        .should('exist')
+        .and('contain.text', `${messages.en.contributing.cta} ${messages.en.contributing['external-link']} ${messages.en.contributing['cta-2']}`)
+      cy.get('[data-test="contributing-github-website-link"]')
+        .should('be.visible')
+        .and('exist')
+        .and('have.attr', 'href', Cypress.env('githubWebsiteRepoURL'))
+        .and('have.attr', 'target', '_blank')
+      cy.get('[data-test="contributing-social"]').should('be.visible')
+    })
+    it('Changes to desktop viewport and assures all elements are rendered correctly', () => {
+      cy.viewport('macbook-16')
+      cy.get('[data-test="contributing-section"]').should('be.visible').and('exist').scrollIntoView()
+      // TODO: Rewrite test once nyan cat is disabled on mobile
+      cy.get('[data-test="nyan-cat"]').then(($element) => {
+        cy.wrap($element).should('not.have.class', 'loaded')
+        cy.wait(300)
+        cy.wrap($element).should('have.class', 'loaded')
+        cy.wait(8000)
+        cy.wrap($element).should('have.css', 'display', 'none')
+      })
+      cy.get('[data-test="contributing-title"]')
+        .should('be.visible')
+        .and('contain.text', messages.en.contributing.title)
+      cy.get('[data-test="contributing-description"]')
+        .should('be.visible')
+      // TODO: Fix this way of assuring the text exists
+        .and('contain.text', `Schrödinger Hat ${messages.en.contributing['is-a-project']} GitHub`)
+      cy.get('[data-test="contributing-github-link"]')
+        .should('be.visible')
+        .and('exist')
+        .and('have.attr', 'href', Cypress.env('githubURL'))
+        .and('have.attr', 'target', '_blank')
+      cy.get('[data-test="contributing-cta"]')
+        .should('exist')
+        .and('contain.text', `${messages.en.contributing.cta} ${messages.en.contributing['external-link']} ${messages.en.contributing['cta-2']}`)
+      cy.get('[data-test="contributing-github-website-link"]')
+        .should('be.visible')
+        .and('exist')
+        .and('have.attr', 'href', Cypress.env('githubWebsiteRepoURL'))
+        .and('have.attr', 'target', '_blank')
+      cy.get('[data-test="contributing-social"]').should('be.visible')
+    })
+    it('Assures all social CTAs are rendered correctly', () => {
+      cy.get('[data-test="contributing-social"]').should('be.visible').and('exist')
+      cy.get('[data-test="contributing-open-collective"]')
+        .should('exist')
+        .and('have.attr', 'href', Cypress.env('openCollectiveURL'))
+        .and('have.attr', 'target', '_blank')
+      cy.get('[data-test="contributing-open-collective-icon"]')
+        .should('be.visible')
+        .and('have.class', 'fas fa-donate external-link-color')
+      cy.get('[data-test="contributing-facebook"]')
+        .should('exist')
+        .and('have.attr', 'href', Cypress.env('facebookURL'))
+        .and('have.attr', 'target', '_blank')
+      cy.get('[data-test="contributing-facebook-icon"]')
+        .should('be.visible')
+        .and('have.class', 'fab fa-facebook external-link-color')
+      cy.get('[data-test="contributing-twitter"]')
+        .should('exist')
+        .and('have.attr', 'href', Cypress.env('twitterURL'))
+        .and('have.attr', 'target', '_blank')
+      cy.get('[data-test="contributing-twitter-icon"]')
+        .should('be.visible')
+        .and('have.class', 'fab fa-twitter external-link-color')
+      cy.get('[data-test="contributing-linkedin"]')
+        .should('exist')
+        .and('have.attr', 'href', Cypress.env('linkedinURL'))
+        .and('have.attr', 'target', '_blank')
+      cy.get('[data-test="contributing-linkedin-icon"]')
+        .should('be.visible')
+        .and('have.class', 'fab fa-linkedin external-link-color')
+      cy.get('[data-test="contributing-instagram"]')
+        .should('exist')
+        .and('have.attr', 'href', Cypress.env('instagramURL'))
+        .and('have.attr', 'target', '_blank')
+      cy.get('[data-test="contributing-instagram-icon"]')
+        .should('be.visible')
+        .and('have.class', 'fab fa-instagram external-link-color')
+      cy.get('[data-test="contributing-discord"]')
+        .should('exist')
+        .and('have.attr', 'href', Cypress.env('discordURL'))
+        .and('have.attr', 'target', '_blank')
+      cy.get('[data-test="contributing-discord-icon"]')
+        .should('be.visible')
+        .and('have.class', 'fab fa-discord external-link-color')
+    })
+    it('Assures all contributing partners are rendered correctly', () => {
+      cy.get('[data-test="contributing-partners-logo"]').should('be.visible')
+      cy.get('[data-test="contributing-partners-logo"] > a').then(($elements) => {
+        cy.wrap($elements)
+          .should('be.visible')
+          .should('not.have.attr', 'href', '')
+          .and('have.attr', 'target', '_blank')
+        cy.wrap($elements.children())
+          .should('be.visible')
+          .and('exist')
+          .and('not.have.attr', 'src', '')
+          .and('not.have.attr', 'alt', '')
+      })
+    })
+  })
+
   describe('Hero section tests', () => {
     it('Changes to mobile viewport, assures all elements are present', () => {
       cy.viewport('iphone-xr')
@@ -123,17 +258,17 @@ describe('English tests', {
       cy.get('[data-test="main-cta-youtube"]')
         .should('exist')
         .and('contain.text', messages.en.main.links.youtube)
-        .and('have.attr', 'href', Cypress.env('youtube'))
+        .and('have.attr', 'href', Cypress.env('youtubeURL'))
         .and('have.attr', 'target', '_blank')
       cy.get('[data-test="main-cta-spotify"]')
         .should('exist')
         .and('contain.text', messages.en.main.links.spotify)
-        .and('have.attr', 'href', Cypress.env('spotify'))
+        .and('have.attr', 'href', Cypress.env('spotifyURL'))
         .and('have.attr', 'target', '_blank')
       cy.get('[data-test="main-cta-open-collective"]')
         .should('exist')
         .and('contain.text', messages.en.main.links.openCollective)
-        .and('have.attr', 'href', Cypress.env('openCollective'))
+        .and('have.attr', 'href', Cypress.env('openCollectiveURL'))
         .and('have.attr', 'target', '_blank')
     })
     it('Changes to desktop viewport, assures all elements are present', () => {
@@ -144,17 +279,17 @@ describe('English tests', {
       cy.get('[data-test="main-cta-youtube"]')
         .should('exist')
         .and('contain.text', messages.en.main.links.youtube)
-        .and('have.attr', 'href', Cypress.env('youtube'))
+        .and('have.attr', 'href', Cypress.env('youtubeURL'))
         .and('have.attr', 'target', '_blank')
       cy.get('[data-test="main-cta-spotify"]')
         .should('exist')
         .and('contain.text', messages.en.main.links.spotify)
-        .and('have.attr', 'href', Cypress.env('spotify'))
+        .and('have.attr', 'href', Cypress.env('spotifyURL'))
         .and('have.attr', 'target', '_blank')
       cy.get('[data-test="main-cta-open-collective"]')
         .should('exist')
         .and('contain.text', messages.en.main.links.openCollective)
-        .and('have.attr', 'href', Cypress.env('openCollective'))
+        .and('have.attr', 'href', Cypress.env('openCollectiveURL'))
         .and('have.attr', 'target', '_blank')
     })
   })

@@ -2,69 +2,162 @@
 import NyanCat from '@/components/NyanCat.vue'
 import SeparatorSingleLine from '@/components/separator/SingleLine.vue'
 
-const SHGitHubRepo = 'https://github.com/Schrodinger-Hat'
+const SHGitHub = 'https://github.com/Schrodinger-Hat'
 const SHGitHubWebsiteRepo = 'https://github.com/Schrodinger-Hat/schrodinger-hat-website/issues/new/choose'
+// TODO: Have a global file that contains all the links
+// TODO: Add all possible texts to the messages file
 </script>
 
 <template>
-  <section class="contributing-container">
-    <NyanCat />
+  <section class="contributing-container" data-test="contributing-section">
+    <!-- TODO: Disable nyan cat in mobile -->
+    <NyanCat data-test="nyan-cat" />
     <SeparatorSingleLine />
     <div class="bg-secondary">
       <div class="container contributing-container-text">
         <div class="inner-text">
-          <h4>{{ $t('contributing.title') }}</h4>
-          <p>
+          <h4 data-test="contributing-title">
+            {{ $t('contributing.title') }}
+          </h4>
+          <p data-test="contributing-description">
+            <!-- TODO: Find a way to write this text better -->
             <b>Schrödinger Hat</b> {{ $t('contributing.is-a-project') }}
-            <a class="external-link-color" :href="SHGitHubRepo" target="_blank">GitHub</a>.
+            <a
+              data-test="contributing-github-link"
+              class="external-link-color"
+              :href="SHGitHub"
+              target="_blank"
+            >GitHub
+            </a>.
           </p>
-          <p>
+          <p data-test="contributing-cta">
             {{ $t('contributing.cta') }}
-            <a class="external-link-color" target="_blank" :href="SHGitHubWebsiteRepo">
+            <a
+              data-test="contributing-github-website-link"
+              class="external-link-color"
+              target="_blank"
+              :href="SHGitHubWebsiteRepo"
+            >
               {{ $t('contributing.external-link') }}
             </a>
             <br>
             {{ $t('contributing.cta-2') }}
           </p>
-          <p class="social">
-            <a href="https://opencollective.com/schrodinger-hat" target="_blank">
-              <i class="fas fa-donate external-link-color" />
+          <div class="social" data-test="contributing-social">
+            <!-- TODO: Create a v-for with all these links -->
+            <a
+              data-test="contributing-open-collective"
+              href="https://opencollective.com/schrodinger-hat"
+              target="_blank"
+            >
+              <i
+                data-test="contributing-open-collective-icon"
+                class="fas fa-donate external-link-color"
+              />
             </a>
-            <a href="https://www.facebook.com/schrodingerhat" target="_blank">
-              <i class="fab fa-facebook external-link-color" />
+            <a
+              data-test="contributing-facebook"
+              href="https://www.facebook.com/schrodingerhat"
+              target="_blank"
+            >
+              <i
+                data-test="contributing-facebook-icon"
+                class="fab fa-facebook external-link-color"
+              />
             </a>
-            <a href="https://twitter.com/schrodinger_hat" target="_blank">
-              <i class="fab fa-twitter external-link-color" />
+            <a
+              data-test="contributing-twitter"
+              href="https://twitter.com/schrodinger_hat"
+              target="_blank"
+            >
+              <i
+                data-test="contributing-twitter-icon"
+                class="fab fa-twitter external-link-color"
+              />
             </a>
-            <a href="https://www.linkedin.com/company/schrodinger-hat/" target="_blank">
-              <i class="fab fa-linkedin external-link-color" />
+            <a
+              data-test="contributing-linkedin"
+              href="https://www.linkedin.com/company/schrodinger-hat/"
+              target="_blank"
+            >
+              <i
+                data-test="contributing-linkedin-icon"
+                class="fab fa-linkedin external-link-color"
+              />
             </a>
-            <a href="https://www.instagram.com/schrodinger_hat/" target="_blank">
-              <i class="fab fa-instagram external-link-color" />
+            <a
+              data-test="contributing-instagram"
+              href="https://www.instagram.com/schrodinger_hat/"
+              target="_blank"
+            >
+              <i
+
+                data-test="contributing-instagram-icon"
+                class="fab fa-instagram external-link-color"
+              />
             </a>
-            <a href="https://discord.gg/RTXr8A3eFn" target="_blank">
-              <i class="fab fa-discord external-link-color" />
+            <a
+              data-test="contributing-discord"
+              href="https://discord.gg/RTXr8A3eFn" target="_blank"
+            >
+              <i
+                data-test="contributing-discord-icon"
+                class="fab fa-discord external-link-color"
+              />
             </a>
-          </p>
+          </div>
         </div>
-        <div class="inner-text">
-          <h4 style="padding: 15px 0">
+        <div class="inner-text" data-test="contributing-partners">
+          <!-- TODO: Add title to messages -->
+          <h4 style="padding: 15px 0" data-test="contributing-partners-title">
             Community Partners
           </h4>
-          <div class="partner-image">
-            <a href="https://www.grusp.org/" target="_blank" class="sponsor-image">
-              <img width="125" src="/img/grusp-logo.png" alt="Grusp Logo">
+          <div class="partner-image" data-test="contributing-partners-logo">
+            <!-- TODO: Create a v-for with all the partners maybe a file also -->
+            <a
+              href="https://www.grusp.org/"
+              target="_blank"
+              class="sponsor-image"
+            >
+              <img
+                width="125"
+                src="/img/grusp-logo.png"
+                alt="Grusp Logo"
+              >
             </a>
-            <a href="https://pisa.dev/" target="_blank" class="sponsor-image">
+            <a
+              href="https://pisa.dev/"
+              target="_blank"
+              class="sponsor-image"
+            >
               <img width="200" src="/img/pisa-dev.svg" alt="Pisa.Dev Logo">
             </a>
-            <a href="https://www.theredcode.it/" target="_blank" class="sponsor-image">
-              <img width="125" src="/img/the-red-code-logo.png" alt="The Red Code Logo">
+            <a
+              href="https://www.theredcode.it/"
+              target="_blank"
+              class="sponsor-image"
+            >
+              <img
+                width="125"
+                src="/img/the-red-code-logo.png"
+                alt="The Red Code Logo"
+              >
             </a>
-            <a href="https://www.wearedevelopers.com/" target="_blank" class="sponsor-image">
-              <img width="200" src="/img/WeAreDevelopers_logo.svg" alt="WeAreDevelopers Logo">
+            <a
+              href="https://www.wearedevelopers.com/"
+              target="_blank" class="sponsor-image"
+            >
+              <img
+                width="200"
+                src="/img/WeAreDevelopers_logo.svg"
+                alt="WeAreDevelopers Logo"
+              >
             </a>
-            <a href="https://www.pignolalug.it/" target="_blank" rel="noreferrer">
+            <a
+              href="https://www.pignolalug.it/"
+              target="_blank"
+              rel="noreferrer"
+            >
               <img width="125" src="/img/plug_logo.svg" alt="Plug">
             </a>
           </div>
