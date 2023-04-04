@@ -293,7 +293,8 @@ const messages = {
       },
     },
     redirect: {
-      profile: 'Check out the user\'s profile',
+      profile: 'Some facts about me',
+      //change - TBD new copy
     },
     team: {
       mikilombardi: {

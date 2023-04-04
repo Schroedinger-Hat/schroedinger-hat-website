@@ -173,7 +173,7 @@ $color_grey_dark: $nord2;
         }
         
         &:hover .mobile-menu-icon {
-          color: #dc0b11; //to save into variable
+          color: #2e3440; //to save into variable
         }
       }
     }
@@ -201,8 +201,19 @@ $color_grey_dark: $nord2;
         font-weight: 300;
         margin-top: 5px;
       }
-      .user-profile-link {
+      .user-profile-link { //change - new colors TDB for palette
         font-weight: bold;
+        border: 1px solid transparent;
+        background-color: #586379;
+        color: #fff;
+        width: fit-content;
+        margin: 0 auto;
+        padding: 5px 15px;
+        border-radius: 999px;
+
+        &:hover {
+          background-color: #2e3440;
+        }
       }
     }
     p {
@@ -252,6 +263,14 @@ $color_grey_dark: $nord2;
       }
       &:before {
         background: $nord2;
+      }
+
+      .user-profile-link { //change - add colors for dark mode
+        background-color: #2e3440;
+
+        &:hover {
+          background-color: #586379;
+        }
       }
     }
   }
