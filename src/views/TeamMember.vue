@@ -71,12 +71,20 @@ onMounted(() => {
   }
 }
 
-.socialIcons {
-  padding: .2em 0;
+.socialIcons { //change - aligned to changes in team-member page
+  padding: 1em; 
 
   a {
     display: inline-block;
     margin: 0.2em;
+
+    .mobile-menu-icon {
+      font-size: 1.2em; 
+    }
+    
+    &:hover .mobile-menu-icon {
+      color: #2e3440;
+    }
   }
 }
 
@@ -95,6 +103,17 @@ onMounted(() => {
         }
       }
     }
+  }
+}
+
+.#{$dark-mode-class} { //change - aligned to changes in team-member page  
+  .socialIcons { //change - aligned to changes in team-member page  
+    a {
+      &:hover .mobile-menu-icon {
+        color: #586379;
+      }
+
+    }  
   }
 }
 </style>
