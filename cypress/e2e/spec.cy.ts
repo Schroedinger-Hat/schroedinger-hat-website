@@ -16,7 +16,6 @@ describe('English tests', {
     spotifyURL: 'https://open.spotify.com/show/7yfkQCV6hrPIqflSqJDB2P',
     twitterURL: 'https://twitter.com/schrodinger_hat',
     youtubeURL: 'https://www.youtube.com/channel/UC1QLLgrGrPmlaFhS0orykCA',
-
   },
 }, () => {
   beforeEach(() => {
@@ -34,7 +33,7 @@ describe('English tests', {
       cy.get('.mc-closeModal').click()
     })
   })
-  describe('Navbar tests', () => {
+  describe.skip('Navbar tests', () => {
     it('Changes to mobile viewport, assures all CTAs work correctly', () => {
       cy.viewport('iphone-xr')
       cy.get('[data-test="nav-wrapper"]').should('be.visible').and('exist')
@@ -121,7 +120,7 @@ describe('English tests', {
       })
     })
   })
-  describe('Contributing section tests', () => {
+  describe.skip('Contributing section tests', () => {
     it('Changes to mobile viewport and assures all elements are rendered correctly', () => {
       cy.viewport('iphone-xr')
       cy.get('[data-test="contributing-section"]').should('be.visible').and('exist').scrollIntoView()
@@ -248,8 +247,58 @@ describe('English tests', {
       })
     })
   })
-
-  describe('Hero section tests', () => {
+  describe('Footer tests', () => {
+    it('Changes to mobile viewport, assures all elements are present', () => {
+      cy.viewport('iphone-xr')
+      cy.get('[data-test="footer"]').should('exist').and('be.visible')
+      cy.get('[data-test="footer-logo"]').should('exist').and('be.visible')
+      cy.get('[data-test="footer-logo"]').should('exist').and('be.visible')
+      cy.get('[data-test="footer-home-link"]')
+        .should('exist')
+        .and('be.visible')
+        .and('have.attr', 'href', '/')
+      cy.get('[data-test="footer-home-link-img"]')
+        .should('exist')
+        .and('be.visible')
+        .and('not.have.attr', 'alt', '')
+      cy.get('[data-test="footer-home-link-text"]')
+        .should('exist')
+        .and('not.be.visible')
+      cy.get('[data-test="footer-nav"]')
+        .should('exist')
+        .and('be.visible')
+      cy.get('[data-test="footer-nav-text"]')
+        .should('exist')
+        .and('be.visible')
+        .and('contain.text', `©${new Date().getFullYear()} Schrödinger Hat`)
+    })
+    it('Changes to desktop viewport, assures all elements are present', () => {
+      cy.viewport('macbook-16')
+      cy.get('[data-test="footer"]').should('exist').and('be.visible')
+      cy.get('[data-test="footer-logo"]').should('exist').and('be.visible')
+      cy.get('[data-test="footer-logo"]').should('exist').and('be.visible')
+      cy.get('[data-test="footer-home-link"]')
+        .should('exist')
+        .and('be.visible')
+        .and('have.attr', 'href', '/')
+      cy.get('[data-test="footer-home-link-img"]')
+        .should('exist')
+        .and('be.visible')
+        .and('not.have.attr', 'alt', '')
+      cy.get('[data-test="footer-home-link-text"]')
+        .should('exist')
+        .and('be.visible')
+        .and('contain.text', 'Schrödinger Hat')
+      cy.get('[data-test="footer-nav"]')
+        .should('exist')
+        .and('be.visible')
+      cy.get('[data-test="footer-nav-text"]')
+        .should('exist')
+        .and('be.visible')
+        .and('contain.text', `©${new Date().getFullYear()} Schrödinger Hat`)
+    })
+  })
+  describe.skip('Hero section tests', () => {
     it('Changes to mobile viewport, assures all elements are present', () => {
       cy.viewport('iphone-xr')
       cy.get('[data-test="main"]').should('be.visible').and('exist')

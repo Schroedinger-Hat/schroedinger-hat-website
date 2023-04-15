@@ -3,19 +3,19 @@ import SeparatorTripleLine from '@/components/separator/TripleLine.vue'
 </script>
 
 <template>
-  <footer>
+  <footer data-test="footer">
     <SeparatorTripleLine />
     <div class="footer-container container">
       <div class="inner-footer-container">
-        <div class="logo">
-          <router-link to="/">
-            <img alt="SH logo" width="36" src="../../assets/logo-64.png">
-            <span>S<i class="title-part-1">chrödinger</i> H<i class="title-part-2">at</i></span>
+        <div data-test="footer-logo" class="logo">
+          <router-link data-test="footer-home-link" :to="{ name: 'Home' }">
+            <img data-test="footer-home-link-img" alt="SH logo" width="36" src="@/assets/logo-64.png">
+            <span data-test="footer-home-link-text">S<i class="title-part-1">chrödinger</i> H<i class="title-part-2">at</i></span>
           </router-link>
         </div>
         <nav>
-          <div class="navbar">
-            <span>&copy;{{ new Date().getFullYear() }} Schrödinger Hat</span>
+          <div class="navbar" data-test="footer-nav">
+            <span class="footer-nav-text" data-test="footer-nav-text">&copy;{{ new Date().getFullYear() }} Schrödinger Hat</span>
           </div>
         </nav>
       </div>
