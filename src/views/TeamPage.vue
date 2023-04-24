@@ -16,6 +16,7 @@ const { t } = useI18n()
           </h1>
         </div>
         <div v-for="member in team" :key="member" data-test="team-list">
+          <!-- TODO: Transform this into a component -->
           <div
             class="blog-card"
             data-test="team-card"

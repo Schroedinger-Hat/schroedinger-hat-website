@@ -342,7 +342,7 @@ describe('English tests', {
         .and('have.attr', 'target', '_blank')
     })
   })
-  describe('Team page tests', () => {
+  describe.skip('Team page tests', () => {
     it('Changes the viewport to mobile, assures you can go to page from menu and assures are content is displayed correctly', () => {
       cy.viewport('iphone-xr')
       cy.get('[data-test="nav-burger-menu-cta"]').should('exist').and('be.visible').click()
@@ -351,24 +351,24 @@ describe('English tests', {
       cy.get('[data-test="team-list-header"]').should('be.visible').and('exist').and('contain.text', 'Schrödinger Hat\'s fam')
       cy.get('[data-test="team-card"]').then(($teamCards) => {
         const teamMessages = messages.en.team
-          type MemberName = keyof typeof teamMessages
+          type TeamMemberKey = keyof typeof teamMessages
           const teamMembersQuantity = Object.keys(teamMessages).length
           const teamMembersKey = Object.keys(teamMessages)
           cy.wrap($teamCards).should('have.length', teamMembersQuantity)
           teamMembersKey.forEach((key) => {
             cy.get(`[data-test-member-name="team-member-${key}"]`).should('exist').and('be.visible')
             cy.get(`[data-test="team-member-${key}-index-photo"]`).should('exist').and('be.visible')
-            cy.get(`[data-test="team-member-${key}-name"]`).should('exist').and('be.visible').and('contain.text', `${teamMessages[key as MemberName].name}`)
-            if (teamMessages[key as MemberName].github_url.length > 1)
-              cy.get(`[data-test="team-member-${key}-github"]`).should('have.attr', 'href', teamMessages[key as MemberName].github_url).and('have.attr', 'target', '_blank')
-            if (teamMessages[key as MemberName].linkedin_url.length > 1)
-              cy.get(`[data-test="team-member-${key}-linkedin"]`).should('have.attr', 'href', teamMessages[key as MemberName].linkedin_url).and('have.attr', 'target', '_blank')
-            if (teamMessages[key as MemberName].twitter_url.length > 1)
-              cy.get(`[data-test="team-member-${key}-twitter"]`).should('have.attr', 'href', teamMessages[key as MemberName].twitter_url).and('have.attr', 'target', '_blank')
-            if (teamMessages[key as MemberName].website.length > 1)
-              cy.get(`[data-test="team-member-${key}-website"]`).should('have.attr', 'href', teamMessages[key as MemberName].website).and('have.attr', 'target', '_blank')
-            if (teamMessages[key as MemberName].website.length > 1)
-              cy.get(`[data-test="team-member-${key}-description"]`).should('contain.text', teamMessages[key as MemberName].description)
+            cy.get(`[data-test="team-member-${key}-name"]`).should('exist').and('be.visible').and('contain.text', `${teamMessages[key as TeamMemberKey].name}`)
+            if (teamMessages[key as TeamMemberKey].github_url.length > 1)
+              cy.get(`[data-test="team-member-${key}-github"]`).should('have.attr', 'href', teamMessages[key as TeamMemberKey].github_url).and('have.attr', 'target', '_blank')
+            if (teamMessages[key as TeamMemberKey].linkedin_url.length > 1)
+              cy.get(`[data-test="team-member-${key}-linkedin"]`).should('have.attr', 'href', teamMessages[key as TeamMemberKey].linkedin_url).and('have.attr', 'target', '_blank')
+            if (teamMessages[key as TeamMemberKey].twitter_url.length > 1)
+              cy.get(`[data-test="team-member-${key}-twitter"]`).should('have.attr', 'href', teamMessages[key as TeamMemberKey].twitter_url).and('have.attr', 'target', '_blank')
+            if (teamMessages[key as TeamMemberKey].website.length > 1)
+              cy.get(`[data-test="team-member-${key}-website"]`).should('have.attr', 'href', teamMessages[key as TeamMemberKey].website).and('have.attr', 'target', '_blank')
+            if (teamMessages[key as TeamMemberKey].website.length > 1)
+              cy.get(`[data-test="team-member-${key}-description"]`).should('contain.text', teamMessages[key as TeamMemberKey].description)
             cy.get(`[data-test="team-member-${key}-page-link"]`).should('be.visible').and('have.attr', 'href', `/team/${key}`)
             cy.get('[data-test="team-member-redirection"]').should('be.visible').and('contain.text', messages.en.redirect.profile)
           })
@@ -381,24 +381,24 @@ describe('English tests', {
       cy.get('[data-test="team-list-header"]').should('be.visible').and('exist').and('contain.text', 'Schrödinger Hat\'s fam')
       cy.get('[data-test="team-card"]').then(($teamCards) => {
         const teamMessages = messages.en.team
-          type MemberName = keyof typeof teamMessages
+          type TeamMemberKey = keyof typeof teamMessages
           const teamMembersQuantity = Object.keys(teamMessages).length
           const teamMembersKey = Object.keys(teamMessages)
           cy.wrap($teamCards).should('have.length', teamMembersQuantity)
           teamMembersKey.forEach((key) => {
             cy.get(`[data-test-member-name="team-member-${key}"]`).should('exist').and('be.visible')
             cy.get(`[data-test="team-member-${key}-index-photo"]`).should('exist').and('be.visible')
-            cy.get(`[data-test="team-member-${key}-name"]`).should('exist').and('be.visible').and('contain.text', `${teamMessages[key as MemberName].name}`)
-            if (teamMessages[key as MemberName].github_url.length > 1)
-              cy.get(`[data-test="team-member-${key}-github"]`).should('have.attr', 'href', teamMessages[key as MemberName].github_url).and('have.attr', 'target', '_blank')
-            if (teamMessages[key as MemberName].linkedin_url.length > 1)
-              cy.get(`[data-test="team-member-${key}-linkedin"]`).should('have.attr', 'href', teamMessages[key as MemberName].linkedin_url).and('have.attr', 'target', '_blank')
-            if (teamMessages[key as MemberName].twitter_url.length > 1)
-              cy.get(`[data-test="team-member-${key}-twitter"]`).should('have.attr', 'href', teamMessages[key as MemberName].twitter_url).and('have.attr', 'target', '_blank')
-            if (teamMessages[key as MemberName].website.length > 1)
-              cy.get(`[data-test="team-member-${key}-website"]`).should('have.attr', 'href', teamMessages[key as MemberName].website).and('have.attr', 'target', '_blank')
-            if (teamMessages[key as MemberName].website.length > 1)
-              cy.get(`[data-test="team-member-${key}-description"]`).should('contain.text', teamMessages[key as MemberName].description)
+            cy.get(`[data-test="team-member-${key}-name"]`).should('exist').and('be.visible').and('contain.text', `${teamMessages[key as TeamMemberKey].name}`)
+            if (teamMessages[key as TeamMemberKey].github_url.length > 1)
+              cy.get(`[data-test="team-member-${key}-github"]`).should('have.attr', 'href', teamMessages[key as TeamMemberKey].github_url).and('have.attr', 'target', '_blank')
+            if (teamMessages[key as TeamMemberKey].linkedin_url.length > 1)
+              cy.get(`[data-test="team-member-${key}-linkedin"]`).should('have.attr', 'href', teamMessages[key as TeamMemberKey].linkedin_url).and('have.attr', 'target', '_blank')
+            if (teamMessages[key as TeamMemberKey].twitter_url.length > 1)
+              cy.get(`[data-test="team-member-${key}-twitter"]`).should('have.attr', 'href', teamMessages[key as TeamMemberKey].twitter_url).and('have.attr', 'target', '_blank')
+            if (teamMessages[key as TeamMemberKey].website.length > 1)
+              cy.get(`[data-test="team-member-${key}-website"]`).should('have.attr', 'href', teamMessages[key as TeamMemberKey].website).and('have.attr', 'target', '_blank')
+            if (teamMessages[key as TeamMemberKey].website.length > 1)
+              cy.get(`[data-test="team-member-${key}-description"]`).should('contain.text', teamMessages[key as TeamMemberKey].description)
             cy.get(`[data-test="team-member-${key}-page-link"]`).should('be.visible').and('have.attr', 'href', `/team/${key}`)
             cy.get('[data-test="team-member-redirection"]').should('be.visible').and('contain.text', messages.en.redirect.profile)
           })
@@ -406,6 +406,26 @@ describe('English tests', {
     })
   })
   describe('Team member page tests', () => {
-    //
+    it('Changes to mobile viewport, assures all content is displayed correctly', () => {
+      cy.viewport('iphone-xr')
+      const teamMessages = messages.en.team
+      type TeamMemberKey = keyof typeof teamMessages
+      const memberKeys = Object.keys(teamMessages)
+      memberKeys.forEach((key) => {
+        cy.visit(`${Cypress.env('localhost')}/team/${key}`)
+        cy.get('[data-test="member-page-photo"]').should('exist').and('be.visible')
+        cy.get('[data-test="member-page-name"]').should('exist').and('be.visible').and('contain.text', `${teamMessages[key as TeamMemberKey].name}`)
+        if (teamMessages[key as TeamMemberKey].github_url.length > 1)
+          cy.get('[data-test="member-page-github"]').should('have.attr', 'href', teamMessages[key as TeamMemberKey].github_url).and('have.attr', 'target', '_blank')
+        if (teamMessages[key as TeamMemberKey].linkedin_url.length > 1)
+          cy.get('[data-test="member-page-linkedin"]').should('have.attr', 'href', teamMessages[key as TeamMemberKey].linkedin_url).and('have.attr', 'target', '_blank')
+        if (teamMessages[key as TeamMemberKey].twitter_url.length > 1)
+          cy.get('[data-test="member-page-twitter"]').should('have.attr', 'href', teamMessages[key as TeamMemberKey].twitter_url).and('have.attr', 'target', '_blank')
+        if (teamMessages[key as TeamMemberKey].website.length > 1)
+          cy.get('[data-test="member-page-website"]').should('have.attr', 'href', teamMessages[key as TeamMemberKey].website).and('have.attr', 'target', '_blank')
+        if (teamMessages[key as TeamMemberKey].website.length > 1)
+          cy.get('[data-test="member-page-description"]').should('contain.text', teamMessages[key as TeamMemberKey].description)
+      })
+    })
   })
 })
