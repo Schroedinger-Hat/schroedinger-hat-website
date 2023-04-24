@@ -427,5 +427,26 @@ describe('English tests', {
           cy.get('[data-test="member-page-description"]').should('contain.text', teamMessages[key as TeamMemberKey].description)
       })
     })
+    it('Changes to desktop viewport, assures all content is displayed correctly', () => {
+      cy.viewport('macbook-16')
+      const teamMessages = messages.en.team
+      type TeamMemberKey = keyof typeof teamMessages
+      const memberKeys = Object.keys(teamMessages)
+      memberKeys.forEach((key) => {
+        cy.visit(`${Cypress.env('localhost')}/team/${key}`)
+        cy.get('[data-test="member-page-photo"]').should('exist').and('be.visible')
+        cy.get('[data-test="member-page-name"]').should('exist').and('be.visible').and('contain.text', `${teamMessages[key as TeamMemberKey].name}`)
+        if (teamMessages[key as TeamMemberKey].github_url.length > 1)
+          cy.get('[data-test="member-page-github"]').should('have.attr', 'href', teamMessages[key as TeamMemberKey].github_url).and('have.attr', 'target', '_blank')
+        if (teamMessages[key as TeamMemberKey].linkedin_url.length > 1)
+          cy.get('[data-test="member-page-linkedin"]').should('have.attr', 'href', teamMessages[key as TeamMemberKey].linkedin_url).and('have.attr', 'target', '_blank')
+        if (teamMessages[key as TeamMemberKey].twitter_url.length > 1)
+          cy.get('[data-test="member-page-twitter"]').should('have.attr', 'href', teamMessages[key as TeamMemberKey].twitter_url).and('have.attr', 'target', '_blank')
+        if (teamMessages[key as TeamMemberKey].website.length > 1)
+          cy.get('[data-test="member-page-website"]').should('have.attr', 'href', teamMessages[key as TeamMemberKey].website).and('have.attr', 'target', '_blank')
+        if (teamMessages[key as TeamMemberKey].website.length > 1)
+          cy.get('[data-test="member-page-description"]').should('contain.text', teamMessages[key as TeamMemberKey].description)
+      })
+    })
   })
 })
