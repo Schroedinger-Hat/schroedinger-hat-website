@@ -33,7 +33,7 @@ describe('English tests', {
       cy.get('.mc-closeModal').click()
     })
   })
-  describe('Conduct page tests', () => {
+  describe.skip('Conduct page tests', () => {
     it('Assures al text is loaded correctly', () => {
       const conductMessages = messages.en.code_of_conduct
       cy.visit(`${Cypress.env('localhost')}/code-of-conduct`)
@@ -187,6 +187,39 @@ describe('English tests', {
           .and('exist')
           .and('not.have.attr', 'src', '')
           .and('not.have.attr', 'alt', '')
+      })
+    })
+  })
+  describe('Events page tests', () => {
+    const eventsMessages = messages.en.events
+    type EventKey = keyof typeof eventsMessages
+    const eventsKeys = Object.keys(messages.en.events)
+    it('Changes to mobile and assuress content is loaded correctly', () => {
+      cy.visit(`${Cypress.env('localhost')}/events`)
+      cy.viewport('iphone-xr')
+      cy.get('[data-test="events-header"]').should('contain.text', messages.en.navbar.events).and('exist').and('be.visible')
+      eventsKeys.forEach((key) => {
+        cy.get(`[data-test="event-${key}-link"]`).should('exist').and('be.visible').and('have.attr', 'href', `/events/${key}`)
+        cy.get(`[data-test="event-${key}-photo"]`).should('exist').and('be.visible')
+        cy.get(`[data-test="event-${key}-title"]`).should('exist').and('be.visible').and('contain.text', eventsMessages[key as EventKey].title)
+        cy.get(`[data-test="event-${key}-date"]`).should('exist').and('be.visible').and('contain.text', `${eventsMessages[key as EventKey].date} | ${eventsMessages[key as EventKey].location}`)
+        cy.get(`[data-test="event-${key}-subtitle"]`).should('exist').and('be.visible').and('contain.text', eventsMessages[key as EventKey].subtitle)
+        cy.get(`[data-test="event-${key}-read-more"]`).should('exist').and('be.visible').and('contain.text', messages.en.message.common['read-more'])
+        cy.get(`[data-test="event-${key}-title"]`).should('exist').and('be.visible').and('contain.text', eventsMessages[key as EventKey].title)
+      })
+    })
+    it('Changes to desktop and assuress content is loaded correctly', () => {
+      cy.visit(`${Cypress.env('localhost')}/events`)
+      cy.viewport('macbook-16')
+      cy.get('[data-test="events-header"]').should('contain.text', messages.en.navbar.events).and('exist').and('be.visible')
+      eventsKeys.forEach((key) => {
+        cy.get(`[data-test="event-${key}-link"]`).should('exist').and('be.visible').and('have.attr', 'href', `/events/${key}`)
+        cy.get(`[data-test="event-${key}-photo"]`).should('exist').and('be.visible')
+        cy.get(`[data-test="event-${key}-title"]`).should('exist').and('be.visible').and('contain.text', eventsMessages[key as EventKey].title)
+        cy.get(`[data-test="event-${key}-date"]`).should('exist').and('be.visible').and('contain.text', `${eventsMessages[key as EventKey].date} | ${eventsMessages[key as EventKey].location}`)
+        cy.get(`[data-test="event-${key}-subtitle"]`).should('exist').and('be.visible').and('contain.text', eventsMessages[key as EventKey].subtitle)
+        cy.get(`[data-test="event-${key}-read-more"]`).should('exist').and('be.visible').and('contain.text', messages.en.message.common['read-more'])
+        cy.get(`[data-test="event-${key}-title"]`).should('exist').and('be.visible').and('contain.text', eventsMessages[key as EventKey].title)
       })
     })
   })

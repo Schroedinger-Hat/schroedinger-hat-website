@@ -9,32 +9,50 @@ const events = Object.keys(messages.it.events)
     <div class="container">
       <div class="content">
         <div class="headline">
-          <h1>{{ $t(`navbar.events`) }}</h1>
+          <h1 data-test="events-header">
+            {{ $t(`navbar.events`) }}
+          </h1>
         </div>
         <router-link
           v-for="event in events"
           :key="event"
+          :data-test="`event-${event}-link`"
           :to="{ name: 'EventView', params: { event } }"
         >
           <div class="blog-card">
             <div class="meta">
               <div
+                :data-test="`event-${event}-photo`"
                 class="photo"
                 :style="`background-image: url( ${$t(`events.${event}.image`)} );`"
               />
             </div>
             <div class="description">
-              <h1>{{ $t(`events.${event}.title`) }}</h1>
-              <h2>{{ $t(`events.${event}.date`) }} | {{ $t(`events.${event}.location`) }}</h2>
-              <p>
+              <h1
+
+                :data-test="`event-${event}-title`"
+              >
+                {{ $t(`events.${event}.title`) }}
+              </h1>
+              <h2
+                :data-test="`event-${event}-date`"
+              >
+                {{ $t(`events.${event}.date`) }} | {{ $t(`events.${event}.location`) }}
+              </h2>
+              <p
+                :data-test="`event-${event}-subtitle`"
+              >
                 {{ $t(`events.${event}.subtitle`) }}
                 <br><br>
               </p>
               <!-- <div class="sponsors">
                 <div class="logos" v-html="$t(`events.${event}.sponsors`)"></div>
               </div> -->
-              <p class="read-more">
-                <a href="#">{{ $t(`message.common.read-more`) }}</a>
+              <p
+                :data-test="`event-${event}-read-more`"
+                class="read-more"
+              >
+                {{ $t(`message.common.read-more`) }}
               </p>
             </div>
           </div>

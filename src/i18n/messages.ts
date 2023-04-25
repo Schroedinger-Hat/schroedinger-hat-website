@@ -237,6 +237,7 @@ const messages = {
         'go-to-conference-website': 'Visit website',
       },
     },
+    // TODO: Organize this messages on their respective pages
     navbar: {
       team: 'Team',
       events: 'Events',
