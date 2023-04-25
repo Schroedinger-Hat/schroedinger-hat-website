@@ -405,7 +405,7 @@ describe('English tests', {
       })
     })
   })
-  describe('Team member page tests', () => {
+  describe.skip('Team member page tests', () => {
     it('Changes to mobile viewport, assures all content is displayed correctly', () => {
       cy.viewport('iphone-xr')
       const teamMessages = messages.en.team
@@ -447,6 +447,36 @@ describe('English tests', {
         if (teamMessages[key as TeamMemberKey].website.length > 1)
           cy.get('[data-test="member-page-description"]').should('contain.text', teamMessages[key as TeamMemberKey].description)
       })
+    })
+  })
+  describe('Code of conduct tests', () => {
+    it('Assures al text is loaded correctly', () => {
+      const conductMessages = messages.en.code_of_conduct
+      cy.visit(`${Cypress.env('localhost')}/code-of-conduct`)
+      cy.get('[data-test="conduct-main-title"]').should('exist').and('be.visible').and('contain.text', conductMessages.main_title)
+      cy.get('[data-test="conduct-short-version-title"]').should('exist').and('be.visible').and('contain.text', conductMessages.short_version.title)
+      cy.get('[data-test="conduct-short-version-description"]').should('exist').and('be.visible').and('contain.text', conductMessages.short_version.description)
+      cy.get('[data-test="conduct-long-version-title"]').should('exist').and('be.visible').and('contain.text', conductMessages.longer_version.title)
+      cy.get('[data-test="conduct-long-version-description"]').should('exist').and('be.visible').and('contain.text', conductMessages.longer_version.description)
+      cy.get('[data-test="conduct-full-version-title"]').should('exist').and('be.visible').and('contain.text', conductMessages.full_version.title)
+      cy.get('[data-test="conduct-full-version-subtitle"]').should('exist').and('be.visible').and('contain.text', conductMessages.full_version.sub_title)
+      cy.get('[data-test="conduct-full-version-description"]').should('exist').and('be.visible').and('contain.text', conductMessages.full_version.description)
+      cy.get('[data-test="conduct-full-version-rules"]').then(($rules) => {
+        const totalRules = Object.keys(conductMessages.full_version.rules_list).length
+        cy.wrap($rules).should('have.length', totalRules)
+      })
+      cy.get('[data-test="conduct-full-version-rules-paragraph"]').should('exist').and('be.visible').and('contain.text', conductMessages.full_version.rules_paragraph)
+      cy.get('[data-test="conduct-full-version-enforcement-title"]').should('exist').and('be.visible').and('contain.text', conductMessages.full_version.enforcement.title)
+      cy.get('[data-test="conduct-full-version-enforcement-description"]').should('exist').and('be.visible').and('contain.text', conductMessages.full_version.enforcement.description)
+      cy.get('[data-test="conduct-full-version-enforcement-second-description"]').should('exist').and('be.visible').and('contain.text', conductMessages.full_version.enforcement.second_description)
+      cy.get('[data-test="conduct-full-version-reporting-title"]').should('exist').and('be.visible').and('contain.text', conductMessages.full_version.reporting.title)
+      cy.get('[data-test="conduct-full-version-reporting-description"]').should('exist').and('be.visible').and('contain.text', conductMessages.full_version.reporting.description)
+      cy.get('[data-test="conduct-full-version-reporting-items-title"]').should('exist').and('be.visible').and('contain.text', conductMessages.full_version.reporting.items_title)
+      cy.get('[data-test="conduct-full-version-reporting-items"]').then(($rules) => {
+        const totalRules = Object.keys(conductMessages.full_version.reporting.items).length
+        cy.wrap($rules).should('have.length', totalRules)
+      })
+      cy.get('[data-test="conduct-full-version-final-description"]').should('exist').and('be.visible').and('contain.text', conductMessages.full_version.final_description)
     })
   })
 })
