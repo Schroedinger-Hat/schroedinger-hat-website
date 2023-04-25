@@ -446,7 +446,7 @@ const messages = {
         'location-link': 'https://www.google.es/maps/place/The+Student+Hotel+Florence+Lavagnini/@43.7822111,11.251005,17z/data=!3m1!4b1!4m8!3m7!1s0x132a541e08073c43:0x67b49ce676d42454!5m2!4m1!1i2!8m2!3d43.7821888!4d11.2532025',
         'date': '2021-10-23 16:00',
         'location': 'The Student Hotel, Firenze',
-        'sponsors': 'Contact us to sponsor this event',
+        'sponsors': '',
         'community-sponsors': '',
         'signup-link': '',
         'donation': '',

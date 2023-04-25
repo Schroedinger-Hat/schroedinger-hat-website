@@ -34,7 +34,7 @@ const getCalendarLink = () => {
     calendarString += `&text=${title}&location=${location}&details=`
   }
   catch (err) {
-    // TODO Redirect to missing event name
+    // TODO: Redirect to missing event name
     console.log(err)
   }
   return calendarString
@@ -42,68 +42,97 @@ const getCalendarLink = () => {
 </script>
 
 <template>
-  <!-- //TODO Add loader -->
+  <!-- TODO: Add loader -->
   <span v-if="!eventKey">Add loader</span>
   <div v-else class="event">
     <div class="container">
       <div class="content">
-        <h1>{{ t(`events.${eventKey}.title`) }}</h1>
+        <h1 :data-test="`${eventKey}-title`">
+          {{ t(`events.${eventKey}.title`) }}
+        </h1>
         <h4>
-          <a class="external-link-color" target="_blank" :href="getCalendarLink()">
+          <a
+            :data-test="`${eventKey}-date`"
+            class="external-link-color"
+            target="_blank"
+            :href="getCalendarLink"
+          >
             {{ t(`events.${eventKey}.date`) }}</a>
           |
           <a
+            :data-test="`${eventKey}-location`"
             class="external-link-color"
             target="_blank"
             :href="t(`events.${eventKey}.location-link`)"
           >
             {{ t(`events.${eventKey}.location`) }}</a>
         </h4>
-        <p>
+        <p :data-test="`${eventKey}-subtitle`">
           <i>{{ t(`events.${eventKey}.subtitle`) }}</i>
         </p>
-        <div v-if="t(`events.${eventKey}.description`) !== ''" class="description" v-html="$t(`events.${eventKey}.description`)" />
+        <div
+          v-if="t(`events.${eventKey}.description`) !== ''"
+          :data-test="`${eventKey}-description`"
+          class="description"
+          v-html="$t(`events.${eventKey}.description`)"
+        />
         <div class="cta">
           <a
             v-if="t(`events.${eventKey}.signup-link`) !== ''"
+            :data-test="`${eventKey}-signup-link`"
             class="btn btn-primary"
             target="_blank"
             :href="t(`events.${eventKey}.signup-link`)"
           >{{ t(`message.common.go-to-event`) }}</a>
           <a
             v-if="t(`events.${eventKey}.cfp`) !== ''"
+            :data-test="`${eventKey}-cfp`"
             class="btn btn-primary"
             target="_blank"
             :href="t(`events.${eventKey}.cfp`)"
           >{{ t(`message.common.go-to-cfp`) }}</a>
           <a
             v-if="t(`events.${eventKey}.donation`) !== ''"
+            :data-test="`${eventKey}-donation`"
             class="btn btn-primary"
             target="_blank"
             :href="t(`events.${eventKey}.donation`)"
           >{{ $t(`message.common.go-to-donation`) }}</a>
           <a
             v-if="t(`events.${eventKey}.conference-website`) !== ''"
+            :data-test="`${eventKey}-website`"
             class="btn btn-primary"
             target="_blank"
             :href="t(`events.${eventKey}.conference-website`)"
           >{{ t(`message.common.go-to-conference-website`) }}</a>
         </div>
-        <div class="sponsors">
+        <div
+          v-if="t(`events.${eventKey}.sponsors`) !== ''"
+          class="sponsors"
+        >
           <br>
-          <h3 v-if="t(`events.${eventKey}.sponsors`) !== ''">
+          <h3
+            :data-test="`${eventKey}-sponsors-title`"
+          >
             Sponsors
           </h3>
-          <div class="sponsor-logos" v-html="t(`events.${eventKey}.sponsors`)" />
-          <br><br>
-          <h3 v-if="t(`events.${eventKey}.community-sponsors`) !== ''">
-            Community Sponsors
-          </h3>
           <div
-            v-if="t(`events.${eventKey}.community-sponsors`) !== ''"
             class="sponsor-logos"
-            v-html="t(`events.${eventKey}.community-sponsors`)"
+            :data-test="`${eventKey}-sponsors-logo`"
+            v-html="t(`events.${eventKey}.sponsors`)"
           />
+          <div v-if="t(`events.${eventKey}.community-sponsors`) !== ''">
+            <h3
+              :data-test="`${eventKey}-community-sponsors-title`"
+            >
+              Community Sponsors
+            </h3>
+            <div
+              :data-test="`${eventKey}-community-sponsors`"
+              class="sponsor-logos"
+              v-html="t(`events.${eventKey}.community-sponsors`)"
+            />
+          </div>
         </div>
       </div>
     </div>
