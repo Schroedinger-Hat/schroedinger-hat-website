@@ -406,6 +406,7 @@ const messages = {
       },
     },
     events: {
+      // TODO: Remove the HTML inside of the text. Give a do-over like the events
       'open-source-day-2023-florence': {
         'title': 'Open Source Day 2023 - Firenze',
         'image': 'https://images.unsplash.com/photo-1489389944381-3471b5b30f04?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',

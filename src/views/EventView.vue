@@ -128,7 +128,7 @@ const getCalendarLink = () => {
               Community Sponsors
             </h3>
             <div
-              :data-test="`${eventKey}-community-sponsors`"
+              :data-test="`${eventKey}-community-sponsors-logo`"
               class="sponsor-logos"
               v-html="t(`events.${eventKey}.community-sponsors`)"
             />
