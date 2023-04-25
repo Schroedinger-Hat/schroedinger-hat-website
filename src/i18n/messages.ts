@@ -62,10 +62,10 @@ const messages = {
           second_description: 'Tutti coloro che utilizzano i servizi Schrödinger Hat o partecipano a eventi Schrödinger Hat sono soggetti alla politica anti-molestie; questo include partecipanti, sponsor, relatori, reclutatori e organizzatori.',
         },
         reporting: {
-          title: 'Segnalazione ',
+          title: 'Segnalazione',
           description: 'Se vieni molestato, se noti che qualcun altro è molestato o hai altre preoccupazioni, contatta immediatamente un membro del personale di Schrödinger Hat.',
-          reporting_items_title: 'Puoi fare una segnalazione personale tramite: ',
-          reporting_items: {
+          items_title: 'Puoi fare una segnalazione personale tramite: ',
+          items: {
             1: 'Servizio di messaggistica diretta di Twitter: @schrodinger_hat. ',
             2: 'Email: schrodinger.hat.show@gmail.com ',
             3: 'Telefono (i numeri dell\'organizzatore sono condivisi all\'inizio dell\'evento e tracciati durante l\'evento).',

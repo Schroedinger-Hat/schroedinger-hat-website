@@ -121,18 +121,18 @@ const getCalendarLink = () => {
             :data-test="`${eventKey}-sponsors-logo`"
             v-html="t(`events.${eventKey}.sponsors`)"
           />
-          <div v-if="t(`events.${eventKey}.community-sponsors`) !== ''">
-            <h3
-              :data-test="`${eventKey}-community-sponsors-title`"
-            >
-              Community Sponsors
-            </h3>
-            <div
-              :data-test="`${eventKey}-community-sponsors-logo`"
-              class="sponsor-logos"
-              v-html="t(`events.${eventKey}.community-sponsors`)"
-            />
-          </div>
+        </div>
+        <div v-if="t(`events.${eventKey}.community-sponsors`) !== ''">
+          <h3
+            :data-test="`${eventKey}-community-sponsors-title`"
+          >
+            Community Sponsors
+          </h3>
+          <div
+            :data-test="`${eventKey}-community-sponsors-logo`"
+            class="sponsor-logos"
+            v-html="t(`events.${eventKey}.community-sponsors`)"
+          />
         </div>
       </div>
     </div>
