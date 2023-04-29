@@ -163,18 +163,6 @@ const messages = {
         website: 'https://davideimola.com',
         permalink: 'davideimola',
       },
-      ludusrusso: {
-        name: 'Ludovico Russo',
-        github: 'ludusrusso',
-        github_url: 'https://github.com/ludusrusso',
-        linkedin_url: 'https://www.linkedin.com/in/ludusrusso/',
-        twitter_url: ' ',
-        image: '/img/_dev/ludusrusso.jpg',
-        secondary_image: '/img/_dev/ludusrusso.jpg',
-        description: 'Mi definisco Adaptive Developer, grazie alla mia capacità di imparare velocemente e di adattarmi alle esigenze sempre in evoluzione dei progetti. Sviluppo per professione dal 2018, ma prima ho fatto di tutto, ero un ricercatore esperto di Cloud Robotics e ho all\'attivo un paio di startup fallite 🚀. Nel tempo libero leggo e faccio esperimenti con stampa 3D e robotica. Ho anche un blog e un canale twitch dove saltuarimanete faccio divulgazione in ambito sviluppo software.',
-        website: 'https://www.ludusrusso.dev/',
-        permalink: 'ludusrusso',
-      },
     },
     events: {
       'open-source-day-2023-florence': {
@@ -391,18 +379,6 @@ const messages = {
         description: 'Mettetemi in mano un Cloud provider e mi vedrete felice come un bimbo. Sono un grande appassionato di automazione, approcci cloud-native e tutto quella roba da DevOps Sith. Nel mio tempo libero, faccio roba da nerd (che strano!), quindi leggo fumetti e manga, vedo film e tanta altra roba molto cool (perchè io ci credo)!',
         website: 'https://davideimola.com',
         permalink: 'davideimola',
-      },
-      ludusrusso: {
-        name: 'Ludovico Russo',
-        github: 'ludusrusso',
-        github_url: 'https://github.com/ludusrusso',
-        linkedin_url: 'https://www.linkedin.com/in/ludusrusso/',
-        twitter_url: ' ',
-        image: '/img/_dev/ludusrusso.jpg',
-        secondary_image: '/img/_dev/ludusrusso.jpg',
-        description: 'Mi definisco Adaptive Developer, grazie alla mia capacità di imparare velocemente e di adattarmi alle esigenze sempre in evoluzione dei progetti. Sviluppo per professione dal 2018, ma prima ho fatto di tutto, ero un ricercatore esperto di Cloud Robotics e ho all\'attivo un paio di startup fallite 🚀. Nel tempo libero leggo e faccio esperimenti con stampa 3D e robotica. Ho anche un blog e un canale twitch dove saltuarimanete faccio divulgazione in ambito sviluppo software.',
-        website: 'https://www.ludusrusso.dev/',
-        permalink: 'ludusrusso',
       },
     },
     events: {
