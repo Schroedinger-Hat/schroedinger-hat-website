@@ -167,6 +167,9 @@ const SHGitHubWebsiteRepo = 'https://github.com/Schrodinger-Hat/schrodinger-hat-
             >
               <img width="200" src="/img/fh_logo.png" alt="Flutter Heroes">
             </a>
+            <a href="https://pycon.it/en" target="_blank" rel="noreferrer">
+              <img width="200" src="/img/pycon-logo.png" alt="PyCon Ialia">
+            </a>
             <a
               href="https://www.devdreams.it/"
               target="_blank"
@@ -250,7 +253,7 @@ const SHGitHubWebsiteRepo = 'https://github.com/Schrodinger-Hat/schrodinger-hat-
   }
 
   .sponsor-image {
-    padding: 0.3125em 0.625em;
+    padding: 1em 0.625em;
   }
 }
 
