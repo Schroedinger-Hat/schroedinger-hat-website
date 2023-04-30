@@ -49,12 +49,10 @@ onMounted(() => {
         <div class="description" v-html="$t(`team.${member}.description`)" />
 
         <!-- insert goBack link -->
-        <router-link
+        <router-link class="user-profile-link"
           :to="{ name: 'Team' }" data-test="nav-team-page-link"
         >
-          <p class="user-profile-link">
-            Go back to SH-Fam
-          </p>
+          Go back
         </router-link>
       </div>
     </div>
@@ -100,6 +98,7 @@ onMounted(() => {
 
 .description {
   padding: 1em 0;
+  margin-bottom: 20px;
 }
 
 //add btn style 
@@ -108,7 +107,6 @@ onMounted(() => {
   border: 1px solid transparent;
   background-color: #586379;
   color: #fff;
-  width: fit-content;
   margin: 0 auto;
   padding: 5px 15px;
   border-radius: 999px;

@@ -52,12 +52,10 @@ const { t } = useI18n()
               </div>
               <!-- <p v-html="$t(`team.${member}.description`)" /> -->
               <!-- to delete, more info on team-member into each detail-page -->
-              <router-link
+              <router-link class="user-profile-link"
                 :to="{ name: 'TeamMember', params: { member } }"
               >
-                <p class="user-profile-link">
-                  {{ t('redirect.profile') }}
-                </p>
+                {{ t('redirect.profile') }}
               </router-link>
             </div>
           </div>
