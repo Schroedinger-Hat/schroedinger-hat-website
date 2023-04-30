@@ -65,25 +65,21 @@ onMounted(() => {
             <i class="mobile-menu-icon fa fa-cloud" />
           </a>
         </div>
-<<<<<<< HEAD
+
         <!-- TODO: Make this a proper <p> -->
         <div
           class="description"
           data-test="member-page-description"
           v-html="$t(`team.${member}.description`)"
         />
-=======
-        <div class="description" v-html="$t(`team.${member}.description`)" />
 
         <!-- insert goBack link -->
-        <router-link
+        <router-link class="user-profile-link"
           :to="{ name: 'Team' }" data-test="nav-team-page-link"
         >
-          <p class="user-profile-link">
-            Go back to SH-Fam
-          </p>
+          Go back
         </router-link>
->>>>>>> 65145e7 (add: add go back route from member to team page)
+
       </div>
     </div>
   </div>
@@ -128,6 +124,7 @@ onMounted(() => {
 
 .description {
   padding: 1em 0;
+  margin-bottom: 20px;
 }
 
 //add btn style 
@@ -136,7 +133,6 @@ onMounted(() => {
   border: 1px solid transparent;
   background-color: #586379;
   color: #fff;
-  width: fit-content;
   margin: 0 auto;
   padding: 5px 15px;
   border-radius: 999px;
