@@ -3,6 +3,9 @@ import { type Ref, onMounted, ref } from 'vue'
 import type { RouteParamValue } from 'vue-router'
 import { useRoute } from 'vue-router'
 
+import { useI18n } from 'vue-i18n'
+const { t } = useI18n()
+
 const member: Ref<null | string> = ref(null)
 const route = useRoute()
 
@@ -73,11 +76,10 @@ onMounted(() => {
           v-html="$t(`team.${member}.description`)"
         />
 
-        <!-- insert goBack link -->
         <router-link class="user-profile-link"
           :to="{ name: 'Team' }" data-test="nav-team-page-link"
         >
-          Go back
+        {{ t('redirect.back') }}
         </router-link>
 
       </div>
@@ -105,7 +107,7 @@ onMounted(() => {
   }
 }
 
-.socialIcons { //change - aligned to changes in team-member page
+.socialIcons { 
   padding: 1em; 
 
   a {
@@ -127,8 +129,7 @@ onMounted(() => {
   margin-bottom: 20px;
 }
 
-//add btn style 
-.user-profile-link { //change - new colors TDB for palette
+.user-profile-link { 
   font-weight: bold;
   border: 1px solid transparent;
   background-color: #586379;
@@ -141,7 +142,6 @@ onMounted(() => {
     background-color: #2e3440;
   }
 }
-//end btn style
 
 @media (min-width: 56.25em) {
   .event {
@@ -157,8 +157,8 @@ onMounted(() => {
   }
 }
 
-.#{$dark-mode-class} { //change - aligned to changes in team-member page  
-  .socialIcons { //change - aligned to changes in team-member page  
+.#{$dark-mode-class} { 
+  .socialIcons {  
     a {
       &:hover .mobile-menu-icon {
         color: #586379;

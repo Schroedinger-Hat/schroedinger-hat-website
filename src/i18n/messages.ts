@@ -77,6 +77,7 @@ const messages = {
     },
     redirect: {
       profile: 'Vai al profilo',
+      back: 'Torna indietro'
     },
     team: {
       mikilombardi: {
@@ -293,8 +294,8 @@ const messages = {
       },
     },
     redirect: {
-      profile: 'Some facts about me',
-      //change - TBD new copy
+      profile: 'Go to profile',
+      back: 'Go back'
     },
     team: {
       mikilombardi: {
