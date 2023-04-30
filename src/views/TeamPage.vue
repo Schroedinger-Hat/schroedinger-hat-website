@@ -12,7 +12,7 @@ const { t } = useI18n()
       <div class="headline">
         <h1>Schrödinger Hat's fam</h1>
       </div>
-      <!-- change - text moved out of grid el -->
+
       <div class="content">
         <div v-for="member in team" :key="member">
           <div class="blog-card">
@@ -50,8 +50,7 @@ const { t } = useI18n()
                   <i class="mobile-menu-icon fa fa-cloud" />
                 </a>
               </div>
-              <!-- <p v-html="$t(`team.${member}.description`)" /> -->
-              <!-- to delete, more info on team-member into each detail-page -->
+
               <router-link class="user-profile-link"
                 :to="{ name: 'TeamMember', params: { member } }"
               >
@@ -66,21 +65,20 @@ const { t } = useI18n()
 </template>
 
 <style scoped lang="scss">
+// to-do: standardize color variables
 $color_white: #fff;
 $color_prime: $nord3;
 $color_grey: $nord4;
 $color_grey_dark: $nord2;
 
 .teamList {
-  .headline { //change - text moved out of grid and centered
+  .headline { 
     margin: auto;
     max-width: 700px;
     text-align: center; 
   }
   .content {
     padding: 1.5em 3em;
-
-    //change - grid
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     gap: 20px;
@@ -88,9 +86,6 @@ $color_grey_dark: $nord2;
 
 
   .blog-card {
-    // display: flex;
-    // flex-direction: column;
-    //change - to delete, all el in card on y-axis
     margin: 1rem auto;
     box-shadow: 0 3px 7px -1px rgba(#000, 0.1);
     margin-bottom: 1.6%;
@@ -111,16 +106,14 @@ $color_grey_dark: $nord2;
       border-radius: 100%;
       text-align: center;
       margin: 2em auto 0;
-
-      //change - center photo into card
       display: flex;
       justify-content: center;
       align-items: center;
     }
     .photo {
       border-radius: 100%;
-      width: 128px; //change - increase dimension
-      height: 128px; //change - increase dimension
+      width: 128px; 
+      height: 128px; 
       display: block;
       background-size: cover;
       background-position: center;
@@ -128,27 +121,25 @@ $color_grey_dark: $nord2;
 
     .photo-secondary {
       border-radius: 100%;
-      width: 128px; //change - increase dimension
-      height: 128px; //change - increase dimension
+      width: 128px; 
+      height: 128px; 
       display: none;
       background-size: cover;
       background-position: center;
     }
 
     .socialIcons {
-      padding: 1em; //a little increase
+      padding: 1em; 
 
       a {
         display: inline-block;
         margin: 0.2em;
-
-        //change - add hover effect on social icons
         .mobile-menu-icon {
-          font-size: 1.2em; //a little increase
+          font-size: 1.2em; 
         }
         
         &:hover .mobile-menu-icon {
-          color: #2e3440; //to save into variable
+          color: #2e3440;
         }
       }
     }
@@ -157,8 +148,6 @@ $color_grey_dark: $nord2;
       padding: 2rem;
       position: relative;
       z-index: 1;
-
-      //change
       text-align: center;
 
       h1,
@@ -176,7 +165,7 @@ $color_grey_dark: $nord2;
         font-weight: 300;
         margin-top: 5px;
       }
-      .user-profile-link { //change - new colors TDB for palette
+      .user-profile-link { 
         font-weight: bold;
         border: 1px solid transparent;
         background-color: #586379;
@@ -202,7 +191,7 @@ $color_grey_dark: $nord2;
   }
 }
 
-//change - responsove design added for tablet (ts-md)
+// to-do: standardize media querys
 @media (min-width: 640px) {
 
   .teamList{
@@ -213,7 +202,6 @@ $color_grey_dark: $nord2;
   }
 }
 
-//change - responsove design added for tablet (ts-lg)
 @media (min-width: 1024px) {
   .teamList{
     .content {
@@ -240,7 +228,7 @@ $color_grey_dark: $nord2;
         background: $nord2;
       }
 
-      .user-profile-link { //change - add colors for dark mode
+      .user-profile-link { 
         background-color: #2e3440;
 
         &:hover {
