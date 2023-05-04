@@ -1,34 +1,58 @@
+<script setup lang="ts">
+import messages from '../i18n/messages'
+
+const events = Object.keys(messages.it.events)
+</script>
+
 <template>
   <div class="eventlist">
     <div class="container">
       <div class="content">
         <div class="headline">
-          <h1>{{ $t(`message.navbar.events`) }}</h1>
+          <h1 data-test="events-header">
+            {{ $t(`navbar.events`) }}
+          </h1>
         </div>
         <router-link
           v-for="event in events"
-          :key="event.permalink"
-          :to="`/events/${$t(`events.${event}.permalink`)}`"
+          :key="event"
+          :data-test="`event-${event}-link`"
+          :to="{ name: 'EventView', params: { event } }"
         >
           <div class="blog-card">
             <div class="meta">
               <div
+                :data-test="`event-${event}-photo`"
                 class="photo"
                 :style="`background-image: url( ${$t(`events.${event}.image`)} );`"
-              ></div>
+              />
             </div>
             <div class="description">
-              <h1>{{ $t(`events.${event}.title`) }}</h1>
-              <h2>{{ $t(`events.${event}.date`) }} | {{ $t(`events.${event}.location`) }}</h2>
-              <p>
+              <h1
+
+                :data-test="`event-${event}-title`"
+              >
+                {{ $t(`events.${event}.title`) }}
+              </h1>
+              <h2
+                :data-test="`event-${event}-date`"
+              >
+                {{ $t(`events.${event}.date`) }} | {{ $t(`events.${event}.location`) }}
+              </h2>
+              <p
+                :data-test="`event-${event}-subtitle`"
+              >
                 {{ $t(`events.${event}.subtitle`) }}
-                <br /><br />
+                <br><br>
               </p>
               <!-- <div class="sponsors">
                 <div class="logos" v-html="$t(`events.${event}.sponsors`)"></div>
               </div> -->
-              <p class="read-more">
-                <a href="#">{{ $t(`message.common.read-more`) }}</a>
+              <p
+                :data-test="`event-${event}-read-more`"
+                class="read-more"
+              >
+                {{ $t(`message.common.read-more`) }}
               </p>
             </div>
           </div>
@@ -38,18 +62,6 @@
   </div>
 </template>
 
-<script>
-import text from '../i18n/messages.json';
-
-export default {
-  name: 'EventList',
-  data() {
-    return {
-      events: Object.keys(text.it.events),
-    };
-  },
-};
-</script>
 <style scoped lang="scss">
 $color_white: #fff;
 $color_prime: $nord3;

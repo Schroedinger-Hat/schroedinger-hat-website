@@ -1,3 +1,6 @@
+<script setup lang="ts">
+</script>
+
 <template>
   <div class="separator-triple-line">
     <div class="canvas-container">
@@ -19,13 +22,6 @@
     </div>
   </div>
 </template>
-
-<script>
-export default {
-  name: 'SeparatorTripleLine',
-  props: {},
-};
-</script>
 
 <style scoped lang="scss">
 .separator-triple-line {

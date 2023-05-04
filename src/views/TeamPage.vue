@@ -1,47 +1,85 @@
+<script setup lang="ts">
+import { useI18n } from 'vue-i18n'
+import messages from '@/i18n/messages'
+const team = Object.keys(messages.it.team)
+
+const { t } = useI18n()
+</script>
+
 <template>
-  <div class="teamList">
+  <div class="teamList" data-test="team-list">
     <div class="container">
       <div class="content">
         <div class="headline">
-          <h1>Schrödinger Hat's fam</h1>
+          <h1 data-test="team-list-header">
+            Schrödinger Hat's fam
+          </h1>
         </div>
-        <div v-for="teammember in team" :key="teammember.github">
-          <div class="blog-card">
+        <div v-for="member in team" :key="member" data-test="team-list">
+          <!-- TODO: Transform this into a component -->
+          <div
+            class="blog-card"
+            data-test="team-card"
+            :data-test-member-name="`team-member-${member}`"
+          >
             <div class="meta">
               <div
+                :data-test="`team-member-${member}-index-photo`"
                 class="photo"
-                :style="`background-image: url( ${$t(`team.${teammember}.image`)} );`"
-              ></div>
-              <!-- 
-                ### IMPORTANT ### Do we want a secondary picture?
-                <div
-                class="photo-secondary"
-                :style="`background-image: url( ${$t(`team.${teammember}.secondary_image`)} );`"
-              ></div>
-              -->
+                :style="`background-image: url( ${$t(`team.${member}.image`)} );`"
+              />
             </div>
             <div class="description">
-              <h1>{{ $t(`team.${teammember}.name`) }}</h1>
+              <h1
+                :data-test="`team-member-${member}-name`"
+              >
+                {{ $t(`team.${member}.name`) }}
+              </h1>
               <div class="socialIcons">
-                <a v-if="$t(`team.${teammember}.github_url`).length > 1" v-bind:href="$t(`team.${teammember}.github_url`)" target="_blank">
-                  <i class="mobile-menu-icon fab fa-github"></i>
+                <a
+                  v-if="$t(`team.${member}.github_url`).length > 1"
+                  :data-test="`team-member-${member}-github`"
+                  :href="$t(`team.${member}.github_url`)" target="_blank"
+                >
+                  <i class="mobile-menu-icon fab fa-github" />
                 </a>
-                <a v-if="$t(`team.${teammember}.linkedin_url`).length > 1"  v-bind:href="$t(`team.${teammember}.linkedin_url`)" target="_blank">
-                  <i class="mobile-menu-icon fab fa-linkedin"></i>
+                <a
+                  v-if="$t(`team.${member}.linkedin_url`).length > 1"
+                  :data-test="`team-member-${member}-linkedin`"
+                  :href="$t(`team.${member}.linkedin_url`)" target="_blank"
+                >
+                  <i class="mobile-menu-icon fab fa-linkedin" />
                 </a>
-                <a v-if="$t(`team.${teammember}.twitter_url`).length > 1"  v-bind:href="$t(`team.${teammember}.twitter_url`)" target="_blank">
-                  <i class="mobile-menu-icon fab fa-twitter"></i>
+                <a
+                  v-if="$t(`team.${member}.twitter_url`).length > 1"
+                  :data-test="`team-member-${member}-twitter`"
+                  :href="$t(`team.${member}.twitter_url`)" target="_blank"
+                >
+                  <i class="mobile-menu-icon fab fa-twitter" />
                 </a>
-                <a v-if="$t(`team.${teammember}.website`).length > 1" v-bind:href="$t(`team.${teammember}.website`)" target="_blank">
-                  <i class="mobile-menu-icon fa fa-cloud"></i>
+                <a
+
+                  v-if="$t(`team.${member}.website`).length > 1"
+                  :data-test="`team-member-${member}-website`"
+                  :href="$t(`team.${member}.website`)" target="_blank"
+                >
+                  <i class="mobile-menu-icon fa fa-cloud" />
                 </a>
               </div>
-              <p v-html="$t(`team.${teammember}.description`)"></p>
+              <p
+                :data-test="`team-member-${member}-description`"
+                v-html="$t(`team.${member}.description`)"
+              />
               <router-link
-                :key="team.permalink"
-                :to="`/team/${$t(`team.${teammember}.permalink`)}`"
+                :data-test="`team-member-${member}-page-link`"
+                :to="{ name: 'TeamMember', params: { member } }"
               >
-                <p class="user-profile-link">{{$t(linkText)}}</p>
+                <p
+                  data-test="team-member-redirection"
+                  class="user-profile-link"
+                >
+                  {{ t('redirect.profile') }}
+                </p>
               </router-link>
             </div>
           </div>
@@ -51,19 +89,6 @@
   </div>
 </template>
 
-<script>
-import text from '../i18n/messages.json';
-
-export default {
-  name: 'Team',
-  data() {
-    return {
-      team: Object.keys(text.it.team),
-      linkText: text.it.links,
-    };
-  },
-};
-</script>
 <style scoped lang="scss">
 $color_white: #fff;
 $color_prime: $nord3;
@@ -96,16 +121,6 @@ $color_grey_dark: $nord2;
     li {
       color: $color_white;
     }
-    // ONLY FOR SECONDARY PICTURE
-    // &:hover {
-    //   .photo {
-    //     display: none;
-    //   }
-
-    //   .photo-secondary {
-    //     display: block;
-    //   }
-    // }
     .meta {
       position: relative;
       z-index: 0;

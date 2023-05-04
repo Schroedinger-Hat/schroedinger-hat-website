@@ -1,55 +1,59 @@
+<script setup lang="ts">
+import { onMounted } from 'vue'
+
+onMounted(() => {
+  const scrollInterval = setInterval(() => {
+  // TODO: Fix this TS error
+  // @ts-expect-error: Need to find out this type
+    const parentScrollHeight = document.querySelector('.nyancat-wrapper').parentNode.scrollHeight
+    if (window.pageYOffset >= parentScrollHeight - 400) {
+      document.querySelector('.nyancat-wrapper')!.classList.add('loaded')
+
+      setTimeout(() => {
+        const nyancatWrapper: HTMLDivElement = document.querySelector('.nyancat-wrapper')!
+        nyancatWrapper.classList.remove('loaded')
+        nyancatWrapper.style.display = 'none'
+      }, 8000)
+
+      clearInterval(scrollInterval)
+    }
+  }, 200)
+})
+</script>
+
 <template>
   <div class="nyancat-wrapper wrapper">
     <div class="rainbow">
-      <span></span>
+      <span />
     </div>
     <div class="nyan-cat">
-      <div class="feet"></div>
+      <div class="feet" />
       <div class="tail">
-        <span></span>
+        <span />
       </div>
-      <div class="body"></div>
-      <div class="head"></div>
+      <div class="body" />
+      <div class="head" />
     </div>
   </div>
 </template>
-
-<script>
-export default {
-  name: 'NyanCat',
-  mounted: () => {
-    let scrollInterval = null;
-    scrollInterval = setInterval(() => {
-      const parentScrollHeight = document.querySelector('.nyancat-wrapper').parentNode.scrollHeight;
-      if (window.pageYOffset >= parentScrollHeight - 400) {
-        document.querySelector('.nyancat-wrapper').classList.add('loaded');
-
-        setTimeout(() => {
-          const nyancatWrapper = document.querySelector('.nyancat-wrapper');
-          nyancatWrapper.classList.remove('loaded');
-          nyancatWrapper.style.display = 'none';
-        }, 8000);
-
-        clearInterval(scrollInterval);
-      }
-    }, 200);
-  },
-};
-</script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 @function grid($start, $end, $increment) {
   $str: 0;
-  @while $start <= $end {
+
+  @while $start <=$end {
     @if $start < $end {
       $str: $str + 0 #{$start}#{'px,'};
     }
-    @if $start == $end {
+
+    @if $start ==$end {
       $str: $str + 0 #{$start}#{'px'};
     }
+
     $start: $start + $increment;
   }
+
   @return $str;
 }
 
@@ -73,6 +77,7 @@ body {
 
 .sprite {
   position: absolute;
+
   background: {
     position: grid(0, 125, 5);
     size: 100% 5px;
@@ -106,10 +111,12 @@ body {
   top: 30%;
   width: 165px;
   height: 100px;
+
   margin: {
     top: -50px;
     left: -82px;
   }
+
   animation: (nyan 400ms step-start infinite);
   transition: all 5s ease-in-out 1s;
 }
@@ -149,10 +156,12 @@ body {
     top: 0;
     width: 100%;
     height: 130px;
+
     background: {
       size: 80px 5px;
       repeat: repeat-x;
     }
+
     animation: (rainbow 400ms step-start infinite);
   }
 }
@@ -183,17 +192,14 @@ body {
 }
 
 .body {
-  background-image: linear-gradient(
-      to right,
+  background-image: linear-gradient(to right,
       transparent 0,
       transparent 10px,
       black 10px,
       black 95px,
       transparent 95px,
-      transparent 105px
-    ),
-    linear-gradient(
-      to right,
+      transparent 105px),
+    linear-gradient(to right,
       transparent 0,
       transparent 5px,
       black 5px,
@@ -203,10 +209,8 @@ body {
       black 95px,
       black 100px,
       transparent 100px,
-      transparent 105px
-    ),
-    linear-gradient(
-      to right,
+      transparent 105px),
+    linear-gradient(to right,
       black 0,
       black 5px,
       $beige 5px,
@@ -216,10 +220,8 @@ body {
       $beige 85px,
       $beige 100px,
       black 100px,
-      black 105px
-    ),
-    linear-gradient(
-      to right,
+      black 105px),
+    linear-gradient(to right,
       black 0,
       black 5px,
       $beige 5px,
@@ -237,10 +239,8 @@ body {
       $beige 90px,
       $beige 100px,
       black 100px,
-      black 105px
-    ),
-    linear-gradient(
-      to right,
+      black 105px),
+    linear-gradient(to right,
       black 0,
       black 5px,
       $beige 5px,
@@ -254,10 +254,8 @@ body {
       $beige 95px,
       $beige 100px,
       black 100px,
-      black 105px
-    ),
-    linear-gradient(
-      to right,
+      black 105px),
+    linear-gradient(to right,
       black 0,
       black 5px,
       $beige 5px,
@@ -271,10 +269,8 @@ body {
       $beige 95px,
       $beige 100px,
       black 100px,
-      black 105px
-    ),
-    linear-gradient(
-      to right,
+      black 105px),
+    linear-gradient(to right,
       black 0,
       black 5px,
       $beige 5px,
@@ -284,10 +280,8 @@ body {
       $beige 95px,
       $beige 100px,
       black 100px,
-      black 105px
-    ),
-    linear-gradient(
-      to right,
+      black 105px),
+    linear-gradient(to right,
       black 0,
       black 5px,
       $beige 5px,
@@ -301,10 +295,8 @@ body {
       $beige 95px,
       $beige 100px,
       black 100px,
-      black 105px
-    ),
-    linear-gradient(
-      to right,
+      black 105px),
+    linear-gradient(to right,
       black 0,
       black 5px,
       $beige 5px,
@@ -314,10 +306,8 @@ body {
       $beige 95px,
       $beige 100px,
       black 100px,
-      black 105px
-    ),
-    linear-gradient(
-      to right,
+      black 105px),
+    linear-gradient(to right,
       black 0,
       black 5px,
       $beige 5px,
@@ -331,10 +321,8 @@ body {
       $beige 95px,
       $beige 100px,
       black 100px,
-      black 105px
-    ),
-    linear-gradient(
-      to right,
+      black 105px),
+    linear-gradient(to right,
       black 0,
       black 5px,
       $beige 5px,
@@ -348,10 +336,8 @@ body {
       $beige 95px,
       $beige 100px,
       black 100px,
-      black 105px
-    ),
-    linear-gradient(
-      to right,
+      black 105px),
+    linear-gradient(to right,
       black 0,
       black 5px,
       $beige 5px,
@@ -365,10 +351,8 @@ body {
       $beige 95px,
       $beige 100px,
       black 100px,
-      black 105px
-    ),
-    linear-gradient(
-      to right,
+      black 105px),
+    linear-gradient(to right,
       black 0,
       black 5px,
       $beige 5px,
@@ -378,10 +362,8 @@ body {
       $beige 95px,
       $beige 100px,
       black 100px,
-      black 105px
-    ),
-    linear-gradient(
-      to right,
+      black 105px),
+    linear-gradient(to right,
       black 0,
       black 5px,
       $beige 5px,
@@ -395,10 +377,8 @@ body {
       $beige 95px,
       $beige 100px,
       black 100px,
-      black 105px
-    ),
-    linear-gradient(
-      to right,
+      black 105px),
+    linear-gradient(to right,
       black 0,
       black 5px,
       $beige 5px,
@@ -412,10 +392,8 @@ body {
       $beige 90px,
       $beige 100px,
       black 100px,
-      black 105px
-    ),
-    linear-gradient(
-      to right,
+      black 105px),
+    linear-gradient(to right,
       black 0,
       black 5px,
       $beige 5px,
@@ -425,10 +403,8 @@ body {
       $beige 85px,
       $beige 100px,
       black 100px,
-      black 105px
-    ),
-    linear-gradient(
-      to right,
+      black 105px),
+    linear-gradient(to right,
       transparent 0,
       transparent 5px,
       black 5px,
@@ -438,22 +414,18 @@ body {
       black 95px,
       black 100px,
       transparent 100px,
-      transparent 105px
-    ),
-    linear-gradient(
-      to right,
+      transparent 105px),
+    linear-gradient(to right,
       transparent 0,
       transparent 10px,
       black 10px,
       black 95px,
       transparent 95px,
-      transparent 105px
-    );
+      transparent 105px);
 }
 
 .head {
-  background-image: linear-gradient(
-      to right,
+  background-image: linear-gradient(to right,
       transparent 0,
       transparent 10px,
       black 10px,
@@ -463,10 +435,8 @@ body {
       black 60px,
       black 70px,
       transparent 70px,
-      transparent 105px
-    ),
-    linear-gradient(
-      to right,
+      transparent 105px),
+    linear-gradient(to right,
       transparent 0,
       transparent 5px,
       black 5px,
@@ -484,10 +454,8 @@ body {
       black 70px,
       black 75px,
       transparent 75px,
-      transparent 80px
-    ),
-    linear-gradient(
-      to right,
+      transparent 80px),
+    linear-gradient(to right,
       transparent 0,
       transparent 5px,
       black 5px,
@@ -505,10 +473,8 @@ body {
       black 70px,
       black 75px,
       transparent 75px,
-      transparent 80px
-    ),
-    linear-gradient(
-      to right,
+      transparent 80px),
+    linear-gradient(to right,
       transparent 0,
       transparent 5px,
       black 5px,
@@ -524,10 +490,8 @@ body {
       black 70px,
       black 75px,
       transparent 75px,
-      transparent 80px
-    ),
-    linear-gradient(
-      to right,
+      transparent 80px),
+    linear-gradient(to right,
       transparent 0,
       transparent 5px,
       black 5px,
@@ -537,11 +501,9 @@ body {
       black 70px,
       black 75px,
       transparent 75px,
-      transparent 80px
-    ),
+      transparent 80px),
     linear-gradient(to right, black 0, black 5px, $gray 5px, $gray 75px, black 75px, black 80px),
-    linear-gradient(
-      to right,
+    linear-gradient(to right,
       black 0,
       black 5px,
       $gray 5px,
@@ -559,10 +521,8 @@ body {
       $gray 65px,
       $gray 75px,
       black 75px,
-      black 80px
-    ),
-    linear-gradient(
-      to right,
+      black 80px),
+    linear-gradient(to right,
       black 0,
       black 5px,
       $gray 5px,
@@ -580,10 +540,8 @@ body {
       $gray 65px,
       $gray 75px,
       black 75px,
-      black 80px
-    ),
-    linear-gradient(
-      to right,
+      black 80px),
+    linear-gradient(to right,
       black 0,
       black 5px,
       $gray 5px,
@@ -595,10 +553,8 @@ body {
       $salmon 65px,
       $salmon 75px,
       black 75px,
-      black 80px
-    ),
-    linear-gradient(
-      to right,
+      black 80px),
+    linear-gradient(to right,
       black 0,
       black 5px,
       $gray 5px,
@@ -622,10 +578,8 @@ body {
       $salmon 65px,
       $salmon 75px,
       black 75px,
-      black 80px
-    ),
-    linear-gradient(
-      to right,
+      black 80px),
+    linear-gradient(to right,
       transparent 0,
       transparent 5px,
       black 5px,
@@ -639,10 +593,8 @@ body {
       black 70px,
       black 75px,
       transparent 75px,
-      transparent 80px
-    ),
-    linear-gradient(
-      to right,
+      transparent 80px),
+    linear-gradient(to right,
       transparent 0,
       transparent 10px,
       black 10px,
@@ -652,20 +604,17 @@ body {
       black 65px,
       black 70px,
       transparent 70px,
-      transparent 80px
-    ),
-    linear-gradient(
-      to right,
+      transparent 80px),
+    linear-gradient(to right,
       transparent 0,
       transparent 15px,
       black 15px,
       black 65px,
       transparent 65px,
-      transparent 80px
-    );
+      transparent 80px);
 }
 
-.rainbow > span {
+.rainbow>span {
   background-image: linear-gradient(to right, $red 0, $red 50%, transparent 50%, transparent 100%),
     linear-gradient(to right, $red 0, $red 100%),
     linear-gradient(to right, $orange 0, $orange 50%, $red 50%, $red 100%),
@@ -695,17 +644,14 @@ body {
 }
 
 .feet {
-  background-image: linear-gradient(
-      to right,
+  background-image: linear-gradient(to right,
       transparent 0,
       transparent 10px,
       black 10px,
       black 25px,
       transparent 25px,
-      transparent 120px
-    ),
-    linear-gradient(
-      to right,
+      transparent 120px),
+    linear-gradient(to right,
       transparent 0,
       transparent 5px,
       black 5px,
@@ -713,10 +659,8 @@ body {
       $gray 10px,
       $gray 110px,
       transparent 110px,
-      transparent 120px
-    ),
-    linear-gradient(
-      to right,
+      transparent 120px),
+    linear-gradient(to right,
       black 0,
       black 5px,
       $gray 5px,
@@ -732,10 +676,8 @@ body {
       black 110px,
       black 115px,
       transparent 115px,
-      transparent 120px
-    ),
-    linear-gradient(
-      to right,
+      transparent 120px),
+    linear-gradient(to right,
       black 0,
       black 5px,
       $gray 5px,
@@ -765,10 +707,8 @@ body {
       $gray 105px,
       $gray 115px,
       black 115px,
-      black 120px
-    ),
-    linear-gradient(
-      to right,
+      black 120px),
+    linear-gradient(to right,
       black 0,
       black 15px,
       transparent 15px,
@@ -782,42 +722,35 @@ body {
       transparent 95px,
       transparent 105px,
       black 105px,
-      black 120px
-    );
+      black 120px);
 }
 
-.tail > span {
-  background-image: linear-gradient(
-      to right,
+.tail>span {
+  background-image: linear-gradient(to right,
       transparent 0,
       transparent 5px,
       black 5px,
       black 15px,
-      transparent 15px
-    ),
-    linear-gradient(
-      to right,
+      transparent 15px),
+    linear-gradient(to right,
       black 0,
       black 5px,
       $gray 5px,
       $gray 15px,
       black 15px,
       black 20px,
-      transparent 20px
-    ),
+      transparent 20px),
     linear-gradient(to right, black 0, black 5px, $gray 5px, $gray 15px, black 15px),
     linear-gradient(to right, transparent 0, transparent 5px, black 5px, black 10px, $gray 10px),
     linear-gradient(to right, transparent 0, transparent 10px, black 10px, black 20px, $gray 20px),
     linear-gradient(to right, transparent 0, transparent 15px, black 15px),
     linear-gradient(to right, transparent 0, transparent 100%),
-    linear-gradient(
-      to right,
+    linear-gradient(to right,
       transparent 0,
       transparent 5px,
       black 5px,
       black 20px,
-      transparent 20px
-    ),
+      transparent 20px),
     linear-gradient(to right, black 0, black 5px, $gray 5px, $gray 15px, black 15px),
     linear-gradient(to right, black 0, black 10px, $gray 10px, $gray 25px),
     linear-gradient(to right, transparent 0, transparent 10px, black 10px, black 20px, $gray 20px),
@@ -831,48 +764,39 @@ body {
     linear-gradient(to right, transparent 0, transparent 20px, black 20px),
     linear-gradient(to right, transparent 0, transparent 15px, black 15px, black 20px, $gray 20px),
     linear-gradient(to right, transparent 0, transparent 10px, black 10px, black 15px, $gray 15px),
-    linear-gradient(
-      to right,
+    linear-gradient(to right,
       transparent 0,
       transparent 5px,
       black 5px,
       black 10px,
       $gray 10px,
       $gray 20px,
-      black 20px
-    ),
+      black 20px),
     linear-gradient(to right, black 0, black 5px, $gray 5px, $gray 15px, black 15px),
-    linear-gradient(
-      to right,
+    linear-gradient(to right,
       transparent 0,
       transparent 5px,
       black 5px,
       black 15px,
-      transparent 15px
-    );
+      transparent 15px);
 }
 
-.star > span {
-  background-image: linear-gradient(
-      to right,
+.star>span {
+  background-image: linear-gradient(to right,
       transparent 0,
       transparent 12px,
       white 12px,
       white 16px,
       transparent 16px,
-      transparent 112px
-    ),
-    linear-gradient(
-      to right,
+      transparent 112px),
+    linear-gradient(to right,
       transparent 0,
       transparent 12px,
       white 12px,
       white 16px,
       transparent 16px,
-      transparent 112px
-    ),
-    linear-gradient(
-      to right,
+      transparent 112px),
+    linear-gradient(to right,
       transparent 0,
       transparent 4px,
       white 4px,
@@ -890,10 +814,8 @@ body {
       white 68px,
       white 72px,
       transparent 72px,
-      transparent 112px
-    ),
-    linear-gradient(
-      to right,
+      transparent 112px),
+    linear-gradient(to right,
       transparent 0,
       transparent 4px,
       white 4px,
@@ -911,28 +833,22 @@ body {
       white 68px,
       white 72px,
       transparent 72px,
-      transparent 112px
-    ),
-    linear-gradient(
-      to right,
+      transparent 112px),
+    linear-gradient(to right,
       transparent 0,
       transparent 68px,
       white 68px,
       white 72px,
       transparent 72px,
-      transparent 112px
-    ),
-    linear-gradient(
-      to right,
+      transparent 112px),
+    linear-gradient(to right,
       transparent 0,
       transparent 68px,
       white 68px,
       white 72px,
       transparent 72px,
-      transparent 112px
-    ),
-    linear-gradient(
-      to right,
+      transparent 112px),
+    linear-gradient(to right,
       white 0,
       white 4px,
       transparent 4px,
@@ -964,10 +880,8 @@ body {
       white 96px,
       white 100px,
       transparent 100px,
-      transparent 112px
-    ),
-    linear-gradient(
-      to right,
+      transparent 112px),
+    linear-gradient(to right,
       white 0,
       white 4px,
       transparent 4px,
@@ -999,28 +913,22 @@ body {
       white 96px,
       white 100px,
       transparent 100px,
-      transparent 112px
-    ),
-    linear-gradient(
-      to right,
+      transparent 112px),
+    linear-gradient(to right,
       transparent 0,
       transparent 68px,
       white 68px,
       white 72px,
       transparent 72px,
-      transparent 112px
-    ),
-    linear-gradient(
-      to right,
+      transparent 112px),
+    linear-gradient(to right,
       transparent 0,
       transparent 68px,
       white 68px,
       white 72px,
       transparent 72px,
-      transparent 112px
-    ),
-    linear-gradient(
-      to right,
+      transparent 112px),
+    linear-gradient(to right,
       transparent 0,
       transparent 4px,
       white 4px,
@@ -1038,10 +946,8 @@ body {
       white 68px,
       white 72px,
       transparent 72px,
-      transparent 112px
-    ),
-    linear-gradient(
-      to right,
+      transparent 112px),
+    linear-gradient(to right,
       transparent 0,
       transparent 4px,
       white 4px,
@@ -1059,26 +965,21 @@ body {
       white 68px,
       white 72px,
       transparent 72px,
-      transparent 112px
-    ),
-    linear-gradient(
-      to right,
+      transparent 112px),
+    linear-gradient(to right,
       transparent 0,
       transparent 12px,
       white 12px,
       white 16px,
       transparent 16px,
-      transparent 112px
-    ),
-    linear-gradient(
-      to right,
+      transparent 112px),
+    linear-gradient(to right,
       transparent 0,
       transparent 12px,
       white 12px,
       white 16px,
       transparent 16px,
-      transparent 112px
-    );
+      transparent 112px);
 }
 
 .loaded {
@@ -1098,9 +999,11 @@ body {
   0% {
     top: 0;
   }
+
   50% {
     top: 0;
   }
+
   100% {
     top: -65px;
   }
@@ -1110,6 +1013,7 @@ body {
   0% {
     left: 0;
   }
+
   100% {
     left: -400px;
   }
@@ -1119,24 +1023,31 @@ body {
   0% {
     left: 0;
   }
+
   25% {
     left: 0;
   }
+
   49.99% {
     left: 0;
   }
+
   50% {
     left: -28px;
   }
+
   74.99% {
     left: -28px;
   }
+
   75% {
     left: -56px;
   }
+
   99.99% {
     left: -56px;
   }
+
   100% {
     left: -84px;
   }
@@ -1146,12 +1057,15 @@ body {
   0% {
     margin-top: -50px;
   }
+
   10% {
     margin-top: -50px;
   }
+
   80% {
     margin-top: -53px;
   }
+
   100% {
     margin-top: -50px;
   }
@@ -1161,6 +1075,7 @@ body {
   0% {
     left: 20px;
   }
+
   100% {
     left: 30px;
   }
@@ -1171,34 +1086,42 @@ body {
     top: 25px;
     left: 85px;
   }
+
   24.99% {
     top: 25px;
     left: 85px;
   }
+
   25% {
     top: 22px;
     left: 88px;
   }
+
   49.99% {
     top: 22px;
     left: 88px;
   }
+
   50% {
     top: 22px;
     left: 85px;
   }
+
   74.99% {
     top: 22px;
     left: 85px;
   }
+
   75% {
     top: 22px;
     left: 82px;
   }
+
   99.99% {
     top: 22px;
     left: 82px;
   }
+
   100% {
     top: 25px;
     left: 85px;
@@ -1209,24 +1132,31 @@ body {
   0% {
     top: 0;
   }
+
   25% {
     top: 0;
   }
+
   49.99% {
     top: 0;
   }
+
   50% {
     top: -30px;
   }
+
   74.99% {
     top: -30px;
   }
+
   75% {
     top: -60px;
   }
+
   99.99% {
     top: -60px;
   }
+
   100% {
     top: -90px;
   }

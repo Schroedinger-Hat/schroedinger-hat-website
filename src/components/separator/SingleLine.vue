@@ -1,3 +1,6 @@
+<script setup lang="ts">
+</script>
+
 <template>
   <div class="separator-single-line">
     <div class="background-svg">
@@ -12,13 +15,6 @@
     </div>
   </div>
 </template>
-
-<script>
-export default {
-  name: 'SeparatorSingleLine',
-  props: {},
-};
-</script>
 
 <!-- da rifare -->
 <style scoped lang="scss">

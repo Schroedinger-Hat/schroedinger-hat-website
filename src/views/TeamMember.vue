@@ -1,54 +1,82 @@
+<script setup lang="ts">
+import { type Ref, onMounted, ref } from 'vue'
+import type { RouteParamValue } from 'vue-router'
+import { useRoute } from 'vue-router'
+
+const member: Ref<null | string> = ref(null)
+const route = useRoute()
+
+const getTeamMemberName = () => {
+  if (!route.params.member)
+    getTeamMemberName()
+
+  else
+    member.value = route.params.member as RouteParamValue
+}
+
+onMounted(() => {
+  getTeamMemberName()
+})
+</script>
+
 <template>
-  <div class="team">
+  <!-- TODO: Add loader -->
+  <span v-if="!member">Loading...</span>
+  <div v-else class="team">
     <div class="container">
       <div class="content">
-        <h1>{{ $t(`team.${teamMember}.name`) }}</h1>
-          <div>
-            <div
-              class="photo"
-              :style="`background-image: url(${$t(`team.${teamMember}.image`)});`"
-            ></div>
-          </div>
+        <h1 data-test="member-page-name">
+          {{ $t(`team.${member}.name`) }}
+        </h1>
+        <div>
+          <div
+            class="photo"
+            :style="`background-image: url(${$t(`team.${member}.image`)});`"
+            data-test="member-page-photo"
+          />
+        </div>
         <div class="socialIcons">
-          <a v-if="$t(`team.${teamMember}.github_url`).length > 1" v-bind:href="$t(`team.${teamMember}.github_url`)" target="_blank">
-            <i class="mobile-menu-icon fab fa-github"></i>
+          <a
+            v-if="$t(`team.${member}.github_url`).length > 1"
+            :href="$t(`team.${member}.github_url`)" target="_blank"
+            data-test="member-page-github"
+          >
+            <i class="mobile-menu-icon fab fa-github" />
           </a>
-          <a v-if="$t(`team.${teamMember}.linkedin_url`).length > 1"  v-bind:href="$t(`team.${teamMember}.linkedin_url`)" target="_blank">
-            <i class="mobile-menu-icon fab fa-linkedin"></i>
+          <a
+            v-if="$t(`team.${member}.linkedin_url`).length > 1"
+            :href="$t(`team.${member}.linkedin_url`)" target="_blank"
+            data-test="member-page-linkedin"
+          >
+            <i class="mobile-menu-icon fab fa-linkedin" />
           </a>
-          <a v-if="$t(`team.${teamMember}.twitter_url`).length > 1"  v-bind:href="$t(`team.${teamMember}.twitter_url`)" target="_blank">
-            <i class="mobile-menu-icon fab fa-twitter"></i>
+          <a
+            v-if="$t(`team.${member}.twitter_url`).length > 1"
+            :href="$t(`team.${member}.twitter_url`)" target="_blank"
+            data-test="member-page-twitter"
+          >
+            <i class="mobile-menu-icon fab fa-twitter" />
           </a>
-          <a v-if="$t(`team.${teamMember}.website`).length > 1" v-bind:href="$t(`team.${teamMember}.website`)" target="_blank">
-                  <i class="mobile-menu-icon fa fa-cloud"></i>
-                </a>
-         </div>
-        <div class="description" v-html="$t(`team.${teamMember}.description`)"></div>
+          <a
+            v-if="$t(`team.${member}.website`).length > 1"
+            :href="$t(`team.${member}.website`)" target="_blank"
+            data-test="member-page-website"
+          >
+            <i class="mobile-menu-icon fa fa-cloud" />
+          </a>
+        </div>
+        <!-- TODO: Make this a proper <p> -->
+        <div
+          class="description"
+          data-test="member-page-description"
+          v-html="$t(`team.${member}.description`)"
+        />
       </div>
     </div>
   </div>
 </template>
 
-<script>
-import text from '../i18n/messages.json';
-
-export default {
-  name: 'Team',
-  data() {
-    return {
-      teamMember: '',
-    };
-  },
-  mounted() {
-    const teamMember = this.$route.params.member;
-    if (text.it.team[teamMember] !== undefined) {
-      this.teamMember = teamMember;
-    }
-  },
-};
-</script>
 <style scoped lang="scss">
-
 .photo {
   border-radius: 100%;
   width: 128px;
@@ -66,7 +94,6 @@ export default {
     text-align: center;
   }
 }
-
 
 .socialIcons {
   padding: .2em 0;
