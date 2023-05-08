@@ -66,16 +66,11 @@ const { t } = useI18n()
                 </a>
               </div>
 
-              <router-link
+              <router-link class="user-profile-link"
                 :data-test="`team-member-${member}-page-link`"
                 :to="{ name: 'TeamMember', params: { member } }"
               >
-                <p
-                  data-test="team-member-redirection"
-                  class="user-profile-link"
-                >
-                  {{ t('redirect.profile') }}
-                </p>
+                {{ t('redirect.profile') }}
               </router-link>
             </div>
           </div>

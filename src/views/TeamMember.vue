@@ -79,9 +79,8 @@ onMounted(() => {
         <router-link class="user-profile-link"
           :to="{ name: 'Team' }" data-test="nav-team-page-link"
         >
-        {{ t('redirect.back') }}
+          {{ t('redirect.back') }}
         </router-link>
-
       </div>
     </div>
   </div>
