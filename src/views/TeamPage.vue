@@ -9,7 +9,7 @@ const { t } = useI18n()
 <template>
   <div class="teamList" data-test="team-list">
     <div class="container">
-      <div class="headline">
+      <div class="headline" data-test="team-page-headline">
         <h1>Schrödinger Hat's fam</h1>
       </div>
 
