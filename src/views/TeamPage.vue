@@ -228,30 +228,14 @@ $color_grey_dark: $nord2;
 
 }
 
+.blog-card { //light-v by default
+    background-color: #d8dee9; //brand color, pick from light-v waves
+}
 
-.#{$dark-mode-class} {
+.#{$dark-mode-class}{
   .blog-card {
-    background: $nord2;
-    color: $color_white;
-    .description {
-      background: $nord2;
-      h1,
-      .p a {
-        color: $nord4;
-        color: $color_white;
-      }
-      &:before {
-        background: $nord2;
-      }
-
-      .user-profile-link { 
-        background-color: #2e3440;
-
-        &:hover {
-          background-color: #586379;
-        }
-      }
-    }
+    background-color: $nord2;
   }
+
 }
 </style>
