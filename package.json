@@ -2,6 +2,10 @@
   "name": "schrodinger-hat-web",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=19.4.0",
+    "npm": ">=9.2.0"
+  },
   "scripts": {
     "build": "vite build",
     "cy:o": "cypress open",
@@ -33,9 +37,5 @@
     "typescript": "^5.0.4",
     "vite": "^4.3.3",
     "vitest": "^0.30.1"
-  },
-  "engines": {
-    "node": ">=19.4.0",
-    "npm": ">=9.2.0"
   }
 }

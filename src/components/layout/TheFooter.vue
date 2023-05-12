@@ -9,7 +9,7 @@ import SeparatorTripleLine from '@/components/separator/TripleLine.vue'
       <div class="inner-footer-container">
         <div data-test="footer-logo" class="logo">
           <router-link data-test="footer-home-link" :to="{ name: 'Home' }">
-            <img data-test="footer-home-link-img" alt="SH logo" width="36" src="@/assets/logo-64.png">
+            <img data-test="footer-home-link-img" alt="SH logo" width="36" src="@/assets/sh-logo-small.png">
             <span data-test="footer-home-link-text">S<i class="title-part-1">chrödinger</i> H<i class="title-part-2">at</i></span>
           </router-link>
         </div>
