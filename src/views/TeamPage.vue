@@ -65,7 +65,6 @@ const { t } = useI18n()
                       <i class="mobile-menu-icon fab fa-twitter" />
                     </a>
                     <a
-    
                       v-if="$t(`team.${member}.website`).length > 1"
                       :data-test="`team-member-${member}-website`"
                       :href="$t(`team.${member}.website`)" target="_blank"
