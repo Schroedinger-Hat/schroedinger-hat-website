@@ -31,6 +31,10 @@
   "devDependencies": {
     "@antfu/eslint-config": "^0.38.5",
     "@types/node": "^18.11.18",
+    "@unocss/preset-attributify": "^0.51.12",
+    "@unocss/preset-icons": "^0.51.12",
+    "@unocss/preset-uno": "^0.51.12",
+    "@unocss/preset-web-fonts": "^0.51.12",
     "@vitejs/plugin-vue": "^4.0.0",
     "eslint": "^8.32.0",
     "sass": "^1.49.9",
