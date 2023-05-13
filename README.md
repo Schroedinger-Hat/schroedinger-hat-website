@@ -164,7 +164,7 @@ Don't forget to give the project a star! Thanks again!
 
 ## Contact
 
-- Team - [Organization repo](https://github.com/Schrodinger-Hat)
+- Team - [Organization repo](https://github.com/orgs/Schrodinger-Hat/people)
 - Instagram - [@schrodinger_hat](https://www.instagram.com/schrodinger_hat)
 - LinkedIn - [Schrödinger Hat](https://www.linkedin.com/company/schrodinger-hat/mycompany/)
 - Twitter - [@schrodinger_hat](https://twitter.com/schrodinger_hat)
