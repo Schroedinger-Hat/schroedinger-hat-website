@@ -77,6 +77,7 @@ const messages = {
     },
     redirect: {
       profile: 'Vai al profilo',
+      back: 'Torna indietro'
     },
     team: {
       mikilombardi: {
@@ -136,7 +137,7 @@ const messages = {
         image: '/img/_dev/Angy.jpg',
         secondary_image: '/img/_dev/Angy.jpg',
         description: 'Sono un\'esploratrice, mi piace la ricerca e la sperimentazione negli ambiti più disparati, programmazione, fotografia, stampa 3D, e fai da te sono i primi della mia lista. Nel tempo libero mi piace viaggiare e conoscere nuovi posti, persone, culture ma soprattutto conoscere il cibo, ci sono sempre cose nuove da scoprire.',
-        website: '',
+        website: 'https://www.angydev.eu/',
         permalink: 'AngyDev',
       },
       DanerSound: {
@@ -293,7 +294,8 @@ const messages = {
       },
     },
     redirect: {
-      profile: 'Check out the user\'s profile',
+      profile: 'Go to profile',
+      back: 'Go back'
     },
     team: {
       mikilombardi: {
@@ -353,7 +355,7 @@ const messages = {
         image: '/img/_dev/Angy.jpg',
         secondary_image: '/img/_dev/Angy.jpg',
         description: 'Sono un\'esploratrice, mi piace la ricerca e la sperimentazione negli ambiti più disparati, programmazione, fotografia, stampa 3D, e fai da te sono i primi della mia lista. Nel tempo libero mi piace viaggiare e conoscere nuovi posti, persone, culture ma soprattutto conoscere il cibo, ci sono sempre cose nuove da scoprire.',
-        website: '',
+        website: 'https://www.angydev.eu/',
         permalink: 'AngyDev',
       },
       DanerSound: {
