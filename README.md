@@ -80,6 +80,35 @@ Then, after cloning the project run the command below in the installation folder
 npm install
 ```
 
+### Install recommended VSCode extensions or LSP servers
+
+As we are utilizing Vue3 for this project, you will need to install [Vue Volar](https://github.com/vuejs/language-tools).
+
+For VSCode:
+
+[Install the marketplace extension](https://marketplace.visualstudio.com/items?itemName=Vue.volar) which will allow you to have the best Vue DX while coding.
+
+Don't forget to open the workspace of the project, which will apply specific rules and extension recommendations:
+
+```
+~/your-folder/schrodinger-hat-website code schrodinger-hat-website.code-workspace
+```
+
+For Neovim:
+
+Proceed with the installation of:
+ - [Volar LSP](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#volar) as is stated here. (Take Over Mode included)
+
+- [Eslint LSP](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#eslint) that will allow you to format the files.
+
+For both editors:
+
+It is important that you activate the [Take Over Mode](https://vuejs.org/guide/typescript/overview.html#volar-takeover-mode) from Volar to get the best DX when using Typescript and Vue. For Neovim you can follow the same link stated above.
+
+
+Don't hesitate to ask the admins or contributors on how to set it up if you don't manage set it up.
+
+
 ### Compiles and hot-reloads for development
 
 ```
