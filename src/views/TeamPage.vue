@@ -34,11 +34,11 @@ const { t } = useI18n()
                   />
                 </div>
                 <div class="description">
-                  <h1
+                  <h2
                     :data-test="`team-member-${member}-name`"
                   >
                     {{ $t(`team.${member}.name`) }}
-                  </h1>
+                  </h2>
                   <div class="socialIcons">
                     <a
                       v-if="$t(`team.${member}.github_url`).length > 1"
@@ -103,6 +103,11 @@ $color_grey_dark: $nord2;
     margin: auto;
     max-width: 700px;
     text-align: center; 
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+    }
   }
   .content {
     padding: 1.5em 3em;
@@ -155,7 +160,6 @@ $color_grey_dark: $nord2;
       background-size: cover;
       background-position: center;
     }
-
     
     .description {
       padding: 2rem;
@@ -181,23 +185,18 @@ $color_grey_dark: $nord2;
         }
       }
 
-      h1,
       h2,
       p {
         font-family: Poppins, sans-serif;
       }
-      h1 {
-        line-height: 1;
-        margin: 0;
-        font-size: 1.7rem;
-      }
       h2 {
-        font-size: 1rem;
-        font-weight: 300;
-        margin-top: 5px;
+        font-size: 1.75rem;
+        font-weight: 700;
+        margin: 5px 0;
       }
       .user-profile-link { 
-        font-weight: bold;
+        font-size: 1rem;
+        font-weight: 700;
         border: 1px solid transparent;
         background-color: #586379;
         color: #fff;
@@ -211,20 +210,11 @@ $color_grey_dark: $nord2;
         }
       }
     }
-    p {
-      position: relative;
-      margin: 1rem 0 0;
-      &:first-of-type {
-        margin-top: 1.25rem;
-      }
-    }
-
   }
 }
 
 // to-do: standardize media querys
 @media (min-width: 640px) {
-
   .teamList{
     .content {
       grid-template-columns: repeat(2, 1fr);
