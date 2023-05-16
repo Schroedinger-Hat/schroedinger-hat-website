@@ -44,7 +44,6 @@ const { t } = useI18n()
                     v-if="$t(`team.${member}.github_url`).length > 1"
                     :data-test="`team-member-${member}-github`"
                     :href="$t(`team.${member}.github_url`)" target="_blank"
-                    @click.stop
                   >
                     <i class="mobile-menu-icon fab fa-github" />
                   </a>
@@ -52,7 +51,6 @@ const { t } = useI18n()
                     v-if="$t(`team.${member}.linkedin_url`).length > 1"
                     :data-test="`team-member-${member}-linkedin`"
                     :href="$t(`team.${member}.linkedin_url`)" target="_blank"
-                    @click.stop
                   >
                     <i class="mobile-menu-icon fab fa-linkedin" />
                   </a>
@@ -60,7 +58,6 @@ const { t } = useI18n()
                     v-if="$t(`team.${member}.twitter_url`).length > 1"
                     :data-test="`team-member-${member}-twitter`"
                     :href="$t(`team.${member}.twitter_url`)" target="_blank"
-                    @click.stop
                   >
                     <i class="mobile-menu-icon fab fa-twitter" />
                   </a>
@@ -68,7 +65,6 @@ const { t } = useI18n()
                     v-if="$t(`team.${member}.website`).length > 1"
                     :data-test="`team-member-${member}-website`"
                     :href="$t(`team.${member}.website`)" target="_blank"
-                    @click.stop
                   >
                     <i class="mobile-menu-icon fa fa-cloud" />
                   </a>
