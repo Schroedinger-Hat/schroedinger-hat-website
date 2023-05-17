@@ -167,7 +167,6 @@ const messages = {
     events: {
       'sh-sessions-qwik-workshop': {
         'community-sponsors': '',
-        'conference-website': 'https://www.eventbrite.it/e/schrodinger-session-qwik-tickets-629595837097',
         'location-link': 'https://www.google.com/maps/place/Nana+Bianca/{\'@\'}43.7705948,11.2435774,15z/data=!4m2!3m1!1s0x0:0x19231949d609929a?sa=X&ved=2ahUKEwj-y42U_bz8AhUNhf0HHWzaAO4Q_BJ6BAhrEAg',
         'signup-link': 'https://www.eventbrite.it/e/schrodinger-session-qwik-tickets-629595837097',
         'cfp': '',
@@ -401,16 +400,15 @@ const messages = {
       // TODO: Remove the HTML inside of the text. Give a do-over like the events
       'sh-sessions-qwik-workshop': {
         'community-sponsors': '',
-        'conference-website': 'https://www.eventbrite.it/e/schrodinger-session-qwik-tickets-629595837097',
         'location-link': 'https://www.google.com/maps/place/Nana+Bianca/{\'@\'}43.7705948,11.2435774,15z/data=!4m2!3m1!1s0x0:0x19231949d609929a?sa=X&ved=2ahUKEwj-y42U_bz8AhUNhf0HHWzaAO4Q_BJ6BAhrEAg',
         'signup-link': 'https://www.eventbrite.it/e/schrodinger-session-qwik-tickets-629595837097',
         'cfp': '',
         'date': '2023-06-14 09:30',
-        'description': '',
+        'description': 'We are starting the Schrodinger Session: a workshop series fully accessible for everyone, from everywhere with the best engineer from the open source world and organization',
         'donation': '',
         'image': 'https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F507565769%2F565692604981%2F1%2Foriginal.20230504-132216?w=940&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C2160%2C1080&s=e7d7490b59e1802ad3d53498f66ca59e',
         'location': 'Nana Bianca, Firenze',
-        'permalink': 'open-source-day-2023-florence',
+        'permalink': 'sh-sessions-qwik',
         'sponsors': '',
         'subtitle': '',
         'title': 'SH Sessions, Qwik Workshop with Misko Havery - Firenze',
