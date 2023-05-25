@@ -5,6 +5,7 @@ import router from '@/router'
 import messages from '@/i18n/messages'
 import './registerServiceWorker'
 import 'virtual:uno.css'
+import '@unocss/reset/tailwind.css'
 
 const i18n = createI18n({
   legacy: false,
