@@ -20,6 +20,7 @@
     "vue-dts": "vue-tsc --declaration --emitDeclarationOnly"
   },
   "dependencies": {
+    "@unocss/reset": "^0.52.3",
     "@vueuse/core": "^10.1.0",
     "cypress": "^12.8.1",
     "register-service-worker": "^1.7.2",
