@@ -1,6 +1,7 @@
 <script setup lang='ts'>
 import { computed } from 'vue'
 import { breakpointsTailwind, useBreakpoints, useDark, useToggle } from '@vueuse/core'
+import LanguageSwitcher from '../LanguageSwitcher.vue'
 import MobileMenu from '@/components/layout/MobileMenu.vue'
 
 const isDark = useDark()
@@ -41,6 +42,7 @@ const [showMobileMenu, toggleMobileMenu] = useToggle()
           >
             ImageGoNord
           </a>
+          <LanguageSwitcher />
           <a href="https://github.com/Schrodinger-Hat" target="_blank" data-test="nav-github-page-link">
             <i class="fab fa-github" data-test="nav-github-icon" />
           </a>
