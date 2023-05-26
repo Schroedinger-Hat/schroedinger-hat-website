@@ -1,6 +1,24 @@
 // Global style
 @import 'variables';
 
+$root-font-size: 16px;
+
+@function rem($values...) {
+  // Check if a single value is passed
+  @if length($values) == 1 {
+    $value: nth($values, 1);
+    @return math.div($value, $root-font-size) * 1rem;
+  }
+  // Handle multiple values
+  @else {
+    $rem-values: ();
+    @each $value in $values {
+      $rem-values: append($rem-values, math.div($value, $root-font-size) * 1rem);
+    }
+    @return $rem-values;
+  }
+}
+
 /* Layout */
 html {
   font-family: 'Red Hat Display', sans-serif;
