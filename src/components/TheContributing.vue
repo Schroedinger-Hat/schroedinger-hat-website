@@ -13,7 +13,7 @@ const SHGitHubWebsiteRepo = 'https://github.com/Schrodinger-Hat/schrodinger-hat-
     <!-- TODO: Disable nyan cat in mobile -->
     <NyanCat data-test="nyan-cat" />
     <SeparatorSingleLine />
-    <div class="bg-secondary">
+    <div class="bg-secondary py-30">
       <div class="container contributing-container-text">
         <div class="inner-text">
           <h4 data-test="contributing-title">
@@ -216,7 +216,6 @@ const SHGitHubWebsiteRepo = 'https://github.com/Schrodinger-Hat/schrodinger-hat-
 
   .bg-secondary {
     background-color: $bg-secondary;
-    padding: 2em 0 0 0;
   }
 
   .social {
@@ -228,28 +227,28 @@ const SHGitHubWebsiteRepo = 'https://github.com/Schrodinger-Hat/schrodinger-hat-
 }
 
 .contributing-container-text {
-  width: 100%;
-  text-align: center;
-  margin: 0px auto;
   display: flex;
+  width: 100%;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin: 0 auto;
+  text-align: center;
 
   .inner-text {
     padding: 0 0.5em;
 
     h4 {
+      margin: 0;
       font-size: 2.2em;
-      margin: 0 0;
     }
   }
 
   .partner-image {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
   }
 
   .sponsor-image {
@@ -257,15 +256,12 @@ const SHGitHubWebsiteRepo = 'https://github.com/Schrodinger-Hat/schrodinger-hat-
   }
 }
 
-@media (min-width: 56.25em) {
+@media (width >= 56.25em) {
   .contributing-container {
     .background-svg {
       margin-bottom: -5px;
     }
 
-    .bg-secondary {
-      padding: 2em 0 12em 0;
-    }
   }
 }
 
