@@ -1,4 +1,7 @@
 {
   "extends": "@antfu",
-  "ignorePatterns": ["*.code-workspace"]
+  "ignorePatterns": ["*.code-workspace"],
+  "rules": {
+    "antfu/top-level-function": "off" 
+  }
 }
