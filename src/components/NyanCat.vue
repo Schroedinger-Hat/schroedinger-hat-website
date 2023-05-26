@@ -22,7 +22,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="nyancat-wrapper wrapper">
+  <div class="nyancat-wrapper md:block">
     <div class="rainbow">
       <span />
     </div>
@@ -71,8 +71,8 @@ $royalblue: $nord9;
 $purple: $nord10;
 
 body {
-  height: 100%;
   overflow: hidden;
+  height: 100%;
 }
 
 .sprite {
@@ -80,15 +80,16 @@ body {
 
   background: {
     position: grid(0, 125, 5);
-    size: 100% 5px;
     repeat: no-repeat;
+    size: 100% 5px;
   }
 }
 
 .wrapper {
   display: none;
   overflow: hidden;
-  /*position: absolute;
+
+  /* position: absolute;
   top: 50%;
   left: 50%;
   width: 400px;
@@ -100,39 +101,40 @@ body {
   border-style: solid;
   border-color: lighten($blue, 15%);
   background: $blue;
-  box-shadow: (0 10px 100px rgba(0,0,0,.3));*/
+  box-shadow: (0 10px 100px rgba(0,0,0,.3)); */
 }
 
 .nyan-cat {
   position: absolute;
   z-index: 1;
-  left: -5%;
-  opacity: 0;
   top: 30%;
+  left: -5%;
   width: 165px;
   height: 100px;
+  animation: (nyan 400ms step-start infinite);
+  opacity: 0;
+  transition: all 5s ease-in-out 1s;
 
   margin: {
     top: -50px;
     left: -82px;
   }
-
-  animation: (nyan 400ms step-start infinite);
-  transition: all 5s ease-in-out 1s;
 }
 
 .body {
   @extend .sprite;
-  left: 35px;
+
   top: 0;
+  left: 35px;
   width: 105px;
   height: 90px;
 }
 
 .head {
   @extend .sprite;
-  left: 85px;
+
   top: 25px;
+  left: 85px;
   width: 80px;
   height: 65px;
   animation: (head 400ms linear infinite);
@@ -141,35 +143,36 @@ body {
 .rainbow {
   position: absolute;
   z-index: 1;
-  left: 0;
   top: 30%;
-  margin-top: -35px;
+  left: 0;
+  overflow: hidden;
   width: 0%;
   height: 65px;
-  overflow: hidden;
+  margin-top: -35px;
   transition: all 5s ease-in-out 1s;
 
   span {
     @extend .sprite;
-    display: block;
+
     position: relative;
     top: 0;
+    display: block;
     width: 100%;
     height: 130px;
+    animation: (rainbow 400ms step-start infinite);
 
     background: {
-      size: 80px 5px;
       repeat: repeat-x;
+      size: 80px 5px;
     }
-
-    animation: (rainbow 400ms step-start infinite);
   }
 }
 
 .feet {
   @extend .sprite;
-  left: 20px;
+
   top: 75px;
+  left: 20px;
   width: 120px;
   height: 25px;
   animation: (feet 400ms infinite);
@@ -177,14 +180,15 @@ body {
 
 .tail {
   position: relative;
-  width: 25px;
-  height: 30px;
-  overflow: hidden;
   top: 30px;
   left: 10px;
+  overflow: hidden;
+  width: 25px;
+  height: 30px;
 
   span {
     @extend .sprite;
+
     width: 25px;
     height: 120px;
     animation: (tail 200ms step-start infinite alternate);
