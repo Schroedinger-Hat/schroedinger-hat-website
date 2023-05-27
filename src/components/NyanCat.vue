@@ -42,12 +42,12 @@ onMounted(() => {
 @function grid($start, $end, $increment) {
   $str: 0;
 
-  @while $start <=$end {
+  @while $start <= $end {
     @if $start < $end {
       $str: $str + 0 #{$start}#{'px,'};
     }
 
-    @if $start ==$end {
+    @if $start == $end {
       $str: $str + 0 #{$start}#{'px'};
     }
 
@@ -988,13 +988,13 @@ body {
 
 .loaded {
   .nyan-cat {
-    left: 93%;
+    left: 80%;
     opacity: 1;
     transition: left 2s ease 1s, opacity 200ms ease 0.8s;
   }
 
   .rainbow {
-    width: 93%;
+    width: 80%;
     transition: all 2.1s ease 1s;
   }
 }
