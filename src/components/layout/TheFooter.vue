@@ -5,7 +5,7 @@ import LogoAnimated from '@/components/buttons/LogoAnimated.vue'
 
 <template>
   <footer class="relative" data-test="footer">
-    <SeparatorTripleLine class="absolute bottom-20 lg:bottom-16" />
+    <SeparatorTripleLine class="absolute bottom-16" />
     <div class="container flex justify-center pt-10 text-left">
       <div class="flex justify-between items-center w-full h-full px-2 mx-auto">
         <LogoAnimated />
