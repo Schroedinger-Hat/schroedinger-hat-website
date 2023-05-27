@@ -2,9 +2,7 @@
 import { useAttrs } from 'vue'
 import { useCtaComponent } from '../functions/useCtaComponent'
 
-const attrs = useAttrs()
-
-const { component, bindings } = useCtaComponent(attrs)
+const { component, bindings } = useCtaComponent(useAttrs())
 </script>
 
 <template>
@@ -12,7 +10,3 @@ const { component, bindings } = useCtaComponent(attrs)
     <slot />
   </component>
 </template>
-
-<style scoped lang="scss">
-//
-</style>
