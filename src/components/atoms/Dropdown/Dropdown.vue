@@ -1,49 +1,51 @@
+<script>
+export default {
+  name: 'AppDropdown',
+  props: {
+    text: String,
+    header: String,
+    categories: Array,
+  },
+  data() {
+    return {
+      checkedCategories: [],
+      active: false,
+    }
+  },
+  methods: {
+    toggle() {
+      this.active = !this.active
+    },
+    selectCategory(checkedCategories) {
+      this.$emit('clicked', checkedCategories)
+    },
+  },
+}
+</script>
+
 <template>
   <div class="dropdown">
-      <button @click="toggle" class="btn btn-info" style="margin-right: 0">{{ text }}
-        <!-- <i class="fab fa-solid fa-chevron-down"></i> -->
-        <img class="btn-icon" src="img/icons/caret-down-solid.svg" alt="">
-      </button>
-      <div v-if="active" class="dropdown-content">
-        <header class="dropdown-header">
-          <span>{{ header }}</span>
-          <button @click="toggle" class="dropdown-close-button">X</button>
-        </header>
-        <div class="dropdown-list">
-          <label class="dropdown-list-select" for="" v-for="(category, index) in categories" :key="index">
-            <input type="checkbox" :value="category" v-model="checkedCategories" @change="selectCategory(checkedCategories)">
-            <span>{{ $t(category) }}</span>
-          </label>
-        </div>
+    <button class="btn btn-info" style="margin-right: 0" @click="toggle">
+      {{ text }}
+      <!-- <i class="fab fa-solid fa-chevron-down"></i> -->
+      <img class="btn-icon" src="img/icons/caret-down-solid.svg" alt="">
+    </button>
+    <div v-if="active" class="dropdown-content">
+      <header class="dropdown-header">
+        <span>{{ header }}</span>
+        <button class="dropdown-close-button" @click="toggle">
+          X
+        </button>
+      </header>
+      <div class="dropdown-list">
+        <label v-for="(category, index) in categories" :key="index" class="dropdown-list-select" for="">
+          <input v-model="checkedCategories" type="checkbox" :value="category" @change="selectCategory(checkedCategories)">
+          <span>{{ $t(category) }}</span>
+        </label>
       </div>
+    </div>
   </div>
 </template>
-
-<script>
-
-  export default {
-    name: 'AppDropdown',
-    props: {
-      text: String,
-      header: String,
-      categories: Array
-    },
-    data(){
-      return {
-        checkedCategories: [],
-        active: false,
-      }
-    },
-    methods: {
-      toggle() {
-        this.active = !this.active;
-      },
-      selectCategory(checkedCategories) {
-        this.$emit('clicked', checkedCategories);
-      }
-    }
-  } 
-</script>
 
 <style scoped lang="scss">
 .dropdown {

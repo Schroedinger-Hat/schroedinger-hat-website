@@ -43,6 +43,13 @@ const emit = defineEmits<{
             {{ $t('navbar.team') }}
           </router-link>
           <router-link
+            data-test="mobile-team-page-link"
+            :to="{ name: 'Projects' }"
+            @click="emit('onCloseMenu')"
+          >
+            {{ $t('navbar.projects') }}
+          </router-link>
+          <router-link
             data-test="mobile-event-page-link"
             :to="{ name: 'EventList' }"
             @click="emit('onCloseMenu')"

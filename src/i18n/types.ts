@@ -96,3 +96,18 @@ export type EventMessageName =
   'open-source-day-2023-florence' |
   'open-source-day-2021-florence-student-hotel' |
   'typing-day-florence-2021-student-hotel'
+
+export interface Project {
+  name: string
+  gitUrl: string
+  redditUrl: string
+  discordUrl: string
+  description: string
+  category: string
+  tags: string[]
+  owners: {
+    name: string
+    surname: string
+    avatar: string
+  }[]
+}

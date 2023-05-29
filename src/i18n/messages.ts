@@ -11,6 +11,7 @@ const messages = {
     },
     navbar: {
       team: 'Team',
+      projects: 'Progetti',
       events: 'Eventi',
       codeOfConduct: 'Codice di Condotta',
     },
@@ -199,6 +200,12 @@ const messages = {
         'permalink': 'open-source-day-2021-florence-student-hotel',
       },
     },
+    projects: {
+      'search-button': 'Cerca',
+      'search-placeholder': 'Cerca progetti',
+      'search-category': 'Categorie',
+      'search-tag': 'Tag',
+    },
   },
   en: {
     message: {
@@ -213,6 +220,7 @@ const messages = {
     // TODO: Organize this messages on their respective pages
     navbar: {
       team: 'Team',
+      projects: 'Progetti',
       events: 'Events',
       codeOfConduct: 'Code of Conduct',
     },
@@ -401,6 +409,12 @@ const messages = {
         'permalink': 'open-source-day-2021-florence-student-hotel',
         'conference-website': '',
       },
+    },
+    projects: {
+      'search-button': 'Search',
+      'search-placeholder': 'Find a project',
+      'search-category': 'Category',
+      'search-tag': 'Tag',
     },
   },
 }

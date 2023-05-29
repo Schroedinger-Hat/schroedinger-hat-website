@@ -1,101 +1,132 @@
+<script setup lang="ts">
+import { ref } from 'vue'
+import text from '../i18n/projects.json'
+import Dropdown from '@/components/atoms/Dropdown/Dropdown.vue'
+import type { Project } from '@/i18n/types'
+
+// import JwPagination from 'jw-vue-pagination';
+
+const tags = text.it.tags
+const categories = text.it.categories
+const projectList = ref<Project[]>(text.it.projects)
+
+const selectedCategory = ref([])
+const selectedTag = ref([])
+
+const input = ref('')
+
+// input.value === "" && projectList.value = text.it.projects
+
+// const pageOfItems = []
+function searchProject() {
+  projectList.value = text.it.projects
+
+  if (input.value !== '' && [...selectedCategory.value].length > 0)
+    projectList.value = projectList.value.filter(project => project.name.toLowerCase().includes(input.value.toLowerCase()) && selectedCategory.value.includes(project.category))
+
+  else if ([...selectedCategory.value].length > 0 && input.value === '')
+    projectList.value = projectList.value.filter(project => selectedCategory.value.includes(project.category))
+
+  else if ([...selectedTag.value].length > 0 && input.value === '' && [...selectedCategory.value].length === 0)
+    projectList.value = projectList.value.filter(project => project.tags.some(item => selectedTag.value.includes(item)))
+
+  else if (input.value !== '')
+    projectList.value = projectList.value.filter(project => project.name.toLowerCase().includes(input.value.toLowerCase()) && ([...selectedCategory.value].length > 0 ? selectedCategory.value.includes(project.category) : project))
+}
+
+function selectCategory(value: string) {
+  selectedCategory.value = [...value]
+}
+
+function selectTag(value: string) {
+  selectedTag.value = [...value]
+}
+</script>
+
 <template>
   <div class="projectList">
     <div class="container">
       <div class="content">
         <div>
-          <h1>{{ $t(`message.navbar.projects`) }}</h1>
+          <h1>{{ $t(`navbar.projects`) }}</h1>
         </div>
         <div class="search-container">
-          <input class="search-input" ref="input" :placeholder="$t(`message.common.search-placeholder`)" type="text">
+          <input v-model="input" class="search-input" :placeholder="$t(`projects.search-placeholder`)" type="text">
           <div class="search-category">
-            <Dropdown 
+            <Dropdown
+              :text="$t(`projects.search-tag`)"
+              header="Seleziona tag"
+              :categories="tags"
               @clicked="selectTag"
-              :text="$t(`message.common.search-tag`)" 
-              header="Seleziona tag" 
-              :categories="tags" />
+            />
           </div>
           <div class="search-category">
             <!-- <button class="btn btn-info" @click="openDropdown">{{ $t(`message.common.search-category`) }} <i class="fab fa-chevron-down"></i></button> -->
-            <Dropdown 
+            <Dropdown
+              :text="$t(`projects.search-category`)"
+              header="Seleziona categoria"
+              :categories="categories"
               @clicked="selectCategory"
-              :text="$t(`message.common.search-category`)" 
-              header="Seleziona categoria" 
-              :categories="categories" />
+            />
           </div>
-          <button class="btn btn-primary" @click="searchProejct" style="margin-right: 0">{{ $t(`message.common.search-button`) }}</button>
+          <button class="btn btn-primary" style="margin-right: 0" @click="searchProject">
+            {{ $t(`projects.search-button`) }}
+          </button>
         </div>
-        <div id="projects" v-for="item in pageOfItems" :key="item.id" :pagination="true">
+        <div v-for="item in projectList" id="projectList" :key="item.id" :pagination="true">
           <div class="project-card">
             <div class="description">
               <div class="project-card-header">
-                  <h1 class="project-card-title">
-                    <a href="">{{$t(item.name)}}</a>
-                    <span class="project-card-category">{{$t(item.category)}}</span>
-                  </h1>
-                  <div>
-                    <a class="icon" :href="item.gitUrl" target="_blank">
-                      <i class="mobile-menu-icon fab fa-github"></i>
-                    </a>
-                    <a class="icon" :href="item.redditUrl" target="_blank">
-                      <i class="mobile-menu-icon fab fa-reddit"></i>
-                    </a>
-                    <a class="icon" :href="item.discordUrl" target="_blank">
-                      <i class="mobile-menu-icon fab fa-discord"></i>
-                    </a>
-                  </div>
+                <h1 class="project-card-title">
+                  <a href="">{{ $t(item.name) }}</a>
+                  <span class="project-card-category">{{ $t(item.category) }}</span>
+                </h1>
+                <div>
+                  <a class="icon" :href="item.gitUrl" target="_blank">
+                    <i class="mobile-menu-icon fab fa-github" />
+                  </a>
+                  <a class="icon" :href="item.redditUrl" target="_blank">
+                    <i class="mobile-menu-icon fab fa-reddit" />
+                  </a>
+                  <a class="icon" :href="item.discordUrl" target="_blank">
+                    <i class="mobile-menu-icon fab fa-discord" />
+                  </a>
+                </div>
               </div>
-                <p>{{item.description}}</p>
-                <div class="project-card-tags-container">
-                  <div class="project-card-tags" v-for="tag in item.tags" :key="tag.id">
-                    <span>{{$t(tag)}}</span>
+              <p>{{ item.description }}</p>
+              <div class="project-card-tags-container">
+                <div v-for="tag in item.tags" :key="tag.id" class="project-card-tags">
+                  <span>{{ $t(tag) }}</span>
+                </div>
+              </div>
+              <div class="project-card-owners-container">
+                <div v-for="owner in item.owners" :key="owner.id" class="project-card-owners">
+                  <div>
+                    <img class="avatar" :src="owner.avatar" alt="" width="40" height="40">
+                  </div>
+                  <div class="project-card-owners-name">
+                    <span>{{ owner.name }}</span>
+                    <span>{{ owner.surname }}</span>
                   </div>
                 </div>
-                <div class="project-card-owners-container">
-                  <div class="project-card-owners" v-for="owner in item.owners" :key="owner.id">
-                    <div>
-                      <img class="avatar" :src="owner.avatar" alt="" width="40" height="40">
-                    </div>
-                    <div class="project-card-owners-name">
-                      <span>{{owner.name}}</span>
-                      <span>{{owner.surname}}</span>
-                    </div>
-                  </div>
-                </div>
+              </div>
             </div>
           </div>
         </div>
         <div>
-            <jw-pagination :items="projects" @changePage="onChangePage" :pageSize="3"></jw-pagination>
+          <jw-pagination :items="projectList" :page-size="3" @changePage="onChangePage" />
         </div>
       </div>
     </div>
   </div>
 </template>
 
-<script>
-// import text from '../i18n/messages.json';
-
-// export default {
-//   name: 'ProjectList',
-//   // data() {
-//   //   return {
-//   //     projects: Object.keys(text.it.projects),
-//   //   };
-//   // },
-// };
-
-import Vue from 'vue';
+<!-- <script>
 import JwPagination from 'jw-vue-pagination';
 import text from '../i18n/projects.json';
-import Dropdown from '../components/atoms/Dropdown/Dropdown.vue';
+import Dropdown from '@/components/atoms/Dropdown/Dropdown.vue';
 
-export default Vue.component('Projects', {
-  name: 'projects',
-  props: {},
-  components: {
-    Dropdown,
-    JwPagination
-  },
+export default {
   data () {
     return {
       projects: [],
@@ -110,7 +141,7 @@ export default Vue.component('Projects', {
     this.projects = text.it.projects
   },
   methods: {
-    searchProejct() {
+    searchProject() {
       console.log(this.selectedCategory);
       console.log(this.selectedTag);
       this.projects = text.it.projects;
@@ -118,7 +149,7 @@ export default Vue.component('Projects', {
       // if (this.$refs.input.value !== "" && this.selectedCategory.length > 0) {
       //   console.log("input + category");
       //   this.projects = this.projects.filter((project) => project.name.toLowerCase().includes(this.$refs.input.value.toLowerCase()) && this.selectedCategory.includes(project.category))
-      // } else 
+      // } else
       if (this.selectedCategory.length > 0 && this.$refs.input.value === "") {
         console.log("category");
         this.projects = this.projects.filter((project) => this.selectedCategory.includes(project.category))
@@ -140,9 +171,8 @@ export default Vue.component('Projects', {
         this.pageOfItems = pageOfItems;
     }
   }
-});
-</script>
-
+};
+</script> -->
 
 <style scoped lang="scss">
 $color_white: #fff;
@@ -299,7 +329,7 @@ $color_grey_dark: $nord2;
         margin-left: 1rem;
       }
     }
-    
+
     .avatar {
       display: inline-block;
       overflow: hidden;

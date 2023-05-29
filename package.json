@@ -22,7 +22,6 @@
   "dependencies": {
     "@vueuse/core": "^10.1.0",
     "cypress": "^12.8.1",
-    "axios": "^0.27.2",
     "jw-vue-pagination": "^1.0.3",
     "register-service-worker": "^1.7.2",
     "vue": "^3.2.45",

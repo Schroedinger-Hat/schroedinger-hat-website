@@ -36,6 +36,11 @@ const routes = [
     name: 'TeamMember',
     component: () => import('@/views/TeamMember.vue'),
   },
+  {
+    path: '/projects',
+    name: 'Projects',
+    component: () => import('@/views/ProjectList.vue')
+  }
 ]
 
 const router = createRouter({

@@ -29,6 +29,9 @@ const [showMobileMenu, toggleMobileMenu] = useToggle()
           <router-link :to="{ name: 'Team' }" data-test="nav-team-page-link">
             {{ $t('navbar.team') }}
           </router-link>
+          <router-link :to="{ name: 'Projects' }" data-test="nav-team-page-link">
+            {{ $t('navbar.projects') }}
+          </router-link>
           <router-link :to="{ name: 'EventList' }" data-test="nav-event-page-link">
             {{ $t('navbar.events') }}
           </router-link>

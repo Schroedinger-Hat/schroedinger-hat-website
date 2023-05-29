@@ -40,7 +40,7 @@
         "discordUrl": "https://discord.com/channels/963080048380895352/963134916953014342",
         "description": "This is the web site project of the cumminity",
         "category": "GitHub",
-        "tags": ["javascript", "vue", "web"],
+        "tags": ["javascript", "web"],
         "owners": [
           {
             "name": "Davide",
