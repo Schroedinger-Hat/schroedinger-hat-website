@@ -26,7 +26,7 @@ function selectCategory(checkedCategories: Array<string>) {
     <button class="btn btn-info" style="margin-right: 0" @click="toggle">
       {{ text }}
       <!-- <i class="fab fa-solid fa-chevron-down"></i> -->
-      <img class="btn-icon" src="img/icons/caret-down-solid.svg" alt="">
+      <img class="btn-icon" src="/img/icons/caret-down-solid.svg" alt="">
     </button>
     <div v-if="active" class="dropdown-content">
       <header class="dropdown-header">
