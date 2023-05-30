@@ -71,11 +71,11 @@ const emit = defineEmits<{
 <style scoped lang="scss">
 .mobile-menu-container {
   position: fixed;
-  width: 100%;
-  background: $bg-primary;
   z-index: 1;
   left: 0;
+  width: 100%;
   height: calc(100vh);
+  background: $bg-primary;
   transition: all 0.4s ease-in 0s;
 
   nav {
@@ -83,10 +83,10 @@ const emit = defineEmits<{
       text-align: center;
 
       a {
-        padding: 0.8em 0;
         display: block;
-        font-size: 1.3em;
+        padding: 0.8em 0;
         border-bottom: 1px solid $bg-secondary;
+        font-size: 1.3em;
 
         &:last-child {
           border-bottom: none;
@@ -111,25 +111,25 @@ const emit = defineEmits<{
 
 .slide-enter-from,
 .slide-leave-to {
-  opacity: 0;
   bottom: 100vh;
+  opacity: 0;
 }
 
 .mobile-menu-header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   padding: 1rem;
 }
 
 button {
-  border-radius: 0.25em;
-  background-color: transparent;
   border: none;
+  border-radius: 0.25em;
   margin: 0 0.4em;
-  transition: background-color 100ms ease-in-out 0s;
+  background-color: transparent;
   cursor: pointer;
   font-size: 1.2em;
+  transition: background-color 100ms ease-in-out 0s;
 
   &:hover {
     background-color: $bg-secondary;
