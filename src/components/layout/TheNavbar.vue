@@ -6,7 +6,7 @@ import MobileMenu from '@/components/layout/MobileMenu.vue'
 import CtaComponent from '@/components/buttons/CtaComponent.vue'
 
 // TODO: Move this data to an outer file
-// TODO We could create a component called CtaIcon based of CtaComponent
+// TODO: We could create a component called CtaIcon based of CtaComponent
 
 const links = {
   router: [
@@ -24,6 +24,25 @@ const links = {
       name: 'CodeOfConduct',
       test: 'nav-team-page-link',
       text: 'navbar.codeOfConduct',
+    },
+  ],
+  anchors: [
+    {
+      id: 'gonord',
+      href: 'https://ign.schrodinger-hat.it',
+      test: 'nav-go-nord-page-link',
+      text: 'ImageGoNord',
+      icon: null,
+    },
+    {
+      id: 'github',
+      href: 'https://github.com/Schrodinger-Hat',
+      test: 'nav-github-page-link',
+      text: null,
+      icon: {
+        class: 'fab fa-github',
+        test: 'nav-github-icon',
+      },
     },
   ],
 }
@@ -53,15 +72,10 @@ const themeIcon = computed(() => {
           >
             {{ $t(text) }}
           </CtaComponent>
-          <a
-            id="gonord" href="https://ign.schrodinger-hat.it" target="_blank"
-            data-test="nav-go-nord-page-link"
-          >
-            ImageGoNord
-          </a>
-          <a href="https://github.com/Schrodinger-Hat" target="_blank" data-test="nav-github-page-link">
-            <i class="fab fa-github" data-test="nav-github-icon" />
-          </a>
+          <CtaComponent v-for="{ id, href, test, text, icon } in links.anchors" :id="id" :key="id" :href="href" :data-test="test">
+            <i v-if="icon" :class="icon.class" :data-test="icon.test" />
+            <span v-else>{{ text }}</span>
+          </CtaComponent>
           <button class="hamburger-none-md" data-test="nav-burger-menu-cta" @click="toggleMobileMenu()">
             <i class="fas fa-hamburger" data-test="nav-hamburget-icon" />
           </button>
