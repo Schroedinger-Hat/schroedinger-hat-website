@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import text from '../i18n/projects.json'
+
+// import text from '../i18n/projects.json'
+import text from '../i18n/projects'
 import Dropdown from '@/components/atoms/Dropdown/Dropdown.vue'
 import type { Project } from '@/i18n/types'
 

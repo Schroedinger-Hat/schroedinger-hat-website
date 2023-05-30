@@ -78,7 +78,7 @@ const messages = {
     },
     redirect: {
       profile: 'Vai al profilo',
-      back: 'Torna indietro'
+      back: 'Torna indietro',
     },
     team: {
       mikilombardi: {
@@ -287,7 +287,7 @@ const messages = {
     },
     redirect: {
       profile: 'Go to profile',
-      back: 'Go back'
+      back: 'Go back',
     },
     team: {
       mikilombardi: {
