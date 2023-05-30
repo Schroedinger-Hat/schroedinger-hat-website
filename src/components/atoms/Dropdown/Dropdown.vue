@@ -1,25 +1,23 @@
-<script>
-export default {
-  name: 'AppDropdown',
-  props: {
-    text: String,
-    header: String,
-    categories: Array,
-  },
-  data() {
-    return {
-      checkedCategories: [],
-      active: false,
-    }
-  },
-  methods: {
-    toggle() {
-      this.active = !this.active
-    },
-    selectCategory(checkedCategories) {
-      this.$emit('clicked', checkedCategories)
-    },
-  },
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const props = defineProps({
+  text: String,
+  header: String,
+  categories: Array,
+})
+
+const emit = defineEmits(['clicked'])
+
+const checkedCategories = ref([])
+const active = ref(false)
+
+function toggle() {
+  active.value = !active.value
+}
+
+function selectCategory(checkedCategories: Array<string>) {
+  emit('clicked', checkedCategories)
 }
 </script>
 
