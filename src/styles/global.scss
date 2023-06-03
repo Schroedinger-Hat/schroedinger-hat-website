@@ -4,6 +4,12 @@
 
 $root-font-size: 16px;
 
+
+// Colors
+
+$c-white: #ffffff;
+$c-black: #000000;
+
 @function rem($values...) {
   // Check if a single value is passed
   @if length($values) == 1 {
