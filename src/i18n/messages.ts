@@ -415,6 +415,7 @@ const messages = {
         'cfp': 'https://sessionize.com/open-source-day-2021-florence/',
         'donation': 'https://opencollective.com/schrodinger-hat',
         'permalink': 'open-source-day-2021-florence-student-hotel',
+        'redirect_link': 'https://www.youtube.com/watch?v=8z6CRK61JLA',
         'conference-website': '',
       },
       'typing-day-florence-2021-student-hotel': {
