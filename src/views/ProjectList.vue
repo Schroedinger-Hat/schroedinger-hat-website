@@ -12,8 +12,8 @@ const tags = text.it.tags
 const categories = text.it.categories
 const projectList = ref<Project[]>(text.it.projects)
 
-const selectedCategory = ref([])
-const selectedTag = ref([])
+const selectedCategory = ref<string[]>([])
+const selectedTag = ref<string[]>([])
 
 const input = ref('')
 
@@ -75,7 +75,7 @@ function selectTag(value: string) {
             {{ $t(`projects.search-button`) }}
           </button>
         </div>
-        <div v-for="item in projectList" id="projectList" :key="item.id" :pagination="true">
+        <div v-for="item in projectList" id="projectList" :key="item" :pagination="true">
           <div class="project-card">
             <div class="description">
               <div class="project-card-header">
@@ -97,12 +97,12 @@ function selectTag(value: string) {
               </div>
               <p>{{ item.description }}</p>
               <div class="project-card-tags-container">
-                <div v-for="tag in item.tags" :key="tag.id" class="project-card-tags">
+                <div v-for="tag in item.tags" :key="tag" class="project-card-tags">
                   <span>{{ $t(tag) }}</span>
                 </div>
               </div>
               <div class="project-card-owners-container">
-                <div v-for="owner in item.owners" :key="owner.id" class="project-card-owners">
+                <div v-for="owner in item.owners" :key="owner" class="project-card-owners">
                   <div>
                     <img class="avatar" :src="owner.avatar" alt="" width="40" height="40">
                   </div>
@@ -115,9 +115,9 @@ function selectTag(value: string) {
             </div>
           </div>
         </div>
-        <div>
-          <jw-pagination :items="projectList" :page-size="3" @changePage="onChangePage" />
-        </div>
+        <!-- <div>
+          <jw-pagination :items="projectList" :page-size="3" @change-page="onChangePage" />
+        </div> -->
       </div>
     </div>
   </div>
