@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { type Ref, onMounted, ref, watch } from 'vue'
+import { type Ref, ref, watch } from 'vue'
 import { type RouteParamValue, useRoute } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 import * as messages from '../i18n/messages'
@@ -10,13 +10,15 @@ const eventKey: Ref<RouteParamValue> = ref('')
 const route = useRoute()
 
 watch(() => route.params.event, () => {
-  eventKey.value = route.params.event;
-}, { immediate: true });
+  eventKey.value = route.params.event as RouteParamValue
+}, { immediate: true })
 
 const getCalendarLink = () => {
   let calendarString = 'http://www.google.com/calendar/event?action=TEMPLATE&dates='
   try {
+    // @ts-expect-error Because of not typing messages
     const { title, location } = messages.it.events[eventKey.value as EventMessageName]
+    // @ts-expect-error Because of not typing messages
     const [date, time] = messages.it.events[eventKey.value as EventMessageName].date.split(' ')
     const startUTCDate = new Date(`${date} ${time}`)
     const startDate = startUTCDate.toISOString().replace(/[:-]/g, '').replace('.000Z', 'Z')
