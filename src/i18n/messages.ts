@@ -168,7 +168,8 @@ const messages = {
       'sh-sessions-qwik-workshop': {
         'community-sponsors': '',
         'location-link': 'https://www.google.com/maps/place/Nana+Bianca/{\'@\'}43.7705948,11.2435774,15z/data=!4m2!3m1!1s0x0:0x19231949d609929a?sa=X&ved=2ahUKEwj-y42U_bz8AhUNhf0HHWzaAO4Q_BJ6BAhrEAg',
-        'signup-link': 'https://www.eventbrite.it/e/schrodinger-session-qwik-tickets-629595837097',
+        'signup-link': '',
+        'conference-website': '',
         'cfp': '',
         'date': '2023-06-14 09:30',
         'description': 'We are starting the Schrodinger Session: a workshop series fully accessible for everyone, from everywhere with the best engineer from the open source world and organization\nThis year we decided to go big!\nIn this edition we are going to have a mid day with Miško Hevery, creator of Angular, co-creator of KarmaJS and creator of Qwik and Giorgio Boa, developer, public speaker and top contributor in Qwik!\nDuring the workshop you are going to do a demo, learn and ask questions directly to Miško and Giorgio.\nThe session will be free for everyone, in livestream and in english.',
@@ -401,7 +402,8 @@ const messages = {
       'sh-sessions-qwik-workshop': {
         'community-sponsors': '',
         'location-link': 'https://www.google.com/maps/place/Nana+Bianca/{\'@\'}43.7705948,11.2435774,15z/data=!4m2!3m1!1s0x0:0x19231949d609929a?sa=X&ved=2ahUKEwj-y42U_bz8AhUNhf0HHWzaAO4Q_BJ6BAhrEAg',
-        'signup-link': 'https://www.eventbrite.it/e/schrodinger-session-qwik-tickets-629595837097',
+        'signup-link': '',
+        'conference-website': '',
         'cfp': '',
         'date': '2023-06-14 09:30',
         'description': 'We are starting the Schrodinger Session: a workshop series fully accessible for everyone, from everywhere with the best engineer from the open source world and organization\nThis year we decided to go big!\nIn this edition we are going to have a mid day with Miško Hevery, creator of Angular, co-creator of KarmaJS and creator of Qwik and Giorgio Boa, developer, public speaker and top contributor in Qwik!\nDuring the workshop you are going to do a demo, learn and ask questions directly to Miško and Giorgio.\nThe session will be free for everyone, in livestream and in english.',
