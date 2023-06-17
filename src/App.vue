@@ -39,7 +39,8 @@ body {
 }
 
 .head-4 {
-  font-size: rem(28px)
+  font-size: rem(28px);
+  line-height: 0.9;
 }
 
 .head-5 {
@@ -48,6 +49,10 @@ body {
 
 .head-6 {
   font-size: rem(20px)
+}
+
+.poppins {
+  font-family: "Poppins", sans-serif;
 }
 
 .container {
