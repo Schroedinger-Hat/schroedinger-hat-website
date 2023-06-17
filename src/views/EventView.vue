@@ -1,25 +1,17 @@
 <script setup lang="ts">
-import { type Ref, onMounted, ref } from 'vue'
+import { type Ref, onMounted, ref, watch } from 'vue'
 import { type RouteParamValue, useRoute } from 'vue-router'
 import { useI18n } from 'vue-i18n'
-import messages from '../i18n/messages'
+import * as messages from '../i18n/messages'
 import { type EventMessageName } from '@/i18n/types'
 
 const { t } = useI18n()
 const eventKey: Ref<RouteParamValue> = ref('')
 const route = useRoute()
 
-const getEventName = () => {
-  if (!route.params.event)
-    getEventName()
-
-  else
-    eventKey.value = route.params.event as RouteParamValue
-}
-
-onMounted(() => {
-  getEventName()
-})
+watch(() => route.params.event, () => {
+  eventKey.value = route.params.event;
+}, { immediate: true });
 
 const getCalendarLink = () => {
   let calendarString = 'http://www.google.com/calendar/event?action=TEMPLATE&dates='
@@ -105,6 +97,13 @@ const getCalendarLink = () => {
             target="_blank"
             :href="t(`events.${eventKey}.conference-website`)"
           >{{ t(`message.common.go-to-conference-website`) }}</a>
+          <a
+            v-if="t(`events.${eventKey}.video_link`) !== ''"
+            :data-test="`${eventKey}-video_link`"
+            class="btn btn-primary"
+            target="_blank"
+            :href="t(`events.${eventKey}.video_link`)"
+          >{{ $t(`message.common.go-to-video`) }}</a>
         </div>
         <div
           v-if="t(`events.${eventKey}.sponsors`) !== ''"
