@@ -181,12 +181,12 @@ const messages = {
         'permalink': 'open-source-day-2023-florence',
         'sponsors': '',
         'subtitle': 'Stiamo per tornare con una nuova edizione dell\'Open Source Day. In questa stagione distruggeremo tutto. Unisciti a noi il 24 marzo 2023!',
-        'title': 'Open Source Day 2023 - Firenze',
+        'title': 'Open Source Day 2023',
         'video_link': '',
       },
       'open-source-day-2021-florence-student-hotel': {
         'conference-website': '',
-        'title': 'Open Source Day 2021 - Firenze',
+        'title': 'Open Source Day 2021',
         'image': 'https://images.unsplash.com/photo-1489389944381-3471b5b30f04?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
         'subtitle': 'L\'evento FOSS Explorer digitale dedicato all\'open source si espande e diventa un evento fisico! Speaker & Sviluppatori, stay tuned!',
         'description': '<p>Unisciti ad altri sviluppatori open source per scoprire librerie, utility e progetti FOSS ascoltando direttamente il loro creatore.</p><p>Saranno presenti 5 speaker che porteranno la loro esperienza di sviluppo software open source e saranno a disposizione per domande.<br>La CFP è aperta fino al 15 Settembre, potete candidarvi seguendo il form su <a class="external-link-color" href="https://sessionize.com/open-source-day-2021-florence/" target="_blank">Sessionize</a></p><p>Chiunque potrà partecipare e potrà candidarsi per il prossimo evento come speaker. Lo potrà fare fisicamente all\'evento o scrivendoci una email a schrodinger.hat.show[at]gmail.com</p><p>L\'evento sarà trasmesso anche online, le informazioni per seguirlo in diretta saranno fornite in seguito. A seguito dell\'evento faremo estraeremo il vincitore della licenza JetBrains e faremo un po\' di meet & greet con un buffet e qualche bevanda, così ci conosciamo un po!</p><p>Vi aspettiamo muniti di mascherina e green pass!</p>',
@@ -374,7 +374,7 @@ const messages = {
     events: {
       // TODO: Remove the HTML inside of the text. Give a do-over like the events
       'open-source-day-2023-florence': {
-        'title': 'Open Source Day 2023 - Firenze',
+        'title': 'Open Source Day 2023',
         'image': 'https://images.unsplash.com/photo-1489389944381-3471b5b30f04?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
         'subtitle': 'We are coming back with a new edition of the Open Source Day conference. In this season we are going to smash everything. Join us on the 24th of March 2023!',
         'description': '',
@@ -391,7 +391,7 @@ const messages = {
         'video_link': '',
       },
       'open-source-day-2021-florence-student-hotel': {
-        'title': 'Open Source Day 2021 - Florence',
+        'title': 'Open Source Day 2021',
         'image': 'https://images.unsplash.com/photo-1489389944381-3471b5b30f04?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
         'subtitle': 'The digital FOSS Explorer event dedicated to open source expands and becomes a physical event! Speaker & Developers, stay tuned!',
         'description': '<p>Join other open source developers to discover FOSS libraries, utilities and projects by listening to their creator directly.</p><p>There will be 5 speakers who will bring their experience of open source software development and will be available for questions.<br>The CFP will be open until 15 September, you can submit your talk to <a class="external-link-color" href="https://sessionize.com/open-source-day-2021-florence/" target="_blank">Sessionize</a></p><p>Anyone can participate and can apply for the next event as a speaker. You can do it physically at the event or by emailing us at schrodinger.hat.show[at]gmail.com</p><p>The event will be also live on our online channel, we will provide before the event start. Following the event we will do some meet & greet with a buffet and some drinks, so we get to know each other a little!</p><p>We are waiting for you with a mask and green pass!</p>',
