@@ -7,6 +7,7 @@ const messages = {
         'go-to-donation': 'Supportaci',
         'go-to-cfp': 'Sessionize CFP',
         'go-to-conference-website': 'Visita il sito',
+        'video': 'Video',
       },
     },
     navbar: {
@@ -180,6 +181,7 @@ const messages = {
         'sponsors': '',
         'subtitle': '',
         'title': 'SH Sessions, Qwik Workshop with Misko Havery - Firenze',
+        'video-link': 'https://www.youtube.com/watch?v=_kN3QgaZkcs',
       },
       'open-source-day-2023-florence': {
         'community-sponsors': '',
@@ -414,6 +416,7 @@ const messages = {
         'sponsors': '',
         'subtitle': '',
         'title': 'SH Sessions, Qwik Workshop with Misko Havery - Firenze',
+        'video-link': 'https://www.youtube.com/watch?v=_kN3QgaZkcs',
       },
       'open-source-day-2023-florence': {
         'title': 'Open Source Day 2023 - Firenze',
