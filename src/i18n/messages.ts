@@ -244,6 +244,7 @@ const messages = {
         'go-to-donation': 'Support us',
         'go-to-cfp': 'Sessionize CFP',
         'go-to-conference-website': 'Visit website',
+        'video': 'Video'
       },
     },
     // TODO: Organize this messages on their respective pages
