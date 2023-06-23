@@ -105,6 +105,12 @@ const getCalendarLink = () => {
             target="_blank"
             :href="t(`events.${eventKey}.conference-website`)"
           >{{ t(`message.common.go-to-conference-website`) }}</a>
+          <a
+            v-if="t(`events.${eventKey}.video-link`) !== ''"
+            class="btn btn-primary"
+            target="_blank"
+            :href="t(`events.${eventKey}.video-link`)"
+          >{{ t(`message.common.video`) }}</a>
         </div>
         <div
           v-if="t(`events.${eventKey}.sponsors`) !== ''"
