@@ -19,7 +19,7 @@ const emit = defineEmits<{
             :to="{ name: 'Home' }"
             @click="emit('onCloseMenu')"
           >
-            <img alt="SH logo" width="36" src="../../assets/logo-64.png">
+            <img alt="SH logo" width="36" src="@/assets/sh-logo-small.png">
           </router-link>
         </div>
         <button class="close-header" data-test="mobile-burger-menu-cta" @click="emit('onCloseMenu')">

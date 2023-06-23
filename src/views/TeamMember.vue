@@ -3,6 +3,9 @@ import { type Ref, onMounted, ref } from 'vue'
 import type { RouteParamValue } from 'vue-router'
 import { useRoute } from 'vue-router'
 
+import { useI18n } from 'vue-i18n'
+const { t } = useI18n()
+
 const member: Ref<null | string> = ref(null)
 const route = useRoute()
 
@@ -65,18 +68,26 @@ onMounted(() => {
             <i class="mobile-menu-icon fa fa-cloud" />
           </a>
         </div>
+
         <!-- TODO: Make this a proper <p> -->
         <div
           class="description"
           data-test="member-page-description"
           v-html="$t(`team.${member}.description`)"
         />
+
+        <router-link class="user-profile-link"
+          :to="{ name: 'Team' }" data-test="nav-team-page-link"
+        >
+          {{ t('redirect.back') }}
+        </router-link>
       </div>
     </div>
   </div>
 </template>
 
 <style scoped lang="scss">
+
 .photo {
   border-radius: 100%;
   width: 128px;
@@ -95,17 +106,40 @@ onMounted(() => {
   }
 }
 
-.socialIcons {
-  padding: .2em 0;
+.socialIcons { 
+  padding: 1em; 
 
   a {
     display: inline-block;
     margin: 0.2em;
+
+    .mobile-menu-icon {
+      font-size: 1.2em; 
+    }
+    
+    &:hover .mobile-menu-icon {
+      color: #2e3440;
+    }
   }
 }
 
 .description {
   padding: 1em 0;
+  margin-bottom: 20px;
+}
+
+.user-profile-link { 
+  font-weight: bold;
+  border: 1px solid transparent;
+  background-color: #586379;
+  color: #fff;
+  margin: 0 auto;
+  padding: 5px 15px;
+  border-radius: 999px;
+
+  &:hover {
+    background-color: #2e3440;
+  }
 }
 
 @media (min-width: 56.25em) {
@@ -119,6 +153,17 @@ onMounted(() => {
         }
       }
     }
+  }
+}
+
+.#{$dark-mode-class} { 
+  .socialIcons {  
+    a {
+      &:hover .mobile-menu-icon {
+        color: #586379;
+      }
+
+    }  
   }
 }
 </style>
