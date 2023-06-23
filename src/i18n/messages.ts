@@ -198,6 +198,7 @@ const messages = {
         'sponsors': '',
         'subtitle': 'Stiamo per tornare con una nuova edizione dell\'Open Source Day. In questa stagione distruggeremo tutto. Unisciti a noi il 24 marzo 2023!',
         'title': 'Open Source Day 2023 - Firenze',
+        'video-link': ''
       },
       'open-source-day-2021-florence-student-hotel': {
         'conference-website': '',
@@ -214,6 +215,7 @@ const messages = {
         'donation': 'https://opencollective.com/schrodinger-hat',
         'cfp': 'https://sessionize.com/open-source-day-2021-florence/',
         'permalink': 'open-source-day-2021-florence-student-hotel',
+        'video-link': ''
       },
       'typing-day-florence-2021-student-hotel': {
         'title': 'Typing Day 2021 - Florence',
@@ -230,6 +232,7 @@ const messages = {
         'donation': '',
         'cfp': '',
         'permalink': 'typing-day-florence-2021-student-hotel',
+        'video-link': ''
       },
     },
   },
@@ -433,6 +436,7 @@ const messages = {
         'cfp': '',
         'permalink': 'open-source-day-2023-florence',
         'conference-website': 'https://2023.osday.dev',
+        'video-link': ''
       },
       'open-source-day-2021-florence-student-hotel': {
         'title': 'Open Source Day 2021 - Florence',
@@ -449,6 +453,7 @@ const messages = {
         'donation': 'https://opencollective.com/schrodinger-hat',
         'permalink': 'open-source-day-2021-florence-student-hotel',
         'conference-website': '',
+        'video-link': ''
       },
       'typing-day-florence-2021-student-hotel': {
         'title': 'Typing Day 2021 - Florence',
@@ -465,6 +470,7 @@ const messages = {
         'cfp': '',
         'permalink': 'typing-day-florence-2021-student-hotel',
         'conference-website': '',
+        'video-link': ''
       },
     },
   },
