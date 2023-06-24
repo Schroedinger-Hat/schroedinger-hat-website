@@ -66,4 +66,16 @@ body {
   transition: opacity 2s ease-in-out 0s;
   vertical-align: super;
 }
+
+//Animations
+
+@keyframes scale {
+  0% {
+    transform: scale(1)
+  }
+
+  100% {
+    transform: scale(1.07)
+  }
+}
 </style>
