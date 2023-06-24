@@ -1,12 +1,15 @@
 // Global style
 @import 'variables';
 @import 'dark';
+@import 'nord';
 
 $root-font-size: 16px;
 
 // Colors
-$c-white: #ffffff;
+$c-white: #FFFFFF;
 $c-black: #000000;
+$c-dark-text: $nord6; //#ECEFF4
+$c-dark-text-secondary: $nord4; //#D8DEE9
 
 // Breakpoints
 $breakpoints: (
