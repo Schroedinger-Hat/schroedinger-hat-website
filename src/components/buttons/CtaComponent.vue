@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useAttrs } from 'vue'
-import { useCtaComponent } from '../functions/useCtaComponent'
+import { useCtaComponent } from '@/functions/useCtaComponent'
 
 const { component, bindings } = useCtaComponent(useAttrs())
 </script>
