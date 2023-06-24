@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import messages from '@/i18n/messages'
-import EventCard from '@/components/separator/EventCard.vue'
+import EventCard from '@/components/EventCard.vue'
 import type { EventMessageName } from '@/i18n/types'
 
 const events = Object.keys(messages.it.events) as EventMessageName[]
