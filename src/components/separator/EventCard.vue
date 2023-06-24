@@ -7,7 +7,7 @@ const props = defineProps<{
 </script>
 
 <template>
-  <div class="blog-card flex flex-col mb-3 rounded shadow-lg w-[400px] md:flex-row md:h-[260px] md:w-[700px]">
+  <div class="card flex flex-col mb-3 w-[400px] rounded shadow-lg md:flex-row md:h-[260px] md:w-[700px]">
     <div class="relative h-52 overflow-hidden md:basis-2/5 md:h-auto">
       <div
         :data-test="`event-${props.event}-photo`"
@@ -51,32 +51,15 @@ const props = defineProps<{
 </template>
 
 <style scoped lang="scss">
-.photo {
-  transition: transform 0.2s;
+.card {
+  transition: transform 0.01s;
 
-  &:hover {
-    transform: scale(1.3) rotate(3deg);
-  }
-}
+  @include breakpoint(lg)  {
+    &:hover {
+      transform: scale(1.05);
 
-.#{$dark-mode-class} {
-  .blog-card {
-    span {
-      color: $c-dark-text-secondary;
-    }
-
-    background: $nord2;
-
-    .description {
-      background: $nord2;
-
-      h2,
-      .read-more a {
-        color: $nord4;
-      }
-
-      &::before {
-        background: $nord2;
+      .photo {
+        transform: scale(1.2) rotate(-3deg);
       }
     }
   }
@@ -94,6 +77,29 @@ const props = defineProps<{
       background: transparent;
       content: '';
       transform: skewX(-3deg);
+    }
+  }
+}
+
+.#{$dark-mode-class} {
+  .card {
+    span {
+      color: $c-dark-text-secondary;
+    }
+
+    background: $nord2;
+
+    .description {
+      background: $nord2;
+
+      h2,
+      .read-more a {
+        color: $nord4;
+      }
+
+      &::before {
+        background: $nord2;
+      }
     }
   }
 }
