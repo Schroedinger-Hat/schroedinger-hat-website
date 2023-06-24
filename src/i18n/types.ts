@@ -93,6 +93,7 @@ type PagesMessage = 'code-of-conduct'
 type TeamMemberName = string
 
 export type EventMessageName =
+  'sh-sessions-qwik-workshop' |
   'open-source-day-2023-florence' |
   'open-source-day-2021-florence-student-hotel' |
   'typing-day-florence-2021-student-hotel'
