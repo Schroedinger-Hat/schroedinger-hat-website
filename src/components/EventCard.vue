@@ -7,16 +7,16 @@ const props = defineProps<{
 </script>
 
 <template>
-  <div class="card flex flex-col mb-3 w-[400px] rounded shadow-lg md:flex-row md:h-[260px] md:w-[700px]">
+  <div class="card flex flex-col mb-3 w-[380px] rounded-md overflow-hidden shadow-lg md:flex-row md:h-[260px] md:w-[700px]">
     <div class="relative h-52 overflow-hidden md:basis-2/5 md:h-auto">
       <div
         :data-test="`event-${props.event}-photo`"
-        class="photo absolute inset-0 bg-center bg-cover"
+        class="card-image absolute inset-0 bg-center bg-cover"
         :style="`background-image: url( ${$t(`events.${props.event}.image`)} );`"
       />
     </div>
     <div class="basis-3/5 w-full h-full z-1">
-      <div class="description flex flex-col justify-between items-start h-full p-3 space-y-2 relative">
+      <div class="description flex flex-col justify-between items-start h-full p-3 space-y-4 relative lg:space-y-2">
         <div>
           <h1
             class="head-4 mb-2 font-700"
@@ -57,7 +57,7 @@ const props = defineProps<{
     &:hover {
       transform: scale(1.05);
 
-      .photo {
+      .card-image {
         transform: scale(1.2) rotate(-3deg);
       }
     }
@@ -81,7 +81,11 @@ const props = defineProps<{
 }
 
 .read-more {
+  background-color: $nord10;
+
   @include breakpoint(lg) {
+    background-color: transparent;
+
     &:hover {
       animation: scale infinite alternate linear 0.8s;
       background-color: $nord10;
@@ -91,11 +95,11 @@ const props = defineProps<{
 
 .#{$dark-mode-class} {
   .card {
+    background: $nord2;
+
     span {
       color: $c-dark-text-secondary;
     }
-
-    background: $nord2;
 
     .description {
       background: $nord2;
