@@ -2,14 +2,25 @@
 @import 'variables';
 @import 'dark';
 
+
+
+
 $root-font-size: 16px;
 
-
 // Colors
-
 $c-white: #ffffff;
 $c-black: #000000;
 
+// Breakpoints
+$breakpoints: (
+  sm: 640px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1280px,
+);
+
+// Functions 
+// -> Px to Rem 
 @function rem($values...) {
   // Check if a single value is passed
   @if length($values) == 1 {
@@ -23,6 +34,19 @@ $c-black: #000000;
       $rem-values: append($rem-values, math.div($value, $root-font-size) * 1rem);
     }
     @return $rem-values;
+  }
+}
+
+// -> Breakpoints
+@mixin breakpoint($breakpoint) {
+  $width: map-get($breakpoints, $breakpoint);
+
+  @if $width {
+    @media (min-width: $width) {
+      @content;
+    }
+  } @else {
+    @error "Unknown breakpoint: #{$breakpoint}.";
   }
 }
 
