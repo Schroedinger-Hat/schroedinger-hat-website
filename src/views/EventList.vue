@@ -25,19 +25,21 @@ const events = Object.keys(messages.it.events)
           />
         </div>
         <div class="basis-3/5 w-full h-full z-1">
-          <div class="description h-full flex flex-col justify-between items-start p-3 relative space-y-2">
-            <h1
-              class="head-4 font-700"
-              :data-test="`event-${event}-title`"
-            >
-              {{ $t(`events.${event}.title`) }}
-            </h1>
-            <h2
-              class="poppins"
-              :data-test="`event-${event}-date`"
-            >
-              {{ $t(`events.${event}.date`) }} | {{ $t(`events.${event}.location`) }}
-            </h2>
+          <div class="description flex flex-col justify-between items-start h-full p-3 space-y-2 relative">
+            <div>
+              <h1
+                class="head-4 mb-2 font-700"
+                :data-test="`event-${event}-title`"
+              >
+                {{ $t(`events.${event}.title`) }}
+              </h1>
+              <span
+                class="poppins"
+                :data-test="`event-${event}-date`"
+              >
+                {{ $t(`events.${event}.date`) }} | {{ $t(`events.${event}.location`) }}
+              </span>
+            </div>
             <p
               :data-test="`event-${event}-subtitle`"
               class="font-bold"
@@ -60,10 +62,10 @@ const events = Object.keys(messages.it.events)
 </template>
 
 <style scoped lang="scss">
-$color_white: #fff;
-$color_prime: $nord3;
-$color_grey: $nord4;
-$color_grey_dark: $nord2;
+$color-white: #fff;
+$color-prime: $nord3;
+$color-grey: $nord4;
+$color-grey-dark: $nord2;
 
 .event-list {
   .blog-card {
@@ -80,6 +82,10 @@ $color_grey_dark: $nord2;
 
 .#{$dark-mode-class} {
   .blog-card {
+    span {
+      color: $c-dark-text-secondary;
+    }
+
     background: $nord2;
 
     .description {
@@ -97,8 +103,8 @@ $color_grey_dark: $nord2;
   }
 }
 
-@media (width >= 640px) {
-  .description {
+.description {
+  @include breakpoint(md) {
     &::before {
       position: absolute;
       z-index: -1;
@@ -107,6 +113,7 @@ $color_grey_dark: $nord2;
       left: rem(-8px);
       width: rem(32px);
       background: transparent;
+      content: '';
       transform: skewX(-3deg);
     }
   }
