@@ -36,12 +36,11 @@ const props = defineProps<{
           class="font-bold"
         >
           {{ $t(`events.${props.event}.subtitle`) }}
-          <br><br>
         </p>
         <router-link
           :data-test="`event-${props.event}-read-more`"
           :to="{ name: 'EventView', params: { event } }"
-          class="mt-1 self-end"
+          class="read-more p-2 rounded mt-1 self-end relative hover:shadow"
         >
           {{ $t(`message.common.read-more`) }}
         </router-link>
@@ -77,6 +76,15 @@ const props = defineProps<{
       background: transparent;
       content: '';
       transform: skewX(-3deg);
+    }
+  }
+}
+
+.read-more {
+  @include breakpoint(lg) {
+    &:hover {
+      animation: scale infinite alternate linear 0.8s;
+      background-color: $nord10;
     }
   }
 }
