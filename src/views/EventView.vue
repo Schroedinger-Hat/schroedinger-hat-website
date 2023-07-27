@@ -40,8 +40,8 @@ const getCalendarLink = () => {
   <span v-if="!eventKey">Add loader</span>
   <div v-else class="event">
     <div class="container">
-      <div class="content">
-        <h1 :data-test="`${eventKey}-title`">
+      <div class="content space-y-2">
+        <h1 :data-test="`${eventKey}-title`" class="head-4">
           {{ t(`events.${eventKey}.title`) }}
         </h1>
         <h4>
@@ -105,7 +105,6 @@ const getCalendarLink = () => {
             target="_blank"
             :href="t(`events.${eventKey}.video-link`)"
           >{{ t(`message.common.video`) }}</a>
-
         </div>
         <div
           v-if="t(`events.${eventKey}.sponsors`) !== ''"
