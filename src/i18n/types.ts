@@ -7,6 +7,9 @@ interface MessageContent {
     common: {
       [key in CommonMessage]: string
     }
+    events: {
+      [key in CommonMessageEvent]: string
+    }
   }
   navbar: {
     team: string
@@ -56,6 +59,11 @@ type EventMessage = {
   [key in EventMessageName]: EventInfo
 }
 
+interface Cta {
+  id: string
+  value: string | null
+}
+
 interface EventInfo {
   'community-sponsors': string
   'location-link': string
@@ -71,17 +79,14 @@ interface EventInfo {
   subtitle: string
   title: string
   'conference-website': string
-
+  ctas: Cta[]
 }
 
 type LanguageCodes = 'it' | 'en'
 
-type CommonMessage =
-  'read-more' |
-  'go-to-event' |
-  'go-to-donation' |
-  'go-to-cfp' |
-  'go-to-conference-website'
+type CommonMessage = 'read-more'
+
+type CommonMessageEvent = 'cfp' | 'donation' | 'sign-up' | 'video' | 'website'
 
 type ContributionMessage =
   'cta' |
