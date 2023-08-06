@@ -31,51 +31,28 @@ const messages = {
       'cta-2': 'Oppure contattarci tramite i social.',
       'external-link': 'aprire una issue su GitHub',
     },
-    code_of_conduct: {
-      main_title: 'Codice di Condotta',
-      short_version: {
-        title: 'Versione breve',
-        description: 'Schrödinger Hat è dedito a un evento privo di molestie.',
+    code_of_conduct: [
+      {
+        title: 'Versione corta',
+        copy: 'Schrödinger Hat è dedito a un evento privo di molestie.',
       },
-      longer_version: {
+      {
         title: 'Versione più lunga',
-        description: 'Schrödinger Hat è dedito a fornire un\'esperienza di evento priva da molestie, indipendentemente da genere, identità ed espressione di genere, età, orientamento sessuale, disabilità, aspetto fisico, taglia, razza, etnia, religione (o mancanza di essa) o scelte tecnologiche. Non tolleriamo alcuna forma di molestia nei confronti dei partecipanti all\'evento. Il linguaggio e le immagini sessuali non sono appropriati per nessuna sede di eventi, inclusi dibattiti, workshop, feste, Twitter e altri media online. I partecipanti all\'evento che violano queste regole possono essere sanzionati o espulsi dall\'evento senza rimborso a discrezione degli organizzatori (Schrödinger Hat).',
+        copy: 'Schrödinger Hat è dedito a fornire un\'esperienza di evento priva da molestie, indipendentemente da genere, identità ed espressione di genere, età, orientamento sessuale, disabilità, aspetto fisico, taglia, razza, etnia, religione (o mancanza di essa) o scelte tecnologiche. Non tolleriamo alcuna forma di molestia nei confronti dei partecipanti all\'evento. Il linguaggio e le immagini sessuali non sono appropriati per nessuna sede di eventi, inclusi dibattiti, workshop, feste, Twitter e altri media online. I partecipanti all\'evento che violano queste regole possono essere sanzionati o espulsi dall\'evento senza rimborso a discrezione degli organizzatori (Schrödinger Hat).',
       },
-      full_version: {
+      {
         title: 'Versione completa',
-        sub_title: 'Definizione',
-        description: 'Schrödinger Hat è dedito a fornire un\'esperienza di evento priva di molestie. Le molestie includono, ma non sono limitate a: ',
-        rules_list: {
-          1: 'Commenti verbali offensivi relativi a genere, identità ed espressione di genere, età, orientamento sessuale, disabilità, aspetto fisico, taglia, razza, etnia, religione, tecnologia scelte. ',
-          2: 'Linguaggio e immagini sessuali negli spazi pubblici. ',
-          3: 'Intimidazioni, minacce, stalking o inseguimenti deliberati. ',
-          4: 'Fotografie o registrazioni moleste. ',
-          5: 'Interruzione prolungata del discorso o di altri eventi. ',
-          6: 'Contatto fisico inappropriato. ',
-          7: 'Attenzione sessuale indesiderata. ',
-          8: 'Promuovere o incoraggiare quanto sopra ',
-          9: 'Sponsor, relatori, reclutatori e organizzatori non devono utilizzare immagini, attività o altro materiale a sfondo sessuale. Tutto il personale e gli organizzatori relativi all\'evento (organizzatori, personale della sede e personale degli sponsor, inclusi i volontari) non devono utilizzare abiti/uniformi/costumi sessuali o creare in altro modo un ambiente sessuale. ',
-        },
-        rules_paragraph: 'Gli organizzatori di Schrödinger Hat possono anche fornire un codice di condotta aggiuntivo per le esigenze dei singoli canali di comunicazione o eventi.',
-        enforcement: {
-          title: 'Enforcement',
-          description: 'A chiunque venga chiesto di interrompere qualsiasi comportamento molesto è tenuto a conformarsi immediatamente. Se qualcuno si atteggia in comportamenti molesti, gli organizzatori di Schrödinger Hat possono intraprendere qualsiasi azione ritengano appropriata, compreso l\'avvertimento del trasgressore o l\'espulsione dall\'evento senza rimborso.',
-          second_description: 'Tutti coloro che utilizzano i servizi Schrödinger Hat o partecipano a eventi Schrödinger Hat sono soggetti alla politica anti-molestie; questo include partecipanti, sponsor, relatori, reclutatori e organizzatori.',
-        },
-        reporting: {
-          title: 'Segnalazione',
-          description: 'Se vieni molestato, se noti che qualcun altro è molestato o hai altre preoccupazioni, contatta immediatamente un membro del personale di Schrödinger Hat.',
-          items_title: 'Puoi fare una segnalazione personale tramite: ',
-          items: {
-            1: 'Servizio di messaggistica diretta di Twitter: @schrodinger_hat. ',
-            2: 'Email: schrodinger.hat.show[at]gmail.com ',
-            3: 'Telefono (i numeri dell\'organizzatore sono condivisi all\'inizio dell\'evento e tracciati durante l\'evento).',
-            4: 'Rivolgiti a un organizzatore che assicurerà che la conversazione si svolga in privato. Non ti verrà chiesto di confrontarti con nessuno e non diremo a nessuno chi sei. Ci identificheremo all\'inizio di ogni evento. ',
-          },
-        },
-        final_description: 'Lo staff di Schrödinger Hat sarà lieto di aiutare i partecipanti a contattare la sicurezza della sede (se disponibile) o le forze dell\'ordine locali, fornire assistenti o aiutare in altro modo coloro che sono molestati a sentirsi al sicuro per la durata dell\'evento . Apprezziamo la tua presenza. Ci aspettiamo che tutti seguano queste regole in tutti gli eventi organizzati da Schrödinger Hat (meetup, workshop, altri eventi ed eventi sociali post meetup). ',
+        copy: 'Schrödinger Hat è dedito a fornire un\'esperienza di evento priva di molestie. Le molestie includono, ma non sono limitate a: Commenti verbali offensivi relativi a genere, identità ed espressione di genere, età, orientamento sessuale, disabilità, aspetto fisico, taglia, razza, etnia, religione, tecnologia scelte. Linguaggio e immagini sessuali negli spazi pubblici. Intimidazioni, minacce, stalking o inseguimenti deliberati. Fotografie o registrazioni moleste. Interruzione prolungata del discorso o di altri eventi. Contatto fisico inappropriato. Attenzione sessuale indesiderata. Promuovere o incoraggiare quanto sopra Sponsor, relatori, reclutatori e organizzatori non devono utilizzare immagini, attività o altro materiale a sfondo sessuale. Tutto il personale e gli organizzatori relativi all\'evento (organizzatori, personale della sede e personale degli sponsor, inclusi i volontari) non devono utilizzare abiti/uniformi/costumi sessuali o creare in altro modo un ambiente sessuale. Gli organizzatori di Schrödinger Hat possono anche fornire un codice di condotta aggiuntivo per le esigenze dei singoli canali di comunicazione o eventi.',
       },
-    },
+      {
+        title: 'Enforcement',
+        copy: 'A chiunque venga chiesto di interrompere qualsiasi comportamento molesto è tenuto a conformarsi immediatamente. Se qualcuno si atteggia in comportamenti molesti, gli organizzatori di Schrödinger Hat possono intraprendere qualsiasi azione ritengano appropriata, compreso l\'avvertimento del trasgressore o l\'espulsione dall\'evento senza rimborso. Tutti coloro che utilizzano i servizi Schrödinger Hat o partecipano a eventi Schrödinger Hat sono soggetti alla politica anti-molestie; questo include partecipanti, sponsor, relatori, reclutatori e organizzatori.',
+      },
+      {
+        title: 'Segnalazione',
+        copy: 'Se vieni molestato, se noti che qualcun altro è molestato o hai altre preoccupazioni, contatta immediatamente un membro del personale di Schrödinger Hat. Puoi fare una segnalazione personale tramite: Servizio di messaggistica diretta di Twitter: @schrodinger_hat. Email: schrodinger.hat.show@gmail.com Telefono (i numeri dell\'organizzatore sono condivisi all\'inizio dell\'evento e tracciati durante l\'evento). Rivolgiti a un organizzatore che assicurerà che la conversazione si svolga in privato. Non ti verrà chiesto di confrontarti con nessuno e non diremo a nessuno chi sei. Ci identificheremo all\'inizio di ogni evento. Lo staff di Schrödinger Hat sarà lieto di aiutare i partecipanti a contattare la sicurezza della sede (se disponibile) o le forze dell\'ordine locali, fornire assistenti o aiutare in altro modo coloro che sono molestati a sentirsi al sicuro per la durata dell\'evento . Apprezziamo la tua presenza. Ci aspettiamo che tutti seguano queste regole in tutti gli eventi organizzati da Schrödinger Hat (meetup, workshop, altri eventi ed eventi sociali post meetup).',
+      },
+    ],
     redirect: {
       profile: 'Vai al profilo',
       back: 'Torna indietro',
@@ -338,51 +315,27 @@ const messages = {
       'cta-2': 'Or you can contact us via social networks.',
       'external-link': 'open a GitHub issue',
     },
-    code_of_conduct: {
-      main_title: 'Code of Conduct',
-      short_version: {
+    code_of_conduct: [
+      {
         title: 'Short version',
-        description: 'Schrödinger Hat is dedicated to a harassment-free event for everyone.',
+        copy: 'Schrödinger Hat is dedicated to a harassment-free event for everyone.',
       },
-      longer_version: {
+      {
         title: 'Longer version',
-        description: 'Schrödinger Hat is dedicated to providing a harassment-free event experience for everyone, regardless of gender, gender identity and expression, age, sexual orientation, disability, physical appearance, body size, race, ethnicity, religion (or lack thereof), or technology choices. We do not tolerate harassment of event participants in any form. Sexual language and imagery is not appropriate for any event venue, including talks, workshops, parties, Twitter and other online media. Event participants violating these rules may be sanctioned or expelled from the event without a refund at the discretion of the Schrödinger Hat organisers.',
+        copy: 'Schrödinger Hat is dedicated to providing a harassment-free event experience for everyone, regardless of gender, gender identity and expression, age, sexual orientation, disability, physical appearance, body size, race, ethnicity, religion (or lack thereof), or technology choices. We do not tolerate harassment of event participants in any form. Sexual language and imagery is not appropriate for any event venue, including talks, workshops, parties, Twitter and other online media. Event participants violating these rules may be sanctioned or expelled from the event without a refund at the discretion of the Schrödinger Hat organizers.',
       },
-      full_version: {
+      {
         title: 'Full version',
-        sub_title: 'Definition',
-        description: 'Schrödinger Hat is dedicated to providing a harassment-free event experience for everyone. Harassment includes, but is not limited to:',
-        rules_list: {
-          1: 'Offensive verbal comments related to gender, gender identity and expression, age, sexual orientation, disability, physical appearance, body size, race, ethnicity, religion, technology choices.',
-          2: 'Sexual language and images in public spaces.',
-          3: 'Deliberate intimidation, threats, stalking or following.',
-          4: 'Harassing photography or recording.',
-          5: 'Sustained disruption of talks or other events.',
-          6: 'Inappropriate physical contact.',
-          7: 'Unwelcome sexual attention.',
-          8: 'Advocating for, or encouraging, any of the above behaviour.',
-          9: 'Sponsors, speakers, recruiters and organisers should not use sexualised images, activities, or other material. All staff and organisers related to the event (Schrödinger Hat organisers, venue staff and sponsor\'s staff - including volunteers) should not use sexualised clothing/uniforms/costumes, or otherwise create a sexualised environment.',
-        },
-        rules_paragraph: 'Schrödinger Hat organisers may also provide an additional code of conduct for the needs of individual communication channels or events.',
-        enforcement: {
-          title: 'Enforcement',
-          description: 'Anyone asked to stop any harassing behavior are expected to comply immediately. If anyone engages in harassing behavior, the Schrödinger Hat organisers may take any action they deem appropriate, including warning the offender or expulsion from the event with no refund.',
-          second_description: 'This applies to all Schrödinger Hat events and associated communication channels. Everyone using Schrödinger Hat services or attending Schrödinger Hat events is subject to the anti-harassment policy; this includes attendees, sponsors, speakers, recruiters and organisers.',
-        },
-        reporting: {
-          title: 'Reporting',
-          description: 'If you are being harassed, notice that someone else is being harassed, or have any other concerns, please contact a member of Schrödinger Hat staff immediately.',
-          items_title: 'Puoi fare una segnalazione personale tramite: ',
-          items: {
-            1: 'Twitter\'s direct message service: \'@\'schrodinger_hat.',
-            2: 'Email: schrodinger.hat.show[at]gmail.com',
-            3: 'Phone (organiser\'s numbers are shared at the beginning of the event and monitored during the event).',
-            4: 'Reaching out to an organiser who will make sure the conversation is held privately. You will not be asked to confront anyone and we won\'t tell anyone who you are. We will identify ourselves at the beginning of each event.',
-          },
-        },
-        final_description: 'Schrödinger Hat staff will be happy to help participants contact venue security (if available) or local law enforcement, provide escorts, or otherwise assist those experiencing harassment to feel safe for the duration of the event. We value your attendance. We expect everyone to follow these rules at the all the events organised by Schrödinger Hat (meetups, workshops, other events and post meetup related social events).',
+        copy: 'Schrödinger Hat is dedicated to providing a harassment-free event experience for everyone. Harassment includes, but is not limited to: Offensive verbal comments related to gender, gender identity and expression, age, sexual orientation, disability, physical appearance, body size, race, ethnicity, religion, technology choices. Sexual language and images in public spaces. Deliberate intimidation, threats, stalking or following. Harassing photography or recording. Sustained disruption of talks or other events. Inappropriate physical contact. Unwelcome sexual attention. Advocating for, or encouraging, any of the above behavior Sponsors, speakers, recruiters and organizers should not use sexualized images, activities, or other material. All staff and organizers related to the event (Schrödinger Hat organizers, venue staff and sponsor\'s staff - including volunteers) should not use sexualized clothing/uniforms/costumes, or otherwise create a sexualized environment. Schrödinger Hat organizers may also provide an additional code of conduct for the needs of individual communication channels or events.',
       },
-    },
+      {
+        title: 'Enforcement',
+        copy: 'Anyone asked to stop any harassing behavior are expected to comply immediately. If anyone engages in harassing behavior, the Schrödinger Hat organizers may take any action they deem appropriate, including warning the offender or expulsion from the event with no refund. This applies to all Schrödinger Hat events and associated communication channels. Everyone using Schrödinger Hat services or attending Schrödinger Hat events is subject to the anti-harassment policy; this includes attendees, sponsors, speakers, recruiters and organizers.',
+      },
+      {
+        title: 'Reporting',
+        copy: 'If you are being harassed, notice that someone else is being harassed, or have any other concerns, please contact a member of Schrödinger Hat staff immediately. You can make a personal report by: Twitter\'s direct message service: @schrodinger_hat. Email: schrodinger.hat.show@gmail.com Phone (organizer\'s numbers are shared at the beginning of the event and monitored during the event). Reaching out to an organizer: organizer who will make sure the conversation is held privately. You will not be asked to confront anyone and we won\'t tell anyone who you are. We will identify ourselves at the beginning of each event. Schrödinger Hat staff will be happy to help participants contact venue security (if available) or local law enforcement, provide escorts, or otherwise assist those experiencing harassment to feel safe for the duration of the event. We value your attendance. We expect everyone to follow these rules at the all the events organized by Schrödinger Hat (meetups, workshops, other events and post meetup related social events).',
+      }],
     redirect: {
       profile: 'Go to profile',
       back: 'Go back',

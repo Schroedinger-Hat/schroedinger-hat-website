@@ -11,6 +11,7 @@ interface MessageContent {
       [key in CommonMessageEvent]: string
     }
   }
+  code_of_conduct: ConductRules[]
   navbar: {
     team: string
     events: string
@@ -59,6 +60,11 @@ type EventMessage = {
   [key in EventMessageName]: EventInfo
 }
 
+interface ConductRules {
+  title: string
+  copy: string
+}
+
 interface Cta {
   id: string
   value: string | null
@@ -82,7 +88,7 @@ interface EventInfo {
   ctas: Cta[]
 }
 
-type LanguageCodes = 'it' | 'en'
+export type LanguageCodes = 'it' | 'en'
 
 type CommonMessage = 'read-more'
 
