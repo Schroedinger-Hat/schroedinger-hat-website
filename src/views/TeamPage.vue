@@ -95,8 +95,8 @@ $color_grey_dark: $nord2;
 
 .teamList {
   .headline {
-    margin: auto;
     max-width: 700px;
+    margin: auto;
     text-align: center;
 
     h1 {
@@ -104,71 +104,77 @@ $color_grey_dark: $nord2;
       font-weight: 700;
     }
   }
+
   .content {
-    padding: 1.5em 3em;
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
+    padding: 1.5em 3em;
     gap: 20px;
+    grid-template-columns: repeat(1, 1fr);
   }
 
   .blog-card {
-    margin: 1rem auto;
-    box-shadow: 0 3px 7px -1px rgba(#000, 0.1);
-    margin-bottom: 1.6%;
-    background-image: $color_white;
-    background-color: #d8dee9; //brand color, pick from light-v waves
-    line-height: 1.4;
-    font-family: sans-serif;
-    border-radius: 5px;
-    overflow: hidden;
     z-index: 0;
+    overflow: hidden;
+    border-radius: 5px;
+    margin: 1rem auto;
+    margin-bottom: 1.6%;
+    background-color: #d8dee9; //brand color, pick from light-v waves
+    background-image: $color_white;
+    box-shadow: 0 3px 7px -1px rgba(#000, 0.1);
+    font-family: sans-serif;
+    line-height: 1.4;
+
     a,
     li {
       color: $color_white;
     }
+
     .meta {
       position: relative;
       z-index: 0;
-      height: auto;
-      border-radius: 100%;
-      text-align: center;
-      margin: 2em auto 0;
       display: flex;
-      justify-content: center;
+      height: auto;
       align-items: center;
-    }
-    .photo {
+      justify-content: center;
       border-radius: 100%;
+      margin: 2em auto 0;
+      text-align: center;
+    }
+
+    .photo {
+      display: block;
       width: 128px;
       height: 128px;
-      display: block;
-      background-size: cover;
+      border-radius: 100%;
       background-position: center;
+      background-size: cover;
     }
 
     .photo-secondary {
-      border-radius: 100%;
+      display: none;
       width: 128px;
       height: 128px;
-      display: none;
-      background-size: cover;
+      border-radius: 100%;
       background-position: center;
+      background-size: cover;
     }
 
     .description {
-      padding: 2rem;
       position: relative;
       z-index: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
+      padding: 2rem;
+
       .socialIcons {
-        padding: 0.5em 0 1em;
         width: fit-content;
+        padding: 0.5em 0 1em;
 
         a {
           display: inline-block;
           margin: 0.2em;
+
           .mobile-menu-icon {
             font-size: 1.2em;
           }
@@ -183,21 +189,23 @@ $color_grey_dark: $nord2;
       p {
         font-family: Poppins, sans-serif;
       }
+
       h2 {
+        margin: 5px 0;
         font-size: 1.75rem;
         font-weight: 700;
-        margin: 5px 0;
       }
+
       .user-profile-link {
-        font-size: 1rem;
-        font-weight: 700;
+        width: fit-content;
+        padding: 5px 15px;
         border: 1px solid transparent;
+        border-radius: 999px;
+        margin: 0 auto;
         background-color: #586379;
         color: #fff;
-        width: fit-content;
-        margin: 0 auto;
-        padding: 5px 15px;
-        border-radius: 999px;
+        font-size: 1rem;
+        font-weight: 700;
 
         &:hover {
           background-color: #2e3440;
@@ -208,7 +216,7 @@ $color_grey_dark: $nord2;
 }
 
 // to-do: standardize media querys
-@media (min-width: 640px) {
+@media (width >= 640px) {
   .teamList{
     .content {
       grid-template-columns: repeat(2, 1fr);
@@ -217,7 +225,7 @@ $color_grey_dark: $nord2;
   }
 }
 
-@media (min-width: 1024px) {
+@media (width >= 1024px) {
   .teamList{
     .content {
       grid-template-columns: repeat(3, 1fr);
