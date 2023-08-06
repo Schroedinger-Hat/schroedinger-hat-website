@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { type Ref, ref, watch } from 'vue'
+import { type Ref, computed, ref, watch } from 'vue'
 import { type RouteParamValue, useRoute } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 import * as messages from '../i18n/messages'
@@ -8,6 +8,10 @@ import { type EventMessageName } from '@/i18n/types'
 const { t } = useI18n()
 const eventKey: Ref<RouteParamValue> = ref('')
 const route = useRoute()
+
+const filteredCtas = computed(() => {
+  return messages.default.it.events[eventKey.value as EventMessageName].ctas.filter(cta => cta.value !== null)
+})
 
 watch(() => route.params.event, () => {
   eventKey.value = route.params.event as RouteParamValue
@@ -28,7 +32,7 @@ const getCalendarLink = () => {
     calendarString += `&text=${title}&location=${location}&details=`
   }
   catch (err) {
-    // TODO: Redirect to missing event name
+    // TODO: Redirect to missing event page
     console.log(err)
   }
   return calendarString
@@ -40,7 +44,7 @@ const getCalendarLink = () => {
   <span v-if="!eventKey">Add loader</span>
   <div v-else class="event">
     <div class="container">
-      <div class="content space-y-2">
+      <div class="max-w-[700px] px-12 py-6 m-auto space-y-2">
         <h1 :data-test="`${eventKey}-title`" class="head-4">
           {{ t(`events.${eventKey}.title`) }}
         </h1>
@@ -72,39 +76,13 @@ const getCalendarLink = () => {
         />
         <div class="cta">
           <a
-            v-if="t(`events.${eventKey}.signup-link`) !== ''"
-            :data-test="`${eventKey}-signup-link`"
+            v-for="{ id, value } in filteredCtas"
+            :key="id"
+            :data-test="`${eventKey}-${id}`"
+            :href="value as string"
             class="btn btn-primary"
             target="_blank"
-            :href="t(`events.${eventKey}.signup-link`)"
-          >{{ t(`message.common.go-to-event`) }}</a>
-          <a
-            v-if="t(`events.${eventKey}.cfp`) !== ''"
-            :data-test="`${eventKey}-cfp`"
-            class="btn btn-primary"
-            target="_blank"
-            :href="t(`events.${eventKey}.cfp`)"
-          >{{ t(`message.common.go-to-cfp`) }}</a>
-          <a
-            v-if="t(`events.${eventKey}.donation`) !== ''"
-            :data-test="`${eventKey}-donation`"
-            class="btn btn-primary"
-            target="_blank"
-            :href="t(`events.${eventKey}.donation`)"
-          >{{ $t(`message.common.go-to-donation`) }}</a>
-          <a
-            v-if="t(`events.${eventKey}.conference-website`) !== ''"
-            :data-test="`${eventKey}-website`"
-            class="btn btn-primary"
-            target="_blank"
-            :href="t(`events.${eventKey}.conference-website`)"
-          >{{ t(`message.common.go-to-conference-website`) }}</a>
-          <a
-            v-if="t(`events.${eventKey}.video-link`) !== ''"
-            class="btn btn-primary"
-            target="_blank"
-            :href="t(`events.${eventKey}.video-link`)"
-          >{{ t(`message.common.video`) }}</a>
+          > {{ t(`message.event.${id}`) }}</a>
         </div>
         <div
           v-if="t(`events.${eventKey}.sponsors`) !== ''"
@@ -140,20 +118,28 @@ const getCalendarLink = () => {
 </template>
 
 <style scoped lang="scss">
-.event {
-  .content {
-    padding: 1.5em 3em;
-    margin: auto;
-    max-width: 700px;
-  }
   .cta {
-    text-align: left;
-    margin-top: 20px;
     display: grid;
+    margin-top: 20px;
+    text-align: left;
+
+    @include breakpoint(lg) {
+      display: block;
+    }
+
     .btn {
-      margin: 0;
+      margin: rem(4px) 0;
+
+      @include breakpoint(lg) {
+        margin: 0 rem(4px);
+
+        &:nth-of-type(1) {
+          margin-left: 0;
+        }
+      }
     }
   }
+
   .sponsor-logos {
     display: flex;
     flex: auto;
@@ -161,19 +147,4 @@ const getCalendarLink = () => {
     align-items: center;
     justify-content: center;
   }
-}
-
-@media (min-width: 56.25em) {
-  .event {
-    .cta {
-      display: block;
-      .btn {
-        margin: 0 5px;
-        &:nth-of-type(1) {
-          margin-left: 0;
-        }
-      }
-    }
-  }
-}
 </style>
