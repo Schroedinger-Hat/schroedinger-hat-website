@@ -10,7 +10,8 @@
       "antfu.unocss",
       "antfu.vite",
       "mattpocock.ts-error-translator",
-      "yoavbls.pretty-ts-errors"
+      "yoavbls.pretty-ts-errors",
+      "stylelint.vscode-stylelint"
     ]
   },
   "settings": {
@@ -19,8 +20,22 @@
       "source.fixAll.eslint": true,
       "source.fixAll.stylelint": true
     },
-    "eslint.packageManager": "npm",
     "eslint.runtime": "node",
+    // Stylelint
+    "eslint.validate": [
+      "vue",
+      "javascript",
+      "javascriptreact",
+      "typescript",
+    ],
+    "stylelint.validate": [
+      "vue",
+      "scss",
+      "css"
+    ],
+    "stylelint.packageManager": "npm",
+    "scss.validate": false,
+    "css.validate": false, 
     // Explorer
     "explorer.sortOrder": "foldersNestsFiles",
     "explorer.fileNesting.enabled": true,
