@@ -59,6 +59,7 @@ html {
   * {
     color: $text-primary;
     text-decoration: none;
+    transition: all 400ms ease-in-out 0s;
   }
 
   body {

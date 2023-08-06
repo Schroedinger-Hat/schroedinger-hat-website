@@ -51,8 +51,6 @@ const props = defineProps<{
 
 <style scoped lang="scss">
 .card {
-  transition: transform 0.01s;
-
   @include breakpoint(lg)  {
     &:hover {
       transform: scale(1.05);
