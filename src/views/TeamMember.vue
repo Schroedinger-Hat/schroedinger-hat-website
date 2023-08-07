@@ -4,6 +4,7 @@ import type { RouteParamValue } from 'vue-router'
 import { useRoute } from 'vue-router'
 
 import { useI18n } from 'vue-i18n'
+
 const { t } = useI18n()
 
 const member: Ref<null | string> = ref(null)
@@ -28,7 +29,7 @@ onMounted(() => {
   <div v-else class="team">
     <div class="container">
       <div class="content">
-        <h1 data-test="member-page-name">
+        <h1 data-test="member-page-name" class="head-1">
           {{ $t(`team.${member}.name`) }}
         </h1>
         <div>
@@ -38,7 +39,7 @@ onMounted(() => {
             data-test="member-page-photo"
           />
         </div>
-        <div class="socialIcons">
+        <div class="socialIcons !p-2">
           <a
             v-if="$t(`team.${member}.github_url`).length > 1"
             :href="$t(`team.${member}.github_url`)" target="_blank"
@@ -71,12 +72,13 @@ onMounted(() => {
 
         <!-- TODO: Make this a proper <p> -->
         <div
-          class="description"
+          class="description !p-2"
           data-test="member-page-description"
           v-html="$t(`team.${member}.description`)"
         />
 
-        <router-link class="user-profile-link"
+        <router-link
+          class="user-profile-link"
           :to="{ name: 'Team' }" data-test="nav-team-page-link"
         >
           {{ t('redirect.back') }}
@@ -87,36 +89,36 @@ onMounted(() => {
 </template>
 
 <style scoped lang="scss">
-
 .photo {
-  border-radius: 100%;
+  display: inline-block;
   width: 128px;
   height: 128px;
-  text-align: center;
-  display: inline-block;
-  background-size: cover;
+  border-radius: 100%;
   background-position: center;
+  background-size: cover;
+  text-align: center;
 }
+
 .team {
   .content {
+    max-width: 700px;
     padding: 1.5em 3em;
     margin: auto;
-    max-width: 700px;
     text-align: center;
   }
 }
 
-.socialIcons { 
-  padding: 1em; 
+.socialIcons {
+  padding: 1em;
 
   a {
     display: inline-block;
     margin: 0.2em;
 
     .mobile-menu-icon {
-      font-size: 1.2em; 
+      font-size: 1.2em;
     }
-    
+
     &:hover .mobile-menu-icon {
       color: #2e3440;
     }
@@ -128,26 +130,28 @@ onMounted(() => {
   margin-bottom: 20px;
 }
 
-.user-profile-link { 
-  font-weight: bold;
+.user-profile-link {
+  padding: 5px 15px;
   border: 1px solid transparent;
+  border-radius: 999px;
+  margin: 0 auto;
   background-color: #586379;
   color: #fff;
-  margin: 0 auto;
-  padding: 5px 15px;
-  border-radius: 999px;
+  font-weight: bold;
 
   &:hover {
     background-color: #2e3440;
   }
 }
 
-@media (min-width: 56.25em) {
+@media (width >= 56.25em) {
   .event {
     .cta {
       display: block;
+
       .btn {
         margin: 0 5px;
+
         &:nth-of-type(1) {
           margin-left: 0;
         }
@@ -156,14 +160,14 @@ onMounted(() => {
   }
 }
 
-.#{$dark-mode-class} { 
-  .socialIcons {  
+.#{$dark-mode-class} {
+  .socialIcons {
     a {
       &:hover .mobile-menu-icon {
         color: #586379;
       }
 
-    }  
+    }
   }
 }
 </style>

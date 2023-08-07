@@ -3,7 +3,7 @@
 
 <template>
   <div data-test="main" class="main">
-    <div class="middle-section">
+    <div class="middle-section py-30">
       <h1 data-test="main-h1">
         {{ $t('main.h1') }}
       </h1>
@@ -35,26 +35,20 @@
 <style scoped lang="scss">
 .middle-section {
   text-align: center;
-  padding: 1em;
 
   h1 {
-    font-weight: bold;
-    font-size: 3em;
     margin-bottom: 0;
+    font-size: 3em;
+    font-weight: bold;
   }
+
   h2 {
-    font-weight: 100;
     margin-top: 0.3em;
+    font-weight: 100;
   }
 
   .btn {
     margin-top: 10px;
-  }
-}
-
-@media (min-width: 56.25em) {
-  .middle-section {
-    padding: 5em;
   }
 }
 </style>

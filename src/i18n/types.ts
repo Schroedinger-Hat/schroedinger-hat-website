@@ -7,7 +7,11 @@ interface MessageContent {
     common: {
       [key in CommonMessage]: string
     }
+    events: {
+      [key in CommonMessageEvent]: string
+    }
   }
+  code_of_conduct: ConductRules[]
   navbar: {
     team: string
     events: string
@@ -56,6 +60,16 @@ type EventMessage = {
   [key in EventMessageName]: EventInfo
 }
 
+interface ConductRules {
+  title: string
+  copy: string
+}
+
+interface Cta {
+  id: string
+  value: string | null
+}
+
 interface EventInfo {
   'community-sponsors': string
   'location-link': string
@@ -71,17 +85,14 @@ interface EventInfo {
   subtitle: string
   title: string
   'conference-website': string
-
+  ctas: Cta[]
 }
 
-type LanguageCodes = 'it' | 'en'
+export type LanguageCodes = 'it' | 'en'
 
-type CommonMessage =
-  'read-more' |
-  'go-to-event' |
-  'go-to-donation' |
-  'go-to-cfp' |
-  'go-to-conference-website'
+type CommonMessage = 'read-more'
+
+type CommonMessageEvent = 'cfp' | 'donation' | 'sign-up' | 'video' | 'website'
 
 type ContributionMessage =
   'cta' |
@@ -93,6 +104,7 @@ type PagesMessage = 'code-of-conduct'
 type TeamMemberName = string
 
 export type EventMessageName =
+  'sh-sessions-qwik-workshop' |
   'open-source-day-2023-florence' |
   'open-source-day-2021-florence-student-hotel' |
   'typing-day-florence-2021-student-hotel'

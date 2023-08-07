@@ -1,6 +1,13 @@
 import { URL, fileURLToPath } from 'node:url'
 import { defineConfig } from 'vite'
+import UnoCSS from 'unocss/vite'
 import vue from '@vitejs/plugin-vue'
+
+const sassAdditionalData = () => {
+  let additionalData = '@use "sass:math";'
+  additionalData += '@import "@/styles/global";'
+  return additionalData
+}
 
 export default defineConfig({
   resolve: {
@@ -13,9 +20,12 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: '@import "@/styles/global";',
+        additionalData: sassAdditionalData(),
       },
     },
   },
-  plugins: [vue()],
+  plugins: [
+    vue(),
+    UnoCSS(),
+  ],
 })

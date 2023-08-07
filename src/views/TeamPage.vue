@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
 import messages from '@/i18n/messages'
+
 const team = Object.keys(messages.it.team)
 
 const { t } = useI18n()
@@ -14,78 +15,72 @@ const { t } = useI18n()
       </div>
 
       <div class="content">
-
-          <div v-for="member in team" :key="member" data-test="team-list">
-            <router-link 
-              :data-test="`team-member-${member}-page-link`"
-              :to="{ name: 'TeamMember', params: { member } }"
+        <div v-for="member in team" :key="member" data-test="team-list">
+          <router-link
+            :data-test="`team-member-${member}-page-link`"
+            :to="{ name: 'TeamMember', params: { member } }"
+          >
+            <!-- TODO: Transform this into a component -->
+            <div
+              class="blog-card"
+              data-test="team-card"
+              :data-test-member-name="`team-member-${member}`"
             >
-              <!-- TODO: Transform this into a component -->
-              <div
-                class="blog-card"
-                data-test="team-card"
-                :data-test-member-name="`team-member-${member}`"
-              >
-                <div class="meta">
-                  <div
-                    :data-test="`team-member-${member}-index-photo`"
-                    class="photo"
-                    :style="`background-image: url( ${$t(`team.${member}.image`)} );`"
-                  />
-                </div>
-                <div class="description">
-                  <h2
-                    :data-test="`team-member-${member}-name`"
-                  >
-                    {{ $t(`team.${member}.name`) }}
-                  </h2>
-                  <div class="socialIcons">
-                    <a
-                      v-if="$t(`team.${member}.github_url`).length > 1"
-                      :data-test="`team-member-${member}-github`"
-                      :href="$t(`team.${member}.github_url`)" target="_blank"
-                      @click.stop
-                    >
-                      <i class="mobile-menu-icon fab fa-github" />
-                    </a>
-                    <a
-                      v-if="$t(`team.${member}.linkedin_url`).length > 1"
-                      :data-test="`team-member-${member}-linkedin`"
-                      :href="$t(`team.${member}.linkedin_url`)" target="_blank"
-                      @click.stop
-                    >
-                      <i class="mobile-menu-icon fab fa-linkedin" />
-                    </a>
-                    <a
-                      v-if="$t(`team.${member}.twitter_url`).length > 1"
-                      :data-test="`team-member-${member}-twitter`"
-                      :href="$t(`team.${member}.twitter_url`)" target="_blank"
-                      @click.stop
-                    >
-                      <i class="mobile-menu-icon fab fa-twitter" />
-                    </a>
-                    <a
-                      v-if="$t(`team.${member}.website`).length > 1"
-                      :data-test="`team-member-${member}-website`"
-                      :href="$t(`team.${member}.website`)" target="_blank"
-                      @click.stop
-                    >
-                      <i class="mobile-menu-icon fa fa-cloud" />
-                    </a>
-                  </div>
-    
-                  <router-link class="user-profile-link"
-                    :data-test="`team-member-${member}-page-link`"
-                    :to="{ name: 'TeamMember', params: { member } }"
-                  >
-                    {{ t('redirect.profile') }}
-                  </router-link>
-                </div>
+              <div class="meta">
+                <div
+                  :data-test="`team-member-${member}-index-photo`"
+                  class="photo"
+                  :style="`background-image: url( ${$t(`team.${member}.image`)} );`"
+                />
               </div>
-            </router-link>
+              <div class="description">
+                <h2
+                  :data-test="`team-member-${member}-name`"
+                >
+                  {{ $t(`team.${member}.name`) }}
+                </h2>
+                <div class="socialIcons">
+                  <a
+                    v-if="$t(`team.${member}.github_url`).length > 1"
+                    :data-test="`team-member-${member}-github`"
+                    :href="$t(`team.${member}.github_url`)" target="_blank"
+                  >
+                    <i class="mobile-menu-icon fab fa-github" />
+                  </a>
+                  <a
+                    v-if="$t(`team.${member}.linkedin_url`).length > 1"
+                    :data-test="`team-member-${member}-linkedin`"
+                    :href="$t(`team.${member}.linkedin_url`)" target="_blank"
+                  >
+                    <i class="mobile-menu-icon fab fa-linkedin" />
+                  </a>
+                  <a
+                    v-if="$t(`team.${member}.twitter_url`).length > 1"
+                    :data-test="`team-member-${member}-twitter`"
+                    :href="$t(`team.${member}.twitter_url`)" target="_blank"
+                  >
+                    <i class="mobile-menu-icon fab fa-twitter" />
+                  </a>
+                  <a
+                    v-if="$t(`team.${member}.website`).length > 1"
+                    :data-test="`team-member-${member}-website`"
+                    :href="$t(`team.${member}.website`)" target="_blank"
+                  >
+                    <i class="mobile-menu-icon fa fa-cloud" />
+                  </a>
+                </div>
 
-          </div>
-
+                <router-link
+                  class="user-profile-link"
+                  :data-test="`team-member-${member}-page-link`"
+                  :to="{ name: 'TeamMember', params: { member } }"
+                >
+                  {{ t('redirect.profile') }}
+                </router-link>
+              </div>
+            </div>
+          </router-link>
+        </div>
       </div>
     </div>
   </div>
@@ -99,86 +94,91 @@ $color_grey: $nord4;
 $color_grey_dark: $nord2;
 
 .teamList {
-  .headline { 
-    margin: auto;
+  .headline {
     max-width: 700px;
-    text-align: center; 
+    margin: auto;
+    text-align: center;
 
     h1 {
       font-size: 2rem;
       font-weight: 700;
     }
   }
+
   .content {
-    padding: 1.5em 3em;
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
+    padding: 1.5em 3em;
     gap: 20px;
+    grid-template-columns: repeat(1, 1fr);
   }
 
-
   .blog-card {
-    margin: 1rem auto;
-    box-shadow: 0 3px 7px -1px rgba(#000, 0.1);
-    margin-bottom: 1.6%;
-    background-image: $color_white;
-    background-color: #d8dee9; //brand color, pick from light-v waves
-    line-height: 1.4;
-    font-family: sans-serif;
-    border-radius: 5px;
-    overflow: hidden;
     z-index: 0;
+    overflow: hidden;
+    border-radius: 5px;
+    margin: 1rem auto;
+    margin-bottom: 1.6%;
+    background-color: #d8dee9; //brand color, pick from light-v waves
+    background-image: $color_white;
+    box-shadow: 0 3px 7px -1px rgba(#000, 0.1);
+    font-family: sans-serif;
+    line-height: 1.4;
+
     a,
     li {
       color: $color_white;
     }
+
     .meta {
       position: relative;
       z-index: 0;
-      height: auto;
-      border-radius: 100%;
-      text-align: center;
-      margin: 2em auto 0;
       display: flex;
-      justify-content: center;
+      height: auto;
       align-items: center;
-    }
-    .photo {
+      justify-content: center;
       border-radius: 100%;
-      width: 128px; 
-      height: 128px; 
+      margin: 2em auto 0;
+      text-align: center;
+    }
+
+    .photo {
       display: block;
-      background-size: cover;
+      width: 128px;
+      height: 128px;
+      border-radius: 100%;
       background-position: center;
+      background-size: cover;
     }
 
     .photo-secondary {
-      border-radius: 100%;
-      width: 128px; 
-      height: 128px; 
       display: none;
-      background-size: cover;
+      width: 128px;
+      height: 128px;
+      border-radius: 100%;
       background-position: center;
+      background-size: cover;
     }
-    
+
     .description {
-      padding: 2rem;
       position: relative;
       z-index: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
+      padding: 2rem;
+
       .socialIcons {
-        padding: 0.5em 0 1em;
         width: fit-content;
-  
+        padding: 0.5em 0 1em;
+
         a {
           display: inline-block;
           margin: 0.2em;
+
           .mobile-menu-icon {
-            font-size: 1.2em; 
+            font-size: 1.2em;
           }
-          
+
           &:hover .mobile-menu-icon {
             color: #2e3440;
           }
@@ -189,21 +189,23 @@ $color_grey_dark: $nord2;
       p {
         font-family: Poppins, sans-serif;
       }
+
       h2 {
+        margin: 5px 0;
         font-size: 1.75rem;
         font-weight: 700;
-        margin: 5px 0;
       }
-      .user-profile-link { 
-        font-size: 1rem;
-        font-weight: 700;
+
+      .user-profile-link {
+        width: fit-content;
+        padding: 5px 15px;
         border: 1px solid transparent;
+        border-radius: 999px;
+        margin: 0 auto;
         background-color: #586379;
         color: #fff;
-        width: fit-content;
-        margin: 0 auto;
-        padding: 5px 15px;
-        border-radius: 999px;
+        font-size: 1rem;
+        font-weight: 700;
 
         &:hover {
           background-color: #2e3440;
@@ -214,7 +216,7 @@ $color_grey_dark: $nord2;
 }
 
 // to-do: standardize media querys
-@media (min-width: 640px) {
+@media (width >= 640px) {
   .teamList{
     .content {
       grid-template-columns: repeat(2, 1fr);
@@ -223,12 +225,12 @@ $color_grey_dark: $nord2;
   }
 }
 
-@media (min-width: 1024px) {
+@media (width >= 1024px) {
   .teamList{
     .content {
       grid-template-columns: repeat(3, 1fr);
     }
-  
+
   }
 
 }

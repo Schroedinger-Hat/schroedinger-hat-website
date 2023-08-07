@@ -1,9 +1,57 @@
 // Global style
 @import 'variables';
+@import 'dark';
+@import 'nord';
+
+$root-font-size: 16px;
+
+// Colors
+$c-white: #FFFFFF;
+$c-black: #000000;
+$c-dark-text: $nord6; //#ECEFF4
+$c-dark-text-secondary: $nord4; //#D8DEE9
+
+// Breakpoints
+$breakpoints: (
+  sm: 640px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1280px,
+);
+
+// Functions 
+// -> Px to Rem 
+@function rem($values...) {
+  // Check if a single value is passed
+  @if length($values) == 1 {
+    $value: nth($values, 1);
+    @return math.div($value, $root-font-size) * 1rem;
+  }
+  // Handle multiple values
+  @else {
+    $rem-values: ();
+    @each $value in $values {
+      $rem-values: append($rem-values, math.div($value, $root-font-size) * 1rem);
+    }
+    @return $rem-values;
+  }
+}
+
+// -> Breakpoints
+@mixin breakpoint($breakpoint) {
+  $width: map-get($breakpoints, $breakpoint);
+
+  @if $width {
+    @media (min-width: $width) {
+      @content;
+    }
+  } @else {
+    @error "Unknown breakpoint: #{$breakpoint}.";
+  }
+}
 
 /* Layout */
 html {
-  font-family: 'Red Hat Display', sans-serif;
   background: $bg-primary;
   color: $text-primary;
   transition: all 400ms ease-in-out 0s;
@@ -11,6 +59,7 @@ html {
   * {
     color: $text-primary;
     text-decoration: none;
+    transition: all 400ms ease-in-out 0s;
   }
 
   body {
@@ -18,13 +67,13 @@ html {
     margin: 0;
   }
 
-  .container {
-    width: 100%;
-    margin: 0 auto;
-    // padding: 0 1.5em;
-    padding-top: 2.5em;
-    padding-bottom: 2.5em;
-  }
+  // .container {
+  //   width: 100%;
+  //   margin: 0 auto;
+  //   // padding: 0 1.5em;
+  //   padding-top: 2.5em;
+  //   padding-bottom: 2.5em;
+  // }
 
   .overflow-hidden {
     overflow: hidden;
@@ -41,19 +90,20 @@ html {
   .btn {
     display: inline-flex;
     align-items: center;
-    margin: 0 0.5em;
-    font-size: 1.1em;
-    vertical-align: middle;
-    text-decoration: none;
-    border-radius: 0.25em;
     padding: 0.675em 1.5em;
-    transition: all 200ms ease-in 0s;
+    border-radius: 0.25em;
+    margin: 0 0.5em;
     cursor: pointer;
+    font-size: 1.1em;
+    text-decoration: none;
+    transition: all 200ms ease-in 0s;
+    vertical-align: middle;
 
     &.btn-primary {
       border: 1px solid $bg-secondary;
       background: $dark-bg-secondary;
       color: $text-secondary;
+
       &:hover {
         background: $nord7;
         color: $text-primary;
@@ -63,17 +113,12 @@ html {
     &.btn-info {
       border: 1px solid $bg-secondary;
       background: transparent;
+
       &:hover {
         border: 1px solid $nord5;
-        color: $nord8;
         background: $nord5;
+        color: $nord8;
       }
     }
   }
 }
-
-/* dark theme */
-@import 'dark';
-
-/* media queries */
-@import '_media_queries';
