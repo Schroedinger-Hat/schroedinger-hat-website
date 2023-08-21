@@ -67,7 +67,7 @@ body {
   vertical-align: super;
 }
 
-//Animations
+// Animations
 
 @keyframes scale {
   0% {
