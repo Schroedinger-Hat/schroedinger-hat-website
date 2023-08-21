@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const props = defineProps<{
-  showMobileMenu: Boolean
-  smallerThanLg: Boolean
+  showMobileMenu: boolean
+  smallerThanLg: boolean
 }>()
 
 const emit = defineEmits<{
