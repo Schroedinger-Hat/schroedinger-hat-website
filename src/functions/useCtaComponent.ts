@@ -14,9 +14,9 @@ export const useCtaComponent = (attrs: MaybeRef<SetupContext['attrs']>): CtaComp
 
   const component = computed(() => {
     switch (true) {
-      case 'to' in attributes:
+      case ('to' in attributes && attributes.to !== undefined):
         return 'router-link'
-      case 'href' in attributes:
+      case ('href' in attributes && attributes.href !== undefined):
         return 'a'
       default:
         return 'button'
