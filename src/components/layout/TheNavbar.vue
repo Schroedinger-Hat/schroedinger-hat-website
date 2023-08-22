@@ -8,44 +8,45 @@ import CtaComponent from '@/components/buttons/CtaComponent.vue'
 // TODO: Move this data to an outer file
 // TODO: We could create a component called CtaIcon based of CtaComponent
 
-const links = {
-  router: [
-    {
-      name: 'Team',
-      test: 'nav-team-page-link',
-      text: 'navbar.team',
+const links = [
+  {
+    id: 'Team',
+    to: 'Team',
+    test: 'team-page-link',
+    text: 'navbar.team',
+  },
+  {
+    id: 'Events',
+    to: 'EventList',
+    test: 'event-page-link',
+    text: 'navbar.events',
+  },
+  {
+    id: 'CodeOfConduct',
+    to: 'CodeOfConduct',
+    test: 'code-page-link',
+    text: 'navbar.codeOfConduct',
+  },
+  {
+    id: 'IGN',
+    href: 'https://ign.schrodinger-hat.it',
+    test: 'IGN-link',
+    target: '_blank',
+    text: 'ImageGoNord',
+    icon: null,
+  },
+  {
+    id: 'GitHub',
+    href: 'https://github.com/Schrodinger-Hat',
+    test: 'github-link',
+    target: '_blank',
+    text: null,
+    icon: {
+      class: 'fab fa-github',
+      test: 'nav-github-icon',
     },
-    {
-      name: 'EventList',
-      test: 'nav-team-page-link',
-      text: 'navbar.events',
-    },
-    {
-      name: 'CodeOfConduct',
-      test: 'nav-team-page-link',
-      text: 'navbar.codeOfConduct',
-    },
-  ],
-  anchors: [
-    {
-      id: 'gonord',
-      href: 'https://ign.schrodinger-hat.it',
-      test: 'nav-go-nord-page-link',
-      text: 'ImageGoNord',
-      icon: null,
-    },
-    {
-      id: 'github',
-      href: 'https://github.com/Schrodinger-Hat',
-      test: 'nav-github-page-link',
-      text: null,
-      icon: {
-        class: 'fab fa-github',
-        test: 'nav-github-icon',
-      },
-    },
-  ],
-}
+  },
+]
 
 const [showMobileMenu, toggleMobileMenu] = useToggle()
 const breakpoints = useBreakpoints(breakpointsTailwind)
@@ -65,21 +66,27 @@ const themeIcon = computed(() => {
       <nav>
         <div class="navbar" data-test="nav-link-wrapper">
           <CtaComponent
-            v-for="{ test, text, name } in links.router"
-            :key="text"
-            :to="{ name }"
-            :data-test="test"
+            v-for="{ href, icon, id, target, test, text, to } in links"
+            :key="id"
+            :data-test="`data-${test}`"
+            :to="{ name: to }"
+            :href="href"
+            :target="target ? target : null"
           >
-            {{ $t(text) }}
-          </CtaComponent>
-          <CtaComponent v-for="{ id, href, test, text, icon } in links.anchors" :id="id" :key="id" :href="href" :data-test="test">
             <i v-if="icon" :class="icon.class" :data-test="icon.test" />
-            <span v-else>{{ text }}</span>
+            <span v-else>{{ $t(text as string) }}</span>
           </CtaComponent>
-          <button class="hamburger-none-md" data-test="nav-burger-menu-cta" @click="toggleMobileMenu()">
+          <button
+            class="hamburger-none-md"
+            data-test="nav-burger-menu-cta"
+            @click="toggleMobileMenu()"
+          >
             <i class="fas fa-hamburger" data-test="nav-hamburget-icon" />
           </button>
-          <button data-test="nav-theme-cta" @click="toggleDark()">
+          <button
+            data-test="nav-theme-cta"
+            @click="toggleDark()"
+          >
             <i class="fas" :class="themeIcon" data-test="nav-theme-icon" />
           </button>
         </div>
