@@ -5,6 +5,7 @@ import LogoAnimated from '@/components/buttons/LogoAnimated.vue'
 import MobileMenu from '@/components/layout/MobileMenu.vue'
 import CtaComponent from '@/components/buttons/CtaComponent.vue'
 
+// TODO: Throw the buttons inside the CtaComponent
 // TODO: Move this data to an outer file
 // TODO: We could create a component called CtaIcon based of CtaComponent
 
@@ -70,6 +71,8 @@ const themeIcon = computed(() => isDark.value ? 'fa-sun' : 'fa-moon')
             :to="{ name: to }"
             :href="href"
             :target="target ? target : null"
+            class="mx-1 p-1 rounded-1 cursor-pointer text-xl md:inline"
+            :class="[{ rounded: icon, hidden: !icon }]"
           >
             <i v-if="icon" :class="icon.class" :data-test="icon.test" />
             <span v-else>{{ $t(text as string) }}</span>
@@ -123,20 +126,8 @@ header {
       display: flex;
 
       .navbar {
-        justify-content: space-between;
-        -webkit-box-pack: justify;
-        list-style: none;
-
         a {
-          border-radius: 0.25em;
-          margin: 0 0.4em;
-          cursor: pointer;
-          font-size: 1.2em;
           transition: background-color 100ms ease-in-out 0s;
-
-          &:nth-child(-n + 3) {
-            display: none;
-          }
 
           &:hover {
             background-color: $bg-secondary;
