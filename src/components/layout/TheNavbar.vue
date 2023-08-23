@@ -54,9 +54,7 @@ const isDark = useDark()
 const smallerThanLg = breakpoints.smaller('lg')
 const toggleDark = useToggle(isDark)
 
-const themeIcon = computed(() => {
-  return isDark.value ? 'fa-sun' : 'fa-moon'
-})
+const themeIcon = computed(() => isDark.value ? 'fa-sun' : 'fa-moon')
 </script>
 
 <template>
