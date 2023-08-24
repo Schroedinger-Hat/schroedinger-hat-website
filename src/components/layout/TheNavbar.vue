@@ -60,7 +60,7 @@ const themeIcon = computed(() => isDark.value ? 'fa-sun' : 'fa-moon')
 
 <template>
   <header class="container">
-    <div class="inner-header-container" data-test="nav-wrapper">
+    <div class="inner-header-container flex justify-between items-center w-full mx-auto px-4 md:px-0" data-test="nav-wrapper">
       <LogoAnimated />
       <nav>
         <div class="navbar" data-test="nav-link-wrapper">
@@ -112,16 +112,6 @@ header {
   margin: auto;
   text-align: left;
 
-  .inner-header-container {
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 0.5em;
-    margin: 0 auto;
-    -webkit-box-align: center;
-    -webkit-box-pack: justify;
-
     nav {
       display: flex;
 
@@ -154,13 +144,9 @@ header {
       }
     }
   }
-}
 
 @media (width >= 56.25em) {
   header {
-    .inner-header-container {
-      padding: 0;
-
       .logo {
         span {
           font-size: 2em;
@@ -182,7 +168,6 @@ header {
       }
     }
   }
-}
 
 @media (width <= 900px) {
   .logo span {
