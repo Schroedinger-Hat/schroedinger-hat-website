@@ -1,7 +1,20 @@
 <script setup lang="ts">
 import { breakpointsTailwind, useBreakpoints } from '@vueuse/core'
+import CtaComponent from '@/components/buttons/CtaComponent.vue'
+import CtaIcon from '@/components/buttons/CtaIcon.vue'
+
+interface Link {
+  id: string
+  to?: string
+  test?: string
+  text?: string
+  href?: string
+  target?: string
+  icon?: string
+}
 
 defineProps<{
+  links: Link[]
   show: boolean
 }>()
 
@@ -15,58 +28,30 @@ const smallerThanLg = breakpoints.smaller('lg')
 
 <template>
   <transition name="slide">
-    <div v-if="show && smallerThanLg" class="mobile-menu-container">
-      <div class="mobile-menu-header">
-        <div class="logo">
-          <router-link
-            data-test="mobile-homepage-link"
-            :to="{ name: 'Home' }"
-            @click="$emit('close')"
-          >
-            <img alt="SH logo" width="36" src="@/assets/sh-logo-small.png">
-          </router-link>
-        </div>
-        <button class="close-header" data-test="mobile-burger-menu-cta" @click="$emit('close')">
-          <i class="fas fa-hamburger" />
-        </button>
+    <div v-if="show && smallerThanLg" class="menu w-full fixed left-0 h-screen z-4">
+      <div class="flex items-center justify-between p-4">
+        <CtaComponent
+          data-test="mobile-homepage-link"
+          :to="{ name: 'Home' }"
+          @click="$emit('close')"
+        >
+          <img alt="SH logo" width="36" src="@/assets/sh-logo-small.png">
+        </CtaComponent>
+        <CtaIcon icon="fas fa-hamburger" @click="$emit('close')" />
       </div>
-      <nav>
-        <div class="navbar" data-test="mobile-nav-link-wrapper">
-          <a
-            data-test="mobile-github-page-link"
-            href="https://github.com/Schrodinger-Hat"
-            target="_blank"
-            @click="$emit('close')"
-          >GitHub
-          </a>
-          <router-link
-            data-test="mobile-team-page-link"
-            :to="{ name: 'Team' }"
-            @click="$emit('close')"
-          >
-            {{ $t('navbar.team') }}
-          </router-link>
-          <router-link
-            data-test="mobile-event-page-link"
-            :to="{ name: 'EventList' }"
-            @click="$emit('close')"
-          >
-            {{ $t('navbar.events') }}
-          </router-link>
-          <router-link
-            data-test="mobile-conduct-page-link"
-            :to="{ name: 'CodeOfConduct' }"
-            @click="$emit('close')"
-          >
-            {{ $t('navbar.codeOfConduct') }}
-          </router-link>
-          <a
-            data-test="mobile-go-nord-page-link"
-            href="https://ign.schrodinger-hat.it"
-            target="_blank"
-            @click="$emit('close')"
-          > ImageGoNord </a>
-        </div>
+      <nav class="text-center">
+        <CtaComponent
+          v-for="{ id, href, to, text, test, target } in links"
+          :key="id"
+          class="link block py-4 head-6"
+          :data-test="`data-${test}`"
+          :to="to ? { name: to } : null"
+          :href="href"
+          :target="target ? target : null"
+          @click="$emit('close')"
+        >
+          <span>{{ $t(text as string) }}</span>
+        </CtaComponent>
       </nav>
     </div>
   </transition>
@@ -74,20 +59,20 @@ const smallerThanLg = breakpoints.smaller('lg')
 
 <style scoped lang="scss">
 .menu {
-  background-color: $bg-primary;
-  transition: all 0.4s ease-in 0;
+  background: $bg-primary;
+  transition: all 0.4s ease-in 0s;
 }
 
-li {
+.link {
   border-bottom: 1px solid $bg-secondary;
 
-  &:first-of-type{
-    border-top: 1px solid $bg-secondary;
+  &:last-child {
+    border-bottom: none;
   }
 }
 
 .#{$dark-mode-class} {
-  .menu {
+  .menu{
     background: $dark-bg-primary;
   }
 }
