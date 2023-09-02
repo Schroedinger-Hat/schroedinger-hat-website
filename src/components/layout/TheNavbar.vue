@@ -1,13 +1,10 @@
 <script setup lang='ts'>
 import { computed } from 'vue'
-import { breakpointsTailwind, useBreakpoints, useDark, useToggle } from '@vueuse/core'
+import { useDark, useToggle } from '@vueuse/core'
 import LogoAnimated from '@/components/buttons/LogoAnimated.vue'
 import MobileMenu from '@/components/layout/MobileMenu.vue'
 import CtaComponent from '@/components/buttons/CtaComponent.vue'
 import CtaIcon from '@/components/buttons/CtaIcon.vue'
-
-// TODO: Move this data to an outer file
-// TODO: Modify
 
 const links = [
   {
@@ -43,10 +40,8 @@ const githubCTA = {
   icon: 'fab fa-github',
 }
 
-const [showMobileMenu, toggleMobileMenu] = useToggle()
-const breakpoints = useBreakpoints(breakpointsTailwind)
+const [showMenu, toggleMenu] = useToggle()
 const isDark = useDark()
-const smallerThanLg = breakpoints.smaller('lg')
 const toggleDark = useToggle(isDark)
 
 const themeIcon = computed(() => isDark.value ? 'fa-sun' : 'fa-moon')
@@ -78,7 +73,7 @@ const themeIcon = computed(() => isDark.value ? 'fa-sun' : 'fa-moon')
           class="md:hidden"
           data-test="nav-burger-menu-cta"
           icon="fas fa-hamburger"
-          @click="toggleMobileMenu()"
+          @click="toggleMenu()"
         />
         <CtaIcon
           :icon="`fas ${themeIcon}`"
@@ -88,10 +83,9 @@ const themeIcon = computed(() => isDark.value ? 'fa-sun' : 'fa-moon')
       </nav>
     </div>
     <MobileMenu
-      :show-mobile-menu="showMobileMenu"
-      :smaller-than-lg="smallerThanLg"
+      :show="showMenu"
       data-test="mobile-menu"
-      @on-close-menu="toggleMobileMenu()"
+      @close="toggleMenu()"
     />
   </header>
 </template>
