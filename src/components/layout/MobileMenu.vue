@@ -1,88 +1,72 @@
 <script setup lang="ts">
-const props = defineProps<{
-  showMobileMenu: boolean
-  smallerThanLg: boolean
+import { breakpointsTailwind, useBreakpoints } from '@vueuse/core'
+
+defineProps<{
+  show: boolean
 }>()
 
 defineEmits<{
-  (e: 'onCloseMenu'): void
+  (e: 'close'): void
 }>()
 
-const links = [
-  {
-    id: 'Team',
-    test: 'team-link',
-    text: 'navbar.team',
-    to: 'Team',
-  },
-  {
-    id: 'Events',
-    test: 'events-link',
-    text: 'navbar.events',
-    to: 'EventList',
-  },
-  {
-    id: 'CodeOfConduct',
-    test: 'conduct-link',
-    text: 'navbar.codeOfConduct',
-    to: 'CodeOfConduct',
-  },
-  {
-    href: 'https://github.com/Schrodinger-Hat',
-    id: 'Github',
-    test: 'github-link',
-    text: 'GitHub',
-  },
-  {
-    href: 'https://ign.schrodinger-hat.it',
-    id: 'IGN',
-    test: 'ign-link',
-    text: 'ImageGoNord',
-  },
-]
+const breakpoints = useBreakpoints(breakpointsTailwind)
+const smallerThanLg = breakpoints.smaller('lg')
 </script>
 
 <template>
   <transition name="slide">
-    <div
-      v-if="props.showMobileMenu && props.smallerThanLg"
-      class="menu w-full h-[calc(100vh)] fixed left-0 z-1"
-    >
-      <div class="flex justify-between items-center p-4">
-        <RouterLink
-          data-test="mobile-homepage-link"
-          :to="{ name: 'Home' }"
-          @click="$emit('onCloseMenu')"
-        >
-          <img alt="SH logo" width="36" src="@/assets/sh-logo-small.png">
-        </RouterLink>
-        <button
-          class="my-2 border-none rounded-1 cursor-pointer"
-          data-test="mobile-burger-menu-cta"
-          @click="$emit('onCloseMenu')"
-        >
+    <div v-if="show && smallerThanLg" class="mobile-menu-container">
+      <div class="mobile-menu-header">
+        <div class="logo">
+          <router-link
+            data-test="mobile-homepage-link"
+            :to="{ name: 'Home' }"
+            @click="$emit('close')"
+          >
+            <img alt="SH logo" width="36" src="@/assets/sh-logo-small.png">
+          </router-link>
+        </div>
+        <button class="close-header" data-test="mobile-burger-menu-cta" @click="$emit('close')">
           <i class="fas fa-hamburger" />
         </button>
       </div>
-      <nav class="text-center">
-        <ul>
-          <li
-            v-for="{ href, text, to, id, test } in links"
-            :key="id"
-            class="py-4 text-xl"
+      <nav>
+        <div class="navbar" data-test="mobile-nav-link-wrapper">
+          <a
+            data-test="mobile-github-page-link"
+            href="https://github.com/Schrodinger-Hat"
+            target="_blank"
+            @click="$emit('close')"
+          >GitHub
+          </a>
+          <router-link
+            data-test="mobile-team-page-link"
+            :to="{ name: 'Team' }"
+            @click="$emit('close')"
           >
-            <a
-              v-if="href" :href="href"
-              :data-test="`mobile-${test}`"
-              @click="$emit('onCloseMenu')"
-            >
-              {{ text }}
-            </a>
-            <RouterLink v-else :to="{ name: to }">
-              {{ $t(text) }}
-            </RouterLink>
-          </li>
-        </ul>
+            {{ $t('navbar.team') }}
+          </router-link>
+          <router-link
+            data-test="mobile-event-page-link"
+            :to="{ name: 'EventList' }"
+            @click="$emit('close')"
+          >
+            {{ $t('navbar.events') }}
+          </router-link>
+          <router-link
+            data-test="mobile-conduct-page-link"
+            :to="{ name: 'CodeOfConduct' }"
+            @click="$emit('close')"
+          >
+            {{ $t('navbar.codeOfConduct') }}
+          </router-link>
+          <a
+            data-test="mobile-go-nord-page-link"
+            href="https://ign.schrodinger-hat.it"
+            target="_blank"
+            @click="$emit('close')"
+          > ImageGoNord </a>
+        </div>
       </nav>
     </div>
   </transition>
