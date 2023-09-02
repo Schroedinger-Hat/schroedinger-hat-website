@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { breakpointsTailwind, useBreakpoints } from '@vueuse/core'
 import CtaComponent from '@/components/buttons/CtaComponent.vue'
-import CtaIcon from '@/components/buttons/CtaIcon.vue'
 
 interface Link {
   id: string
@@ -23,37 +22,25 @@ defineEmits<{
 }>()
 
 const breakpoints = useBreakpoints(breakpointsTailwind)
-const smallerThanLg = breakpoints.smaller('lg')
+const smallerThanLg = breakpoints.smaller('md')
 </script>
 
 <template>
   <transition name="slide">
-    <div v-if="show && smallerThanLg" class="menu w-full fixed left-0 h-screen z-4">
-      <div class="flex items-center justify-between p-4">
-        <CtaComponent
-          data-test="mobile-homepage-link"
-          :to="{ name: 'Home' }"
-          @click="$emit('close')"
-        >
-          <img alt="SH logo" width="36" src="@/assets/sh-logo-small.png">
-        </CtaComponent>
-        <CtaIcon icon="fas fa-hamburger" @click="$emit('close')" />
-      </div>
-      <nav class="text-center">
-        <CtaComponent
-          v-for="{ id, href, to, text, test, target } in links"
-          :key="id"
-          class="link block py-4 head-6"
-          :data-test="`data-${test}`"
-          :to="to ? { name: to } : null"
-          :href="href"
-          :target="target ? target : null"
-          @click="$emit('close')"
-        >
-          <span>{{ $t(text as string) }}</span>
-        </CtaComponent>
-      </nav>
-    </div>
+    <nav v-if="show && smallerThanLg" class="menu">
+      <CtaComponent
+        v-for="{ id, href, to, text, test, target } in links"
+        :key="id"
+        :data-test="`data-${test}`"
+        :href="href"
+        :target="target ? target : null"
+        :to="to ? { name: to } : null"
+        class="head-6 link block py-4 cursor-pointer"
+        @click="$emit('close')"
+      >
+        <span>{{ $t(text as string) }}</span>
+      </CtaComponent>
+    </nav>
   </transition>
 </template>
 
@@ -79,14 +66,12 @@ const smallerThanLg = breakpoints.smaller('lg')
 
 .slide-enter-active,
 .slide-leave-active {
-  bottom: 0;
-  opacity: 1;
-  transition: bottom 0.25s ease-out 0, opacity 0.3s ease-in-out 0;
+  transition: 0.25s ease-out 0s;
 }
 
 .slide-enter-from,
 .slide-leave-to {
-  bottom: 100vh;
   opacity: 0;
+  transform: translateY(-100%);
 }
 </style>
