@@ -6,6 +6,16 @@ import MobileMenu from '@/components/layout/MobileMenu.vue'
 import CtaComponent from '@/components/buttons/CtaComponent.vue'
 import CtaIcon from '@/components/buttons/CtaIcon.vue'
 
+interface Link {
+  id: string
+  to?: string
+  test?: string
+  text?: string
+  href?: string
+  target?: string
+  icon?: string
+}
+
 const links = [
   {
     id: 'Team',
@@ -34,10 +44,12 @@ const links = [
   },
 ]
 
-const githubCTA = {
-  test: 'github-cta',
-  link: 'https://github.com/Schrodinger-Hat',
+const ghCTA = {
+  href: 'https://github.com/Schrodinger-Hat',
   icon: 'fab fa-github',
+  id: 'GitHub',
+  test: 'github-cta',
+  text: 'GitHub',
 }
 
 const [showMenu, toggleMenu] = useToggle()
@@ -45,6 +57,7 @@ const isDark = useDark()
 const toggleDark = useToggle(isDark)
 
 const themeIcon = computed(() => isDark.value ? 'fa-sun' : 'fa-moon')
+const mobileLinks: Link[] = [ghCTA, ...links]
 </script>
 
 <template>
@@ -64,9 +77,9 @@ const themeIcon = computed(() => isDark.value ? 'fa-sun' : 'fa-moon')
           <span>{{ $t(text as string) }}</span>
         </CtaComponent>
         <CtaIcon
-          :data-test="githubCTA.test"
-          :href="githubCTA.link"
-          :icon="githubCTA.icon"
+          :data-test="ghCTA.test"
+          :href="ghCTA.href"
+          :icon="ghCTA.icon"
           target="_blank"
         />
         <CtaIcon
@@ -83,6 +96,7 @@ const themeIcon = computed(() => isDark.value ? 'fa-sun' : 'fa-moon')
       </nav>
     </div>
     <MobileMenu
+      :links="mobileLinks"
       :show="showMenu"
       data-test="mobile-menu"
       @close="toggleMenu()"
