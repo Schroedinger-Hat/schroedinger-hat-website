@@ -61,7 +61,7 @@ const mobileLinks: Link[] = [ghCTA, ...links]
 </script>
 
 <template>
-  <header class="inline-flex w-full h-18 m-auto py-4 px-2 z-2 sticky top-0 lg:px-4">
+  <header class="inline-flex w-full h-15 m-auto py-4 px-2 sticky top-0 z-2 backdrop-blur border-b border-b-slate-300 lg:px-4 dark:border-slate-50/[0.06]" :class="{ 'active-menu': showMenu }">
     <div class="flex justify-between items-center w-full mx-auto px-4 md:px-0" data-test="nav-wrapper">
       <LogoAnimated />
       <nav class="flex">
@@ -96,7 +96,7 @@ const mobileLinks: Link[] = [ghCTA, ...links]
       </nav>
     </div>
     <MobileMenu
-      class="w-full h-screen absolute top-18 left-0 text-center"
+      class="w-full h-screen absolute top-15 left-0 text-center"
       :links="mobileLinks"
       :show="showMenu"
       data-test="mobile-menu"
@@ -107,7 +107,11 @@ const mobileLinks: Link[] = [ghCTA, ...links]
 
 <style scoped lang="scss">
 header {
- background: $bg-primary;
+ background: $bg-primary-reduced;
+
+ &.active-menu {
+  background: $bg-primary;
+ }
 }
 
 a:not(.logo),
@@ -121,7 +125,11 @@ button {
 
 .#{$dark-mode-class} {
   header {
-    background: $dark-bg-primary;
+    background: $dark-bg-primary-reduced;
+
+    &.active-menu {
+      background: $dark-bg-primary;
+    }
   }
 
   a:not(.logo),
