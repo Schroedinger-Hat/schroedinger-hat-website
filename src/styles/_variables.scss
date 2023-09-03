@@ -6,12 +6,14 @@ $dark-mode-class: 'dark';
 $z-header: 2;
 
 // Colors
-$text-primary: $nord3;
-$text-secondary: $nord6;
+$bg-primary-reduced: rgba(236, 239, 244, 0.65);
 $bg-primary: $nord6;
 $bg-secondary: $nord4;
+$text-primary: $nord3;
+$text-secondary: $nord6;
 
 // Dark-mode Colors
+$dark-bg-primary-reduced: rgba(46, 52, 64, 0.65);
 $dark-bg-primary: $nord0;
 $dark-bg-secondary: $nord1;
 $dark-bg-secondary: $nord3;
