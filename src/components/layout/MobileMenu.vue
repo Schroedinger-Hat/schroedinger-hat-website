@@ -35,7 +35,7 @@ const smallerThanLg = breakpoints.smaller('md')
         :href="href"
         :target="target ? target : null"
         :to="to ? { name: to } : null"
-        class="head-6 link block py-4 cursor-pointer"
+        class="head-6 link block py-4 cursor-pointer border-b dark:border-b-slate-50/[0.06] border-b-slate-300"
         @click="$emit('close')"
       >
         <span>{{ $t(text as string) }}</span>
@@ -48,14 +48,6 @@ const smallerThanLg = breakpoints.smaller('md')
 .menu {
   background: $bg-primary;
   transition: all 0.4s ease-in 0s;
-}
-
-.link {
-  border-bottom: 1px solid $bg-secondary;
-
-  &:last-child {
-    border-bottom: none;
-  }
 }
 
 .#{$dark-mode-class} {
