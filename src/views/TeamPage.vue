@@ -16,10 +16,6 @@ const { t } = useI18n()
 
       <div class="content">
         <div v-for="member in team" :key="member" data-test="team-list">
-          <router-link
-            :data-test="`team-member-${member}-page-link`"
-            :to="{ name: 'TeamMember', params: { member } }"
-          >
             <!-- TODO: Transform this into a component -->
             <div
               class="blog-card"
@@ -79,7 +75,6 @@ const { t } = useI18n()
                 </router-link>
               </div>
             </div>
-          </router-link>
         </div>
       </div>
     </div>
