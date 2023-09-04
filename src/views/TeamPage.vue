@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
 import messages from '@/i18n/messages'
+import MemberCard from '@/components/MemberCard.vue'
 
 const team = Object.keys(messages.it.team)
 
@@ -16,65 +17,8 @@ const { t } = useI18n()
 
       <div class="content">
         <div v-for="member in team" :key="member" data-test="team-list">
-            <!-- TODO: Transform this into a component -->
-            <div
-              class="blog-card"
-              data-test="team-card"
-              :data-test-member-name="`team-member-${member}`"
-            >
-              <div class="meta">
-                <div
-                  :data-test="`team-member-${member}-index-photo`"
-                  class="photo"
-                  :style="`background-image: url( ${$t(`team.${member}.image`)} );`"
-                />
-              </div>
-              <div class="description">
-                <h2
-                  :data-test="`team-member-${member}-name`"
-                >
-                  {{ $t(`team.${member}.name`) }}
-                </h2>
-                <div class="socialIcons">
-                  <a
-                    v-if="$t(`team.${member}.github_url`).length > 1"
-                    :data-test="`team-member-${member}-github`"
-                    :href="$t(`team.${member}.github_url`)" target="_blank"
-                  >
-                    <i class="mobile-menu-icon fab fa-github" />
-                  </a>
-                  <a
-                    v-if="$t(`team.${member}.linkedin_url`).length > 1"
-                    :data-test="`team-member-${member}-linkedin`"
-                    :href="$t(`team.${member}.linkedin_url`)" target="_blank"
-                  >
-                    <i class="mobile-menu-icon fab fa-linkedin" />
-                  </a>
-                  <a
-                    v-if="$t(`team.${member}.twitter_url`).length > 1"
-                    :data-test="`team-member-${member}-twitter`"
-                    :href="$t(`team.${member}.twitter_url`)" target="_blank"
-                  >
-                    <i class="mobile-menu-icon fab fa-twitter" />
-                  </a>
-                  <a
-                    v-if="$t(`team.${member}.website`).length > 1"
-                    :data-test="`team-member-${member}-website`"
-                    :href="$t(`team.${member}.website`)" target="_blank"
-                  >
-                    <i class="mobile-menu-icon fa fa-cloud" />
-                  </a>
-                </div>
-
-                <router-link
-                  class="user-profile-link"
-                  :data-test="`team-member-${member}-page-link`"
-                  :to="{ name: 'TeamMember', params: { member } }"
-                >
-                  {{ t('redirect.profile') }}
-                </router-link>
-              </div>
-            </div>
+            <!-- component that render member-cards (done) -->
+            <MemberCard :member="member" />
         </div>
       </div>
     </div>
