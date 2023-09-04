@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { breakpointsTailwind, useBreakpoints } from '@vueuse/core'
+import { watch } from 'vue'
 import CtaComponent from '@/components/buttons/CtaComponent.vue'
 
 interface Link {
@@ -12,17 +13,22 @@ interface Link {
   icon?: string
 }
 
-defineProps<{
+const props = defineProps<{
   links: Link[]
   show: boolean
 }>()
 
-defineEmits<{
+const emit = defineEmits<{
   (e: 'close'): void
 }>()
 
 const breakpoints = useBreakpoints(breakpointsTailwind)
 const smallerThanLg = breakpoints.smaller('md')
+
+watch(smallerThanLg, (newIsSmaller) => {
+  if (props.show && newIsSmaller)
+    emit('close')
+})
 </script>
 
 <template>
