@@ -40,7 +40,7 @@ const links = [
     id: 'IGN',
     target: '_blank',
     test: 'IGN-link',
-    text: 'ImageGoNord',
+    text: 'navbar.imageGoNord',
   },
 ]
 
@@ -49,7 +49,7 @@ const ghCTA = {
   icon: 'fab fa-github',
   id: 'GitHub',
   test: 'github-cta',
-  text: 'GitHub',
+  text: 'navbar.gitHub',
 }
 
 const [showMenu, toggleMenu] = useToggle()
