@@ -1,3 +1,16 @@
+<script setup lang="ts">
+import { useI18n } from 'vue-i18n'
+import SocialIcons from './SocialIcons.vue'
+
+defineProps<{
+  member: string
+}>()
+
+const socials = ['github', 'linkedin', 'twitter', 'website']
+
+const { t } = useI18n()
+</script>
+
 <template>
   <div
     class="blog-card"
@@ -31,22 +44,6 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-import { useI18n } from 'vue-i18n'
-import messages from '@/i18n/messages'
-import SocialIcons from './SocialIcons.vue'
-
-const team = Object.keys(messages.it.team)
-const socials = ['github', 'linkedin', 'twitter', 'website']
-
-const { t } = useI18n()
-
-defineProps<{
-  member: string
-}>()
-
-</script>
 
 <style lang="scss" scoped>
 $color_white: #fff;
@@ -107,24 +104,6 @@ $color_grey_dark: $nord2;
     flex-direction: column;
     align-items: center;
     padding: 2rem;
-
-    // .socialIcons {
-    //   width: fit-content;
-    //   padding: 0.5em 0 1em;
-
-    //   a {
-    //     display: inline-block;
-    //     margin: 0.2em;
-
-    //     .mobile-menu-icon {
-    //       font-size: 1.2em;
-    //     }
-
-    //     &:hover .mobile-menu-icon {
-    //       color: #2e3440;
-    //     }
-    //   }
-    // }
 
     h2,
     p {

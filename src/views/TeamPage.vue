@@ -1,11 +1,8 @@
 <script setup lang="ts">
-import { useI18n } from 'vue-i18n'
 import messages from '@/i18n/messages'
 import MemberCard from '@/components/MemberCard.vue'
 
 const team = Object.keys(messages.it.team)
-
-const { t } = useI18n()
 </script>
 
 <template>
@@ -17,8 +14,8 @@ const { t } = useI18n()
 
       <div class="content">
         <div v-for="member in team" :key="member" data-test="team-list">
-            <!-- component that render member-cards (done) -->
-            <MemberCard :member="member" />
+          <!-- component that render member-cards (done) -->
+          <MemberCard :member="member" />
         </div>
       </div>
     </div>
