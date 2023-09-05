@@ -4,6 +4,7 @@ import type { RouteParamValue } from 'vue-router'
 import { useRoute } from 'vue-router'
 
 import { useI18n } from 'vue-i18n'
+import SocialIcons from '@/components/SocialIcons.vue'
 
 const { t } = useI18n()
 
@@ -18,17 +19,18 @@ const getTeamMemberName = () => {
     member.value = route.params.member as RouteParamValue
 }
 
+const socials = ['github', 'linkedin', 'twitter', 'website']
+
 onMounted(() => {
   getTeamMemberName()
 })
 </script>
 
 <template>
-  <!-- TODO: Add loader -->
   <span v-if="!member">Loading...</span>
   <div v-else class="team">
     <div class="container">
-      <div class="content">
+      <div class="content flex flex-col justify-center items-center">
         <h1 data-test="member-page-name" class="head-1">
           {{ $t(`team.${member}.name`) }}
         </h1>
@@ -39,39 +41,11 @@ onMounted(() => {
             data-test="member-page-photo"
           />
         </div>
-        <div class="socialIcons !p-2">
-          <a
-            v-if="$t(`team.${member}.github_url`).length > 1"
-            :href="$t(`team.${member}.github_url`)" target="_blank"
-            data-test="member-page-github"
-          >
-            <i class="mobile-menu-icon fab fa-github" />
-          </a>
-          <a
-            v-if="$t(`team.${member}.linkedin_url`).length > 1"
-            :href="$t(`team.${member}.linkedin_url`)" target="_blank"
-            data-test="member-page-linkedin"
-          >
-            <i class="mobile-menu-icon fab fa-linkedin" />
-          </a>
-          <a
-            v-if="$t(`team.${member}.twitter_url`).length > 1"
-            :href="$t(`team.${member}.twitter_url`)" target="_blank"
-            data-test="member-page-twitter"
-          >
-            <i class="mobile-menu-icon fab fa-twitter" />
-          </a>
-          <a
-            v-if="$t(`team.${member}.website`).length > 1"
-            :href="$t(`team.${member}.website`)" target="_blank"
-            data-test="member-page-website"
-          >
-            <i class="mobile-menu-icon fa fa-cloud" />
-          </a>
-        </div>
 
-        <!-- TODO: Make this a proper <p> -->
-        <div
+        <!-- component that render socials (done) -->
+        <SocialIcons :member="member" :socials="socials" />
+
+        <p
           class="description !p-2"
           data-test="member-page-description"
           v-html="$t(`team.${member}.description`)"
@@ -108,23 +82,6 @@ onMounted(() => {
   }
 }
 
-.socialIcons {
-  padding: 1em;
-
-  a {
-    display: inline-block;
-    margin: 0.2em;
-
-    .mobile-menu-icon {
-      font-size: 1.2em;
-    }
-
-    &:hover .mobile-menu-icon {
-      color: #2e3440;
-    }
-  }
-}
-
 .description {
   padding: 1em 0;
   margin-bottom: 20px;
@@ -156,17 +113,6 @@ onMounted(() => {
           margin-left: 0;
         }
       }
-    }
-  }
-}
-
-.#{$dark-mode-class} {
-  .socialIcons {
-    a {
-      &:hover .mobile-menu-icon {
-        color: #586379;
-      }
-
     }
   }
 }
