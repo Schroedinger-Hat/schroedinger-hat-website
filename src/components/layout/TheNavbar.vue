@@ -4,7 +4,7 @@ import { useDark, useToggle } from '@vueuse/core'
 import LogoAnimated from '@/components/buttons/LogoAnimated.vue'
 import MobileMenu from '@/components/layout/MobileMenu.vue'
 import CtaComponent from '@/components/buttons/CtaComponent.vue'
-import { useLockScroll } from '@/functions/useLockScroll'
+import { useGlobalScrollLock } from '@/functions/useGlobalScrollLock'
 import CtaIcon from '@/components/buttons/CtaIcon.vue'
 
 interface Link {
@@ -54,7 +54,7 @@ const ghCTA = {
 }
 
 const [showMenu, toggleMenu] = useToggle()
-const { scrollLock } = useLockScroll()
+const scrollLock = useGlobalScrollLock()
 const isDark = useDark()
 const mobileLinks: Link[] = [ghCTA, ...links]
 const toggleDark = useToggle(isDark)
