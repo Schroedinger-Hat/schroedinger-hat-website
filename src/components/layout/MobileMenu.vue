@@ -23,17 +23,17 @@ const emit = defineEmits<{
 }>()
 
 const breakpoints = useBreakpoints(breakpointsTailwind)
-const smallerThanLg = breakpoints.smaller('md')
+const smallerThanMd = breakpoints.smaller('md')
 
-watch(smallerThanLg, (newIsSmaller) => {
-  if (props.show && newIsSmaller)
+watch(smallerThanMd, (value) => {
+  if (props.show && !value)
     emit('close')
 })
 </script>
 
 <template>
   <transition name="slide">
-    <nav v-if="show && smallerThanLg" class="menu">
+    <nav v-if="show && smallerThanMd" class="menu">
       <CtaComponent
         v-for="{ id, href, to, text, test, target } in links"
         :key="id"
@@ -41,7 +41,7 @@ watch(smallerThanLg, (newIsSmaller) => {
         :href="href"
         :target="target ? target : null"
         :to="to ? { name: to } : null"
-        class="head-6 link block py-4 cursor-pointer border-b dark:border-b-slate-50/[0.06] border-b-slate-300"
+        class="head-6 link block py-4 cursor-pointer border-b border-b-slate-300 dark:border-b-slate-50/[0.06] "
         @click="$emit('close')"
       >
         <span>{{ $t(text as string) }}</span>
