@@ -5,10 +5,12 @@ import TheNavbar from '@/components/layout/TheNavbar.vue'
 </script>
 
 <template>
-  <TheNavbar />
-  <RouterView />
-  <TheContributing />
-  <TheFooter />
+  <div class="relative">
+    <TheNavbar />
+    <RouterView />
+    <TheContributing />
+    <TheFooter />
+  </div>
 </template>
 
 <style lang="scss">
