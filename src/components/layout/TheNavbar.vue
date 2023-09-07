@@ -1,216 +1,145 @@
 <script setup lang='ts'>
-import { computed } from 'vue'
-import { breakpointsTailwind, useBreakpoints, useDark, useToggle } from '@vueuse/core'
+import { computed, watch } from 'vue'
+import { useDark, useToggle } from '@vueuse/core'
 import LogoAnimated from '@/components/buttons/LogoAnimated.vue'
 import MobileMenu from '@/components/layout/MobileMenu.vue'
 import CtaComponent from '@/components/buttons/CtaComponent.vue'
+import { useGlobalScrollLock } from '@/functions/useGlobalScrollLock'
+import CtaIcon from '@/components/buttons/CtaIcon.vue'
 
-// TODO: Move this data to an outer file
-// TODO: We could create a component called CtaIcon based of CtaComponent
-
-const links = {
-  router: [
-    {
-      name: 'Team',
-      test: 'nav-team-page-link',
-      text: 'navbar.team',
-    },
-    {
-      name: 'EventList',
-      test: 'nav-team-page-link',
-      text: 'navbar.events',
-    },
-    {
-      name: 'CodeOfConduct',
-      test: 'nav-team-page-link',
-      text: 'navbar.codeOfConduct',
-    },
-  ],
-  anchors: [
-    {
-      id: 'gonord',
-      href: 'https://ign.schrodinger-hat.it',
-      test: 'nav-go-nord-page-link',
-      text: 'ImageGoNord',
-      icon: null,
-    },
-    {
-      id: 'github',
-      href: 'https://github.com/Schrodinger-Hat',
-      test: 'nav-github-page-link',
-      text: null,
-      icon: {
-        class: 'fab fa-github',
-        test: 'nav-github-icon',
-      },
-    },
-  ],
+interface Link {
+  id: string
+  to?: string
+  test?: string
+  text?: string
+  href?: string
+  target?: string
+  icon?: string
 }
 
-const [showMobileMenu, toggleMobileMenu] = useToggle()
-const breakpoints = useBreakpoints(breakpointsTailwind)
+const links = [
+  {
+    id: 'Team',
+    to: 'Team',
+    test: 'team-page-link',
+    text: 'navbar.team',
+  },
+  {
+    id: 'Events',
+    to: 'EventList',
+    test: 'event-page-link',
+    text: 'navbar.events',
+  },
+  {
+    id: 'CodeOfConduct',
+    test: 'code-page-link',
+    text: 'navbar.codeOfConduct',
+    to: 'CodeOfConduct',
+  },
+  {
+    href: 'https://ign.schrodinger-hat.it',
+    id: 'IGN',
+    target: '_blank',
+    test: 'IGN-link',
+    text: 'navbar.imageGoNord',
+  },
+]
+
+const ghCTA = {
+  href: 'https://github.com/Schrodinger-Hat',
+  icon: 'fab fa-github',
+  id: 'GitHub',
+  test: 'github-cta',
+  text: 'navbar.gitHub',
+}
+
+const [showMenu, toggleMenu] = useToggle()
+const scrollLock = useGlobalScrollLock()
 const isDark = useDark()
-const smallerThanLg = breakpoints.smaller('lg')
+const mobileLinks: Link[] = [ghCTA, ...links]
 const toggleDark = useToggle(isDark)
 
-const themeIcon = computed(() => {
-  return isDark.value ? 'fa-sun' : 'fa-moon'
-})
+const themeIcon = computed(() => isDark.value ? 'fa-sun' : 'fa-moon')
+
+watch(showMenu, value => (value ? scrollLock.value = true : scrollLock.value = false))
 </script>
 
 <template>
-  <header class="container">
-    <div class="inner-header-container" data-test="nav-wrapper">
+  <header class="inline-flex w-full h-15 m-auto py-4 px-2 sticky top-0 z-2 backdrop-blur border-b border-b-slate-300 lg:px-4 dark:border-slate-50/[0.06]" :class="{ 'active-menu': showMenu }">
+    <div class="flex justify-between items-center w-full mx-auto px-4 md:px-0" data-test="nav-wrapper">
       <LogoAnimated />
-      <nav>
-        <div class="navbar" data-test="nav-link-wrapper">
-          <CtaComponent
-            v-for="{ test, text, name } in links.router"
-            :key="text"
-            :to="{ name }"
-            :data-test="test"
-          >
-            {{ $t(text) }}
-          </CtaComponent>
-          <CtaComponent v-for="{ id, href, test, text, icon } in links.anchors" :id="id" :key="id" :href="href" :data-test="test">
-            <i v-if="icon" :class="icon.class" :data-test="icon.test" />
-            <span v-else>{{ text }}</span>
-          </CtaComponent>
-          <button class="hamburger-none-md" data-test="nav-burger-menu-cta" @click="toggleMobileMenu()">
-            <i class="fas fa-hamburger" data-test="nav-hamburget-icon" />
-          </button>
-          <button data-test="nav-theme-cta" @click="toggleDark()">
-            <i class="fas" :class="themeIcon" data-test="nav-theme-icon" />
-          </button>
-        </div>
+      <nav class="flex">
+        <CtaComponent
+          v-for="{ id, href, to, text, test, target } in links"
+          :key="id"
+          :data-test="`data-${test}`"
+          :to="to ? { name: to } : null"
+          :href="href"
+          :target="target ? target : null"
+          class="hidden mx-1 p-1 rounded-1 cursor-pointer text-xl md:inline"
+        >
+          <span>{{ $t(text as string) }}</span>
+        </CtaComponent>
+        <CtaIcon
+          :data-test="ghCTA.test"
+          :href="ghCTA.href"
+          :icon="ghCTA.icon"
+          target="_blank"
+        />
+        <CtaIcon
+          class="md:hidden"
+          data-test="nav-burger-menu-cta"
+          icon="fas fa-hamburger"
+          @click="toggleMenu()"
+        />
+        <CtaIcon
+          :icon="`fas ${themeIcon}`"
+          data-test="nav-theme-icon"
+          @click="toggleDark()"
+        />
       </nav>
     </div>
     <MobileMenu
+      class="w-full h-screen absolute top-15 left-0 overflow-auto text-center"
+      :links="mobileLinks"
+      :show="showMenu"
       data-test="mobile-menu"
-      :show-mobile-menu="showMobileMenu"
-      :smaller-than-lg="smallerThanLg"
-      @on-close-menu="toggleMobileMenu()"
+      @close="toggleMenu()"
     />
   </header>
 </template>
 
 <style scoped lang="scss">
 header {
-  position: relative;
-  z-index: $z-header;
-  display: flex;
-  height: 5em;
-  padding: 0 !important;
-  margin: auto;
-  text-align: left;
+ background: $bg-primary-reduced;
 
-  .inner-header-container {
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 0.5em;
-    margin: 0 auto;
-    -webkit-box-align: center;
-    -webkit-box-pack: justify;
-
-    nav {
-      display: flex;
-
-      .navbar {
-        justify-content: space-between;
-        -webkit-box-pack: justify;
-        list-style: none;
-
-        a {
-          border-radius: 0.25em;
-          margin: 0 0.4em;
-          cursor: pointer;
-          font-size: 1.2em;
-          transition: background-color 100ms ease-in-out 0s;
-
-          &:nth-child(-n + 3) {
-            display: none;
-          }
-
-          &:hover {
-            background-color: $bg-secondary;
-          }
-        }
-
-        button {
-          border: none;
-          border-radius: 0.25em;
-          margin: 0 0.4em;
-          background-color: transparent;
-          cursor: pointer;
-          font-size: 1.2em;
-          transition: background-color 100ms ease-in-out 0s;
-
-          &:nth-child(-n + 3) {
-            display: none;
-          }
-
-          &:hover {
-            background-color: $bg-secondary;
-          }
-        }
-      }
-    }
-  }
+ &.active-menu {
+  background: $bg-primary;
+ }
 }
 
-@media (width >= 56.25em) {
-  header {
-    .inner-header-container {
-      padding: 0;
+a:not(.logo),
+button {
+  transition: background-color 0.1s ease-in-out;
 
-      .logo {
-        span {
-          font-size: 2em;
-        }
-      }
-
-      nav {
-        .navbar {
-          .hamburger-none-md {
-            display: none;
-          }
-
-          a {
-            &:nth-child(-n + 3) {
-              display: inline;
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
-@media (width <= 900px) {
-  .logo span {
-    pointer-events: none;
-  }
-
-  #gonord {
-    display: none;
+  &:hover {
+    background-color: $bg-secondary;
   }
 }
 
 .#{$dark-mode-class} {
   header {
-    .inner-header-container {
-      nav {
-        .navbar {
-          a,
-          button {
-            &:hover {
-              background-color: $dark-bg-secondary;
-            }
-          }
-        }
-      }
+    background: $dark-bg-primary-reduced;
+
+    &.active-menu {
+      background: $dark-bg-primary;
+    }
+  }
+
+  a:not(.logo),
+  button {
+    &:hover {
+      background-color: $dark-bg-secondary;
     }
   }
 }

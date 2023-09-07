@@ -14,6 +14,8 @@ const messages = {
       team: 'Team',
       events: 'Eventi',
       codeOfConduct: 'Codice di Condotta',
+      imageGoNord: 'ImageGoNord',
+      gitHub: 'GitHub',
     },
     main: {
       h1: 'Una community open source italiana',
@@ -298,6 +300,8 @@ const messages = {
       team: 'Team',
       events: 'Events',
       codeOfConduct: 'Code of Conduct',
+      imageGoNord: 'ImageGoNord',
+      gitHub: 'GitHub',
     },
     main: {
       h1: 'An Italian open source community',

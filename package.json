@@ -12,6 +12,7 @@
     "dev": "vite --host",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
+    "lint:scss": "stylelint \"./**/*.{css,scss,sass,vue}\"",
     "serve": "vite preview",
     "test": "vitest",
     "coverage": "vitest run --coverage",

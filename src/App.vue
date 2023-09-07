@@ -5,10 +5,12 @@ import TheNavbar from '@/components/layout/TheNavbar.vue'
 </script>
 
 <template>
-  <TheNavbar />
-  <router-view />
-  <TheContributing />
-  <TheFooter />
+  <div class="relative">
+    <TheNavbar />
+    <RouterView />
+    <TheContributing />
+    <TheFooter />
+  </div>
 </template>
 
 <style lang="scss">
@@ -67,7 +69,7 @@ body {
   vertical-align: super;
 }
 
-//Animations
+// Animations
 
 @keyframes scale {
   0% {
