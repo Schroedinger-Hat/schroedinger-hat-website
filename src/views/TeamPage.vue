@@ -1,180 +1,28 @@
 <script setup lang="ts">
 import messages from '@/i18n/messages'
 import MemberCard from '@/components/MemberCard.vue'
+import Heading from '@/components/Heading.vue'
 
 const team = Object.keys(messages.it.team)
 </script>
 
 <template>
-  <div class="teamList" data-test="team-list">
-    <div class="container">
-      <div class="headline" data-test="team-page-headline">
-        <h1>Schrödinger Hat's fam</h1>
-      </div>
-
-      <div class="content">
-        <div v-for="member in team" :key="member" data-test="team-list">
-          <!-- component that render member-cards (done) -->
-          <MemberCard :member="member" />
-        </div>
-      </div>
+  <div class="container">
+    <Heading data-test="team-page-headline">
+      Schrödinger Hat's fam
+    </Heading>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-20px px-1.5em py-3em">
+      <MemberCard
+        v-for="member in team"
+        :key="member"
+        data-test="team-list"
+        :member="member"
+        class="w-full"
+      />
     </div>
   </div>
 </template>
 
 <style scoped lang="scss">
-// to-do: standardize color variables
-$color_white: #fff;
-$color_prime: $nord3;
-$color_grey: $nord4;
-$color_grey_dark: $nord2;
 
-.teamList {
-  .headline {
-    max-width: 700px;
-    margin: auto;
-    text-align: center;
-
-    h1 {
-      font-size: 2rem;
-      font-weight: 700;
-    }
-  }
-
-  .content {
-    display: grid;
-    padding: 1.5em 3em;
-    gap: 20px;
-    grid-template-columns: repeat(1, 1fr);
-  }
-
-  .blog-card {
-    z-index: 0;
-    overflow: hidden;
-    border-radius: 5px;
-    margin: 1rem auto;
-    margin-bottom: 1.6%;
-    background-color: #d8dee9; //brand color, pick from light-v waves
-    background-image: $color_white;
-    box-shadow: 0 3px 7px -1px rgba(#000, 0.1);
-    font-family: sans-serif;
-    line-height: 1.4;
-
-    a,
-    li {
-      color: $color_white;
-    }
-
-    .meta {
-      position: relative;
-      z-index: 0;
-      display: flex;
-      height: auto;
-      align-items: center;
-      justify-content: center;
-      border-radius: 100%;
-      margin: 2em auto 0;
-      text-align: center;
-    }
-
-    .photo {
-      display: block;
-      width: 128px;
-      height: 128px;
-      border-radius: 100%;
-      background-position: center;
-      background-size: cover;
-    }
-
-    .photo-secondary {
-      display: none;
-      width: 128px;
-      height: 128px;
-      border-radius: 100%;
-      background-position: center;
-      background-size: cover;
-    }
-
-    .description {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 2rem;
-
-      .socialIcons {
-        width: fit-content;
-        padding: 0.5em 0 1em;
-
-        a {
-          display: inline-block;
-          margin: 0.2em;
-
-          .mobile-menu-icon {
-            font-size: 1.2em;
-          }
-
-          &:hover .mobile-menu-icon {
-            color: #2e3440;
-          }
-        }
-      }
-
-      h2,
-      p {
-        font-family: Poppins, sans-serif;
-      }
-
-      h2 {
-        margin: 5px 0;
-        font-size: 1.75rem;
-        font-weight: 700;
-      }
-
-      .user-profile-link {
-        width: fit-content;
-        padding: 5px 15px;
-        border: 1px solid transparent;
-        border-radius: 999px;
-        margin: 0 auto;
-        background-color: #586379;
-        color: #fff;
-        font-size: 1rem;
-        font-weight: 700;
-
-        &:hover {
-          background-color: #2e3440;
-        }
-      }
-    }
-  }
-}
-
-// to-do: standardize media querys
-@media (width >= 640px) {
-  .teamList{
-    .content {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-  }
-}
-
-@media (width >= 1024px) {
-  .teamList{
-    .content {
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-  }
-
-}
-
-.#{$dark-mode-class}{
-  .blog-card {
-    background-color: $nord2;
-  }
-
-}
 </style>

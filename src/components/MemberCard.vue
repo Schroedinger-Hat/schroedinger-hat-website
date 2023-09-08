@@ -133,4 +133,11 @@ $color_grey_dark: $nord2;
     }
   }
 }
+
+.#{$dark-mode-class}{
+  .blog-card {
+    background-color: $nord2;
+  }
+
+}
 </style>
