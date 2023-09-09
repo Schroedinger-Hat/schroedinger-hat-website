@@ -7,7 +7,7 @@ import TheNavbar from '@/components/layout/TheNavbar.vue'
 <template>
   <div class="relative">
     <TheNavbar />
-    <RouterView />
+    <RouterView class="page" />
     <TheContributing />
     <TheFooter />
   </div>
@@ -26,6 +26,11 @@ body {
   -webkit-tap-highlight-color: transparent;
   text-rendering: optimizelegibility;
   text-size-adjust: none;
+}
+
+.page {
+  min-height: 100dvh;
+  min-height: 100lvh;
 }
 
 .head-1 {
