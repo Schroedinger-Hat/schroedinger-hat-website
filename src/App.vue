@@ -30,27 +30,51 @@ body {
 
 .head-1 {
   font-size: rem(40px);
+
+  @include breakpoint(lg) {
+    font-size: rem(44px);
+  }
 }
 
 .head-2 {
-  font-size: rem(36px)
+  font-size: rem(36px);
+
+  @include breakpoint(lg) {
+    font-size: rem(40px);
+  }
 }
 
 .head-3 {
   font-size: rem(32px);
+
+  @include breakpoint(lg) {
+   font-size: rem(36px);
+  }
 }
 
 .head-4 {
   font-size: rem(28px);
   line-height: 0.9;
+
+  @include breakpoint(lg) {
+    font-size: rem(32px);
+  }
 }
 
 .head-5 {
-  font-size: rem(24px)
+  font-size: rem(24px);
+
+  @include breakpoint(lg) {
+    font-size: rem(28px)
+  }
 }
 
 .head-6 {
-  font-size: rem(20px)
+  font-size: rem(20px);
+
+    @include breakpoint(lg) {
+      font-size: rem(24px);
+    }
 }
 
 .poppins {
