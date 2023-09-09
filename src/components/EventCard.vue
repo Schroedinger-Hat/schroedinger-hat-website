@@ -8,10 +8,10 @@ const props = defineProps<{
 
 <template>
   <div class="card flex flex-col mb-3 w-[380px] rounded-md overflow-hidden shadow-lg md:flex-row md:h-[260px] md:w-[700px]">
-    <div class="relative h-52 overflow-hidden md:basis-2/5 md:h-auto">
+    <div class="card-image relative h-52 overflow-hidden md:basis-2/5 md:h-auto">
       <div
         :data-test="`event-${props.event}-photo`"
-        class="card-image absolute inset-0 bg-center bg-cover"
+        class="absolute inset-0 bg-center bg-cover"
         :style="`background-image: url( ${$t(`events.${props.event}.image`)} );`"
       />
     </div>
@@ -51,15 +51,21 @@ const props = defineProps<{
 
 <style scoped lang="scss">
 .card {
+  transition: all 0.3s ease-in;
+
   @include breakpoint(lg)  {
     &:hover {
       transform: scale(1.05);
 
       .card-image {
-        transform: scale(1.2) rotate(-3deg);
+        transform: scale(1.05) rotate(-3deg);
       }
     }
   }
+}
+
+.card-image {
+  transition: transform 0.3s;
 }
 
 .description {

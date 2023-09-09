@@ -54,29 +54,9 @@ $breakpoints: (
 html {
   background: $bg-primary;
   color: $text-primary;
-  transition: all 400ms ease-in-out 0s;
 
   * {
     color: $text-primary;
-    text-decoration: none;
-    transition: all 400ms ease-in-out 0s;
-  }
-
-  body {
-    padding: 0;
-    margin: 0;
-  }
-
-  // .container {
-  //   width: 100%;
-  //   margin: 0 auto;
-  //   // padding: 0 1.5em;
-  //   padding-top: 2.5em;
-  //   padding-bottom: 2.5em;
-  // }
-
-  .overflow-hidden {
-    overflow: hidden;
   }
 
   .external-link-color {

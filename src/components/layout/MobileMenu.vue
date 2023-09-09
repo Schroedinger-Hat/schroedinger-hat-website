@@ -53,7 +53,6 @@ watch(smallerThanMd, (value) => {
 <style scoped lang="scss">
 .menu {
   background: $bg-primary;
-  transition: all 0.4s ease-in 0s;
 }
 
 .#{$dark-mode-class} {
@@ -64,7 +63,7 @@ watch(smallerThanMd, (value) => {
 
 .slide-enter-active,
 .slide-leave-active {
-  transition: 0.25s ease-out 0s;
+  transition: 0.3s ease;
 }
 
 .slide-enter-from,
