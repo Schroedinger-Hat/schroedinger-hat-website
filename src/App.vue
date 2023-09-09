@@ -29,8 +29,9 @@ body {
 }
 
 .page {
-  min-height: 100dvh;
-  min-height: 100lvh;
+  // Add this dynamically with useElementSize
+  min-height: calc(100dvh - 60px);
+  min-height: calc(100lvh - 60px)
 }
 
 .head-1 {
