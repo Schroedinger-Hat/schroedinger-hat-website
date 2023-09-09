@@ -8,10 +8,10 @@ const props = defineProps<{
 
 <template>
   <div class="card flex flex-col mb-3 w-[380px] rounded-md overflow-hidden shadow-lg md:flex-row md:h-[260px] md:w-[700px]">
-    <div class="card-image relative h-52 overflow-hidden md:basis-2/5 md:h-auto">
+    <div class="relative h-52 overflow-hidden md:basis-2/5 md:h-auto">
       <div
         :data-test="`event-${props.event}-photo`"
-        class="absolute inset-0 bg-center bg-cover"
+        class="card-image absolute inset-0 bg-center bg-cover"
         :style="`background-image: url( ${$t(`events.${props.event}.image`)} );`"
       />
     </div>
@@ -40,7 +40,7 @@ const props = defineProps<{
         <router-link
           :data-test="`event-${props.event}-read-more`"
           :to="{ name: 'EventView', params: { event } }"
-          class="read-more p-2 rounded mt-1 self-end relative hover:shadow"
+          class="read-more p-2 rounded mt-1 self-end relative"
         >
           {{ $t(`message.common.read-more`) }}
         </router-link>
@@ -85,19 +85,31 @@ const props = defineProps<{
 }
 
 .read-more {
-  background-color: $nord10;
+  border: 1px solid $bg-secondary;
+  background-color: $bg-primary;
+  transition: all 0.3s ease-in;
 
   @include breakpoint(lg) {
     background-color: transparent;
 
     &:hover {
-      animation: scale infinite alternate linear 0.8s;
-      background-color: $nord10;
+      background-color: $nord7;
+      color: $text-primary;
     }
   }
 }
 
 .#{$dark-mode-class} {
+  .read-more {
+    border-style: none;
+    background-color: $dark-bg-primary;
+
+    &:hover {
+      background: $nord7;
+      color: $text-primary;
+    }
+  }
+
   .card {
     background: $nord2;
 
