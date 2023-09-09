@@ -1,9 +1,5 @@
-<script setup lang="ts">
-
-</script>
-
 <template>
-  <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 1440 1440" class="w-100 h-100">
+  <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 1440 1440">
     <defs>
       <linearGradient id="a" x1="0" x2="1" y1="0" y2="0" gradientTransform="matrix(1137 0 0 -1137 -35 542.5)" gradientUnits="userSpaceOnUse" spreadMethod="pad">
         <stop offset="0" style="stop-opacity:1;stop-color:#e00" />
