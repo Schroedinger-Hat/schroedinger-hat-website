@@ -9,6 +9,6 @@
     "scss/comment-no-empty": null
   },
   "ignoreFiles": [
-    "src/components/AnimatedSVG.vue"
+    "src/components/SVGLogo.vue"
   ]
 }
