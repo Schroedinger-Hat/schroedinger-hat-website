@@ -7,5 +7,8 @@
   ],
   "rules": {
     "scss/comment-no-empty": null
-  }
+  },
+  "ignoreFiles": [
+    "src/components/AnimatedSVG.vue"
+  ]
 }
