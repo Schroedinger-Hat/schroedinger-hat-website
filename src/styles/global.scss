@@ -1,6 +1,5 @@
 // Global style
 @import 'variables';
-@import 'dark';
 @import 'nord';
 
 $root-font-size: 16px;
@@ -58,47 +57,13 @@ html {
   * {
     color: $text-primary;
   }
+}
 
-  .external-link-color {
-    color: $nord7;
+html.dark{
+  background: $dark-bg-primary;
+  color: $dark-text-primary;
 
-    &:hover {
-      color: $nord11;
-    }
-  }
-
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.675em 1.5em;
-    border-radius: 0.25em;
-    margin: 0 0.5em;
-    cursor: pointer;
-    font-size: 1.1em;
-    text-decoration: none;
-    transition: all 200ms ease-in 0s;
-    vertical-align: middle;
-
-    &.btn-primary {
-      border: 1px solid $bg-secondary;
-      background: $dark-bg-secondary;
-      color: $text-secondary;
-
-      &:hover {
-        background: $nord7;
-        color: $text-primary;
-      }
-    }
-
-    &.btn-info {
-      border: 1px solid $bg-secondary;
-      background: transparent;
-
-      &:hover {
-        border: 1px solid $nord5;
-        background: $nord5;
-        color: $nord8;
-      }
-    }
+  * {
+    color: $dark-text-primary;
   }
 }
