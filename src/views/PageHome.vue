@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import CtaComponent from '@/components/buttons/CtaComponent.vue'
-import AnimatedSVG from '@/components/AnimatedSVG.vue'
+import SVGLogo from '@/components/SVGLogo.vue'
 
 const links = [
   {
@@ -25,27 +25,54 @@ const links = [
 </script>
 
 <template>
-  <main class="flex justify-center items-center w-[80%] mx-auto">
-    <AnimatedSVG />
-    <div class="ml-5">
-      <h1 class="head-1 font-bold">
+  <main class="flex flex-col justify-center items-center p-16 mx-auto md:flex-row">
+    <div class="max-w-144 mr-24">
+      <h1 class="head-1 font-bold leading-none">
         {{ $t('main.h1') }}
       </h1>
-      <p class="head-6">
+      <p class="head-1">
         {{ $t('main.h2') }}
       </p>
-      <div>
+      <div class="mt-4 w-full space-x-2">
         <CtaComponent
           v-for="{ href, id, test, text } in links"
           :key="id"
           :href="href"
           :data-test="`cta-${test}`"
-          class="btn btn-primary"
+          class="cta py-3 px-6 rounded-1 dark:border-none"
           target="_blank"
         >
           {{ text }}
         </CtaComponent>
       </div>
     </div>
+    <SVGLogo class="w-60 h-60" />
   </main>
 </template>
+
+<style scoped lang="scss">
+.cta {
+  border: 1px solid $bg-secondary;
+  background: $bg-primary;
+  color: $text-primary;
+  transition: all 0.2s ease-in;
+
+  &:hover {
+    background: $nord7;
+    color: $text-primary;
+  }
+}
+
+.#{$dark-mode-class} {
+  .cta {
+    border-style: none;
+    background: $dark-bg-secondary;
+    color: $text-secondary;
+
+    &:hover {
+      background: $nord7;
+      color: $text-primary;
+    }
+  }
+}
+</style>
