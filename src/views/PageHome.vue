@@ -49,30 +49,3 @@ const links = [
     <SVGLogo class="w-60 h-60" />
   </main>
 </template>
-
-<style scoped lang="scss">
-.cta {
-  border: 1px solid $bg-secondary;
-  background: $bg-primary;
-  color: $text-primary;
-  transition: all 0.2s ease-in;
-
-  &:hover {
-    background: $nord7;
-    color: $text-primary;
-  }
-}
-
-.#{$dark-mode-class} {
-  .cta {
-    border-style: none;
-    background: $dark-bg-secondary;
-    color: $text-secondary;
-
-    &:hover {
-      background: $nord7;
-      color: $text-primary;
-    }
-  }
-}
-</style>
