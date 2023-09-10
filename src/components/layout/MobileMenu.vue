@@ -41,7 +41,8 @@ watch(smallerThanMd, (value) => {
         :href="href"
         :target="target ? target : null"
         :to="to ? { name: to } : null"
-        class="head-6 link block py-4 cursor-pointer border-b border-b-slate-300 dark:border-b-slate-50/[0.06] "
+        secondary
+        class="head-6 block py-4 !border-b-solid !border-b !border-b-slate-300 rounded-none dark:border-b-slate-50/[0.06]"
         @click="$emit('close')"
       >
         <span>{{ $t(text as string) }}</span>
