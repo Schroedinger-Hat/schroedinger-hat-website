@@ -29,91 +29,36 @@ onMounted(() => {
 <template>
   <span v-if="!member">Loading...</span>
   <div v-else class="team">
-    <div class="container">
-      <div class="content flex flex-col justify-center items-center">
-        <h1 data-test="member-page-name" class="head-1">
-          {{ $t(`team.${member}.name`) }}
-        </h1>
-        <div>
-          <div
-            class="photo"
-            :style="`background-image: url(${$t(`team.${member}.image`)});`"
-            data-test="member-page-photo"
-          />
-        </div>
-
-        <!-- component that render socials (done) -->
-        <SocialIcons :member="member" :socials="socials" />
-
-        <p
-          class="description !p-2"
-          data-test="member-page-description"
-          v-html="$t(`team.${member}.description`)"
+    <div class="container p-32px max-w-700px m-auto text-center flex flex-col justify-center items-center gap-16px">
+      <h1 data-test="member-page-name" class="text-2rem font-700">
+        {{ $t(`team.${member}.name`) }}
+      </h1>
+      <div>
+        <div
+          :data-test="`team-member-${member}-index-photo`"
+          class="block w-128px h-128px rounded-full bg-center bg-cover"
+          :style="`background-image: url( ${$t(`team.${member}.image`)} );`"
         />
-
-        <router-link
-          class="user-profile-link"
-          :to="{ name: 'Team' }" data-test="nav-team-page-link"
-        >
-          {{ t('redirect.back') }}
-        </router-link>
       </div>
+
+      <SocialIcons :member="member" :socials="socials" />
+
+      <p
+        class=""
+        data-test="member-page-description"
+        v-html="$t(`team.${member}.description`)"
+      />
+
+      <router-link
+        class="w-fit px-15px py-5px border-1px border-solid border-transparent rounded-full bg-#586379 text-#fff text-1rem font-700 hover:bg-#2e3440"
+        :to="{ name: 'Team' }" data-test="nav-team-page-link"
+      >
+        {{ t('redirect.back') }}
+      </router-link>
     </div>
   </div>
 </template>
 
 <style scoped lang="scss">
-.photo {
-  display: inline-block;
-  width: 128px;
-  height: 128px;
-  border-radius: 100%;
-  background-position: center;
-  background-size: cover;
-  text-align: center;
-}
 
-.team {
-  .content {
-    max-width: 700px;
-    padding: 1.5em 3em;
-    margin: auto;
-    text-align: center;
-  }
-}
-
-.description {
-  padding: 1em 0;
-  margin-bottom: 20px;
-}
-
-.user-profile-link {
-  padding: 5px 15px;
-  border: 1px solid transparent;
-  border-radius: 999px;
-  margin: 0 auto;
-  background-color: #586379;
-  color: #fff;
-  font-weight: bold;
-
-  &:hover {
-    background-color: #2e3440;
-  }
-}
-
-@media (width >= 56.25em) {
-  .event {
-    .cta {
-      display: block;
-
-      .btn {
-        margin: 0 5px;
-
-        &:nth-of-type(1) {
-          margin-left: 0;
-        }
-      }
-    }
-  }
-}
 </style>
