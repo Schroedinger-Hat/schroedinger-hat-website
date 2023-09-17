@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import CtaComponent from '@/components/buttons/CtaComponent.vue'
-import SVGLogo from '@/components/SVGLogo.vue'
+import { getAssetURL } from '@/utils/getAssetURL'
 
 const links = [
   {
@@ -25,15 +25,15 @@ const links = [
 </script>
 
 <template>
-  <main class="flex flex-col justify-center items-center p-16 mx-auto md:flex-row">
-    <div class="max-w-144 mr-24">
+  <main class="flex flex-col-reverse justify-center items-center px-6 pt-0 mx-auto lg:flex-row lg:px-16">
+    <div class="max-w-144 text-center mr-0 lg:text-left lg:mr-24">
       <h1 class="head-1 font-bold leading-none">
         {{ $t('main.h1') }}
       </h1>
       <p class="head-1">
         {{ $t('main.h2') }}
       </p>
-      <div class="mt-4 w-full space-x-2">
+      <div class="pt-6 w-full space-x-2">
         <CtaComponent
           v-for="{ href, id, test, text } in links"
           :key="id"
@@ -46,6 +46,6 @@ const links = [
         </CtaComponent>
       </div>
     </div>
-    <SVGLogo class="w-60 h-60" />
+    <img :src="getAssetURL('images/sh-logo-big.png')" alt="Schrödinger Hat Logo" class="mb-12 w-60 h-60 lg:w-80 lg:h-80 lg:mb-0">
   </main>
 </template>
