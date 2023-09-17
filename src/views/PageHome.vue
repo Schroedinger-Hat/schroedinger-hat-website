@@ -46,6 +46,10 @@ const links = [
         </CtaComponent>
       </div>
     </div>
-    <img :src="getAssetURL('images/sh-logo-big.png')" alt="Schrödinger Hat Logo" class="mb-12 w-60 h-60 lg:w-80 lg:h-80 lg:mb-0">
+    <img
+      :src="getAssetURL('images/sh-logo-big.png')"
+      alt="Schrödinger Hat Logo"
+      class="mb-12 w-60 h-60 lg:w-80 lg:h-80 lg:mb-0"
+    >
   </main>
 </template>

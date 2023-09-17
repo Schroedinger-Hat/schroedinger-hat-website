@@ -34,8 +34,8 @@ body {
 }
 
 .page {
-  min-height: calc(100lvh - (v-bind(height) * 1px) );
-  min-height: calc(100dvh - (v-bind(height) * 1px) );
+  min-height: calc(100lvh - (v-bind(height) * 1px));
+  min-height: calc(100dvh - (v-bind(height) * 1px));
 }
 
 .container {
