@@ -1,12 +1,17 @@
 <script setup lang="ts">
+import { useElementBounding } from '@vueuse/core'
+import { ref } from 'vue'
 import TheContributing from '@/components/TheContributing.vue'
 import TheFooter from '@/components/layout/TheFooter.vue'
 import TheNavbar from '@/components/layout/TheNavbar.vue'
+
+const navbar = ref<HTMLElement | null>(null)
+const { height } = useElementBounding(navbar)
 </script>
 
 <template>
   <div class="relative">
-    <TheNavbar />
+    <TheNavbar ref="navbar" />
     <RouterView class="page" />
     <TheContributing />
     <TheFooter />
@@ -29,9 +34,13 @@ body {
 }
 
 .page {
-  // Add this dynamically with useElementSize
-  min-height: calc(100dvh - 60px);
-  min-height: calc(100lvh - 60px)
+  min-height: calc(100lvh - (v-bind(height) * 1px) );
+  min-height: calc(100dvh - (v-bind(height) * 1px) );
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
 }
 
 .head-1 {
@@ -78,18 +87,13 @@ body {
 .head-6 {
   font-size: rem(20px);
 
-    @include breakpoint(lg) {
-      font-size: rem(24px);
-    }
+  @include breakpoint(lg) {
+    font-size: rem(24px);
+  }
 }
 
 .poppins {
   font-family: Poppins, sans-serif;
-}
-
-.container {
-  width: 100%;
-  margin: 0 auto;
 }
 
 .logo-text {
@@ -100,7 +104,6 @@ body {
 }
 
 // Animations
-
 @keyframes scale {
   0% {
     transform: scale(1)
