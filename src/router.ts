@@ -7,11 +7,6 @@ const routes = [
     component: () => import('@/views/PageHome.vue'),
   },
   {
-    path: '/video',
-    name: 'RedirectVideo',
-    component: () => import('@/views/RedirectVideo.vue'),
-  },
-  {
     path: '/code-of-conduct',
     name: 'CodeOfConduct',
     component: () => import('@/views/CodeConduct.vue'),
