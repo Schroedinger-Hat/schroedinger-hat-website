@@ -13,6 +13,7 @@ const messages = {
     navbar: {
       team: 'Team',
       events: 'Eventi',
+      sessions: 'Sessioni',
       codeOfConduct: 'Codice di Condotta',
       imageGoNord: 'ImageGoNord',
       gitHub: 'GitHub',
@@ -299,6 +300,7 @@ const messages = {
     navbar: {
       team: 'Team',
       events: 'Events',
+      sessions: 'Sessions',
       codeOfConduct: 'Code of Conduct',
       imageGoNord: 'ImageGoNord',
       gitHub: 'GitHub',

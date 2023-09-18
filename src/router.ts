@@ -36,6 +36,11 @@ const routes = [
     name: 'TeamMember',
     component: () => import('@/views/TeamMember.vue'),
   },
+  {
+    path: '/sessions',
+    name: 'SessionList',
+    component: () => import('@/views/SessionList.vue'),
+  },
 ]
 
 const router = createRouter({

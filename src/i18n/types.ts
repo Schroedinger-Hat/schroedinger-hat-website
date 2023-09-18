@@ -15,6 +15,7 @@ interface MessageContent {
   navbar: {
     team: string
     events: string
+    sessions: string
     codeOfConduct: string
   }
   main: {
