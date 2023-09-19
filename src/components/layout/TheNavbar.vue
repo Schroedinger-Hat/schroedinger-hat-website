@@ -76,7 +76,8 @@ watch(showMenu, value => (value ? scrollLock.value = true : scrollLock.value = f
           :to="to ? { name: to } : null"
           :href="href"
           :target="target ? target : null"
-          class="hidden mx-1 p-1 rounded-1 cursor-pointer text-xl md:inline"
+          secondary
+          class="hidden mx-0.5 text-xl md:inline-flex"
         >
           <span>{{ $t(text as string) }}</span>
         </CtaComponent>
@@ -118,15 +119,6 @@ header {
  }
 }
 
-a:not(.logo),
-button {
-  transition: background-color 0.1s ease-in-out;
-
-  &:hover {
-    background-color: $bg-secondary;
-  }
-}
-
 .#{$dark-mode-class} {
   header {
     background: $dark-bg-primary-reduced;
@@ -134,13 +126,5 @@ button {
     &.active-menu {
       background: $dark-bg-primary;
     }
-  }
-
-  a:not(.logo),
-  button {
-    &:hover {
-      background-color: $dark-bg-secondary;
-    }
-  }
-}
+  }}
 </style>

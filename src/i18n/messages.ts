@@ -304,8 +304,8 @@ const messages = {
       gitHub: 'GitHub',
     },
     main: {
-      h1: 'An Italian open source community',
-      h2: 'Schrödinger Hat is a community, podcast, livestream and much more!',
+      h1: 'Schrödinger Hat',
+      h2: 'The Open Source community',
       links: {
         youtube: 'YouTube',
         spotify: 'Spotify',
