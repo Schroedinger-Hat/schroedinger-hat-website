@@ -4,6 +4,7 @@ import { computed, ref } from 'vue'
 import type { CityType, SessionOrEventType } from '@/i18n/events'
 import { events } from '@/i18n/events'
 import FilterPill from '@/components/FilterPill.vue'
+import EventCardSm from '@/components/EventCardSm.vue'
 
 const activeCategoryFilters = ref([] as Array<SessionOrEventType>)
 const activeCityFilters = ref([] as Array<CityType>)
@@ -42,39 +43,64 @@ const filteredEvents = computed(() => {
 </script>
 
 <template>
-  <main class="flex flex-col justify-center items-center w-full">
+  <main class="w-full px-24px md:px-16px py-32px">
+    <!-- Title -->
     <h1
-      class="head-3 mb-4 py-8 text-center"
+      class="head-3 mb-4 text-center"
       data-test="events-header"
     >
       {{ $t(`navbar.sessions`) }}
     </h1>
 
-    <div class="mb-8 flex flex-col items-center">
-      <h3 class="mb-2">
-        Categories:
-      </h3>
-      <ul class="flex gap-2">
-        <FilterPill v-for="(cat) in categoriesFilter" :key="cat" :text="cat" :is-active="activeCategoryFilters.includes(cat)" @click="handleClickCatFilters(cat)" />
-      </ul>
-    </div>
-    <div class="mb-8 flex flex-col items-center">
-      <h3 class="mb-2">
-        Cities:
-      </h3>
-      <ul class="flex gap-2">
-        <FilterPill v-for="(cyt) in cityFilter" :key="cyt" :text="cyt" :is-active="activeCityFilters.includes(cyt)" @click="handleClickCytFilters(cyt)" />
-      </ul>
-    </div>
+    <!-- Big Card -->
 
-    <div v-if="filteredEvents.length > 0" class="flex flex-col items-center">
-      <div v-for="event in filteredEvents" :key="event.title">
-        {{ event.title }} -- {{ event.category }} -- {{ event.location.city }}
+    <!-- Filter section -->
+    <div class="grid grid-cols-1 gap-x-4 sm:grid-cols-2 md:grid-cols-3 md:gap-x-8 2xl:grid-cols-5 2xl:gap-x-16 mb-8">
+      <div class="mb-4 flex flex-col">
+        <h3 class="mb-2">
+          Event type
+        </h3>
+        <ul class="flex flex-wrap gap-2">
+          <FilterPill v-for="(cat) in categoriesFilter" :key="cat" :text="cat" :is-active="activeCategoryFilters.includes(cat)" @click="handleClickCatFilters(cat)" />
+        </ul>
+      </div>
+      <div class="mb-4 flex flex-col">
+        <h3 class="mb-2">
+          Where
+        </h3>
+        <ul class="flex flex-wrap gap-2">
+          <FilterPill v-for="(cyt) in cityFilter" :key="cyt" :text="cyt" :is-active="activeCityFilters.includes(cyt)" @click="handleClickCytFilters(cyt)" />
+        </ul>
+      </div>
+      <div class="mb-4 flex flex-col">
+        <h3 class="mb-2">
+          When
+        </h3>
+        <!-- TODO: time-filter -->
+        <ul class="flex flex-wrap gap-2">
+          <span class="px-2 rounded-full hover:cursor-pointer hover:bg-gray bg-white !text-black">
+            Passed
+          </span>
+          <span class="px-2 rounded-full hover:cursor-pointer hover:bg-gray bg-white !text-black">
+            This week
+          </span>
+          <span class="px-2 rounded-full hover:cursor-pointer hover:bg-gray bg-white !text-black">
+            Next Coming
+          </span>
+        </ul>
       </div>
     </div>
-    <div v-else>
-      Nessun evento trovato
+
+    <!-- Session cards -->
+    <div v-if="filteredEvents.length === 0" class="flex flex-col items-center">
+      Nessun elemento trovato
     </div>
+    <div v-else class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 md:gap-8 2xl:grid-cols-5 2xl:gap-16">
+      <EventCardSm v-for="event in filteredEvents" :key="event.id" :event="event" />
+    </div>
+    <!-- <div v-else class="grid grid-cols-1 gap-1 md:grid-cols-2 md:gap-4 xl:grid-cols-3 xl:gap-8">
+      <SessionCard v-for="event in filteredEvents" :key="event.title" :event="event" />
+    </div> -->
   </main>
 </template>
 

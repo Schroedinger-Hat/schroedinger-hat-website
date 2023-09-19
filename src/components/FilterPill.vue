@@ -6,7 +6,7 @@ defineProps<{
 </script>
 
 <template>
-  <span class="px-2 py-1 rounded-full hover:cursor-pointer hover:bg-gray" :class="[isActive ? 'bg-red text-white' : ' bg-white !text-black']">
+  <span class="px-2 rounded-full hover:cursor-pointer hover:bg-#e7e7ee" :class="[isActive ? 'bg-#ef2908 text-white' : ' bg-white !text-black']">
     {{ text }}
   </span>
 </template>
