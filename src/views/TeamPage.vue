@@ -7,10 +7,10 @@ const team = Object.keys(messages.it.team)
 
 <template>
   <div class="container">
-    <h1 class="max-w-700px m-auto text-center text-2rem font-700" data-test="team-page-headline">
+    <h1 class="max-w-175 m-auto text-center text-8 font-700" data-test="team-page-headline">
       Schrödinger Hat's fam
     </h1>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-20px p-1.5rem">
+    <div class="grid grid-cols-1 gap-5 p-6 sm:grid-cols-2 lg:grid-cols-3">
       <MemberCard
         v-for="member in team"
         :key="member"
