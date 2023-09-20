@@ -1,7 +1,7 @@
 <script setup lang="ts">
 defineProps<{
   member: string
-  socials: Array<string>
+  socials: string[]
 }>()
 </script>
 
