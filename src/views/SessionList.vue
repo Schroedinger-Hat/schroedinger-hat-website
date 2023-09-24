@@ -12,10 +12,10 @@ const activeCityFilters = ref([] as Array<CityType>)
 
 const categoriesFilter = events.map(e => e.category).filter((value, index, self) => {
   return self.indexOf(value) === index
-}) as Array<SessionOrEventType>
+}) as SessionOrEventType[]
 const cityFilter = events.map(e => e.location.city).filter((value, index, self) => {
   return self.indexOf(value) === index
-}) as Array<CityType>
+}) as CityType[]
 
 const handleClickCatFilters = (filter: SessionOrEventType) => {
   if (!activeCategoryFilters.value.includes(filter))
@@ -34,6 +34,7 @@ const handleClickCytFilters = (filter: CityType) => {
   console.log(activeCityFilters.value)
 }
 
+// TODO: sort by start date
 const filteredEvents = computed(() => {
   return events.filter((event) => {
     const categoryMatch = activeCategoryFilters.value.length === 0 || activeCategoryFilters.value.includes(event.category)
@@ -42,7 +43,7 @@ const filteredEvents = computed(() => {
   })
 })
 
-// TODO: decide logic of main card here
+// TODO: decide logic of main card here (coming event?)
 const firstEvent = computed(() => {
   return events[0]
 })
@@ -105,9 +106,6 @@ const firstEvent = computed(() => {
     <div v-else class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 md:gap-8 2xl:grid-cols-5 2xl:gap-16">
       <EventCardSm v-for="event in filteredEvents" :key="event.id" :event="event" />
     </div>
-    <!-- <div v-else class="grid grid-cols-1 gap-1 md:grid-cols-2 md:gap-4 xl:grid-cols-3 xl:gap-8">
-      <SessionCard v-for="event in filteredEvents" :key="event.title" :event="event" />
-    </div> -->
   </main>
 </template>
 

@@ -38,13 +38,14 @@ export default interface EventType {
   }
   speakers: string
   arguments: string
-  sponsors?: Array<SponsorType>
-  community_sponsors?: Array<SponsorType>
-  ctas?: Array<CtaType>
+  sponsors?: SponsorType[]
+  community_sponsors?: SponsorType[]
+  ctas?: CtaType[]
+  ticketHref?: string
 }
 
 // NOTE: id for the key(s) would be: title + start_date
-export const events: Array<EventType> = [
+export const events: EventType[] = [
   {
     id: 1,
     category: 'event',
@@ -69,6 +70,7 @@ export const events: Array<EventType> = [
     arguments: 'devOPS',
     community_sponsors: [],
     ctas: [],
+    ticketHref: 'https://www.wikipedia.org/',
   },
   {
     id: 2,
@@ -94,6 +96,7 @@ export const events: Array<EventType> = [
     arguments: 'frontend',
     community_sponsors: [],
     ctas: [],
+    ticketHref: '#',
   },
   {
     id: 3,
@@ -119,6 +122,7 @@ export const events: Array<EventType> = [
     arguments: 'backend',
     community_sponsors: [],
     ctas: [],
+    ticketHref: '#',
   },
   {
     id: 4,
@@ -144,6 +148,7 @@ export const events: Array<EventType> = [
     arguments: 'devOPS',
     community_sponsors: [],
     ctas: [],
+    ticketHref: '#',
   },
   {
     id: 5,
@@ -169,6 +174,7 @@ export const events: Array<EventType> = [
     arguments: 'frontend',
     community_sponsors: [],
     ctas: [],
+    ticketHref: '#',
   },
   {
     id: 6,
@@ -194,6 +200,7 @@ export const events: Array<EventType> = [
     arguments: 'backend',
     community_sponsors: [],
     ctas: [],
+    ticketHref: '#',
   },
   {
     id: 7,
@@ -219,6 +226,7 @@ export const events: Array<EventType> = [
     arguments: 'devOPS',
     community_sponsors: [],
     ctas: [],
+    ticketHref: '#',
   },
   {
     id: 8,
@@ -244,6 +252,7 @@ export const events: Array<EventType> = [
     arguments: 'frontend',
     community_sponsors: [],
     ctas: [],
+    ticketHref: '#',
   },
   {
     id: 9,
@@ -269,5 +278,6 @@ export const events: Array<EventType> = [
     arguments: 'backend',
     community_sponsors: [],
     ctas: [],
+    ticketHref: '#',
   },
 ]
