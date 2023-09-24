@@ -8,11 +8,11 @@ defineProps<{
 </script>
 
 <template>
-  <div class="bg-#d9d9d9 p-14px w-full h-300px rounded-12px flex flex-col">
-    <div class="border-1px border-solid border-black rounded-full w-fit px-2 text-11px text-black">
+  <div class="bg-light-bg-secondary text-light-text-primary dark:bg-dark-bg-secondary dark:text-dark-text-primary p-14px w-full h-300px rounded-12px flex flex-col">
+    <div class="border-1px border-solid border-light-text-primary dark:border-dark-text-primary rounded-full w-fit px-2 text-11px">
       {{ event.category }}
     </div>
-    <div class="text-16px text-black my-2">
+    <div class="text-16px my-2">
       {{ event.title }}
     </div>
     <div class="text-12px mb-2">
