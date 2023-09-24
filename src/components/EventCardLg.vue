@@ -8,8 +8,8 @@ defineProps<{
 </script>
 
 <template>
-  <div class="relative overflow-hidden w-full rounded-12px flex flex-col-reverse sm:flex-row">
-    <div class="relative bg-light-bg-secondary text-light-text-primary dark:bg-dark-bg-secondary dark:text-dark-text-primary p-14px h-300px flex flex-col sm:basis-1/3 lg:basis-1/2">
+  <div class="relative overflow-hidden w-full lg:max-w-[60%] rounded-12px flex flex-col-reverse sm:flex-row sm:mx-auto">
+    <div class="relative bg-light-bg-secondary text-light-text-primary dark:bg-dark-bg-secondary dark:text-dark-text-primary p-14px h-300px flex flex-col sm:basis-1/3 lg:basis-2/5">
       <div class="border-1px border-solid border-light-text-primary dark:border-dark-text-primary rounded-full w-fit px-2 text-11px">
         {{ event.category }}
       </div>
@@ -32,7 +32,7 @@ defineProps<{
         </a>
       </div>
     </div>
-    <div class="relative -z-1 bg-red h-300px overflow-hidden sm:basis-2/3 lg:basis-1/2">
+    <div class="relative -z-1 bg-red h-300px overflow-hidden sm:basis-2/3 lg:basis-3/5">
       <img :src="event.image.url" :alt="event.image.alt" class="overflow-hidden object-cover w-full object-center">
     </div>
   </div>
