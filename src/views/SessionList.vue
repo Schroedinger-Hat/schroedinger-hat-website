@@ -5,6 +5,7 @@ import type { CityType, SessionOrEventType } from '@/i18n/events'
 import { events } from '@/i18n/events'
 import FilterPill from '@/components/FilterPill.vue'
 import EventCardSm from '@/components/EventCardSm.vue'
+import EventCardLg from '@/components/EventCardLg.vue'
 
 const activeCategoryFilters = ref([] as Array<SessionOrEventType>)
 const activeCityFilters = ref([] as Array<CityType>)
@@ -40,6 +41,11 @@ const filteredEvents = computed(() => {
     return categoryMatch && cityMatch
   })
 })
+
+// TODO: decide logic of main card here
+const firstEvent = computed(() => {
+  return events[0]
+})
 </script>
 
 <template>
@@ -53,6 +59,7 @@ const filteredEvents = computed(() => {
     </h1>
 
     <!-- Big Card -->
+    <EventCardLg :event="firstEvent" class="mb-8" />
 
     <!-- Filter section -->
     <div class="grid grid-cols-1 gap-x-4 sm:grid-cols-2 md:grid-cols-3 md:gap-x-8 2xl:grid-cols-5 2xl:gap-x-16 mb-8">
