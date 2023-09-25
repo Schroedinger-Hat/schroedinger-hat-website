@@ -63,7 +63,7 @@ const firstEvent = computed(() => {
     <EventCardLg :event="firstEvent" class="mb-8" />
 
     <!-- Filter section -->
-    <div class="grid grid-cols-1 gap-x-4 sm:grid-cols-2 md:grid-cols-3 md:gap-x-8 2xl:grid-cols-5 2xl:gap-x-16 mb-8">
+    <div class="grid grid-cols-1 gap-x-4 sm:grid-cols-2 md:grid-cols-3 md:gap-x-8 2xl:grid-cols-5 2xl:gap-x-16 mb-8 sm:mx-10%">
       <div class="mb-4 flex flex-col">
         <h3 class="mb-2">
           Event type
@@ -103,7 +103,7 @@ const firstEvent = computed(() => {
     <div v-if="filteredEvents.length === 0" class="flex flex-col items-center">
       Nessun elemento trovato
     </div>
-    <div v-else class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 md:gap-8 2xl:grid-cols-5 2xl:gap-16">
+    <div v-else class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 md:gap-6 2xl:grid-cols-5 2xl:gap-8 sm:mx-10%">
       <EventCardSm v-for="event in filteredEvents" :key="event.id" :event="event" />
     </div>
   </main>
