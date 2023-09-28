@@ -1,14 +1,16 @@
 <!-- eslint-disable no-console -->
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import type { CityType, SessionOrEventType } from '@/i18n/events'
+import type { CityType, SessionOrEventType, WeekType } from '@/i18n/events'
 import { events } from '@/i18n/events'
 import FilterPill from '@/components/FilterPill.vue'
 import EventCardSm from '@/components/EventCardSm.vue'
 import EventCardLg from '@/components/EventCardLg.vue'
+import { getWeekState } from '@/functions/getWeekState'
 
 const activeCategoryFilters = ref([] as Array<SessionOrEventType>)
 const activeCityFilters = ref([] as Array<CityType>)
+const activeWeekFilters = ref([] as Array<WeekType>)
 
 const categoriesFilter = events.map(e => e.category).filter((value, index, self) => {
   return self.indexOf(value) === index
@@ -16,6 +18,9 @@ const categoriesFilter = events.map(e => e.category).filter((value, index, self)
 const cityFilter = events.map(e => e.location.city).filter((value, index, self) => {
   return self.indexOf(value) === index
 }) as CityType[]
+const weekFilter = events.map(e => getWeekState(e.date.day)).filter((value, index, self) => {
+  return self.indexOf(value) === index
+}) as WeekType[]
 
 const handleClickCatFilters = (filter: SessionOrEventType) => {
   if (!activeCategoryFilters.value.includes(filter))
@@ -33,15 +38,26 @@ const handleClickCytFilters = (filter: CityType) => {
 
   console.log(activeCityFilters.value)
 }
+const handleClickWeekFilters = (filter: WeekType) => {
+  if (!activeWeekFilters.value.includes(filter))
+    activeWeekFilters.value.push(filter)
+  else
+    activeWeekFilters.value = activeWeekFilters.value.filter(e => e !== filter)
+
+  console.log(activeWeekFilters.value)
+}
 
 // TODO: sort by start date
 const filteredEvents = computed(() => {
   return events.filter((event) => {
     const categoryMatch = activeCategoryFilters.value.length === 0 || activeCategoryFilters.value.includes(event.category)
     const cityMatch = activeCityFilters.value.length === 0 || activeCityFilters.value.includes(event.location.city)
-    return categoryMatch && cityMatch
+    const weekMatch = activeWeekFilters.value.length === 0 || activeWeekFilters.value.includes(getWeekState(event.date.day))
+    return categoryMatch && cityMatch && weekMatch
   })
 })
+
+console.log(weekFilter)
 
 // TODO: decide logic of main card here (coming event?)
 const firstEvent = computed(() => {
@@ -86,15 +102,7 @@ const firstEvent = computed(() => {
         </h3>
         <!-- TODO: time-filter -->
         <ul class="flex flex-wrap gap-2">
-          <span class="px-2 rounded-full hover:cursor-pointer hover:bg-gray bg-white !text-black">
-            Passed
-          </span>
-          <span class="px-2 rounded-full hover:cursor-pointer hover:bg-gray bg-white !text-black">
-            This week
-          </span>
-          <span class="px-2 rounded-full hover:cursor-pointer hover:bg-gray bg-white !text-black">
-            Next Coming
-          </span>
+          <FilterPill v-for="(week) in weekFilter" :key="week" :text="week ? week : ''" :is-active="activeWeekFilters.includes(week)" @click="handleClickWeekFilters(week)" />
         </ul>
       </div>
     </div>

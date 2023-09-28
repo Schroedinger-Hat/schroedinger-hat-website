@@ -1,5 +1,6 @@
 export type SessionOrEventType = 'workshop' | 'event' // session page filter
 export type CityType = 'Firenze' | 'Milano' | 'Verona' // session page filter
+export type WeekType = 'passed' | 'thisWeek' | 'coming' | undefined // session page filter
 type CtaIdType = 'cfp' | 'donation' | 'sign-up' | 'video' | 'website'
 
 interface SponsorType {
@@ -57,7 +58,7 @@ export const events: EventType[] = [
       alt: 'this image is a placeholder',
     },
     date: {
-      day: '2021-09-21',
+      day: '2021-08-21',
       starts_at: '18:00',
       ends_at: '21:00',
     },
@@ -83,7 +84,7 @@ export const events: EventType[] = [
       alt: 'this image is a placeholder',
     },
     date: {
-      day: '2021-09-23',
+      day: '2021-11-23',
       starts_at: '11:00',
       ends_at: '14:00',
     },
