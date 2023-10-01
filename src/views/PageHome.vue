@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useHead } from '@unhead/vue'
+import { useI18n } from 'vue-i18n'
 import CtaComponent from '@/components/buttons/CtaComponent.vue'
 import { getAssetURL } from '@/utils/getAssetURL'
 
@@ -22,6 +24,10 @@ const links = [
     text: 'YouTube',
   },
 ]
+
+const { t } = useI18n()
+
+useHead({ titleTemplate: null, title: t('head.home.title') })
 </script>
 
 <template>

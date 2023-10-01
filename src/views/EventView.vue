@@ -2,20 +2,17 @@
 import { type Ref, computed, ref, watch } from 'vue'
 import { type RouteParamValue, useRoute } from 'vue-router'
 import { useI18n } from 'vue-i18n'
+import { useHead } from '@unhead/vue'
 import * as messages from '../i18n/messages'
 import { type EventMessageName } from '@/i18n/types'
 
 const { t } = useI18n()
-const eventKey: Ref<RouteParamValue> = ref('')
 const route = useRoute()
+const eventKey: Ref<RouteParamValue | null> = ref(null)
 
 const filteredCtas = computed(() => {
   return messages.default.it.events[eventKey.value as EventMessageName].ctas.filter(cta => cta.value !== null)
 })
-
-watch(() => route.params.event, () => {
-  eventKey.value = route.params.event as RouteParamValue
-}, { immediate: true })
 
 const getCalendarLink = () => {
   let calendarString = 'http://www.google.com/calendar/event?action=TEMPLATE&dates='
@@ -37,6 +34,15 @@ const getCalendarLink = () => {
   }
   return calendarString
 }
+
+watch(() => route.params.event, () => {
+  eventKey.value = route.params.event as RouteParamValue
+}, { immediate: true })
+
+useHead({
+  title: () => t(`events.${eventKey.value}.title`),
+  meta: [{ name: t('head.events.meta.name'), content: t('head.events.meta.content') }],
+})
 </script>
 
 <template>

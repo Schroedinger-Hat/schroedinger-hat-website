@@ -1,10 +1,15 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
+import { useHead } from '@unhead/vue'
 import messages from '@/i18n/messages'
 
 const team = Object.keys(messages.it.team)
-
 const { t } = useI18n()
+
+useHead({
+  title: t('head.team.title'),
+  meta: [{ name: t('head.team.meta.name'), content: t('head.team.meta.content') }],
+})
 </script>
 
 <template>
@@ -16,54 +21,40 @@ const { t } = useI18n()
 
       <div class="content">
         <div v-for="member in team" :key="member" data-test="team-list">
-          <router-link
-            :data-test="`team-member-${member}-page-link`"
-            :to="{ name: 'TeamMember', params: { member } }"
-          >
+          <router-link :data-test="`team-member-${member}-page-link`" :to="{ name: 'TeamMember', params: { member } }">
             <!-- TODO: Transform this into a component -->
-            <div
-              class="blog-card"
-              data-test="team-card"
-              :data-test-member-name="`team-member-${member}`"
-            >
+            <div class="blog-card" data-test="team-card" :data-test-member-name="`team-member-${member}`">
               <div class="meta">
                 <div
-                  :data-test="`team-member-${member}-index-photo`"
-                  class="photo"
+                  :data-test="`team-member-${member}-index-photo`" class="photo"
                   :style="`background-image: url( ${$t(`team.${member}.image`)} );`"
                 />
               </div>
               <div class="description">
-                <h2
-                  :data-test="`team-member-${member}-name`"
-                >
+                <h2 :data-test="`team-member-${member}-name`">
                   {{ $t(`team.${member}.name`) }}
                 </h2>
                 <div class="socialIcons">
                   <a
-                    v-if="$t(`team.${member}.github_url`).length > 1"
-                    :data-test="`team-member-${member}-github`"
+                    v-if="$t(`team.${member}.github_url`).length > 1" :data-test="`team-member-${member}-github`"
                     :href="$t(`team.${member}.github_url`)" target="_blank"
                   >
                     <i class="mobile-menu-icon fab fa-github" />
                   </a>
                   <a
-                    v-if="$t(`team.${member}.linkedin_url`).length > 1"
-                    :data-test="`team-member-${member}-linkedin`"
+                    v-if="$t(`team.${member}.linkedin_url`).length > 1" :data-test="`team-member-${member}-linkedin`"
                     :href="$t(`team.${member}.linkedin_url`)" target="_blank"
                   >
                     <i class="mobile-menu-icon fab fa-linkedin" />
                   </a>
                   <a
-                    v-if="$t(`team.${member}.twitter_url`).length > 1"
-                    :data-test="`team-member-${member}-twitter`"
+                    v-if="$t(`team.${member}.twitter_url`).length > 1" :data-test="`team-member-${member}-twitter`"
                     :href="$t(`team.${member}.twitter_url`)" target="_blank"
                   >
                     <i class="mobile-menu-icon fab fa-twitter" />
                   </a>
                   <a
-                    v-if="$t(`team.${member}.website`).length > 1"
-                    :data-test="`team-member-${member}-website`"
+                    v-if="$t(`team.${member}.website`).length > 1" :data-test="`team-member-${member}-website`"
                     :href="$t(`team.${member}.website`)" target="_blank"
                   >
                     <i class="mobile-menu-icon fa fa-cloud" />
@@ -71,8 +62,7 @@ const { t } = useI18n()
                 </div>
 
                 <router-link
-                  class="user-profile-link"
-                  :data-test="`team-member-${member}-page-link`"
+                  class="user-profile-link" :data-test="`team-member-${member}-page-link`"
                   :to="{ name: 'TeamMember', params: { member } }"
                 >
                   {{ t('redirect.profile') }}
@@ -216,8 +206,8 @@ $color_grey_dark: $nord2;
 }
 
 // to-do: standardize media querys
-@media (width >= 640px) {
-  .teamList{
+@media (width >=640px) {
+  .teamList {
     .content {
       grid-template-columns: repeat(2, 1fr);
     }
@@ -225,8 +215,8 @@ $color_grey_dark: $nord2;
   }
 }
 
-@media (width >= 1024px) {
-  .teamList{
+@media (width >=1024px) {
+  .teamList {
     .content {
       grid-template-columns: repeat(3, 1fr);
     }
@@ -235,7 +225,7 @@ $color_grey_dark: $nord2;
 
 }
 
-.#{$dark-mode-class}{
+.#{$dark-mode-class} {
   .blog-card {
     background-color: $nord2;
   }
