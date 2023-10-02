@@ -2,6 +2,7 @@
 import { type Ref, onMounted, ref } from 'vue'
 import type { RouteParamValue } from 'vue-router'
 import { useRoute } from 'vue-router'
+import { useHead } from '@unhead/vue'
 
 import { useI18n } from 'vue-i18n'
 
@@ -18,8 +19,10 @@ const getTeamMemberName = () => {
     member.value = route.params.member as RouteParamValue
 }
 
-onMounted(() => {
-  getTeamMemberName()
+onMounted(getTeamMemberName)
+
+useHead({
+  title: () => member.value ? t(`team.${member.value}.name`) : t('head.team.fallback.member'),
 })
 </script>
 

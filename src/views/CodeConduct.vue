@@ -1,11 +1,17 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
+import { useHead } from '@unhead/vue'
 import * as messages from '../i18n/messages'
 import type { LanguageCodes } from '@/i18n/types'
 
-const { locale } = useI18n()
+const { locale, t } = useI18n()
 
 const codeOfConduct = messages.default[locale.value as LanguageCodes].code_of_conduct
+
+useHead({
+  title: t('head.codeOfConduct.title'),
+  meta: [{ name: t('head.codeOfConduct.meta.name'), content: t('head.codeOfConduct.meta.content') }],
+})
 </script>
 
 <template>

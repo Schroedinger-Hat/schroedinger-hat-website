@@ -1,12 +1,20 @@
 <script setup lang="ts">
 import { useElementBounding } from '@vueuse/core'
 import { ref } from 'vue'
+import { useHead } from '@unhead/vue'
+import { useI18n } from 'vue-i18n'
 import TheContributing from '@/components/TheContributing.vue'
 import TheFooter from '@/components/layout/TheFooter.vue'
 import TheNavbar from '@/components/layout/TheNavbar.vue'
 
 const navbar = ref<HTMLElement | null>(null)
 const { height } = useElementBounding(navbar)
+const { t } = useI18n()
+
+useHead({
+  titleTemplate: (title?: string) => title ? `${title} | Schrödinger Hat` : 'Schrödinger Hat',
+  meta: [{ name: t('head.app.meta.name'), content: t('head.app.meta.content') }],
+})
 </script>
 
 <template>
@@ -63,7 +71,7 @@ body {
   font-size: rem(32px);
 
   @include breakpoint(lg) {
-   font-size: rem(36px);
+    font-size: rem(36px);
   }
 }
 
