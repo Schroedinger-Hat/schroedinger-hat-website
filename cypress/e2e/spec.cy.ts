@@ -30,8 +30,8 @@ describe('English tests', {
     })
     // Wait for mailchimp modal to appear.
     // As the modal is loaded async, edit the time depending on your situation.
-    cy.wait(5000).then(() => {
-      cy.get('.mc-closeModal').click()
+    cy.wait(10000).then(() => {
+      cy.get('.slide-in-container-inner .close').click()
     })
   })
   describe('Conduct page', () => {
@@ -678,8 +678,8 @@ describe('Italian tests', {
     })
     // Wait for mailchimp modal to appear.
     // As the modal is loaded async, edit the time depending on your situation.
-    cy.wait(5000).then(() => {
-      cy.get('.mc-closeModal').click()
+    cy.wait(10000).then(() => {
+      cy.get('.slide-in-container-inner .close').click()
     })
   })
   describe('Conduct page', () => {
