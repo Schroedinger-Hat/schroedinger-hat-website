@@ -7,12 +7,20 @@ export const getWeekState = (day: string) => {
   const today = dayjs()
   const parseDay = dayjs(day)
 
-  if (parseDay.week() < today.week())
+  if (parseDay.year() === today.year()) {
+    if (parseDay.week() < today.week())
+      return 'passed'
+
+    if (parseDay.week() === today.week())
+      return 'thisWeek'
+
+    if (parseDay.week() > today.week())
+      return 'coming'
+  }
+  else if (parseDay.year() < today.year()) {
     return 'passed'
-
-  if (parseDay.week() === today.week())
-    return 'thisWeek'
-
-  if (parseDay.week() > today.week())
+  }
+  else {
     return 'coming'
+  }
 }
