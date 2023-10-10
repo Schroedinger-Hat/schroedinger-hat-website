@@ -4,6 +4,7 @@ import { useCtaComponent } from '@/functions/useCtaComponent'
 
 defineProps<{
   secondary?: boolean
+  ariaText?: string
 }>()
 
 const { component, bindings } = useCtaComponent(useAttrs())
@@ -13,6 +14,7 @@ const { component, bindings } = useCtaComponent(useAttrs())
   <component
     :is="component"
     v-bind="bindings"
+    :aria-label="ariaText"
     class="cta"
     :class="{ 'secondary py-1 px-1.5 rounded-1': secondary }"
   >

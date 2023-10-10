@@ -23,18 +23,21 @@ const links = [
     to: 'Team',
     test: 'team-page-link',
     text: 'navbar.team',
+    ariaText: 'Discover our team',
   },
   {
     id: 'Events',
     to: 'EventList',
     test: 'event-page-link',
     text: 'navbar.events',
+    ariaText: 'Discover our events',
   },
   {
     id: 'CodeOfConduct',
     test: 'code-page-link',
     text: 'navbar.codeOfConduct',
     to: 'CodeOfConduct',
+    ariaText: 'Read our Code of Conduct',
   },
   {
     href: 'https://ign.schrodinger-hat.it',
@@ -42,6 +45,7 @@ const links = [
     target: '_blank',
     test: 'IGN-link',
     text: 'navbar.imageGoNord',
+    ariaText: 'Navigate to ImageGoNord page',
   },
 ]
 
@@ -70,8 +74,9 @@ watch(showMenu, value => (value ? scrollLock.value = true : scrollLock.value = f
       <LogoAnimated />
       <nav class="flex">
         <CtaComponent
-          v-for="{ id, href, to, text, test, target } in links"
+          v-for="{ id, href, to, text, test, target, ariaText } in links"
           :key="id"
+          :aria-text="ariaText"
           :data-test="`data-${test}`"
           :to="to ? { name: to } : null"
           :href="href"
