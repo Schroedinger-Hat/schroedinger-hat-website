@@ -9,8 +9,8 @@ defineProps<{
 
 <template>
   <div class="bg-light-bg-secondary text-light-text-primary dark:bg-dark-bg-secondary dark:text-dark-text-primary w-full rounded-12px flex flex-col hover:scale-105 hover:shadow-xl hover:cursor-pointer">
-    <div class="overflow-hidden object-cover aspect-16/9 rounded-t-12px">
-      <img :src="event.image.url" :alt="event.image.alt" class="w-full rounded-12px">
+    <div class="overflow-hidden flex items-center justify-center aspect-16/9 rounded-t-12px h-160px">
+      <img :src="event.image.url" :alt="event.image.alt" class="object-center object-cover w-full h-full">
     </div>
     <div class="p-14px flex flex-col">
       <div class="border-1px border-solid border-light-text-primary dark:border-dark-text-primary rounded-full w-fit px-2 text-11px">
@@ -19,7 +19,7 @@ defineProps<{
       <div class="text-16px my-2">
         {{ event.title }}
       </div>
-      <div class="text-12px mb-2">
+      <div class="text-12px mb-2 line-clamp-3">
         {{ event.description }}
       </div>
       <div class="text-10px! mt-auto">

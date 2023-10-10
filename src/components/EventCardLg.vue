@@ -8,15 +8,15 @@ defineProps<{
 </script>
 
 <template>
-  <div class="relative overflow-hidden w-full rounded-12px flex flex-col-reverse sm:flex-row sm:mx-auto sm:max-w-[80%] lg:max-w-[60%] hover:cursor-pointer hover:scale-105">
-    <div class="relative bg-light-bg-secondary text-light-text-primary dark:bg-dark-bg-secondary dark:text-dark-text-primary p-14px h-300px flex flex-col sm:basis-1/3">
+  <div class="relative overflow-hidden w-full rounded-12px flex flex-col-reverse sm:flex-row sm:mx-auto sm:max-w-80% lg:max-w-760px hover:cursor-pointer hover:scale-105">
+    <div class="relative bg-light-bg-secondary text-light-text-primary dark:bg-dark-bg-secondary dark:text-dark-text-primary p-14px h-300px flex flex-col basis-1/2 md:basis-1/3">
       <div class="border-1px border-solid border-light-text-primary dark:border-dark-text-primary rounded-full w-fit px-2 text-11px">
         {{ event.category }}
       </div>
       <div class="text-16px my-2">
         {{ event.title }}
       </div>
-      <div class="text-12px mb-2">
+      <div class="text-12px mb-2 line-clamp-2">
         {{ event.description }}
       </div>
       <div class="text-10px! mt-auto">
@@ -32,8 +32,8 @@ defineProps<{
         </a>
       </div>
     </div>
-    <div class="relative -z-1 bg-red h-300px overflow-hidden sm:basis-2/3 object-cover object-center overflow-hidden aspect-16/9">
-      <img :src="event.image.url" :alt="event.image.alt" class="w-full">
+    <div class="relative -z-1 flex items-center justify-center h-300px basis-1/2 md:basis-2/3">
+      <img :src="event.image.url" :alt="event.image.alt" class="object-center object-cover w-full h-full">
     </div>
   </div>
 </template>
