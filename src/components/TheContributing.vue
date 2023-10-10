@@ -49,6 +49,7 @@ const SHGitHubWebsiteRepo = 'https://github.com/Schrodinger-Hat/schrodinger-hat-
               data-test="contributing-open-collective"
               href="https://opencollective.com/schrodinger-hat"
               target="_blank"
+              aria-label="Visit our Opencollective Page"
             >
               <i
                 data-test="contributing-open-collective-icon"
@@ -59,6 +60,7 @@ const SHGitHubWebsiteRepo = 'https://github.com/Schrodinger-Hat/schrodinger-hat-
               data-test="contributing-facebook"
               href="https://www.facebook.com/schrodingerhat"
               target="_blank"
+              aria-label="Visit our Facebook Page"
             >
               <i
                 data-test="contributing-facebook-icon"
@@ -69,6 +71,7 @@ const SHGitHubWebsiteRepo = 'https://github.com/Schrodinger-Hat/schrodinger-hat-
               data-test="contributing-twitter"
               href="https://twitter.com/schrodinger_hat"
               target="_blank"
+              aria-label="Visit our Twitter Page"
             >
               <i
                 data-test="contributing-twitter-icon"
@@ -79,6 +82,7 @@ const SHGitHubWebsiteRepo = 'https://github.com/Schrodinger-Hat/schrodinger-hat-
               data-test="contributing-linkedin"
               href="https://www.linkedin.com/company/schrodinger-hat/"
               target="_blank"
+              aria-label="Visit our Linkedin Page"
             >
               <i
                 data-test="contributing-linkedin-icon"
@@ -89,9 +93,9 @@ const SHGitHubWebsiteRepo = 'https://github.com/Schrodinger-Hat/schrodinger-hat-
               data-test="contributing-instagram"
               href="https://www.instagram.com/schrodinger_hat/"
               target="_blank"
+              aria-label="Visit our Instagram Page"
             >
               <i
-
                 data-test="contributing-instagram-icon"
                 class="fab fa-instagram external-link-color"
               />
@@ -99,6 +103,7 @@ const SHGitHubWebsiteRepo = 'https://github.com/Schrodinger-Hat/schrodinger-hat-
             <a
               data-test="contributing-discord"
               href="https://discord.gg/RTXr8A3eFn" target="_blank"
+              aria-label="Join our Discord Server"
             >
               <i
                 data-test="contributing-discord-icon"
