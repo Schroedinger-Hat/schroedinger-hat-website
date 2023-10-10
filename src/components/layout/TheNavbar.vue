@@ -82,6 +82,7 @@ watch(showMenu, value => (value ? scrollLock.value = true : scrollLock.value = f
           <span>{{ $t(text as string) }}</span>
         </CtaComponent>
         <CtaIcon
+          aria-label="Visit to our Github Page"
           :data-test="ghCTA.test"
           :href="ghCTA.href"
           :icon="ghCTA.icon"
@@ -94,6 +95,7 @@ watch(showMenu, value => (value ? scrollLock.value = true : scrollLock.value = f
           @click="toggleMenu()"
         />
         <CtaIcon
+          aria-label="themeIcon"
           :icon="`fas ${themeIcon}`"
           data-test="nav-theme-icon"
           @click="toggleDark()"
