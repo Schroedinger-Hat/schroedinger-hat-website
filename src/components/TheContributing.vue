@@ -16,9 +16,9 @@ const SHGitHubWebsiteRepo = 'https://github.com/Schrodinger-Hat/schrodinger-hat-
     <div class="bg-secondary py-30">
       <div class="container contributing-container-text">
         <div class="inner-text">
-          <h4 data-test="contributing-title">
+          <h2 data-test="contributing-title">
             {{ $t('contributing.title') }}
-          </h4>
+          </h2>
           <p data-test="contributing-description">
             <!-- TODO: Find a way to write this text better -->
             <b>Schrödinger Hat</b> {{ $t('contributing.is-a-project') }}
@@ -114,9 +114,9 @@ const SHGitHubWebsiteRepo = 'https://github.com/Schrodinger-Hat/schrodinger-hat-
         </div>
         <div class="inner-text" data-test="contributing-partners">
           <!-- TODO: Add title to messages -->
-          <h4 style="padding: 15px 0" data-test="contributing-partners-title">
+          <h2 style="padding: 15px 0" data-test="contributing-partners-title">
             Community Partners
-          </h4>
+          </h2>
           <div class="partner-image" data-test="contributing-partners-logo">
             <!-- TODO: Create a v-for with all the partners maybe a file also -->
             <a
@@ -243,7 +243,7 @@ const SHGitHubWebsiteRepo = 'https://github.com/Schrodinger-Hat/schrodinger-hat-
   .inner-text {
     padding: 0 0.5em;
 
-    h4 {
+    h2 {
       margin: 0;
       font-size: 2.2em;
     }
