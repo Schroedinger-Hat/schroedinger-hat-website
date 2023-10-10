@@ -31,12 +31,6 @@ const links = [
     text: 'navbar.events',
   },
   {
-    id: 'Sessions',
-    to: 'SessionList',
-    test: 'session-page-link',
-    text: 'navbar.sessions',
-  },
-  {
     id: 'CodeOfConduct',
     test: 'code-page-link',
     text: 'navbar.codeOfConduct',
