@@ -37,25 +37,25 @@ useHead({
                 <div class="socialIcons">
                   <a
                     v-if="$t(`team.${member}.github_url`).length > 1" :data-test="`team-member-${member}-github`"
-                    :href="$t(`team.${member}.github_url`)" target="_blank"
+                    :href="$t(`team.${member}.github_url`)" target="_blank" :aria-label="`github page of ${member}`"
                   >
                     <i class="mobile-menu-icon fab fa-github" />
                   </a>
                   <a
                     v-if="$t(`team.${member}.linkedin_url`).length > 1" :data-test="`team-member-${member}-linkedin`"
-                    :href="$t(`team.${member}.linkedin_url`)" target="_blank"
+                    :href="$t(`team.${member}.linkedin_url`)" target="_blank" :aria-label="`linkedin page of ${member}`"
                   >
                     <i class="mobile-menu-icon fab fa-linkedin" />
                   </a>
                   <a
                     v-if="$t(`team.${member}.twitter_url`).length > 1" :data-test="`team-member-${member}-twitter`"
-                    :href="$t(`team.${member}.twitter_url`)" target="_blank"
+                    :href="$t(`team.${member}.twitter_url`)" target="_blank" :aria-label="`twitter page of ${member}`"
                   >
                     <i class="mobile-menu-icon fab fa-twitter" />
                   </a>
                   <a
                     v-if="$t(`team.${member}.website`).length > 1" :data-test="`team-member-${member}-website`"
-                    :href="$t(`team.${member}.website`)" target="_blank"
+                    :href="$t(`team.${member}.website`)" target="_blank" :aria-label="`website of ${member}`"
                   >
                     <i class="mobile-menu-icon fa fa-cloud" />
                   </a>
