@@ -1,11 +1,24 @@
 <!-- eslint-disable no-console -->
 <script setup lang="ts">
+import { useHead } from '@unhead/vue'
+import { useI18n } from 'vue-i18n'
+import messages from '@/i18n/messages'
+import EventCard from '@/components/EventCard.vue'
+import type { EventMessageName } from '@/i18n/types'
 import { computed, ref } from 'vue'
 import type { CityType, SessionOrEventType, WeekType } from '@/i18n/events'
 import { events } from '@/i18n/events'
 import FilterPill from '@/components/FilterPill.vue'
 import EventCardSm from '@/components/EventCardSm.vue'
 import EventCardLg from '@/components/EventCardLg.vue'
+
+const { t } = useI18n()
+const events = Object.keys(messages.it.events) as EventMessageName[]
+
+useHead({
+  title: t('head.events.title'),
+  meta: [{ name: t('head.events.meta.name'), content: t('head.events.meta.content') }],
+})
 import { getWeekState } from '@/functions/getWeekState'
 
 const activeCategoryFilters = ref([] as Array<SessionOrEventType>)

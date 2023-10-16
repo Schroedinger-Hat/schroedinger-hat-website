@@ -41,7 +41,8 @@ watch(smallerThanMd, (value) => {
         :href="href"
         :target="target ? target : null"
         :to="to ? { name: to } : null"
-        class="head-6 link block py-4 cursor-pointer border-b border-b-slate-300 dark:border-b-slate-50/[0.06] "
+        secondary
+        class="head-6 block py-4 !border-b-solid !border-b !border-b-slate-300 rounded-none !dark:border-b-slate-50/[0.06]"
         @click="$emit('close')"
       >
         <span>{{ $t(text as string) }}</span>
@@ -53,7 +54,6 @@ watch(smallerThanMd, (value) => {
 <style scoped lang="scss">
 .menu {
   background: $bg-primary;
-  transition: all 0.4s ease-in 0s;
 }
 
 .#{$dark-mode-class} {
@@ -64,7 +64,7 @@ watch(smallerThanMd, (value) => {
 
 .slide-enter-active,
 .slide-leave-active {
-  transition: 0.25s ease-out 0s;
+  transition: 0.3s ease;
 }
 
 .slide-enter-from,

@@ -1,13 +1,26 @@
 <script setup lang="ts">
+import { useElementBounding } from '@vueuse/core'
+import { ref } from 'vue'
+import { useHead } from '@unhead/vue'
+import { useI18n } from 'vue-i18n'
 import TheContributing from '@/components/TheContributing.vue'
 import TheFooter from '@/components/layout/TheFooter.vue'
 import TheNavbar from '@/components/layout/TheNavbar.vue'
+
+const navbar = ref<HTMLElement | null>(null)
+const { height } = useElementBounding(navbar)
+const { t } = useI18n()
+
+useHead({
+  titleTemplate: (title?: string) => title ? `${title} | Schrödinger Hat` : 'Schrödinger Hat',
+  meta: [{ name: t('head.app.meta.name'), content: t('head.app.meta.content') }],
+})
 </script>
 
 <template>
   <div class="relative">
-    <TheNavbar />
-    <RouterView />
+    <TheNavbar ref="navbar" />
+    <RouterView class="page" />
     <TheContributing />
     <TheFooter />
   </div>
@@ -28,38 +41,67 @@ body {
   text-size-adjust: none;
 }
 
-.head-1 {
-  font-size: rem(40px);
-}
-
-.head-2 {
-  font-size: rem(36px)
-}
-
-.head-3 {
-  font-size: rem(32px);
-}
-
-.head-4 {
-  font-size: rem(28px);
-  line-height: 0.9;
-}
-
-.head-5 {
-  font-size: rem(24px)
-}
-
-.head-6 {
-  font-size: rem(20px)
-}
-
-.poppins {
-  font-family: Poppins, sans-serif;
+.page {
+  min-height: calc(100lvh - (v-bind(height) * 1px));
+  min-height: calc(100dvh - (v-bind(height) * 1px));
 }
 
 .container {
   width: 100%;
   margin: 0 auto;
+}
+
+.head-1 {
+  font-size: rem(40px);
+
+  @include breakpoint(lg) {
+    font-size: rem(44px);
+  }
+}
+
+.head-2 {
+  font-size: rem(36px);
+
+  @include breakpoint(lg) {
+    font-size: rem(40px);
+  }
+}
+
+.head-3 {
+  font-size: rem(32px);
+
+  @include breakpoint(lg) {
+    font-size: rem(36px);
+  }
+}
+
+.head-4 {
+  font-size: rem(28px);
+  line-height: 0.9;
+
+  @include breakpoint(lg) {
+    font-size: rem(32px);
+  }
+}
+
+.head-5 {
+  font-size: rem(24px);
+
+  @include breakpoint(lg) {
+    font-size: rem(28px)
+  }
+}
+
+.head-6 {
+  font-size: rem(20px);
+
+  @include breakpoint(lg) {
+    font-size: rem(24px);
+  }
+}
+
+.poppins {
+  font-family: Poppins, sans-serif;
 }
 
 .logo-text {
@@ -70,7 +112,6 @@ body {
 }
 
 // Animations
-
 @keyframes scale {
   0% {
     transform: scale(1)

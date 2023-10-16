@@ -1,5 +1,24 @@
 const messages = {
   it: {
+    head: {
+      app: {
+        meta: { name: 'Schrödinger Hat', content: 'La community Open Source' },
+      },
+      codeOfConduct: {
+        title: 'Codice di condotta',
+        meta: { name: 'Codice di condotta - Schrödinger Hat', content: 'Il nostro codice di condotta' },
+      },
+      events: {
+        title: 'Eventi',
+        meta: { name: 'Eventi - Schrödinger Hat', content: 'I nostri eventi' },
+      },
+      home: { title: 'Schrödinger Hat' },
+      team: {
+        fallback: { member: 'Membro' },
+        title: 'Team',
+        meta: { name: 'Team - Schrödinger Hat', content: 'Il nostro team' },
+      },
+    },
     message: {
       common: { 'read-more': 'Leggi di più' },
       event: {
@@ -286,6 +305,26 @@ const messages = {
     },
   },
   en: {
+    head: {
+      app: {
+        title: 'Schrödinger Hat',
+        meta: { name: 'Schrödinger Hat', content: 'The Open Source Community' },
+      },
+      codeOfConduct: {
+        title: 'Code of Conduct',
+        meta: { name: 'Code of Conduct - Schrödinger Hat', content: 'Our Code of Conduct' },
+      },
+      events: {
+        title: 'Events',
+        meta: { name: 'Events - Schrödinger Hat', content: 'Our events' },
+      },
+      home: { title: 'Schrödinger Hat' },
+      team: {
+        fallback: { member: 'Member' },
+        title: 'Team',
+        meta: { name: 'Team - Schrödinger Hat', content: 'Our team' },
+      },
+    },
     message: {
       common: { 'read-more': 'Read more' },
       event: {
@@ -306,8 +345,8 @@ const messages = {
       gitHub: 'GitHub',
     },
     main: {
-      h1: 'An Italian open source community',
-      h2: 'Schrödinger Hat is a community, podcast, livestream and much more!',
+      h1: 'Schrödinger Hat',
+      h2: 'The Open Source community',
       links: {
         youtube: 'YouTube',
         spotify: 'Spotify',

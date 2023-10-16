@@ -4,12 +4,7 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: () => import('@/views/HomeView.vue'),
-  },
-  {
-    path: '/video',
-    name: 'RedirectVideo',
-    component: () => import('@/views/RedirectVideo.vue'),
+    component: () => import('@/views/PageHome.vue'),
   },
   {
     path: '/code-of-conduct',

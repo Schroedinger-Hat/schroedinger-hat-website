@@ -14,7 +14,7 @@ const { component, bindings } = useCtaComponent(useAttrs())
   <component
     :is="component"
     v-bind="bindings"
-    class="button mx-1 px-1 py-0.5 rounded-1"
+    class="cta mx-1 px-1 py-0.5 rounded-1"
     :class="{ small }"
   >
     <i :class="icon" />
@@ -22,11 +22,28 @@ const { component, bindings } = useCtaComponent(useAttrs())
 </template>
 
 <style lang="scss" scoped>
-.button {
+.cta {
   font-size: rem(20px);
+  transition: background 0.3s ease-in-out;
+
+  @include breakpoint(md) {
+    &:hover {
+      background-color: $bg-secondary;
+    }
+  }
 
   &.small {
     font-size: rem(16px);
+  }
+}
+
+.#{$dark-mode-class} {
+  .cta{
+    @include breakpoint(md) {
+      &:hover {
+        background-color: $dark-bg-secondary;
+      }
+    }
   }
 }
 </style>
