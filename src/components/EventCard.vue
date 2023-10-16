@@ -1,134 +1,38 @@
 <script setup lang="ts">
-import { type EventMessageName } from '@/i18n/types'
+import type { Event } from '@/i18n/events'
+import EventCardDetail from '@/components/EventCardDetail.vue'
 
-const props = defineProps<{
-  event: EventMessageName
+defineProps<{
+  event: Event
+  featured?: boolean
 }>()
 </script>
 
 <template>
-  <div class="card flex flex-col mb-3 w-[380px] rounded-md overflow-hidden shadow-lg md:flex-row md:h-[260px] md:w-[700px]">
-    <div class="relative h-52 overflow-hidden md:basis-2/5 md:h-auto">
-      <div
-        :data-test="`event-${props.event}-photo`"
-        class="card-image absolute inset-0 bg-center bg-cover"
-        :style="`background-image: url( ${$t(`events.${props.event}.image`)} );`"
-      />
-    </div>
-    <div class="basis-3/5 w-full h-full z-1">
-      <div class="description flex flex-col justify-between items-start h-full p-3 space-y-4 relative lg:space-y-2">
-        <div>
-          <h1
-            class="head-4 mb-2 font-700"
-            :data-test="`event-${props.event}-title`"
-          >
-            {{ $t(`events.${props.event}.title`) }}
-          </h1>
-          <span
-            class="poppins"
-            :data-test="`event-${props.event}-date`"
-          >
-            {{ $t(`events.${props.event}.date`) }} | {{ $t(`events.${props.event}.location`) }}
-          </span>
-        </div>
-        <p
-          :data-test="`event-${props.event}-subtitle`"
-          class="font-bold"
-        >
-          {{ $t(`events.${props.event}.subtitle`) }}
-        </p>
-        <router-link
-          :data-test="`event-${props.event}-read-more`"
-          :to="{ name: 'EventView', params: { event } }"
-          class="read-more p-2 rounded mt-1 self-end relative"
-        >
-          {{ $t(`message.common.read-more`) }}
-        </router-link>
+  <div class="flex flex-col-reverse lg:flex-row lg:h-108 rounded-3 border border-slate-200/30 overflow-hidden">
+    <div class="flex flex-col p-6 basis-2/6 space-y-4">
+      <div v-if="!featured" class="capitalize">
+        {{ event.category }}
       </div>
+      <div class="head-5">
+        {{ event.title }}
+      </div>
+      <div class="text-sm">
+        {{ event.shortDescription }}
+      </div>
+      <div class="flex-grow flex flex-col justify-center items-start">
+        <EventCardDetail src="src/assets/svg/calendar.svg" :text="event.date.day" />
+        <EventCardDetail src="src/assets/svg/clock.svg" :text="`${event.date.start} - ${event.date.end}`" />
+        <EventCardDetail src="src/assets/svg/microphone.svg" :text="event.speakers" />
+        <EventCardDetail src="src/assets/svg/tag.svg" :text="event.arguments" />
+        <EventCardDetail src="src/assets/svg/maps.svg" :text="event.location.name" />
+      </div>
+      <a :href="event.ticketHref" target="_blank" class="px-3 py-2 bg-#ef2908 text-white mt-4 rounded-xl hover:cursor-pointer block w-fit">
+        Get tickets
+      </a>
+    </div>
+    <div class="flex basis-4/6">
+      <img :src="event.image.url" :alt="event.image.alt" class="flex-grow w-full h-full object-center object-cover">
     </div>
   </div>
 </template>
-
-<style scoped lang="scss">
-.card {
-  transition: all 0.3s ease-in;
-
-  @include breakpoint(lg)  {
-    &:hover {
-      transform: scale(1.05);
-
-      .card-image {
-        transform: scale(1.05) rotate(-3deg);
-      }
-    }
-  }
-}
-
-.card-image {
-  transition: transform 0.3s;
-}
-
-.description {
-  @include breakpoint(md) {
-    &::before {
-      position: absolute;
-      z-index: -1;
-      top: 0;
-      bottom: 0;
-      left: rem(-8px);
-      width: rem(32px);
-      background: transparent;
-      content: '';
-      transform: skewX(-3deg);
-    }
-  }
-}
-
-.read-more {
-  border: 1px solid $bg-secondary;
-  background-color: $bg-primary;
-  transition: all 0.3s ease-in;
-
-  @include breakpoint(lg) {
-    background-color: transparent;
-
-    &:hover {
-      background-color: $nord7;
-      color: $text-primary;
-    }
-  }
-}
-
-.#{$dark-mode-class} {
-  .read-more {
-    border-style: none;
-    background-color: $dark-bg-primary;
-
-    &:hover {
-      background: $nord7;
-      color: $text-primary;
-    }
-  }
-
-  .card {
-    background: $nord2;
-
-    span {
-      color: $c-dark-text-secondary;
-    }
-
-    .description {
-      background: $nord2;
-
-      h2,
-      .read-more a {
-        color: $nord4;
-      }
-
-      &::before {
-        background: $nord2;
-      }
-    }
-  }
-}
-</style>
