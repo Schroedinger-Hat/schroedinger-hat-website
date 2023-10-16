@@ -2,38 +2,37 @@
 <script setup lang="ts">
 import { useHead } from '@unhead/vue'
 import { useI18n } from 'vue-i18n'
-import messages from '@/i18n/messages'
-import EventCard from '@/components/EventCard.vue'
-import type { EventMessageName } from '@/i18n/types'
 import { computed, ref } from 'vue'
+import messages from '@/i18n/messages'
+import type { EventMessageName } from '@/i18n/types'
 import type { CityType, SessionOrEventType, WeekType } from '@/i18n/events'
 import { events } from '@/i18n/events'
 import FilterPill from '@/components/FilterPill.vue'
 import EventCardSm from '@/components/EventCardSm.vue'
 import EventCardLg from '@/components/EventCardLg.vue'
+import { getWeekState } from '@/functions/getWeekState'
 
 const { t } = useI18n()
-const events = Object.keys(messages.it.events) as EventMessageName[]
+const eventsMessages = Object.keys(messages.it.events) as EventMessageName[]
 
 useHead({
   title: t('head.events.title'),
   meta: [{ name: t('head.events.meta.name'), content: t('head.events.meta.content') }],
 })
-import { getWeekState } from '@/functions/getWeekState'
 
 const activeCategoryFilters = ref([] as Array<SessionOrEventType>)
 const activeCityFilters = ref([] as Array<CityType>)
 const activeWeekFilters = ref([] as Array<WeekType>)
 
-const categoriesFilter = events.map(e => e.category).filter((value, index, self) => {
-  return self.indexOf(value) === index
-}) as SessionOrEventType[]
-const cityFilter = events.map(e => e.location.city).filter((value, index, self) => {
-  return self.indexOf(value) === index
-}) as CityType[]
-const weekFilter = events.map(e => getWeekState(e.date.day)).filter((value, index, self) => {
-  return self.indexOf(value) === index
-}) as WeekType[]
+// const categoriesFilter = eventsMessages.map(e => e.category).filter((value, index, self) => {
+//   return self.indexOf(value) === index
+// }) as SessionOrEventType[]
+// const cityFilter = eventsMessages.map(e => e.location.city).filter((value, index, self) => {
+//   return self.indexOf(value) === index
+// }) as CityType[]
+// const weekFilter = eventsMessages.map(e => getWeekState(e.date.day)).filter((value, index, self) => {
+//   return self.indexOf(value) === index
+// }) as WeekType[]
 
 const handleClickCatFilters = (filter: SessionOrEventType) => {
   if (!activeCategoryFilters.value.includes(filter))
@@ -121,7 +120,3 @@ const firstEvent = computed(() => {
     </div>
   </main>
 </template>
-
-<style scoped>
-
-</style>
