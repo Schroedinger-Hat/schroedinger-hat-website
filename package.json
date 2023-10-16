@@ -8,6 +8,7 @@
   },
   "scripts": {
     "build": "vite build",
+    "cy:o": "cypress open",
     "dev": "vite --host",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
