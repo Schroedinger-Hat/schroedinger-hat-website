@@ -1,15 +1,15 @@
-export type SessionOrEventType = 'workshop' | 'event' // session page filter
-export type CityType = 'Firenze' | 'Milano' | 'Verona' // session page filter
-export type WeekType = 'passed' | 'thisWeek' | 'coming' | undefined // session page filter
-type CtaIdType = 'cfp' | 'donation' | 'sign-up' | 'video' | 'website'
+export type Category = 'workshop' | 'event'
+export type TimeStatus = 'passed' | 'thisWeek' | 'coming' | undefined
+export type CtaIdType = 'cfp' | 'donation' | 'sign-up' | 'video' | 'website'
+export type City = string // Create special type based of messages (keyof typeof as const)
 
-interface SponsorType {
+interface Sponsor {
   name: string
+  link: string
   image: {
     url: string
     alt: string
   }
-  link: string
 }
 
 interface CtaType {
@@ -17,41 +17,42 @@ interface CtaType {
   href: string | null
 }
 
-export default interface EventType {
-  id: number
-  category: SessionOrEventType
-  title: string
-  subtitle?: string
+export interface Event {
+  arguments: string
+  category: Category
+  community_sponsors?: Sponsor[]
+  ctas?: CtaType[]
   description: string
+  id: number
+  shortDescription: string
+  speakers: string
+  sponsors?: Sponsor[]
+  subtitle?: string
+  ticketHref?: string
+  title: string
+  date: {
+    day: string
+    start: string
+    end: string
+  }
   image: {
     url: string
     alt: string
   }
-  date: {
-    day: string
-    starts_at: string
-    ends_at: string
-  }
   location: {
     name: string
-    city: CityType
+    city: string
     url: string
   }
-  speakers: string
-  arguments: string
-  sponsors?: SponsorType[]
-  community_sponsors?: SponsorType[]
-  ctas?: CtaType[]
-  ticketHref?: string
 }
 
-// NOTE: id for the key(s) would be: title + start_date
-export const events: EventType[] = [
+export const events: Event[] = [
   {
     id: 1,
     category: 'event',
-    title: 'SH Sessions, Qwik Workshop with Misko Havery - Firenze',
+    title: 'SH Sessions: Qwik',
     subtitle: 'sh-sessions-qwik-workshop',
+    shortDescription: 'A new session with Miško Hevery, creator of Angular, co-creator of KarmaJS and creator of Qwik.',
     description: 'We are starting the Schrodinger Session: a workshop series fully accessible for everyone, from everywhere with the best engineer from the open source world and organization\nThis year we decided to go big!\nIn this edition we are going to have a mid day with Miško Hevery, creator of Angular, co-creator of KarmaJS and creator of Qwik and Giorgio Boa, developer, public speaker and top contributor in Qwik!\nDuring the workshop you are going to do a demo, learn and ask questions directly to Miško and Giorgio.\nThe session will be free for everyone, in livestream and in english.',
     image: {
       url: 'https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F507565769%2F565692604981%2F1%2Foriginal.20230504-132216?w=940&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C2160%2C1080&s=e7d7490b59e1802ad3d53498f66ca59e',
@@ -59,8 +60,8 @@ export const events: EventType[] = [
     },
     date: {
       day: '2023-06-14',
-      starts_at: '09:30',
-      ends_at: '21:00',
+      start: '09:30',
+      end: '21:00',
     },
     location: {
       name: 'Nana Bianca, Firenze',
@@ -99,6 +100,7 @@ export const events: EventType[] = [
     category: 'event',
     title: 'Open Source Day 2023 - Firenze',
     subtitle: 'open-source-day-2023-florence',
+    shortDescription: 'A new session with Miško Hevery, creator of Angular, co-creator of KarmaJS and creator of Qwik',
     description: 'Stiamo per tornare con una nuova edizione dell\'Open Source Day. In questa stagione distruggeremo tutto. Unisciti a noi il 24 marzo 2023!',
     image: {
       url: 'https://images.unsplash.com/photo-1489389944381-3471b5b30f04?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
@@ -106,8 +108,8 @@ export const events: EventType[] = [
     },
     date: {
       day: '2023-03-24',
-      starts_at: '09:00',
-      ends_at: '18:00',
+      start: '09:00',
+      end: '18:00',
     },
     location: {
       name: 'Nana Bianca, Firenze',
@@ -146,6 +148,7 @@ export const events: EventType[] = [
     category: 'event',
     title: 'Open Source Day 2021',
     subtitle: 'open-source-day-2021-florence-student-hotel',
+    shortDescription: 'A new session with Miško Hevery, creator of Angular, co-creator of KarmaJS and creator of Qwik',
     description: 'L\'evento FOSS Explorer digitale dedicato all\'open source si espande e diventa un evento fisico! Speaker & Sviluppatori, stay tuned!',
     image: {
       url: 'https://images.unsplash.com/photo-1489389944381-3471b5b30f04?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
@@ -153,8 +156,8 @@ export const events: EventType[] = [
     },
     date: {
       day: '2021-09-21',
-      starts_at: '18:00',
-      ends_at: '21:00',
+      start: '18:00',
+      end: '21:00',
     },
     location: {
       name: 'The Student Hotel, Firenze',
@@ -193,6 +196,7 @@ export const events: EventType[] = [
     category: 'event',
     title: 'Typing Day 2021 - Florence',
     subtitle: 'typing-day-florence-2021-student-hotel',
+    shortDescription: 'A new session with Miško Hevery, creator of Angular, co-creator of KarmaJS and creator of Qwik',
     description: 'Il Typing Day è un evento open source che permette a chiunque di intraprendere la carriera da speaker. È inoltre una competizione "Type Racer" che mette in palio una tastiera Keychron',
     image: {
       url: 'https://images.unsplash.com/photo-1555532538-dcdbd01d373d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1131&q=80',
@@ -200,8 +204,8 @@ export const events: EventType[] = [
     },
     date: {
       day: '2021-10-23',
-      starts_at: '16:00',
-      ends_at: '18:00',
+      start: '16:00',
+      end: '18:00',
     },
     location: {
       name: 'The Student Hotel, Firenze',
