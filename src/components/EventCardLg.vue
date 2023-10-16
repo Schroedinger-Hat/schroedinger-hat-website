@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import EventCardDetail from './EventCardDetail.vue'
-import type EventType from '@/i18n/events'
+import type { Event } from '@/i18n/events'
 
 defineProps<{
-  event: EventType
+  event: Event
 }>()
 </script>
 
@@ -22,7 +22,7 @@ defineProps<{
       <div class="text-10px! mt-auto">
         <div class="flex gap-4">
           <EventCardDetail src="src/assets/svg/calendar.svg" :text="event.date.day" />
-          <EventCardDetail src="src/assets/svg/clock.svg" :text="`${event.date.starts_at} - ${event.date.ends_at}`" />
+          <EventCardDetail src="src/assets/svg/clock.svg" :text="`${event.date.start} - ${event.date.end}`" />
         </div>
         <EventCardDetail src="src/assets/svg/microphone.svg" :text="event.speakers" />
         <EventCardDetail src="src/assets/svg/tag.svg" :text="event.arguments" />
@@ -37,7 +37,3 @@ defineProps<{
     </div>
   </div>
 </template>
-
-<style scoped>
-
-</style>
