@@ -1,4 +1,3 @@
-<!-- eslint-disable no-console -->
 <script setup lang="ts">
 import { useHead } from '@unhead/vue'
 import { useI18n } from 'vue-i18n'
@@ -70,7 +69,7 @@ const firstEvent = computed(() => {
 </script>
 
 <template>
-  <main class="w-full px-24px md:px-16px py-32px">
+  <main class="w-full px-8 max-w-7xl mx-auto">
     <!-- Title -->
     <h1
       class="head-3 mb-4 text-center"
@@ -78,12 +77,10 @@ const firstEvent = computed(() => {
     >
       {{ $t(`navbar.sessions`) }}
     </h1>
-
     <!-- Big Card -->
     <EventCardLg :event="firstEvent" class="mb-8" />
-
-    <!-- Filter section -->
-    <div class="grid grid-cols-1 gap-x-4 sm:grid-cols-2 md:grid-cols-3 md:gap-x-8 2xl:grid-cols-5 2xl:gap-x-16 mb-8 sm:mx-10%">
+    <!-- Form section -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-x-8 lg:gap-x-16 mb-8">
       <div class="mb-4 flex flex-col">
         <h3 class="mb-2">
           Event type
@@ -115,7 +112,7 @@ const firstEvent = computed(() => {
     <div v-if="filteredEvents.length === 0" class="flex flex-col items-center">
       Nessun elemento trovato
     </div>
-    <div v-else class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 md:gap-6 2xl:grid-cols-5 2xl:gap-8 sm:mx-10%">
+    <div v-else class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 md:gap-6 2xl:gap-8">
       <EventCardSm v-for="event in filteredEvents" :key="event.id" :event="event" />
     </div>
   </main>
