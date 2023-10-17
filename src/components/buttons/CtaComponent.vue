@@ -4,6 +4,7 @@ import { useCtaComponent } from '@/functions/useCtaComponent'
 
 defineProps<{
   secondary?: boolean
+  tertiary?: boolean
 }>()
 
 const { component, bindings } = useCtaComponent(useAttrs())
@@ -14,7 +15,11 @@ const { component, bindings } = useCtaComponent(useAttrs())
     :is="component"
     v-bind="bindings"
     class="cta"
-    :class="{ 'secondary py-1 px-1.5 rounded-1': secondary }"
+    :class="{
+      'py-1 px-1.5 rounded-1': secondary || tertiary,
+      'secondary': secondary,
+      'tertiary': tertiary,
+    }"
   >
     <slot />
   </component>
@@ -45,6 +50,18 @@ const { component, bindings } = useCtaComponent(useAttrs())
   @include breakpoint(md) {
     &:hover {
      background: $bg-secondary;
+    }
+  }
+}
+
+.tertiary {
+  border: none;
+  background-color: #ff492b !important;
+  color: #fff !important;
+
+  @include breakpoint(md) {
+    &:hover {
+      background: #FFA798 !important;
     }
   }
 }
