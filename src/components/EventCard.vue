@@ -8,7 +8,10 @@ defineProps<{
 </script>
 
 <template>
-  <article class="flex flex-col-reverse lg:flex-row lg:h-108 rounded-3 border border-slate-200/30 overflow-hidden">
+  <article
+    class="card rounded-3 border border-slate-200/30 bg-dark-bg-secondary"
+    :class="{ featured }"
+  >
     <div class="flex flex-col p-9 basis-2/6 space-y-3 lg:space-y-5">
       <div v-if="!featured" class="capitalize">{{ event.category }}</div>
       <h3 class="head-5">{{ event.title }}</h3>
@@ -25,3 +28,22 @@ defineProps<{
     </figure>
   </article>
 </template>
+
+<style scoped lang="scss">
+.card {
+  display: flex;
+  overflow: hidden;
+  flex-direction: column-reverse;
+
+  &:not(.featured) figure {
+    height: rem(256px);
+  }
+
+  &.featured {
+    @include breakpoint(lg) {
+      height: rem(432px);
+      flex-direction: row;
+    }
+  }
+}
+</style>

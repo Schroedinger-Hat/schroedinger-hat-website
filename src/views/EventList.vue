@@ -8,7 +8,6 @@ import type { Category, City, TimeStatus } from '@/i18n/events'
 import { events } from '@/i18n/events'
 import FilterPill from '@/components/FilterPill.vue'
 import IconDetail from '@/components/IconDetail.vue'
-import EventCardSm from '@/components/EventCardSm.vue'
 import EventCard from '@/components/EventCard.vue'
 import { getWeekState } from '@/functions/getWeekState'
 import CtaComponent from '@/components/buttons/CtaComponent.vue'
@@ -77,7 +76,7 @@ const firstEvent = computed(() => {
     <EventCard :event="firstEvent" featured class="mb-8">
       <IconDetail v-for="{ icon, id, text } in firstEvent.details" :key="id" :icon="icon" :text="text" />
       <template #footer>
-        <CtaComponent tertiary :href="firstEvent.ticketHref">Get tickets</CtaComponent>
+        <CtaComponent tertiary :href="firstEvent.ticketsURL">Get tickets</CtaComponent>
       </template>
     </EventCard>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-x-8 lg:gap-x-16 mb-8">
@@ -107,13 +106,13 @@ const firstEvent = computed(() => {
         </ul>
       </div>
     </div>
-
-    <!-- Session cards -->
     <div v-if="filteredEvents.length === 0" class="flex flex-col items-center">
       Nessun elemento trovato
     </div>
     <div v-else class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 md:gap-6 2xl:gap-8">
-      <EventCardSm v-for="event in filteredEvents" :key="event.id" :event="event" />
+      <EventCard v-for="event in filteredEvents" :key="event.id" :event="event">
+        <IconDetail v-for="{ icon, id, text } in event.details" :key="id" :icon="icon" :text="text" />
+      </EventCard>
     </div>
   </main>
 </template>
