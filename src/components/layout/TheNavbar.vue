@@ -19,25 +19,28 @@ interface Link {
 
 const links = [
   {
+    href: '/',
     id: 'Team',
     to: 'Team',
     test: 'team-page-link',
     text: 'navbar.team',
-    ariaText: 'Discover our team',
+    ariaText: 'Team',
   },
   {
+    href: '/',
     id: 'Events',
     to: 'EventList',
     test: 'event-page-link',
     text: 'navbar.events',
-    ariaText: 'Discover our events',
+    ariaText: 'Eventi',
   },
   {
+    href: '/',
     id: 'CodeOfConduct',
     test: 'code-page-link',
     text: 'navbar.codeOfConduct',
     to: 'CodeOfConduct',
-    ariaText: 'Read our Code of Conduct',
+    ariaText: 'Codice di condotta',
   },
   {
     href: 'https://ign.schrodinger-hat.it',
