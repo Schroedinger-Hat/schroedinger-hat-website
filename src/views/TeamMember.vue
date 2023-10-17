@@ -47,27 +47,28 @@ useHead({
             v-if="$t(`team.${member}.github_url`).length > 1"
             :href="$t(`team.${member}.github_url`)" target="_blank"
             data-test="member-page-github"
+            :aria-label="`github page of ${member}`"
           >
             <i class="mobile-menu-icon fab fa-github" />
           </a>
           <a
             v-if="$t(`team.${member}.linkedin_url`).length > 1"
             :href="$t(`team.${member}.linkedin_url`)" target="_blank"
-            data-test="member-page-linkedin"
+            data-test="member-page-linkedin" :aria-label="`linkedin page of ${member}`"
           >
             <i class="mobile-menu-icon fab fa-linkedin" />
           </a>
           <a
             v-if="$t(`team.${member}.twitter_url`).length > 1"
             :href="$t(`team.${member}.twitter_url`)" target="_blank"
-            data-test="member-page-twitter"
+            data-test="member-page-twitter" :aria-label="`twitter page of ${member}`"
           >
             <i class="mobile-menu-icon fab fa-twitter" />
           </a>
           <a
             v-if="$t(`team.${member}.website`).length > 1"
             :href="$t(`team.${member}.website`)" target="_blank"
-            data-test="member-page-website"
+            data-test="member-page-website" :aria-label="`website of ${member}`"
           >
             <i class="mobile-menu-icon fa fa-cloud" />
           </a>
