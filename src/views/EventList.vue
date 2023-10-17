@@ -7,9 +7,11 @@ import type { EventMessageName } from '@/i18n/types'
 import type { Category, City, TimeStatus } from '@/i18n/events'
 import { events } from '@/i18n/events'
 import FilterPill from '@/components/FilterPill.vue'
+import IconDetail from '@/components/IconDetail.vue'
 import EventCardSm from '@/components/EventCardSm.vue'
 import EventCard from '@/components/EventCard.vue'
 import { getWeekState } from '@/functions/getWeekState'
+import CtaComponent from '@/components/buttons/CtaComponent.vue'
 
 const { t } = useI18n()
 const eventsMessages = Object.keys(messages.it.events) as EventMessageName[]
@@ -61,6 +63,7 @@ const filteredEvents = computed(() => {
   })
 })
 
+// Add featured event instead of firstEvent, add it as a boolean field that we later filter
 const firstEvent = computed(() => {
   return events[0]
 })
@@ -71,7 +74,12 @@ const firstEvent = computed(() => {
     <h1 class="head-3 mb-4 text-center" data-test="events-header">
       {{ $t(`navbar.sessions`) }}
     </h1>
-    <EventCard :event="firstEvent" featured class="mb-8" />
+    <EventCard :event="firstEvent" featured class="mb-8">
+      <IconDetail v-for="{ icon, id, text } in firstEvent.details" :key="id" :icon="icon" :text="text" />
+      <template #footer>
+        <CtaComponent tertiary :href="firstEvent.ticketHref">Get tickets</CtaComponent>
+      </template>
+    </EventCard>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-x-8 lg:gap-x-16 mb-8">
       <div class="mb-4 flex flex-col">
         <h3 class="mb-2">
