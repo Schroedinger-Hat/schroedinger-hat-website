@@ -17,6 +17,12 @@ interface CtaType {
   href: string | null
 }
 
+interface Detail {
+  id: string
+  icon: string
+  text: string
+}
+
 export interface Event {
   arguments: string
   category: Category
@@ -28,8 +34,9 @@ export interface Event {
   speakers: string
   sponsors?: Sponsor[]
   subtitle?: string
-  ticketHref?: string
+  ticketsURL?: string
   title: string
+  details: Detail[]
   date: {
     day: string
     start: string
@@ -54,6 +61,13 @@ export const events: Event[] = [
     subtitle: 'sh-sessions-qwik-workshop',
     shortDescription: 'A new session with Miško Hevery, creator of Angular, co-creator of KarmaJS and creator of Qwik.',
     description: 'We are starting the Schrodinger Session: a workshop series fully accessible for everyone, from everywhere with the best engineer from the open source world and organization\nThis year we decided to go big!\nIn this edition we are going to have a mid day with Miško Hevery, creator of Angular, co-creator of KarmaJS and creator of Qwik and Giorgio Boa, developer, public speaker and top contributor in Qwik!\nDuring the workshop you are going to do a demo, learn and ask questions directly to Miško and Giorgio.\nThe session will be free for everyone, in livestream and in english.',
+    details: [
+      { id: 'date', icon: 'i-carbon-calendar', text: '2023-06-14' },
+      { id: 'speaker', icon: 'i-carbon-time', text: '9:30 - 21:00' },
+      { id: 'speaker', icon: 'i-carbon-user-speaker', text: 'Miško Hevery' },
+      { id: 'tag', icon: 'i-carbon-tag', text: 'Frontend Development' },
+      { id: 'location', icon: 'i-carbon-location-filled', text: 'Nana bianca, Firenze' },
+    ],
     image: {
       url: 'https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F507565769%2F565692604981%2F1%2Foriginal.20230504-132216?w=940&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C2160%2C1080&s=e7d7490b59e1802ad3d53498f66ca59e',
       alt: 'this image is a placeholder',
@@ -93,7 +107,7 @@ export const events: Event[] = [
         href: null,
       },
     ],
-    ticketHref: 'https://www.wikipedia.org/',
+    ticketsURL: 'https://www.wikipedia.org/',
   },
   {
     id: 2,
@@ -102,6 +116,13 @@ export const events: Event[] = [
     subtitle: 'open-source-day-2023-florence',
     shortDescription: 'A new session with Miško Hevery, creator of Angular, co-creator of KarmaJS and creator of Qwik',
     description: 'Stiamo per tornare con una nuova edizione dell\'Open Source Day. In questa stagione distruggeremo tutto. Unisciti a noi il 24 marzo 2023!',
+    details: [
+      { id: 'date', icon: 'i-carbon-calendar', text: '2023-06-14' },
+      { id: 'speaker', icon: 'i-carbon-time', text: '9:30 - 21:00' },
+      { id: 'speaker', icon: 'i-carbon-user-speaker', text: 'Miško Hevery' },
+      { id: 'tag', icon: 'i-carbon-tag', text: 'Frontend Development' },
+      { id: 'location', icon: 'i-carbon-location-filled', text: 'Nana bianca, Firenze' },
+    ],
     image: {
       url: 'https://images.unsplash.com/photo-1489389944381-3471b5b30f04?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
       alt: 'this image is a placeholder',
@@ -141,7 +162,7 @@ export const events: Event[] = [
         href: 'https://2023.osday.dev',
       },
     ],
-    ticketHref: '#',
+    ticketsURL: '#',
   },
   {
     id: 3,
@@ -150,6 +171,13 @@ export const events: Event[] = [
     subtitle: 'open-source-day-2021-florence-student-hotel',
     shortDescription: 'A new session with Miško Hevery, creator of Angular, co-creator of KarmaJS and creator of Qwik',
     description: 'L\'evento FOSS Explorer digitale dedicato all\'open source si espande e diventa un evento fisico! Speaker & Sviluppatori, stay tuned!',
+    details: [
+      { id: 'date', icon: 'i-carbon-calendar', text: '2023-06-14' },
+      { id: 'speaker', icon: 'i-carbon-time', text: '9:30 - 21:00' },
+      { id: 'speaker', icon: 'i-carbon-user-speaker', text: 'Miško Hevery' },
+      { id: 'tag', icon: 'i-carbon-tag', text: 'Frontend Development' },
+      { id: 'location', icon: 'i-carbon-location-filled', text: 'Nana bianca, Firenze' },
+    ],
     image: {
       url: 'https://images.unsplash.com/photo-1489389944381-3471b5b30f04?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
       alt: 'this image is a placeholder',
@@ -189,7 +217,7 @@ export const events: Event[] = [
         href: null,
       },
     ],
-    ticketHref: '#',
+    ticketsURL: '#',
   },
   {
     id: 4,
@@ -198,6 +226,13 @@ export const events: Event[] = [
     subtitle: 'typing-day-florence-2021-student-hotel',
     shortDescription: 'A new session with Miško Hevery, creator of Angular, co-creator of KarmaJS and creator of Qwik',
     description: 'Il Typing Day è un evento open source che permette a chiunque di intraprendere la carriera da speaker. È inoltre una competizione "Type Racer" che mette in palio una tastiera Keychron',
+    details: [
+      { id: 'date', icon: 'i-carbon-calendar', text: '2023-06-14' },
+      { id: 'speaker', icon: 'i-carbon-time', text: '9:30 - 21:00' },
+      { id: 'speaker', icon: 'i-carbon-user-speaker', text: 'Miško Hevery' },
+      { id: 'tag', icon: 'i-carbon-tag', text: 'Frontend Development' },
+      { id: 'location', icon: 'i-carbon-location-filled', text: 'Nana bianca, Firenze' },
+    ],
     image: {
       url: 'https://images.unsplash.com/photo-1555532538-dcdbd01d373d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1131&q=80',
       alt: 'this image is a placeholder',
@@ -237,136 +272,6 @@ export const events: Event[] = [
         href: null,
       },
     ],
-    ticketHref: '#',
+    ticketsURL: '#',
   },
-  // {
-  //   id: 5,
-  //   category: 'workshop',
-  //   title: 'pluto',
-  //   subtitle: 'sub-pluto',
-  //   description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi pretium tellus sed suscipit vulputate. Quisque diam sapien, pulvinar vel ante.',
-  //   image: {
-  //     url: 'https://picsum.photos/200/300',
-  //     alt: 'this image is a placeholder',
-  //   },
-  //   date: {
-  //     day: '2021-09-23',
-  //     starts_at: '11:00',
-  //     ends_at: '14:00',
-  //   },
-  //   location: {
-  //     name: 'Lampredotteria fierissima',
-  //     city: 'Firenze',
-  //     url: 'https://maps.app.goo.gl/AZuXT249ffyP6JzY9',
-  //   },
-  //   speakers: 'caressa & bergomi',
-  //   arguments: 'frontend',
-  //   community_sponsors: [],
-  //   ctas: [],
-  //   ticketHref: '#',
-  // },
-  // {
-  //   id: 6,
-  //   category: 'workshop',
-  //   title: 'paperino',
-  //   subtitle: 'sub-paperino',
-  //   description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi pretium tellus sed suscipit vulputate. Quisque diam sapien, pulvinar vel ante.',
-  //   image: {
-  //     url: 'https://picsum.photos/200/300',
-  //     alt: 'this image is a placeholder',
-  //   },
-  //   date: {
-  //     day: '2021-09-24',
-  //     starts_at: '19:00',
-  //     ends_at: '23:00',
-  //   },
-  //   location: {
-  //     name: 'Spritzzeria',
-  //     city: 'Verona',
-  //     url: 'https://maps.app.goo.gl/AZuXT249ffyP6JzY9',
-  //   },
-  //   speakers: 'schelotto & di natale',
-  //   arguments: 'backend',
-  //   community_sponsors: [],
-  //   ctas: [],
-  //   ticketHref: '#',
-  // },
-  // {
-  //   id: 7,
-  //   category: 'event',
-  //   title: 'pippo',
-  //   subtitle: 'sub-pippo',
-  //   description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi pretium tellus sed suscipit vulputate. Quisque diam sapien, pulvinar vel ante.',
-  //   image: {
-  //     url: 'https://picsum.photos/200/300',
-  //     alt: 'this image is a placeholder',
-  //   },
-  //   date: {
-  //     day: '2021-09-21',
-  //     starts_at: '18:00',
-  //     ends_at: '21:00',
-  //   },
-  //   location: {
-  //     name: 'Polenta e osei',
-  //     city: 'Verona',
-  //     url: 'https://maps.app.goo.gl/AZuXT249ffyP6JzY9',
-  //   },
-  //   speakers: 'totti & cassano',
-  //   arguments: 'devOPS',
-  //   community_sponsors: [],
-  //   ctas: [],
-  //   ticketHref: '#',
-  // },
-  // {
-  //   id: 8,
-  //   category: 'workshop',
-  //   title: 'pluto',
-  //   subtitle: 'sub-pluto',
-  //   description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi pretium tellus sed suscipit vulputate. Quisque diam sapien, pulvinar vel ante.',
-  //   image: {
-  //     url: 'https://picsum.photos/200/300',
-  //     alt: 'this image is a placeholder',
-  //   },
-  //   date: {
-  //     day: '2021-09-23',
-  //     starts_at: '11:00',
-  //     ends_at: '14:00',
-  //   },
-  //   location: {
-  //     name: 'Ape amio',
-  //     city: 'Milano',
-  //     url: 'https://maps.app.goo.gl/AZuXT249ffyP6JzY9',
-  //   },
-  //   speakers: 'caressa & bergomi',
-  //   arguments: 'frontend',
-  //   community_sponsors: [],
-  //   ctas: [],
-  //   ticketHref: '#',
-  // },
-  // {
-  //   id: 9,
-  //   category: 'workshop',
-  //   title: 'paperino',
-  //   subtitle: 'sub-paperino',
-  //   description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi pretium tellus sed suscipit vulputate. Quisque diam sapien, pulvinar vel ante.',
-  //   image: {
-  //     url: 'https://picsum.photos/200/300',
-  //     alt: 'this image is a placeholder',
-  //   },
-  //   date: {
-  //     day: '2021-09-24',
-  //     starts_at: '19:00',
-  //     ends_at: '23:00',
-  //   },
-  //   location: {
-  //     name: 'Via degli dei',
-  //     city: 'Firenze',
-  //     url: 'https://maps.app.goo.gl/AZuXT249ffyP6JzY9',
-  //   },
-  //   speakers: 'schelotto & di natale',
-  //   arguments: 'backend',
-  //   community_sponsors: [],
-  //   ctas: [],
-  //   ticketHref: '#',
-  // },
 ]
