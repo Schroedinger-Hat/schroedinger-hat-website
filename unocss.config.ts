@@ -1,6 +1,14 @@
 import { defineConfig, presetAttributify, presetIcons, presetUno, presetWebFonts } from 'unocss'
 
 export default defineConfig({
+  // Find better way to do this https://unocss.dev/guide/extracting#safelist
+  safelist: [
+    'i-carbon-calendar',
+    'i-carbon-time',
+    'i-carbon-user-speaker',
+    'i-carbon-tag',
+    'i-carbon-location-filled',
+  ],
   presets: [
     // See: https://unocss.dev/presets/attributify
     presetAttributify(),
@@ -12,7 +20,6 @@ export default defineConfig({
     presetWebFonts(),
   ],
   theme: {
-    // ...
     colors: {
       light: {
         text: {
