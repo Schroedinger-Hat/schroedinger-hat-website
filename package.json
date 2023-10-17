@@ -34,9 +34,10 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.40.2",
+    "@iconify-json/carbon": "^1.1.21",
     "@types/node": "^20.4.8",
     "@unocss/preset-attributify": "^0.54.2",
-    "@unocss/preset-icons": "^0.54.2",
+    "@unocss/preset-icons": "^0.54.3",
     "@unocss/preset-uno": "^0.54.2",
     "@unocss/preset-web-fonts": "^0.54.2",
     "@vitejs/plugin-vue": "^4.0.0",
