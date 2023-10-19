@@ -32,7 +32,7 @@ useHead({
   <div v-else class="team">
     <div class="container">
       <div class="content">
-        <h1 data-test="member-page-name" class="head-1">
+        <h1 data-test="member-page-name" class="head-1" tabindex="0">
           {{ $t(`team.${member}.name`) }}
         </h1>
         <div>
@@ -78,6 +78,7 @@ useHead({
         <div
           class="description !p-2"
           data-test="member-page-description"
+          tabindex="0"
           v-html="$t(`team.${member}.description`)"
         />
 
