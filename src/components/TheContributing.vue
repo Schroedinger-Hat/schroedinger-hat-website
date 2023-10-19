@@ -16,10 +16,10 @@ const SHGitHubWebsiteRepo = 'https://github.com/Schrodinger-Hat/schrodinger-hat-
     <div class="bg-secondary py-30">
       <div class="container contributing-container-text">
         <div class="inner-text">
-          <h2 data-test="contributing-title">
+          <h2 data-test="contributing-title" tabindex="0">
             {{ $t('contributing.title') }}
           </h2>
-          <p data-test="contributing-description">
+          <p data-test="contributing-description" tabindex="0">
             <!-- TODO: Find a way to write this text better -->
             <b>Schrödinger Hat</b> {{ $t('contributing.is-a-project') }}
             <a
@@ -30,7 +30,7 @@ const SHGitHubWebsiteRepo = 'https://github.com/Schrodinger-Hat/schrodinger-hat-
             >GitHub
             </a>.
           </p>
-          <p data-test="contributing-cta">
+          <p data-test="contributing-cta" tabindex="0">
             {{ $t('contributing.cta') }}
             <a
               data-test="contributing-github-website-link"
@@ -114,7 +114,7 @@ const SHGitHubWebsiteRepo = 'https://github.com/Schrodinger-Hat/schrodinger-hat-
         </div>
         <div class="inner-text" data-test="contributing-partners">
           <!-- TODO: Add title to messages -->
-          <h2 style="padding: 15px 0" data-test="contributing-partners-title">
+          <h2 style="padding: 15px 0" data-test="contributing-partners-title" tabindex="0">
             Community Partners
           </h2>
           <div class="partner-image" data-test="contributing-partners-logo">
