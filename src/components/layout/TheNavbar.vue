@@ -97,6 +97,7 @@ watch(showMenu, value => (value ? scrollLock.value = true : scrollLock.value = f
           target="_blank"
         />
         <CtaIcon
+          aria-label="open mobile menu"
           class="md:hidden"
           data-test="nav-burger-menu-cta"
           icon="fas fa-hamburger"
