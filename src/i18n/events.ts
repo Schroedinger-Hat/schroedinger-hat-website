@@ -25,6 +25,7 @@ interface Detail {
 
 export interface Event {
   arguments: string
+  overline?: string
   category: Category
   community_sponsors?: Sponsor[]
   ctas?: CtaType[]
@@ -112,7 +113,7 @@ export const events: Event[] = [
   {
     id: 2,
     category: 'event',
-    title: 'Open Source Day 2023 - Firenze',
+    title: 'Open Source Day 2023',
     subtitle: 'open-source-day-2023-florence',
     shortDescription: 'A new session with Miško Hevery, creator of Angular, co-creator of KarmaJS and creator of Qwik',
     description: 'Stiamo per tornare con una nuova edizione dell\'Open Source Day. In questa stagione distruggeremo tutto. Unisciti a noi il 24 marzo 2023!',
@@ -207,61 +208,6 @@ export const events: Event[] = [
       {
         id: 'sign-up',
         href: 'https://www.eventbrite.it/e/biglietti-open-source-day-2021-firenze-166034195749',
-      },
-      {
-        id: 'video',
-        href: 'https://www.youtube.com/watch?v=_kN3QgaZkcs',
-      },
-      {
-        id: 'website',
-        href: null,
-      },
-    ],
-    ticketsURL: '#',
-  },
-  {
-    id: 4,
-    category: 'event',
-    title: 'Typing Day 2021 - Florence',
-    subtitle: 'typing-day-florence-2021-student-hotel',
-    shortDescription: 'A new session with Miško Hevery, creator of Angular, co-creator of KarmaJS and creator of Qwik',
-    description: 'Il Typing Day è un evento open source che permette a chiunque di intraprendere la carriera da speaker. È inoltre una competizione "Type Racer" che mette in palio una tastiera Keychron',
-    details: [
-      { id: 'date', icon: 'i-carbon-calendar', text: '2023-06-14' },
-      { id: 'speaker', icon: 'i-carbon-time', text: '9:30 - 21:00' },
-      { id: 'speaker', icon: 'i-carbon-user-speaker', text: 'Miško Hevery' },
-      { id: 'tag', icon: 'i-carbon-tag', text: 'Frontend Development' },
-      { id: 'location', icon: 'i-carbon-location-filled', text: 'Nana bianca, Firenze' },
-    ],
-    image: {
-      url: 'https://images.unsplash.com/photo-1555532538-dcdbd01d373d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1131&q=80',
-      alt: 'this image is a placeholder',
-    },
-    date: {
-      day: '2021-10-23',
-      start: '16:00',
-      end: '18:00',
-    },
-    location: {
-      name: 'The Student Hotel, Firenze',
-      city: 'Firenze',
-      url: 'https://www.google.es/maps/place/The+Student+Hotel+Florence+Lavagnini/@43.7822111,11.251005,17z/data=!3m1!4b1!4m8!3m7!1s0x132a541e08073c43:0x67b49ce676d42454!5m2!4m1!1i2!8m2!3d43.7821888!4d11.2532025',
-    },
-    speakers: '-',
-    arguments: '-',
-    community_sponsors: [],
-    ctas: [
-      {
-        id: 'cfp',
-        href: null,
-      },
-      {
-        id: 'donation',
-        href: 'https://opencollective.com/schrodinger-hat',
-      },
-      {
-        id: 'sign-up',
-        href: null,
       },
       {
         id: 'video',
