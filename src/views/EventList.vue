@@ -74,7 +74,7 @@ const firstEvent = computed(() => {
       {{ $t(`navbar.sessions`) }}
     </h1>
     <EventCard :event="firstEvent" featured class="mb-8">
-      <IconDetail v-for="{ icon, id, text } in firstEvent.details" :key="id" :icon="icon" :text="text" />
+      <IconDetail v-for="{ id, text } in firstEvent.details" :id="id" :key="id" :text="text" />
       <template #footer>
         <CtaComponent tertiary :href="firstEvent.ticketsURL">Get tickets</CtaComponent>
       </template>
@@ -109,9 +109,9 @@ const firstEvent = computed(() => {
     <div v-if="filteredEvents.length === 0" class="flex flex-col items-center">
       Nessun elemento trovato
     </div>
-    <div v-else class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 md:gap-6 2xl:gap-8">
+    <div v-else class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3 md:gap-6 2xl:gap-8">
       <EventCard v-for="event in filteredEvents" :key="event.id" :event="event">
-        <IconDetail v-for="{ icon, id, text } in event.details" :key="id" :icon="icon" :text="text" />
+        <IconDetail v-for="{ id, text } in event.details" :id="id" :key="id" :text="text" />
       </EventCard>
     </div>
   </main>
