@@ -1,17 +1,14 @@
 <script setup lang="ts">
-import type { Event } from '@/i18n/events'
+import type { EventData } from '@/i18n/events/index'
 
 defineProps<{
-  event: Event
+  event: EventData
   featured?: boolean
 }>()
 </script>
 
 <template>
-  <article
-    class="card rounded-3 border border-slate-200/30 bg-dark-bg-secondary"
-    :class="{ featured }"
-  >
+  <article class="card rounded-3 border border-slate-200/30 bg-dark-bg-secondary" :class="{ featured }">
     <div class="flex flex-col p-9 basis-2/6 space-y-3 lg:space-y-5">
       <div v-if="!featured" class="capitalize">{{ event.category }}</div>
       <div>
