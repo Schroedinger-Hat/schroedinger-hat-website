@@ -2,17 +2,29 @@ import OSDay2023 from '@/i18n/events/event/osday-23.json'
 import OSDay2021 from '@/i18n/events/event/osday-21.json'
 import Qwik0623 from '@/i18n/events/session/qwik-06-23.json'
 
-interface EventData {
-  id: string | number
+interface Detail {
+  id: string
+  text: string
+}
+
+export interface EventData {
+  arguments: string
   category: string
-  title: string
-  subtitle: string
-  shortDescription: string
+  community_sponsors: any[]
   description: string
-  details: {
+  featured: boolean
+  id: string | number
+  overline?: string
+  shortDescription: string
+  speakers: string
+  subtitle: string
+  title: string
+  ctas: {
     id: string
-    text: string
+    href: string | null
   }[]
+  ticketsURL: string
+  details: Detail[]
   image: {
     url: string
     alt: string
@@ -27,14 +39,6 @@ interface EventData {
     city: string
     url: string
   }
-  speakers: string
-  arguments: string
-  community_sponsors: any[]
-  ctas: {
-    id: string
-    href: string | null
-  }[]
-  ticketsURL: string
 }
 
 interface EventJSON {

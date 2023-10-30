@@ -1,11 +1,12 @@
 {
   "en": {
     "id": "osday2023",
+    "featured": true,
     "category": "event",
-    "title": "Open Source Day 2021",
-    "subtitle": "open-source-day-2021-florence-student-hotel",
-    "shortDescription": "A new session with Miško Hevery, creator of Angular, co-creator of KarmaJS and creator of Qwik",
-    "description": "L'evento FOSS Explorer digitale dedicato all'open source si espande e diventa un evento fisico! Speaker & Sviluppatori, stay tuned!",
+    "title": "Open Source Day 2023",
+    "subtitle": "Open source day 2023",
+    "shortDescription": "New version of Open Source 2023",
+    "description": "The event based around OSS",
     "details": [
       {
         "id": "date",
@@ -71,11 +72,12 @@
   },
   "it": {
     "id": 3,
+    "featured": true,
     "category": "event",
-    "title": "Open Source Day 2021",
-    "subtitle": "open-source-day-2021-florence-student-hotel",
-    "shortDescription": "A new session with Miško Hevery, creator of Angular, co-creator of KarmaJS and creator of Qwik",
-    "description": "L'evento FOSS Explorer digitale dedicato all'open source si espande e diventa un evento fisico! Speaker & Sviluppatori, stay tuned!",
+    "title": "Open Source Day 2023",
+    "subtitle": "Open source day 2023",
+    "shortDescription": "New version of Open Source 2023",
+    "description": "The event based around OSS",
     "details": [
       {
         "id": "date",

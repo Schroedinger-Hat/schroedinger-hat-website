@@ -1,11 +1,12 @@
 {
   "en": {
-    "id": "osday2023",
-    "category": "event",
-    "title": "Open Source Day 2021",
-    "subtitle": "open-source-day-2021-florence-student-hotel",
+    "id": "qwik-06-23",
+    "featured": false,
+    "category": "session",
+    "title": "SH Sessions: Qwik",
+    "subtitle": "sh-sessions-qwik-workshop",
     "shortDescription": "A new session with Miško Hevery, creator of Angular, co-creator of KarmaJS and creator of Qwik",
-    "description": "L'evento FOSS Explorer digitale dedicato all'open source si espande e diventa un evento fisico! Speaker & Sviluppatori, stay tuned!",
+    "description": "We are starting the Schrodinger Session: a workshop series fully accessible for everyone, from everywhere with the best engineer from the open source world and organization\nThis year we decided to go big!\nIn this edition we are going to have a mid day with Miško Hevery, creator of Angular, co-creator of KarmaJS and creator of Qwik and Giorgio Boa, developer, public speaker and top contributor in Qwik!\nDuring the workshop you are going to do a demo, learn and ask questions directly to Miško and Giorgio.\nThe session will be free for everyone, in livestream and in english.",
     "details": [
       {
         "id": "date",
@@ -71,11 +72,12 @@
   },
   "it": {
     "id": 3,
-    "category": "event",
-    "title": "Open Source Day 2021",
-    "subtitle": "open-source-day-2021-florence-student-hotel",
-    "shortDescription": "A new session with Miško Hevery, creator of Angular, co-creator of KarmaJS and creator of Qwik",
-    "description": "L'evento FOSS Explorer digitale dedicato all'open source si espande e diventa un evento fisico! Speaker & Sviluppatori, stay tuned!",
+    "featured": false,
+    "category": "session",
+    "title": "SH Sessions: Qwik",
+    "subtitle": "sh-sessions-qwik-workshop",
+    "shortDescription": "Una nuova session con Miško Hevery, creatore di Angular, co-creatore di KarmaJS e creatore di Qwik",
+    "description": "Stiamo avviando la Session di Schrödinger Hat: una serie di workshop completamente accessibile per tutti, da qualsiasi luogo, con i migliori ingegneri del mondo open source e organizzazioni.",
     "details": [
       {
         "id": "date",
@@ -99,7 +101,7 @@
       }
     ],
     "image": {
-      "url": "https://images.unsplash.com/photo-1489389944381-3471b5b30f04?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
+      "url": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F507565769%2F565692604981%2F1%2Foriginal.20230504-132216?w=940&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C2160%2C1080&s=e7d7490b59e1802ad3d53498f66ca59e",
       "alt": "this image is a placeholder"
     },
     "date": {

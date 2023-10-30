@@ -2,6 +2,7 @@
   "en": {
     "id": "osday2021",
     "category": "event",
+    "featured": false,
     "title": "Open Source Day 2021",
     "subtitle": "open-source-day-2021-florence-student-hotel",
     "shortDescription": "A new session with Miško Hevery, creator of Angular, co-creator of KarmaJS and creator of Qwik",
@@ -72,6 +73,7 @@
   "it": {
     "id": 3,
     "category": "event",
+    "featured": false,
     "title": "Open Source Day 2021",
     "subtitle": "open-source-day-2021-florence-student-hotel",
     "shortDescription": "A new session with Miško Hevery, creator of Angular, co-creator of KarmaJS and creator of Qwik",
