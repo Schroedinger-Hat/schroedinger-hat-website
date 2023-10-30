@@ -19,7 +19,7 @@ defineProps<{
       <div v-if="$slots.default" class="flex-grow flex flex-col justify-center items-start">
         <slot />
       </div>
-      <div v-if="$slots.footer" class="flex-grow">
+      <div v-if="$slots.footer" class="flex-grow flex justify-start items-center">
         <slot name="footer" />
       </div>
     </div>

@@ -35,6 +35,9 @@ useHead({
     <div class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3 md:gap-6 2xl:gap-8">
       <EventCard v-for="event in notFeaturedEvents" :key="event.id" :event="event">
         <IconDetail v-for="{ id, text } in event.details" :id="id" :key="id" :text="text" />
+        <template #footer>
+          <CtaComponent tertiary :href="event.ticketsURL">Get tickets</CtaComponent>
+        </template>
       </EventCard>
     </div>
   </main>
