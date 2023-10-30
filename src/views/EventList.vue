@@ -2,7 +2,7 @@
 import { useHead } from '@unhead/vue'
 import { useI18n } from 'vue-i18n'
 import { computed } from 'vue'
-import type { EventData } from '../i18n/events/index'
+import type { EventData } from '@/i18n/events/index'
 import messages from '@/i18n/messages'
 import type { LanguageCodes } from '@/i18n/types'
 import IconDetail from '@/components/IconDetail.vue'
