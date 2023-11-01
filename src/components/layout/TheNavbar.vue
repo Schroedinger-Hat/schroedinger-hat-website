@@ -24,7 +24,7 @@ const links = [
     to: 'Team',
     test: 'team-page-link',
     text: 'navbar.team',
-    ariaText: 'Team',
+    ariaText: 'navbar.team',
   },
   {
     href: '/',
@@ -32,7 +32,7 @@ const links = [
     to: 'EventList',
     test: 'event-page-link',
     text: 'navbar.events',
-    ariaText: 'Eventi',
+    ariaText: 'navbar.events',
   },
   {
     href: '/',
@@ -40,7 +40,7 @@ const links = [
     test: 'code-page-link',
     text: 'navbar.codeOfConduct',
     to: 'CodeOfConduct',
-    ariaText: 'Codice di condotta',
+    ariaText: 'navbar.codeOfConduct',
   },
   {
     href: 'https://ign.schrodinger-hat.it',
@@ -48,7 +48,7 @@ const links = [
     target: '_blank',
     test: 'IGN-link',
     text: 'navbar.imageGoNord',
-    ariaText: 'Navigate to ImageGoNord page',
+    ariaText: 'navbar.imageGoNord',
   },
 ]
 
@@ -58,6 +58,12 @@ const ghCTA = {
   id: 'GitHub',
   test: 'github-cta',
   text: 'navbar.gitHub',
+  ariaText: 'navbar.gitHub',
+}
+
+const ariaLabelsCTA = {
+  openMenu: 'navbar.ariaLabelCTA.openMenu',
+  toggleIcon: 'navbar.ariaLabelCTA.toggleIcon',
 }
 
 const [showMenu, toggleMenu] = useToggle()
@@ -79,7 +85,7 @@ watch(showMenu, value => (value ? scrollLock.value = true : scrollLock.value = f
         <CtaComponent
           v-for="{ id, href, to, text, test, target, ariaText } in links"
           :key="id"
-          :aria-text="ariaText"
+          :aria-text="$t(ariaText as string)"
           :data-test="`data-${test}`"
           :to="to ? { name: to } : null"
           :href="href"
@@ -90,21 +96,21 @@ watch(showMenu, value => (value ? scrollLock.value = true : scrollLock.value = f
           <span>{{ $t(text as string) }}</span>
         </CtaComponent>
         <CtaIcon
-          aria-label="Visit to our Github Page"
+          :aria-label="$t(ghCTA.ariaText as string)"
           :data-test="ghCTA.test"
           :href="ghCTA.href"
           :icon="ghCTA.icon"
           target="_blank"
         />
         <CtaIcon
-          aria-label="open mobile menu"
+          :aria-label="$t(ariaLabelsCTA.openMenu as string)"
           class="md:hidden"
           data-test="nav-burger-menu-cta"
           icon="fas fa-hamburger"
           @click="toggleMenu()"
         />
         <CtaIcon
-          aria-label="themeIcon"
+          :aria-label="$t(ariaLabelsCTA.toggleIcon as string)"
           :icon="`fas ${themeIcon}`"
           data-test="nav-theme-icon"
           @click="toggleDark()"
