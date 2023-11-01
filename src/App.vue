@@ -29,8 +29,8 @@ useHead({
 <style lang="scss">
 body {
   font-family: 'Red Hat Display', sans-serif;
-  font-size: rem(16px);
   -moz-osx-font-smoothing: grayscale;
+  font-size: rem(16px);
   -webkit-font-smoothing: antialiased;
   font-variant-ligatures: none;
   letter-spacing: 0;

@@ -30,6 +30,7 @@ export interface EventData {
     alt: string
   }
   date: {
+    // TODO: Add UTC object for date
     day: string
     start: string
     end: string
