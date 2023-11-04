@@ -35,10 +35,6 @@ const messages = {
       codeOfConduct: 'Codice di Condotta',
       imageGoNord: 'ImageGoNord',
       gitHub: 'GitHub',
-      ariaLabelCTA: {
-        openMenu: 'Apri il menù mobile',
-        toggleIcon: 'Cambia fra tema chiaro e scuro',
-      },
     },
     main: {
       h1: 'Una community open source italiana',
@@ -306,6 +302,12 @@ const messages = {
         ],
       },
     },
+    accessibility: {
+      navbar: {
+        openMenu: 'Apri il menù mobile',
+        toggleIcon: 'Cambia fra tema chiaro e scuro',
+      },
+    },
   },
   en: {
     head: {
@@ -345,10 +347,6 @@ const messages = {
       codeOfConduct: 'Code of Conduct',
       imageGoNord: 'ImageGoNord',
       gitHub: 'GitHub',
-      ariaLabelCTA: {
-        openMenu: 'Open mobile menu',
-        toggleIcon: 'Toggle between light and dark mode',
-      },
     },
     main: {
       h1: 'Schrödinger Hat',
@@ -615,6 +613,12 @@ const messages = {
             value: null,
           },
         ],
+      },
+    },
+    accessibility: {
+      navbar: {
+        openMenu: 'Open mobile menu',
+        toggleIcon: 'Toggle between light and dark mode',
       },
     },
   },

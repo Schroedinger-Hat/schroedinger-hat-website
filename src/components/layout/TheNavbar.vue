@@ -62,8 +62,8 @@ const ghCTA = {
 }
 
 const ariaLabelsCTA = {
-  openMenu: 'navbar.ariaLabelCTA.openMenu',
-  toggleIcon: 'navbar.ariaLabelCTA.toggleIcon',
+  openMenu: 'accessibility.navbar.openMenu',
+  toggleIcon: 'accessibility.navbar.toggleIcon',
 }
 
 const [showMenu, toggleMenu] = useToggle()
