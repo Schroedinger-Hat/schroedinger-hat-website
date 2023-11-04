@@ -25,7 +25,11 @@ export default defineConfig({
     },
   },
   plugins: [
-    vue(),
+    vue({
+      script: {
+        defineModel: true,
+      },
+    }),
     UnoCSS(),
   ],
 })
