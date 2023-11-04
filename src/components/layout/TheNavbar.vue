@@ -61,11 +61,6 @@ const ghCTA = {
   ariaText: 'navbar.gitHub',
 }
 
-const ariaLabelsCTA = {
-  openMenu: 'accessibility.navbar.openMenu',
-  toggleIcon: 'accessibility.navbar.toggleIcon',
-}
-
 const [showMenu, toggleMenu] = useToggle()
 const scrollLock = useGlobalScrollLock()
 const isDark = useDark()
@@ -103,14 +98,14 @@ watch(showMenu, value => (value ? scrollLock.value = true : scrollLock.value = f
           target="_blank"
         />
         <CtaIcon
-          :aria-label="$t(ariaLabelsCTA.openMenu as string)"
+          :aria-label="$t('accessibility.navbar.openMenu' as string)"
           class="md:hidden"
           data-test="nav-burger-menu-cta"
           icon="fas fa-hamburger"
           @click="toggleMenu()"
         />
         <CtaIcon
-          :aria-label="$t(ariaLabelsCTA.toggleIcon as string)"
+          :aria-label="$t('accessibility.navbar.toggleIcon' as string)"
           :icon="`fas ${themeIcon}`"
           data-test="nav-theme-icon"
           @click="toggleDark()"

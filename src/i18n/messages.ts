@@ -304,7 +304,7 @@ const messages = {
     },
     accessibility: {
       navbar: {
-        openMenu: 'Apri il menù mobile',
+        openMenu: 'Apri il menu mobile',
         toggleIcon: 'Cambia fra tema chiaro e scuro',
       },
     },
