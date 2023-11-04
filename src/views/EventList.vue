@@ -1,13 +1,14 @@
 <script setup lang="ts">
 import { useHead } from '@unhead/vue'
 import { useI18n } from 'vue-i18n'
-import { computed, readonly, ref } from 'vue'
+import { computed, ref } from 'vue'
 import type { EventData } from '@/i18n/events/index'
 import messages from '@/i18n/messages'
 import type { LanguageCodes } from '@/i18n/types'
 import IconDetail from '@/components/IconDetail.vue'
 import EventCard from '@/components/EventCard.vue'
 import CtaComponent from '@/components/buttons/CtaComponent.vue'
+import EventForm from '@/components/EventForm.vue'
 
 const { t, locale } = useI18n()
 const events = computed(() => messages[locale.value as LanguageCodes].events)
@@ -16,15 +17,9 @@ const featuredEvent = computed(() => events.value.find(event => event.featured))
 const notFeaturedEvents = computed(() => events.value.filter(event => !event.featured))
 
 const filters = ref({
-  category: undefined,
-  city: undefined,
-  date: undefined,
-})
-
-const options = readonly({
-  categories: computed(() => new Set(events.value.map(event => event.category))),
-  cities: computed(() => new Set(events.value.map(event => event.location.city))),
-  dates: computed(() => new Set(events.value.map(event => event.date.day))),
+  category: 'all',
+  city: 'all',
+  date: 'all',
 })
 
 useHead({
@@ -44,35 +39,12 @@ useHead({
         <CtaComponent tertiary :href="featuredEvent.ticketsURL">Get tickets</CtaComponent>
       </template>
     </EventCard>
-    <form class="flex justify-evenly items-center mb-8">
-      <div>
-        <label for="cities" class="block">Location</label>
-        <select id="cities" v-model="filters.city" name="Cities" class="p-1 bg-dark-bg-secondary rounded-lg">
-          <option disabled value="">Please select one...</option>
-          <option v-for="city in options.cities" :key="city" :value="city">
-            {{ city }}
-          </option>
-        </select>
-      </div>
-      <div>
-        <label for="categories" class="block">Category</label>
-        <select id="categories" v-model="filters.category" name="Categories" class="capitalize p-1 bg-dark-bg-secondary">
-          <option disabled value="">Please select one...</option>
-          <option v-for="category in options.categories" :key="category" :value="category">
-            {{ category }}
-          </option>
-        </select>
-      </div>
-      <div>
-        <label for="dates" class="block">Dates</label>
-        <select id="dates" v-model="filters.date" name="Dates" class="p-1 bg-dark-bg-secondary">
-          <option disabled value="">Please select one...</option>
-          <option v-for="date in options.dates" :key="date" :value="date">
-            {{ date }}
-          </option>
-        </select>
-      </div>
-    </form>
+    <EventForm
+      v-model:model-category="filters.category"
+      v-model:model-city="filters.city"
+      v-model:model-date="filters.date"
+      :events="events"
+    />
     <div class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3 md:gap-6 2xl:gap-8">
       <EventCard v-for="event in notFeaturedEvents" :key="event.id" :event="event">
         <IconDetail v-for="{ id, text } in event.details" :id="id" :key="id" :text="text" />
