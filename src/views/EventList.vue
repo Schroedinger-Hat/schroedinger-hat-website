@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useHead } from '@unhead/vue'
 import { useI18n } from 'vue-i18n'
-import { computed, ref } from 'vue'
+import { computed, readonly, ref } from 'vue'
 import type { EventData } from '@/i18n/events/index'
 import messages from '@/i18n/messages'
 import type { LanguageCodes } from '@/i18n/types'
@@ -21,7 +21,7 @@ const filters = ref({
   date: undefined,
 })
 
-const options = ref({
+const options = readonly({
   categories: computed(() => new Set(events.value.map(event => event.category))),
   cities: computed(() => new Set(events.value.map(event => event.location.city))),
   dates: computed(() => new Set(events.value.map(event => event.date.day))),
