@@ -307,6 +307,14 @@ const messages = {
         openMenu: 'Apri il menu mobile',
         toggleIcon: 'Cambia fra tema chiaro e scuro',
       },
+      contributing: {
+        openCollective_label: 'Visita la nostra pagina OpenCollective',
+        facebook_label: 'Visita la nostra pagina Facebook',
+        twitter_label: 'Visita la nostra pagina Twitter',
+        linkedin_label: 'Visita il nostro profilo Linkedin',
+        instagram_label: 'Visita la nostra pagina Instagram',
+        discord_label: 'Entra nel nostro server Discord',
+      },
     },
   },
   en: {
@@ -619,6 +627,14 @@ const messages = {
       navbar: {
         openMenu: 'Open mobile menu',
         toggleIcon: 'Toggle between light and dark mode',
+      },
+      contributing: {
+        openCollective_label: 'Visit our OpenCollective page',
+        facebook_label: 'Visit our Facebook page',
+        twitter_label: 'Visit our Twitter page',
+        linkedin_label: 'Visit our Linkedin profile',
+        instagram_label: 'Visit our Instagram page',
+        discord_label: 'Join our Discord server',
       },
     },
   },
