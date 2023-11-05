@@ -321,6 +321,12 @@ const messages = {
         twitter: 'Profilo twitte di {name}',
         website: 'Sito web di {name}',
       },
+      teamMember: {
+        github: 'Pagina github di {name}',
+        linkedin: 'Pagina Linkedin di {name}',
+        twitter: 'Profilo twitte di {name}',
+        website: 'Sito web di {name}',
+      },
     },
   },
   en: {
@@ -643,6 +649,12 @@ const messages = {
         discord_label: 'Join our Discord server',
       },
       teamPage: {
+        github: 'Github page of {name}',
+        linkedin: 'Linkedin profile of {name}',
+        twitter: 'Twitter profile of {name}',
+        website: 'Website of {name}',
+      },
+      teamMember: {
         github: 'Github page of {name}',
         linkedin: 'Linkedin profile of {name}',
         twitter: 'Twitter profile of {name}',
