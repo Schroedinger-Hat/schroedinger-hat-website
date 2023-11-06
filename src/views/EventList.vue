@@ -13,14 +13,23 @@ import EventForm from '@/components/EventForm.vue'
 const { t, locale } = useI18n()
 const events = computed(() => messages[locale.value as LanguageCodes].events)
 
-const featuredEvent = computed(() => events.value.find(event => event.featured))
-const notFeaturedEvents = computed(() => events.value.filter(event => !event.featured))
-
 const filters = ref({
-  category: 'all',
-  city: 'all',
-  date: 'all',
+  category: undefined,
+  city: undefined,
+  date: undefined,
 })
+
+const calculateDate = (dateFilter: number, date: string) => {
+  return Number(date.split('-')[1]) === dateFilter
+}
+
+const featuredEvent = computed(() => events.value.find(event => event.featured))
+const notFeaturedEvents = computed(() => events.value.filter((event) => {
+  const categoryCondition = !filters.value.category || event.category === filters.value.category
+  const cityCondition = !filters.value.city || event.location.city === filters.value.city
+  const dateCondition = !filters.value.date || calculateDate(filters.value.date, event.date.day)
+  return categoryCondition && cityCondition && dateCondition && !event.featured
+}))
 
 useHead({
   title: t('head.events.title'),
@@ -45,7 +54,7 @@ useHead({
       v-model:model-date="filters.date"
       :events="events"
     />
-    <div class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3 md:gap-6 2xl:gap-8">
+    <div v-if="notFeaturedEvents.length" class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3 md:gap-6 2xl:gap-8">
       <EventCard v-for="event in notFeaturedEvents" :key="event.id" :event="event">
         <IconDetail v-for="{ id, text } in event.details" :id="id" :key="id" :text="text" />
         <template #footer>
@@ -53,5 +62,6 @@ useHead({
         </template>
       </EventCard>
     </div>
+    <div v-else class="head-6 pt-4 text-center">No events yet, want to organize one?</div>
   </main>
 </template>
