@@ -30,6 +30,20 @@ const messages = {
         'video': 'Video',
         'website': 'Visita il sito',
       },
+      months: {
+        1: 'Gennaio',
+        2: 'Febbraio',
+        3: 'Marzo',
+        4: 'Aprile',
+        5: 'Maggio',
+        6: 'Giugnio',
+        7: 'Luglio',
+        8: 'Agosto',
+        9: 'Settembre',
+        10: 'Ottobre',
+        11: 'Novembre',
+        12: 'Dicembre',
+      },
     },
     navbar: {
       team: 'Team',
@@ -198,6 +212,20 @@ const messages = {
         'video': 'Video',
         'website': 'Visit website',
       },
+      months: {
+        1: 'January',
+        2: 'February',
+        3: 'March',
+        4: 'April',
+        5: 'May',
+        6: 'June',
+        7: 'July',
+        8: 'August',
+        9: 'September',
+        10: 'October',
+        11: 'November',
+        12: 'December',
+      },
     },
     // TODO: Organize this messages on their respective pages
     navbar: {
@@ -334,7 +362,7 @@ const messages = {
         permalink: 'davideimola',
       },
     },
-    events: events.it,
+    events: events.en,
   },
 }
 export default messages
