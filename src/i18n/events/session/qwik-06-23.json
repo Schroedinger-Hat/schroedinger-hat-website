@@ -30,7 +30,7 @@
       }
     ],
     "image": {
-      "url": "https://images.unsplash.com/photo-1489389944381-3471b5b30f04?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
+      "url": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F507565769%2F565692604981%2F1%2Foriginal.20230504-132216?w=940&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C2160%2C1080&s=e7d7490b59e1802ad3d53498f66ca59e",
       "alt": "this image is a placeholder"
     },
     "date": {
@@ -39,8 +39,8 @@
       "end": "21:00"
     },
     "location": {
-      "name": "The Student Hotel, Firenze",
-      "city": "Firenze",
+      "name": "The Student Hotel, Florence",
+      "city": "Florence",
       "url": "https://goo.gl/maps/jEwB3GoBdF2ueNGY8"
     },
     "speakers": "-",
@@ -71,7 +71,7 @@
     "ticketsURL": "#"
   },
   "it": {
-    "id": 3,
+    "id": "qwik-06-23",
     "featured": false,
     "category": "session",
     "title": "SH Sessions: Qwik",

@@ -71,13 +71,13 @@
     "ticketsURL": "#"
   },
   "it": {
-    "id": 3,
+    "id": "osday2023",
     "featured": true,
     "category": "event",
     "title": "Open Source Day 2023",
     "subtitle": "Open source day 2023",
-    "shortDescription": "New version of Open Source 2023",
-    "description": "The event based around OSS",
+    "shortDescription": "Piccola desc",
+    "description": "Evento Open Source",
     "details": [
       {
         "id": "date",

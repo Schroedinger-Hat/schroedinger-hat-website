@@ -6,7 +6,7 @@
     "title": "Open Source Day 2021",
     "subtitle": "open-source-day-2021-florence-student-hotel",
     "shortDescription": "A new session with Miško Hevery, creator of Angular, co-creator of KarmaJS and creator of Qwik",
-    "description": "L'evento FOSS Explorer digitale dedicato all'open source si espande e diventa un evento fisico! Speaker & Sviluppatori, stay tuned!",
+    "description": "ENGLISH DESC",
     "details": [
       {
         "id": "date",
@@ -39,8 +39,8 @@
       "end": "21:00"
     },
     "location": {
-      "name": "The Student Hotel, Firenze",
-      "city": "Firenze",
+      "name": "The Student Hotel, Florence",
+      "city": "Florence",
       "url": "https://goo.gl/maps/jEwB3GoBdF2ueNGY8"
     },
     "speakers": "-",
@@ -71,12 +71,12 @@
     "ticketsURL": "#"
   },
   "it": {
-    "id": 3,
+    "id": "osday2021",
     "category": "event",
     "featured": false,
     "title": "Open Source Day 2021",
     "subtitle": "open-source-day-2021-florence-student-hotel",
-    "shortDescription": "A new session with Miško Hevery, creator of Angular, co-creator of KarmaJS and creator of Qwik",
+    "shortDescription": "Italian short desc",
     "description": "L'evento FOSS Explorer digitale dedicato all'open source si espande e diventa un evento fisico! Speaker & Sviluppatori, stay tuned!",
     "details": [
       {
