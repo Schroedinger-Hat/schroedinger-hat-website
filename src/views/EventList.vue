@@ -19,17 +19,37 @@ const filters = ref({
   date: undefined,
 })
 
-const calculateDate = (dateFilter: number, date: string) => {
-  return Number(date.split('-')[1]) === dateFilter
-}
+const calculateDate = (dateFilter: number, date: string) => Number(date.split('-')[1]) === dateFilter
 
 const featuredEvent = computed(() => events.value.find(event => event.featured))
-const notFeaturedEvents = computed(() => events.value.filter((event) => {
-  const categoryCondition = !filters.value.category || event.category === filters.value.category
-  const cityCondition = !filters.value.city || event.location.city === filters.value.city
-  const dateCondition = !filters.value.date || calculateDate(filters.value.date, event.date.day)
-  return categoryCondition && cityCondition && dateCondition && !event.featured
-}))
+const notFeaturedEvents = computed(() => {
+  const filteredEvents = events.value.filter((event) => {
+    const categoryCondition = !filters.value.category || event.category === filters.value.category
+    const cityCondition = !filters.value.city || event.location.city === filters.value.city
+    const dateCondition = !filters.value.date || calculateDate(filters.value.date, event.date.day)
+    return categoryCondition && cityCondition && dateCondition && !event.featured
+  })
+
+  const sortEvents = (events: EventData[]) => {
+    const getYear = (date: string) => Number(date.split('-')[0])
+    const getMonth = (date: string) => Number(date.split('-')[1])
+    const getDay = (date: string) => Number(date.split('-')[2])
+
+    return events.sort((a, b) => {
+      const yearDiff = getYear(b.date.day) - getYear(a.date.day)
+      if (yearDiff !== 0)
+        return yearDiff
+
+      const monthDiff = getMonth(b.date.day) - getMonth(a.date.day)
+      if (monthDiff !== 0)
+        return monthDiff
+
+      return getDay(b.date.day) - getDay(a.date.day)
+    })
+  }
+
+  return sortEvents(filteredEvents)
+})
 
 useHead({
   title: t('head.events.title'),
