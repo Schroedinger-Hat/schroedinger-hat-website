@@ -19,7 +19,7 @@ const filters = ref({
   date: undefined,
 })
 
-const calculateDate = (dateFilter: number, date: string) => Number(date.split('-')[1]) === dateFilter
+const calculateDate = (dateFilter: number, date: string) => Number(date.split('/')[1]) === dateFilter
 
 const featuredEvent = computed(() => events.value.find(event => event.featured))
 const notFeaturedEvents = computed(() => {
@@ -31,9 +31,9 @@ const notFeaturedEvents = computed(() => {
   })
 
   const sortEvents = (events: EventData[]) => {
-    const getYear = (date: string) => Number(date.split('-')[0])
-    const getMonth = (date: string) => Number(date.split('-')[1])
-    const getDay = (date: string) => Number(date.split('-')[2])
+    const getYear = (date: string) => Number(date.split('/')[0])
+    const getMonth = (date: string) => Number(date.split('/')[1])
+    const getDay = (date: string) => Number(date.split('/')[2])
 
     return events.sort((a, b) => {
       const yearDiff = getYear(b.date.day) - getYear(a.date.day)
