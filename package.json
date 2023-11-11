@@ -25,7 +25,6 @@
     "@unocss/reset": "^0.54.2",
     "@vueuse/core": "^10.1.0",
     "cypress": "^12.17.3",
-    "dayjs": "^1.11.10",
     "register-service-worker": "^1.7.2",
     "vue": "^3.3.4",
     "vue-i18n": "^9.2.2",
@@ -34,7 +33,6 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.40.2",
-    "@iconify-json/carbon": "^1.1.21",
     "@iconify/vue": "^4.1.1",
     "@types/node": "^20.4.8",
     "@unocss/preset-attributify": "^0.54.2",
