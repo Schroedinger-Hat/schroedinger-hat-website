@@ -1,6 +1,7 @@
 import OSDay2023 from '@/i18n/events/event/osday-23.json'
 import OSDay2021 from '@/i18n/events/event/osday-21.json'
 import Qwik0623 from '@/i18n/events/session/qwik-06-23.json'
+import Page from '@/i18n/events/page.json'
 
 interface Detail {
   id: string
@@ -46,19 +47,26 @@ interface EventJSON {
   it: EventData
 }
 
-const groupEventByLanguage = () => {
-  const events: EventJSON[] = [OSDay2023, OSDay2021, Qwik0623]
+interface LanguageItem<P> {
+  en: P
+  it: P
+}
 
-  const group = events.reduce(
-    (acc, ev) => {
-      acc.en.push(ev.en)
-      acc.it.push(ev.it)
+const groupByLanguage = <T>(items: LanguageItem<T>[]) => {
+  const group = items.reduce(
+    (acc, item) => {
+      acc.en.push(item.en)
+      acc.it.push(item.it)
       return acc
     },
-    { en: [] as EventData[], it: [] as EventData[] },
+    { en: [] as T[], it: [] as T[] },
   )
-
   return group
 }
 
-export const events = groupEventByLanguage()
+const eventsJSON: EventJSON[] = [OSDay2021, OSDay2023, Qwik0623]
+
+export const messages = {
+  data: groupByLanguage(eventsJSON),
+  copy: Page,
+}

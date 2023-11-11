@@ -1,4 +1,4 @@
-import { events } from '@/i18n/events/index'
+import { messages as eventMessages } from '@/i18n/events/index'
 
 const messages = {
   it: {
@@ -21,29 +21,14 @@ const messages = {
         meta: { name: 'Team - Schrödinger Hat', content: 'Il nostro team' },
       },
     },
+    page: {
+      events: {
+        data: eventMessages.data.it,
+        copy: eventMessages.copy.it,
+      },
+    },
     message: {
       common: { 'read-more': 'Leggi di più' },
-      event: {
-        'cfp': 'CFP',
-        'donation': 'Supportaci',
-        'sign-up': 'Registrati',
-        'video': 'Video',
-        'website': 'Visita il sito',
-      },
-      months: {
-        1: 'Gennaio',
-        2: 'Febbraio',
-        3: 'Marzo',
-        4: 'Aprile',
-        5: 'Maggio',
-        6: 'Giugnio',
-        7: 'Luglio',
-        8: 'Agosto',
-        9: 'Settembre',
-        10: 'Ottobre',
-        11: 'Novembre',
-        12: 'Dicembre',
-      },
     },
     navbar: {
       team: 'Team',
@@ -180,7 +165,7 @@ const messages = {
         permalink: 'davideimola',
       },
     },
-    events: events.it,
+    events: eventMessages.data.it,
   },
   en: {
     head: {
@@ -203,29 +188,14 @@ const messages = {
         meta: { name: 'Team - Schrödinger Hat', content: 'Our team' },
       },
     },
+    page: {
+      events: {
+        data: eventMessages.data.en,
+        copy: eventMessages.copy.en,
+      },
+    },
     message: {
       common: { 'read-more': 'Read more' },
-      event: {
-        'cfp': 'CFP',
-        'donation': 'Support us',
-        'sign-up': 'Sign up',
-        'video': 'Video',
-        'website': 'Visit website',
-      },
-      months: {
-        1: 'January',
-        2: 'February',
-        3: 'March',
-        4: 'April',
-        5: 'May',
-        6: 'June',
-        7: 'July',
-        8: 'August',
-        9: 'September',
-        10: 'October',
-        11: 'November',
-        12: 'December',
-      },
     },
     // TODO: Organize this messages on their respective pages
     navbar: {
@@ -362,7 +332,6 @@ const messages = {
         permalink: 'davideimola',
       },
     },
-    events: events.en,
   },
 }
 export default messages
