@@ -19,10 +19,21 @@ const options = readonly({
 
 <template>
   <form class="flex flex-col lg:flex-row justify-evenly items-center mb-8">
-    <EventFormSelect v-model:model="modelCity" :items="options.cities" item-name="Location" />
-    <EventFormSelect v-model:model="modelCategory" :items="options.categories" item-name="Categories" />
-    <EventFormSelect v-model:model="modelDate" item-name="Dates">
-      <option v-for="month, index in $tm('message.months')" :key="month" :value="Number(index)">
+    <EventFormSelect
+      v-model:model="modelCity"
+      :items="options.cities"
+      :item-name="$t('page.events.copy.form.items.location')"
+    />
+    <EventFormSelect
+      v-model:model="modelCategory"
+      :items="options.categories"
+      :item-name="$t('page.events.copy.form.items.categories')"
+    />
+    <EventFormSelect
+      v-model:model="modelDate"
+      :item-name="$t('page.events.copy.form.items.dates')"
+    >
+      <option v-for="month, index in $tm('page.events.copy.form.months')" :key="month" :value="Number(index)">
         {{ month }}
       </option>
     </EventFormSelect>
