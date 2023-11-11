@@ -11,7 +11,7 @@ import CtaComponent from '@/components/buttons/CtaComponent.vue'
 import EventForm from '@/components/EventForm.vue'
 
 const { t, locale } = useI18n()
-const events = computed(() => messages[locale.value as LanguageCodes].events)
+const events = computed(() => messages[locale.value as LanguageCodes].page.events.data)
 
 const filters = ref({
   category: undefined,
