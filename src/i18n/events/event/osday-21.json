@@ -4,47 +4,43 @@
     "category": "event",
     "featured": false,
     "headline": null,
-    "ticketsURL": "#",
+    "ticketsURL": null,
     "title": "Open Source Day 2021",
     "details": [
       {
         "id": "date",
-        "value": "2021-03-21"
+        "value": "2021-09-21"
       },
       {
         "id": "time",
         "value": "9:30 - 21:00"
       },
       {
-        "id": "speaker",
-        "value": "Miško Hevery"
-      },
-      {
         "id": "tag",
-        "value": "Frontend Development"
+        "value": "Open Source Software"
       },
       {
         "id": "location",
-        "value": "Florence"
+        "value": "The Student Hotel, Florence"
       }
     ],
     "description": {
       "long": "The event based around OSS",
-      "short": "New version of Open Source 2021 is a short description but imma make it super long"
+      "short": "The digital FOSS Explorer event dedicated to open source expands and becomes a physical event!"
     },
     "image": {
-      "alt": "this image is a placeholder",
-      "URL": "https://images.unsplash.com/photo-1489389944381-3471b5b30f04?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
+      "alt": "Schrödinger Hat Logo",
+      "URL": null
     },
     "location": {
-      "name": "Nana Bianca",
+      "name": "The Student Hotel",
       "city": "Florence",
       "URL": "https://goo.gl/maps/jEwB3GoBdF2ueNGY8"
     },
     "schedule": {
-      "date": "2021-03-21",
-      "start": "9:30",
-      "end": "18"
+      "date": "2021-09-21",
+      "start": "18:00",
+      "end": "21:00"
     }
   },
   "it": {
@@ -52,48 +48,43 @@
     "category": "event",
     "featured": false,
     "headline": null,
-    "ticketsURL": "#",
+    "ticketsURL": null,
     "title": "Open Source Day 2021",
     "details": [
       {
         "id": "date",
-        "value": "2021-03-21"
+        "value": "2021-09-21"
       },
       {
         "id": "time",
         "value": "9:30 - 21:00"
       },
       {
-        "id": "speaker",
-        "value": "Miško Hevery"
-      },
-      {
         "id": "tag",
-        "value": "Sviluppo Frontend"
+        "value": "Open Source Software"
       },
       {
         "id": "location",
-        "value": "Firenze"
+        "value": "The Student Hotel, Florence"
       }
     ],
     "description": {
       "long": "Evento basato su OSS",
-      "short": "Nuova versione 2021"
+      "short": "L'evento digital FOSS Explorer dedicato al software open source si espande e diventa un evento fisico!"
     },
     "image": {
-      "alt": "Questa immagine è un placeholder",
-      "URL": "https://images.unsplash.com/photo-1489389944381-3471b5b30f04?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
+      "alt": "Schrödinger Hat Logo",
+      "URL": null
     },
     "location": {
-      "name": "Nana Bianca",
+      "name": "The Student Hotel",
       "city": "Firenze",
       "URL": "https://goo.gl/maps/jEwB3GoBdF2ueNGY8"
     },
     "schedule": {
-      "date": "2021-03-21",
+      "date": "2021-09-21",
       "start": "9:30",
-      "end": "18",
-      "date": "2021-03-07T09:00:00.00Z"
+      "end": "18:00"
     }
   }
 }

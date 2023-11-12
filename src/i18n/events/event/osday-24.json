@@ -4,7 +4,7 @@
     "category": "event",
     "featured": true,
     "headline": null,
-    "ticketsURL": "#",
+    "ticketsURL": null,
     "title": "Open Source Day 2024",
     "details": [
       {
@@ -16,16 +16,12 @@
         "value": "9:30 - 21:00"
       },
       {
-        "id": "speaker",
-        "value": "Miško Hevery"
-      },
-      {
         "id": "tag",
-        "value": "Frontend Development"
+        "value": "Open Source Software"
       },
       {
         "id": "location",
-        "value": "Berlin"
+        "value": "Florence"
       }
     ],
     "description": {
@@ -33,18 +29,18 @@
       "short": "New version of Open Source 2024"
     },
     "image": {
-      "URL": "https://images.unsplash.com/photo-1489389944381-3471b5b30f04?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
-      "alt": "this image is a placeholder"
+      "URL": null,
+      "alt": "Schrödinger Hat"
     },
     "location": {
       "name": "Nana Bianca",
-      "city": "Berlin",
+      "city": "Florence",
       "URL": "https://goo.gl/maps/jEwB3GoBdF2ueNGY8"
     },
     "schedule": {
       "date": "2023-03-24",
       "start": "9:30",
-      "end": "18"
+      "end": "18:00"
     }
   },
   "it": {
@@ -52,7 +48,7 @@
     "category": "event",
     "featured": true,
     "headline": null,
-    "ticketsURL": "#",
+    "ticketsURL": null,
     "title": "Open Source Day 2024",
     "details": [
       {
@@ -64,16 +60,12 @@
         "value": "9:30 - 21:00"
       },
       {
-        "id": "speaker",
-        "value": "Miško Hevery"
-      },
-      {
         "id": "tag",
-        "value": "Frontend Development"
+        "value": "Open Source Software"
       },
       {
         "id": "location",
-        "value": "Berlin"
+        "value": "Firenze"
       }
     ],
     "description": {
@@ -81,18 +73,18 @@
       "short": "Nuova versione del Open Source Day"
     },
     "image": {
-      "URL": "https://images.unsplash.com/photo-1489389944381-3471b5b30f04?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
-      "alt": "Questa immagine è un placeholder"
+      "URL": null,
+      "alt": "Schrödinger Hat"
     },
     "location": {
       "name": "Nana Bianca",
-      "city": "Berlin",
+      "city": "Firenze",
       "URL": "https://goo.gl/maps/jEwB3GoBdF2ueNGY8"
     },
     "schedule": {
       "date": "2023-03-07",
       "start": "9:30",
-      "end": "18"
+      "end": "18:00"
     }
   }
 }
