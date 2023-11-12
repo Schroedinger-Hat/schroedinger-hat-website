@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { EventData } from '@/i18n/events/index'
+import type { Event } from '@/i18n/events/index'
 
 defineProps<{
-  event: EventData
+  event: Event
   featured?: boolean
 }>()
 </script>
@@ -12,7 +12,7 @@ defineProps<{
     <div class="flex-grow flex flex-col p-9 space-y-3 lg:space-y-5">
       <div v-if="!featured" class="capitalize">{{ event.category }}</div>
       <div>
-        <h3 v-if="event.overline" class="head-5">{{ event.headline }}</h3>
+        <h3 v-if="event.headline" class="head-5">{{ event.headline }}</h3>
         <h3 class="head-5">{{ event.title }}</h3>
       </div>
       <p class="flex-grow flex justify-start items-center text-md">{{ event.description.short }}</p>
