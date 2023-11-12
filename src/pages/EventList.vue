@@ -20,35 +20,18 @@ const filters = ref({
 })
 
 const featuredEvent = computed(() => events.value.find(event => event.featured))
+
 const notFeaturedEvents = computed(() => {
-  const calculateDate = (dateFilter: number, date: string) => Number(date.split('/')[1]) === dateFilter
+  const calculateDate = (condition: number, date: string) => Number(date.split('T')[0].split('-')[1]) === condition
 
   const filteredEvents = events.value.filter((event) => {
     const categoryCondition = !filters.value.category || event.category === filters.value.category
     const cityCondition = !filters.value.city || event.location.city === filters.value.city
-    const dateCondition = !filters.value.date || calculateDate(filters.value.date, event.schedule.day)
+    const dateCondition = !filters.value.date || calculateDate(filters.value.date, event.schedule.date)
     return categoryCondition && cityCondition && dateCondition && !event.featured
   })
 
-  const sortEvents = (events: Event[]) => {
-    const getYear = (date: string) => Number(date.split('/')[0])
-    const getMonth = (date: string) => Number(date.split('/')[1])
-    const getDay = (date: string) => Number(date.split('/')[2])
-
-    return events.sort((a, b) => {
-      const yearDiff = getYear(b.schedule.day) - getYear(a.schedule.day)
-      if (yearDiff !== 0)
-        return yearDiff
-
-      const monthDiff = getMonth(b.schedule.day) - getMonth(a.schedule.day)
-      if (monthDiff !== 0)
-        return monthDiff
-
-      return getDay(b.schedule.day) - getDay(a.schedule.day)
-    })
-  }
-
-  return sortEvents(filteredEvents)
+  return filteredEvents.sort((a, b) => new Date(b.schedule.date).getTime() - new Date(a.schedule.date).getTime())
 })
 
 useHead({
@@ -63,12 +46,7 @@ useHead({
       {{ $t(`navbar.events`) }}
     </h1>
     <EventCard v-if="featuredEvent" :event="featuredEvent as Event" featured class="mx-auto mb-8">
-      <IconDetail
-        v-for="{ id, value } in featuredEvent.details"
-        :id="id"
-        :key="id"
-        :value="value"
-      />
+      <IconDetail v-for="{ id, value } in featuredEvent.details" :id="id" :key="id" :value="value" />
       <template #footer>
         <CtaComponent tertiary :href="featuredEvent.ticketsURL">Get tickets</CtaComponent>
       </template>
@@ -80,9 +58,7 @@ useHead({
       :events="events"
     />
     <TransitionGroup
-      v-if="notFeaturedEvents.length"
-      name="card"
-      tag="section"
+      v-if="notFeaturedEvents.length" name="card" tag="section"
       class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-6 place-items-center"
     >
       <EventCard v-for="event in notFeaturedEvents" :key="event.id" :event="event">
