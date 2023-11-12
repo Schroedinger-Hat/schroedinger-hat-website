@@ -10,9 +10,9 @@ defineProps<{
 <template>
   <article class="card rounded-3 border border-slate-200/30 bg-dark-bg-secondary" :class="{ featured }">
     <div class="flex-grow flex flex-col p-9 space-y-3 lg:space-y-5">
-      <div v-if="!featured" class="capitalize">{{ event.category }}</div>
+      <div class="capitalize">{{ event.category }}</div>
       <div>
-        <h3 v-if="event.headline" class="head-5">{{ event.headline }}</h3>
+        <h3 class="head-5">{{ event.headline }}</h3>
         <h3 class="head-5">{{ event.title }}</h3>
       </div>
       <p class="flex-grow flex justify-start items-center text-md">{{ event.description.short }}</p>
@@ -23,7 +23,7 @@ defineProps<{
         <slot name="footer" />
       </div>
     </div>
-    <figure>
+    <figure class="flex-shrink-0">
       <img :src="event.image.URL" :alt="event.image.alt" class="w-full h-full object-center object-cover">
     </figure>
   </article>
@@ -41,8 +41,8 @@ defineProps<{
   &.featured {
     @include breakpoint(lg) {
       max-width: 100%;
-      height: rem(432px);
-      min-height: unset;
+      height: rem(4px);
+      min-height: rem(540px);
       flex-direction: row;
     }
 
