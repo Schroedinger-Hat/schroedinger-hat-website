@@ -56,12 +56,14 @@ const { component, bindings } = useCtaComponent(useAttrs())
 
 .tertiary {
   border: none;
-  background-color: #ff492b !important;
+  background: rgb(238 0 0) !important;
+  background: linear-gradient(90deg, rgb(238 0 0 / 100%) 0%, rgb(190 30 45 / 100%) 100%) !important;
   color: #fff !important;
+  transition: transform 0.3s ease-in;
 
   @include breakpoint(md) {
     &:hover {
-      background: #FFA798 !important;
+      transform: scale(1.08);
     }
   }
 }
