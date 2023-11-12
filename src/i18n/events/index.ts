@@ -35,7 +35,7 @@ export interface Event {
   id: string
   category: string
   featured: boolean
-  headline: string
+  headline?: string
   ticketsURL: string
   title: string
   details: Detail[]
