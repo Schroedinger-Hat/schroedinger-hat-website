@@ -1,55 +1,58 @@
-import OSDay2023 from '@/i18n/events/event/osday-23.json'
 import OSDay2021 from '@/i18n/events/event/osday-21.json'
+import OSDay2023 from '@/i18n/events/event/osday-23.json'
 import Qwik0623 from '@/i18n/events/session/qwik-06-23.json'
+import Qwik0624 from '@/i18n/events/session/qwik-06-24.json'
 import Page from '@/i18n/events/page.json'
 
 interface Detail {
   id: string
-  text: string
+  value: string
 }
 
-export interface EventData {
-  arguments: string
+interface Description {
+  short: string
+  long: string
+}
+
+interface Location {
+  city: string
+  name: string
+  URL: string
+}
+
+interface Schedule {
+  day: string
+  start: string
+  end: string
+}
+
+interface Image {
+  alt: string
+  URL: string
+}
+
+export interface Event {
+  id: string
   category: string
-  community_sponsors: any[]
-  description: string
   featured: boolean
-  id: string | number
-  overline?: string
-  shortDescription: string
-  speakers: string
-  subtitle: string
-  title: string
-  ctas: {
-    id: string
-    href: string | null
-  }[]
+  headline: string
   ticketsURL: string
+  title: string
   details: Detail[]
-  image: {
-    url: string
-    alt: string
-  }
-  date: {
-    day: string
-    start: string
-    end: string
-  }
-  location: {
-    name: string
-    city: string
-    url: string
-  }
+  description: Description
+  image: Image
+  location: Location
+  schedule: Schedule
 }
 
 interface EventJSON {
-  en: EventData
-  it: EventData
+  en: Event
+  it: Event
 }
 
-interface LanguageItem<P> {
-  en: P
-  it: P
+interface LanguageItem<T> {
+  en: T
+  it: T
 }
 
 const groupByLanguage = <T>(items: LanguageItem<T>[]) => {
@@ -64,7 +67,7 @@ const groupByLanguage = <T>(items: LanguageItem<T>[]) => {
   return group
 }
 
-const eventsJSON: EventJSON[] = [OSDay2021, OSDay2023, Qwik0623]
+const eventsJSON: EventJSON[] = [OSDay2021, OSDay2023, Qwik0623, Qwik0624]
 
 export const messages = {
   data: groupByLanguage(eventsJSON),
