@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { Event } from '@/i18n/events/index'
+import { getAssetURL } from '@/utils/getAssetURL'
 
 defineProps<{
   event: Event
@@ -27,7 +28,7 @@ defineProps<{
       </div>
     </div>
     <figure class="flex-shrink-0">
-      <img :src="event.image.URL" :alt="event.image.alt" class="w-full h-full object-center object-cover">
+      <img :src="event.image.URL ? event.image.URL : getAssetURL('svg/logo-sh.svg')" :alt="event.image.alt" class="w-full h-full object-center object-cover">
     </figure>
   </article>
 </template>
