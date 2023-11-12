@@ -1,20 +1,35 @@
 {
   "en": {
-    "id": "qwik-06-23",
+    "id": "qwik-06-24",
     "category": "session",
     "featured": false,
     "headline": "Session",
     "ticketsURL": "#",
     "title": "Qwik",
     "details": [
-      { "id": "date", "value": "2025/02/22" },
-      { "id": "time", "value": "9:30 - 21:00" },
-      { "id": "speaker", "value": "Miško Hevery" },
-      { "id": "tag", "value": "Frontend Development" },
-      { "id": "location", "value": "Florence" }
+      {
+        "id": "date",
+        "value": "2024/06/22"
+      },
+      {
+        "id": "time",
+        "value": "9:30 - 21:00"
+      },
+      {
+        "id": "speaker",
+        "value": "Miško Hevery"
+      },
+      {
+        "id": "tag",
+        "value": "Frontend Development"
+      },
+      {
+        "id": "location",
+        "value": "Florence"
+      }
     ],
     "description": {
-      "long":  "Session of Schrödinger Hat",
+      "long": "Session of Schrödinger Hat",
       "short": "Session of Schrödinger Hat"
     },
     "image": {
@@ -33,30 +48,45 @@
     }
   },
   "it": {
-    "id": "qwik-06-23",
+    "id": "qwik-06-24",
     "category": "session",
     "featured": false,
     "headline": "Session",
     "ticketsURL": "#",
     "title": "Qwik",
     "details": [
-      { "id": "date", "value": "2025/02/22" },
-      { "id": "time", "value": "9:30 - 21:00" },
-      { "id": "speaker", "value": "Miško Hevery" },
-      { "id": "tag", "value": "Frontend Development" },
-      { "id": "location", "value": "Florence" }
+      {
+        "id": "date",
+        "value": "2024/06/22"
+      },
+      {
+        "id": "time",
+        "value": "9:30 - 21:00"
+      },
+      {
+        "id": "speaker",
+        "value": "Miško Hevery"
+      },
+      {
+        "id": "tag",
+        "value": "Frontend Development"
+      },
+      {
+        "id": "location",
+        "value": "Florence"
+      }
     ],
     "description": {
-      "long":  "Session of Schrödinger Hat",
+      "long": "Session of Schrödinger Hat",
       "short": "Session of Schrödinger Hat"
     },
     "image": {
       "URL": "https://images.unsplash.com/photo-1489389944381-3471b5b30f04?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
-      "alt": "Questa immagine e' un placeholder"
+      "alt": "This image is a placeholder"
     },
     "location": {
       "name": "Nana Bianca",
-      "city": "Firenze",
+      "city": "Florence",
       "URL": "https://goo.gl/maps/jEwB3GoBdF2ueNGY8"
     },
     "schedule": {

@@ -1,144 +1,98 @@
 {
   "en": {
     "id": "osday2023",
-    "featured": true,
     "category": "event",
+    "featured": false,
+    "headline": "Open source day 2023",
+    "ticketsURL": "#",
     "title": "Open Source Day 2023",
-    "subtitle": "Open source day 2023",
-    "shortDescription": "New version of Open Source 2023",
-    "description": "The event based around OSS",
     "details": [
       {
         "id": "date",
-        "text": "2023/03/24"
+        "value": "2023/03/24"
       },
       {
         "id": "time",
-        "text": "9:30 - 21:00"
+        "value": "9:30 - 21:00"
       },
       {
         "id": "speaker",
-        "text": "Miško Hevery"
+        "value": "Miško Hevery"
       },
       {
         "id": "tag",
-        "text": "Frontend Development"
+        "value": "Frontend Development"
       },
       {
         "id": "location",
-        "text": "Berlin"
+        "value": "Berlin"
       }
     ],
-    "image": {
-      "url": "https://images.unsplash.com/photo-1489389944381-3471b5b30f04?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
-      "alt": "this image is a placeholder"
+    "description": {
+      "long": "The event based around OSS",
+      "short": "New version of Open Source 2023"
     },
-    "date": {
-      "day": "2023/04/24",
-      "start": "18:00",
-      "end": "21:00"
+    "image": {
+      "URL": "https://images.unsplash.com/photo-1489389944381-3471b5b30f04?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
+      "alt": "this image is a placeholder"
     },
     "location": {
       "name": "Nana Bianca",
       "city": "Berlin",
-      "url": "https://goo.gl/maps/jEwB3GoBdF2ueNGY8"
+      "URL": "https://goo.gl/maps/jEwB3GoBdF2ueNGY8"
     },
-    "speakers": "-",
-    "arguments": "-",
-    "community_sponsors": [],
-    "ctas": [
-      {
-        "id": "cfp",
-        "href": "https://sessionize.com/open-source-day-2021-florence/"
-      },
-      {
-        "id": "donation",
-        "href": "https://opencollective.com/schrodinger-hat"
-      },
-      {
-        "id": "sign-up",
-        "href": "https://www.eventbrite.it/e/biglietti-open-source-day-2021-firenze-166034195749"
-      },
-      {
-        "id": "video",
-        "href": "https://www.youtube.com/watch?v=_kN3QgaZkcs"
-      },
-      {
-        "id": "website",
-        "href": null
-      }
-    ],
-    "ticketsURL": "#"
+    "schedule": {
+      "day": "2023/03/24",
+      "start": "9:30",
+      "end": "18"
+    }
   },
   "it": {
     "id": "osday2023",
-    "featured": true,
     "category": "event",
+    "featured": false,
+    "headline": "Open Source day 2023",
+    "ticketsURL": "#",
     "title": "Open Source Day 2023",
-    "subtitle": "Open source day 2023",
-    "shortDescription": "Piccola desc",
-    "description": "Evento Open Source",
     "details": [
       {
         "id": "date",
-        "text": "2023/04/24"
+        "value": "2023/03/24"
       },
       {
         "id": "time",
-        "text": "9:30 - 21:00"
+        "value": "9:30 - 21:00"
       },
       {
         "id": "speaker",
-        "text": "Miško Hevery"
+        "value": "Miško Hevery"
       },
       {
         "id": "tag",
-        "text": "Frontend Development"
+        "value": "Frontend Development"
       },
       {
         "id": "location",
-        "text": "Nana bianca, Berlin"
+        "value": "Berlin"
       }
     ],
-    "image": {
-      "url": "https://images.unsplash.com/photo-1489389944381-3471b5b30f04?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
-      "alt": "this image is a placeholder"
+    "description": {
+      "long": "Descrizione lunga",
+      "short": "Nuova versione del Open Source Day"
     },
-    "date": {
-      "day": "2023/04/24",
-      "start": "18:00",
-      "end": "21:00"
+    "image": {
+      "URL": "https://images.unsplash.com/photo-1489389944381-3471b5b30f04?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
+      "alt": "Questa immagine è un placeholder"
     },
     "location": {
-      "name": "The Student Hotel, Berlin",
+      "name": "Nana Bianca",
       "city": "Berlin",
-      "url": "https://goo.gl/maps/jEwB3GoBdF2ueNGY8"
+      "URL": "https://goo.gl/maps/jEwB3GoBdF2ueNGY8"
     },
-    "speakers": "-",
-    "arguments": "-",
-    "community_sponsors": [],
-    "ctas": [
-      {
-        "id": "cfp",
-        "href": "https://sessionize.com/open-source-day-2021-florence/"
-      },
-      {
-        "id": "donation",
-        "href": "https://opencollective.com/schrodinger-hat"
-      },
-      {
-        "id": "sign-up",
-        "href": "https://www.eventbrite.it/e/biglietti-open-source-day-2021-firenze-166034195749"
-      },
-      {
-        "id": "video",
-        "href": "https://www.youtube.com/watch?v=_kN3QgaZkcs"
-      },
-      {
-        "id": "website",
-        "href": null
-      }
-    ],
-    "ticketsURL": "#"
+    "schedule": {
+      "day": "2023/03/24",
+      "start": "9:30",
+      "end": "18"
+    }
   }
 }
