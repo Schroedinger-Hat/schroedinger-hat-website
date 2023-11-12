@@ -2,7 +2,7 @@
 import { useHead } from '@unhead/vue'
 import { useI18n } from 'vue-i18n'
 import { computed, ref } from 'vue'
-import type { EventData } from '@/i18n/events/index'
+import type { Event } from '@/i18n/events/index'
 import messages from '@/i18n/messages'
 import type { LanguageCodes } from '@/i18n/types'
 import IconDetail from '@/components/IconDetail.vue'
@@ -19,32 +19,32 @@ const filters = ref({
   date: undefined,
 })
 
-const calculateDate = (dateFilter: number, date: string) => Number(date.split('/')[1]) === dateFilter
-
 const featuredEvent = computed(() => events.value.find(event => event.featured))
 const notFeaturedEvents = computed(() => {
+  const calculateDate = (dateFilter: number, date: string) => Number(date.split('/')[1]) === dateFilter
+
   const filteredEvents = events.value.filter((event) => {
     const categoryCondition = !filters.value.category || event.category === filters.value.category
     const cityCondition = !filters.value.city || event.location.city === filters.value.city
-    const dateCondition = !filters.value.date || calculateDate(filters.value.date, event.date.day)
+    const dateCondition = !filters.value.date || calculateDate(filters.value.date, event.schedule.day)
     return categoryCondition && cityCondition && dateCondition && !event.featured
   })
 
-  const sortEvents = (events: EventData[]) => {
+  const sortEvents = (events: Event[]) => {
     const getYear = (date: string) => Number(date.split('/')[0])
     const getMonth = (date: string) => Number(date.split('/')[1])
     const getDay = (date: string) => Number(date.split('/')[2])
 
     return events.sort((a, b) => {
-      const yearDiff = getYear(b.date.day) - getYear(a.date.day)
+      const yearDiff = getYear(b.schedule.day) - getYear(a.schedule.day)
       if (yearDiff !== 0)
         return yearDiff
 
-      const monthDiff = getMonth(b.date.day) - getMonth(a.date.day)
+      const monthDiff = getMonth(b.schedule.day) - getMonth(a.schedule.day)
       if (monthDiff !== 0)
         return monthDiff
 
-      return getDay(b.date.day) - getDay(a.date.day)
+      return getDay(b.schedule.day) - getDay(a.schedule.day)
     })
   }
 
@@ -62,8 +62,13 @@ useHead({
     <h1 class="head-3 mb-4 text-center" data-test="events-header">
       {{ $t(`navbar.events`) }}
     </h1>
-    <EventCard v-if="featuredEvent" :event="featuredEvent as EventData" featured class="mx-auto mb-8">
-      <IconDetail v-for="{ id, text } in featuredEvent.details" :id="id" :key="id" :text="text" />
+    <EventCard v-if="featuredEvent" :event="featuredEvent as Event" featured class="mx-auto mb-8">
+      <IconDetail
+        v-for="{ id, value } in featuredEvent.details"
+        :id="id"
+        :key="id"
+        :value="value"
+      />
       <template #footer>
         <CtaComponent tertiary :href="featuredEvent.ticketsURL">Get tickets</CtaComponent>
       </template>
@@ -81,7 +86,7 @@ useHead({
       class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-6 place-items-center"
     >
       <EventCard v-for="event in notFeaturedEvents" :key="event.id" :event="event">
-        <IconDetail v-for="{ id, text } in event.details" :id="id" :key="id" :text="text" />
+        <IconDetail v-for="{ id, value } in event.details" :id="id" :key="id" :value="value" />
         <template #footer>
           <CtaComponent tertiary :href="event.ticketsURL">Get tickets</CtaComponent>
         </template>
