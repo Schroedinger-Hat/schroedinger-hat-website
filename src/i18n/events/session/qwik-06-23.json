@@ -3,18 +3,33 @@
     "id": "qwik-06-23",
     "category": "session",
     "featured": false,
-    "headline": "Session",
+    "headline": null,
     "ticketsURL": "#",
     "title": "Qwik",
     "details": [
-      { "id": "date", "value": "2025/02/22" },
-      { "id": "time", "value": "9:30 - 21:00" },
-      { "id": "speaker", "value": "Miško Hevery" },
-      { "id": "tag", "value": "Frontend Development" },
-      { "id": "location", "value": "Florence" }
+      {
+        "id": "date",
+        "value": "2023-03-23"
+      },
+      {
+        "id": "time",
+        "value": "9:30 - 21:00"
+      },
+      {
+        "id": "speaker",
+        "value": "Miško Hevery"
+      },
+      {
+        "id": "tag",
+        "value": "Frontend Development"
+      },
+      {
+        "id": "location",
+        "value": "Florence"
+      }
     ],
     "description": {
-      "long":  "Session of Schrödinger Hat",
+      "long": "Session of Schrödinger Hat",
       "short": "Session of Schrödinger Hat"
     },
     "image": {
@@ -27,7 +42,7 @@
       "URL": "https://goo.gl/maps/jEwB3GoBdF2ueNGY8"
     },
     "schedule": {
-      "day": "2023/03/24",
+      "date": "2023-03-23",
       "start": "9:30",
       "end": "18"
     }
@@ -36,18 +51,33 @@
     "id": "qwik-06-23",
     "category": "session",
     "featured": false,
-    "headline": "Session",
+    "headline": null,
     "ticketsURL": "#",
     "title": "Qwik",
     "details": [
-      { "id": "date", "value": "2025/02/22" },
-      { "id": "time", "value": "9:30 - 21:00" },
-      { "id": "speaker", "value": "Miško Hevery" },
-      { "id": "tag", "value": "Frontend Development" },
-      { "id": "location", "value": "Florence" }
+      {
+        "id": "date",
+        "value": "2023-03-23"
+      },
+      {
+        "id": "time",
+        "value": "9:30 - 21:00"
+      },
+      {
+        "id": "speaker",
+        "value": "Miško Hevery"
+      },
+      {
+        "id": "tag",
+        "value": "Frontend Development"
+      },
+      {
+        "id": "location",
+        "value": "Florence"
+      }
     ],
     "description": {
-      "long":  "Session of Schrödinger Hat",
+      "long": "Session of Schrödinger Hat",
       "short": "Session of Schrödinger Hat"
     },
     "image": {
@@ -60,7 +90,7 @@
       "URL": "https://goo.gl/maps/jEwB3GoBdF2ueNGY8"
     },
     "schedule": {
-      "day": "2023/03/24",
+      "date": "2023-03-24",
       "start": "9:30",
       "end": "18"
     }
