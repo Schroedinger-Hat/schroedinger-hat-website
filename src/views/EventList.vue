@@ -62,7 +62,7 @@ useHead({
     <h1 class="head-3 mb-4 text-center" data-test="events-header">
       {{ $t(`navbar.events`) }}
     </h1>
-    <EventCard v-if="featuredEvent" :event="featuredEvent as EventData" featured class="mb-8">
+    <EventCard v-if="featuredEvent" :event="featuredEvent as EventData" featured class="mx-auto mb-8">
       <IconDetail v-for="{ id, text } in featuredEvent.details" :id="id" :key="id" :text="text" />
       <template #footer>
         <CtaComponent tertiary :href="featuredEvent.ticketsURL">Get tickets</CtaComponent>
@@ -74,14 +74,37 @@ useHead({
       v-model:model-date="filters.date"
       :events="events"
     />
-    <div v-if="notFeaturedEvents.length" class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3 md:gap-6 2xl:gap-8">
+    <TransitionGroup
+      v-if="notFeaturedEvents.length"
+      name="card"
+      tag="section"
+      class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-6 place-items-center"
+    >
       <EventCard v-for="event in notFeaturedEvents" :key="event.id" :event="event">
         <IconDetail v-for="{ id, text } in event.details" :id="id" :key="id" :text="text" />
         <template #footer>
           <CtaComponent tertiary :href="event.ticketsURL">Get tickets</CtaComponent>
         </template>
       </EventCard>
-    </div>
+    </TransitionGroup>
     <div v-else class="head-6 pt-4 text-center">No events yet, want to organize one?</div>
   </main>
 </template>
+
+<style scoped lang="scss">
+.card-move,
+.card-enter-active,
+.card-leave-active {
+  transition: all 0.3s ease-in-out;
+}
+
+.card-enter-from,
+.card-leave-to {
+  opacity: 0;
+  transform: scale(0);
+}
+
+.card-leave-active {
+  position: absolute;
+}
+</style>
