@@ -13,7 +13,7 @@ const modelDate = defineModel<number>('modelDate')
 
 const options = readonly({
   categories: computed(() => new Set(props.events.map(event => event.category))),
-  cities: computed(() => new Set(props.events.map(event => event.location.city))),
+  cities: computed(() => new Set(props.events.map(event => event.location.city).sort())),
 })
 </script>
 
