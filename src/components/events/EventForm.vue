@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { computed, readonly } from 'vue'
-import type { EventData } from '@/i18n/events/index'
-import EventFormSelect from '@/components/EventFormSelect.vue'
+import type { Event } from '@/i18n/events/index'
+import EventFormSelect from '@/components/events/EventFormSelect.vue'
 
 const props = defineProps<{
-  events: EventData[]
+  events: Event[]
 }>()
 
 const modelCategory = defineModel<string>('modelCategory')
