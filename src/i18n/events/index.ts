@@ -29,7 +29,7 @@ interface Schedule {
 
 interface Image {
   alt: string
-  URL: string
+  URL: string | null
 }
 
 export interface Event {
