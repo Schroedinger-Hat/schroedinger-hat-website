@@ -10,7 +10,10 @@ defineProps<{
 <template>
   <article class="card rounded-3 border border-slate-200/30 bg-dark-bg-secondary" :class="{ featured }">
     <div class="flex-grow flex flex-col p-9 space-y-3 lg:space-y-5">
-      <div class="capitalize">{{ event.category }}</div>
+      <span
+        class="capitalize w-min px-3 py-0.5 rounded-full"
+        :class="`bg-${event.category.toLowerCase()}`"
+      >{{ event.category }}</span>
       <div>
         <h3 class="head-5">{{ event.headline }}</h3>
         <h3 class="head-5">{{ event.title }}</h3>
@@ -47,12 +50,24 @@ defineProps<{
     }
 
     figure {
-      flex-basis: 75%;
+      flex-basis: 70%;
     }
   }
 
   &:not(.featured) figure {
     height: rem(256px);
   }
+}
+
+.bg-event {
+  background: $nord13;
+}
+
+.bg-session {
+  background: $nord14;
+}
+
+.bg-workshop {
+  background: $nord10;
 }
 </style>
