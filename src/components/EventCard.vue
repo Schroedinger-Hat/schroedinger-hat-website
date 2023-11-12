@@ -9,22 +9,22 @@ defineProps<{
 
 <template>
   <article class="card rounded-3 border border-slate-200/30 bg-dark-bg-secondary" :class="{ featured }">
-    <div class="flex flex-col p-9 basis-2/6 space-y-3 lg:space-y-5">
+    <div class="flex-grow flex flex-col p-9 space-y-3 lg:space-y-5">
       <div v-if="!featured" class="capitalize">{{ event.category }}</div>
       <div>
         <h3 v-if="event.overline" class="head-5">{{ event.overline }}</h3>
         <h3 class="head-5">{{ event.title }}</h3>
       </div>
-      <p class="text-md">{{ event.shortDescription }}</p>
+      <p class="flex-grow flex justify-start items-center text-md">{{ event.shortDescription }}</p>
       <div v-if="$slots.default" class="flex-grow flex flex-col justify-center items-start">
         <slot />
       </div>
-      <div v-if="$slots.footer" class="flex-grow flex justify-start items-center">
+      <div v-if="$slots.footer" class="flex justify-start items-center">
         <slot name="footer" />
       </div>
     </div>
-    <figure class="flex basis-4/6">
-      <img :src="event.image.url" :alt="event.image.alt" class="flex-grow w-full h-full object-center object-cover">
+    <figure>
+      <img :src="event.image.url" :alt="event.image.alt" class="w-full h-full object-center object-cover">
     </figure>
   </article>
 </template>
@@ -33,17 +33,26 @@ defineProps<{
 .card {
   display: flex;
   overflow: hidden;
+  max-width: rem(382px);
+  min-height: rem(700px);
   flex-direction: column-reverse;
-
-  &:not(.featured) figure {
-    height: rem(256px);
-  }
+  justify-content: space-between;
 
   &.featured {
     @include breakpoint(lg) {
+      max-width: 100%;
       height: rem(432px);
+      min-height: unset;
       flex-direction: row;
     }
+
+    figure {
+      flex-basis: 75%;
+    }
+  }
+
+  &:not(.featured) figure {
+    height: rem(256px);
   }
 }
 </style>
