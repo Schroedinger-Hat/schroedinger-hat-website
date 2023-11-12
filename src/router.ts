@@ -4,32 +4,32 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: () => import('@/views/PageHome.vue'),
+    component: () => import('@/pages/PageHome.vue'),
   },
   {
     path: '/code-of-conduct',
     name: 'CodeOfConduct',
-    component: () => import('@/views/CodeConduct.vue'),
+    component: () => import('@/pages/CodeConduct.vue'),
   },
   {
     path: '/events',
     name: 'EventList',
-    component: () => import('@/views/EventList.vue'),
+    component: () => import('@/pages/EventList.vue'),
   },
   {
     path: '/events/:event',
     name: 'EventView',
-    component: () => import('@/views/EventView.vue'),
+    component: () => import('@/pages/EventView.vue'),
   },
   {
     path: '/team',
     name: 'Team',
-    component: () => import('@/views/TeamPage.vue'),
+    component: () => import('@/pages/TeamPage.vue'),
   },
   {
     path: '/team/:member',
     name: 'TeamMember',
-    component: () => import('@/views/TeamMember.vue'),
+    component: () => import('@/pages/TeamMember.vue'),
   },
 ]
 

@@ -5,10 +5,10 @@ import { computed, ref } from 'vue'
 import type { Event } from '@/i18n/events/index'
 import messages from '@/i18n/messages'
 import type { LanguageCodes } from '@/i18n/types'
-import IconDetail from '@/components/IconDetail.vue'
-import EventCard from '@/components/EventCard.vue'
+import IconDetail from '@/components/events/IconDetail.vue'
+import EventCard from '@/components/events/EventCard.vue'
 import CtaComponent from '@/components/buttons/CtaComponent.vue'
-import EventForm from '@/components/EventForm.vue'
+import EventForm from '@/components/events/EventForm.vue'
 
 const { t, locale } = useI18n()
 const events = computed(() => messages[locale.value as LanguageCodes].page.events.data)
