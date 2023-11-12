@@ -59,7 +59,7 @@ useHead({
     />
     <TransitionGroup
       v-if="notFeaturedEvents.length" name="card" tag="section"
-      class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-6 place-items-center"
+      class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 place-items-center"
     >
       <EventCard v-for="event in notFeaturedEvents" :key="event.id" :event="event">
         <IconDetail v-for="{ id, value } in event.details" :id="id" :key="id" :value="value" />
