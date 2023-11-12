@@ -12,10 +12,10 @@ defineProps<{
     <div class="flex-grow flex flex-col p-9 space-y-3 lg:space-y-5">
       <div v-if="!featured" class="capitalize">{{ event.category }}</div>
       <div>
-        <h3 v-if="event.overline" class="head-5">{{ event.overline }}</h3>
+        <h3 v-if="event.overline" class="head-5">{{ event.headline }}</h3>
         <h3 class="head-5">{{ event.title }}</h3>
       </div>
-      <p class="flex-grow flex justify-start items-center text-md">{{ event.shortDescription }}</p>
+      <p class="flex-grow flex justify-start items-center text-md">{{ event.description.short }}</p>
       <div v-if="$slots.default" class="flex-grow flex flex-col justify-center items-start">
         <slot />
       </div>
@@ -24,7 +24,7 @@ defineProps<{
       </div>
     </div>
     <figure>
-      <img :src="event.image.url" :alt="event.image.alt" class="w-full h-full object-center object-cover">
+      <img :src="event.image.URL" :alt="event.image.alt" class="w-full h-full object-center object-cover">
     </figure>
   </article>
 </template>

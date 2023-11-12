@@ -3,7 +3,7 @@ import { computed } from 'vue'
 import { Icon } from '@iconify/vue'
 
 const props = defineProps<{
-  text: string
+  value: string
   id: string
 }>()
 
@@ -24,6 +24,6 @@ const icon = computed(() => {
 <template>
   <div class="flex justify-center items-center">
     <Icon :icon="`carbon:${icon}`" class="mr-2" />
-    <span>{{ text }}</span>
+    <span>{{ value }}</span>
   </div>
 </template>
