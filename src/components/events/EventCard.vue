@@ -37,14 +37,14 @@ defineProps<{
 .card {
   display: flex;
   overflow: hidden;
-  max-width: rem(382px);
-  min-height: rem(700px);
+  width: rem(348px);
+  min-height: rem(760px);
   flex-direction: column-reverse;
   justify-content: space-between;
 
   &.featured {
     @include breakpoint(lg) {
-      max-width: 100%;
+      width: 100%;
       height: rem(4px);
       min-height: rem(540px);
       flex-direction: row;
