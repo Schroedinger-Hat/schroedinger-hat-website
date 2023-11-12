@@ -8,12 +8,12 @@ const props = defineProps<{
 }>()
 
 const icon = computed(() => {
-  switch (true) {
-    case props.id === 'date':
+  switch (props.id) {
+    case 'date':
       return 'calendar'
-    case props.id === 'speaker':
+    case 'speaker':
       return 'user-speaker'
-    case props.id === 'location':
+    case 'location':
       return 'location-filled'
     default:
       return props.id
