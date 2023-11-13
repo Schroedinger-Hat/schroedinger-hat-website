@@ -51,7 +51,12 @@ defineProps<{
     }
 
     figure {
-      flex-basis: 70%;
+      height: rem(256px);
+
+      @include breakpoint(lg) {
+        height: auto;
+        flex-basis: 70%;
+      }
     }
   }
 
