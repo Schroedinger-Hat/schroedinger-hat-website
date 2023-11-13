@@ -31,7 +31,14 @@ const notFeaturedEvents = computed(() => {
     return categoryCondition && cityCondition && dateCondition && !event.featured
   })
 
-  return filteredEvents.sort((a, b) => new Date(b.schedule.date).getTime() - new Date(a.schedule.date).getTime())
+  const sortedEvents = filteredEvents.sort((a, b) => new Date(b.schedule.date).getTime() - new Date(a.schedule.date).getTime())
+
+  return sortedEvents.map((event) => {
+    return {
+      ...event,
+      valid: Date.now() < new Date(event.schedule.date).getTime(),
+    }
+  })
 })
 
 useHead({
@@ -58,13 +65,15 @@ useHead({
       :events="events"
     />
     <TransitionGroup
-      v-if="notFeaturedEvents.length" name="card" tag="section"
+      v-if="notFeaturedEvents.length"
+      name="card"
+      tag="section"
       class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 place-items-center"
     >
       <EventCard v-for="event in notFeaturedEvents" :key="event.id" :event="event">
         <IconDetail v-for="{ id, value } in event.details" :id="id" :key="id" :value="value" />
         <template #footer>
-          <CtaComponent tertiary :href="event.ticketsURL">Get tickets</CtaComponent>
+          <CtaComponent v-if="event.valid" tertiary :href="event.ticketsURL">Get tickets</CtaComponent>
         </template>
       </EventCard>
     </TransitionGroup>
