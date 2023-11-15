@@ -318,13 +318,13 @@ const messages = {
       teamPage: {
         github: 'Pagina github di {name}',
         linkedin: 'Pagina Linkedin di {name}',
-        twitter: 'Profilo twitte di {name}',
+        twitter: 'Profilo twitter di {name}',
         website: 'Sito web di {name}',
       },
       teamMember: {
         github: 'Pagina github di {name}',
         linkedin: 'Pagina Linkedin di {name}',
-        twitter: 'Profilo twitte di {name}',
+        twitter: 'Profilo twitter di {name}',
         website: 'Sito web di {name}',
       },
     },
