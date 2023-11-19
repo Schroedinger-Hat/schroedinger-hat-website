@@ -6,6 +6,7 @@ import CtaComponent from '@/components/buttons/CtaComponent.vue'
 
 const props = defineProps<{
   events: Event[]
+  hidePastEvents: boolean
 }>()
 
 defineEmits<{
@@ -42,6 +43,10 @@ const options = readonly({
         {{ month }}
       </option>
     </EventFormSelect>
-    <CtaComponent tertiary @click.prevent="$emit('toggleEvents')">Toggle past events</CtaComponent>
+    <CtaComponent tertiary @click.prevent="$emit('toggleEvents')">
+      {{ hidePastEvents
+        ? $t('page.events.copy.form.items.pastEvents.hide')
+        : $t('page.events.copy.form.items.pastEvents.show') }}
+    </CtaComponent>
   </form>
 </template>
