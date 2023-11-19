@@ -6,7 +6,11 @@
       "items": {
         "location": "Location",
         "categories": "Categories",
-        "dates": "Dates"
+        "dates": "Dates",
+        "pastEvents": {
+          "show": "Show past events",
+          "hide": "Hide past events"
+        }
       },
       "months": {
         "1": "January",
@@ -30,7 +34,12 @@
       "items": {
         "location": "Locazioni",
         "categories": "Categorie",
-        "dates": "Date"
+        "dates": "Date",
+        "pastEvents": {
+          "show": "Mostra past events",
+          "hide": "Nascondi past events"
+        }
+
       },
       "months": {
         "1": "Gennaio",
