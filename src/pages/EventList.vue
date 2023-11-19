@@ -66,6 +66,7 @@ useHead({
       v-model:model-city="filters.city"
       v-model:model-date="filters.date"
       :events="events"
+      :hide-past-events="filters.hidePastEvents"
       @toggle-events="filters.hidePastEvents = !filters.hidePastEvents"
     />
     <TransitionGroup
