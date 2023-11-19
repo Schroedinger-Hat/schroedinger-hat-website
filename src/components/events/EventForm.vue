@@ -2,9 +2,14 @@
 import { computed, readonly } from 'vue'
 import type { Event } from '@/i18n/events/index'
 import EventFormSelect from '@/components/events/EventFormSelect.vue'
+import CtaComponent from '@/components/buttons/CtaComponent.vue'
 
 const props = defineProps<{
   events: Event[]
+}>()
+
+defineEmits<{
+  toggleEvents: []
 }>()
 
 const modelCategory = defineModel<string>('modelCategory')
@@ -37,5 +42,6 @@ const options = readonly({
         {{ month }}
       </option>
     </EventFormSelect>
+    <CtaComponent tertiary @click.prevent="$emit('toggleEvents')">Toggle past events</CtaComponent>
   </form>
 </template>
