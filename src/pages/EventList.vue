@@ -17,28 +17,31 @@ const filters = ref({
   category: undefined,
   city: undefined,
   date: undefined,
+  hidePastEvents: false,
 })
 
 const featuredEvent = computed(() => events.value.find(event => event.featured))
 
 const notFeaturedEvents = computed(() => {
-  const calculateDate = (condition: number, date: string) => Number(date.split('T')[0].split('-')[1]) === condition
+  const isSameMonth = (date: string, condition: number) => Number(new Date(date).getMonth() + 1) === condition
 
   const filteredEvents = events.value.filter((event) => {
     const categoryCondition = !filters.value.category || event.category === filters.value.category
     const cityCondition = !filters.value.city || event.location.city === filters.value.city
-    const dateCondition = !filters.value.date || calculateDate(filters.value.date, event.schedule.date)
+    const dateCondition = !filters.value.date || isSameMonth(event.schedule.date, filters.value.date)
     return categoryCondition && cityCondition && dateCondition && !event.featured
   })
 
   const sortedEvents = filteredEvents.sort((a, b) => new Date(b.schedule.date).getTime() - new Date(a.schedule.date).getTime())
 
-  return sortedEvents.map((event) => {
-    return {
-      ...event,
-      valid: Date.now() < new Date(event.schedule.date).getTime(),
-    }
-  })
+  const filteredPastEvents = filters.value.hidePastEvents
+    ? sortedEvents.filter(event => new Date(event.schedule.date).getTime() > Date.now())
+    : sortedEvents
+
+  return filteredPastEvents.map(event => ({
+    ...event,
+    valid: Date.now() < new Date(event.schedule.date).getTime(),
+  }))
 })
 
 useHead({
@@ -63,6 +66,7 @@ useHead({
       v-model:model-city="filters.city"
       v-model:model-date="filters.date"
       :events="events"
+      @toggle-events="filters.hidePastEvents = !filters.hidePastEvents"
     />
     <TransitionGroup
       v-if="notFeaturedEvents.length"
