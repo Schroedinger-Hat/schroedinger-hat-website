@@ -2,13 +2,15 @@
 import { useHead } from '@unhead/vue'
 import { useI18n } from 'vue-i18n'
 import { computed, ref } from 'vue'
-import type { Event } from '@/i18n/events/index'
-import messages from '@/i18n/messages'
-import type { LanguageCodes } from '@/i18n/types'
-import IconDetail from '@/components/events/IconDetail.vue'
-import EventCard from '@/components/events/EventCard.vue'
-import CtaComponent from '@/components/buttons/CtaComponent.vue'
-import EventForm from '@/components/events/EventForm.vue'
+import IconDetail from '@components/events/IconDetail.vue'
+import EventCard from '@components/events/EventCard.vue'
+import CtaComponent from '@components/buttons/CtaComponent.vue'
+import EventForm from '@components/events/EventForm.vue'
+import type { LanguageCodes } from '@i18n/types'
+import messages from '@i18n/messages'
+import type { Event } from '@i18n/events/index'
+
+const SESSIONS_LINK = 'https://github.com/Schrodinger-Hat/sh-sessions/issues/new/choose'
 
 const { t, locale } = useI18n()
 const events = computed(() => messages[locale.value as LanguageCodes].page.events.data)
@@ -51,11 +53,11 @@ useHead({
 </script>
 
 <template>
-  <main class="w-full p-8 max-w-7xl mx-auto">
-    <h1 class="head-3 mb-4 text-center" data-test="events-header">
+  <main w-full p-8 max-w-7xl mx-auto>
+    <h1 class="head-3" mb-4 text-center data-test="events-header">
       {{ $t(`navbar.events`) }}
     </h1>
-    <EventCard v-if="featuredEvent" :event="featuredEvent as Event" featured class="mx-auto mb-8">
+    <EventCard v-if="featuredEvent" :event="featuredEvent as Event" featured mx-auto mb-8>
       <IconDetail v-for="{ id, value } in featuredEvent.details" :id="id" :key="id" :value="value" />
       <template #footer>
         <CtaComponent tertiary :href="featuredEvent.ticketsURL">Get tickets</CtaComponent>
@@ -70,10 +72,8 @@ useHead({
       @toggle-events="filters.hidePastEvents = !filters.hidePastEvents"
     />
     <TransitionGroup
-      v-if="notFeaturedEvents.length"
-      name="card"
-      tag="section"
-      class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 place-items-center"
+      v-if="notFeaturedEvents.length" name="card" tag="section"
+      grid="~ cols-1 md:cols-2 xl:cols-3 gap-2" place-items-center
     >
       <EventCard v-for="event in notFeaturedEvents" :key="event.id" :event="event">
         <IconDetail v-for="{ id, value } in event.details" :id="id" :key="id" :value="value" />
@@ -82,7 +82,10 @@ useHead({
         </template>
       </EventCard>
     </TransitionGroup>
-    <div v-else class="head-6 pt-4 text-center">No events yet, want to organize one?</div>
+    <div v-else text-center>
+      <div class="head-6" pt-4 mb-2 text-center>{{ $t('page.events.copy.form.items.no-result.message') }}</div>
+      <CtaComponent tertiary :href="SESSIONS_LINK" target="_blank">{{ $t('page.events.copy.form.items.no-result.cta') }}</CtaComponent>
+    </div>
   </main>
 </template>
 
