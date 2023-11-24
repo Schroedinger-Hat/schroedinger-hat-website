@@ -60,7 +60,7 @@ useHead({
     <EventCard v-if="featuredEvent" :event="featuredEvent as Event" featured mx-auto mb-8>
       <IconDetail v-for="{ id, value } in featuredEvent.details" :id="id" :key="id" :value="value" />
       <template #footer>
-        <CtaComponent tertiary :href="featuredEvent.ticketsURL">Get tickets</CtaComponent>
+        <CtaComponent tertiary :href="featuredEvent.ticketsURL" target="_blank">{{ $t('page.events.copy.tickets') }}</CtaComponent>
       </template>
     </EventCard>
     <EventForm
@@ -78,7 +78,9 @@ useHead({
       <EventCard v-for="event in notFeaturedEvents" :key="event.id" :event="event">
         <IconDetail v-for="{ id, value } in event.details" :id="id" :key="id" :value="value" />
         <template #footer>
-          <CtaComponent v-if="event.valid" tertiary :href="event.ticketsURL">Get tickets</CtaComponent>
+          <CtaComponent v-if="event.valid" tertiary :href="event.ticketsURL">
+            {{ $t('page.events.copy.tickets') }}
+          </CtaComponent>
         </template>
       </EventCard>
     </TransitionGroup>
