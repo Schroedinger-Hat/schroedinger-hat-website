@@ -13,7 +13,11 @@
     "target": "esnext",
     "types": ["vite/client"],
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["src/*"],
+      "@components": ["src/components/*"],
+      "@functions": ["src/functions/*"],
+      "@pages": ["src/pages/*"],
+      "@utils": ["src/utils/*"],
     }
   },
   "exclude": [
