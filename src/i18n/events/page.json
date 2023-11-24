@@ -1,4 +1,3 @@
-
 {
   "en": {
     "title": "Events",
@@ -7,9 +6,14 @@
         "location": "Location",
         "categories": "Categories",
         "dates": "Dates",
+        "tickets": "Get tickets",
         "pastEvents": {
           "show": "Show past events",
           "hide": "Hide past events"
+        },
+        "no-result": {
+          "message": "No results found. Would you like to organize an event?",
+          "cta": "Organize"
         }
       },
       "months": {
@@ -35,11 +39,15 @@
         "location": "Locazioni",
         "categories": "Categorie",
         "dates": "Date",
+        "tickets": "Acquista biglietti",
         "pastEvents": {
           "show": "Mostra past events",
           "hide": "Nascondi past events"
+        },
+        "no-result": {
+          "message": "Nessun risultato trovato. Vorresti organizzare un evento?",
+          "cta": "Organizza"
         }
-
       },
       "months": {
         "1": "Gennaio",
@@ -58,4 +66,3 @@
     }
   }
 }
-
