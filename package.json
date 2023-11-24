@@ -6,6 +6,7 @@
     "node": ">=19.4.0",
     "npm": ">=9.2.0"
   },
+  "type": "module",
   "scripts": {
     "build": "vite build",
     "cy:o": "cypress open",
