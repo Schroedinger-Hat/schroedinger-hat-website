@@ -45,8 +45,8 @@ const options = readonly({
     </EventFormSelect>
     <CtaComponent tertiary @click.prevent="$emit('toggleEvents')">
       {{ hidePastEvents
-        ? $t('page.events.copy.form.items.pastEvents.hide')
-        : $t('page.events.copy.form.items.pastEvents.show') }}
+        ? $t('page.events.copy.form.items.pastEvents.show')
+        : $t('page.events.copy.form.items.pastEvents.hide') }}
     </CtaComponent>
   </form>
 </template>
