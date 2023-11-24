@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "baseUrl": "./",
+    "baseUrl": ".",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "incremental": true,
@@ -14,10 +14,11 @@
     "types": ["vite/client"],
     "paths": {
       "@/*": ["src/*"],
-      "@components": ["src/components/*"],
-      "@functions": ["src/functions/*"],
-      "@pages": ["src/pages/*"],
-      "@utils": ["src/utils/*"],
+      "@components/*": ["src/components/*"],
+      "@i18n/*": ["src/i18n/*"],
+      "@functions/*": ["src/functions/*"],
+      "@pages/*": ["src/pages/*"],
+      "@utils/*": ["src/utils/*"],
     }
   },
   "exclude": [
