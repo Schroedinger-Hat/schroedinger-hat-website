@@ -1,12 +1,12 @@
 {
   "en": {
     "title": "Events",
+    "tickets": "Get tickets",
     "form": {
       "items": {
         "location": "Location",
         "categories": "Categories",
         "dates": "Dates",
-        "tickets": "Get tickets",
         "pastEvents": {
           "show": "Show past events",
           "hide": "Hide past events"
@@ -34,12 +34,12 @@
   },
   "it": {
     "title": "Eventi",
+    "tickets": "Acquista biglietti",
     "form": {
       "items": {
         "location": "Locazioni",
         "categories": "Categorie",
         "dates": "Date",
-        "tickets": "Acquista biglietti",
         "pastEvents": {
           "show": "Mostra past events",
           "hide": "Nascondi past events"
