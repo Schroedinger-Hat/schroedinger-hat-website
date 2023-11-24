@@ -26,7 +26,7 @@ const links = [
   },
   {
     id: 'Events',
-    to: 'EventList',
+    to: 'Events',
     test: 'event-page-link',
     text: 'navbar.events',
   },

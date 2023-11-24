@@ -13,8 +13,8 @@ const routes = [
   },
   {
     path: '/events',
-    name: 'EventList',
-    component: () => import('@/pages/EventList.vue'),
+    name: 'Events',
+    component: () => import('@/pages/PageEvents.vue'),
   },
   {
     path: '/events/:event',
