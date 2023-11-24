@@ -24,7 +24,7 @@ const options = readonly({
 </script>
 
 <template>
-  <form class="flex flex-col md:flex-row justify-evenly items-center mb-8">
+  <form flex="~ col md:row justify-evenly items-center gap-4" mb-8>
     <EventFormSelect
       v-model:model="modelCity"
       :items="options.cities"
