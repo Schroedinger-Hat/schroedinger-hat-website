@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { useElementBounding } from '@vueuse/core'
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import { useHead } from '@unhead/vue'
 import { useI18n } from 'vue-i18n'
+import { useNewsletter } from '@/functions/useNewsletter'
 import TheContributing from '@/components/TheContributing.vue'
 import TheFooter from '@/components/layout/TheFooter.vue'
 import TheNavbar from '@/components/layout/TheNavbar.vue'
@@ -10,6 +11,9 @@ import TheNavbar from '@/components/layout/TheNavbar.vue'
 const navbar = ref<HTMLElement | null>(null)
 const { height } = useElementBounding(navbar)
 const { t } = useI18n()
+const { init } = useNewsletter()
+
+onMounted(init)
 
 useHead({
   titleTemplate: (title?: string) => title ? `${title} | Schrödinger Hat` : 'Schrödinger Hat',

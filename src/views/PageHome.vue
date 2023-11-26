@@ -33,10 +33,10 @@ useHead({ titleTemplate: null, title: t('head.home.title') })
 <template>
   <main class="flex flex-col-reverse justify-center items-center px-6 pt-0 mx-auto lg:flex-row lg:px-16">
     <div class="max-w-144 mr-0 text-center lg:text-left lg:mr-24">
-      <h1 class="head-1 font-bold leading-none">
+      <h1 class="head-1 font-bold leading-none" tabindex="0">
         {{ $t('main.h1') }}
       </h1>
-      <p class="head-1">
+      <p class="head-1" tabindex="0">
         {{ $t('main.h2') }}
       </p>
       <div class="w-full pt-6 space-x-2">

@@ -3,7 +3,13 @@
 </script>
 
 <template>
-  <router-link data-test="footer-home-link" class="logo" :to="{ name: 'Home' }">
+  <router-link
+    data-test="footer-home-link"
+    class="logo"
+    :to="{ name: 'Home' }"
+    :aria-label="$t('accessibility.navbar.logo' as string)"
+    tabindex="0"
+  >
     <div data-test="footer-logo" class="flex justify-center items-center">
       <img
         data-test="footer-home-link-img"

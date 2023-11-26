@@ -16,7 +16,7 @@ useHead({
   <div class="teamList" data-test="team-list">
     <div class="container">
       <div class="headline" data-test="team-page-headline">
-        <h1>Schrödinger Hat's fam</h1>
+        <h1 tabindex="0">Schrödinger Hat's fam</h1>
       </div>
 
       <div class="content">
@@ -37,25 +37,25 @@ useHead({
                 <div class="socialIcons">
                   <a
                     v-if="$t(`team.${member}.github_url`).length > 1" :data-test="`team-member-${member}-github`"
-                    :href="$t(`team.${member}.github_url`)" target="_blank"
+                    :href="$t(`team.${member}.github_url`)" target="_blank" :aria-label="`${$t('accessibility.teamPage.github' as string, { name: $t(`team.${member}.name`) })}`"
                   >
                     <i class="mobile-menu-icon fab fa-github" />
                   </a>
                   <a
                     v-if="$t(`team.${member}.linkedin_url`).length > 1" :data-test="`team-member-${member}-linkedin`"
-                    :href="$t(`team.${member}.linkedin_url`)" target="_blank"
+                    :href="$t(`team.${member}.linkedin_url`)" target="_blank" :aria-label="`${$t('accessibility.teamPage.linkedin' as string, { name: $t(`team.${member}.name`) })}`"
                   >
                     <i class="mobile-menu-icon fab fa-linkedin" />
                   </a>
                   <a
                     v-if="$t(`team.${member}.twitter_url`).length > 1" :data-test="`team-member-${member}-twitter`"
-                    :href="$t(`team.${member}.twitter_url`)" target="_blank"
+                    :href="$t(`team.${member}.twitter_url`)" target="_blank" :aria-label="`${$t('accessibility.teamPage.twitter' as string, { name: $t(`team.${member}.name`) })}`"
                   >
                     <i class="mobile-menu-icon fab fa-twitter" />
                   </a>
                   <a
                     v-if="$t(`team.${member}.website`).length > 1" :data-test="`team-member-${member}-website`"
-                    :href="$t(`team.${member}.website`)" target="_blank"
+                    :href="$t(`team.${member}.website`)" target="_blank" :aria-label="`${$t('accessibility.teamPage.website' as string, { name: $t(`team.${member}.name`) })}`"
                   >
                     <i class="mobile-menu-icon fa fa-cloud" />
                   </a>
