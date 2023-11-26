@@ -1,6 +1,6 @@
 {
   "en": {
-    "id": "rust-06-23",
+    "id": "florence2-06-23",
     "category": "session",
     "featured": false,
     "headline": "Schrödinger Session:",
@@ -25,7 +25,7 @@
       },
       {
         "id": "location",
-        "value": "Florence"
+        "value": "Nana Bianca, Florence"
       }
     ],
     "description": {
@@ -48,7 +48,7 @@
     }
   },
   "it": {
-    "id": "rust-11-23",
+    "id": "florence2-11-23",
     "category": "session",
     "featured": false,
     "headline": "Schrödinger Session:",
@@ -73,7 +73,7 @@
       },
       {
         "id": "location",
-        "value": "Firenze"
+        "value": "Nana Bianca, Firenze"
       }
     ],
     "description": {
