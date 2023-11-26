@@ -1,0 +1,98 @@
+{
+  "en": {
+    "id": "milan1-09-07",
+    "category": "session",
+    "featured": false,
+    "headline": "Schrödinger Session:",
+    "ticketsURL": null,
+    "title": "RusticGraph!",
+    "details": [
+      {
+        "id": "date",
+        "value": "2023-09-07"
+      },
+      {
+        "id": "time",
+        "value": "18:00 - 21:00"
+      },
+      {
+        "id": "speaker",
+        "value": "Marco Ieni & Marco Ippolito"
+      },
+      {
+        "id": "tag",
+        "value": "Computer Programming"
+      },
+      {
+        "id": "location",
+        "value": "Milan"
+      }
+    ],
+    "description": {
+      "long": "This edition features two talks: Marco Ippolito on 'Measuring GraphQL Query Costs' and Marco Ieni on 'Simplifying Open Source with Rust'.",
+      "short": "This edition features two talks: Marco Ippolito on 'Measuring GraphQL Query Costs' and Marco Ieni on 'Simplifying Open Source with Rust'."
+    },
+    "image": {
+      "URL": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F548299369%2F565692604981%2F1%2Foriginal.20230704-165219?w=940&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C2160%2C1080&s=27679e42c143667d05c514a83170601b",
+      "alt": "Schrödinger Hat Session logo"
+    },
+    "location": {
+      "name": "EDreams",
+      "city": "Milan",
+      "URL": "https://maps.app.goo.gl/zBztvJLjZJ75ZULh7"
+    },
+    "schedule": {
+      "date": "2023-09-07",
+      "start": "18:00",
+      "end": "21:00"
+    }
+  },
+  "it": {
+    "id": "milan1-09-07",
+    "category": "session",
+    "featured": false,
+    "headline": "Schrödinger Session:",
+    "ticketsURL": null,
+    "title": "RusticGraph!",
+    "details": [
+      {
+        "id": "date",
+        "value": "2023-09-07"
+      },
+      {
+        "id": "time",
+        "value": "18:00 - 21:00"
+      },
+      {
+        "id": "speaker",
+        "value": "Marco Ieni & Marco Ippolito"
+      },
+      {
+        "id": "tag",
+        "value": "Computer Programming"
+      },
+      {
+        "id": "location",
+        "value": "Milano"
+      }
+    ],
+    "description": {
+      "long": "Questa edizione presenta due talk: Marco Ippolito su 'Measuring the Cost of a GraphQL Query' e Marco Ieni su 'How Rust Makes Open Source Easier'.",
+      "short": "Questa edizione presenta due talk: Marco Ippolito su 'Measuring the Cost of a GraphQL Query' e Marco Ieni su 'How Rust Makes Open Source Easier'."
+    },
+    "image": {
+      "URL": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F548299369%2F565692604981%2F1%2Foriginal.20230704-165219?w=940&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C2160%2C1080&s=27679e42c143667d05c514a83170601b",
+      "alt": "Schrödinger Hat Session logo"
+    },
+    "location": {
+      "name": "EDreams",
+      "city": "Milan",
+      "URL": "https://maps.app.goo.gl/zBztvJLjZJ75ZULh7"
+    },
+    "schedule": {
+      "date": "2023-09-07",
+      "start": "18:00",
+      "end": "21:00"
+    }
+  }
+}

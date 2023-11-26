@@ -5,6 +5,7 @@ import Qwik0623 from '@/i18n/events/session/qwik-06-23.json'
 import Rust2023 from '@/i18n/events/session/rust-11-23.json'
 import Verona123 from '@/i18n/events/session/verona1-23.json'
 import Verona223 from '@/i18n/events/session/verona2-23.json'
+import Milan123 from '@/i18n/events/session/milan1-23.json'
 import Page from '@/i18n/events/page.json'
 
 interface Detail {
@@ -78,6 +79,7 @@ const eventsJSON: EventJSON[] = [
   Rust2023,
   Verona123,
   Verona223,
+  Milan123,
 ]
 
 export const messages = {
