@@ -3,7 +3,7 @@
     "id": "qwik-06-23",
     "category": "session",
     "featured": false,
-    "headline": null,
+    "headline": "Session:",
     "ticketsURL": null,
     "title": "Qwik!",
     "details": [
@@ -29,7 +29,7 @@
       }
     ],
     "description": {
-      "long": "Session of Schrödinger Hat",
+      "long": "Schrödinger Session",
       "short": "In this edition, we'll feature Miško Hevery, the creator of Angular, KarmaJS co-creator for a session about Qwik."
     },
     "image": {
@@ -51,7 +51,7 @@
     "id": "qwik-06-23",
     "category": "session",
     "featured": false,
-    "headline": null,
+    "headline": "Session:",
     "ticketsURL": null,
     "title": "Qwik!",
     "details": [
@@ -77,7 +77,7 @@
       }
     ],
     "description": {
-      "long": "Session of Schrödinger Hat",
+      "long": "Schrödinger Session",
       "short": "In questa edizione, presenteremo Miško Hevery, creatore di Angular e co-creatore di KarmaJS, per una sessione incentrata su Qwik."
     },
     "image": {
