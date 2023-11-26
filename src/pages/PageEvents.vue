@@ -78,7 +78,7 @@ useHead({
       <EventCard v-for="event in notFeaturedEvents" :key="event.id" :event="event">
         <IconDetail v-for="{ id, value } in event.details" :id="id" :key="id" :value="value" />
         <template #footer>
-          <CtaComponent v-if="event.valid" tertiary :href="event.ticketsURL">
+          <CtaComponent v-if="event.valid" tertiary :href="event.ticketsURL" target="_blank">
             {{ $t('page.events.copy.tickets') }}
           </CtaComponent>
         </template>
