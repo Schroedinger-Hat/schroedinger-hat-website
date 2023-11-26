@@ -304,7 +304,7 @@ const messages = {
     },
     accessibility: {
       navbar: {
-        logo: 'Benvenuti su Schrodinger Hat',
+        logo: 'Benvenuti su Schrödinger Hat',
         openMenu: 'Apri il menu mobile',
         toggleIcon: 'Cambia fra tema chiaro e scuro',
       },
@@ -638,7 +638,7 @@ const messages = {
     },
     accessibility: {
       navbar: {
-        logo: 'Welcome to Schrodinger Hat',
+        logo: 'Welcome to Schrödinger Hat',
         openMenu: 'Open mobile menu',
         toggleIcon: 'Toggle between light and dark mode',
       },
