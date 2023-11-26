@@ -7,6 +7,7 @@ import Verona123 from '@/i18n/events/session/verona1-23.json'
 import Verona223 from '@/i18n/events/session/verona2-23.json'
 import Milan123 from '@/i18n/events/session/milan1-23.json'
 import Milan223 from '@/i18n/events/session/milan2-23.json'
+import Verona323 from '@/i18n/events/session/verona3-23.json'
 import Page from '@/i18n/events/page.json'
 
 interface Detail {
@@ -75,11 +76,12 @@ const groupByLanguage = <T>(items: LanguageItem<T>[]) => {
 const eventsJSON: EventJSON[] = [
   OSDay2021,
   OSDay2023,
-  Qwik0623,
   OSDay2024,
+  Qwik0623,
   Rust2023,
   Verona123,
   Verona223,
+  Verona323,
   Milan123,
   Milan223,
 ]
