@@ -5,6 +5,7 @@ import { useCtaComponent } from '@/functions/useCtaComponent'
 defineProps<{
   secondary?: boolean
   tertiary?: boolean
+  quaternary?: boolean
 }>()
 
 const { component, bindings } = useCtaComponent(useAttrs())
@@ -16,9 +17,10 @@ const { component, bindings } = useCtaComponent(useAttrs())
     v-bind="bindings"
     class="cta"
     :class="{
-      'py-1 px-1.5 rounded-1': secondary || tertiary,
+      'py-1 px-1.5 rounded-1': secondary || tertiary || quaternary,
       'secondary': secondary,
       'tertiary': tertiary,
+      'quaternary': quaternary,
     }"
   >
     <slot />
@@ -66,6 +68,13 @@ const { component, bindings } = useCtaComponent(useAttrs())
       transform: scale(1.08);
     }
   }
+}
+
+.quaternary {
+  border: none;
+  background-color: $nord10 !important;
+  color: #fff !important;
+  transition: transform 0.3s ease-in;
 }
 
 .#{$dark-mode-class} {
