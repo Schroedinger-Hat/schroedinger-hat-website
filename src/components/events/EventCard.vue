@@ -9,26 +9,34 @@ defineProps<{
 </script>
 
 <template>
-  <article class="card rounded-3 border border-slate-200/30 bg-dark-bg-secondary" :class="{ featured }">
-    <div class="flex-grow flex flex-col p-9 space-y-3 lg:space-y-5">
+  <article
+    :class="{ featured }"
+    class="card"
+    bg="light-bg-primary dark:dark-bg-secondary"
+    border="~ slate-400 dark:slate-200/30 rounded-3"
+  >
+    <div flex="~ col grow gap-y-3 lg:gap-y-5" p-9>
       <span
-        class="capitalize w-min px-3 py-0.5 rounded-full"
+        w-min p="x-3 y-0.5" capitalize rounded-full
         :class="`bg-${event.category.toLowerCase()}`"
       >{{ event.category }}</span>
       <div class="head-6" font-bold>
         <h3>{{ event.headline }}</h3>
         <h3>{{ event.title }}</h3>
       </div>
-      <p class="flex-grow flex justify-start items-center text-md">{{ event.description.short }}</p>
-      <div v-if="$slots.default" class="flex-grow flex flex-col justify-center items-start">
+      <p flex="~ grow justify-start items-center" text-md>{{ event.description.short }}</p>
+      <div v-if="$slots.default" flex="~ grow col justify-center items-start">
         <slot />
       </div>
-      <div v-if="$slots.footer" class="flex justify-start items-center">
+      <div v-if="$slots.footer" flex="~ justify-start items-center">
         <slot name="footer" />
       </div>
     </div>
-    <figure class="flex-shrink-0">
-      <img :src="event.image.URL ? event.image.URL : getAssetURL('svg/logo-sh.svg')" :alt="event.image.alt" class="w-full h-full object-center object-cover">
+    <figure flex-shrink-0>
+      <img
+        :src="event.image.URL ? event.image.URL : getAssetURL('svg/logo-sh.svg')"
+        :alt="event.image.alt" w-full h-full object="center cover"
+      >
     </figure>
   </article>
 </template>
