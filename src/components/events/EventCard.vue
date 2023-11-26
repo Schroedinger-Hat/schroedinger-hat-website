@@ -15,9 +15,9 @@ defineProps<{
         class="capitalize w-min px-3 py-0.5 rounded-full"
         :class="`bg-${event.category.toLowerCase()}`"
       >{{ event.category }}</span>
-      <div>
-        <h3 class="head-5">{{ event.headline }}</h3>
-        <h3 class="head-5">{{ event.title }}</h3>
+      <div class="head-6" font-bold>
+        <h3>{{ event.headline }}</h3>
+        <h3>{{ event.title }}</h3>
       </div>
       <p class="flex-grow flex justify-start items-center text-md">{{ event.description.short }}</p>
       <div v-if="$slots.default" class="flex-grow flex flex-col justify-center items-start">
