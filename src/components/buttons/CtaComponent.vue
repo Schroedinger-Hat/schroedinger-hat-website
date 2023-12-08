@@ -5,19 +5,20 @@ import { useCtaComponent } from '@/functions/useCtaComponent'
 defineProps<{
   secondary?: boolean
   ariaText?: string
+  tertiary?: boolean
+  quaternary?: boolean
 }>()
 
 const { component, bindings } = useCtaComponent(useAttrs())
 </script>
 
 <template>
-  <component
-    :is="component"
-    v-bind="bindings"
-    :aria-label="ariaText"
-    class="cta"
-    :class="{ 'secondary py-1 px-1.5 rounded-1': secondary }"
-  >
+  <component :is="component" v-bind="bindings" :aria-label="ariaText" class="cta" :class="{
+    'py-1 px-1.5 rounded-1': secondary || tertiary || quaternary,
+    'secondary': secondary,
+    'tertiary': tertiary,
+    'quaternary': quaternary,
+  }">
     <slot />
   </component>
 </template>
@@ -46,9 +47,30 @@ const { component, bindings } = useCtaComponent(useAttrs())
 
   @include breakpoint(md) {
     &:hover {
-     background: $bg-secondary;
+      background: $bg-secondary;
     }
   }
+}
+
+.tertiary {
+  border: none;
+  background: rgb(238 0 0) !important;
+  background: linear-gradient(90deg, rgb(238 0 0 / 100%) 0%, rgb(190 30 45 / 100%) 100%) !important;
+  color: #fff !important;
+  transition: transform 0.3s ease-in;
+
+  @include breakpoint(md) {
+    &:hover {
+      transform: scale(1.08);
+    }
+  }
+}
+
+.quaternary {
+  border: none;
+  background-color: $nord10 !important;
+  color: #fff !important;
+  transition: transform 0.3s ease-in;
 }
 
 .#{$dark-mode-class} {

@@ -1,0 +1,98 @@
+{
+  "en": {
+    "id": "florence1-06-23",
+    "category": "session",
+    "featured": false,
+    "headline": "Schrödinger Session:",
+    "ticketsURL": null,
+    "title": "Qwik!",
+    "details": [
+      {
+        "id": "date",
+        "value": "2023-06-24"
+      },
+      {
+        "id": "time",
+        "value": "09:00 - 14:00"
+      },
+      {
+        "id": "speaker",
+        "value": "Miško Hevery"
+      },
+      {
+        "id": "tag",
+        "value": "Frontend Development"
+      },
+      {
+        "id": "location",
+        "value": "Nana Bianca, Florence"
+      }
+    ],
+    "description": {
+      "long": "Schrödinger Session",
+      "short": "In this edition, we'll feature Miško Hevery, the creator of Angular, KarmaJS co-creator for a session about Qwik."
+    },
+    "image": {
+      "URL": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F507565769%2F565692604981%2F1%2Foriginal.20230504-132216?w=940&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C2160%2C1080&s=e7d7490b59e1802ad3d53498f66ca59e",
+      "alt": "Schrödinger Hat Session presents qwik!"
+    },
+    "location": {
+      "name": "Nana Bianca",
+      "city": "Florence",
+      "URL": "https://goo.gl/maps/jEwB3GoBdF2ueNGY8"
+    },
+    "schedule": {
+      "date": "2023-06-24",
+      "start": "9:00",
+      "end": "14:00"
+    }
+  },
+  "it": {
+    "id": "florence1-06-23",
+    "category": "session",
+    "featured": false,
+    "headline": "Schrödinger Session:",
+    "ticketsURL": null,
+    "title": "Qwik!",
+    "details": [
+      {
+        "id": "date",
+        "value": "2023-06-24"
+      },
+      {
+        "id": "time",
+        "value": "9:00 - 14:00"
+      },
+      {
+        "id": "speaker",
+        "value": "Miško Hevery"
+      },
+      {
+        "id": "tag",
+        "value": "Frontend Development"
+      },
+      {
+        "id": "location",
+        "value": "Nana Bianca, Firenze"
+      }
+    ],
+    "description": {
+      "long": "Schrödinger Session",
+      "short": "In questa edizione, presenteremo Miško Hevery, creatore di Angular e co-creatore di KarmaJS, per una sessione incentrata su Qwik."
+    },
+    "image": {
+      "URL": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F507565769%2F565692604981%2F1%2Foriginal.20230504-132216?w=940&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C2160%2C1080&s=e7d7490b59e1802ad3d53498f66ca59e",
+      "alt": "Schrödinger Hat Session presenta qwik!"
+    },
+    "location": {
+      "name": "Nana Bianca",
+      "city": "Firenze",
+      "URL": "https://goo.gl/maps/jEwB3GoBdF2ueNGY8"
+    },
+    "schedule": {
+      "date": "2023-06-24",
+      "start": "9:00",
+      "end": "14:00"
+    }
+  }
+}

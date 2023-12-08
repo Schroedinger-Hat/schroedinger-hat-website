@@ -1,0 +1,90 @@
+{
+  "en": {
+    "id": "osday2023",
+    "category": "event",
+    "featured": false,
+    "headline": null,
+    "ticketsURL": null,
+    "title": "Open Source Day 2023",
+    "details": [
+      {
+        "id": "date",
+        "value": "2023-03-28"
+      },
+      {
+        "id": "time",
+        "value": "9:30 - 18:00"
+      },
+      {
+        "id": "tag",
+        "value": "Open Source Software"
+      },
+      {
+        "id": "location",
+        "value": "Nana Bianca, Florence"
+      }
+    ],
+    "description": {
+      "long": "The event based around OSS",
+      "short": "In this edition, a full day with open source enthusiasts: maintainers, junior and senior devs, engineering managers, and more."
+    },
+    "image": {
+      "URL": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F424024069%2F565692604981%2F1%2Foriginal.20230113-112848?w=940&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C2160%2C1080&s=cec6acc06c18975a1cc2b262953ad25c", 
+     "alt": "Schrödinger Hat Logo"
+    },
+    "location": {
+      "name": "Nana Bianca",
+      "city": "Florence",
+      "URL": "https://goo.gl/maps/jEwB3GoBdF2ueNGY8"
+    },
+    "schedule": {
+      "date": "2023-03-07",
+      "start": "9:30",
+      "end": "18:00"
+    }
+  },
+  "it": {
+    "id": "osday2023",
+    "category": "event",
+    "featured": false,
+    "headline": null,
+    "ticketsURL": "#",
+    "title": "Open Source Day 2023",
+    "details": [
+      {
+        "id": "date",
+        "value": "2023-03-28"
+      },
+      {
+        "id": "time",
+        "value": "9:30 - 18:00"
+      },
+      {
+        "id": "tag",
+        "value": "Open Source Software"
+      },
+      {
+        "id": "location",
+        "value": "Nana Bianca, Florence"
+      }
+    ],
+    "description": {
+      "long": "Descrizione lunga",
+      "short": "In questa edizione, una giornata completa con appassionati dell'open source: manutentori, sviluppatori junior e senior, responsabili ingegneri e altri ancora."
+    },
+    "image": {
+      "URL": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F424024069%2F565692604981%2F1%2Foriginal.20230113-112848?w=940&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C2160%2C1080&s=cec6acc06c18975a1cc2b262953ad25c", 
+      "alt": "Questa immagine è un placeholder"
+    },
+    "location": {
+      "name": "Nana Bianca",
+      "city": "Firenze",
+      "URL": "https://goo.gl/maps/jEwB3GoBdF2ueNGY8"
+    },
+    "schedule": {
+      "date": "2023-03-07",
+      "start": "9:30",
+      "end": "18:00"
+    }
+  }
+}

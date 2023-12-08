@@ -1,0 +1,68 @@
+{
+  "en": {
+    "title": "Events",
+    "tickets": "Get tickets",
+    "form": {
+      "items": {
+        "location": "Location",
+        "categories": "Categories",
+        "dates": "Dates",
+        "pastEvents": {
+          "show": "Show past events",
+          "hide": "Hide past events"
+        },
+        "no-result": {
+          "message": "No results found. Would you like to organize an event?",
+          "cta": "Organize"
+        }
+      },
+      "months": {
+        "1": "January",
+        "2": "February",
+        "3": "March",
+        "4": "April",
+        "5": "May",
+        "6": "June",
+        "7": "July",
+        "8": "August",
+        "9": "September",
+        "10": "October",
+        "11": "November",
+        "12": "December"
+      }
+    }
+  },
+  "it": {
+    "title": "Eventi",
+    "tickets": "Acquista biglietti",
+    "form": {
+      "items": {
+        "location": "Locazioni",
+        "categories": "Categorie",
+        "dates": "Date",
+        "pastEvents": {
+          "show": "Mostra past events",
+          "hide": "Nascondi past events"
+        },
+        "no-result": {
+          "message": "Nessun risultato trovato. Vorresti organizzare un evento?",
+          "cta": "Organizza"
+        }
+      },
+      "months": {
+        "1": "Gennaio",
+        "2": "Febbraio",
+        "3": "Marzo",
+        "4": "Aprile",
+        "5": "Maggio",
+        "6": "Giugnio",
+        "7": "Luglio",
+        "8": "Agosto",
+        "9": "Settembre",
+        "10": "Ottobre",
+        "11": "Novembre",
+        "12": "Dicembre"
+      }
+    }
+  }
+}

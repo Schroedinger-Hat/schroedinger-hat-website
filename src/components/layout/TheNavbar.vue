@@ -29,7 +29,7 @@ const links = [
   {
     href: '/',
     id: 'Events',
-    to: 'EventList',
+    to: 'Events',
     test: 'event-page-link',
     text: 'navbar.events',
     ariaText: 'navbar.events',

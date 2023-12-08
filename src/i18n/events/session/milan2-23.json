@@ -1,0 +1,98 @@
+{
+  "en": {
+    "id": "milan2-10-23",
+    "category": "session",
+    "featured": false,
+    "headline": "Schrödinger Session:",
+    "ticketsURL": null,
+    "title": "Milan #2",
+    "details": [
+      {
+        "id": "date",
+        "value": "2023-10-23"
+      },
+      {
+        "id": "time",
+        "value": "18:00 - 21:00"
+      },
+      {
+        "id": "speaker",
+        "value": "Erick Wendel"
+      },
+      {
+        "id": "tag",
+        "value": "JavaScript"
+      },
+      {
+        "id": "location",
+        "value": "EDreams, Milan"
+      }
+    ],
+    "description": {
+      "long": "Erick Wendel presents 10 essential JS design patterns, demonstrating code reuse and simplifying software structuring and maintenance.",
+      "short": "Erick Wendel presents 10 essential JS design patterns, demonstrating code reuse and simplifying software structuring and maintenance."
+    },
+    "image": {
+      "URL": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F548299369%2F565692604981%2F1%2Foriginal.20230704-165219?w=940&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C2160%2C1080&s=27679e42c143667d05c514a83170601b",
+      "alt": "Schrödinger Hat Session logo"
+    },
+    "location": {
+      "name": "EDreams",
+      "city": "Milan",
+      "URL": "https://maps.app.goo.gl/zBztvJLjZJ75ZULh7"
+    },
+    "schedule": {
+      "date": "2023-10-23",
+      "start": "18:00",
+      "end": "21:00"
+    }
+  },
+  "it": {
+    "id": "milan1-10-23",
+    "category": "session",
+    "featured": false,
+    "headline": "Schrödinger Session:",
+    "ticketsURL": null,
+    "title": "RusticGraph!",
+    "details": [
+      {
+        "id": "date",
+        "value": "2023-10-23"
+      },
+      {
+        "id": "time",
+        "value": "18:00 - 21:00"
+      },
+      {
+        "id": "speaker",
+        "value": "Marco Ieni & Marco Ippolito"
+      },
+      {
+        "id": "tag",
+        "value": "Computer Programming"
+      },
+      {
+        "id": "location",
+        "value": "EDreams, Milano"
+      }
+    ],
+    "description": {
+      "short": "Erick Wendel presenta 10 modelli di design essenziali per JavaScript, illustrando il riutilizzo del codice e semplificando la strutturazione e la manutenzione del software.",
+      "long": "Erick Wendel presenta 10 modelli di design essenziali per JavaScript, illustrando il riutilizzo del codice e semplificando la strutturazione e la manutenzione del software."
+    },
+    "image": {
+      "URL": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F548299369%2F565692604981%2F1%2Foriginal.20230704-165219?w=940&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C2160%2C1080&s=27679e42c143667d05c514a83170601b",
+      "alt": "Schrödinger Hat Session logo"
+    },
+    "location": {
+      "name": "EDreams",
+      "city": "Milan",
+      "URL": "https://maps.app.goo.gl/zBztvJLjZJ75ZULh7"
+    },
+    "schedule": {
+      "date": "2023-10-23",
+      "start": "18:00",
+      "end": "21:00"
+    }
+  }
+}

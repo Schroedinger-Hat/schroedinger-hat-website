@@ -1,0 +1,98 @@
+{
+  "en": {
+    "id": "verona2-10-26",
+    "category": "session",
+    "featured": false,
+    "headline": "Schrödinger Session:",
+    "ticketsURL": null,
+    "title": "Verona #2",
+    "details": [
+      {
+        "id": "date",
+        "value": "2023-10-26"
+      },
+      {
+        "id": "time",
+        "value": "18:00 - 21:00"
+      },
+      {
+        "id": "speaker",
+        "value": "Luca Del Puppo"
+      },
+      {
+        "id": "tag",
+        "value": "Typescript"
+      },
+      {
+        "id": "location",
+        "value": "AQuest, Verona"
+      }
+    ],
+    "description": {
+      "long": "In this session we will learn about Typescript",
+      "short": "In this session we will learn about Typescript"
+    },
+    "image": {
+      "URL": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F565247339%2F245918162914%2F1%2Foriginal.20230731-124719?w=940&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C2160%2C1080&s=a5611b96c54b280e674f16fbedf5b624",
+      "alt": "Schrödinger Hat Session logo"
+    },
+    "location": {
+      "name": "AQuest",
+      "city": "Verona",
+      "URL": "https://maps.app.goo.gl/t6QHQ1hdX8V2x91R8"
+    },
+    "schedule": {
+      "date": "2023-10-26",
+      "start": "18:00",
+      "end": "21:00"
+    }
+  },
+  "it": {
+    "id": "verona2-10-26",
+    "category": "session",
+    "featured": false,
+    "headline": "Schrödinger Session:",
+    "ticketsURL": null,
+    "title": "Verona #2",
+    "details": [
+      {
+        "id": "date",
+        "value": "2023-10-26"
+      },
+      {
+        "id": "time",
+        "value": "18:00 - 21:00"
+      },
+      {
+        "id": "speaker",
+        "value": "Luca Del Puppo"
+      },
+      {
+        "id": "tag",
+        "value": "Typescript"
+      },
+      {
+        "id": "location",
+        "value": "AQuest, Verona"
+      }
+    ],
+    "description": {
+      "long": "In questa sessione impareremo su Typescript",
+      "short": "In questa sessione impareremo su TypeScript"
+    },
+    "image": {
+      "URL": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F565247339%2F245918162914%2F1%2Foriginal.20230731-124719?w=940&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C2160%2C1080&s=a5611b96c54b280e674f16fbedf5b624",
+      "alt": "Schrödinger Hat Session logo"
+    },
+    "location": {
+      "name": "AQuest",
+      "city": "Verona",
+      "URL": "https://maps.app.goo.gl/t6QHQ1hdX8V2x91R8"
+    },
+    "schedule": {
+      "date": "2023-10-23",
+      "start": "18:00",
+      "end": "21:00"
+    }
+  }
+}

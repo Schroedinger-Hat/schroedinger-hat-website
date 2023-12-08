@@ -6,6 +6,7 @@
     "node": ">=19.4.0",
     "npm": ">=9.2.0"
   },
+  "type": "module",
   "scripts": {
     "build": "vite build",
     "cy:o": "cypress open",
@@ -33,9 +34,10 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.40.2",
+    "@iconify/vue": "^4.1.1",
     "@types/node": "^20.4.8",
     "@unocss/preset-attributify": "^0.54.2",
-    "@unocss/preset-icons": "^0.54.2",
+    "@unocss/preset-icons": "^0.54.3",
     "@unocss/preset-uno": "^0.54.2",
     "@unocss/preset-web-fonts": "^0.54.2",
     "@vitejs/plugin-vue": "^4.0.0",
