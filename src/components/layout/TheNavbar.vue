@@ -19,22 +19,28 @@ interface Link {
 
 const links = [
   {
+    href: '/',
     id: 'Team',
     to: 'Team',
     test: 'team-page-link',
     text: 'navbar.team',
+    ariaText: 'navbar.team',
   },
   {
+    href: '/',
     id: 'Events',
     to: 'Events',
     test: 'event-page-link',
     text: 'navbar.events',
+    ariaText: 'navbar.events',
   },
   {
+    href: '/',
     id: 'CodeOfConduct',
     test: 'code-page-link',
     text: 'navbar.codeOfConduct',
     to: 'CodeOfConduct',
+    ariaText: 'navbar.codeOfConduct',
   },
   {
     href: 'https://ign.schrodinger-hat.it',
@@ -42,6 +48,7 @@ const links = [
     target: '_blank',
     test: 'IGN-link',
     text: 'navbar.imageGoNord',
+    ariaText: 'navbar.imageGoNord',
   },
 ]
 
@@ -51,6 +58,7 @@ const ghCTA = {
   id: 'GitHub',
   test: 'github-cta',
   text: 'navbar.gitHub',
+  ariaText: 'navbar.gitHub',
 }
 
 const [showMenu, toggleMenu] = useToggle()
@@ -70,8 +78,9 @@ watch(showMenu, value => (value ? scrollLock.value = true : scrollLock.value = f
       <LogoAnimated />
       <nav class="flex">
         <CtaComponent
-          v-for="{ id, href, to, text, test, target } in links"
+          v-for="{ id, href, to, text, test, target, ariaText } in links"
           :key="id"
+          :aria-text="$t(ariaText as string)"
           :data-test="`data-${test}`"
           :to="to ? { name: to } : null"
           :href="href"
@@ -82,18 +91,21 @@ watch(showMenu, value => (value ? scrollLock.value = true : scrollLock.value = f
           <span>{{ $t(text as string) }}</span>
         </CtaComponent>
         <CtaIcon
+          :aria-label="$t(ghCTA.ariaText as string)"
           :data-test="ghCTA.test"
           :href="ghCTA.href"
           :icon="ghCTA.icon"
           target="_blank"
         />
         <CtaIcon
+          :aria-label="$t('accessibility.navbar.openMenu' as string)"
           class="md:hidden"
           data-test="nav-burger-menu-cta"
           icon="fas fa-hamburger"
           @click="toggleMenu()"
         />
         <CtaIcon
+          :aria-label="$t('accessibility.navbar.toggleIcon' as string)"
           :icon="`fas ${themeIcon}`"
           data-test="nav-theme-icon"
           @click="toggleDark()"

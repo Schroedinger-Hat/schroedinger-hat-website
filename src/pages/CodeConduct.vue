@@ -17,14 +17,16 @@ useHead({
 <template>
   <main class="container">
     <div class="py-6 px-12">
-      <h1 class="head-1">
+      <h1 class="head-1" tabindex="0">
         Code of conduct
       </h1>
       <article v-for="{ title, copy } in codeOfConduct" :key="title" class="mt-5">
-        <h2 class="head-4 mb-1">
+        <h2 class="head-4 mb-1" tabindex="0">
           {{ title }}
         </h2>
-        <p>{{ copy }}</p>
+        <p tabindex="0">
+          {{ copy }}
+        </p>
       </article>
     </div>
   </main>

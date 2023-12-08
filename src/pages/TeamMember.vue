@@ -32,7 +32,7 @@ useHead({
   <div v-else class="team">
     <div class="container">
       <div class="content">
-        <h1 data-test="member-page-name" class="head-1">
+        <h1 data-test="member-page-name" class="head-1" tabindex="0">
           {{ $t(`team.${member}.name`) }}
         </h1>
         <div>
@@ -47,27 +47,28 @@ useHead({
             v-if="$t(`team.${member}.github_url`).length > 1"
             :href="$t(`team.${member}.github_url`)" target="_blank"
             data-test="member-page-github"
+            :aria-label="`${$t('accessibility.teamMember.github' as string, { name: $t(`team.${member}.name`) })}`"
           >
             <i class="mobile-menu-icon fab fa-github" />
           </a>
           <a
             v-if="$t(`team.${member}.linkedin_url`).length > 1"
             :href="$t(`team.${member}.linkedin_url`)" target="_blank"
-            data-test="member-page-linkedin"
+            data-test="member-page-linkedin" :aria-label="`${$t('accessibility.teamMember.linkedin' as string, { name: $t(`team.${member}.name`) })}`"
           >
             <i class="mobile-menu-icon fab fa-linkedin" />
           </a>
           <a
             v-if="$t(`team.${member}.twitter_url`).length > 1"
             :href="$t(`team.${member}.twitter_url`)" target="_blank"
-            data-test="member-page-twitter"
+            data-test="member-page-twitter" :aria-label="`${$t('accessibility.teamMember.twitter' as string, { name: $t(`team.${member}.name`) })}`"
           >
             <i class="mobile-menu-icon fab fa-twitter" />
           </a>
           <a
             v-if="$t(`team.${member}.website`).length > 1"
             :href="$t(`team.${member}.website`)" target="_blank"
-            data-test="member-page-website"
+            data-test="member-page-website" :aria-label="`${$t('accessibility.teamMember.website' as string, { name: $t(`team.${member}.name`) })}`"
           >
             <i class="mobile-menu-icon fa fa-cloud" />
           </a>
@@ -77,6 +78,7 @@ useHead({
         <div
           class="description !p-2"
           data-test="member-page-description"
+          tabindex="0"
           v-html="$t(`team.${member}.description`)"
         />
 

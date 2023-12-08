@@ -5,6 +5,7 @@ import { useCtaComponent } from '@/functions/useCtaComponent'
 defineProps<{
   icon: string
   small?: boolean
+  ariaLabel?: string
 }>()
 
 const { component, bindings } = useCtaComponent(useAttrs())
@@ -13,6 +14,7 @@ const { component, bindings } = useCtaComponent(useAttrs())
 <template>
   <component
     :is="component"
+    :aria-label="ariaLabel"
     v-bind="bindings"
     class="cta mx-1 px-1 py-0.5 rounded-1"
     :class="{ small }"
