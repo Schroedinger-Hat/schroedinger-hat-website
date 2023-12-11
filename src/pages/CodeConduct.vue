@@ -4,9 +4,9 @@ import { useHead } from '@unhead/vue'
 import * as messages from '../i18n/messages'
 import type { LanguageCodes } from '@/i18n/types'
 
-const { locale, t } = useI18n()
+const { locale, t, fallbackLocale } = useI18n()
 
-const codeOfConduct = messages.default[locale.value as LanguageCodes].code_of_conduct
+const codeOfConduct = messages.default[locale.value as LanguageCodes]?.code_of_conduct ?? messages.default[fallbackLocale.value as LanguageCodes].code_of_conduct
 
 useHead({
   title: t('head.codeOfConduct.title'),
