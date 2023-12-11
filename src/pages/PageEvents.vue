@@ -12,8 +12,9 @@ import type { Event } from '@i18n/events/index'
 
 const SESSIONS_LINK = 'https://github.com/Schrodinger-Hat/sh-sessions/issues/new/choose'
 
-const { t, locale } = useI18n()
-const events = computed(() => messages[locale.value as LanguageCodes].page.events.data)
+const { t, locale, fallbackLocale } = useI18n()
+
+const events = computed(() => messages[locale.value as LanguageCodes]?.page.events.data ?? messages[fallbackLocale.value as LanguageCodes].page.events.data)
 
 const filters = ref({
   category: undefined,
