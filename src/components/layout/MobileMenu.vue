@@ -42,7 +42,7 @@ watch(smallerThanMd, (value) => {
         :target="target ? target : null"
         :to="to ? { name: to } : null"
         secondary
-        class="head-6 block py-4 !border-b-solid !border-b !border-b-slate-300 rounded-none !dark:border-b-slate-50/[0.06]"
+        class="cta big head-6 block !border-b-solid !border-b !border-b-slate-300 rounded-none !dark:border-b-slate-50/[0.06]"
         @click="$emit('close')"
       >
         <span>{{ $t(text as string) }}</span>
