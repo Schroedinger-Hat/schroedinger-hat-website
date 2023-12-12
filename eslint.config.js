@@ -2,10 +2,9 @@
 import antfu from '@antfu/eslint-config'
 
 export default antfu({
-  ignorePatterns: ["*.code-workspace"],
+  ignorePatterns: ['*.code-workspace'],
   rules: {
-    "antfu/top-level-function": "off",
-    "vue/singleline-html-element-content-newline": "off"
-  }
+    'antfu/top-level-function': 'off',
+    'vue/singleline-html-element-content-newline': 'off',
+  },
 })
-

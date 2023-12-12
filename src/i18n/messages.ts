@@ -267,7 +267,8 @@ const messages = {
       {
         title: 'Reporting',
         copy: 'If you are being harassed, notice that someone else is being harassed, or have any other concerns, please contact a member of Schrödinger Hat staff immediately. You can make a personal report by: Twitter\'s direct message service: @schrodinger_hat. Email: schrodinger.hat.show@gmail.com Phone (organizer\'s numbers are shared at the beginning of the event and monitored during the event). Reaching out to an organizer: organizer who will make sure the conversation is held privately. You will not be asked to confront anyone and we won\'t tell anyone who you are. We will identify ourselves at the beginning of each event. Schrödinger Hat staff will be happy to help participants contact venue security (if available) or local law enforcement, provide escorts, or otherwise assist those experiencing harassment to feel safe for the duration of the event. We value your attendance. We expect everyone to follow these rules at the all the events organized by Schrödinger Hat (meetups, workshops, other events and post meetup related social events).',
-      }],
+      },
+    ],
     redirect: {
       profile: 'Go to profile',
       back: 'Go back',

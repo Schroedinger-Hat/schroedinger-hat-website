@@ -10,7 +10,7 @@ If this is your first pull request that you open, please read this [open source 
 
 - If you are resolving a special issue, add (fix #xxxx) (#xxxx is the issue id) in your PR title for a better release log, e.g. refactor:update entities encoding/decoding(fix #3899)
 
-- If you aren't resolving a special issue, please utilize a descriptive PR title that upholds a detailed and semantic explanation of your changes, e.g: style: Update primary color, refactor: Simplify fetching functions. 
+- If you aren't resolving a special issue, please utilize a descriptive PR title that upholds a detailed and semantic explanation of your changes, e.g: style: Update primary color, refactor: Simplify fetching functions.
 
 ## Changes
 
