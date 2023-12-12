@@ -15,7 +15,7 @@ const { component, bindings } = useCtaComponent(useAttrs())
 <template>
   <component
     :is="component" v-bind="bindings" :aria-label="ariaText" class="cta" :class="{
-      'py-1 px-1.5 rounded-1': secondary || tertiary || quaternary,
+      'rounded-1': secondary || tertiary || quaternary,
       'secondary': secondary,
       'tertiary': tertiary,
       'quaternary': quaternary,
@@ -27,6 +27,7 @@ const { component, bindings } = useCtaComponent(useAttrs())
 
 <style scoped lang="scss">
 .cta {
+  padding: rem(4px) rem(6px);
   border: 1px solid $bg-secondary;
   background: $bg-primary;
   color: $text-primary;
@@ -39,6 +40,10 @@ const { component, bindings } = useCtaComponent(useAttrs())
       background: $nord7;
       color: $text-primary;
     }
+  }
+
+  &.big {
+    padding: rem(12px) rem(24px);
   }
 }
 
