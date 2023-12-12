@@ -6,10 +6,10 @@ import { getAssetURL } from '@/utils/getAssetURL'
 
 const links = [
   {
-    href: 'https://open.spotify.com/show/7yfkQCV6hrPIqflSqJDB2P',
-    id: 'Spotify',
-    test: 'cta-spotify',
-    text: 'Spotify',
+    href: 'https://osday.dev/',
+    id: 'OSDay',
+    test: 'cta-osday',
+    text: 'OSDay 2024',
   },
   {
     href: 'https://opencollective.com/schrodinger-hat',
@@ -45,7 +45,8 @@ useHead({ titleTemplate: null, title: t('head.home.title') })
           :key="id"
           :href="href"
           :data-test="`cta-${test}`"
-          class="cta py-3 px-6 rounded-1 dark:border-none"
+          :tertiary="id === 'OSDay'"
+          class="cta big rounded-1 dark:border-none"
           target="_blank"
         >
           {{ text }}
