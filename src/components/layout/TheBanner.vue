@@ -1,17 +1,21 @@
 <script setup lang="ts">
+import { Icon } from '@iconify/vue'
 
+const OSDAY_URL = 'https://osday.dev/'
 </script>
 
 <template>
   <div class="banner" fixed inset-x-0 bottom-0 p-4 text-center text-base>
-    Are you ready for the next edition of:
-    <b>OSDay</b>?
-    Get your free ticket now!
-    &#128640;
+    <a :href="OSDAY_URL" target="_blank" flex justify-center items-center>
+      <div flex-grow>
+        <p inline>Are you ready for the next edition of <b>OSDay</b>? </p>
+        <p inline-block md:inline>Get your free ticket now! <span inline> &#128640;</span></p>
+      </div>
+      <button text-xl>
+        <Icon icon="carbon:close" />
+      </button>
+    </a>
   </div>
-  <a>
-    Share ticket
-  </a>
 </template>
 
 <style scoped lang="scss">
