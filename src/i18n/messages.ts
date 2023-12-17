@@ -40,6 +40,10 @@ const messages = {
     main: {
       h1: 'Una community open source italiana',
       h2: 'Schrödinger Hat é una community, un podcast, un livestream e molto altro!',
+      banner: {
+        first: 'Sei pronto per la prossima edizione di',
+        second: 'Prendi ora il tuo biglietto!',
+      },
       links: {
         youtube: 'YouTube',
         spotify: 'Spotify',
@@ -234,6 +238,10 @@ const messages = {
     main: {
       h1: 'Schrödinger Hat',
       h2: 'The Open Source community',
+      banner: {
+        first: 'Are you ready for the next edition of',
+        second: 'Get your ticket now!',
+      },
       links: {
         youtube: 'YouTube',
         spotify: 'Spotify',
