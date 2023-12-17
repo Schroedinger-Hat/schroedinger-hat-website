@@ -4,7 +4,7 @@ import { type RouteParamValue, useRoute } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 import { useHead } from '@unhead/vue'
 import * as messages from '../i18n/messages'
-import { type EventMessageName } from '@/i18n/types'
+import type { EventMessageName } from '@/i18n/types'
 
 const { t } = useI18n()
 const route = useRoute()

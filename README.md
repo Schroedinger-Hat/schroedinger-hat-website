@@ -10,7 +10,7 @@
 <br />
 <div align="center">
   <h1>Schrödinger's Hat Website</h1>
-  
+
   <a href="www.schrodinger-hat.it/">
     <img src="src/assets/sh-logo-small.png" alt="Logo" width="80" height="80">
   </a>
@@ -19,7 +19,7 @@
     <!-- <br />
     <a href="https://github.com/Schrodinger-Hat/schrodinger-hat-website/wiki"><strong>Explore the docs »</strong></a>
     <br /> -->
-    <br /> 
+    <br />
     <a href="https://github.com/Schrodinger-Hat/schrodinger-hat-website">Visit repository</a>
     ·
     <a href="https://github.com/Schrodinger-Hat/schrodinger-hat-website/issues/new?assignees=&labels=&projects=&template=bug_report.md&title=%5BBUG%5D:">Report a bug</a>
@@ -61,14 +61,13 @@ Project description
 - [Vite](https://vitejs.dev/) - [Repo](https://github.com/vitejs/vite)
 - [Vitest](https://vitest.dev/) - [Repo](https://github.com/vitest-dev/vitest)
 
-
 <!-- USAGE EXAMPLES -->
 
 ## Usage
 
 ### Project setup
 
-Ensure you have installed 
+Ensure you have installed
 ```
 node >= 19.4.0
 npm >= 9.2.0
@@ -105,9 +104,7 @@ For both editors:
 
 It is important that you activate the [Take Over Mode](https://vuejs.org/guide/typescript/overview.html#volar-takeover-mode) from Volar to get the best DX when using Typescript and Vue. For Neovim you can follow the same link stated above.
 
-
 Don't hesitate to ask the admins or contributors on how to set it up if you don't manage set it up.
-
 
 ### Compiles and hot-reloads for development
 
@@ -151,7 +148,6 @@ Check out the [milestone](https://github.com/Schrodinger-Hat/schrodinger-hat-web
 ## Contributing
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
 
 If you have a suggestion that would make this repository better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
 Don't forget to give the project a star! Thanks again!

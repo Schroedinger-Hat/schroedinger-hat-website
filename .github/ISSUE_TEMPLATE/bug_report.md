@@ -15,7 +15,7 @@ assignees: ''
 - A suggestion of a fix, if you have one in mind!
 - Please ensure the new content respects the [Schrödinger Hat Code of Conduct](https://www.schrodinger-hat.it/code-of-conduct)
 
---- 
+---
 
 If this is your first issue that you open, please read this [open source contribution guide](https://opensource.guide/how-to-contribute/#opening-an-issue).
 
@@ -33,7 +33,6 @@ Note:
 - Your bug will may get fixed much faster if we can run your code and it doesn't have extra dependencies besides the one from the original project.
 - To create a shareable code example you can use Stackblitz (https://stackblitz.com/). Please no localhost URLs.
 - Please read these tips for providing a minimal example: https://stackoverflow.com/help/mcve.
-
 
 **Steps to reproduce the bug or issue** (if possible)
 
