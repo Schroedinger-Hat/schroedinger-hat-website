@@ -7,6 +7,7 @@ import { useNewsletter } from '@/functions/useNewsletter'
 import TheContributing from '@/components/TheContributing.vue'
 import TheFooter from '@/components/layout/TheFooter.vue'
 import TheNavbar from '@/components/layout/TheNavbar.vue'
+import TheBanner from '@/components/layout/TheBanner.vue'
 
 const navbar = ref<HTMLElement | null>(null)
 const { height } = useElementBounding(navbar)
@@ -27,6 +28,7 @@ useHead({
     <RouterView class="page" />
     <TheContributing />
     <TheFooter />
+    <TheBanner />
   </div>
 </template>
 
