@@ -39,7 +39,7 @@ useHead({ titleTemplate: null, title: t('head.home.title') })
       <p class="head-1" tabindex="0">
         {{ $t('main.h2') }}
       </p>
-      <div class="w-full pt-6 space-x-2">
+      <div w-full flex="~ col lg:row" pt-6 space="~ y-2 lg:y-0 lg:x-2">
         <CtaComponent
           v-for="{ href, id, test, text } in links"
           :key="id"
