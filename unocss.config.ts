@@ -1,17 +1,18 @@
 import { defineConfig, presetAttributify, presetIcons, presetUno, presetWebFonts } from 'unocss'
 
 export default defineConfig({
-  // Find better way to do this https://unocss.dev/guide/extracting#safelist
   presets: [
-    // See: https://unocss.dev/presets/attributify
     presetAttributify(),
-    // See: https://unocss.dev/presets/icons
     presetIcons(),
-    // See: https://unocss.dev/presets/uno
     presetUno(),
-    // See: https://unocss.dev/presets/web-fonts
     presetWebFonts(),
   ],
+  shortcuts: {
+    'bg-base': 'bg-[#eceff4] dark:bg-[#2e3440]',
+    'bg-base-secondary': 'bg-[#d9d9d9] dark:bg-[#3b4252]',
+    'text-base': 'text-[#4c566a] dark:text-[#eceff4]',
+    'text-base-secondary': 'text-[#eceff4] dark:text-[#4c566a]',
+  },
   theme: {
     colors: {
       light: {
