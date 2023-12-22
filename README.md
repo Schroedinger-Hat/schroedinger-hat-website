@@ -69,8 +69,8 @@ Project description
 
 Ensure you have installed
 ```
-node >= 19.4.0
-npm >= 9.2.0
+node >= 20.10.0
+npm >= 10.2.3
 ```
 
 Then, after cloning the project run the command below in the installation folder
