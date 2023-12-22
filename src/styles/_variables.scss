@@ -21,4 +21,5 @@ $dark-bg-secondary: $nord3;
 $dark-text-primary: $nord6;
 
 // Transitions
-$default-transition: 0.3s ease-in-out;
+$transition-duration: ("default": 0.3s);
+$transition-timing-function:  ("default": ease-in-out);
