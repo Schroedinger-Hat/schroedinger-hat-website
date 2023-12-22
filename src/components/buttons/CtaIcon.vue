@@ -32,7 +32,7 @@ const { component, bindings } = useCtaComponent(useAttrs())
 <style lang="scss" scoped>
 .cta {
   font-size: rem(20px);
-  transition: background $default-transition;
+  transition: background map.get($transition-duration, default) map.get($transition-timing-function, default);
 
   &.small {
     font-size: rem(16px);
