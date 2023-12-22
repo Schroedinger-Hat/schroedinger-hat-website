@@ -3,6 +3,10 @@ import { useAttrs } from 'vue'
 import { Icon } from '@iconify/vue'
 import { useCtaComponent } from '@/functions/useCtaComponent'
 
+defineOptions({
+  inheritAttrs: false,
+})
+
 defineProps<{
   ariaLabel?: string
   icon: string

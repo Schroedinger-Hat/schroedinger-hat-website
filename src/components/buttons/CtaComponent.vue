@@ -2,6 +2,10 @@
 import { useAttrs } from 'vue'
 import { useCtaComponent } from '@/functions/useCtaComponent'
 
+defineOptions({
+  inheritAttrs: false,
+})
+
 defineProps<{
   secondary?: boolean
   ariaText?: string
