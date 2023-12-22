@@ -5,6 +5,7 @@ import vue from '@vitejs/plugin-vue'
 
 const sassAdditionalData = () => {
   let additionalData = '@use "sass:math";'
+  additionalData += '@use "sass:map";'
   additionalData += '@import "@/styles/global";'
   return additionalData
 }
