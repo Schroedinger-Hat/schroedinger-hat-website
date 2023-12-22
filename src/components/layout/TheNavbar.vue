@@ -19,7 +19,7 @@ interface Link {
 
 const links = [
   {
-    href: '/',
+    href: undefined,
     id: 'Team',
     to: 'Team',
     test: 'team-page-link',
@@ -27,7 +27,7 @@ const links = [
     ariaText: 'navbar.team',
   },
   {
-    href: '/',
+    href: undefined,
     id: 'Events',
     to: 'Events',
     test: 'event-page-link',
@@ -35,7 +35,7 @@ const links = [
     ariaText: 'navbar.events',
   },
   {
-    href: '/',
+    href: undefined,
     id: 'CodeOfConduct',
     test: 'code-page-link',
     text: 'navbar.codeOfConduct',
