@@ -19,7 +19,7 @@ interface Link {
 
 const links = [
   {
-    href: '/',
+    href: undefined,
     id: 'Team',
     to: 'Team',
     test: 'team-page-link',
@@ -27,7 +27,7 @@ const links = [
     ariaText: 'navbar.team',
   },
   {
-    href: '/',
+    href: undefined,
     id: 'Events',
     to: 'Events',
     test: 'event-page-link',
@@ -35,7 +35,7 @@ const links = [
     ariaText: 'navbar.events',
   },
   {
-    href: '/',
+    href: undefined,
     id: 'CodeOfConduct',
     test: 'code-page-link',
     text: 'navbar.codeOfConduct',
@@ -54,7 +54,7 @@ const links = [
 
 const ghCTA = {
   href: 'https://github.com/Schrodinger-Hat',
-  icon: 'fab fa-github',
+  icon: 'logo-github',
   id: 'GitHub',
   test: 'github-cta',
   text: 'navbar.gitHub',
@@ -67,7 +67,7 @@ const isDark = useDark()
 const mobileLinks: Link[] = [ghCTA, ...links]
 const toggleDark = useToggle(isDark)
 
-const themeIcon = computed(() => isDark.value ? 'fa-sun' : 'fa-moon')
+const themeIcon = computed(() => isDark.value ? 'sun' : 'moon')
 
 watch(showMenu, value => (value ? scrollLock.value = true : scrollLock.value = false))
 </script>
@@ -85,8 +85,8 @@ watch(showMenu, value => (value ? scrollLock.value = true : scrollLock.value = f
           :to="to ? { name: to } : null"
           :href="href"
           :target="target ? target : null"
+          class="hidden md:inline-flex mx-0.5 text-xl"
           secondary
-          class="hidden mx-0.5 text-xl md:inline-flex"
         >
           <span>{{ $t(text as string) }}</span>
         </CtaComponent>
@@ -99,21 +99,21 @@ watch(showMenu, value => (value ? scrollLock.value = true : scrollLock.value = f
         />
         <CtaIcon
           :aria-label="$t('accessibility.navbar.openMenu' as string)"
-          class="md:hidden"
+          md:hidden
           data-test="nav-burger-menu-cta"
-          icon="fas fa-hamburger"
+          icon="menu"
           @click="toggleMenu()"
         />
         <CtaIcon
           :aria-label="$t('accessibility.navbar.toggleIcon' as string)"
-          :icon="`fas ${themeIcon}`"
+          :icon="themeIcon"
           data-test="nav-theme-icon"
           @click="toggleDark()"
         />
       </nav>
     </div>
     <MobileMenu
-      class="w-full h-screen absolute top-15 left-0 overflow-auto text-center"
+      w-full h-100dvh position="absolute top-15 left-0" overflow-auto text-center
       :links="mobileLinks"
       :show="showMenu"
       data-test="mobile-menu"
