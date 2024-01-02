@@ -176,14 +176,6 @@ const SHGitHubWebsiteRepo = 'https://github.com/Schrodinger-Hat/schrodinger-hat-
               <img width="200" src="/img/pycon-logo.png" alt="PyCon Ialia">
             </a>
             <a
-              href="https://www.devdreams.it/"
-              target="_blank"
-              rel="noreferrer"
-              class="sponsor-image"
-            >
-              <img width="150" src="/img/devdreams.png" alt="DevDreams">
-            </a>
-            <a
               href="https://www.codemotion.com/"
               target="_blank"
               rel="noreferrer"
