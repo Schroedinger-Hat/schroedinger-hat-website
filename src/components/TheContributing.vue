@@ -191,6 +191,15 @@ const SHGitHubWebsiteRepo = 'https://github.com/Schrodinger-Hat/schrodinger-hat-
             >
               <img width="150" src="/img/gdgp.svg" alt="GDG Pisa">
             </a>
+            
+            <a
+              href="https://italiaopensource.com"
+              target="_blank"
+              rel="noreferrer"
+              class="sponsor-image"
+            >
+              <img width="200" src="/img/logo-italia-opensource.png" alt="Italia Open-Source">
+            </a>
           </div>
         </div>
       </div>
