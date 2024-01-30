@@ -200,6 +200,15 @@ const SHGitHubWebsiteRepo = 'https://github.com/Schrodinger-Hat/schrodinger-hat-
             >
               <img width="200" src="/img/logo-italia-opensource.png" alt="Italia Open-Source">
             </a>
+
+            <a
+              href="https://www.latinaintech.org/"
+              target="_blank"
+              rel="noreferrer"
+              class="sponsor-image"
+            >
+              <img width="150" src="/img/lit.png" alt="Latina in Tech">
+            </a>
           </div>
         </div>
       </div>
