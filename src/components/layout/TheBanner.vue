@@ -3,11 +3,11 @@ import { Icon } from '@iconify/vue'
 import { useBannerCookie } from '@/functions/useBannerCookie'
 
 const OSDAY_URL = 'https://osday.dev/'
-const { banner, handleDismiss } = useBannerCookie()
+const { handleDismiss } = useBannerCookie()
 </script>
 
 <template>
-  <div v-if="!banner.dismissed" class="banner" fixed inset-x-0 bottom-0 p-4 text-center text-base>
+  <div v-if="false" class="banner" fixed inset-x-0 bottom-0 p-4 text-center text-base>
     <a :href="OSDAY_URL" target="_blank" flex justify-center items-center>
       <div flex-grow>
         <p inline>{{ $t('main.banner.first') }} <b>OSDay</b>? </p>
