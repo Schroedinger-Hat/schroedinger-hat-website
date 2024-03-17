@@ -13,7 +13,7 @@ const SHGitHubWebsiteRepo = 'https://github.com/Schrodinger-Hat/schrodinger-hat-
     <!-- TODO: Disable nyan cat in mobile -->
     <NyanCat data-test="nyan-cat" />
     <SeparatorSingleLine />
-    <div class="bg-secondary py-30">
+    <div class="bg-secondary contributing-wrapper">
       <div class="container contributing-container-text">
         <div class="inner-text">
           <h2 data-test="contributing-title" tabindex="0">
@@ -114,7 +114,7 @@ const SHGitHubWebsiteRepo = 'https://github.com/Schrodinger-Hat/schrodinger-hat-
         </div>
         <div class="inner-text" data-test="contributing-partners">
           <!-- TODO: Add title to messages -->
-          <h2 style="padding: 15px 0" data-test="contributing-partners-title" tabindex="0">
+          <h2 data-test="contributing-partners-title" tabindex="0">
             Community Partners
           </h2>
           <div class="partner-image" data-test="contributing-partners-logo">
@@ -233,6 +233,10 @@ const SHGitHubWebsiteRepo = 'https://github.com/Schrodinger-Hat/schrodinger-hat-
   }
 }
 
+.contributing-wrapper {
+  padding: 7.5rem 0 10vw;
+}
+
 .contributing-container-text {
   display: flex;
   width: 100%;
@@ -246,9 +250,14 @@ const SHGitHubWebsiteRepo = 'https://github.com/Schrodinger-Hat/schrodinger-hat-
     padding: 0 0.5em;
 
     h2 {
-      margin: 0;
+      margin: .5em 0 1em;
       font-size: 2.2em;
     }
+
+  }
+
+  .contributing-partners-title {
+    padding: 15px 0 30px;
   }
 
   .partner-image {
@@ -256,6 +265,8 @@ const SHGitHubWebsiteRepo = 'https://github.com/Schrodinger-Hat/schrodinger-hat-
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    column-gap: 2.2em;
+    row-gap: 1em;
   }
 
   .sponsor-image {
