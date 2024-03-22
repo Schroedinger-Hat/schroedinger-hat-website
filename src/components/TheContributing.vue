@@ -149,6 +149,13 @@ const SHGitHubWebsiteRepo = 'https://github.com/Schrodinger-Hat/schrodinger-hat-
               >
             </a>
             <a
+              href="https://neovimconf.live/"
+              target="_blank"
+              class="sponsor-image"
+            >
+              <img width="100" src="/img/nvimconf.svg" alt="NeoVimConf">
+            </a>
+            <a
               href="https://www.wearedevelopers.com/"
               target="_blank" class="sponsor-image"
             >
