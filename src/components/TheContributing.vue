@@ -153,7 +153,7 @@ const SHGitHubWebsiteRepo = 'https://github.com/Schrodinger-Hat/schrodinger-hat-
               target="_blank"
               class="sponsor-image"
             >
-              <img width="200" src="/img/nvimconf.svg" alt="NeoVimConf">
+              <img width="100" src="/img/nvimconf.svg" alt="NeoVimConf">
             </a>
             <a
               href="https://www.wearedevelopers.com/"
