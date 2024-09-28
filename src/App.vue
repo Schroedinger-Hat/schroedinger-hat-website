@@ -28,7 +28,7 @@ useHead({
     <RouterView class="page" />
     <TheContributing />
     <TheFooter />
-    <TheBanner />
+    <TheBanner content="This is the banner that will appear here this is a super long string trying stuff out" href="https://www.google.com" />
   </div>
 </template>
 
