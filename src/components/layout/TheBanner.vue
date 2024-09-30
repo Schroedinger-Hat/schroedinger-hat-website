@@ -16,11 +16,11 @@ const { handleDismiss, banner } = useBannerCookie()
     v-if="false"
     class="banner"
     text="center base"
-    fixed inset-x-0 bottom-0 p-4
+    fixed inset-x-0 bottom-0 p="2 lg:4"
   >
     <a :href="href" target="_blank" flex justify-center items-center>
       <div flex-grow text-balance>
-        <p class="text-lg">{{ content }}</p>
+        <p class="text-base lg:text-lg">{{ content }}</p>
       </div>
       <button p-2 text-xl @click.prevent="handleDismiss">
         <Icon icon="carbon:close" />
