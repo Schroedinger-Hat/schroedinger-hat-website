@@ -7,12 +7,13 @@ defineProps<{
   href: string
 }>()
 
+// TODO: Once content is ready, replace !banner.dismissed on line 16.
 const { handleDismiss, banner } = useBannerCookie()
 </script>
 
 <template>
   <div
-    v-if="!banner.dismissed"
+    v-if="false"
     class="banner"
     text="center base"
     fixed inset-x-0 bottom-0 p-4
