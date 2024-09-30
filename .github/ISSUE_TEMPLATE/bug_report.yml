@@ -6,7 +6,7 @@ body:
     attributes:
       value: |
         Please carefully read our code of conduct before creating a bug report
-        👉 https://www.schrodinger-hat.it/code-of-conduct
+        👉 https://www.schroedinger-hat.org/code-of-conduct
 
   - type: textarea
     id: reproduction
