@@ -2,16 +2,25 @@
 import { Icon } from '@iconify/vue'
 import { useBannerCookie } from '@/functions/useBannerCookie'
 
-const OSDAY_URL = 'https://osday.dev/'
-const { handleDismiss } = useBannerCookie()
+defineProps<{
+  content: string
+  href: string
+}>()
+
+// TODO: Once content is ready, replace !banner.dismissed on line 16.
+const { handleDismiss, banner } = useBannerCookie()
 </script>
 
 <template>
-  <div v-if="false" class="banner" fixed inset-x-0 bottom-0 p-4 text-center text-base>
-    <a :href="OSDAY_URL" target="_blank" flex justify-center items-center>
-      <div flex-grow>
-        <p inline>{{ $t('main.banner.first') }} <b>OSDay</b>? </p>
-        <p inline-block lg:inline>{{ $t('main.banner.second') }}<span inline> &#128640;</span></p>
+  <div
+    v-if="false"
+    class="banner"
+    text="center base"
+    fixed inset-x-0 bottom-0 p="2 lg:4"
+  >
+    <a :href="href" target="_blank" flex justify-center items-center>
+      <div flex-grow text-balance>
+        <p class="text-base lg:text-lg">{{ content }}</p>
       </div>
       <button p-2 text-xl @click.prevent="handleDismiss">
         <Icon icon="carbon:close" />
