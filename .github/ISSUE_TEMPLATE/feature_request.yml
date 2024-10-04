@@ -8,7 +8,7 @@ body:
         Thank you for taking the time to fill out this feature request!
 
         Please carefully read the code of conduct before suggesting a new feature
-        👉 https://www.schrodinger-hat.it/code-of-conduct
+        👉 https://www.schroedinger-hat.org/code-of-conduct
   - type: textarea
     id: feature-description
     attributes:
@@ -31,8 +31,7 @@ body:
       label: Final checks
       description: Before submitting, please make sure you do the following
       options:
-        - label: Read the [code of conduct](https://www.schrodinger-hat.it/code-of-conduct).
+        - label: Read the [code of conduct](https://www.schroedinger-hat.org/code-of-conduct).
           required: true
-        - label: Check existing [issues](https://github.com/Schrodinger-Hat/schrodinger-hat-website/issues).
+        - label: Check existing [issues](https://github.com/schroedinger-Hat/schrodinger-hat-website/issues).
           required: true
-

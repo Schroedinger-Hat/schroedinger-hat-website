@@ -43,7 +43,7 @@ const links = [
     ariaText: 'navbar.codeOfConduct',
   },
   {
-    href: 'https://ign.schrodinger-hat.it',
+    href: 'https://ign.schroedinger-hat.org',
     id: 'IGN',
     target: '_blank',
     test: 'IGN-link',
@@ -53,7 +53,7 @@ const links = [
 ]
 
 const ghCTA = {
-  href: 'https://github.com/Schrodinger-Hat',
+  href: 'https://github.com/schroedinger-Hat',
   icon: 'logo-github',
   id: 'GitHub',
   test: 'github-cta',
