@@ -17,14 +17,14 @@
 
   <p align="center">
     <!-- <br />
-    <a href="https://github.com/schroedinger-Hat/schrodinger-hat-website/wiki"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/schroedinger-Hat/schroedinger-hat-website/wiki"><strong>Explore the docs »</strong></a>
     <br /> -->
     <br />
-    <a href="https://github.com/schroedinger-Hat/schrodinger-hat-website">Visit repository</a>
+    <a href="https://github.com/schroedinger-Hat/schroedinger-hat-website">Visit repository</a>
     ·
-    <a href="https://github.com/schroedinger-Hat/schrodinger-hat-website/issues/new?assignees=&labels=&projects=&template=bug_report.md&title=%5BBUG%5D:">Report a bug</a>
+    <a href="https://github.com/schroedinger-Hat/schroedinger-hat-website/issues/new?assignees=&labels=&projects=&template=bug_report.md&title=%5BBUG%5D:">Report a bug</a>
     ·
-    <a href="https://github.com/schroedinger-Hat/schrodinger-hat-website/issues/new?assignees=&labels=&projects=&template=feature_request.md&title=%5BFEATURE%5D:">Request a feature</a>
+    <a href="https://github.com/schroedinger-Hat/schroedinger-hat-website/issues/new?assignees=&labels=&projects=&template=feature_request.md&title=%5BFEATURE%5D:">Request a feature</a>
   </p>
 </div>
 
@@ -141,7 +141,7 @@ npm run lint:fix
 ## Roadmap
 Currently aiming for the v2 release.
 
-Check out the [milestone](https://github.com/schroedinger-Hat/schrodinger-hat-website/milestones) and the the [open issues](https://github.com/schroedinger-Hat/schrodinger-hat-website/issues) if you would like to contribute.
+Check out the [milestone](https://github.com/schroedinger-Hat/schroedinger-hat-website/milestones) and the the [open issues](https://github.com/schroedinger-Hat/schroedinger-hat-website/issues) if you would like to contribute.
 
 <!-- CONTRIBUTING -->
 
@@ -168,9 +168,9 @@ Don't forget to give the project a star! Thanks again!
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/schrodinger-Hat/schrodinger-hat-website.svg?style=for-the-badge
-[contributors-url]: https://github.com/schroedinger-Hat/schrodinger-hat-website/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/schroedinger-Hat/schrodinger-hat-website.svg?style=for-the-badge
-[forks-url]: https://github.com/schroedinger-Hat/schrodinger-hat-website/network/members
-[issues-shield]: https://img.shields.io/github/issues/schroedinger-Hat/schrodinger-hat-website.svg?style=for-the-badge
-[issues-url]: https://github.com/schroedinger-Hat/schrodinger-hat-website/issues
+[contributors-shield]: https://img.shields.io/github/contributors/schroedinger-Hat/schroedinger-hat-website.svg?style=for-the-badge
+[contributors-url]: https://github.com/schroedinger-Hat/schroedinger-hat-website/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/schroedinger-Hat/schroedinger-hat-website.svg?style=for-the-badge
+[forks-url]: https://github.com/schroedinger-Hat/schroedinger-hat-website/network/members
+[issues-shield]: https://img.shields.io/github/issues/schroedinger-Hat/schroedinger-hat-website.svg?style=for-the-badge
+[issues-url]: https://github.com/schroedinger-Hat/schroedinger-hat-website/issues
