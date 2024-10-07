@@ -33,5 +33,5 @@ body:
       options:
         - label: Read the [code of conduct](https://www.schroedinger-hat.org/code-of-conduct).
           required: true
-        - label: Check existing [issues](https://github.com/schroedinger-Hat/schrodinger-hat-website/issues).
+        - label: Check existing [issues](https://github.com/schroedinger-Hat/schroedinger-hat-website/issues).
           required: true
