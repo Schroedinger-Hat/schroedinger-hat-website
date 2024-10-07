@@ -3,7 +3,7 @@ import NyanCat from '@/components/NyanCat.vue'
 import SeparatorSingleLine from '@/components/separator/SingleLine.vue'
 
 const SHGitHub = 'https://github.com/schroedinger-Hat'
-const SHGitHubWebsiteRepo = 'https://github.com/schroedinger-Hat/schrodinger-hat-website/issues/new/choose'
+const SHGitHubWebsiteRepo = 'https://github.com/schroedinger-Hat/schroedinger-hat-website/issues/new/choose'
 // TODO: Have a global file that contains all the links
 // TODO: Add all possible texts to the messages file
 </script>
