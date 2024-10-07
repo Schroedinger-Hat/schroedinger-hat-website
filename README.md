@@ -11,7 +11,7 @@
 <div align="center">
   <h1>Schrödinger's Hat Website</h1>
 
-  <a href="www.schroedinger-hat.org/">
+  <a href="https://www.schroedinger-hat.org/">
     <img src="src/assets/sh-logo-small.png" alt="Logo" width="80" height="80">
   </a>
 
