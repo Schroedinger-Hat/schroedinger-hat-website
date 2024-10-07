@@ -13,7 +13,7 @@ describe('English tests', {
     linkedinURL: 'https://www.linkedin.com/company/schrodinger-hat/',
     // Modify with your local environment url
     localhost: 'http://localhost:5173',
-    openCollectiveURL: 'https://opencollective.com/schroedinger-hat',
+    openCollectiveURL: 'https://opencollective.com/schrodinger-hat',
     spotifyURL: 'https://open.spotify.com/show/7yfkQCV6hrPIqflSqJDB2P',
     twitterURL: 'https://twitter.com/schrodinger_hat',
     youtubeURL: 'https://www.youtube.com/channel/UC1QLLgrGrPmlaFhS0orykCA',
@@ -662,7 +662,7 @@ describe('Italian tests', {
     linkedinURL: 'https://www.linkedin.com/company/schrodinger-hat/',
     // Modify with your local environment url
     localhost: 'http://localhost:5173',
-    openCollectiveURL: 'https://opencollective.com/schroedinger-hat',
+    openCollectiveURL: 'https://opencollective.com/schrodinger-hat',
     spotifyURL: 'https://open.spotify.com/show/7yfkQCV6hrPIqflSqJDB2P',
     twitterURL: 'https://twitter.com/schrodinger_hat',
     youtubeURL: 'https://www.youtube.com/channel/UC1QLLgrGrPmlaFhS0orykCA',
