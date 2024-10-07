@@ -2,8 +2,8 @@
 import NyanCat from '@/components/NyanCat.vue'
 import SeparatorSingleLine from '@/components/separator/SingleLine.vue'
 
-const SHGitHub = 'https://github.com/Schrodinger-Hat'
-const SHGitHubWebsiteRepo = 'https://github.com/Schrodinger-Hat/schrodinger-hat-website/issues/new/choose'
+const SHGitHub = 'https://github.com/schroedinger-Hat'
+const SHGitHubWebsiteRepo = 'https://github.com/schroedinger-Hat/schroedinger-hat-website/issues/new/choose'
 // TODO: Have a global file that contains all the links
 // TODO: Add all possible texts to the messages file
 </script>
@@ -47,7 +47,7 @@ const SHGitHubWebsiteRepo = 'https://github.com/Schrodinger-Hat/schrodinger-hat-
             <!-- TODO: Create a v-for with all these links -->
             <a
               data-test="contributing-open-collective"
-              href="https://opencollective.com/schrodinger-hat"
+              href="https://opencollective.com/schroedinger-hat"
               target="_blank"
               :aria-label="$t('accessibility.contributing.openCollective_label' as string)"
             >
@@ -190,7 +190,7 @@ const SHGitHubWebsiteRepo = 'https://github.com/Schrodinger-Hat/schrodinger-hat-
             >
               <img width="150" src="/img/gdgp.svg" alt="GDG Pisa">
             </a>
-            
+
             <a
               href="https://italiaopensource.com"
               target="_blank"

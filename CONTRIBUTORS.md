@@ -9,4 +9,4 @@ Current contributors:
 - [Nicola Puppa - Nicpuppa](https://github.com/nicpuppa)
 - [Patrick Raedler - Readpato](https://github.com/Readpato)
 
-Check out all [SH Contributors](https://github.com/Schrodinger-Hat/schrodinger-hat-website/graphs/contributors)
+Check out all [SH Contributors](https://github.com/schroedinger-Hat/schroedinger-hat-website/graphs/contributors)

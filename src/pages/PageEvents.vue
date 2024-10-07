@@ -10,7 +10,7 @@ import type { LanguageCodes } from '@i18n/types'
 import messages from '@i18n/messages'
 import type { Event } from '@i18n/events/index'
 
-const SESSIONS_LINK = 'https://github.com/Schrodinger-Hat/sh-sessions/issues/new/choose'
+const SESSIONS_LINK = 'https://github.com/schroedinger-Hat/sh-sessions/issues/new/choose'
 
 const { t, locale, fallbackLocale } = useI18n()
 

@@ -12,7 +12,7 @@ const links = [
     text: 'OSDay 2024',
   },
   {
-    href: 'https://opencollective.com/schrodinger-hat',
+    href: 'https://opencollective.com/schroedinger-hat',
     id: 'OpenCollective',
     test: 'cta-open-collective',
     text: 'OpenCollective',
