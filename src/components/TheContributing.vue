@@ -47,7 +47,7 @@ const SHGitHubWebsiteRepo = 'https://github.com/schroedinger-Hat/schroedinger-ha
             <!-- TODO: Create a v-for with all these links -->
             <a
               data-test="contributing-open-collective"
-              href="https://opencollective.com/schroedinger-hat"
+              href="https://opencollective.com/schrodinger-hat"
               target="_blank"
               :aria-label="$t('accessibility.contributing.openCollective_label' as string)"
             >
