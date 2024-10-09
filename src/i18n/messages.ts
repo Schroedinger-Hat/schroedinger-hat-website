@@ -39,7 +39,7 @@ const messages = {
       codeOfConduct: 'Codice di Condotta',
       imageGoNord: 'ImageGoNord',
       gitHub: 'GitHub',
-      shop: 'Merch',
+      shop: 'Shop',
     },
     main: {
       h1: 'Una community open source italiana',
@@ -241,7 +241,7 @@ const messages = {
       codeOfConduct: 'Code of Conduct',
       imageGoNord: 'ImageGoNord',
       gitHub: 'GitHub',
-      shop: 'Merch',
+      shop: 'Shop',
     },
     main: {
       h1: 'Schrödinger Hat',
