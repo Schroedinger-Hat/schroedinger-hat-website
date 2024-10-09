@@ -50,6 +50,13 @@ const links = [
     text: 'navbar.imageGoNord',
     ariaText: 'navbar.imageGoNord',
   },
+  {
+    href: 'https://shop.schroedinger-hat.org/?utm_source=sh-website&utm_medium=navbar&utm_campaign=sh-website-cp',
+    target: '_blank',
+    test: 'shop-link',
+    text: 'navbar.shop',
+    ariaText: 'navbar.shop',
+  },
 ]
 
 const ghCTA = {
