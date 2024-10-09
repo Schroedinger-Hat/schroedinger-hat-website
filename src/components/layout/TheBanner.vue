@@ -7,22 +7,21 @@ defineProps<{
   href: string
 }>()
 
-// TODO: Once content is ready, replace !banner.dismissed on line 16.
 const { handleDismiss, banner } = useBannerCookie()
 </script>
 
 <template>
   <div
-    v-if="false"
+    v-if="!banner.dismissed"
     class="banner"
     text="center base"
     fixed inset-x-0 bottom-0 p="2 lg:4"
   >
     <a :href="href" target="_blank" flex justify-center items-center>
       <div flex-grow text-balance>
-        <p class="text-base lg:text-lg">{{ content }}</p>
+        <p text="base lg:lg !white">{{ content }} &#128640;</p>
       </div>
-      <button p-2 text-xl @click.prevent="handleDismiss">
+      <button border-none rounded-full p-0.5 text="base lg:xl" bg="white dark:transparent" @click.prevent="handleDismiss">
         <Icon icon="carbon:close" />
       </button>
     </a>

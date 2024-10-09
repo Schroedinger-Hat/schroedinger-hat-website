@@ -2,6 +2,9 @@ import { messages as eventMessages } from '@/i18n/events/index'
 
 const messages = {
   it: {
+    banner: {
+      shop: 'Schrödinger Hat è un\'organizzazione no profit. Aiutateci a continuare la nostra missione nell\'Open Source visitando il nostro negozio online',
+    },
     head: {
       app: {
         meta: { name: 'Schrödinger Hat', content: 'La community Open Source' },
@@ -198,6 +201,9 @@ const messages = {
     },
   },
   en: {
+    banner: {
+      shop: 'Schrödinger Hat is a no profit organisation. Help us continue our mission in Open Source by visiting our online store',
+    },
     head: {
       app: {
         title: 'Schrödinger Hat',
