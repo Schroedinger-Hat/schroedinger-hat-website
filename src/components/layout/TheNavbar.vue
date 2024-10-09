@@ -51,7 +51,7 @@ const links = [
     ariaText: 'navbar.imageGoNord',
   },
   {
-    href: 'https://shop.schroedinger-hat.org/?utm_source=sh-website&utm_medium=banner&utm_campaign=sh-website-cp',
+    href: 'https://shop.schroedinger-hat.org/?utm_source=sh-website&utm_medium=navbar&utm_campaign=sh-website-cp',
     target: '_blank',
     test: 'shop-link',
     text: 'navbar.shop',
