@@ -19,9 +19,9 @@ const { handleDismiss, banner } = useBannerCookie()
   >
     <a :href="href" target="_blank" flex justify-center items-center>
       <div flex-grow text-balance>
-        <p class="text-base lg:text-lg">{{ content }} &#128640;</p>
+        <p text="base lg:lg !white">{{ content }} &#128640;</p>
       </div>
-      <button p-2 text-xl @click.prevent="handleDismiss">
+      <button border-none rounded-full p-0.5 text="base lg:xl" bg="white dark:transparent" @click.prevent="handleDismiss">
         <Icon icon="carbon:close" />
       </button>
     </a>
