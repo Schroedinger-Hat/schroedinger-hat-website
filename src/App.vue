@@ -14,6 +14,8 @@ const { height } = useElementBounding(navbar)
 const { t } = useI18n()
 const { init } = useNewsletter()
 
+const SHOP_LINK = 'https://shop.schroedinger-hat.org/?utm_source=sh-website&utm_medium=banner&utm_campaign=sh-website-cp'
+
 onMounted(init)
 
 useHead({
@@ -28,7 +30,7 @@ useHead({
     <RouterView class="page" />
     <TheContributing />
     <TheFooter />
-    <TheBanner content="This is the banner that will appear here this is a super long string trying stuff out" href="https://www.google.com" />
+    <TheBanner :content="$t('banner.shop')" :href="SHOP_LINK" />
   </div>
 </template>
 
