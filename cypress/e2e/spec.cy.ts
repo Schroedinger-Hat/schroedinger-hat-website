@@ -10,7 +10,7 @@ describe('English tests', {
     githubWebsiteRepoURL: 'https://github.com/schroedinger-Hat/schroedinger-hat-website/issues/new/choose',
     imageGoNordURL: 'https://ign.schroedinger-hat.org',
     instagramURL: 'https://www.instagram.com/schrodinger_hat/',
-    linkedinURL: 'https://www.linkedin.com/company/schrodinger-hat/',
+    linkedinURL: 'https://www.linkedin.com/company/schroedinger-hat/',
     // Modify with your local environment url
     localhost: 'http://localhost:5173',
     openCollectiveURL: 'https://opencollective.com/schrodinger-hat',
@@ -659,7 +659,7 @@ describe('Italian tests', {
     githubWebsiteRepoURL: 'https://github.com/schroedinger-Hat/schroedinger-hat-website/issues/new/choose',
     imageGoNordURL: 'https://ign.schroedinger-hat.org',
     instagramURL: 'https://www.instagram.com/schrodinger_hat/',
-    linkedinURL: 'https://www.linkedin.com/company/schrodinger-hat/',
+    linkedinURL: 'https://www.linkedin.com/company/schroedinger-hat/',
     // Modify with your local environment url
     localhost: 'http://localhost:5173',
     openCollectiveURL: 'https://opencollective.com/schrodinger-hat',

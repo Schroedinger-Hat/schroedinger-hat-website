@@ -80,7 +80,7 @@ const SHGitHubWebsiteRepo = 'https://github.com/schroedinger-Hat/schroedinger-ha
             </a>
             <a
               data-test="contributing-linkedin"
-              href="https://www.linkedin.com/company/schrodinger-hat/"
+              href="https://www.linkedin.com/company/schroedinger-hat/"
               target="_blank"
               :aria-label="$t('accessibility.contributing.linkedin_label' as string)"
             >
