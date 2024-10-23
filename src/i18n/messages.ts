@@ -171,6 +171,18 @@ const messages = {
         website: 'https://davideimola.com',
         permalink: 'davideimola',
       },
+      patrickraedler: {
+        name: 'Patrick Raedler',
+        github: 'readpato',
+        github_url: 'https://github.com/readpato',
+        linkedin_url: 'https://www.linkedin.com/in/patrickraedler/',
+        twitter_url: ' ',
+        image: '/img/_dev/davideimola.jpg',
+        secondary_image: '/img/_dev/davideimola.jpg',
+        description: 'Mi piace programmare ed il Open Source :)',
+        website: 'https://readpato.dev',
+        permalink: 'readpato',
+      },
     },
     accessibility: {
       navbar: {
@@ -371,6 +383,18 @@ const messages = {
         description: 'Mettetemi in mano un Cloud provider e mi vedrete felice come un bimbo. Sono un grande appassionato di automazione, approcci cloud-native e tutto quella roba da DevOps Sith. Nel mio tempo libero, faccio roba da nerd (che strano!), quindi leggo fumetti e manga, vedo film e tanta altra roba molto cool (perchè io ci credo)!',
         website: 'https://davideimola.com',
         permalink: 'davideimola',
+      },
+      patrickraedler: {
+        name: 'Patrick Raedler',
+        github: 'readpato',
+        github_url: 'https://github.com/readpato',
+        linkedin_url: 'https://www.linkedin.com/in/patrickraedler/',
+        twitter_url: ' ',
+        image: '/img/_dev/patrickraedler.jpg',
+        secondary_image: '/img/_dev/patrickraedler.jpg',
+        description: 'I like programming and open source :)',
+        website: 'https://readpato.dev',
+        permalink: 'readpato',
       },
     },
     accessibility: {
