@@ -2,7 +2,7 @@
   "en": {
     "id": "osday2024",
     "category": "event",
-    "featured": true,
+    "featured": false,
     "headline": null,
     "ticketsURL": "https://www.eventbrite.it/e/open-source-day-2024-tickets-731947624047?aff=erelpanelorg",
     "title": "Open Source Day 2024",
