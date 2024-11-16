@@ -9,6 +9,7 @@ export const pageType = defineType({
       name: "title",
       title: "Title",
       type: "string",
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "slug",
@@ -18,20 +19,12 @@ export const pageType = defineType({
         source: "title",
         maxLength: 96,
       },
-    },
-    {
-      name: "seoDescription",
-      title: "SEO Description",
-      type: "text",
-      validation: (Rule) =>
-        Rule.max(160).warning(
-          "SEO descriptions should be under 160 characters",
-        ),
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "content",
-      title: "Content",
       type: "array",
+      title: "Content",
       of: [
         {
           type: "block",
@@ -42,24 +35,32 @@ export const pageType = defineType({
       name: "headerImage",
       title: "Header Image",
       type: "image",
-      description: "Main image displayed at the top of the page",
       options: {
         hotspot: true,
       },
     },
     {
-      name: "socialTitle",
-      title: "Social Media Title",
-      type: "string",
-      description:
-        "Title to be used for social media sharing (if different from main title)",
-    },
-    {
-      name: "socialDescription",
-      title: "Social Media Description",
-      type: "text",
-      description:
-        "Description to be used for social media sharing (if different from SEO description)",
+      name: "seo",
+      title: "SEO",
+      type: "object",
+      fields: [
+        {
+          name: "metaTitle",
+          title: "Meta Title",
+          type: "string",
+        },
+        {
+          name: "metaDescription",
+          title: "Meta Description",
+          type: "text",
+        },
+        {
+          name: "metaKeywords",
+          title: "Meta Keywords",
+          type: "array",
+          of: [{ type: "string" }],
+        },
+      ],
     },
   ],
 });
