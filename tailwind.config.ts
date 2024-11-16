@@ -8,7 +8,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-lexend)", ...fontFamily.sans],
+        sans: ["var(--font-inter)", ...fontFamily.sans],
+        lexend: ["var(--font-lexend)", ...fontFamily.sans],
       },
       borderRadius: {
         lg: "var(--radius)",

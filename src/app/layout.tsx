@@ -1,18 +1,16 @@
 import "@/styles/globals.css";
 
-import { Lexend } from "next/font/google";
+import { Inter, Lexend } from "next/font/google";
+
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const lexend = Lexend({ subsets: ["latin"], variable: "--font-lexend" });
+
 import { type Metadata } from "next";
 
 import { TRPCReactProvider } from "@/trpc/react";
 import { NavHeader } from "@/components/nav-header";
 import { Footer } from "@/components/footer";
 import { ChildrenContainer } from "@/components/children-container";
-
-const lexend = Lexend({
-  subsets: ["latin"],
-  variable: "--font-lexend",
-  weight: ["400", "500", "600", "700"],
-});
 
 export const metadata: Metadata = {
   title: "Create T3 App",
@@ -24,7 +22,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={lexend.variable}>
+    <html lang="en" className={`${inter.variable} ${lexend.variable}`}>
       <body>
         <TRPCReactProvider>{children}</TRPCReactProvider>
       </body>

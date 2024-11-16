@@ -20,13 +20,12 @@ export default async function Home() {
         <div className="container mx-auto px-4">
           <div className="flex flex-col items-center text-center">
             <div className="max-w-4xl">
-              <h1 className="mb-8 text-[100px] font-medium leading-none tracking-[-7px] text-slate-800">
+              <h1 className="font-lexend mb-8 text-[100px] font-medium leading-none tracking-[-7px] text-slate-800">
                 Where we talk <br />
                 open source
               </h1>
               <h2 className="text-[22px] font-normal text-slate-800">
-                Schroedinger Hat is an online community of open source
-                enthusiasts,
+                Schroedinger Hat is a community of open source enthusiasts,
                 <br /> we organizes events and write software.
               </h2>
             </div>
