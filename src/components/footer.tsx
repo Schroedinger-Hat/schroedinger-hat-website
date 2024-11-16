@@ -47,13 +47,16 @@ export function Footer() {
                 className="block text-sm font-semibold hover:underline"
                 href="/shop"
               >
-                Shop
+                Link rapidi
               </Link>
-              <Link className="block text-sm hover:underline" href="/profile">
-                My Profile
+              <Link
+                className="block text-sm hover:underline"
+                href="https://ign.schroedinger-hat.org/"
+              >
+                ImageGoNord
               </Link>
               <Link className="block text-sm hover:underline" href="/orders">
-                Orders
+                Press Kit
               </Link>
               {inDevEnvironment && (
                 <Link

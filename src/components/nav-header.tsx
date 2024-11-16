@@ -31,14 +31,12 @@ export function NavHeader() {
         {/* Desktop Navigation */}
         <div className="hidden md:flex md:flex-1">
           <NavigationMenu>
-            <NavigationMenuItem>
-              <Link
-                href="/about"
-                className="group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium"
-              >
-                GUARDA
-              </Link>
-            </NavigationMenuItem>
+            <Link
+              href="/about"
+              className="group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium"
+            >
+              GUARDA
+            </Link>
 
             <NavigationMenuList>
               <NavigationMenuItem>
@@ -70,6 +68,7 @@ export function NavHeader() {
                         <Link
                           href="https://discord.gg/eK7bDYrnnR"
                           className="hover:bg-accent block rounded-md p-2"
+                          target="_blank"
                         >
                           Unisciti a Discord
                         </Link>
@@ -86,7 +85,7 @@ export function NavHeader() {
                     <li>
                       <NavigationMenuLink asChild>
                         <Link
-                          href="/projects/progetti"
+                          href="/contribuisci/progetti"
                           className="hover:bg-accent block rounded-md p-2"
                         >
                           Progetti
@@ -96,7 +95,7 @@ export function NavHeader() {
                     <li>
                       <NavigationMenuLink asChild>
                         <Link
-                          href="/projects/come-speaker"
+                          href="/contribuisci/come-speaker"
                           className="hover:bg-accent block rounded-md p-2"
                         >
                           Come Speaker
@@ -106,7 +105,7 @@ export function NavHeader() {
                     <li>
                       <NavigationMenuLink asChild>
                         <Link
-                          href="/projects/come-individuo"
+                          href="/contribuisci/come-individuo"
                           className="hover:bg-accent block rounded-md p-2"
                         >
                           Come Individuo
@@ -116,7 +115,7 @@ export function NavHeader() {
                     <li>
                       <NavigationMenuLink asChild>
                         <Link
-                          href="/projects/come-partner"
+                          href="/contribuisci/come-partner"
                           className="hover:bg-accent block rounded-md p-2"
                         >
                           Come Partner
@@ -126,7 +125,7 @@ export function NavHeader() {
                     <li>
                       <NavigationMenuLink asChild>
                         <Link
-                          href="/projects/come-sponsor"
+                          href="/contribuisci/come-sponsor"
                           className="hover:bg-accent block rounded-md p-2"
                         >
                           Come Sponsor
@@ -164,10 +163,10 @@ export function NavHeader() {
                     <li>
                       <NavigationMenuLink asChild>
                         <Link
-                          href="/associazione/bilancio"
+                          href="/associazione/dati-amministrativi"
                           className="hover:bg-accent block rounded-md p-2"
                         >
-                          Bilancio
+                          Dati Amministrativi
                         </Link>
                       </NavigationMenuLink>
                     </li>
@@ -178,6 +177,16 @@ export function NavHeader() {
                           className="hover:bg-accent block rounded-md p-2"
                         >
                           Diventa Socio
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <Link
+                          href="/associazione/press-kit"
+                          className="hover:bg-accent block rounded-md p-2"
+                        >
+                          Press Kit
                         </Link>
                       </NavigationMenuLink>
                     </li>

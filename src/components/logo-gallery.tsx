@@ -16,14 +16,16 @@ interface LogoGalleryProps {
 }
 
 export function LogoGallery(
-  { logos, blackAndWhite = false }: LogoGalleryProps = {
+  { logos, blackAndWhite = false, title = "" }: LogoGalleryProps = {
     logos: [],
     blackAndWhite: false,
+    title: "",
   },
 ) {
   return (
     <section className="w-full py-12 md:py-24 lg:py-32">
       <div className="container px-4 md:px-6">
+        {title && <h2 className="mb-8 text-3xl font-bold">{title}</h2>}
         <div className="grid grid-cols-1 items-center justify-center gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {logos.map((logo, index) => (
             <div

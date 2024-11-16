@@ -26,16 +26,18 @@ export default async function Home() {
         </div>
       </div>
 
-      <ImageContent />
+      <div className="container mx-auto max-w-7xl py-16">
+        {/* <ImageContent /> */}
 
-      {/* <Debug>{partners}</Debug> */}
-      <LogoGallery
-        blackAndWhite={true}
-        logos={partners.map((partner) => ({
-          src: urlFor(partner.image).height(150).url(),
-          alt: partner.description,
-        }))}
-      />
+        <LogoGallery
+          title="Community Partners"
+          blackAndWhite={true}
+          logos={partners.map((partner) => ({
+            src: urlFor(partner.image).height(150).url(),
+            alt: partner.description,
+          }))}
+        />
+      </div>
     </div>
   );
 }
