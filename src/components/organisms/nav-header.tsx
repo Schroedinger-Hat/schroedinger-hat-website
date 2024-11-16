@@ -3,7 +3,7 @@
 import * as React from "react";
 import Link from "next/link";
 import { ChevronDown, Menu } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/molecules/button";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -11,10 +11,14 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+} from "@/components/molecules/navigation-menu";
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+} from "@/components/molecules/sheet";
 import Image from "next/image";
-import logo from "../images/logo.png";
+import logo from "../../images/logo.png";
 
 export function NavHeader() {
   const [isOpen, setIsOpen] = React.useState(false);

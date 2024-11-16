@@ -1,13 +1,13 @@
 import Link from "next/link";
 import { LatestPost } from "@/app/_components/post";
 import { api, HydrateClient } from "@/trpc/server";
-import { NavHeader } from "@/components/nav-header";
+import { NavHeader } from "@/components/organisms/nav-header";
 import Image from "next/image";
-import { LogoGallery } from "@/components/logo-gallery";
+import { LogoGallery } from "@/components/organisms/logo-gallery";
 import { sanityClient } from "@/sanity/lib/client";
 import { Debug } from "@/components/debug";
 import { urlFor } from "@/sanity/lib/image";
-import { ImageContent } from "@/components/image-content";
+import { ImageContent } from "@/components/organisms/image-content";
 
 export default async function Home() {
   const partners = await sanityClient.fetch(

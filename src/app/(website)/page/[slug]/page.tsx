@@ -4,7 +4,7 @@ import { urlFor } from "@/sanity/lib/image";
 import { sanityClient } from "@/sanity/lib/client";
 import Image from "next/image";
 import { PageData } from "./types";
-import { portableTextComponents } from "./components";
+import { portableTextComponents } from "./portableTextComponents";
 import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
 
 interface PageProps {

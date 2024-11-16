@@ -59,12 +59,20 @@ export function Footer() {
                 Press Kit
               </Link>
               {inDevEnvironment && (
-                <Link
-                  href="/sanity-cms"
-                  className="block text-sm hover:underline"
-                >
-                  CMS
-                </Link>
+                <>
+                  <Link
+                    href="/sanity-cms"
+                    className="block text-sm hover:underline"
+                  >
+                    CMS
+                  </Link>
+                  <Link
+                    href="/components"
+                    className="block text-sm hover:underline"
+                  >
+                    Components
+                  </Link>
+                </>
               )}
             </div>
 

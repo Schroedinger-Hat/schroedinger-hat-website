@@ -13,6 +13,14 @@ const config = {
         protocol: "https",
         hostname: "cdn.sanity.io",
       },
+      ...(process.env.NODE_ENV === "development"
+        ? [
+            {
+              protocol: "https",
+              hostname: "placehold.co",
+            },
+          ]
+        : []),
     ],
   },
 };
