@@ -19,9 +19,17 @@ export default async function Home() {
       <div className="relative w-full overflow-hidden bg-gradient-to-r from-blue-200 via-purple-200 to-pink-200 py-16 md:py-24">
         <div className="container mx-auto px-4">
           <div className="flex flex-col items-center text-center">
-            <h1 className="mb-12 max-w-4xl text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
-              Schroedinger Hat is where we talk about open source
-            </h1>
+            <div className="max-w-4xl">
+              <h1 className="mb-8 text-[100px] font-medium leading-none tracking-[-7px] text-slate-800">
+                Where we talk <br />
+                open source
+              </h1>
+              <h2 className="text-[22px] font-normal text-slate-800">
+                Schroedinger Hat is an online community of open source
+                enthusiasts,
+                <br /> we organizes events and write software.
+              </h2>
+            </div>
           </div>
         </div>
       </div>
