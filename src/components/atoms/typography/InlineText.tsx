@@ -1,16 +1,14 @@
 "use client";
 
+import { cn } from "@/lib/utils";
+
 interface InlineTextProps {
   children: React.ReactNode;
   variant: "strong" | "em" | "code";
   className?: string;
 }
 
-export function InlineText({
-  children,
-  variant,
-  className = "",
-}: InlineTextProps) {
+export function InlineText({ children, variant, className }: InlineTextProps) {
   const styles = {
     strong: "font-bold",
     em: "italic",
@@ -20,8 +18,6 @@ export function InlineText({
   const Component = variant as keyof JSX.IntrinsicElements;
 
   return (
-    <Component className={`${styles[variant]} ${className}`}>
-      {children}
-    </Component>
+    <Component className={cn(styles[variant], className)}>{children}</Component>
   );
 }

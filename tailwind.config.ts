@@ -58,6 +58,9 @@ export default {
           "5": "hsl(var(--chart-5))",
         },
       },
+      animation: {
+        pulse: "pulse 10s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+      },
     },
   },
   plugins: [animate],
