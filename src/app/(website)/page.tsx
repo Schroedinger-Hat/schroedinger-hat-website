@@ -21,7 +21,7 @@ import osday from "@/images/homepage/osday.jpg";
 
 export default async function Home() {
   const partners = await sanityClient.fetch(
-    `*[_type == "partner"] | order(order asc)`,
+    `*[_type == "partner" && !isBusinessPartner] | order(order asc)`,
   );
 
   return (
