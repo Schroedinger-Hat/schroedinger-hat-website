@@ -24,18 +24,19 @@ export function ImageContent({
     <div className={cn("container", className)}>
       <div
         className={cn(
-          "grid items-center gap-8",
+          "grid items-center gap-12",
           "lg:grid-cols-2",
           imagePosition === "right" && "lg:[&>*:first-child]:order-last",
         )}
       >
-        <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl">
+        <div className="relative aspect-[4/2] w-full overflow-hidden rounded-xl">
           <Image
             src={imageSrc}
             alt={imageAlt}
             fill
             className="object-cover"
-            sizes="(max-width: 668px) 100vw, 50vw"
+            // TODO: Width must be fixed to 668 on desktop and full on mobile
+            sizes="(min-width: 1024px) 668px, 100vw"
           />
         </div>
         <div className="space-y-6">

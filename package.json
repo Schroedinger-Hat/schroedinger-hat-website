@@ -13,7 +13,8 @@
     "lint:fix": "next lint --fix",
     "preview": "next build && next start",
     "start": "next start",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "dev:fresh": "rm -rf .next && npm run dev"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.2",

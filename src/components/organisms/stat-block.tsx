@@ -2,16 +2,20 @@
 
 import { Heading } from "@/components/atoms/typography/Heading";
 import { Paragraph } from "@/components/atoms/typography/Paragraph";
+import { cn } from "@/lib/utils";
 
-interface StatBlock {
-  number: string;
-  title: string;
-  description: string;
+interface StatBlocksProps {
+  blocks: {
+    number: string;
+    title: string;
+    description: string;
+  }[];
+  className?: string;
 }
 
-export function StatBlocks({ blocks }: { blocks: StatBlock[] }) {
+export function StatBlocks({ blocks, className }: StatBlocksProps) {
   return (
-    <div className="px-4">
+    <div className={cn("container", className)}>
       <div className="grid grid-cols-1 gap-8 text-center sm:grid-cols-2 lg:grid-cols-4">
         {blocks.map((block, index) => (
           <div key={index} className="space-y-2">

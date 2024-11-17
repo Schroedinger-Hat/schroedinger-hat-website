@@ -9,15 +9,15 @@ import { urlFor } from "@/sanity/lib/image";
 import { ImageContent } from "@/components/organisms/image-content";
 import { StatBlocks } from "@/components/organisms/stat-block";
 import { CardSection } from "@/components/organisms/card-section";
+import { Heading } from "@/components/atoms/typography/Heading";
+import { TrackingCat } from "@/components/organisms/tracking-cat";
+import { BlurredBackground } from "@/components/organisms/blurred-background";
 
 // Images
 import team from "@/images/homepage/team.png";
 import shopCallout from "@/images/homepage/shop-callout.png";
 import imageGoNord from "@/images/homepage/imageGoNord.png";
 import osday from "@/images/homepage/osday.jpg";
-import { Heading } from "@/components/atoms/typography/Heading";
-import { TrackingCat } from "@/components/organisms/trackingCat";
-import { BlurredBackground } from "@/components/organisms/blurredBackground";
 
 export default async function Home() {
   const partners = await sanityClient.fetch(
@@ -26,19 +26,21 @@ export default async function Home() {
 
   return (
     <div>
-      <div className="relative w-full pb-64 pt-16">
+      <div className="relative w-full pb-64 pt-32">
         <BlurredBackground
           points={2}
-          colors={["#EA0305", "#C81824", "#830B16"]}
-          blur={300}
-          opacity={0.9}
-          size={400}
+          // colors={["#639aff", "#f75ccb"]}
+          colors={["#f75ccb", "#639aff", "#C81824", "#830B16"]}
+          blur={100}
+          opacity={0.7}
+          size={500}
+          positioning="center"
         />
 
         <div className="container mx-auto px-4">
           <div className="flex flex-col items-center text-center">
             <div className="max-w-4xl">
-              <h1 className="font-lexend mb-8 text-[100px] font-medium leading-none tracking-[-7px] text-slate-800">
+              <h1 className="mb-8 font-lexend text-[100px] font-medium leading-none tracking-[-7px] text-slate-800">
                 Where we talk <br />
                 open source
               </h1>
@@ -56,7 +58,7 @@ export default async function Home() {
         </div>
       </div>
 
-      <div className="container mx-auto -mt-32 max-w-7xl pb-16">
+      <div className="container mx-auto -mt-32 max-w-7xl py-16">
         <ImageContent
           className="py-16"
           title="The collective"
@@ -89,6 +91,7 @@ export default async function Home() {
         />
 
         <StatBlocks
+          className="py-16"
           blocks={[
             {
               number: "20k",
@@ -117,8 +120,10 @@ export default async function Home() {
       </div>
 
       <div className="bg-slate-100">
-        <div className="container mx-auto max-w-7xl py-16">
-          <Heading level={2}>You may know us for</Heading>
+        <div className="container mx-auto max-w-7xl py-24">
+          <Heading className="m-0" level={2}>
+            You may know us for
+          </Heading>
           <ImageContent
             className="py-16"
             title="OSDay"
@@ -183,6 +188,7 @@ export default async function Home() {
 
       <div className="container mx-auto max-w-7xl pb-24">
         <LogoGallery
+          className="py-24"
           title="Community Partners"
           blackAndWhite={true}
           logos={partners.map((partner) => ({
@@ -193,6 +199,7 @@ export default async function Home() {
 
         {/* Inform user that we have on online shop where they can buy merch and t-shirts */}
         <CardSection
+          className="my-8"
           topText="eCommerce"
           title="Merch and T-Shirts"
           subtitle="Wanna dress like a Schroedinger Hat fan? Visit our online shop where you can buy our merch and t-shirts."

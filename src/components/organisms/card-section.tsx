@@ -19,6 +19,7 @@ interface CardSectionProps {
   imageAlt?: string;
   onctaClick?: () => void;
   variant?: CardVariant;
+  className?: string;
 }
 
 const variantStyles: Record<CardVariant, string> = {
@@ -54,10 +55,15 @@ export function CardSection({
   image = "",
   imageAlt = "Section image",
   variant = "primary",
+  className = "",
 }: CardSectionProps) {
   return (
     <section
-      className={cn("overflow-hidden rounded-2xl", variantStyles[variant])}
+      className={cn(
+        "overflow-hidden rounded-2xl",
+        variantStyles[variant],
+        className,
+      )}
     >
       <div className="container">
         <div className="grid min-h-[400px] items-center gap-6 md:grid-cols-2 md:gap-12">
@@ -87,7 +93,7 @@ export function CardSection({
                 {subtitle}
               </Paragraph>
             </div>
-            <div className="flex flex-col gap-2 min-[400px]:flex-row">
+            <div className="mt-2 flex flex-col gap-2 min-[400px]:flex-row">
               <Link
                 href={ctaHref}
                 className={cn(

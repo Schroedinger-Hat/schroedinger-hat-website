@@ -60,6 +60,25 @@ export default {
       },
       animation: {
         pulse: "pulse 10s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+        blob: "blob 7s infinite",
+      },
+      keyframes: {
+        blob: {
+          "0%": {
+            transform: "translate(-50%, -50%) scale(1)",
+          },
+          "33%": {
+            transform:
+              "translate(-50%, -50%) translate(20px, -20px) scale(1.3)",
+          },
+          "66%": {
+            transform:
+              "translate(-50%, -50%) translate(-20px, 20px) scale(0.7)",
+          },
+          "100%": {
+            transform: "translate(-50%, -50%) scale(1)",
+          },
+        },
       },
     },
   },
