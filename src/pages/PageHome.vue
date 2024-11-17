@@ -9,7 +9,7 @@ const links = [
     href: 'https://osday.dev/',
     id: 'OSDay',
     test: 'cta-osday',
-    text: 'OSDay 2024',
+    text: 'OSDay 2025',
   },
   {
     href: 'https://opencollective.com/schrodinger-hat',
