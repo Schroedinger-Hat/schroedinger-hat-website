@@ -122,9 +122,9 @@ export const partnerType = defineType({
       ],
     },
     {
-      name: "order",
-      title: "Display Order",
-      type: "number",
+      name: "orderRank",
+      title: "Order Rank",
+      type: "string",
       description: "Used to control the display order of partners",
     },
   ],

@@ -13,6 +13,10 @@ const config = {
         protocol: "https",
         hostname: "cdn.sanity.io",
       },
+      {
+        protocol: "https",
+        hostname: "img.youtube.com",
+      },
       ...(process.env.NODE_ENV === "development"
         ? [
             {

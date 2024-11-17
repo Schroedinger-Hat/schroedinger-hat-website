@@ -25,7 +25,7 @@ export function NavHeader() {
   const [isOpen, setIsOpen] = React.useState(false);
 
   return (
-    <header className="bg-background/95 supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 w-full border-b backdrop-blur">
+    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto flex h-14 max-w-7xl items-center">
         <div className="mr-8">
           <Link href="/" className="text-xl font-bold tracking-wider">
@@ -42,7 +42,7 @@ export function NavHeader() {
         <div className="hidden md:flex md:flex-1">
           <NavigationMenu>
             <Link
-              href="/about"
+              href="/guarda"
               className="group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium"
             >
               GUARDA
@@ -57,7 +57,7 @@ export function NavHeader() {
                       <NavigationMenuLink asChild>
                         <Link
                           href="/partecipa/eventi"
-                          className="hover:bg-accent block rounded-md p-2"
+                          className="block rounded-md p-2 hover:bg-accent"
                         >
                           <Paragraph className="m-0">Eventi</Paragraph>
                         </Link>
@@ -67,7 +67,7 @@ export function NavHeader() {
                       <NavigationMenuLink asChild>
                         <Link
                           href="/partecipa/community-locali"
-                          className="hover:bg-accent block rounded-md p-2"
+                          className="block rounded-md p-2 hover:bg-accent"
                         >
                           <Paragraph className="m-0">
                             Community Locali
@@ -79,7 +79,7 @@ export function NavHeader() {
                       <NavigationMenuLink asChild>
                         <Link
                           href="https://discord.gg/eK7bDYrnnR"
-                          className="hover:bg-accent block rounded-md p-2"
+                          className="block rounded-md p-2 hover:bg-accent"
                           target="_blank"
                         >
                           <Paragraph className="m-0">
@@ -100,7 +100,7 @@ export function NavHeader() {
                       <NavigationMenuLink asChild>
                         <Link
                           href="/contribuisci/progetti"
-                          className="hover:bg-accent block rounded-md p-2"
+                          className="block rounded-md p-2 hover:bg-accent"
                         >
                           <Paragraph className="m-0">Progetti</Paragraph>
                         </Link>
@@ -110,7 +110,7 @@ export function NavHeader() {
                       <NavigationMenuLink asChild>
                         <Link
                           href="/contribuisci/come-speaker"
-                          className="hover:bg-accent block rounded-md p-2"
+                          className="block rounded-md p-2 hover:bg-accent"
                         >
                           <Paragraph className="m-0">Come Speaker</Paragraph>
                         </Link>
@@ -120,7 +120,7 @@ export function NavHeader() {
                       <NavigationMenuLink asChild>
                         <Link
                           href="/contribuisci/come-individuo"
-                          className="hover:bg-accent block rounded-md p-2"
+                          className="block rounded-md p-2 hover:bg-accent"
                         >
                           <Paragraph className="m-0">Come Individuo</Paragraph>
                         </Link>
@@ -130,7 +130,7 @@ export function NavHeader() {
                       <NavigationMenuLink asChild>
                         <Link
                           href="/contribuisci/come-partner"
-                          className="hover:bg-accent block rounded-md p-2"
+                          className="block rounded-md p-2 hover:bg-accent"
                         >
                           <Paragraph className="m-0">Come Partner</Paragraph>
                         </Link>
@@ -140,7 +140,7 @@ export function NavHeader() {
                       <NavigationMenuLink asChild>
                         <Link
                           href="/contribuisci/come-sponsor"
-                          className="hover:bg-accent block rounded-md p-2"
+                          className="block rounded-md p-2 hover:bg-accent"
                         >
                           <Paragraph className="m-0">Come Sponsor</Paragraph>
                         </Link>
@@ -158,7 +158,7 @@ export function NavHeader() {
                       <NavigationMenuLink asChild>
                         <Link
                           href="/associazione/chi-siamo"
-                          className="hover:bg-accent block rounded-md p-2"
+                          className="block rounded-md p-2 hover:bg-accent"
                         >
                           <Paragraph className="m-0">Chi Siamo</Paragraph>
                         </Link>
@@ -168,7 +168,7 @@ export function NavHeader() {
                       <NavigationMenuLink asChild>
                         <Link
                           href="/associazione/statuto"
-                          className="hover:bg-accent block rounded-md p-2"
+                          className="block rounded-md p-2 hover:bg-accent"
                         >
                           <Paragraph className="m-0">Statuto</Paragraph>
                         </Link>
@@ -178,7 +178,7 @@ export function NavHeader() {
                       <NavigationMenuLink asChild>
                         <Link
                           href="/associazione/dati-amministrativi"
-                          className="hover:bg-accent block rounded-md p-2"
+                          className="block rounded-md p-2 hover:bg-accent"
                         >
                           <Paragraph className="m-0">
                             Dati Amministrativi
@@ -190,7 +190,7 @@ export function NavHeader() {
                       <NavigationMenuLink asChild>
                         <Link
                           href="/associazione/diventa-socio"
-                          className="hover:bg-accent block rounded-md p-2"
+                          className="block rounded-md p-2 hover:bg-accent"
                         >
                           <Paragraph className="m-0">Diventa Socio</Paragraph>
                         </Link>
@@ -200,7 +200,7 @@ export function NavHeader() {
                       <NavigationMenuLink asChild>
                         <Link
                           href="/associazione/press-kit"
-                          className="hover:bg-accent block rounded-md p-2"
+                          className="block rounded-md p-2 hover:bg-accent"
                         >
                           <Paragraph className="m-0">Press Kit</Paragraph>
                         </Link>
