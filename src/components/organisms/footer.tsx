@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { Youtube, Twitter } from "lucide-react";
 import { inDevEnvironment } from "@/app/consts";
+import { Heading } from "@/components/atoms/typography/Heading";
+import { Paragraph } from "@/components/atoms/typography/Paragraph";
 
 export function Footer() {
   return (
@@ -16,47 +18,44 @@ export function Footer() {
                 className="block text-sm hover:underline"
                 href="/page/cookie-policy"
               >
-                Cookie policy
+                <Paragraph className="m-0 text-sm">Cookie policy</Paragraph>
               </Link>
               <Link
                 className="block text-sm hover:underline"
                 href="/page/privacy"
               >
-                Privacy policy
+                <Paragraph className="m-0 text-sm">Privacy policy</Paragraph>
               </Link>
               <Link
                 className="block text-sm hover:underline"
                 href="/page/contacts"
               >
-                Contatti
+                <Paragraph className="m-0 text-sm">Contatti</Paragraph>
               </Link>
               <Link
                 className="block text-sm hover:underline"
                 href="/page/code-of-conduct"
               >
-                Code of Conduct
+                <Paragraph className="m-0 text-sm">Code of Conduct</Paragraph>
               </Link>
               <Link className="block text-sm hover:underline" href="/page/faq">
-                FAQ
+                <Paragraph className="m-0 text-sm">FAQ</Paragraph>
               </Link>
             </div>
 
             {/* Shop & Account Links */}
             <div className="space-y-3">
-              <Link
-                className="block text-sm font-semibold hover:underline"
-                href="/shop"
-              >
+              <Heading level={3} className="text-sm font-semibold">
                 Link rapidi
-              </Link>
+              </Heading>
               <Link
                 className="block text-sm hover:underline"
                 href="https://ign.schroedinger-hat.org/"
               >
-                ImageGoNord
+                <Paragraph className="m-0 text-sm">ImageGoNord</Paragraph>
               </Link>
               <Link className="block text-sm hover:underline" href="/orders">
-                Press Kit
+                <Paragraph className="m-0 text-sm">Press Kit</Paragraph>
               </Link>
               {inDevEnvironment && (
                 <>
@@ -64,13 +63,13 @@ export function Footer() {
                     href="/sanity-cms"
                     className="block text-sm hover:underline"
                   >
-                    CMS
+                    <Paragraph className="m-0 text-sm">CMS</Paragraph>
                   </Link>
                   <Link
                     href="/components"
                     className="block text-sm hover:underline"
                   >
-                    Components
+                    <Paragraph className="m-0 text-sm">Components</Paragraph>
                   </Link>
                 </>
               )}
@@ -78,11 +77,15 @@ export function Footer() {
 
             {/* Company Info */}
             <div className="space-y-3">
-              <h3 className="text-sm font-semibold">SCHROEDINGER HAT APS</h3>
-              <p className="text-muted-foreground text-sm">
+              <Heading level={3} className="text-sm font-semibold">
+                SCHROEDINGER HAT APS
+              </Heading>
+              <Paragraph className="text-muted-foreground text-sm">
                 Via Pino Arpioni 1, Pelago (FI)
-              </p>
-              <p className="text-muted-foreground text-sm">IT07355400487</p>
+              </Paragraph>
+              <Paragraph className="text-muted-foreground text-sm">
+                IT07355400487
+              </Paragraph>
               <div className="mt-4 flex space-x-4">
                 <Link
                   href="https://youtube.com"
@@ -107,13 +110,15 @@ export function Footer() {
 
           {/* Bottom Links */}
           <div className="text-muted-foreground flex flex-wrap gap-x-4 gap-y-2 text-sm">
-            <span>© 2024, Schroedinger Hat</span>
+            <Paragraph className="m-0 text-sm">
+              © 2024, Schroedinger Hat
+            </Paragraph>
             <Link
               href="https://nextjs.org"
               className="hover:underline"
               target="_blank"
             >
-              Powered by Next.js
+              <Paragraph className="m-0 text-sm">Powered by Next.js</Paragraph>
             </Link>
           </div>
         </div>

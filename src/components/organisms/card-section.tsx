@@ -16,6 +16,7 @@ interface CardSectionProps {
   ctaText?: string;
   ctaHref?: string;
   image?: string | StaticImageData;
+  imageAlt?: string;
   onctaClick?: () => void;
   variant?: CardVariant;
 }
@@ -51,6 +52,7 @@ export function CardSection({
   ctaText = "",
   ctaHref = "",
   image = "",
+  imageAlt = "Section image",
   variant = "primary",
 }: CardSectionProps) {
   return (
@@ -72,10 +74,7 @@ export function CardSection({
               </Heading>
               <Heading
                 level={1}
-                className={cn(
-                  "text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl",
-                  textStyles[variant],
-                )}
+                className={cn("tracking-tighter", textStyles[variant])}
               >
                 {title}
               </Heading>
@@ -105,8 +104,8 @@ export function CardSection({
 
           <div className="flex justify-end">
             <Image
-              src={image}
-              alt="App screenshot"
+              src={typeof image === "string" ? image : image.src}
+              alt={imageAlt}
               width={600}
               height={400}
               priority

@@ -19,6 +19,7 @@ import {
 } from "@/components/molecules/sheet";
 import Image from "next/image";
 import logo from "../../images/logo.png";
+import { Paragraph } from "@/components/atoms/typography/Paragraph";
 
 export function NavHeader() {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -28,7 +29,12 @@ export function NavHeader() {
       <div className="container mx-auto flex h-14 max-w-7xl items-center">
         <div className="mr-8">
           <Link href="/" className="text-xl font-bold tracking-wider">
-            <Image src={logo} width={48} height={48} />
+            <Image
+              src={logo}
+              alt="Schroedinger Hat Logo"
+              width={48}
+              height={48}
+            />
           </Link>
         </div>
 
@@ -53,7 +59,7 @@ export function NavHeader() {
                           href="/partecipa/eventi"
                           className="hover:bg-accent block rounded-md p-2"
                         >
-                          Eventi
+                          <Paragraph className="m-0">Eventi</Paragraph>
                         </Link>
                       </NavigationMenuLink>
                     </li>
@@ -63,7 +69,9 @@ export function NavHeader() {
                           href="/partecipa/community-locali"
                           className="hover:bg-accent block rounded-md p-2"
                         >
-                          Community Locali
+                          <Paragraph className="m-0">
+                            Community Locali
+                          </Paragraph>
                         </Link>
                       </NavigationMenuLink>
                     </li>
@@ -74,7 +82,9 @@ export function NavHeader() {
                           className="hover:bg-accent block rounded-md p-2"
                           target="_blank"
                         >
-                          Unisciti a Discord
+                          <Paragraph className="m-0">
+                            Unisciti a Discord
+                          </Paragraph>
                         </Link>
                       </NavigationMenuLink>
                     </li>
@@ -92,7 +102,7 @@ export function NavHeader() {
                           href="/contribuisci/progetti"
                           className="hover:bg-accent block rounded-md p-2"
                         >
-                          Progetti
+                          <Paragraph className="m-0">Progetti</Paragraph>
                         </Link>
                       </NavigationMenuLink>
                     </li>
@@ -102,7 +112,7 @@ export function NavHeader() {
                           href="/contribuisci/come-speaker"
                           className="hover:bg-accent block rounded-md p-2"
                         >
-                          Come Speaker
+                          <Paragraph className="m-0">Come Speaker</Paragraph>
                         </Link>
                       </NavigationMenuLink>
                     </li>
@@ -112,7 +122,7 @@ export function NavHeader() {
                           href="/contribuisci/come-individuo"
                           className="hover:bg-accent block rounded-md p-2"
                         >
-                          Come Individuo
+                          <Paragraph className="m-0">Come Individuo</Paragraph>
                         </Link>
                       </NavigationMenuLink>
                     </li>
@@ -122,7 +132,7 @@ export function NavHeader() {
                           href="/contribuisci/come-partner"
                           className="hover:bg-accent block rounded-md p-2"
                         >
-                          Come Partner
+                          <Paragraph className="m-0">Come Partner</Paragraph>
                         </Link>
                       </NavigationMenuLink>
                     </li>
@@ -132,7 +142,7 @@ export function NavHeader() {
                           href="/contribuisci/come-sponsor"
                           className="hover:bg-accent block rounded-md p-2"
                         >
-                          Come Sponsor
+                          <Paragraph className="m-0">Come Sponsor</Paragraph>
                         </Link>
                       </NavigationMenuLink>
                     </li>
@@ -150,7 +160,7 @@ export function NavHeader() {
                           href="/associazione/chi-siamo"
                           className="hover:bg-accent block rounded-md p-2"
                         >
-                          Chi Siamo
+                          <Paragraph className="m-0">Chi Siamo</Paragraph>
                         </Link>
                       </NavigationMenuLink>
                     </li>
@@ -160,7 +170,7 @@ export function NavHeader() {
                           href="/associazione/statuto"
                           className="hover:bg-accent block rounded-md p-2"
                         >
-                          Statuto
+                          <Paragraph className="m-0">Statuto</Paragraph>
                         </Link>
                       </NavigationMenuLink>
                     </li>
@@ -170,7 +180,9 @@ export function NavHeader() {
                           href="/associazione/dati-amministrativi"
                           className="hover:bg-accent block rounded-md p-2"
                         >
-                          Dati Amministrativi
+                          <Paragraph className="m-0">
+                            Dati Amministrativi
+                          </Paragraph>
                         </Link>
                       </NavigationMenuLink>
                     </li>
@@ -180,7 +192,7 @@ export function NavHeader() {
                           href="/associazione/diventa-socio"
                           className="hover:bg-accent block rounded-md p-2"
                         >
-                          Diventa Socio
+                          <Paragraph className="m-0">Diventa Socio</Paragraph>
                         </Link>
                       </NavigationMenuLink>
                     </li>
@@ -190,7 +202,7 @@ export function NavHeader() {
                           href="/associazione/press-kit"
                           className="hover:bg-accent block rounded-md p-2"
                         >
-                          Press Kit
+                          <Paragraph className="m-0">Press Kit</Paragraph>
                         </Link>
                       </NavigationMenuLink>
                     </li>
