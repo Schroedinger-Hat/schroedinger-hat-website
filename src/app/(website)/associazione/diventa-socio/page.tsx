@@ -1,30 +1,22 @@
 "use client";
 
-import { useState } from "react";
+import { api } from "@/trpc/react";
 import { Button } from "@/components/ui/button";
 
 export default function BecomeMemberPage() {
-  const [isLoading, setIsLoading] = useState(false);
-
-  const handleSubscribe = async () => {
-    try {
-      setIsLoading(true);
-      const response = await fetch("/api/create-checkout-session", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-
-      const { url } = await response.json();
-      if (url) {
-        window.location.href = url;
+  const createCheckout = api.stripe.createCheckoutSession.useMutation({
+    onSuccess: (data) => {
+      if (data.url) {
+        window.location.href = data.url;
       }
-    } catch (error) {
+    },
+    onError: (error) => {
       console.error("Error:", error);
-    } finally {
-      setIsLoading(false);
-    }
+    },
+  });
+
+  const handleSubscribe = () => {
+    createCheckout.mutate();
   };
 
   return (
@@ -57,11 +49,11 @@ export default function BecomeMemberPage() {
             </p>
             <Button
               onClick={handleSubscribe}
-              disabled={isLoading}
+              disabled={createCheckout.isPending}
               size="lg"
               className="rounded-full"
             >
-              {isLoading ? "Caricamento..." : "Diventa Socio"}
+              {createCheckout.isPending ? "Caricamento..." : "Diventa Socio"}
             </Button>
           </div>
         </div>
