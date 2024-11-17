@@ -1,4 +1,32 @@
+"use client";
+
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+
 export default function BecomeMemberPage() {
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleSubscribe = async () => {
+    try {
+      setIsLoading(true);
+      const response = await fetch("/api/create-checkout-session", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      const { url } = await response.json();
+      if (url) {
+        window.location.href = url;
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <main className="container mx-auto px-4 py-8">
       <div className="mx-auto max-w-4xl">
@@ -21,7 +49,21 @@ export default function BecomeMemberPage() {
         </div>
         <div className="rounded-lg bg-white p-6 shadow-md">
           <h2 className="mb-4 text-2xl font-bold">Processo di Iscrizione</h2>
-          {/* Membership application form or process */}
+          <div className="flex flex-col items-center">
+            <p className="mb-6 text-center text-gray-600">
+              Per diventare socio, clicca sul pulsante qui sotto. Verrai
+              reindirizzato alla pagina di pagamento sicura di Stripe per
+              completare l'iscrizione.
+            </p>
+            <Button
+              onClick={handleSubscribe}
+              disabled={isLoading}
+              size="lg"
+              className="rounded-full"
+            >
+              {isLoading ? "Caricamento..." : "Diventa Socio"}
+            </Button>
+          </div>
         </div>
       </div>
     </main>

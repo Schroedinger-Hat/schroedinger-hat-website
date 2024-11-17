@@ -3,10 +3,12 @@
 import Image, { StaticImageData } from "next/image";
 import { useRef, useState, useEffect, useCallback } from "react";
 
+import layer0 from "@/images/trackingCat/0-drop-shadow.svg";
 import layer1 from "@/images/trackingCat/1-background.svg";
 import layer2 from "@/images/trackingCat/2-shadows.svg";
-import layer3 from "@/images/trackingCat/3-left-eye.svg";
-import layer4 from "@/images/trackingCat/4-right-eye.svg";
+import layer3 from "@/images/trackingCat/3-highlights.svg";
+import layer4_left from "@/images/trackingCat/4-left-eye.svg";
+import layer4_right from "@/images/trackingCat/4-right-eye.svg";
 
 /**
  * Tracking cat displays a cat svg in 3 layers and animate the layers parallax style to track the mouse position in page
@@ -107,7 +109,8 @@ export function TrackingCat() {
     };
   };
 
-  const shadowPosition = calculateLayerPosition(25);
+  const shadowPosition = calculateLayerPosition(15);
+  const highlightsPosition = calculateLayerPosition(25);
   const eyePosition = calculateLayerPosition(35);
 
   // Add winking effect
@@ -134,10 +137,18 @@ export function TrackingCat() {
   }, []);
 
   return (
-    <div
-      ref={containerRef}
-      className="relative h-[320px] w-[400px] overflow-hidden"
-    >
+    <div ref={containerRef} className="relative h-[320px] w-[400px]">
+      {/* Drop shadow */}
+      <Image
+        src={layer0 as StaticImageData}
+        alt="Drop shadow"
+        className="absolute"
+        width={400}
+        height={320}
+        style={{
+          top: "-80px",
+        }}
+      />
       {/* Background */}
       <Image
         src={layer1 as StaticImageData}
@@ -156,34 +167,46 @@ export function TrackingCat() {
         style={{
           transform: `translate(${shadowPosition.x}px, ${shadowPosition.y}px)`,
           transition: "transform 0.1s ease-in",
+        }}
+      />
+      {/* Highlights */}
+      <Image
+        src={layer3 as StaticImageData}
+        alt="Highlights"
+        className="absolute"
+        width={400}
+        height={320}
+        style={{
+          transform: `translate(${highlightsPosition.x}px, ${highlightsPosition.y}px)`,
+          transition: "transform 0.2s ease-in",
           opacity: 0.7,
         }}
       />
       {/* Left Eye */}
       <Image
-        src={layer3 as StaticImageData}
+        src={layer4_left as StaticImageData}
         alt="Left Eye"
-        className="absolute transition-all duration-100"
+        className="absolute"
         width={400}
         height={320}
         style={{
           transform: `translate(${eyePosition.x}px, ${eyePosition.y}px) scaleY(${
-            isWinking ? 0.2 : 1
+            isWinking ? 0.1 : 1
           })`,
           transformOrigin: "center center",
-          transition: "all 0.2s ease-out",
+          transition: "all 0.3s ease-out",
         }}
       />
       {/* Right Eye */}
       <Image
-        src={layer4 as StaticImageData}
-        alt="Eyes"
+        src={layer4_right as StaticImageData}
+        alt="Right Eye"
         className="absolute"
         width={400}
         height={320}
         style={{
           transform: `translate(${eyePosition.x}px, ${eyePosition.y}px)`,
-          transition: "transform 0.2s ease-out",
+          transition: "transform 0.3s ease-out",
         }}
       />
     </div>
