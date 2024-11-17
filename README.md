@@ -23,3 +23,4 @@ If you are not familiar with the different technologies used in this project, pl
 - Use Sanity.io as a headless cms
 - Use Stripe for payments
 - Use hugeicons for icons
+- Sanity schema and types must be committed to the repo
