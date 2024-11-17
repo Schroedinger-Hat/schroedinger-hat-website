@@ -1,16 +1,10 @@
 import "@/styles/globals.css";
-
 import { Inter, Lexend } from "next/font/google";
+import { type Metadata } from "next";
+import { TRPCReactProvider } from "@/trpc/react";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const lexend = Lexend({ subsets: ["latin"], variable: "--font-lexend" });
-
-import { type Metadata } from "next";
-
-import { TRPCReactProvider } from "@/trpc/react";
-import { NavHeader } from "@/components/organisms/nav-header";
-import { Footer } from "@/components/organisms/footer";
-import { ChildrenContainer } from "@/components/children-container";
 
 export const metadata: Metadata = {
   title: "Create T3 App",

@@ -3,7 +3,7 @@ import { PortableText } from "@portabletext/react";
 import { urlFor } from "@/sanity/lib/image";
 import { sanityClient } from "@/sanity/lib/client";
 import Image from "next/image";
-import { PageData } from "./types";
+import { type PageData } from "./types";
 import { portableTextComponents } from "./portableTextComponents";
 import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
 
@@ -24,9 +24,7 @@ export default async function Page({ params }: PageProps) {
   }
 
   const imageUrl = pageData.headerImage?.asset
-    ? urlFor(pageData.headerImage.asset as SanityImageSource)
-        .width(1000)
-        .url()
+    ? urlFor(pageData.headerImage.asset).width(1000).url()
     : null;
 
   return (

@@ -1,4 +1,4 @@
-import { PortableTextComponents } from "@portabletext/react";
+import { type PortableTextComponents } from "@portabletext/react";
 import { Paragraph } from "@/components/atoms/typography/Paragraph";
 import { Heading } from "@/components/atoms/typography/Heading";
 import { Blockquote } from "@/components/atoms/typography/Blockquote";

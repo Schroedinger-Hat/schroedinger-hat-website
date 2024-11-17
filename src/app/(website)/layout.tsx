@@ -1,12 +1,8 @@
 import "@/styles/globals.css";
 
-import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
-
-import { TRPCReactProvider } from "@/trpc/react";
 import { NavHeader } from "@/components/organisms/nav-header";
 import { Footer } from "@/components/organisms/footer";
-import { ChildrenContainer } from "@/components/children-container";
 
 export const metadata: Metadata = {
   title: "Create T3 App",

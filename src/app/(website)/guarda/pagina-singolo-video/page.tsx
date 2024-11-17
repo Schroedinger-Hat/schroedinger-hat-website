@@ -1,10 +1,4 @@
-type Props = {
-  params: {
-    id: string;
-  };
-};
-
-export default function SingleVideoPage({ params }: Props) {
+export default function SingleVideoPage() {
   return (
     <main className="container mx-auto px-4 py-8">
       <div className="mx-auto max-w-4xl">

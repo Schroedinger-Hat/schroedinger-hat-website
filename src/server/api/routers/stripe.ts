@@ -1,12 +1,11 @@
-import { z } from "zod";
 import { createTRPCRouter, publicProcedure } from "@/server/api/trpc";
 import { stripe } from "@/lib/stripe";
 import { headers } from "next/headers";
 
 export const stripeRouter = createTRPCRouter({
   createCheckoutSession: publicProcedure.mutation(async () => {
-    const headersList = headers();
-    const host = headersList.get("host") || "";
+    const headersList = await headers();
+    const host = headersList.get("host") ?? "";
     const protocol = process.env.NODE_ENV === "development" ? "http" : "https";
 
     const session = await stripe.checkout.sessions.create({

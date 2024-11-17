@@ -1,12 +1,4 @@
-import { defineType, ConditionalPropertyCallback, Image } from "sanity";
-
-interface PreviewSelection {
-  title: string;
-  subtitle: boolean;
-  businessTier: string;
-  nonBusinessType: string;
-  media: Image;
-}
+import { defineType, type ConditionalPropertyCallback } from "sanity";
 
 export const partnerType = defineType({
   name: "partner",
@@ -140,12 +132,13 @@ export const partnerType = defineType({
       nonBusinessType: "nonBusinessType",
       media: "image",
     },
-    prepare: (selection: PreviewSelection) => {
+    prepare: (selection) => {
       const { title, subtitle, businessTier, nonBusinessType, media } =
         selection;
       const partnerType = subtitle
         ? `Business - ${businessTier}`
         : `Non-Business - ${nonBusinessType}`;
+
       return {
         title,
         subtitle: partnerType,

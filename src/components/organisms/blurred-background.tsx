@@ -105,7 +105,7 @@ export const BlurredBackground = ({
 
       container.appendChild(circle);
     }
-  }, [points, colors, blur, opacity, size, positioning]);
+  }, [points, colors, blur, opacity, size, positioning, getCenteredPosition]);
 
   return (
     <div

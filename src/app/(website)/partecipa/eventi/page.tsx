@@ -1,7 +1,8 @@
 import { sanityClient } from "@/sanity/lib/client";
+import type { Event } from "@/sanity/sanity.types";
 
 export default async function EventsPage() {
-  const events = await sanityClient.fetch(
+  const events: Event[] = await sanityClient.fetch(
     `*[_type == "event"] | order(startDate desc)`,
   );
 
@@ -12,14 +13,14 @@ export default async function EventsPage() {
         {events.map((event) => (
           <div key={event._id} className="rounded-lg border p-6">
             <h2 className="mb-2 text-2xl font-semibold">{event.title}</h2>
-            <p className="text-muted-foreground mb-4">{event.abstract}</p>
+            <p className="mb-4 text-muted-foreground">{event.abstract}</p>
             <div className="flex flex-wrap gap-4 text-sm">
               <div>
                 <span className="font-medium">Dove:</span> {event.location}
               </div>
               <div>
                 <span className="font-medium">Quando:</span>{" "}
-                {new Date(event.startDate).toLocaleDateString()}
+                {new Date(event.startDate!).toLocaleDateString()}
               </div>
             </div>
           </div>

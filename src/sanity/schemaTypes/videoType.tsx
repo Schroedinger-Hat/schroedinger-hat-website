@@ -1,11 +1,6 @@
 import { defineType } from "sanity";
 import React from "react";
 
-interface InputProps {
-  value?: string;
-  onChange: (value: string) => void;
-}
-
 // Helper function to extract YouTube video ID from various URL formats
 const extractYouTubeId = (url: string): string => {
   try {
@@ -132,6 +127,7 @@ export const videoType = defineType({
   ],
   preview: {
     select: {
+      title: "title",
       shortTitle: "shortTitle",
       media: "thumbnail",
       youtubeId: "youtubeId",
@@ -139,15 +135,9 @@ export const videoType = defineType({
       authorLastName: "authors.0.lastName",
       thumbnail: "thumbnail",
     },
-    prepare: (selection: {
-      shortTitle?: string;
-      media?: any;
-      youtubeId?: string;
-      authorFirstName?: string;
-      authorLastName?: string;
-      thumbnail?: any;
-    }) => {
+    prepare: (selection) => {
       const {
+        title,
         shortTitle,
         youtubeId,
         authorFirstName,

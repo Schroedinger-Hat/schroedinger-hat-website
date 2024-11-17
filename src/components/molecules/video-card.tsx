@@ -2,7 +2,6 @@ import { Heading } from "@/components/atoms/typography/Heading";
 import { Paragraph } from "@/components/atoms/typography/Paragraph";
 import { Image } from "@/components/atoms/media/Image";
 import { cn } from "@/lib/utils";
-import { Button } from "../ui/button";
 import { PlayCircle02Icon } from "hugeicons-react";
 import Link from "next/link";
 

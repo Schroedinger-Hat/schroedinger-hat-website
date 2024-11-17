@@ -14,7 +14,10 @@
     "preview": "next build && next start",
     "start": "next start",
     "typecheck": "tsc --noEmit",
-    "dev:fresh": "rm -rf .next && npm run dev"
+    "dev:fresh": "rm -rf .next && npm run dev",
+    "sanity:schema": "cd src/sanity && sanity schema extract",
+    "sanity:types": "cd src/sanity && sanity typegen generate",
+    "sanity:pipeline": "cd src/sanity && npm run sanity:schema && npm run sanity:types"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.2",

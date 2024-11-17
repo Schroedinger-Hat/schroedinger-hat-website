@@ -1,6 +1,6 @@
 "use client";
 
-import { StaticImageData } from "next/image";
+import { type StaticImageData } from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Heading } from "@/components/atoms/typography/Heading";

@@ -1,6 +1,6 @@
 "use client";
 
-import Image, { StaticImageData } from "next/image";
+import Image, { type StaticImageData } from "next/image";
 import { useRef, useState, useEffect, useCallback } from "react";
 
 import layer0 from "@/images/trackingCat/0-drop-shadow.svg";

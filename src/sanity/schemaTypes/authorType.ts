@@ -1,10 +1,5 @@
 import { defineType } from "sanity";
 
-interface AuthorDocument {
-  name: string;
-  surname: string;
-}
-
 export const authorType = defineType({
   name: "author",
   title: "Author",
@@ -47,9 +42,10 @@ export const authorType = defineType({
       title: "Slug",
       type: "slug",
       options: {
-        source: (doc: AuthorDocument) => {
-          if (!doc?.firstName || !doc?.lastName) return "";
-          return `${doc.firstName}-${doc.lastName}`;
+        source: (document) => {
+          return [document.firstName, document.lastName]
+            .filter(Boolean)
+            .join("-");
         },
         maxLength: 96,
       },

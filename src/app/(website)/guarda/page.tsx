@@ -1,26 +1,26 @@
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Heading } from "@/components/atoms/typography/Heading";
-import { Paragraph } from "@/components/atoms/typography/Paragraph";
 import { VideoCard } from "@/components/molecules/video-card";
 import { sanityClient } from "@/sanity/lib/client";
-import { Debug } from "@/components/atoms/debug";
 import { urlFor } from "@/sanity/lib/image";
+import type { Author, Video } from "@/sanity/sanity.types";
 
-// Fetch videos from sanity, expand authors fetching all related data, order by displayOrder ascending
+// Update the getVideos function to be more type-safe
 async function getVideos() {
-  const videos = await sanityClient.fetch(`*[_type == "video"]{
-        ...,
-        authors[]->{
-            _id,
-            firstName,
-            lastName,
-            pronouns,
-            slug
-        }
-    } | order(order asc)`);
+  const videos: (Video & { authors: Author[] })[] =
+    await sanityClient.fetch(`*[_type == "video"]{
+    ...,
+    authors[]->{
+      _id,
+      firstName,
+      lastName,
+      pronouns,
+      slug
+    }
+  } | order(order asc)`);
   return videos;
 }
+
 // If video has a thumbnail, use it, otherwise use the youtube thumbnail
 function getVideoThumbnailUrl(video: Video) {
   return video.thumbnail
@@ -29,8 +29,15 @@ function getVideoThumbnailUrl(video: Video) {
 }
 
 export default async function WatchPage() {
-  // Fetch videos from sanity
   const videos = await getVideos();
+
+  // Helper function to safely get author names
+  const getAuthorNames = (authors: Author[] | undefined) => {
+    if (!authors?.length) return "";
+    return authors
+      .map((author) => `${author.firstName} ${author.lastName}`)
+      .join(", ");
+  };
 
   return (
     <div className="container mx-auto max-w-7xl py-24">
@@ -48,13 +55,11 @@ export default async function WatchPage() {
           .map((video, index) => (
             <VideoCard
               key={video._id}
-              title={video.shortTitle || video.title}
-              subtitle={video.authors
-                .map((author) => `${author.firstName} ${author.lastName}`)
-                .join(", ")}
+              title={video.shortTitle ?? video.title ?? ""}
+              subtitle={getAuthorNames(video.authors)}
               imageUrl={getVideoThumbnailUrl(video)}
               className={index === 0 ? "col-span-2" : ""}
-              slug={video.slug.current}
+              slug={video.slug?.current ?? ""}
             />
           ))}
       </div>
@@ -92,15 +97,13 @@ export default async function WatchPage() {
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
         {videos
           .filter((video) => !video.featured)
-          .map((video, index) => (
+          .map((video) => (
             <VideoCard
               key={video._id}
-              title={video.shortTitle || video.title}
-              subtitle={video.authors
-                .map((author) => `${author.firstName} ${author.lastName}`)
-                .join(", ")}
+              title={video.shortTitle ?? video.title ?? ""}
+              subtitle={getAuthorNames(video.authors)}
               imageUrl={getVideoThumbnailUrl(video)}
-              slug={video.slug.current}
+              slug={video.slug?.current ?? ""}
             />
           ))}
       </div>

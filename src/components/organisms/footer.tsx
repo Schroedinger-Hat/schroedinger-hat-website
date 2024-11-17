@@ -80,10 +80,10 @@ export function Footer() {
               <Heading level={3} className="text-sm font-semibold">
                 SCHROEDINGER HAT APS
               </Heading>
-              <Paragraph className="text-muted-foreground text-sm">
+              <Paragraph className="text-sm text-muted-foreground">
                 Via Pino Arpioni 1, Pelago (FI)
               </Paragraph>
-              <Paragraph className="text-muted-foreground text-sm">
+              <Paragraph className="text-sm text-muted-foreground">
                 IT07355400487
               </Paragraph>
               <div className="mt-4 flex space-x-4">
@@ -109,7 +109,7 @@ export function Footer() {
           <div className="mt-12 border-t py-4"> </div>
 
           {/* Bottom Links */}
-          <div className="text-muted-foreground flex flex-wrap gap-x-4 gap-y-2 text-sm">
+          <div className="flex flex-wrap gap-x-4 gap-y-2 text-sm text-muted-foreground">
             <Paragraph className="m-0 text-sm">
               © 2024, Schroedinger Hat
             </Paragraph>

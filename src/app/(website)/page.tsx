@@ -1,8 +1,3 @@
-import Link from "next/link";
-import { LatestPost } from "@/app/_components/post";
-import { api, HydrateClient } from "@/trpc/server";
-import { NavHeader } from "@/components/organisms/nav-header";
-import Image from "next/image";
 import { LogoGallery } from "@/components/organisms/logo-gallery";
 import { sanityClient } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
@@ -12,6 +7,7 @@ import { CardSection } from "@/components/organisms/card-section";
 import { Heading } from "@/components/atoms/typography/Heading";
 import { TrackingCat } from "@/components/organisms/tracking-cat";
 import { BlurredBackground } from "@/components/organisms/blurred-background";
+import type { Partner } from "@/sanity/sanity.types";
 
 // Images
 import team from "@/images/homepage/team.png";
@@ -20,7 +16,7 @@ import imageGoNord from "@/images/homepage/imageGoNord.png";
 import osday from "@/images/homepage/osday.jpg";
 
 export default async function Home() {
-  const partners = await sanityClient.fetch(
+  const partners: Partner[] = await sanityClient.fetch(
     `*[_type == "partner" && !isBusinessPartner] | order(orderRank asc)`,
   );
 
@@ -65,9 +61,9 @@ export default async function Home() {
           content={
             <>
               <p>
-                Basati in Toscana, Schroedinger Hat è un'organizzazione
-                no-profit che diffonde l'amore per il software open source in
-                tutta Europa. La nostra missione è ispirare, educare e
+                Basati in Toscana, Schroedinger Hat è un&apos;organizzazione
+                no-profit che diffonde l&apos;amore per il software open source
+                in tutta Europa. La nostra missione è ispirare, educare e
                 connettere appassionati di tecnologie open source attraverso
                 eventi gratuiti come conferenze e meetup.
               </p>
@@ -77,11 +73,11 @@ export default async function Home() {
                 GitHub.
               </p>
               <p>
-                Guidati dai principi dell'open source, crediamo nell'accesso
-                libero alla conoscenza e promuoviamo l'inclusività in ogni
-                nostra iniziativa. Unisciti a noi per costruire comunità locali,
-                connettere talenti e celebrare il potere del software open
-                source!
+                Guidati dai principi dell&apos;open source, crediamo
+                nell&apos;accesso libero alla conoscenza e promuoviamo
+                l&apos;inclusività in ogni nostra iniziativa. Unisciti a noi per
+                costruire comunità locali, connettere talenti e celebrare il
+                potere del software open source!
               </p>
             </>
           }
@@ -175,7 +171,7 @@ export default async function Home() {
                   these palettes to create customized wallpapers, visuals, or
                   design elements. The tool offers flexibility for users to
                   refine the output to match their preferences while maintaining
-                  the selected theme's characteristics.
+                  the selected theme&apos;s characteristics.
                 </p>
               </>
             }
@@ -191,10 +187,18 @@ export default async function Home() {
           className="py-24"
           title="Community Partners"
           blackAndWhite={true}
-          logos={partners.map((partner) => ({
-            src: urlFor(partner.image).height(150).url(),
-            alt: partner.description,
-          }))}
+          logos={partners
+            .filter(
+              (
+                partner,
+              ): partner is Partner & {
+                image: NonNullable<Partner["image"]>;
+              } => partner.image !== undefined && partner.image !== null,
+            )
+            .map((partner) => ({
+              src: urlFor(partner.image).height(150).url(),
+              alt: partner.description ?? "Partner logo",
+            }))}
         />
 
         {/* Inform user that we have on online shop where they can buy merch and t-shirts */}
