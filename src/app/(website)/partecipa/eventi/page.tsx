@@ -9,6 +9,7 @@ import { Calendar01Icon, MapPinIcon } from "hugeicons-react";
 import { cn } from "@/lib/utils";
 import { Link } from "@/components/atoms/links/Link";
 import { BlurredBackground } from "@/components/organisms/blurred-background";
+import { urlFor } from "@/sanity/lib/image";
 
 function EventCard({ event }: { event: Event }) {
   if (!event.title || !event.slug) return null;
@@ -18,8 +19,8 @@ function EventCard({ event }: { event: Event }) {
       <div className="group relative flex min-h-[250px] flex-col justify-end bg-gradient-to-t from-slate-900/90 to-slate-900/0 p-6">
         {event.cover?.asset && (
           <Image
-            src={urlForImage(event.cover)}
-            alt={event.title}
+            src={urlFor(event.cover).url()}
+            alt={event.title || ""}
             className="absolute inset-0 -z-10 h-full w-full object-cover transition-all duration-300 group-hover:brightness-75"
             withContainer={false}
             height={400}
@@ -33,16 +34,16 @@ function EventCard({ event }: { event: Event }) {
           </Heading>
 
           <div className="flex flex-wrap gap-4 text-sm text-slate-200">
-            {event.startDate && (
+            {event.eventPeriod?.startDate && (
               <div className="flex items-center gap-1">
                 <Calendar01Icon className="h-4 w-4" />
-                {formatDateTime(event.startDate, "d MMMM yyyy")}
+                {formatDateTime(event.eventPeriod.startDate, "d MMMM yyyy")}
               </div>
             )}
-            {event.location && (
+            {event.location?.name && (
               <div className="flex items-center gap-1">
                 <MapPinIcon className="h-4 w-4" />
-                {event.location}
+                {event.location.name}
               </div>
             )}
           </div>
@@ -58,8 +59,12 @@ function FeaturedEventCard({ event }: { event: Event }) {
       <div className="group relative flex min-h-[400px] flex-col justify-end bg-gradient-to-t from-slate-900/90 to-slate-900/0 p-8">
         {/* Background Image */}
         <Image
-          src={event.cover?.asset?.url || "https://placehold.co/1200x800"}
-          alt={event.title}
+          src={
+            event.cover?.asset
+              ? urlFor(event.cover).url()
+              : "https://placehold.co/1200x800"
+          }
+          alt={event.title || ""}
           className="absolute inset-0 -z-10 h-full w-full object-cover transition-all duration-300 group-hover:brightness-75"
           withContainer={false}
           height={800}
@@ -74,22 +79,26 @@ function FeaturedEventCard({ event }: { event: Event }) {
           </Heading>
 
           <div className="mb-6 flex flex-wrap gap-6 text-base text-slate-200">
-            <div className="flex items-center gap-2">
-              <Calendar01Icon className="h-5 w-5" />
-              {formatDateTime(event.startDate, "d MMMM yyyy")}
-            </div>
-            <div className="flex items-center gap-2">
-              <MapPinIcon className="h-5 w-5" />
-              {event.location}
-            </div>
+            {event.eventPeriod?.startDate && (
+              <div className="flex items-center gap-2">
+                <Calendar01Icon className="h-5 w-5" />
+                {formatDateTime(event.eventPeriod.startDate, "d MMMM yyyy")}
+              </div>
+            )}
+            {event.location?.name && (
+              <div className="flex items-center gap-2">
+                <MapPinIcon className="h-5 w-5" />
+                {event.location.name}
+              </div>
+            )}
           </div>
 
-          {event.registrationUrl && (
+          {event.cta?.url && (
             <Link
-              href={event.registrationUrl}
+              href={event.cta.url}
               className="inline-flex items-center rounded-md bg-white px-6 py-2.5 text-sm font-semibold text-slate-900 hover:bg-slate-100"
             >
-              Registrati all&apos;evento
+              {event.cta.text || "Registrati all'evento"}
             </Link>
           )}
         </div>
@@ -100,31 +109,33 @@ function FeaturedEventCard({ event }: { event: Event }) {
 
 export default async function EventsPage() {
   const events: Event[] = await sanityClient.fetch(
-    `*[_type == "event"] | order(startDate asc) {
+    `*[_type == "event"] | order(eventPeriod.startDate asc) {
       _id,
       _type,
       title,
       slug,
       abstract,
       cover {
-        asset-> {
-          _ref,
-          _type,
-          url
-        }
+        asset->
       },
       location,
-      startDate,
-      endDate
+      eventPeriod,
+      cta
     }`,
   );
 
   const now = new Date();
   const upcomingEvents = events.filter(
-    (event) => event.startDate && new Date(event.startDate) > now,
+    (event) =>
+      event.eventPeriod?.startDate &&
+      new Date(event.eventPeriod.startDate) > now,
   );
   const pastEvents = events
-    .filter((event) => event.startDate && new Date(event.startDate) <= now)
+    .filter(
+      (event) =>
+        event.eventPeriod?.startDate &&
+        new Date(event.eventPeriod.startDate) <= now,
+    )
     .reverse();
 
   const featuredEvent = upcomingEvents[0];

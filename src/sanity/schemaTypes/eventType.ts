@@ -97,5 +97,34 @@ export const eventType = defineType({
         },
       ],
     },
+    {
+      name: "authors",
+      title: "Authors",
+      type: "array",
+      of: [
+        {
+          type: "reference",
+          to: [{ type: "author" }],
+        },
+      ],
+      validation: (Rule) => Rule.unique(),
+    },
   ],
+  preview: {
+    select: {
+      title: "title",
+      authors: "authors",
+      media: "cover",
+    },
+    prepare(selection) {
+      const { title, authors, media } = selection;
+      return {
+        title,
+        subtitle: Array.isArray(authors)
+          ? `Authors: ${authors.length}`
+          : "No authors",
+        media,
+      };
+    },
+  },
 });
