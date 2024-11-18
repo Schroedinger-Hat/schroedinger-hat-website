@@ -303,19 +303,17 @@ export type SanityImageMetadata = {
   isOpaque?: boolean;
 };
 
-export type Event = {
+import { PortableTextBlock } from "@portabletext/types";
+
+export interface Event {
   _id: string;
   _type: "event";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  title?: string;
-  abstract?: string;
-  author?: string;
-  location?: string;
-  startDate?: string;
-  endDate?: string;
-};
+  title: string;
+  abstract: PortableTextBlock[];
+  location: string;
+  startDate: string;
+  registrationUrl?: string;
+}
 
 export type AllSanitySchemaTypes =
   | SanityImagePaletteSwatch

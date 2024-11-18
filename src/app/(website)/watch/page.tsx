@@ -25,7 +25,7 @@ export default async function WatchPage() {
   const videos = await getVideos();
 
   return (
-    <div className="container mx-auto max-w-7xl py-24">
+    <div className="container mx-auto max-w-7xl py-16">
       <div className="mb-8">
         <Heading level={2} className="mb-4">
           Featured
