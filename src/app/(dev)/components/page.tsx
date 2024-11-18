@@ -10,6 +10,7 @@ import { ListItem } from "@/components/atoms/lists/ListItem";
 import { InlineText } from "@/components/atoms/typography/InlineText";
 import { Link } from "@/components/atoms/links/Link";
 import { Image } from "@/components/atoms/media/Image";
+import { EventHero } from "@/components/organisms/event-hero";
 
 export default function ComponentsPage() {
   // Redirect if not in development environment
@@ -123,6 +124,13 @@ export default function ComponentsPage() {
             Square image with custom dimensions
           </Paragraph>
         </div>
+      </section>
+      <hr />
+
+      {/* Event Hero */}
+      <section className="space-y-4">
+        <Heading level={2}>Event Hero</Heading>
+        <EventHero />
       </section>
     </div>
   );

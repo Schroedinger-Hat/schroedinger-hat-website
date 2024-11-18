@@ -206,12 +206,6 @@ export type Page = {
   };
 };
 
-export type Slug = {
-  _type: "slug";
-  current?: string;
-  source?: string;
-};
-
 export type Partner = {
   _id: string;
   _type: "partner";
@@ -244,6 +238,48 @@ export type Partner = {
     email?: string;
   };
   orderRank?: string;
+};
+
+export type Event = {
+  _id: string;
+  _type: "event";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
+  slug?: Slug;
+  abstract?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+  cover?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  location?: string;
+  startDate?: string;
+  endDate?: string;
 };
 
 export type SanityImageCrop = {
@@ -303,17 +339,11 @@ export type SanityImageMetadata = {
   isOpaque?: boolean;
 };
 
-import { PortableTextBlock } from "@portabletext/types";
-
-export interface Event {
-  _id: string;
-  _type: "event";
-  title: string;
-  abstract: PortableTextBlock[];
-  location: string;
-  startDate: string;
-  registrationUrl?: string;
-}
+export type Slug = {
+  _type: "slug";
+  current?: string;
+  source?: string;
+};
 
 export type AllSanitySchemaTypes =
   | SanityImagePaletteSwatch
@@ -324,12 +354,12 @@ export type AllSanitySchemaTypes =
   | Author
   | Video
   | Page
-  | Slug
   | Partner
+  | Event
   | SanityImageCrop
   | SanityImageHotspot
   | SanityImageAsset
   | SanityAssetSourceData
   | SanityImageMetadata
-  | Event;
+  | Slug;
 export declare const internalGroqTypeReferenceTo: unique symbol;

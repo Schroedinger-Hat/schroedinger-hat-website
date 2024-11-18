@@ -45,9 +45,6 @@ export function Footer() {
 
             {/* Shop & Account Links */}
             <div className="space-y-3">
-              <Heading level={3} className="text-sm font-semibold">
-                Link rapidi
-              </Heading>
               <Link
                 className="block text-sm hover:underline"
                 href="https://ign.schroedinger-hat.org/"

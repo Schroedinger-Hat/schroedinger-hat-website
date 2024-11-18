@@ -11,34 +11,40 @@ import { Link } from "@/components/atoms/links/Link";
 import { BlurredBackground } from "@/components/organisms/blurred-background";
 
 function EventCard({ event }: { event: Event }) {
+  if (!event.title || !event.slug) return null;
+
   return (
     <div className="relative w-full overflow-hidden rounded-lg">
       <div className="group relative flex min-h-[250px] flex-col justify-end bg-gradient-to-t from-slate-900/90 to-slate-900/0 p-6">
-        {/* Background Image */}
-        <Image
-          src={event.cover?.asset?.url || "https://placehold.co/600x400"}
-          alt={event.title}
-          className="absolute inset-0 -z-10 h-full w-full object-cover transition-all duration-300 group-hover:brightness-75"
-          withContainer={false}
-          height={400}
-          width={600}
-        />
+        {event.cover?.asset && (
+          <Image
+            src={urlForImage(event.cover)}
+            alt={event.title}
+            className="absolute inset-0 -z-10 h-full w-full object-cover transition-all duration-300 group-hover:brightness-75"
+            withContainer={false}
+            height={400}
+            width={600}
+          />
+        )}
 
-        {/* Content */}
         <div className="relative z-10 max-w-2xl">
           <Heading level={3} className="mb-2 text-slate-100">
             {event.title}
           </Heading>
 
           <div className="flex flex-wrap gap-4 text-sm text-slate-200">
-            <div className="flex items-center gap-1">
-              <Calendar01Icon className="h-4 w-4" />
-              {formatDateTime(event.startDate, "d MMMM yyyy")}
-            </div>
-            <div className="flex items-center gap-1">
-              <MapPinIcon className="h-4 w-4" />
-              {event.location}
-            </div>
+            {event.startDate && (
+              <div className="flex items-center gap-1">
+                <Calendar01Icon className="h-4 w-4" />
+                {formatDateTime(event.startDate, "d MMMM yyyy")}
+              </div>
+            )}
+            {event.location && (
+              <div className="flex items-center gap-1">
+                <MapPinIcon className="h-4 w-4" />
+                {event.location}
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -96,24 +102,29 @@ export default async function EventsPage() {
   const events: Event[] = await sanityClient.fetch(
     `*[_type == "event"] | order(startDate asc) {
       _id,
+      _type,
       title,
+      slug,
+      abstract,
+      cover {
+        asset-> {
+          _ref,
+          _type,
+          url
+        }
+      },
       location,
       startDate,
-      registrationUrl,
-      "cover": {
-        "asset": {
-          "url": cover.asset->url
-        }
-      }
+      endDate
     }`,
   );
 
   const now = new Date();
   const upcomingEvents = events.filter(
-    (event) => new Date(event.startDate) > now,
+    (event) => event.startDate && new Date(event.startDate) > now,
   );
   const pastEvents = events
-    .filter((event) => new Date(event.startDate) <= now)
+    .filter((event) => event.startDate && new Date(event.startDate) <= now)
     .reverse();
 
   const featuredEvent = upcomingEvents[0];
@@ -126,7 +137,12 @@ export default async function EventsPage() {
           <Heading level={2} className="mb-6">
             Evento in evidenza
           </Heading>
-          <FeaturedEventCard event={featuredEvent} />
+          <Link
+            href={`/partecipa/eventi/${featuredEvent.slug.current}`}
+            className="hover:no-underline"
+          >
+            <FeaturedEventCard event={featuredEvent} />
+          </Link>
         </>
       )}
 
@@ -137,7 +153,13 @@ export default async function EventsPage() {
           </Heading>
           <div className="mb-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {otherUpcomingEvents.map((event) => (
-              <EventCard key={event._id} event={event} />
+              <Link
+                href={`/partecipa/eventi/${event.slug.current}`}
+                key={event._id}
+                className="hover:no-underline"
+              >
+                <EventCard event={event} />
+              </Link>
             ))}
           </div>
         </>
@@ -150,7 +172,13 @@ export default async function EventsPage() {
           </Heading>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {pastEvents.map((event) => (
-              <EventCard key={event._id} event={event} />
+              <Link
+                href={`/partecipa/eventi/${event.slug.current}`}
+                key={event._id}
+                className="hover:no-underline"
+              >
+                <EventCard event={event} />
+              </Link>
             ))}
           </div>
         </>
