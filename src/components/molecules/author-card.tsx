@@ -4,7 +4,7 @@ import { Heading } from "@/components/atoms/typography/Heading";
 import { Paragraph } from "@/components/atoms/typography/Paragraph";
 import { Link } from "@/components/atoms/links/Link";
 import { Image } from "@/components/atoms/media/Image";
-import { getAuthorInitials, getAuthorFullName } from "@/lib/utils/content";
+import { getAuthorInitials, getAuthorFullName } from "@/lib/utils/videoContent";
 
 interface AuthorCardProps {
   author: Author;

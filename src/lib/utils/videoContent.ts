@@ -46,3 +46,11 @@ export function getAuthorFullName(
   if (withPronouns && author.pronouns) namePieces.push(`(${author.pronouns})`);
   return namePieces.filter(Boolean).join(" ").trim();
 }
+
+/**
+ * Give a youtube url, extract the video id
+ */
+export function getYoutubeVideoId(url: string): string {
+  const urlParts = url.split("v=");
+  return urlParts[urlParts.length - 1] ?? "";
+}

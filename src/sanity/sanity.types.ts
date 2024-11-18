@@ -77,6 +77,7 @@ export type Author = {
   firstName?: string;
   lastName?: string;
   pronouns?: string;
+  title?: string;
   photo?: {
     asset?: {
       _ref: string;
@@ -120,7 +121,24 @@ export type Video = {
     crop?: SanityImageCrop;
     _type: "image";
   };
-  description?: string;
+  description?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
   publishedAt?: string;
   categories?: Array<string>;
   featured?: boolean;

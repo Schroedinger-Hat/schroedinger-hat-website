@@ -8,14 +8,17 @@ import { AuthorCard } from "@/components/molecules/author-card";
 import { formatDateTime } from "@/lib/utils/date";
 import { portableTextComponents } from "../../page/[slug]/portableTextComponents";
 import { BlurredBackground } from "@/components/organisms/blurred-background";
+import { getYoutubeVideoId } from "@/lib/utils/videoContent";
+
+interface VideoWithAuthors extends Omit<Video, "authors"> {
+  authors?: Author[];
+}
 
 async function getVideo(slug: string) {
-  const video: (Video & { authors: Author[] }) | null =
-    await sanityClient.fetch(
-      `*[_type == "video" && slug.current == $slug][0]{
+  const video: VideoWithAuthors | null = await sanityClient.fetch(
+    `*[_type == "video" && slug.current == $slug][0]{
       ...,
-      "description": description,
-      authors[]->{
+      "authors": coalesce(authors[]->{
         _id,
         _createdAt,
         _updatedAt,
@@ -23,13 +26,14 @@ async function getVideo(slug: string) {
         firstName,
         lastName,
         pronouns,
-        slug,
+        title,
         photo,
-        title
-      }
+        biography,
+        slug
+      }, [])
     }`,
-      { slug },
-    );
+    { slug },
+  );
   return video;
 }
 
@@ -49,7 +53,6 @@ export default async function SingleVideoPage({ params }: PageProps) {
     <main className="container mx-auto px-4 py-8">
       <BlurredBackground
         points={2}
-        // colors={["#639aff", "#f75ccb"]}
         colors={["#f75ccb", "#639aff", "#C81824", "#830B16"]}
         blur={100}
         opacity={0.5}
@@ -63,7 +66,11 @@ export default async function SingleVideoPage({ params }: PageProps) {
           {video.title}
         </Heading>
 
-        <YouTubePlayer videoId={video.youtubeId ?? ""} className="mb-6" />
+        {/* // Must extract video id since there's no guarantes it's going to be without url */}
+        <YouTubePlayer
+          videoId={getYoutubeVideoId(video.youtubeId!)}
+          className="mb-6"
+        />
 
         {video.publishedAt && (
           <Heading level={3} className="mb-4">

@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Heading } from "@/components/atoms/typography/Heading";
 import { VideoCard } from "@/components/molecules/video-card";
 import { sanityClient } from "@/sanity/lib/client";
-import { getAuthorNames, getVideoThumbnailUrl } from "@/lib/utils/content";
+import { getAuthorNames, getVideoThumbnailUrl } from "@/lib/utils/videoContent";
 import type { Author, Video } from "@/sanity/sanity.types";
 
 // Update the getVideos function to be more type-safe

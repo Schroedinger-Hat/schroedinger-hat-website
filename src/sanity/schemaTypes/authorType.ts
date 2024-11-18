@@ -65,13 +65,7 @@ export const authorType = defineType({
       title: "title",
       image: "photo",
     },
-    prepare: (selection: {
-      firstName: string;
-      lastName: string;
-      pronouns: string;
-      title: string;
-      image: Image;
-    }) => ({
+    prepare: (selection) => ({
       title: `${selection.firstName} ${selection.lastName}${selection.pronouns ? ` (${selection.pronouns})` : ""}`,
       subtitle: selection.title,
       media: selection.image,
