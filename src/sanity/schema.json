@@ -289,43 +289,6 @@
     }
   },
   {
-    "name": "geopoint",
-    "type": "type",
-    "value": {
-      "type": "object",
-      "attributes": {
-        "_type": {
-          "type": "objectAttribute",
-          "value": {
-            "type": "string",
-            "value": "geopoint"
-          }
-        },
-        "lat": {
-          "type": "objectAttribute",
-          "value": {
-            "type": "number"
-          },
-          "optional": true
-        },
-        "lng": {
-          "type": "objectAttribute",
-          "value": {
-            "type": "number"
-          },
-          "optional": true
-        },
-        "alt": {
-          "type": "objectAttribute",
-          "value": {
-            "type": "number"
-          },
-          "optional": true
-        }
-      }
-    }
-  },
-  {
     "name": "author",
     "type": "document",
     "attributes": {
@@ -1863,23 +1826,116 @@
       "location": {
         "type": "objectAttribute",
         "value": {
-          "type": "string"
+          "type": "object",
+          "attributes": {
+            "name": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "string"
+              },
+              "optional": true
+            },
+            "address": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "string"
+              },
+              "optional": true
+            },
+            "coordinates": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "inline",
+                "name": "geopoint"
+              },
+              "optional": true
+            }
+          }
         },
         "optional": true
       },
-      "startDate": {
+      "eventPeriod": {
         "type": "objectAttribute",
         "value": {
-          "type": "string"
+          "type": "object",
+          "attributes": {
+            "startDate": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "string"
+              },
+              "optional": true
+            },
+            "endDate": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "string"
+              },
+              "optional": true
+            }
+          }
         },
         "optional": true
       },
-      "endDate": {
+      "cta": {
         "type": "objectAttribute",
         "value": {
-          "type": "string"
+          "type": "object",
+          "attributes": {
+            "text": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "string"
+              },
+              "optional": true
+            },
+            "url": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "string"
+              },
+              "optional": true
+            }
+          }
         },
         "optional": true
+      }
+    }
+  },
+  {
+    "name": "geopoint",
+    "type": "type",
+    "value": {
+      "type": "object",
+      "attributes": {
+        "_type": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string",
+            "value": "geopoint"
+          }
+        },
+        "lat": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "number"
+          },
+          "optional": true
+        },
+        "lng": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "number"
+          },
+          "optional": true
+        },
+        "alt": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "number"
+          },
+          "optional": true
+        }
       }
     }
   },

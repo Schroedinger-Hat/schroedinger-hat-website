@@ -61,13 +61,6 @@ export type SanityFileAsset = {
   source?: SanityAssetSourceData;
 };
 
-export type Geopoint = {
-  _type: "geopoint";
-  lat?: number;
-  lng?: number;
-  alt?: number;
-};
-
 export type Author = {
   _id: string;
   _type: "author";
@@ -277,9 +270,26 @@ export type Event = {
     crop?: SanityImageCrop;
     _type: "image";
   };
-  location?: string;
-  startDate?: string;
-  endDate?: string;
+  location?: {
+    name?: string;
+    address?: string;
+    coordinates?: Geopoint;
+  };
+  eventPeriod?: {
+    startDate?: string;
+    endDate?: string;
+  };
+  cta?: {
+    text?: string;
+    url?: string;
+  };
+};
+
+export type Geopoint = {
+  _type: "geopoint";
+  lat?: number;
+  lng?: number;
+  alt?: number;
 };
 
 export type SanityImageCrop = {
@@ -350,12 +360,12 @@ export type AllSanitySchemaTypes =
   | SanityImagePalette
   | SanityImageDimensions
   | SanityFileAsset
-  | Geopoint
   | Author
   | Video
   | Page
   | Partner
   | Event
+  | Geopoint
   | SanityImageCrop
   | SanityImageHotspot
   | SanityImageAsset

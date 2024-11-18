@@ -42,19 +42,60 @@ export const eventType = defineType({
     {
       name: "location",
       title: "Location",
-      type: "string",
+      type: "object",
+      fields: [
+        {
+          name: "name",
+          title: "Location Name",
+          type: "string",
+          validation: (Rule) => Rule.required(),
+        },
+        {
+          name: "address",
+          title: "Address",
+          type: "string",
+        },
+        {
+          name: "coordinates",
+          title: "Coordinates",
+          type: "geopoint",
+        },
+      ],
       validation: (Rule) => Rule.required(),
     },
     {
-      name: "startDate",
-      title: "Start Date",
-      type: "datetime",
-      validation: (Rule) => Rule.required(),
+      name: "eventPeriod",
+      title: "Event Period",
+      type: "object",
+      fields: [
+        {
+          name: "startDate",
+          title: "Start Date",
+          type: "datetime",
+        },
+        {
+          name: "endDate",
+          title: "End Date",
+          type: "datetime",
+        },
+      ],
     },
     {
-      name: "endDate",
-      title: "End Date",
-      type: "datetime",
+      name: "cta",
+      title: "Call to Action",
+      type: "object",
+      fields: [
+        {
+          name: "text",
+          title: "Text",
+          type: "string",
+        },
+        {
+          name: "url",
+          title: "URL",
+          type: "url",
+        },
+      ],
     },
   ],
 });
