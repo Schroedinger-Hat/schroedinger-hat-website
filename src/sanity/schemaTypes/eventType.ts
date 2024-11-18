@@ -13,14 +13,21 @@ export const eventType = defineType({
     },
     {
       name: "abstract",
+      type: "array",
       title: "Abstract",
-      type: "text",
-      validation: (Rule) => Rule.required(),
+      of: [
+        {
+          type: "block",
+        },
+      ],
     },
     {
-      name: "author",
-      title: "Author",
-      type: "string",
+      name: "cover",
+      title: "Cover",
+      type: "image",
+      options: {
+        hotspot: true,
+      },
     },
     {
       name: "location",

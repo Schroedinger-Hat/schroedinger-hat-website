@@ -167,7 +167,7 @@ export function NavHeader() {
                     <li>
                       <NavigationMenuLink asChild>
                         <Link
-                          href="/associazione/statuto"
+                          href="/page/statute"
                           className="block rounded-md p-2 hover:bg-accent"
                         >
                           <Paragraph className="m-0">Statuto</Paragraph>
@@ -177,7 +177,7 @@ export function NavHeader() {
                     <li>
                       <NavigationMenuLink asChild>
                         <Link
-                          href="/associazione/dati-amministrativi"
+                          href="/page/administrative-data"
                           className="block rounded-md p-2 hover:bg-accent"
                         >
                           <Paragraph className="m-0">
