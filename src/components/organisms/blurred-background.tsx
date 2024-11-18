@@ -10,6 +10,7 @@ interface BlurredBackgroundProps {
   className?: string;
   size?: number;
   positioning?: "random" | "center";
+  disableAnimation?: boolean;
 }
 
 export const BlurredBackground = ({
@@ -20,6 +21,7 @@ export const BlurredBackground = ({
   className = "",
   size = 500,
   positioning = "random",
+  disableAnimation = false,
 }: BlurredBackgroundProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -89,7 +91,11 @@ export const BlurredBackground = ({
       const duration = getRandomDuration();
       const delay = Math.random() * -duration;
 
-      circle.className = "absolute rounded-full animate-blob";
+      circle.className = "absolute rounded-full";
+      if (!disableAnimation) {
+        circle.className += " animate-blob";
+      }
+
       Object.assign(circle.style, {
         width: `${size}px`,
         height: `${size}px`,
@@ -98,14 +104,27 @@ export const BlurredBackground = ({
         backgroundColor: color,
         opacity: opacity.toString(),
         filter: `blur(${blur}px)`,
-        animation: `blob ${duration}s infinite ${delay}s`,
         transform: "translate(-50%, -50%)",
         willChange: "transform",
+        ...(disableAnimation
+          ? {}
+          : {
+              animation: `blob ${duration}s infinite ${delay}s`,
+            }),
       });
 
       container.appendChild(circle);
     }
-  }, [points, colors, blur, opacity, size, positioning, getCenteredPosition]);
+  }, [
+    points,
+    colors,
+    blur,
+    opacity,
+    size,
+    positioning,
+    getCenteredPosition,
+    disableAnimation,
+  ]);
 
   return (
     <div

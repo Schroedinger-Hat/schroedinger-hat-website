@@ -24,6 +24,11 @@ export const authorType = defineType({
       description: "e.g., they/them, she/her, he/him",
     },
     {
+      name: "title",
+      title: "Title",
+      type: "string",
+    },
+    {
       name: "photo",
       title: "Photo",
       type: "image",
@@ -57,14 +62,19 @@ export const authorType = defineType({
       firstName: "firstName",
       lastName: "lastName",
       pronouns: "pronouns",
+      title: "title",
+      image: "photo",
     },
     prepare: (selection: {
       firstName: string;
       lastName: string;
       pronouns: string;
+      title: string;
+      image: Image;
     }) => ({
       title: `${selection.firstName} ${selection.lastName}${selection.pronouns ? ` (${selection.pronouns})` : ""}`,
-      subtitle: "",
+      subtitle: selection.title,
+      media: selection.image,
     }),
   },
 });

@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Heading } from "@/components/atoms/typography/Heading";
 import { VideoCard } from "@/components/molecules/video-card";
 import { sanityClient } from "@/sanity/lib/client";
-import { urlFor } from "@/sanity/lib/image";
+import { getAuthorNames, getVideoThumbnailUrl } from "@/lib/utils/content";
 import type { Author, Video } from "@/sanity/sanity.types";
 
 // Update the getVideos function to be more type-safe
@@ -21,23 +21,8 @@ async function getVideos() {
   return videos;
 }
 
-// If video has a thumbnail, use it, otherwise use the youtube thumbnail
-function getVideoThumbnailUrl(video: Video) {
-  return video.thumbnail
-    ? urlFor(video.thumbnail).width(600).height(400).url()
-    : `https://img.youtube.com/vi/${video.youtubeId}/mqdefault.jpg`;
-}
-
 export default async function WatchPage() {
   const videos = await getVideos();
-
-  // Helper function to safely get author names
-  const getAuthorNames = (authors: Author[] | undefined) => {
-    if (!authors?.length) return "";
-    return authors
-      .map((author) => `${author.firstName} ${author.lastName}`)
-      .join(", ");
-  };
 
   return (
     <div className="container mx-auto max-w-7xl py-24">

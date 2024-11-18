@@ -7,9 +7,8 @@ import Link from "next/link";
 
 interface VideoCardProps {
   title: string;
-  subtitle?: string;
-  imageUrl?: string;
-  imageAlt?: string;
+  subtitle: string;
+  imageUrl: string;
   className?: string;
   slug?: string;
 }
@@ -17,8 +16,7 @@ interface VideoCardProps {
 export function VideoCard({
   title,
   subtitle,
-  imageUrl = "https://placehold.co/600x400",
-  imageAlt = "Hero image",
+  imageUrl,
   className,
   slug,
 }: VideoCardProps) {
@@ -26,15 +24,14 @@ export function VideoCard({
     <div
       className={cn("relative w-full overflow-hidden rounded-lg", className)}
     >
-      <Link href={`/guarda/${slug}`}>
+      <Link href={`/watch/${slug}`}>
         <div className="group relative flex min-h-[300px] flex-col justify-end bg-gradient-to-t from-slate-900/90 to-slate-900/0 p-6">
           {/* Background Image */}
           <Image
             src={imageUrl}
-            alt={imageAlt}
+            alt={title}
             className="absolute inset-0 -z-10 h-full w-full object-cover transition-all duration-300 group-hover:brightness-75"
             withContainer={false}
-            priority
             height={400}
             width={600}
           />

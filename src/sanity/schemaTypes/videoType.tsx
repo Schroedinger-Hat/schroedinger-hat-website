@@ -88,8 +88,13 @@ export const videoType = defineType({
     },
     {
       name: "description",
+      type: "array",
       title: "Description",
-      type: "text",
+      of: [
+        {
+          type: "block",
+        },
+      ],
     },
     {
       name: "publishedAt",
