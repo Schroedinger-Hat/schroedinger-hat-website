@@ -38,9 +38,13 @@ export const authorType = defineType({
     },
     {
       name: "biography",
+      type: "array",
       title: "Biography",
-      type: "text",
-      rows: 4,
+      of: [
+        {
+          type: "block",
+        },
+      ],
     },
     {
       name: "slug",

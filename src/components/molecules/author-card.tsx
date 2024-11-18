@@ -5,6 +5,7 @@ import { Paragraph } from "@/components/atoms/typography/Paragraph";
 import { Link } from "@/components/atoms/links/Link";
 import { Image } from "@/components/atoms/media/Image";
 import { getAuthorInitials, getAuthorFullName } from "@/lib/utils/videoContent";
+import { PortableText } from "next-sanity";
 
 interface AuthorCardProps {
   author: Author;
@@ -15,7 +16,7 @@ export function AuthorCard({ author }: AuthorCardProps) {
 
   return (
     <Link href={`/watch/speaker/${author.slug!.current}`}>
-      <div className="flex gap-4 rounded-lg border bg-slate-100 p-4">
+      <div className="flex gap-4 rounded-lg border bg-slate-100 p-2">
         <div className="h-16 w-16 flex-shrink-0">
           {author.photo ? (
             <Image
@@ -40,9 +41,8 @@ export function AuthorCard({ author }: AuthorCardProps) {
             {getAuthorFullName(author)}
           </Heading>
           {author.title && (
-            <Paragraph className="italic">{author.title}</Paragraph>
+            <Paragraph className="mb-0 italic">{author.title}</Paragraph>
           )}
-          {author.biography && <Paragraph>{author.biography}</Paragraph>}
         </div>
       </div>
     </Link>
