@@ -2,7 +2,7 @@ import { format as formatDate, parseISO } from "date-fns";
 
 export function formatDateTime(
   date: string | Date | undefined,
-  formatStr: string = "MMMM d, yyyy",
+  formatStr = "MMMM d, yyyy",
 ): string {
   if (!date) return "";
 
