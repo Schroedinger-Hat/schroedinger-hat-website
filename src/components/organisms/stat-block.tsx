@@ -1,22 +1,30 @@
-"use client";
-
 import { Heading } from "@/components/atoms/typography/Heading";
 import { Paragraph } from "@/components/atoms/typography/Paragraph";
 import { cn } from "@/lib/utils";
 
 interface StatBlocksProps {
   blocks: {
-    number: string;
+    number: string | React.ReactNode;
     title: string;
     description: string;
   }[];
   className?: string;
+  centered?: boolean;
 }
 
-export function StatBlocks({ blocks, className }: StatBlocksProps) {
+export function StatBlocks({
+  blocks,
+  className,
+  centered = true,
+}: StatBlocksProps) {
   return (
     <div className={cn("container", className)}>
-      <div className="grid grid-cols-1 gap-8 text-center sm:grid-cols-2 lg:grid-cols-4">
+      <div
+        className={cn(
+          "grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4",
+          centered && "text-center",
+        )}
+      >
         {blocks.map((block, index) => (
           <div key={index} className="space-y-2">
             <Heading level={2} className="text-4xl lg:text-5xl">

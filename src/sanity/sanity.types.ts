@@ -61,6 +61,34 @@ export type SanityFileAsset = {
   source?: SanityAssetSourceData;
 };
 
+export type Team = {
+  _id: string;
+  _type: "team";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  name?: string;
+  surname?: string;
+  role?: string;
+  image?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    backgroundColor?: string;
+    _type: "image";
+  };
+  socialLinks?: {
+    dribbble?: string;
+    instagram?: string;
+    facebook?: string;
+  };
+};
+
 export type Author = {
   _id: string;
   _type: "author";
@@ -364,11 +392,45 @@ export type Slug = {
   source?: string;
 };
 
+export type Color = {
+  _type: "color";
+  hex?: string;
+  alpha?: number;
+  hsl?: HslaColor;
+  hsv?: HsvaColor;
+  rgb?: RgbaColor;
+};
+
+export type RgbaColor = {
+  _type: "rgbaColor";
+  r?: number;
+  g?: number;
+  b?: number;
+  a?: number;
+};
+
+export type HsvaColor = {
+  _type: "hsvaColor";
+  h?: number;
+  s?: number;
+  v?: number;
+  a?: number;
+};
+
+export type HslaColor = {
+  _type: "hslaColor";
+  h?: number;
+  s?: number;
+  l?: number;
+  a?: number;
+};
+
 export type AllSanitySchemaTypes =
   | SanityImagePaletteSwatch
   | SanityImagePalette
   | SanityImageDimensions
   | SanityFileAsset
+  | Team
   | Author
   | Video
   | Page
@@ -380,5 +442,9 @@ export type AllSanitySchemaTypes =
   | SanityImageAsset
   | SanityAssetSourceData
   | SanityImageMetadata
-  | Slug;
+  | Slug
+  | Color
+  | RgbaColor
+  | HsvaColor
+  | HslaColor;
 export declare const internalGroqTypeReferenceTo: unique symbol;

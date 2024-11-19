@@ -21,11 +21,10 @@ export default async function Home() {
   );
 
   return (
-    <div>
+    <main>
       <div className="relative w-full pb-64 pt-32">
         <BlurredBackground
           points={2}
-          // colors={["#639aff", "#f75ccb"]}
           colors={["#f75ccb", "#639aff", "#C81824", "#830B16"]}
           blur={100}
           opacity={0.7}
@@ -213,6 +212,6 @@ export default async function Home() {
           variant="shop"
         />
       </div>
-    </div>
+    </main>
   );
 }
