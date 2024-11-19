@@ -61,22 +61,47 @@ export type SanityFileAsset = {
   source?: SanityAssetSourceData;
 };
 
-export interface Author {
+export type Author = {
   _id: string;
-  name: string;
+  _type: "author";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  firstName?: string;
+  lastName?: string;
+  pronouns?: string;
   title?: string;
-  role?: string;
   photo?: {
-    asset: {
+    asset?: {
       _ref: string;
-      _type: string;
-      url: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
     };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
   };
-  slug?: {
-    current: string;
-  };
-}
+  biography?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+  slug?: Slug;
+};
 
 export type Video = {
   _id: string;
@@ -208,7 +233,7 @@ export type Partner = {
   orderRank?: string;
 };
 
-export interface Event {
+export type Event = {
   _id: string;
   _type: "event";
   _createdAt: string;
@@ -258,8 +283,14 @@ export interface Event {
     text?: string;
     url?: string;
   };
-  authors?: Author[];
-}
+  authors?: Array<{
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    _key: string;
+    [internalGroqTypeReferenceTo]?: "author";
+  }>;
+};
 
 export type Geopoint = {
   _type: "geopoint";

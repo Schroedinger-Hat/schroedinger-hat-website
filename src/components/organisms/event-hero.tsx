@@ -1,4 +1,4 @@
-import { Plus } from "lucide-react";
+import { Link, Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Typography } from "@/components/atoms/typography/Typography";
 import { Heading } from "@/components/atoms/typography/Heading";
@@ -10,7 +10,9 @@ import {
   AirplaneLanding01Icon,
   AirplaneTakeOff01Icon,
   ArrowRight01Icon,
+  MapPinIcon,
 } from "hugeicons-react";
+import { Debug } from "../atoms/debug";
 
 interface EventHeroProps {
   title: string;
@@ -38,14 +40,14 @@ export function EventHero({
             <Image
               src={urlFor(cover)
                 .auto("format")
-                .width(1200)
-                .height(600)
+                .width(1920)
+                .height(500)
                 .blur(5)
                 .url()}
               alt={title}
               withContainer={false}
               width={1920}
-              height={600}
+              height={500}
               className="h-full w-full object-cover"
             />
           </div>
@@ -54,7 +56,7 @@ export function EventHero({
       )}
 
       {/* Content */}
-      <div className="container relative px-4 py-8">
+      <div className="container relative p-4">
         <div className="grid gap-8 lg:grid-cols-2">
           <div className="flex flex-col justify-end">
             <Heading
@@ -67,18 +69,48 @@ export function EventHero({
             <Typography variant="large" className="mb-2 pl-4 text-white/80">
               By Schroedinger Hat
             </Typography>
-
-            {location?.name && (
-              <Typography variant="large" className="pl-4 text-white/90">
-                {location.name}
-                {location.address && `, ${location.address}`}
-              </Typography>
-            )}
           </div>
 
           <div className="flex justify-end">
             <div className="w-full max-w-md space-y-6 rounded-lg bg-white/95 p-6 backdrop-blur-sm">
+              {location?.name && (
+                <div>
+                  <Heading level={4} className="mb-1 text-slate-800">
+                    Location
+                  </Heading>
+                  <div className="flex gap-4">
+                    <div className="flex-1">
+                      <Typography variant="muted" className="text-md mt-0">
+                        {location.name}
+                      </Typography>
+                      <Typography variant="muted" className="text-md mt-0">
+                        {location.address && location.address}
+                      </Typography>
+                    </div>
+                    {location.coordinates && (
+                      <div className="flex-shrink-0">
+                        <a
+                          href={`https://www.google.com/maps?q=${location.coordinates.lat},${location.coordinates.lng}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Image
+                            src={`https://maps.googleapis.com/maps/api/staticmap?center=${location.coordinates.lat},${location.coordinates.lng}&zoom=15&size=120x100&markers=color:red%7C${location.coordinates.lat},${location.coordinates.lng}&key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}`}
+                            alt={`Map showing location of ${location.name}`}
+                            width={120}
+                            height={80}
+                            className="overflow-hidden rounded-md"
+                          />
+                        </a>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
               <div className="space-y-2">
+                <Heading level={4} className="mb-1 text-slate-800">
+                  Time
+                </Heading>
                 <div className="flex w-full items-center justify-center rounded-lg bg-slate-200/75 p-2 px-12">
                   {eventPeriod?.startDate && (
                     <div className="flex-shrink-0">

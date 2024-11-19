@@ -14,6 +14,10 @@ const remotePatterns = [
     protocol: "https",
     hostname: "img.youtube.com",
   },
+  {
+    protocol: "https",
+    hostname: "maps.googleapis.com",
+  },
 ];
 
 if (process.env.NODE_ENV === "development") {

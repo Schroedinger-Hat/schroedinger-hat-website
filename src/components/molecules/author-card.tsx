@@ -15,7 +15,10 @@ export function AuthorCard({ author }: AuthorCardProps) {
   if (!author) return null;
 
   return (
-    <Link href={`/watch/speaker/${author.slug!.current}`}>
+    <Link
+      href={`/watch/speaker/${author.slug!.current}`}
+      className="hover:no-underline"
+    >
       <div className="flex gap-4 rounded-lg border bg-slate-100 p-2">
         <div className="h-16 w-16 flex-shrink-0">
           {author.photo ? (

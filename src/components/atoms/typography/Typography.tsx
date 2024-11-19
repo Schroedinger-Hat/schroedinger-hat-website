@@ -2,6 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import { type VariantProps, cva } from "class-variance-authority";
+import { ElementType } from "react";
 
 const typographyVariants = cva("text-slate-900", {
   variants: {
@@ -32,21 +33,25 @@ const typographyVariants = cva("text-slate-900", {
   },
 });
 
-interface TypographyProps
-  extends React.HTMLAttributes<HTMLElement>,
-    VariantProps<typeof typographyVariants> {
+type TypographyProps<C extends ElementType> = {
   children: React.ReactNode;
-  as?: keyof JSX.IntrinsicElements;
-}
+  as?: C;
+  variant?: VariantProps<typeof typographyVariants>["variant"];
+  weight?: VariantProps<typeof typographyVariants>["weight"];
+  className?: string;
+} & Omit<
+  React.ComponentPropsWithoutRef<C>,
+  "as" | "variant" | "weight" | "className"
+>;
 
-export function Typography({
+export function Typography<C extends ElementType = "p">({
   children,
   variant,
   weight,
   as,
   className,
   ...props
-}: TypographyProps) {
+}: TypographyProps<C>) {
   const Component = as || getDefaultElement(variant);
 
   return (
@@ -59,9 +64,7 @@ export function Typography({
   );
 }
 
-function getDefaultElement(
-  variant: string | null | undefined,
-): keyof JSX.IntrinsicElements {
+function getDefaultElement(variant: string | null | undefined): ElementType {
   switch (variant) {
     case "h1":
       return "h1";

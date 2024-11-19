@@ -1,42 +1,21 @@
 import { notFound } from "next/navigation";
 import { PortableText } from "@portabletext/react";
 import { sanityClient } from "@/sanity/lib/client";
-import type { Event } from "@/sanity/sanity.types";
+import type { Event, Author } from "@/sanity/sanity.types";
 import { portableTextComponents } from "@/app/(website)/page/[slug]/portableTextComponents";
 import { EventHero } from "@/components/organisms/event-hero";
 import { AuthorCard } from "@/components/molecules/author-card";
 
+interface EventWithAuthors extends Omit<Event, "authors"> {
+  authors?: Author[];
+}
+
 async function getEvent(slug: string) {
-  const event = await sanityClient.fetch<Event>(
+  const event = await sanityClient.fetch<EventWithAuthors>(
     `*[_type == "event" && slug.current == $slug][0]{
-      _id,
-      _type,
-      title,
-      slug,
-      abstract,
-      cover {
-        asset-> {
-          _ref,
-          _type,
-          url
-        }
-      },
-      location,
-      eventPeriod,
-      cta,
+      ...,
       "authors": coalesce(authors[]-> {
-        _id,
-        firstName,
-        lastName,
-        title,
-        photo {
-          asset-> {
-            _ref,
-            _type,
-            url
-          }
-        },
-        slug
+        ...
       } | order(firstName asc, lastName asc), [])
     }`,
     { slug },
