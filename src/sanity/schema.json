@@ -289,7 +289,7 @@
     }
   },
   {
-    "name": "team",
+    "name": "teamMember",
     "type": "document",
     "attributes": {
       "_id": {
@@ -302,7 +302,7 @@
         "type": "objectAttribute",
         "value": {
           "type": "string",
-          "value": "team"
+          "value": "teamMember"
         }
       },
       "_createdAt": {
@@ -408,36 +408,6 @@
                 "type": "string",
                 "value": "image"
               }
-            }
-          }
-        },
-        "optional": true
-      },
-      "socialLinks": {
-        "type": "objectAttribute",
-        "value": {
-          "type": "object",
-          "attributes": {
-            "dribbble": {
-              "type": "objectAttribute",
-              "value": {
-                "type": "string"
-              },
-              "optional": true
-            },
-            "instagram": {
-              "type": "objectAttribute",
-              "value": {
-                "type": "string"
-              },
-              "optional": true
-            },
-            "facebook": {
-              "type": "objectAttribute",
-              "value": {
-                "type": "string"
-              },
-              "optional": true
             }
           }
         },

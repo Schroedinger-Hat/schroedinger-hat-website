@@ -61,9 +61,9 @@ export type SanityFileAsset = {
   source?: SanityAssetSourceData;
 };
 
-export type Team = {
+export type TeamMember = {
   _id: string;
-  _type: "team";
+  _type: "teamMember";
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
@@ -81,11 +81,6 @@ export type Team = {
     crop?: SanityImageCrop;
     backgroundColor?: string;
     _type: "image";
-  };
-  socialLinks?: {
-    dribbble?: string;
-    instagram?: string;
-    facebook?: string;
   };
 };
 
@@ -430,7 +425,7 @@ export type AllSanitySchemaTypes =
   | SanityImagePalette
   | SanityImageDimensions
   | SanityFileAsset
-  | Team
+  | TeamMember
   | Author
   | Video
   | Page

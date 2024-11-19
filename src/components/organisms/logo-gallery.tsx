@@ -17,7 +17,7 @@ interface LogoGalleryProps {
   title?: string;
   className?: string;
   maxCols?: 2 | 3 | 4 | 5 | 6;
-  imageOpacity?: number;
+  imageOpacity?: 25 | 50 | 75 | 100;
 }
 
 export function LogoGallery({
@@ -26,8 +26,19 @@ export function LogoGallery({
   title = "",
   className = "",
   maxCols = 4,
-  imageOpacity = 1,
+  imageOpacity = 100,
 }: LogoGalleryProps) {
+  const getOpacityClass = (opacity: 25 | 50 | 75 | 100) => {
+    const opacityMap = {
+      25: "opacity-25",
+      50: "opacity-50",
+      75: "opacity-75",
+      100: "opacity-100",
+    } as const;
+
+    return opacityMap[opacity];
+  };
+
   return (
     <section className={cn("w-full", className)}>
       <div className="container px-4 md:px-6">
@@ -54,9 +65,11 @@ export function LogoGallery({
                 alt={logo.alt}
                 width={300}
                 height={150}
-                className={`h-16 w-auto opacity-${imageOpacity} ${
-                  blackAndWhite ? "grayscale" : ""
-                }`}
+                className={cn(
+                  "h-16 w-auto",
+                  getOpacityClass(imageOpacity),
+                  blackAndWhite && "grayscale",
+                )}
                 withContainer={false}
               />
             </div>

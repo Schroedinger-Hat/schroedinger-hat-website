@@ -16,12 +16,15 @@ import { urlFor } from "@/sanity/lib/image";
 import type { Partner } from "@/sanity/sanity.types";
 import { LogoGallery } from "@/components/organisms/logo-gallery";
 import { TeamCard } from "@/components/organisms/team-card";
-import type { Team } from "@/sanity/sanity.types";
+import type { TeamMember } from "@/sanity/sanity.types";
+import { Paragraph } from "@/components/atoms/typography/Paragraph";
+import { Button } from "@/components/molecules/button";
 
 // Images
 import staffSpeaker from "@/images/about/os23_staff_speaker.jpg";
 import gabriMikiStage from "@/images/about/os24_gabri-miki_stage.jpg";
-import { Paragraph } from "@/components/atoms/typography/Paragraph";
+import joinTheTeam from "@/images/about/os24_join-the-team.jpg";
+import os2Public from "@/images/about/os24_public.jpg";
 
 export default async function AboutUsPage() {
   // Fetch business partners
@@ -30,8 +33,8 @@ export default async function AboutUsPage() {
   );
 
   // New team members query
-  const teamMembers: Team[] = await sanityClient.fetch(`
-    *[_type == "team"] | order(orderRank asc) {
+  const teamMembers: TeamMember[] = await sanityClient.fetch(`
+    *[_type == "teamMember"] | order(name asc, surname asc) {
       ...
     }
   `);
@@ -79,9 +82,9 @@ export default async function AboutUsPage() {
           />
         </div>
 
-        <div className="py-24">
+        <div className="py-16 pt-32">
           <Heading level={2} className="mb-0">
-            What we do
+            What we do in a nutshell
           </Heading>
           <StatBlocks
             centered={false}
@@ -91,29 +94,31 @@ export default async function AboutUsPage() {
                 number: <UserMultipleIcon className="h-10 w-10" />,
                 title: "Meetup",
                 description:
-                  "We organise meetup and conferences all across Europe",
+                  "Organise speakers, logistic, marketing for conferences all across Europe.",
               },
               {
                 number: <MentorIcon className="h-10 w-10" />,
                 title: "Workshops",
                 description:
-                  "We invite special guests to teach new things to our community",
+                  "We invite special guests to teach new things to our community.",
               },
               {
                 number: <Mic01Icon className="h-10 w-10" />,
                 title: "Podcasts",
-                description: "Chilling and talking about open source and tech",
+                description:
+                  "Chilling and talking about open source projects and news.",
               },
               {
                 number: <SchoolTieIcon className="h-10 w-10" />,
                 title: "Consulting",
-                description: "We help companies to organise all of the above",
+                description:
+                  "We help companies to organise all of the previous activities.",
               },
             ]}
           />
         </div>
 
-        <div className="container mx-auto grid grid-cols-1 gap-4 md:grid-cols-2">
+        <div className="container mx-auto grid grid-cols-1 gap-4 py-16 md:grid-cols-2">
           <div className="rounded-2xl bg-[#5B5BFF] p-8 text-white">
             <div className="space-y-6">
               <Typography
@@ -154,24 +159,20 @@ export default async function AboutUsPage() {
               src={gabriMikiStage.src}
               alt="Schroedinger Hat community members on stage"
               width={600}
-              height={400}
-              className="h-full w-full object-cover"
+              height={500}
+              className="h-[500px] w-full object-cover"
               withContainer={false}
             />
           </div>
         </div>
 
-        <div className="py-24">
+        <div className="py-16">
           <div className="flex flex-col gap-8 lg:flex-row">
             <div className="lg:w-1/3">
-              <Typography as="span" variant="small" className="inline-block">
-                Clients
-              </Typography>
-
-              <Heading level={3}>Trusted by world's leading companies</Heading>
+              <Heading level={2}>Trusted by the big players</Heading>
               <Paragraph>
-                Lorem ipsum dolor sit amet consectetur. Semper eget dictum id
-                nec lorem feugiat vestibulum dapibus.
+                We received sponsorship and support from industry leading
+                companies to organise our events and activities.
               </Paragraph>
             </div>
             <div className="lg:flex-1">
@@ -179,7 +180,7 @@ export default async function AboutUsPage() {
                 title=""
                 maxCols={2}
                 blackAndWhite={true}
-                imageOpacity={25}
+                imageOpacity={75}
                 logos={partners
                   .filter(
                     (
@@ -197,29 +198,96 @@ export default async function AboutUsPage() {
           </div>
         </div>
 
-        <div className="py-24">
-          <div className="mb-16">
-            <Typography as="span" variant="small" className="inline-block">
-              Our Team
-            </Typography>
-            <Heading level={2}>Meet the people behind Schroedinger Hat</Heading>
-            <Paragraph>
-              We're a diverse group of passionate individuals working together
-              to make open source more accessible and enjoyable for everyone.
-            </Paragraph>
+        <div className="py-16">
+          <div className="mb-16 text-center">
+            <Heading level={1}>Meet the people behind Schroedinger Hat</Heading>
           </div>
 
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {teamMembers.map((member) => (
-              <TeamCard
-                key={`${member.name}-${member.surname}`}
-                name={member.name}
-                surname={member.surname}
-                role={member.role}
-                image={member.image}
-                socialLinks={member.socialLinks}
-              />
+              <TeamCard key={member._id} member={member} />
             ))}
+          </div>
+        </div>
+      </div>
+      <div className="bg-slate-200">
+        <div className="container mx-auto max-w-7xl space-y-12 py-16">
+          <div className="mb-16">
+            <Heading level={2}>I dig it! How I can join the gang?</Heading>
+          </div>
+
+          <div className="flex flex-col items-stretch gap-8 lg:h-full lg:flex-row">
+            <div className="flex-1">
+              <div className="h-full rounded-2xl bg-slate-50 p-8">
+                <Heading level={3}>Low Effort: Activate a Membership</Heading>
+                <Paragraph>
+                  If you like our idea but don't have enough time to contribute
+                  and work on our projects you may consider becoming a member.
+                </Paragraph>
+                <Paragraph>
+                  Membership requires a small fee to support our expenses and
+                  gives you back some perks like early access to tickets and
+                  discounts for our shop.
+                </Paragraph>
+                <Link href="/associazione/membri">
+                  <Button className="mt-4">
+                    Become a member
+                    <ArrowRight className="h-5 w-5" />
+                  </Button>
+                </Link>
+              </div>
+            </div>
+            <div className="flex-1">
+              <div className="h-full overflow-hidden rounded-2xl">
+                <Image
+                  src={os2Public.src}
+                  alt="Schroedinger Hat community members on stage"
+                  width={600}
+                  height={300}
+                  className="h-[300px] w-full object-cover opacity-90"
+                  withContainer={false}
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="text-center">
+            <Heading level={2}>or</Heading>
+          </div>
+
+          <div className="flex flex-col gap-8 lg:flex-row">
+            <div className="flex-1">
+              <div className="h-full overflow-hidden rounded-2xl">
+                <Image
+                  src={joinTheTeam.src}
+                  alt="Schroedinger Hat community members on stage"
+                  width={600}
+                  height={300}
+                  className="h-[300px] w-full object-cover opacity-90"
+                  withContainer={false}
+                />
+              </div>
+            </div>
+            <div className="flex-1">
+              <div className="h-full rounded-2xl bg-slate-50 p-8">
+                <Heading level={3}>High Effort: Join the Team</Heading>
+                <Paragraph>
+                  We're always looking for new people to join our team. If you
+                  think you have what it takes, please send us an email.
+                </Paragraph>
+                <Paragraph>
+                  We have no fixed roles, we just need people who are willing to
+                  help us out with the organisation of our events and
+                  activities.
+                </Paragraph>
+                <a href="mailto:hello@schroedinger-hat.org?subject=I want to join the team">
+                  <Button className="mt-4">
+                    Apply here
+                    <ArrowRight className="h-5 w-5" />
+                  </Button>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
