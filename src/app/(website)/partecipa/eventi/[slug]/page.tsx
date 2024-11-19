@@ -40,11 +40,11 @@ export default async function SingleEventPage({ params }: PageProps) {
       <div className="container mx-auto max-w-6xl pt-16">
         <EventHero
           title={event.title}
-          abstract={event.abstract}
           cover={event.cover}
           eventPeriod={event.eventPeriod}
           location={event.location}
           cta={event.cta}
+          organiser={event.organiser!}
         />
       </div>
 

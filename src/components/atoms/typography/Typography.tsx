@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import { type VariantProps, cva } from "class-variance-authority";
-import { ElementType } from "react";
+import { type ElementType } from "react";
 
 const typographyVariants = cva("text-slate-900", {
   variants: {

@@ -163,6 +163,7 @@ export type Page = {
   _rev: string;
   title?: string;
   slug?: Slug;
+  publishedAt?: string;
   content?: Array<{
     children?: Array<{
       marks?: Array<string>;
@@ -241,6 +242,7 @@ export type Event = {
   _rev: string;
   title?: string;
   slug?: Slug;
+  organiser?: string;
   abstract?: Array<{
     children?: Array<{
       marks?: Array<string>;

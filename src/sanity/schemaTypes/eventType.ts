@@ -22,6 +22,13 @@ export const eventType = defineType({
       validation: (Rule) => Rule.required(),
     },
     {
+      name: "organiser",
+      title: "Organiser",
+      type: "string",
+      initialValue: "Schroedinger Hat",
+      validation: (Rule) => Rule.required(),
+    },
+    {
       name: "abstract",
       type: "array",
       title: "Abstract",

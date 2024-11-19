@@ -2,10 +2,12 @@ import { notFound } from "next/navigation";
 import { PortableText } from "@portabletext/react";
 import { urlFor } from "@/sanity/lib/image";
 import { sanityClient } from "@/sanity/lib/client";
-import Image from "next/image";
-import { type PageData } from "./types";
 import { portableTextComponents } from "./portableTextComponents";
-import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
+import { Heading } from "@/components/atoms/typography/Heading";
+import { Image } from "@/components/atoms/media/Image";
+import { formatDateTime } from "@/lib/utils/date";
+import { Typography } from "@/components/atoms/typography/Typography";
+import type { Page } from "@/sanity/sanity.types";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -14,7 +16,7 @@ interface PageProps {
 export default async function Page({ params }: PageProps) {
   const { slug } = await params;
 
-  const pageData = await sanityClient.fetch<PageData | null>(
+  const pageData = await sanityClient.fetch<Page | null>(
     `*[_type == "page" && slug.current == $slug][0]`,
     { slug },
   );
@@ -28,12 +30,20 @@ export default async function Page({ params }: PageProps) {
     : null;
 
   return (
-    <div className="container mx-auto max-w-4xl py-32">
-      <h1 className="mb-12 text-4xl font-bold">{pageData.title}</h1>
+    <div className="container mx-auto max-w-4xl py-16">
+      <Heading level={1} className="mb-4">
+        {pageData.title}
+      </Heading>
+      {pageData.publishedAt && (
+        <Typography variant="large" className="text-slate-500">
+          {formatDateTime(pageData.publishedAt, "d MMMM, yyyy")}
+        </Typography>
+      )}
+      <hr className="my-8" />
       {imageUrl && (
         <Image
           src={imageUrl}
-          alt={pageData.title}
+          alt={pageData.title!}
           width={1000}
           height={500}
           className="mb-8 h-auto w-full rounded-lg shadow-lg"
@@ -41,7 +51,7 @@ export default async function Page({ params }: PageProps) {
       )}
       <div className="prose prose-lg max-w-none">
         <PortableText
-          value={pageData.content}
+          value={pageData.content!}
           components={portableTextComponents}
         />
       </div>

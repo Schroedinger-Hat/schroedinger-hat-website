@@ -19,7 +19,11 @@ function EventCard({ event }: { event: Event }) {
       <div className="group relative flex min-h-[250px] flex-col justify-end bg-gradient-to-t from-slate-900/90 to-slate-900/0 p-6">
         {event.cover?.asset && (
           <Image
-            src={urlFor(event.cover).url()}
+            src={urlFor(event.cover)
+              .auto("format")
+              .width(600)
+              .height(400)
+              .url()}
             alt={event.title || ""}
             className="absolute inset-0 -z-10 h-full w-full object-cover transition-all duration-300 group-hover:brightness-75"
             withContainer={false}
@@ -57,13 +61,8 @@ function FeaturedEventCard({ event }: { event: Event }) {
   return (
     <div className="relative mb-12 w-full overflow-hidden rounded-lg">
       <div className="group relative flex min-h-[400px] flex-col justify-end bg-gradient-to-t from-slate-900/90 to-slate-900/0 p-8">
-        {/* Background Image */}
         <Image
-          src={
-            event.cover?.asset
-              ? urlFor(event.cover).url()
-              : "https://placehold.co/1200x800"
-          }
+          src={urlFor(event.cover).auto("format").width(1200).height(800).url()}
           alt={event.title || ""}
           className="absolute inset-0 -z-10 h-full w-full object-cover transition-all duration-300 group-hover:brightness-75"
           withContainer={false}
@@ -78,7 +77,7 @@ function FeaturedEventCard({ event }: { event: Event }) {
             {event.title}
           </Heading>
 
-          <div className="mb-6 flex flex-wrap gap-6 text-base text-slate-200">
+          <div className="mb-0 flex flex-wrap gap-6 text-base text-slate-200">
             {event.eventPeriod?.startDate && (
               <div className="flex items-center gap-2">
                 <Calendar01Icon className="h-5 w-5" />
@@ -92,15 +91,6 @@ function FeaturedEventCard({ event }: { event: Event }) {
               </div>
             )}
           </div>
-
-          {event.cta?.url && (
-            <Link
-              href={event.cta.url}
-              className="inline-flex items-center rounded-md bg-white px-6 py-2.5 text-sm font-semibold text-slate-900 hover:bg-slate-100"
-            >
-              {event.cta.text || "Registrati all'evento"}
-            </Link>
-          )}
         </div>
       </div>
     </div>
@@ -146,7 +136,7 @@ export default async function EventsPage() {
       {featuredEvent && (
         <>
           <Heading level={2} className="mb-6">
-            Evento in evidenza
+            In evidenza
           </Heading>
           <Link
             href={`/partecipa/eventi/${featuredEvent.slug!.current}`}
@@ -160,7 +150,7 @@ export default async function EventsPage() {
       {otherUpcomingEvents.length > 0 && (
         <>
           <Heading level={2} className="mb-6">
-            Altri eventi in programma
+            Eventi in programma
           </Heading>
           <div className="mb-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {otherUpcomingEvents.map((event) => (

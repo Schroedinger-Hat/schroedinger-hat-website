@@ -22,6 +22,11 @@ export const pageType = defineType({
       validation: (Rule) => Rule.required(),
     },
     {
+      name: "publishedAt",
+      title: "Published At",
+      type: "date",
+    },
+    {
       name: "content",
       type: "array",
       title: "Content",
@@ -30,6 +35,7 @@ export const pageType = defineType({
           type: "block",
         },
       ],
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "headerImage",
