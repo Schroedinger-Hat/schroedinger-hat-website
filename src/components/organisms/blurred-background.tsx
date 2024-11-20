@@ -11,6 +11,7 @@ interface BlurredBackgroundProps {
   size?: number;
   positioning?: "random" | "center";
   disableAnimation?: boolean;
+  canOverflow?: boolean;
 }
 
 export const BlurredBackground = ({
@@ -22,6 +23,7 @@ export const BlurredBackground = ({
   size = 500,
   positioning = "random",
   disableAnimation = false,
+  canOverflow = false,
 }: BlurredBackgroundProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -130,7 +132,9 @@ export const BlurredBackground = ({
     <div
       id="blurred-background"
       ref={containerRef}
-      className={`absolute inset-0 -z-10 overflow-hidden ${className}`}
+      className={`absolute inset-0 -z-10 ${
+        canOverflow ? "" : "overflow-hidden"
+      } ${className}`}
       aria-hidden="true"
     />
   );

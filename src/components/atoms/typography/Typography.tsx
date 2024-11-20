@@ -16,6 +16,7 @@ const typographyVariants = cva("text-slate-900", {
       list: "my-6 ml-6 list-disc [&>li]:mt-2",
       lead: "text-xl text-slate-700",
       large: "text-lg font-semibold",
+      medium: "text-base font-semibold",
       small: "text-sm font-medium leading-none",
       muted: "text-sm text-slate-500",
       link: "font-medium text-primary underline underline-offset-4 hover:text-primary/80",
