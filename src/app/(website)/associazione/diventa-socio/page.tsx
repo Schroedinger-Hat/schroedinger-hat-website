@@ -3,7 +3,13 @@ import { BlurredBackground } from "@/components/organisms/blurred-background";
 import { Typography } from "@/components/atoms/typography/Typography";
 import { Image } from "@/components/atoms/media/Image";
 import ReviewCard from "@/components/organisms/review-card";
-import { api } from "@/trpc/react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { MembershipCheckoutButton } from "./components/membership-checkout-button";
 
 // Reviews
 import reviews from "./reviews.json";
@@ -13,58 +19,16 @@ import perkBox from "@/images/membership/perk_box.svg";
 import perkEarlyAccess from "@/images/membership/perk_early_access.svg";
 import perkFood from "@/images/membership/perk_food.svg";
 import perkVote from "@/images/membership/perk_vote.svg";
-import Link from "next/link";
-import { Button } from "@/components/molecules/button";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 
-// Add this utility function at the top of the file, after imports
+// Utility function
 function getRandomReviews(reviews: any[], count: number) {
   const shuffled = [...reviews].sort(() => 0.5 - Math.random());
   return shuffled.slice(0, count);
 }
 
-// Add this right after the imports
-const scrollbarStyles = `
-  .reviews-scroll::-webkit-scrollbar {
-    height: 8px;
-  }
-  .reviews-scroll::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 4px;
-  }
-  .reviews-scroll::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 4px;
-  }
-  .reviews-scroll::-webkit-scrollbar-thumb:hover {
-    background: #555;
-  }
-`;
-
 export default function BecomeMemberPage() {
   // Reviews
   const selectedReviews = getRandomReviews(reviews, 12);
-
-  // Stripe
-  const createCheckout = api.stripe.createCheckoutSession.useMutation({
-    onSuccess: (data) => {
-      if (data.url) {
-        window.location.href = data.url;
-      }
-    },
-    onError: (error) => {
-      console.error("Error:", error);
-    },
-  });
-
-  const handleSubscribe = () => {
-    createCheckout.mutate();
-  };
 
   return (
     <main>
@@ -214,17 +178,7 @@ export default function BecomeMemberPage() {
             </div>
           </div>
           <div className="pt-0 text-center">
-            <Link href="/associazione/diventa-socio">
-              <Button
-                variant="secondary"
-                onClick={handleSubscribe}
-                disabled={createCheckout.isPending}
-                size="lg"
-                className="rounded-full"
-              >
-                Become a member
-              </Button>
-            </Link>
+            <MembershipCheckoutButton />
             <Typography variant="medium" className="pt-8 text-white">
               It keeps the lights on and help us pays for all the little things
               that you need to run a nonprofit association.

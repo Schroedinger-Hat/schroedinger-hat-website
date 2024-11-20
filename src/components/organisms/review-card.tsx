@@ -10,7 +10,7 @@ interface ReviewCardProps {
 }
 
 export default function ReviewCard(
-  { name, rating, date, description }: ReviewCardProps = {
+  { name, rating, description }: ReviewCardProps = {
     name: "",
     rating: 5,
     description: "",
