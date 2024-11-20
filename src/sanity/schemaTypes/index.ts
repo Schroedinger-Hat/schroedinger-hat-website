@@ -6,6 +6,7 @@ import { videoType } from "./videoType";
 import { authorType } from "./authorType";
 import { teamMemberType } from "./teamMemberType";
 import { faqType } from "./faqType";
+import { projectType } from "./projectType";
 
 export const schema = {
   types: [
@@ -16,5 +17,6 @@ export const schema = {
     authorType,
     teamMemberType,
     faqType,
+    projectType,
   ],
 };

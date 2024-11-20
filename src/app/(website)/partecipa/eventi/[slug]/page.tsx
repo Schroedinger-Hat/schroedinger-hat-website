@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import { PortableText } from "@portabletext/react";
 import { sanityClient } from "@/sanity/lib/client";
 import type { Event, Author } from "@/sanity/sanity.types";
-import { portableTextComponents } from "@/app/(website)/page/[slug]/portableTextComponents";
+import { createPortableTextComponents } from "@/app/(website)/page/[slug]/portableTextComponents";
 import { EventHero } from "@/components/organisms/event-hero";
 import { AuthorCard } from "@/components/molecules/author-card";
 
@@ -52,7 +52,7 @@ export default async function SingleEventPage({ params }: PageProps) {
         {event.abstract && (
           <PortableText
             value={event.abstract}
-            components={portableTextComponents}
+            components={createPortableTextComponents()}
           />
         )}
 

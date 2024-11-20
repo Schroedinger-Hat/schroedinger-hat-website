@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import { PortableText } from "@portabletext/react";
 import { urlFor } from "@/sanity/lib/image";
 import { sanityClient } from "@/sanity/lib/client";
-import { portableTextComponents } from "./portableTextComponents";
+import { createPortableTextComponents } from "./portableTextComponents";
 import { Heading } from "@/components/atoms/typography/Heading";
 import { Image } from "@/components/atoms/media/Image";
 import { formatDateTime } from "@/lib/utils/date";
@@ -52,7 +52,7 @@ export default async function Page({ params }: PageProps) {
       <div className="prose prose-lg max-w-none">
         <PortableText
           value={pageData.content!}
-          components={portableTextComponents}
+          components={createPortableTextComponents()}
         />
       </div>
     </div>

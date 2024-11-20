@@ -6,29 +6,74 @@ import { List } from "@/components/atoms/lists/List";
 import { ListItem } from "@/components/atoms/lists/ListItem";
 import { InlineText } from "@/components/atoms/typography/InlineText";
 import { Link } from "@/components/atoms/links/Link";
+import { cn } from "@/lib/utils";
 
-export const portableTextComponents: PortableTextComponents = {
+export const createPortableTextComponents = (
+  className?: string,
+): PortableTextComponents => ({
   block: {
-    normal: ({ children }) => <Paragraph>{children}</Paragraph>,
-    h1: ({ children }) => <Heading level={1}>{children}</Heading>,
-    h2: ({ children }) => <Heading level={2}>{children}</Heading>,
-    h3: ({ children }) => <Heading level={3}>{children}</Heading>,
-    h4: ({ children }) => <Heading level={4}>{children}</Heading>,
-    blockquote: ({ children }) => <Blockquote>{children}</Blockquote>,
+    normal: ({ children }) => (
+      <Paragraph className={className}>{children}</Paragraph>
+    ),
+    h1: ({ children }) => (
+      <Heading level={1} className={className}>
+        {children}
+      </Heading>
+    ),
+    h2: ({ children }) => (
+      <Heading level={2} className={className}>
+        {children}
+      </Heading>
+    ),
+    h3: ({ children }) => (
+      <Heading level={3} className={className}>
+        {children}
+      </Heading>
+    ),
+    h4: ({ children }) => (
+      <Heading level={4} className={className}>
+        {children}
+      </Heading>
+    ),
+    blockquote: ({ children }) => (
+      <Blockquote className={className}>{children}</Blockquote>
+    ),
   },
   list: {
-    bullet: ({ children }) => <List variant="bullet">{children}</List>,
-    number: ({ children }) => <List variant="number">{children}</List>,
+    bullet: ({ children }) => (
+      <List variant="bullet" className={className}>
+        {children}
+      </List>
+    ),
+    number: ({ children }) => (
+      <List variant="number" className={className}>
+        {children}
+      </List>
+    ),
   },
-  listItem: ({ children }) => <ListItem>{children}</ListItem>,
+  listItem: ({ children }) => (
+    <ListItem className={className}>{children}</ListItem>
+  ),
   marks: {
     strong: ({ children }) => (
-      <InlineText variant="strong">{children}</InlineText>
+      <InlineText variant="strong" className={className}>
+        {children}
+      </InlineText>
     ),
-    em: ({ children }) => <InlineText variant="em">{children}</InlineText>,
-    code: ({ children }) => <InlineText variant="code">{children}</InlineText>,
+    em: ({ children }) => (
+      <InlineText variant="em" className={className}>
+        {children}
+      </InlineText>
+    ),
+    code: ({ children }) => (
+      <InlineText variant="code" className={className}>
+        {children}
+      </InlineText>
+    ),
     link: ({ value, children }) => (
-      <Link href={value?.href || ""}>{children}</Link>
+      <Link href={value?.href || ""} className={className}>
+        {children}
+      </Link>
     ),
   },
-};
+});

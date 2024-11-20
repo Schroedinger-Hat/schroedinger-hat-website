@@ -6,7 +6,7 @@ import type { Author, Video } from "@/sanity/sanity.types";
 import { Heading } from "@/components/atoms/typography/Heading";
 import { AuthorCard } from "@/components/molecules/author-card";
 import { formatDateTime } from "@/lib/utils/date";
-import { portableTextComponents } from "../../page/[slug]/portableTextComponents";
+import { createPortableTextComponents } from "../../page/[slug]/portableTextComponents";
 import { BlurredBackground } from "@/components/organisms/blurred-background";
 import { getYoutubeVideoId } from "@/lib/utils/videoContent";
 
@@ -90,7 +90,7 @@ export default async function SingleVideoPage({ params }: PageProps) {
           <div className="prose max-w-none">
             <PortableText
               value={video.description}
-              components={portableTextComponents}
+              components={createPortableTextComponents()}
             />
           </div>
         )}
