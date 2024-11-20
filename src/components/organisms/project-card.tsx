@@ -9,7 +9,7 @@ import { Badge } from "../ui/badge";
 
 export function ProjectCard({ project }: { project: Project }) {
   return (
-    <div className="rounded-lg bg-black/80 p-2 text-white">
+    <div className="rounded-lg bg-black/90 p-2 text-white">
       <div className="flex flex-col md:flex-row">
         <div className="aspect-square w-full md:aspect-auto md:w-[500px]">
           {project.coverImage && (

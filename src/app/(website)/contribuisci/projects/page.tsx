@@ -4,6 +4,7 @@ import { Heading } from "@/components/atoms/typography/Heading";
 import { type Project } from "@/sanity/sanity.types";
 import Link from "next/link";
 import { Typography } from "@/components/atoms/typography/Typography";
+import { BlurredBackground } from "@/components/organisms/blurred-background";
 
 async function getProjects() {
   const projects = await sanityClient.fetch<Project[]>(`*[_type == "project"] {
@@ -18,6 +19,15 @@ export default async function ProjectsPage() {
 
   return (
     <main className="container mx-auto max-w-7xl py-16">
+      <BlurredBackground
+        points={2}
+        colors={["#f75ccb", "#639aff", "#C81824", "#830B16"]}
+        blur={100}
+        opacity={0.7}
+        size={500}
+        positioning="center"
+      />
+
       <section>
         <Heading level={2} className="mb-2">
           All Projects
