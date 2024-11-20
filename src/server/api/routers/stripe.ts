@@ -7,9 +7,19 @@ const stripe = new Stripe(env.STRIPE_SECRET_KEY, {
   apiVersion: "2024-10-28.acacia",
 });
 
+const getBaseUrl = () => {
+  if (env.VERCEL_URL) {
+    return `https://${env.VERCEL_URL}`;
+  }
+  // Fallback for local development
+  return "http://localhost:3000";
+};
+
 export const stripeRouter = createTRPCRouter({
   createCheckoutSession: publicProcedure.mutation(async () => {
     try {
+      const baseUrl = getBaseUrl();
+
       const session = await stripe.checkout.sessions.create({
         payment_method_types: ["card"],
         line_items: [
@@ -19,8 +29,8 @@ export const stripeRouter = createTRPCRouter({
           },
         ],
         mode: "subscription",
-        success_url: `${env.NEXT_PUBLIC_APP_URL}/success?session_id={CHECKOUT_SESSION_ID}`,
-        cancel_url: `${env.NEXT_PUBLIC_APP_URL}/associazione/diventa-socio`,
+        success_url: `${baseUrl}/success?session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url: `${baseUrl}/associazione/diventa-socio`,
       });
 
       return { url: session.url };

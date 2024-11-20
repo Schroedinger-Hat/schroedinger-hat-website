@@ -9,6 +9,7 @@ export const env = createEnv({
     NODE_ENV: z.enum(["development", "test", "production"]),
     STRIPE_SECRET_KEY: z.string().min(1),
     STRIPE_MEMBERSHIP_PRICE_ID: z.string().min(1),
+    VERCEL_URL: z.string().optional(),
   },
 
   /**
@@ -18,7 +19,6 @@ export const env = createEnv({
     NEXT_PUBLIC_SANITY_PROJECT_ID: z.string().min(1),
     NEXT_PUBLIC_SANITY_DATASET: z.string().min(1),
     NEXT_PUBLIC_GOOGLE_MAPS_API_KEY: z.string().min(1),
-    NEXT_PUBLIC_APP_URL: z.string().url(),
   },
 
   /**
@@ -32,7 +32,7 @@ export const env = createEnv({
     NEXT_PUBLIC_SANITY_DATASET: process.env.NEXT_PUBLIC_SANITY_DATASET,
     NEXT_PUBLIC_GOOGLE_MAPS_API_KEY:
       process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
-    NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL,
+    VERCEL_URL: process.env.VERCEL_URL,
   },
 
   skipValidation: !!process.env.SKIP_ENV_VALIDATION,
