@@ -5,6 +5,7 @@ import { pageType } from "./pageType";
 import { videoType } from "./videoType";
 import { authorType } from "./authorType";
 import { teamMemberType } from "./teamMemberType";
+import { faqType } from "./faqType";
 
 export const schema = {
   types: [
@@ -14,5 +15,6 @@ export const schema = {
     videoType,
     authorType,
     teamMemberType,
+    faqType,
   ],
 };

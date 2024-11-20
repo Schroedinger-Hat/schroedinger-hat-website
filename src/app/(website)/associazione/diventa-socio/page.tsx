@@ -10,6 +10,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { MembershipCheckoutButton } from "./components/membership-checkout-button";
+import { PortableText } from "@portabletext/react";
 
 // Reviews
 import reviews from "./reviews.json";
@@ -19,6 +20,7 @@ import perkBox from "@/images/membership/perk_box.svg";
 import perkEarlyAccess from "@/images/membership/perk_early_access.svg";
 import perkFood from "@/images/membership/perk_food.svg";
 import perkVote from "@/images/membership/perk_vote.svg";
+import { sanityClient } from "@/sanity/lib/client";
 
 // Utility function
 function getRandomReviews(reviews: any[], count: number) {
@@ -26,7 +28,27 @@ function getRandomReviews(reviews: any[], count: number) {
   return shuffled.slice(0, count);
 }
 
-export default function BecomeMemberPage() {
+// Add these types at the top of the file
+type FAQ = {
+  _id: string;
+  question: string;
+  answer: any[]; // Portable Text content
+};
+
+// Add this query function
+async function getMembershipFAQs(): Promise<FAQ[]> {
+  return sanityClient.fetch(`
+    *[_type == "faq" && groupKey == "membership"] | order(order asc) {
+      _id,
+      question,
+      answer
+    }
+  `);
+}
+
+export default async function BecomeMemberPage() {
+  const faqs: FAQ[] = await getMembershipFAQs();
+
   // Reviews
   const selectedReviews = getRandomReviews(reviews, 12);
 
@@ -224,29 +246,14 @@ export default function BecomeMemberPage() {
           </Typography>
         </div>
         <Accordion type="single" collapsible>
-          <AccordionItem value="item-1">
-            <AccordionTrigger>What you mean with "membership"</AccordionTrigger>
-            <AccordionContent>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-              quos.
-            </AccordionContent>
-          </AccordionItem>
-
-          <AccordionItem value="item-2">
-            <AccordionTrigger>What I'm donating money for</AccordionTrigger>
-            <AccordionContent>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-              quos.
-            </AccordionContent>
-          </AccordionItem>
-
-          <AccordionItem value="item-3">
-            <AccordionTrigger>Can be refunded</AccordionTrigger>
-            <AccordionContent>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-              quos.
-            </AccordionContent>
-          </AccordionItem>
+          {faqs.map((faq) => (
+            <AccordionItem key={faq._id} value={faq._id}>
+              <AccordionTrigger>{faq.question}</AccordionTrigger>
+              <AccordionContent>
+                <PortableText value={faq.answer} />
+              </AccordionContent>
+            </AccordionItem>
+          ))}
         </Accordion>
       </div>
     </main>
