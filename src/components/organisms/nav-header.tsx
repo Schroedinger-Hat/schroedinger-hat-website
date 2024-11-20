@@ -99,7 +99,7 @@ export function NavHeader() {
                     <li>
                       <NavigationMenuLink asChild>
                         <Link
-                          href="/contribuisci/progetti"
+                          href="/contribuisci/projects"
                           className="block rounded-md p-2 hover:bg-accent"
                         >
                           <Paragraph className="m-0">Progetti</Paragraph>
@@ -210,14 +210,14 @@ export function NavHeader() {
                 </NavigationMenuContent>
               </NavigationMenuItem>
             </NavigationMenuList>
-          </NavigationMenu>
 
-          <Link
-            href="https://shop.schroedinger-hat.org"
-            className="group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium"
-          >
-            SHOP
-          </Link>
+            <Link
+              href="https://shop.schroedinger-hat.org"
+              className="group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium"
+            >
+              SHOP
+            </Link>
+          </NavigationMenu>
         </div>
 
         <div className="flex flex-1 items-center justify-end">
@@ -230,7 +230,7 @@ export function NavHeader() {
               variant="default"
               className="bg-black text-white hover:bg-black/90"
             >
-              <Link href="/associazione/diventa-socio">Diventa Socio</Link>
+              Diventa Socio
             </Button>
           </Link>
         </div>

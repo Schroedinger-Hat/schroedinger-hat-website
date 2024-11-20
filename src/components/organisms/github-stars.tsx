@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 // Helper function to extract owner and repo from GitHub URL
 function extractGitHubInfo(url: string) {
   try {
-    const match = url.match(/github\.com\/([^/]+)\/([^/]+)/);
+    const match = /github\.com\/([^/]+)\/([^/]+)/.exec(url);
     return match ? { owner: match[1], repo: match[2] } : null;
   } catch {
     return null;

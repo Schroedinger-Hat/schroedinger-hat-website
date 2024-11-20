@@ -106,7 +106,9 @@ export type Project = {
     _key: string;
   }>;
   url?: string;
-  repo?: string;
+  repositoryUrl?: string;
+  showStars?: boolean;
+  technologies?: Array<string>;
   coverImage?: {
     asset?: {
       _ref: string;
@@ -116,7 +118,6 @@ export type Project = {
     };
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
-    gradient?: string;
     _type: "image";
   };
   order?: number;

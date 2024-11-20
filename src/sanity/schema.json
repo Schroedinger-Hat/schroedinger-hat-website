@@ -703,10 +703,27 @@
         },
         "optional": true
       },
-      "repo": {
+      "repositoryUrl": {
         "type": "objectAttribute",
         "value": {
           "type": "string"
+        },
+        "optional": true
+      },
+      "showStars": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "boolean"
+        },
+        "optional": true
+      },
+      "technologies": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "array",
+          "of": {
+            "type": "string"
+          }
         },
         "optional": true
       },
@@ -758,13 +775,6 @@
               "value": {
                 "type": "inline",
                 "name": "sanity.imageCrop"
-              },
-              "optional": true
-            },
-            "gradient": {
-              "type": "objectAttribute",
-              "value": {
-                "type": "string"
               },
               "optional": true
             },

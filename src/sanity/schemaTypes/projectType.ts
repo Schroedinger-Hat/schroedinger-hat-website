@@ -39,6 +39,7 @@ export const projectType = defineType({
       name: "url",
       title: "URL",
       type: "url",
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "repositoryUrl",
@@ -48,12 +49,18 @@ export const projectType = defineType({
       validation: (Rule) =>
         Rule.uri({
           scheme: ["https"],
-        }).custom((url) => {
+        }).custom((url: string) => {
           if (!url) return true;
           return url.startsWith("https://github.com/")
             ? true
             : "Must be a GitHub URL";
         }),
+    },
+    {
+      name: "showStars",
+      title: "Show Stars",
+      type: "boolean",
+      description: "Show the GitHub stars badge",
     },
     {
       name: "technologies",
@@ -70,15 +77,6 @@ export const projectType = defineType({
       title: "Cover Image",
       type: "image",
       validation: (Rule) => Rule.required(),
-      fields: [
-        {
-          name: "gradient",
-          title: "Gradient Colors",
-          type: "string",
-          description:
-            "Tailwind gradient classes (e.g., from-red-500 to-blue-500)",
-        },
-      ],
     },
     {
       name: "order",
