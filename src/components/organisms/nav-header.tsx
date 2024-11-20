@@ -211,16 +211,28 @@ export function NavHeader() {
               </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
+
+          <Link
+            href="https://shop.schroedinger-hat.org"
+            className="group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium"
+          >
+            SHOP
+          </Link>
         </div>
 
         <div className="flex flex-1 items-center justify-end">
-          <Button
-            asChild
-            variant="default"
-            className="bg-black text-white hover:bg-black/90"
+          <Link
+            href="/associazione/diventa-socio"
+            className="group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium"
           >
-            <Link href="https://shop.schroedinger-hat.org">SHOP</Link>
-          </Button>
+            <Button
+              asChild
+              variant="default"
+              className="bg-black text-white hover:bg-black/90"
+            >
+              <Link href="/associazione/diventa-socio">Diventa Socio</Link>
+            </Button>
+          </Link>
         </div>
 
         {/* Mobile Navigation */}

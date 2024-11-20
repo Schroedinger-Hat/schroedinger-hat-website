@@ -229,7 +229,7 @@ export default async function AboutUsPage() {
                   gives you back some perks like early access to tickets and
                   discounts for our shop.
                 </Paragraph>
-                <Link href="/associazione/membri">
+                <Link href="/associazione/diventa-socio">
                   <Button className="mt-4">
                     Become a member
                     <ArrowRight className="h-5 w-5" />
