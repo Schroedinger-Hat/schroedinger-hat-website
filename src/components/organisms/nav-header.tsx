@@ -45,32 +45,32 @@ export function NavHeader() {
               href="/watch"
               className="group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium"
             >
-              GUARDA
+              WATCH
             </Link>
 
             <NavigationMenuList>
               <NavigationMenuItem>
-                <NavigationMenuTrigger>PARTECIPA</NavigationMenuTrigger>
+                <NavigationMenuTrigger>ATTEND</NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <ul className="grid w-[200px] gap-3 p-4">
                     <li>
                       <NavigationMenuLink asChild>
                         <Link
-                          href="/partecipa/eventi"
+                          href="/attend/events"
                           className="block rounded-md p-2 hover:bg-accent"
                         >
-                          <Paragraph className="m-0">Eventi</Paragraph>
+                          <Paragraph className="m-0">Events</Paragraph>
                         </Link>
                       </NavigationMenuLink>
                     </li>
                     <li>
                       <NavigationMenuLink asChild>
                         <Link
-                          href="/partecipa/community-locali"
+                          href="/attend/local-communities"
                           className="block rounded-md p-2 hover:bg-accent"
                         >
                           <Paragraph className="m-0">
-                            Community Locali
+                            Local Communities
                           </Paragraph>
                         </Link>
                       </NavigationMenuLink>
@@ -82,9 +82,7 @@ export function NavHeader() {
                           className="block rounded-md p-2 hover:bg-accent"
                           target="_blank"
                         >
-                          <Paragraph className="m-0">
-                            Unisciti a Discord
-                          </Paragraph>
+                          <Paragraph className="m-0">Join Discord</Paragraph>
                         </Link>
                       </NavigationMenuLink>
                     </li>
@@ -93,56 +91,56 @@ export function NavHeader() {
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuTrigger>CONTRIBUISCI</NavigationMenuTrigger>
+                <NavigationMenuTrigger>CONTRIBUTE</NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <ul className="grid w-[200px] gap-3 p-4">
                     <li>
                       <NavigationMenuLink asChild>
                         <Link
-                          href="/contribuisci/projects"
+                          href="/contribute/projects"
                           className="block rounded-md p-2 hover:bg-accent"
                         >
-                          <Paragraph className="m-0">Progetti</Paragraph>
+                          <Paragraph className="m-0">Projects</Paragraph>
                         </Link>
                       </NavigationMenuLink>
                     </li>
                     <li>
                       <NavigationMenuLink asChild>
                         <Link
-                          href="/contribuisci/come-speaker"
+                          href="/contribute/as-speaker"
                           className="block rounded-md p-2 hover:bg-accent"
                         >
-                          <Paragraph className="m-0">Come Speaker</Paragraph>
+                          <Paragraph className="m-0">As Speaker</Paragraph>
                         </Link>
                       </NavigationMenuLink>
                     </li>
                     <li>
                       <NavigationMenuLink asChild>
                         <Link
-                          href="/contribuisci/come-individuo"
+                          href="/contribute/as-individual"
                           className="block rounded-md p-2 hover:bg-accent"
                         >
-                          <Paragraph className="m-0">Come Individuo</Paragraph>
+                          <Paragraph className="m-0">As Individual</Paragraph>
                         </Link>
                       </NavigationMenuLink>
                     </li>
                     <li>
                       <NavigationMenuLink asChild>
                         <Link
-                          href="/contribuisci/come-partner"
+                          href="/contribute/as-partner"
                           className="block rounded-md p-2 hover:bg-accent"
                         >
-                          <Paragraph className="m-0">Come Partner</Paragraph>
+                          <Paragraph className="m-0">As Partner</Paragraph>
                         </Link>
                       </NavigationMenuLink>
                     </li>
                     <li>
                       <NavigationMenuLink asChild>
                         <Link
-                          href="/contribuisci/come-sponsor"
+                          href="/contribute/as-sponsor"
                           className="block rounded-md p-2 hover:bg-accent"
                         >
-                          <Paragraph className="m-0">Come Sponsor</Paragraph>
+                          <Paragraph className="m-0">As Sponsor</Paragraph>
                         </Link>
                       </NavigationMenuLink>
                     </li>
@@ -151,16 +149,16 @@ export function NavHeader() {
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuTrigger>ASSOCIAZIONE</NavigationMenuTrigger>
+                <NavigationMenuTrigger>ASSOCIATION</NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <ul className="grid w-[200px] gap-3 p-4">
                     <li>
                       <NavigationMenuLink asChild>
                         <Link
-                          href="/associazione/chi-siamo"
+                          href="/association/about-us"
                           className="block rounded-md p-2 hover:bg-accent"
                         >
-                          <Paragraph className="m-0">Chi Siamo</Paragraph>
+                          <Paragraph className="m-0">About Us</Paragraph>
                         </Link>
                       </NavigationMenuLink>
                     </li>
@@ -170,7 +168,7 @@ export function NavHeader() {
                           href="/page/statute"
                           className="block rounded-md p-2 hover:bg-accent"
                         >
-                          <Paragraph className="m-0">Statuto</Paragraph>
+                          <Paragraph className="m-0">Statute</Paragraph>
                         </Link>
                       </NavigationMenuLink>
                     </li>
@@ -181,7 +179,7 @@ export function NavHeader() {
                           className="block rounded-md p-2 hover:bg-accent"
                         >
                           <Paragraph className="m-0">
-                            Dati Amministrativi
+                            Administrative Data
                           </Paragraph>
                         </Link>
                       </NavigationMenuLink>
@@ -189,20 +187,12 @@ export function NavHeader() {
                     <li>
                       <NavigationMenuLink asChild>
                         <Link
-                          href="/associazione/diventa-socio"
+                          href="/association/join"
                           className="block rounded-md p-2 hover:bg-accent"
                         >
-                          <Paragraph className="m-0">Diventa Socio</Paragraph>
-                        </Link>
-                      </NavigationMenuLink>
-                    </li>
-                    <li>
-                      <NavigationMenuLink asChild>
-                        <Link
-                          href="/associazione/press-kit"
-                          className="block rounded-md p-2 hover:bg-accent"
-                        >
-                          <Paragraph className="m-0">Press Kit</Paragraph>
+                          <Paragraph className="m-0">
+                            Activate Membership
+                          </Paragraph>
                         </Link>
                       </NavigationMenuLink>
                     </li>
@@ -226,7 +216,7 @@ export function NavHeader() {
             variant="default"
             className="bg-black text-white hover:bg-black/90"
           >
-            <Link href="/associazione/diventa-socio">Diventa Socio</Link>
+            <Link href="/association/join">Join</Link>
           </Button>
         </div>
 

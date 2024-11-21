@@ -14,6 +14,7 @@ import team from "@/images/homepage/team.png";
 import shopCallout from "@/images/homepage/shop-callout.png";
 import imageGoNord from "@/images/homepage/imageGoNord.png";
 import osday from "@/images/homepage/osday.jpg";
+import { Typography } from "@/components/atoms/typography/Typography";
 
 export default async function Home() {
   const partners: Partner[] = await sanityClient.fetch(
@@ -59,25 +60,24 @@ export default async function Home() {
           title="The collective"
           content={
             <>
-              <p>
-                Basati in Toscana, Schroedinger Hat è un&apos;organizzazione
-                no-profit che diffonde l&apos;amore per il software open source
-                in tutta Europa. La nostra missione è ispirare, educare e
-                connettere appassionati di tecnologie open source attraverso
-                eventi gratuiti come conferenze e meetup.
-              </p>
-              <p>
-                Contribuiamo attivamente al panorama open source. Tra i nostri
-                nostri progetti spicca ImageGoNord, con oltre 1.000 stelle su
+              <Typography>
+                Based in Tuscany, Schroedinger Hat is a non-profit organization
+                spreading the love for open-source software across Europe. Our
+                mission is to inspire, educate, and connect open-source
+                technology enthusiasts through free events like conferences and
+                meetups.
+              </Typography>
+              <Typography>
+                We actively contribute to the open-source ecosystem. Among our
+                projects, ImageGoNord stands out, boasting over 1,000 stars on
                 GitHub.
-              </p>
-              <p>
-                Guidati dai principi dell&apos;open source, crediamo
-                nell&apos;accesso libero alla conoscenza e promuoviamo
-                l&apos;inclusività in ogni nostra iniziativa. Unisciti a noi per
-                costruire comunità locali, connettere talenti e celebrare il
-                potere del software open source!
-              </p>
+              </Typography>
+              <Typography>
+                Guided by the principles of open source, we believe in free
+                access to knowledge and promote inclusivity in all our
+                initiatives. Join us in building local communities, connecting
+                talent, and celebrating the power of open-source software!
+              </Typography>
             </>
           }
           imageSrc={team.src}

@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { PortableText } from "@portabletext/react";
 import { sanityClient } from "@/sanity/lib/client";
-import type { Author, Video } from "@/sanity/sanity.types";
+import type { Author, Video, Event } from "@/sanity/sanity.types";
 import { Heading } from "@/components/atoms/typography/Heading";
 import { Image } from "@/components/atoms/media/Image";
 import { urlFor } from "@/sanity/lib/image";
@@ -14,13 +14,15 @@ import { VideoCard } from "@/components/molecules/video-card";
 import { BlurredBackground } from "@/components/organisms/blurred-background";
 import { Paragraph } from "@/components/atoms/typography/Paragraph";
 import { Debug } from "@/components/atoms/debug";
+import { EventCard } from "@/app/(website)/attend/events/components/event-cards";
 
-interface AuthorWithVideos extends Author {
+interface AuthorWithVideosAndEvents extends Author {
   videos?: Video[];
+  events?: Event[];
 }
 
 async function getSpeaker(slug: string) {
-  const speaker: AuthorWithVideos | null = await sanityClient.fetch(
+  const speaker: AuthorWithVideosAndEvents | null = await sanityClient.fetch(
     `*[_type == "author" && slug.current == $slug][0]{
       ...,
       "videos": coalesce(*[_type == "video" && references(^._id)]{
@@ -29,7 +31,15 @@ async function getSpeaker(slug: string) {
         youtubeId,
         slug,
         thumbnail
-      }, [])
+      }, []),
+      "events": coalesce(*[_type == "event" && references(^._id)]{
+        _id,
+        title,
+        slug,
+        cover,
+        eventPeriod,
+        location
+      } | order(eventPeriod.startDate desc), [])
     }`,
     { slug },
   );
@@ -96,7 +106,6 @@ export default async function SpeakerPage({ params }: PageProps) {
                 Videos
               </Heading>
               <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-                {/* <Debug>{speaker.videos}</Debug> */}
                 {speaker.videos.map((video) => (
                   <VideoCard
                     key={video._id}
@@ -105,6 +114,19 @@ export default async function SpeakerPage({ params }: PageProps) {
                     imageUrl={getVideoThumbnailUrl(video)}
                     slug={video.slug?.current ?? ""}
                   />
+                ))}
+              </div>
+            </div>
+          )}
+
+          {speaker.events && speaker.events.length > 0 && (
+            <div className="mt-12">
+              <Heading level={2} className="mb-4">
+                Events
+              </Heading>
+              <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                {speaker.events.map((event) => (
+                  <EventCard key={event._id} event={event} />
                 ))}
               </div>
             </div>

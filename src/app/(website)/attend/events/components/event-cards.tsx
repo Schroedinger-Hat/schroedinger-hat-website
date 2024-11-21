@@ -1,17 +1,11 @@
-import { sanityClient } from "@/sanity/lib/client";
-import type { Event } from "@/sanity/sanity.types";
+import { type Event } from "@/sanity/sanity.types";
 import { formatDateTime } from "@/lib/utils/date";
 import { Heading } from "@/components/atoms/typography/Heading";
-import { Title } from "@/components/atoms/title";
-import { Paragraph } from "@/components/atoms/typography/Paragraph";
 import { Image } from "@/components/atoms/media/Image";
 import { Calendar01Icon, MapPinIcon } from "hugeicons-react";
-import { cn } from "@/lib/utils";
-import { Link } from "@/components/atoms/links/Link";
-import { BlurredBackground } from "@/components/organisms/blurred-background";
 import { urlFor } from "@/sanity/lib/image";
 
-function EventCard({ event }: { event: Event }) {
+export function EventCard({ event }: { event: Event }) {
   if (!event.title || !event.slug) return null;
 
   return (
@@ -57,7 +51,7 @@ function EventCard({ event }: { event: Event }) {
   );
 }
 
-function FeaturedEventCard({ event }: { event: Event }) {
+export function FeaturedEventCard({ event }: { event: Event }) {
   return (
     <div className="relative mb-12 w-full overflow-hidden rounded-lg">
       <div className="group relative flex min-h-[400px] flex-col justify-end bg-gradient-to-t from-slate-900/90 to-slate-900/0 p-8">
@@ -71,7 +65,6 @@ function FeaturedEventCard({ event }: { event: Event }) {
           priority
         />
 
-        {/* Content */}
         <div className="relative z-10 max-w-3xl">
           <Heading level={2} className="mb-3 text-4xl text-slate-100">
             {event.title}
@@ -94,96 +87,5 @@ function FeaturedEventCard({ event }: { event: Event }) {
         </div>
       </div>
     </div>
-  );
-}
-
-export default async function EventsPage() {
-  const events: Event[] = await sanityClient.fetch(
-    `*[_type == "event"] | order(eventPeriod.startDate asc) {
-      _id,
-      _type,
-      title,
-      slug,
-      abstract,
-      cover {
-        asset->
-      },
-      location,
-      eventPeriod,
-      cta
-    }`,
-  );
-
-  const now = new Date();
-  const upcomingEvents = events.filter(
-    (event) =>
-      event.eventPeriod?.startDate &&
-      new Date(event.eventPeriod.startDate) > now,
-  );
-  const pastEvents = events
-    .filter(
-      (event) =>
-        event.eventPeriod?.startDate &&
-        new Date(event.eventPeriod.startDate) <= now,
-    )
-    .reverse();
-
-  const featuredEvent = upcomingEvents[0];
-  const otherUpcomingEvents = upcomingEvents.slice(1);
-
-  return (
-    <main className="container mx-auto py-16">
-      {featuredEvent && (
-        <>
-          <Heading level={2} className="mb-6">
-            In evidenza
-          </Heading>
-          <Link
-            href={`/partecipa/eventi/${featuredEvent.slug!.current}`}
-            className="hover:no-underline"
-          >
-            <FeaturedEventCard event={featuredEvent} />
-          </Link>
-        </>
-      )}
-
-      {otherUpcomingEvents.length > 0 && (
-        <>
-          <Heading level={2} className="mb-6">
-            Eventi in programma
-          </Heading>
-          <div className="mb-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {otherUpcomingEvents.map((event) => (
-              <Link
-                href={`/partecipa/eventi/${event.slug!.current}`}
-                key={event._id}
-                className="hover:no-underline"
-              >
-                <EventCard event={event} />
-              </Link>
-            ))}
-          </div>
-        </>
-      )}
-
-      {pastEvents.length > 0 && (
-        <>
-          <Heading level={2} className="mb-6">
-            Eventi passati
-          </Heading>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {pastEvents.map((event) => (
-              <Link
-                href={`/partecipa/eventi/${event.slug!.current}`}
-                key={event._id}
-                className="hover:no-underline"
-              >
-                <EventCard event={event} />
-              </Link>
-            ))}
-          </div>
-        </>
-      )}
-    </main>
   );
 }

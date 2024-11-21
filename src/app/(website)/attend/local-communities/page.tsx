@@ -24,6 +24,7 @@ import os24Prize from "@/images/community-locali/os24_prize.jpg";
 import miskoWorkshop from "@/images/community-locali/misko_workshop.jpg";
 import { Typography } from "@/components/atoms/typography/Typography";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 type FAQ = {
   _id: string;
@@ -141,13 +142,18 @@ export default async function LocalCommunitiesPage() {
                 </Heading>
               </div>
               <div className="flex flex-1 flex-col justify-center py-8 text-white">
-                <Button
-                  size="lg"
-                  variant="secondary"
+                <Link
+                  href="https://forms.gle/25meVEFGiKU8pki7A"
                   className="h-full max-w-48"
                 >
-                  Register
-                </Button>
+                  <Button
+                    size="lg"
+                    variant="secondary"
+                    className="h-full max-w-48"
+                  >
+                    Register
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>

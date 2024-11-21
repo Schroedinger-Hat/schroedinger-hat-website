@@ -51,9 +51,6 @@ export function Footer() {
               >
                 <Paragraph className="m-0 text-sm">ImageGoNord</Paragraph>
               </Link>
-              <Link className="block text-sm hover:underline" href="/orders">
-                <Paragraph className="m-0 text-sm">Press Kit</Paragraph>
-              </Link>
               {inDevEnvironment && (
                 <>
                   <Link

@@ -16,7 +16,7 @@ export function AuthorCard({ author }: AuthorCardProps) {
 
   return (
     <Link
-      href={`/watch/speaker/${author.slug!.current}`}
+      href={`/speaker/${author.slug!.current}`}
       className="hover:no-underline"
     >
       <div className="flex gap-4 rounded-lg border bg-slate-100 p-2">
