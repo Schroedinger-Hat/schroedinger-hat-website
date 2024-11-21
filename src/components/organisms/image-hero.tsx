@@ -15,7 +15,7 @@ export function ImageHero({
   subtitle,
   imageSrc,
   imageAlt,
-  backgroundColor = "#5B5BFF",
+  backgroundColor = "#C81824",
   className,
 }: ImageHeroProps) {
   return (

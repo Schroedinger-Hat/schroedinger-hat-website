@@ -3,12 +3,12 @@
 import Image, { type StaticImageData } from "next/image";
 import { useRef, useState, useEffect, useCallback } from "react";
 
-import layer0 from "@/images/trackingCat/0-drop-shadow.svg";
-import layer1 from "@/images/trackingCat/1-background.svg";
-import layer2 from "@/images/trackingCat/2-shadows.svg";
-import layer3 from "@/images/trackingCat/3-highlights.svg";
-import layer4_left from "@/images/trackingCat/4-left-eye.svg";
-import layer4_right from "@/images/trackingCat/4-right-eye.svg";
+import layer0 from "@/images/tracking-cat/0-drop-shadow.svg";
+import layer1 from "@/images/tracking-cat/1-background.svg";
+import layer2 from "@/images/tracking-cat/2-shadows.svg";
+import layer3 from "@/images/tracking-cat/3-highlights.svg";
+import layer4_left from "@/images/tracking-cat/4-left-eye.svg";
+import layer4_right from "@/images/tracking-cat/4-right-eye.svg";
 
 /**
  * Tracking cat displays a cat svg in 3 layers and animate the layers parallax style to track the mouse position in page

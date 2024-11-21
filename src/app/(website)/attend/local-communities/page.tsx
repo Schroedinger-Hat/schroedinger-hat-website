@@ -18,13 +18,13 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { ImageHero } from "@/components/organisms/image-hero";
-
-// Images
-import os24Prize from "@/images/community-locali/os24_prize.jpg";
-import miskoWorkshop from "@/images/community-locali/misko_workshop.jpg";
 import { Typography } from "@/components/atoms/typography/Typography";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+
+// Images
+import os24Prize from "@/images/local-communities/os24_prize.jpg";
+import miskoWorkshop from "@/images/local-communities/misko_workshop.jpg";
 
 type FAQ = {
   _id: string;
