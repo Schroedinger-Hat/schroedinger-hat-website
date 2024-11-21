@@ -216,7 +216,7 @@ export default async function AboutUsPage() {
             <Heading level={2}>I dig it! How I can join the gang?</Heading>
           </div>
 
-          <div className="flex flex-col items-stretch gap-8 lg:h-full lg:flex-row">
+          <div className="flex flex-col items-stretch gap-4 lg:h-full lg:flex-row">
             <div className="flex-1">
               <div className="h-full rounded-2xl bg-slate-50 p-8">
                 <Heading level={3}>Low Effort: Activate a Membership</Heading>
@@ -255,7 +255,7 @@ export default async function AboutUsPage() {
             <Heading level={2}>or</Heading>
           </div>
 
-          <div className="flex flex-col gap-8 lg:flex-row">
+          <div className="flex flex-col gap-4 lg:flex-row">
             <div className="flex-1">
               <div className="h-full overflow-hidden rounded-2xl">
                 <Image

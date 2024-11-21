@@ -76,10 +76,10 @@ export default async function BecomeMemberPage() {
             <div className="max-w-2xl">
               <h2 className="text-[22px] font-normal text-slate-800">
                 You already have a lot of subscriptions. And we don't offer you
-                new Marvel contents or extra GB on the cloud.
+                new Marvel contents or extra GB on the cloud
                 <br />
                 <br />
-                But hear us out on why you should join us.
+                But hear us out on why you should join us
               </h2>
             </div>
           </div>
@@ -91,12 +91,12 @@ export default async function BecomeMemberPage() {
         <div className="grid grid-cols-4 gap-4">
           <div className="flex h-[350px] flex-col justify-end rounded-lg bg-white pb-8 pl-16">
             <Typography variant="medium" className="text-slate-700">
-              The membership is an optional paid subscription.
+              The membership is an optional paid subscription
               <br />
               We're all volunteers so we can't offer you lots of things, but we
-              can offer you a lot of love.
+              can offer you a lot of love
               <br />
-              Not just love, we prepared some perks for you.
+              Not just love, we prepared some perks for you
             </Typography>
           </div>
 
@@ -130,6 +130,7 @@ export default async function BecomeMemberPage() {
                 <Image
                   src={perkBox}
                   alt="Early access"
+                  height={210}
                   className="h-full w-full object-contain"
                 />
               </div>
@@ -143,9 +144,7 @@ export default async function BecomeMemberPage() {
             <div className="flex h-full flex-row">
               <div className="flex w-[140px] flex-col justify-between">
                 <Typography variant="lead" className="pr-4 text-white">
-                  Exclusive members
-                  <br />
-                  dinners
+                  Members dinners and parties
                 </Typography>
                 <Typography variant="small" className="pr-4 text-white">
                   *not just tacos, we promise
@@ -168,8 +167,8 @@ export default async function BecomeMemberPage() {
             </div>
             <p className="text-white">
               <Typography variant="lead" className="text-white">
-                Exclusive members-only votations to drive our organization and
-                choose speakers for our major events
+                Votations to drive our organization and choose speakers for our
+                major events
               </Typography>
             </p>
           </div>

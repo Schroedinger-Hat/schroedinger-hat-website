@@ -221,18 +221,13 @@ export function NavHeader() {
         </div>
 
         <div className="flex flex-1 items-center justify-end">
-          <Link
-            href="/associazione/diventa-socio"
-            className="group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium"
+          <Button
+            asChild
+            variant="default"
+            className="bg-black text-white hover:bg-black/90"
           >
-            <Button
-              asChild
-              variant="default"
-              className="bg-black text-white hover:bg-black/90"
-            >
-              Diventa Socio
-            </Button>
-          </Link>
+            <Link href="/associazione/diventa-socio">Diventa Socio</Link>
+          </Button>
         </div>
 
         {/* Mobile Navigation */}

@@ -23,7 +23,7 @@ export const faqType = defineType({
       title: "Group Key",
       type: "string",
       description:
-        "Key to group FAQs for different pages (e.g., 'membership', 'general')",
+        "Key to group FAQs for different pages (e.g., 'membership', 'general', 'local-community')",
       validation: (Rule) => Rule.required(),
     },
     {
