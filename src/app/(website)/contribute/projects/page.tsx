@@ -5,6 +5,11 @@ import { type Project } from "@/sanity/sanity.types";
 import Link from "next/link";
 import { Typography } from "@/components/atoms/typography/Typography";
 import { BlurredBackground } from "@/components/organisms/blurred-background";
+import ImageCard from "@/components/organisms/image-card";
+import { urlFor } from "@/sanity/lib/image";
+import { PortableText } from "next-sanity";
+import { createPortableTextComponents } from "../../page/[slug]/portableTextComponents";
+import { Badge } from "@/components/ui/badge";
 
 async function getProjects() {
   const projects = await sanityClient.fetch<Project[]>(`*[_type == "project"] {
@@ -47,7 +52,31 @@ export default async function ProjectsPage() {
               rel="noopener noreferrer"
               className="block transition-opacity hover:opacity-80"
             >
-              <ProjectCard project={project} />
+              <ImageCard
+                title={project.title!}
+                image={urlFor(project.coverImage)
+                  .auto("format")
+                  .width(1200)
+                  .height(630)
+                  .url()}
+                content={
+                  <>
+                    <PortableText
+                      value={project.description!}
+                      components={createPortableTextComponents()}
+                    />
+                    {project.technologies && (
+                      <div className="flex flex-wrap gap-1">
+                        {project.technologies.map((technology) => (
+                          <Badge key={technology} variant={"default"}>
+                            {technology}
+                          </Badge>
+                        ))}
+                      </div>
+                    )}
+                  </>
+                }
+              />
             </Link>
           ))}
         </div>

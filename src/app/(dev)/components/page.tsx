@@ -10,6 +10,11 @@ import { ListItem } from "@/components/atoms/lists/ListItem";
 import { InlineText } from "@/components/atoms/typography/InlineText";
 import { Link } from "@/components/atoms/links/Link";
 import { Image } from "@/components/atoms/media/Image";
+import GradientCard from "@/components/organisms/gradient-card";
+import FeaturesList from "@/components/organisms/features-list";
+import ImageCard from "@/components/organisms/image-card";
+import { ImageLabel } from "@/components/organisms/image-label";
+import { BulletPoint } from "@/components/organisms/bullet-point";
 
 export default function ComponentsPage() {
   // Redirect if not in development environment
@@ -123,6 +128,51 @@ export default function ComponentsPage() {
             Square image with custom dimensions
           </Paragraph>
         </div>
+      </section>
+
+      <section className="space-y-4">
+        <Heading level={2}>Custom Components</Heading>
+
+        <Heading level={3}>Gradient Card</Heading>
+        <div className="h-[300px]">
+          <GradientCard
+            imageSrc="https://placehold.co/600x400"
+            imageAlt="Avatar"
+            title="Personalized interactions"
+            description="Lorem ipsum dolor. The weighty euismod. However, the lion remains. Lorem ipsum still cohabitates with the context."
+          />
+        </div>
+
+        <Heading level={3}>Features</Heading>
+        <FeaturesList />
+
+        <Heading level={3}>Image Card</Heading>
+        <ImageCard
+          image="https://picsum.photos/400/250"
+          title="Image Card Title"
+        />
+
+        <Heading level={3}>Image Label</Heading>
+        <div className="flex flex-row gap-4">
+          <div className="h-[400px] w-[400px]">
+            <ImageLabel
+              src="https://picsum.photos/400/400"
+              label="Image Label long long long"
+            />
+          </div>
+          <div className="h-[400px] w-[400px]">
+            <ImageLabel
+              src="https://picsum.photos/400/400"
+              label="Image Label"
+            />
+          </div>
+        </div>
+
+        <Heading level={3}>Bullet Point</Heading>
+        <BulletPoint
+          title="Bullet Point Title"
+          features={["Feature 1", "Feature 2", "Feature 3"]}
+        />
       </section>
     </div>
   );
