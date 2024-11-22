@@ -1,20 +1,31 @@
 import { Card, CardContent, CardHeader } from "../ui/card";
 import { Image } from "../atoms/media/Image";
 import { Typography } from "../atoms/typography/Typography";
-import type { TeamMember } from "@/sanity/sanity.types";
+import { type TeamMember } from "@/sanity/sanity.types";
 import { urlFor } from "@/sanity/lib/image";
 
-export function TeamCard({ member }: { member: TeamMember }) {
+interface TeamCardProps {
+  name: string;
+  surname: string;
+  role: string;
+  image: {
+    src: string;
+    alt?: string;
+    backgroundColor?: string;
+  };
+}
+
+export function TeamCard({ name, surname, role, image }: TeamCardProps) {
   return (
     <Card className="max-w-sm overflow-hidden bg-white">
       <CardHeader className="p-0">
         <div
           className="aspect-square w-full"
-          style={{ backgroundColor: member.image!.backgroundColor }}
+          style={{ backgroundColor: image.backgroundColor }}
         >
           <Image
-            src={urlFor(member.image).width(300).height(300).url()}
-            alt={`${member.name} ${member.surname}`}
+            src={image.src}
+            alt={image.alt ?? `${name} ${surname}`}
             width={300}
             height={300}
             className="h-full w-full object-cover"
@@ -25,11 +36,29 @@ export function TeamCard({ member }: { member: TeamMember }) {
       <CardContent className="space-y-4 p-6">
         <div className="space-y-2">
           <Typography variant="h3" weight="semibold">
-            {`${member.name} ${member.surname}`}
+            {`${name} ${surname}`}
           </Typography>
-          <Typography variant="muted">{member.role}</Typography>
+          <Typography variant="muted">{role}</Typography>
         </div>
       </CardContent>
     </Card>
+  );
+}
+
+export function TeamMemberCard({ member }: { member: TeamMember }) {
+  if (!member.image?.asset || !member.name || !member.surname || !member.role) {
+    return null;
+  }
+
+  return (
+    <TeamCard
+      name={member.name}
+      surname={member.surname}
+      role={member.role}
+      image={{
+        src: urlFor(member.image).width(300).height(300).url(),
+        backgroundColor: member.image.backgroundColor,
+      }}
+    />
   );
 }

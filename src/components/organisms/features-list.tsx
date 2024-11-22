@@ -1,83 +1,44 @@
-import { Badge } from "@/components/ui/badge";
-import Image from "next/image";
 import { Heading } from "../atoms/typography/Heading";
+import { Typography } from "../atoms/typography/Typography";
 
-interface AppCardProps {
+interface FeatureCardProps {
   name: string;
   description: string;
-  type: string;
-  typeColor: string;
-  iconUrl: string;
+  icon: React.ReactNode;
 }
 
-export function AppCard({
+export function FeatureCard({
   name,
   description,
-  type,
-  typeColor,
-  iconUrl,
-}: AppCardProps) {
+  icon: icon,
+}: FeatureCardProps) {
   return (
     <div className="flex items-start gap-4 rounded-lg p-4">
-      <Image
-        src={iconUrl}
-        alt={name}
-        width={48}
-        height={48}
-        className="rounded-md"
-      />
+      <div>{icon}</div>
       <div>
-        <h3 className="text-lg font-semibold">{name}</h3>
-        <p className="text-sm text-muted-foreground">{description}</p>
-        <Badge className={`mt-2 ${typeColor}`}>{type}</Badge>
+        <Heading level={4} className="mb-0">
+          {name}
+        </Heading>
+        <Typography variant="medium">{description}</Typography>
       </div>
     </div>
   );
 }
-export default function FeaturesList() {
-  const apps = [
-    {
-      name: "Zeplin",
-      description:
-        "Excepteur sint occaecat cupidatat non proident sunt in culpa qui the officia mollit aliquip ex ea comm.",
-      type: "Plugin",
-      typeColor: "bg-blue-100 text-blue-800",
-      iconUrl: "https://placehold.co/96x96",
-    },
-    {
-      name: "Figma",
-      description:
-        "Excepteur sint occaecat cupidatat non proident sunt in culpa qui the officia mollit aliquip ex ea comm.",
-      type: "Integration",
-      typeColor: "bg-green-100 text-green-800",
-      iconUrl: "https://placehold.co/96x96",
-    },
-    {
-      name: "Vue",
-      description:
-        "Excepteur sint occaecat cupidatat non proident sunt in culpa qui the officia mollit aliquip ex ea comm.",
-      type: "Framework",
-      typeColor: "bg-orange-100 text-orange-800",
-      iconUrl: "https://placehold.co/96x96",
-    },
-    {
-      name: "Meta",
-      description:
-        "Excepteur sint occaecat cupidatat non proident sunt in culpa qui the officia mollit aliquip ex ea comm.",
-      type: "Plugin",
-      typeColor: "bg-blue-100 text-blue-800",
-      iconUrl: "https://placehold.co/96x96",
-    },
-  ];
 
+interface FeaturesListProps {
+  title: string;
+  features: FeatureCardProps[];
+}
+
+export default function FeaturesList({ title, features }: FeaturesListProps) {
   return (
     <div className="mx-auto max-w-2xl">
       <Heading level={2} className="text-center">
-        Connect with your favorite apps
+        {title}
       </Heading>
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-        {apps.map((app) => (
-          <AppCard key={app.name} {...app} />
+        {features.map((feature) => (
+          <FeatureCard key={feature.name} {...feature} />
         ))}
       </div>
     </div>

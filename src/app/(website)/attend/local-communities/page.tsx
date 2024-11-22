@@ -21,30 +21,14 @@ import { ImageHero } from "@/components/organisms/image-hero";
 import { Typography } from "@/components/atoms/typography/Typography";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { FaqBlock } from "@/components/organisms/faq-block";
+import { BlackCTA } from "@/components/organisms/black-cta";
 
 // Images
-import os24Prize from "@/images/local-communities/os24_prize.jpg";
+import veronaPublic from "@/images/local-communities/verona_public.jpg";
 import miskoWorkshop from "@/images/local-communities/misko_workshop.jpg";
 
-type FAQ = {
-  _id: string;
-  question: string;
-  answer: any[]; // Portable Text content
-};
-
-async function getLocalCommunityFAQs(): Promise<FAQ[]> {
-  return sanityClient.fetch(`
-    *[_type == "faq" && groupKey == "local-community"] | order(order asc) {
-      _id,
-      question,
-      answer
-    }
-  `);
-}
-
 export default async function LocalCommunitiesPage() {
-  const faqs: FAQ[] = await getLocalCommunityFAQs();
-
   return (
     <main className="py-24">
       <BlurredBackground
@@ -62,7 +46,7 @@ export default async function LocalCommunitiesPage() {
             About <br /> Local <br /> Communities
           </>
         }
-        imageSrc={os24Prize.src}
+        imageSrc={veronaPublic.src}
         imageAlt="Community locali"
       />
 
@@ -131,49 +115,33 @@ export default async function LocalCommunitiesPage() {
         </div>
 
         <div className="container mx-auto max-w-7xl py-16">
-          <div className="rounded-xl bg-black p-8">
-            <div className="flex flex-row gap-8">
-              <div className="flex-1 pl-12 text-right text-white">
-                <Heading
-                  level={1}
-                  className="mb-0 font-lexend text-[80px] tracking-tight text-white"
-                >
-                  Ready?
-                </Heading>
-              </div>
-              <div className="flex flex-1 flex-col justify-center py-8 text-white">
-                <Link
-                  href="https://forms.gle/25meVEFGiKU8pki7A"
+          <BlackCTA
+            leftContent={
+              <Heading
+                level={1}
+                className="mb-0 font-lexend text-[80px] tracking-tight text-white"
+              >
+                Ready?
+              </Heading>
+            }
+            rightContent={
+              <Link
+                href="https://forms.gle/25meVEFGiKU8pki7A"
+                className="h-full max-w-48"
+              >
+                <Button
+                  size="lg"
+                  variant="secondary"
                   className="h-full max-w-48"
                 >
-                  <Button
-                    size="lg"
-                    variant="secondary"
-                    className="h-full max-w-48"
-                  >
-                    Register
-                  </Button>
-                </Link>
-              </div>
-            </div>
-          </div>
+                  Register
+                </Button>
+              </Link>
+            }
+          />
         </div>
 
-        <div className="container mx-auto max-w-2xl py-16">
-          <div className="pb-4 text-center">
-            <Heading level={2}>FAQ</Heading>
-          </div>
-          <Accordion type="single" collapsible>
-            {faqs.map((faq) => (
-              <AccordionItem key={faq._id} value={faq._id}>
-                <AccordionTrigger>{faq.question}</AccordionTrigger>
-                <AccordionContent>
-                  <PortableText value={faq.answer} />
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </div>
+        <FaqBlock groupKey="local-community" />
       </div>
     </main>
   );

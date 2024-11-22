@@ -15,7 +15,7 @@ import { sanityClient } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
 import type { Partner } from "@/sanity/sanity.types";
 import { LogoGallery } from "@/components/organisms/logo-gallery";
-import { TeamCard } from "@/components/organisms/team-card";
+import { TeamCard, TeamMemberCard } from "@/components/organisms/team-card";
 import type { TeamMember } from "@/sanity/sanity.types";
 import { Paragraph } from "@/components/atoms/typography/Paragraph";
 import { Button } from "@/components/molecules/button";
@@ -205,7 +205,7 @@ export default async function AboutUsPage() {
 
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {teamMembers.map((member) => (
-              <TeamCard key={member._id} member={member} />
+              <TeamMemberCard key={member._id} member={member} />
             ))}
           </div>
         </div>

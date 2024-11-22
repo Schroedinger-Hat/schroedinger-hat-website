@@ -12,6 +12,7 @@ import {
 import { MembershipCheckoutButton } from "./components/membership-checkout-button";
 import { PortableText } from "@portabletext/react";
 import { ReviewsSection } from "./components/reviews-section";
+import { FaqBlock } from "@/components/organisms/faq-block";
 
 // Images
 import perkBox from "@/images/membership/perk_box.svg";
@@ -199,26 +200,11 @@ export default async function BecomeMemberPage() {
 
       <ReviewsSection />
 
-      <div className="container mx-auto max-w-2xl py-16">
-        <div className="pb-4 text-center">
-          <Heading level={2}>Still not convinced?</Heading>
-          <Typography variant="medium" className="text-left">
-            This is the serious part. We know you may have some questions and we
-            tried to answer them here but feel free to drop us a line if you
-            want to know more.
-          </Typography>
-        </div>
-        <Accordion type="single" collapsible>
-          {faqs.map((faq) => (
-            <AccordionItem key={faq._id} value={faq._id}>
-              <AccordionTrigger>{faq.question}</AccordionTrigger>
-              <AccordionContent>
-                <PortableText value={faq.answer} />
-              </AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
-      </div>
+      <FaqBlock
+        groupKey="membership"
+        title="Still not convinced?"
+        description="This is the serious part. We know you may have some questions and we tried to answer them here but feel free to drop us a line if you want to know more."
+      />
     </main>
   );
 }

@@ -21,7 +21,8 @@ export function StatBlocks({
     <div className={cn("container", className)}>
       <div
         className={cn(
-          "grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4",
+          "grid grid-cols-1 gap-8",
+          "sm:grid-cols-[repeat(auto-fit,minmax(240px,1fr))]",
           centered && "text-center",
         )}
       >
