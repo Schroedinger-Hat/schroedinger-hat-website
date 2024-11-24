@@ -61,6 +61,37 @@ export type SanityFileAsset = {
   source?: SanityAssetSourceData;
 };
 
+export type JobPost = {
+  _id: string;
+  _type: "jobPost";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
+  description?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+  location?: string;
+  effort?: "low" | "moderate" | "elevate";
+  isActive?: boolean;
+  publishedAt?: string;
+};
+
 export type Project = {
   _id: string;
   _type: "project";
@@ -516,6 +547,7 @@ export type AllSanitySchemaTypes =
   | SanityImagePalette
   | SanityImageDimensions
   | SanityFileAsset
+  | JobPost
   | Project
   | Faq
   | TeamMember

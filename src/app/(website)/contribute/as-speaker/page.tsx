@@ -10,6 +10,12 @@ import {
   UserMultiple02Icon,
 } from "hugeicons-react";
 import { TeamCard } from "@/components/organisms/team-card";
+import { StatBlocks } from "@/components/organisms/stat-block";
+import { List } from "@/components/atoms/lists/List";
+import { ListItem } from "@/components/atoms/lists/ListItem";
+import { Button } from "@/components/ui/button";
+import { BlackCTA } from "@/components/organisms/black-cta";
+import { Link } from "@/components/atoms/links/Link";
 
 // Images
 import asSpeaker from "@/images/contribute/as_speaker.jpg";
@@ -17,12 +23,6 @@ import famouseCollina from "@/images/contribute/speaker/famous_collina.jpg";
 import famouseHevery from "@/images/contribute/speaker/famous_hevery.jpg";
 import famouseCorti from "@/images/contribute/speaker/famous_corti.jpg";
 import famouseTerzi from "@/images/contribute/speaker/famous_terzi.jpg";
-import { StatBlocks } from "@/components/organisms/stat-block";
-import { List } from "@/components/atoms/lists/List";
-import { ListItem } from "@/components/atoms/lists/ListItem";
-import { Button } from "@/components/ui/button";
-import { BlackCTA } from "@/components/organisms/black-cta";
-import { Link } from "@/components/atoms/links/Link";
 
 const famousSpeakers = [
   {
@@ -74,7 +74,7 @@ export default function BecomeSpeakerPage() {
       <ImageHero
         title={
           <>
-            Contribute <br /> as a <br /> Speaker
+            Contribute <br /> as <br /> Speaker
           </>
         }
         imageSrc={asSpeaker.src}
@@ -254,10 +254,10 @@ export default function BecomeSpeakerPage() {
         </div>
       </div>
 
-      <div className="container mx-auto max-w-7xl py-16">
+      <div className="container mx-auto max-w-4xl py-16">
         <Heading level={2}>Some numbers</Heading>
         <StatBlocks
-          className="mx-auto max-w-4xl py-16"
+          className="mx-auto py-16"
           centered={false}
           blocks={[
             {
