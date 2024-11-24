@@ -4,7 +4,7 @@ import { BlurredBackground } from "@/components/organisms/blurred-background";
 import { ImageHero } from "@/components/organisms/image-hero";
 import { Image } from "@/components/atoms/media/Image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Section } from "lucide-react";
 import { ArrowRightIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Mail01Icon } from "hugeicons-react";
@@ -23,6 +23,7 @@ import friends5 from "@/images/contribute/individual/individual_5.jpg";
 import friends6 from "@/images/contribute/individual/individual_6.jpg";
 import friends7 from "@/images/contribute/individual/individual_7.jpg";
 import friends8 from "@/images/contribute/individual/individual_8.jpg";
+import { SectionContainer } from "@/components/atoms/layout/SectionContainer";
 
 export default function ContributeIndividualPage() {
   return (
@@ -46,7 +47,7 @@ export default function ContributeIndividualPage() {
         imageAlt="Speaker"
       />
 
-      <div className="container mx-auto max-w-2xl py-16">
+      <SectionContainer size="narrow">
         <Typography>
           Our community relies on the dedication and generosity of individual
           contributors. Whether it’s through time, expertise, or support, every
@@ -59,9 +60,9 @@ export default function ContributeIndividualPage() {
           forward and our events welcoming to all. Here are the ways you can
           contribute:
         </Typography>
-      </div>
+      </SectionContainer>
 
-      <div className="container mx-auto max-w-5xl pb-24 pt-16">
+      <SectionContainer>
         <div className="mb-8 grid grid-cols-1 gap-8">
           <div className="relative flex h-[300px] flex-col content-end justify-end rounded-lg bg-black p-8 pl-80">
             <Heading level={3} className="mb-0 text-white">
@@ -141,16 +142,16 @@ export default function ContributeIndividualPage() {
             />
           </div>
         </div>
-      </div>
+      </SectionContainer>
 
-      <div className="bg-slate-100 py-16">
+      <SectionContainer withBackground>
         <div className="container mx-auto max-w-5xl">
           {/* Job Posts */}
           <JobPosts />
         </div>
-      </div>
+      </SectionContainer>
 
-      <div className="container mx-auto max-w-7xl py-16">
+      <SectionContainer size="wide">
         <Heading level={2} className="mb-8 text-center">
           Driven by Purpose, Fueled by Fun
         </Heading>
@@ -244,7 +245,7 @@ export default function ContributeIndividualPage() {
             />
           </div>
         </div>
-      </div>
+      </SectionContainer>
     </main>
   );
 }

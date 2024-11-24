@@ -81,7 +81,7 @@ export default function BecomeSpeakerPage() {
         imageAlt="Speaker"
       />
 
-      <div className="container mx-auto max-w-2xl py-16">
+      <div className="container mx-auto max-w-5xl py-16">
         <Typography variant="p" as="p">
           We are always excited to welcome passionate and knowledgeable speakers
           to our events. If you have a story to tell, insights to share, or
