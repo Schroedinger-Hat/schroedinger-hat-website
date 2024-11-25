@@ -110,7 +110,7 @@ export default function BecomeSponsorPage() {
       <SectionContainer>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           {/* TODO: Must use a dark yellow background */}
-          <div className="space-y-6 rounded-2xl bg-[#DAA520] p-6 text-white shadow-lg">
+          <div className="space-y-6 rounded-2xl bg-gradient-to-b from-[#DAA520] to-[#B98B15] p-6 text-white shadow-lg">
             <Heading level={2} className="text-center text-white">
               Gold
             </Heading>
@@ -133,7 +133,7 @@ export default function BecomeSponsorPage() {
             </Heading>
           </div>
 
-          <div className="space-y-6 rounded-2xl bg-[#B8B8B8] p-6 text-white shadow-lg">
+          <div className="space-y-6 rounded-2xl bg-gradient-to-b from-[#B8B8B8] to-[#999696] p-6 text-white shadow-lg">
             <Heading level={2} className="text-center text-white">
               Diamond
             </Heading>

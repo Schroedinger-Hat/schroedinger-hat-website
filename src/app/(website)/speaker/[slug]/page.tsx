@@ -14,7 +14,7 @@ import { VideoCard } from "@/components/molecules/video-card";
 import { BlurredBackground } from "@/components/organisms/blurred-background";
 import { Paragraph } from "@/components/atoms/typography/Paragraph";
 import { Debug } from "@/components/atoms/debug";
-import { EventCard } from "@/app/(website)/attend/events/components/event-cards";
+import { EventCard } from "@/app/(website)/partecipate/events/components/event-cards";
 
 interface AuthorWithVideosAndEvents extends Author {
   videos?: Video[];

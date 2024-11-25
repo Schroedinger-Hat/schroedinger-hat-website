@@ -1,7 +1,7 @@
 import "@/styles/globals.css";
 
 import { type Metadata } from "next";
-import { NavHeader } from "@/components/organisms/nav-header";
+import { Header } from "@/components/organisms/header/header";
 import { Footer } from "@/components/organisms/footer";
 
 export const metadata: Metadata = {
@@ -15,7 +15,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <>
-      <NavHeader />
+      <Header />
       {children}
       <Footer />
     </>
