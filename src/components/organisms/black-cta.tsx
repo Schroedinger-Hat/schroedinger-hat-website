@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 
 interface BlackCTAProps {
   leftContent: React.ReactNode;
-  rightContent: React.ReactNode;
+  rightContent?: React.ReactNode;
   className?: string;
 }
 
@@ -11,6 +11,14 @@ export function BlackCTA({
   rightContent,
   className,
 }: BlackCTAProps) {
+  if (!rightContent) {
+    return (
+      <div className={cn("rounded-xl bg-black p-8", className)}>
+        <div className="flex flex-row justify-center gap-8">{leftContent}</div>
+      </div>
+    );
+  }
+
   return (
     <div className={cn("rounded-xl bg-black p-8", className)}>
       <div className="flex flex-row gap-8">

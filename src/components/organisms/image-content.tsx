@@ -2,6 +2,8 @@
 
 import Image from "next/image";
 import { cn } from "@/lib/utils";
+import { Heading } from "../atoms/typography/Heading";
+import { Typography } from "../atoms/typography/Typography";
 
 interface ImageContentProps {
   title: string;
@@ -40,11 +42,11 @@ export function ImageContent({
           />
         </div>
         <div className="space-y-6">
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+          <Heading level={2} className="m-0">
             {title}
-          </h2>
+          </Heading>
           {typeof content === "string" ? (
-            <p className="text-muted-foreground md:text-lg">{content}</p>
+            <Typography variant="muted">{content}</Typography>
           ) : (
             content
           )}

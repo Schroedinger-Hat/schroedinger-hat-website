@@ -1,5 +1,9 @@
 import { type FC } from "react";
 import { cn } from "@/lib/utils";
+import { Heading } from "../atoms/typography/Heading";
+import { List } from "../atoms/lists/List";
+import { ListItem } from "../atoms/lists/ListItem";
+import { Typography } from "../atoms/typography/Typography";
 
 interface BulletPointProps {
   title: string;
@@ -14,12 +18,19 @@ export const BulletPoint: FC<BulletPointProps> = ({
 }) => {
   return (
     <div className={cn("flex flex-col gap-8", className)}>
-      <h2 className="text-4xl font-semibold tracking-tight">{title}</h2>
+      {title && (
+        <Heading level={2} className={cn("mb-0", className)}>
+          {title}
+        </Heading>
+      )}
 
-      <ul className="flex flex-col gap-4">
+      <List variant="bullet">
         {features.map((feature, index) => (
-          <li key={index} className="flex items-center gap-3">
-            <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border-2">
+          <ListItem
+            key={index}
+            className={cn("flex items-center gap-2 space-y-2", className)}
+          >
+            <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full">
               <svg
                 className="h-4 w-4"
                 fill="none"
@@ -34,10 +45,12 @@ export const BulletPoint: FC<BulletPointProps> = ({
                 />
               </svg>
             </div>
-            <span className="text-lg">{feature}</span>
-          </li>
+            <Typography variant="large" className={className}>
+              {feature}
+            </Typography>
+          </ListItem>
         ))}
-      </ul>
+      </List>
     </div>
   );
 };
