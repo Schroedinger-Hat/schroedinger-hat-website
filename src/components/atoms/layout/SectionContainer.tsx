@@ -5,12 +5,12 @@ interface SectionContainerProps {
   children: ReactNode;
   className?: string;
   size?: "narrow" | "medium" | "wide" | "full";
-  padding?: "header" | "default";
+  padding?: "header" | "default" | "little" | "none";
   withBackground?: boolean;
 }
 
 const sizes = {
-  narrow: "max-w-2xl",
+  narrow: "max-w-3xl",
   medium: "max-w-5xl",
   wide: "max-w-7xl",
   full: "",
@@ -19,10 +19,9 @@ const sizes = {
 const paddings = {
   header: "py-24",
   default: "py-16",
+  little: "py-8",
+  none: "py-0",
 };
-
-// Add a hidden div with the background class to ensure it's included in the build
-const _ = "bg-slate-100";
 
 export function SectionContainer({
   children,
@@ -31,17 +30,25 @@ export function SectionContainer({
   padding = "default",
   withBackground = false,
 }: SectionContainerProps) {
-  return (
+  const contentDiv = (
     <div
       className={cn(
-        "container mx-auto",
+        "mx-auto",
         sizes[size],
         paddings[padding],
-        withBackground ? "bg-slate-100" : "",
+        {
+          container: size !== "full",
+        },
         className,
       )}
     >
       {children}
     </div>
   );
+
+  if (withBackground) {
+    return <div className="bg-slate-100">{contentDiv}</div>;
+  }
+
+  return contentDiv;
 }

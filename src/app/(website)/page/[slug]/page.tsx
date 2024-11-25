@@ -8,6 +8,7 @@ import { Image } from "@/components/atoms/media/Image";
 import { formatDateTime } from "@/lib/utils/date";
 import { Typography } from "@/components/atoms/typography/Typography";
 import type { Page } from "@/sanity/sanity.types";
+import { SectionContainer } from "@/components/atoms/layout/SectionContainer";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -30,7 +31,7 @@ export default async function Page({ params }: PageProps) {
     : null;
 
   return (
-    <div className="container mx-auto max-w-4xl py-16">
+    <SectionContainer size="medium">
       <Heading level={1} className="mb-4">
         {pageData.title}
       </Heading>
@@ -39,7 +40,9 @@ export default async function Page({ params }: PageProps) {
           {formatDateTime(pageData.publishedAt, "d MMMM, yyyy")}
         </Typography>
       )}
+
       <hr className="my-8" />
+
       {imageUrl && (
         <Image
           src={imageUrl}
@@ -55,7 +58,7 @@ export default async function Page({ params }: PageProps) {
           components={createPortableTextComponents()}
         />
       </div>
-    </div>
+    </SectionContainer>
   );
 }
 

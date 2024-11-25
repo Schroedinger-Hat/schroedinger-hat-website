@@ -3,20 +3,6 @@ import { Heading } from "@/components/atoms/typography/Heading";
 import { BlurredBackground } from "@/components/organisms/blurred-background";
 import { ImageContent } from "@/components/organisms/image-content";
 import { StatBlocks } from "@/components/organisms/stat-block";
-import {
-  MentorIcon,
-  Mic01Icon,
-  SchoolTieIcon,
-  UserMultipleIcon,
-} from "hugeicons-react";
-import { PortableText } from "@portabletext/react";
-import { sanityClient } from "@/sanity/lib/client";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 import { ImageHero } from "@/components/organisms/image-hero";
 import { Typography } from "@/components/atoms/typography/Typography";
 import { Button } from "@/components/ui/button";
@@ -27,30 +13,35 @@ import { BlackCTA } from "@/components/organisms/black-cta";
 // Images
 import veronaPublic from "@/images/local-communities/verona_public.jpg";
 import miskoWorkshop from "@/images/local-communities/misko_workshop.jpg";
+import { SectionContainer } from "@/components/atoms/layout/SectionContainer";
 
 export default async function LocalCommunitiesPage() {
   return (
-    <main className="py-24">
-      <BlurredBackground
-        points={3}
-        colors={["#f75ccb", "#639aff", "#C81824", "#830B16"]}
-        blur={100}
-        opacity={0.7}
-        size={300}
-        positioning="center"
-      />
+    <main>
+      <SectionContainer size="full" padding="none">
+        <BlurredBackground
+          points={3}
+          colors={["#f75ccb", "#639aff", "#C81824", "#830B16"]}
+          blur={100}
+          opacity={0.7}
+          size={300}
+          positioning="center"
+        />
+      </SectionContainer>
 
-      <ImageHero
-        title={
-          <>
-            About <br /> Local <br /> Communities
-          </>
-        }
-        imageSrc={veronaPublic.src}
-        imageAlt="Community locali"
-      />
+      <SectionContainer size="medium">
+        <ImageHero
+          title={
+            <>
+              About <br /> Local <br /> Communities
+            </>
+          }
+          imageSrc={veronaPublic.src}
+          imageAlt="Community locali"
+        />
+      </SectionContainer>
 
-      <div className="container mx-auto max-w-7xl">
+      <SectionContainer size="wide">
         <ImageContent
           className="py-16"
           title="The vision"
@@ -142,7 +133,7 @@ export default async function LocalCommunitiesPage() {
         </div>
 
         <FaqBlock groupKey="local-community" />
-      </div>
+      </SectionContainer>
     </main>
   );
 }

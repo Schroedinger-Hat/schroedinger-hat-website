@@ -5,7 +5,6 @@ import { Paragraph } from "@/components/atoms/typography/Paragraph";
 import { Link } from "@/components/atoms/links/Link";
 import { Image } from "@/components/atoms/media/Image";
 import { getAuthorInitials, getAuthorFullName } from "@/lib/utils/videoContent";
-import { PortableText } from "next-sanity";
 
 interface AuthorCardProps {
   author: Author;

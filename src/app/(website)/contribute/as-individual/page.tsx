@@ -27,25 +27,29 @@ import friends8 from "@/images/contribute/individual/individual_8.jpg";
 
 export default function ContributeIndividualPage() {
   return (
-    <main className="py-24">
-      <BlurredBackground
-        points={3}
-        colors={["#f75ccb", "#639aff", "#C81824", "#830B16"]}
-        blur={100}
-        opacity={0.7}
-        size={300}
-        positioning="center"
-      />
+    <main>
+      <SectionContainer size="full" padding="none">
+        <BlurredBackground
+          points={3}
+          colors={["#f75ccb", "#639aff", "#C81824", "#830B16"]}
+          blur={100}
+          opacity={0.7}
+          size={300}
+          positioning="center"
+        />
+      </SectionContainer>
 
-      <ImageHero
-        title={
-          <>
-            Contribute <br /> as <br /> Individual
-          </>
-        }
-        imageSrc={asIndividual.src}
-        imageAlt="Speaker"
-      />
+      <SectionContainer size="medium">
+        <ImageHero
+          title={
+            <>
+              Contribute <br /> as <br /> Individual
+            </>
+          }
+          imageSrc={asIndividual.src}
+          imageAlt="Speaker"
+        />
+      </SectionContainer>
 
       <SectionContainer size="narrow">
         <Typography>
@@ -145,10 +149,8 @@ export default function ContributeIndividualPage() {
       </SectionContainer>
 
       <SectionContainer withBackground>
-        <div className="container mx-auto max-w-5xl">
-          {/* Job Posts */}
-          <JobPosts />
-        </div>
+        {/* Job Posts */}
+        <JobPosts />
       </SectionContainer>
 
       <SectionContainer size="wide">

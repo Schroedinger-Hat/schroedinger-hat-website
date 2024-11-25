@@ -2,7 +2,6 @@ import { SectionContainer } from "@/components/atoms/layout/SectionContainer";
 import { Link } from "@/components/atoms/links/Link";
 import { Heading } from "@/components/atoms/typography/Heading";
 import { Typography } from "@/components/atoms/typography/Typography";
-import { Button } from "@/components/molecules/button";
 import { BlackCTA } from "@/components/organisms/black-cta";
 import { BlurredBackground } from "@/components/organisms/blurred-background";
 import { BulletPoint } from "@/components/organisms/bullet-point";
@@ -16,25 +15,29 @@ import platea from "@/images/contribute/sponsor/os24_platea.jpg";
 
 export default function BecomeSponsorPage() {
   return (
-    <main className="py-24">
-      <BlurredBackground
-        points={3}
-        colors={["#f75ccb", "#639aff", "#C81824", "#830B16"]}
-        blur={100}
-        opacity={0.7}
-        size={300}
-        positioning="center"
-      />
+    <main>
+      <SectionContainer size="full" padding="none">
+        <BlurredBackground
+          points={3}
+          colors={["#f75ccb", "#639aff", "#C81824", "#830B16"]}
+          blur={100}
+          opacity={0.7}
+          size={300}
+          positioning="center"
+        />
+      </SectionContainer>
 
-      <ImageHero
-        title={
-          <>
-            Contribute <br /> as <br /> Sponsor
-          </>
-        }
-        imageSrc={asSponsor.src}
-        imageAlt="Speaker"
-      />
+      <SectionContainer size="medium">
+        <ImageHero
+          title={
+            <>
+              Contribute <br /> as <br /> Sponsor
+            </>
+          }
+          imageSrc={asSponsor.src}
+          imageAlt="Speaker"
+        />
+      </SectionContainer>
 
       <SectionContainer size="wide">
         <ImageContent

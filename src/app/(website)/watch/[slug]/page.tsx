@@ -9,6 +9,7 @@ import { formatDateTime } from "@/lib/utils/date";
 import { createPortableTextComponents } from "../../page/[slug]/portableTextComponents";
 import { BlurredBackground } from "@/components/organisms/blurred-background";
 import { getYoutubeVideoId } from "@/lib/utils/videoContent";
+import { SectionContainer } from "@/components/atoms/layout/SectionContainer";
 
 interface VideoWithAuthors extends Omit<Video, "authors"> {
   authors?: Author[];
@@ -50,18 +51,20 @@ export default async function SingleVideoPage({ params }: PageProps) {
   }
 
   return (
-    <main className="container mx-auto px-4 py-8">
-      <BlurredBackground
-        points={2}
-        colors={["#f75ccb", "#639aff", "#C81824", "#830B16"]}
-        blur={100}
-        opacity={0.5}
-        size={500}
-        positioning="center"
-        disableAnimation
-      />
+    <main>
+      <SectionContainer size="full">
+        <BlurredBackground
+          points={2}
+          colors={["#f75ccb", "#639aff", "#C81824", "#830B16"]}
+          blur={100}
+          opacity={0.5}
+          size={500}
+          positioning="center"
+          disableAnimation
+        />
+      </SectionContainer>
 
-      <div className="mx-auto max-w-4xl">
+      <SectionContainer className="-mt-24" size="medium">
         <Heading level={2} className="mb-4">
           {video.title}
         </Heading>
@@ -94,7 +97,7 @@ export default async function SingleVideoPage({ params }: PageProps) {
             />
           </div>
         )}
-      </div>
+      </SectionContainer>
     </main>
   );
 }

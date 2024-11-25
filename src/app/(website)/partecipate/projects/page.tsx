@@ -10,6 +10,7 @@ import { urlFor } from "@/sanity/lib/image";
 import { PortableText } from "next-sanity";
 import { createPortableTextComponents } from "../../page/[slug]/portableTextComponents";
 import { Badge } from "@/components/ui/badge";
+import { SectionContainer } from "@/components/atoms/layout/SectionContainer";
 
 async function getProjects() {
   const projects = await sanityClient.fetch<Project[]>(`*[_type == "project"] {
@@ -23,17 +24,8 @@ export default async function ProjectsPage() {
   const projects = await getProjects();
 
   return (
-    <main className="container mx-auto max-w-7xl py-16">
-      <BlurredBackground
-        points={2}
-        colors={["#f75ccb", "#639aff", "#C81824", "#830B16"]}
-        blur={100}
-        opacity={0.7}
-        size={500}
-        positioning="center"
-      />
-
-      <section>
+    <main>
+      <SectionContainer size="medium">
         <Heading level={2} className="mb-2">
           All Projects
         </Heading>
@@ -80,7 +72,7 @@ export default async function ProjectsPage() {
             </Link>
           ))}
         </div>
-      </section>
+      </SectionContainer>
     </main>
   );
 }

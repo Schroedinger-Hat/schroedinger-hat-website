@@ -23,6 +23,7 @@ import famouseCollina from "@/images/contribute/speaker/famous_collina.jpg";
 import famouseHevery from "@/images/contribute/speaker/famous_hevery.jpg";
 import famouseCorti from "@/images/contribute/speaker/famous_corti.jpg";
 import famouseTerzi from "@/images/contribute/speaker/famous_terzi.jpg";
+import { SectionContainer } from "@/components/atoms/layout/SectionContainer";
 
 const famousSpeakers = [
   {
@@ -61,50 +62,54 @@ const famousSpeakers = [
 
 export default function BecomeSpeakerPage() {
   return (
-    <main className="py-24">
-      <BlurredBackground
-        points={3}
-        colors={["#f75ccb", "#639aff", "#C81824", "#830B16"]}
-        blur={100}
-        opacity={0.7}
-        size={300}
-        positioning="center"
-      />
+    <main>
+      <SectionContainer size="full" padding="none">
+        <BlurredBackground
+          points={3}
+          colors={["#f75ccb", "#639aff", "#C81824", "#830B16"]}
+          blur={100}
+          opacity={0.7}
+          size={300}
+          positioning="center"
+        />
+      </SectionContainer>
 
-      <ImageHero
-        title={
-          <>
-            Contribute <br /> as <br /> Speaker
-          </>
-        }
-        imageSrc={asSpeaker.src}
-        imageAlt="Speaker"
-      />
+      <SectionContainer size="medium">
+        <ImageHero
+          title={
+            <>
+              Contribute <br /> as <br /> Speaker
+            </>
+          }
+          imageSrc={asSpeaker.src}
+          imageAlt="Speaker"
+        />
+      </SectionContainer>
 
-      <div className="container mx-auto max-w-5xl py-16">
-        <Typography variant="p" as="p">
+      <SectionContainer size="narrow">
+        <Typography>
           We are always excited to welcome passionate and knowledgeable speakers
           to our events. If you have a story to tell, insights to share, or
           skills to teach, this is your opportunity to connect with a vibrant
           and curious community of learners and professionals.
         </Typography>
-        <Typography variant="p" as="p">
+        <Typography>
           We believe that great ideas are worth sharing, and your unique
           perspective can help spark meaningful discussions, new discoveries,
           and collaborative growth. Whether you’re a seasoned speaker or
           stepping onto the stage for the first time, we’re here to support you
           in creating a memorable and impactful experience.
         </Typography>
-        <Typography variant="p" as="p" className="mb-0">
+        <Typography className="mb-0">
           To make your contributions as effective and engaging as possible, we
           offer two distinct formats for sharing your knowledge: Talks and
           Workshops. Each format is designed to cater to different styles,
           audiences, and levels of interaction, ensuring you can find the
           perfect way to connect with our community.
         </Typography>
-      </div>
+      </SectionContainer>
 
-      <div className="container mx-auto max-w-5xl py-16 pt-8">
+      <SectionContainer>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           <div className="space-y-6 rounded-2xl bg-[#74B9FF] p-6 text-white">
             <Heading level={2} className="text-center text-white">
@@ -188,9 +193,9 @@ export default function BecomeSpeakerPage() {
             </Typography>
           </div>
         </div>
-      </div>
+      </SectionContainer>
 
-      <div className="container mx-auto max-w-7xl py-16">
+      <SectionContainer>
         <FeaturesList
           title="What we offer"
           features={[
@@ -220,9 +225,9 @@ export default function BecomeSpeakerPage() {
             },
           ]}
         />
-      </div>
+      </SectionContainer>
 
-      <div className="container mx-auto max-w-7xl py-16">
+      <SectionContainer size="wide">
         <BlackCTA
           leftContent={
             <Heading
@@ -243,21 +248,21 @@ export default function BecomeSpeakerPage() {
             </Link>
           }
         />
-      </div>
+      </SectionContainer>
 
-      <div className="container mx-auto max-w-7xl py-16">
+      <SectionContainer size="wide">
         <Heading level={2}>Spoke with us</Heading>
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {famousSpeakers.map((speaker, index) => (
             <TeamCard key={index} {...speaker} />
           ))}
         </div>
-      </div>
+      </SectionContainer>
 
-      <div className="container mx-auto max-w-4xl py-16">
+      <SectionContainer>
         <Heading level={2}>Some numbers</Heading>
         <StatBlocks
-          className="mx-auto py-16"
+          className="mx-auto py-4"
           centered={false}
           blocks={[
             {
@@ -278,7 +283,7 @@ export default function BecomeSpeakerPage() {
             },
           ]}
         />
-      </div>
+      </SectionContainer>
     </main>
   );
 }

@@ -1,6 +1,4 @@
 import { stripe } from "@/lib/stripe";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
 import { Heading } from "@/components/atoms/typography/Heading";
 import { Paragraph } from "@/components/atoms/typography/Paragraph";
 import { SuccessConfetti } from "./success-confetti";

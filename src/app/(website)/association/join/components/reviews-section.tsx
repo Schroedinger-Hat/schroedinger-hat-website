@@ -6,6 +6,7 @@ import { Typography } from "@/components/atoms/typography/Typography";
 import ReviewCard from "@/components/organisms/review-card";
 import type { Review } from "../types";
 import reviews from "../reviews.json";
+import { SectionContainer } from "@/components/atoms/layout/SectionContainer";
 
 function getRandomReviews(reviews: Review[], count: number) {
   return [...reviews].sort(() => 0.5 - Math.random()).slice(0, count);
@@ -19,7 +20,7 @@ export function ReviewsSection() {
   }, []);
 
   return (
-    <div className="container mx-auto max-w-7xl py-16">
+    <SectionContainer size="wide">
       <div className="mb-12 text-center">
         <Heading level={2}>What people say about it</Heading>
         <Typography variant="medium">
@@ -44,6 +45,6 @@ export function ReviewsSection() {
           ))}
         </div>
       </div>
-    </div>
+    </SectionContainer>
   );
 }

@@ -11,10 +11,8 @@ import {
   getVideoThumbnailUrl,
 } from "@/lib/utils/videoContent";
 import { VideoCard } from "@/components/molecules/video-card";
-import { BlurredBackground } from "@/components/organisms/blurred-background";
-import { Paragraph } from "@/components/atoms/typography/Paragraph";
-import { Debug } from "@/components/atoms/debug";
 import { EventCard } from "@/app/(website)/partecipate/events/components/event-cards";
+import { SectionContainer } from "@/components/atoms/layout/SectionContainer";
 
 interface AuthorWithVideosAndEvents extends Author {
   videos?: Video[];
@@ -59,17 +57,17 @@ export default async function SpeakerPage({ params }: PageProps) {
   }
 
   return (
-    <main className="container mx-auto px-4 py-8">
-      <div className="mx-auto max-w-4xl py-16">
+    <main>
+      <SectionContainer>
         <div className="flex flex-col gap-8 rounded-lg p-4 md:flex-row">
-          <div className="md:w-1/5">
+          <div className="md:w-1/6">
             {speaker.photo ? (
               <Image
                 src={urlFor(speaker.photo).width(400).height(400).url()}
                 alt={getAuthorFullName(speaker)}
                 width={200}
                 height={200}
-                className="aspect-square w-full max-w-[148px] rounded-full"
+                className="aspect-square w-full max-w-[148px] rounded-2xl"
                 withContainer={false}
               />
             ) : (
@@ -81,7 +79,7 @@ export default async function SpeakerPage({ params }: PageProps) {
             )}
           </div>
 
-          <div className="md:w-4/5">
+          <div className="md:w-5/6">
             <Heading level={1} className="mb-1">
               {getAuthorFullName(speaker)}
             </Heading>
@@ -103,7 +101,7 @@ export default async function SpeakerPage({ params }: PageProps) {
           {speaker.videos && speaker.videos.length > 0 && (
             <div className="mt-8">
               <Heading level={2} className="mb-4">
-                Videos
+                Talks
               </Heading>
               <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                 {speaker.videos.map((video) => (
@@ -132,7 +130,7 @@ export default async function SpeakerPage({ params }: PageProps) {
             </div>
           )}
         </div>
-      </div>
+      </SectionContainer>
     </main>
   );
 }

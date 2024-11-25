@@ -15,6 +15,7 @@ import shopCallout from "@/images/homepage/shop-callout.png";
 import imageGoNord from "@/images/homepage/imageGoNord.png";
 import osday from "@/images/homepage/osday.jpg";
 import { Typography } from "@/components/atoms/typography/Typography";
+import { SectionContainer } from "@/components/atoms/layout/SectionContainer";
 
 export default async function Home() {
   const partners: Partner[] = await sanityClient.fetch(
@@ -23,7 +24,7 @@ export default async function Home() {
 
   return (
     <main>
-      <div className="relative w-full pb-64 pt-32">
+      <SectionContainer>
         <BlurredBackground
           points={2}
           colors={["#f75ccb", "#639aff", "#C81824", "#830B16"]}
@@ -52,9 +53,9 @@ export default async function Home() {
             </div>
           </div>
         </div>
-      </div>
+      </SectionContainer>
 
-      <div className="container mx-auto -mt-32 max-w-7xl py-16">
+      <SectionContainer size="wide" className="-mt-24">
         <ImageContent
           className="py-16"
           title="The collective"
@@ -112,76 +113,72 @@ export default async function Home() {
             },
           ]}
         />
-      </div>
+      </SectionContainer>
 
-      <div className="bg-slate-100">
-        <div className="container mx-auto max-w-7xl py-24">
-          <Heading className="m-0" level={2}>
-            You may know us for
-          </Heading>
-          <ImageContent
-            className="py-16"
-            title="OSDay"
-            content={
-              <>
-                <p>
-                  Open Source Day is an international conference dedicated to
-                  open-source solutions, scheduled for March, in Florence,
-                  Italy. The event aims to introduce open-source technologies to
-                  public and business institutions, promoting them as secure,
-                  efficient, and cost-effective alternatives to proprietary
-                  software.
-                </p>
-                <p>
-                  Attendees, including managers, developers, and technical
-                  officers from various industries, will have the opportunity to
-                  exchange experiences and explore use cases in areas such as
-                  virtualization, cloud computing, databases, big data, and
-                  information security.
-                </p>
-                <p>
-                  The conference serves as a platform for fostering local
-                  communities and encouraging the development of small
-                  businesses that provide support and development for
-                  open-source solutions.
-                </p>
-              </>
-            }
-            imageSrc={osday.src}
-            imageAlt="OSDay"
-            imagePosition="left"
-          />
-          <ImageContent
-            className="py-16"
-            title="ImageGoNord"
-            content={
-              <>
-                <p>
-                  ImageGoNord is a SaaS tool designed to convert RGB images into
-                  color palettes inspired by the NordTheme and other themes like
-                  Gruvbox. The NordTheme is a well-known color palette
-                  originally created for coding environments. It focuses on
-                  subtle, cool tones like blue, grey, and white, offering a
-                  minimalist and visually cohesive aesthetic that prioritizes
-                  readability and reduces visual fatigue.
-                </p>
-                <p>
-                  ImageGoNord allows users to upload images or videos and apply
-                  these palettes to create customized wallpapers, visuals, or
-                  design elements. The tool offers flexibility for users to
-                  refine the output to match their preferences while maintaining
-                  the selected theme&apos;s characteristics.
-                </p>
-              </>
-            }
-            imageSrc={imageGoNord.src}
-            imageAlt="ImageGoNord"
-            imagePosition="right"
-          />
-        </div>
-      </div>
+      <SectionContainer withBackground size="wide">
+        <Heading className="m-0" level={2}>
+          You may know us for
+        </Heading>
+        <ImageContent
+          className="py-16"
+          title="OSDay"
+          content={
+            <>
+              <p>
+                Open Source Day is an international conference dedicated to
+                open-source solutions, scheduled for March, in Florence, Italy.
+                The event aims to introduce open-source technologies to public
+                and business institutions, promoting them as secure, efficient,
+                and cost-effective alternatives to proprietary software.
+              </p>
+              <p>
+                Attendees, including managers, developers, and technical
+                officers from various industries, will have the opportunity to
+                exchange experiences and explore use cases in areas such as
+                virtualization, cloud computing, databases, big data, and
+                information security.
+              </p>
+              <p>
+                The conference serves as a platform for fostering local
+                communities and encouraging the development of small businesses
+                that provide support and development for open-source solutions.
+              </p>
+            </>
+          }
+          imageSrc={osday.src}
+          imageAlt="OSDay"
+          imagePosition="left"
+        />
+        <ImageContent
+          className="py-16"
+          title="ImageGoNord"
+          content={
+            <>
+              <p>
+                ImageGoNord is a SaaS tool designed to convert RGB images into
+                color palettes inspired by the NordTheme and other themes like
+                Gruvbox. The NordTheme is a well-known color palette originally
+                created for coding environments. It focuses on subtle, cool
+                tones like blue, grey, and white, offering a minimalist and
+                visually cohesive aesthetic that prioritizes readability and
+                reduces visual fatigue.
+              </p>
+              <p>
+                ImageGoNord allows users to upload images or videos and apply
+                these palettes to create customized wallpapers, visuals, or
+                design elements. The tool offers flexibility for users to refine
+                the output to match their preferences while maintaining the
+                selected theme&apos;s characteristics.
+              </p>
+            </>
+          }
+          imageSrc={imageGoNord.src}
+          imageAlt="ImageGoNord"
+          imagePosition="right"
+        />
+      </SectionContainer>
 
-      <div className="container mx-auto max-w-7xl pb-24">
+      <SectionContainer size="wide">
         <LogoGallery
           className="py-24"
           title="Community Partners"
@@ -211,7 +208,7 @@ export default async function Home() {
           image={shopCallout}
           variant="shop"
         />
-      </div>
+      </SectionContainer>
     </main>
   );
 }

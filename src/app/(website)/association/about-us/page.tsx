@@ -2,7 +2,7 @@ import { Image } from "@/components/atoms/media/Image";
 import { BlurredBackground } from "@/components/organisms/blurred-background";
 import { Typography } from "@/components/atoms/typography/Typography";
 import { Link } from "@/components/atoms/links/Link";
-import { ArrowRight, Type } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import {
   MentorIcon,
   Mic01Icon,
@@ -15,7 +15,7 @@ import { sanityClient } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
 import type { Partner } from "@/sanity/sanity.types";
 import { LogoGallery } from "@/components/organisms/logo-gallery";
-import { TeamCard, TeamMemberCard } from "@/components/organisms/team-card";
+import { TeamMemberCard } from "@/components/organisms/team-card";
 import type { TeamMember } from "@/sanity/sanity.types";
 import { Paragraph } from "@/components/atoms/typography/Paragraph";
 import { Button } from "@/components/molecules/button";
@@ -25,6 +25,8 @@ import staffSpeaker from "@/images/about/os23_staff_speaker.jpg";
 import gabriMikiStage from "@/images/about/os24_gabri-miki_stage.jpg";
 import joinTheTeam from "@/images/about/os24_join-the-team.jpg";
 import os2Public from "@/images/about/os24_public.jpg";
+import { SectionContainer } from "@/components/atoms/layout/SectionContainer";
+import { ImageContent } from "@/components/organisms/image-content";
 
 export default async function AboutUsPage() {
   // Fetch business partners
@@ -42,7 +44,7 @@ export default async function AboutUsPage() {
   return (
     <main>
       {/* Hero */}
-      <div className="relative w-full pb-96 pt-32">
+      <SectionContainer size="wide">
         <BlurredBackground
           points={3}
           colors={["#f75ccb", "#639aff", "#C81824", "#830B16"]}
@@ -67,20 +69,18 @@ export default async function AboutUsPage() {
             </div>
           </div>
         </div>
-      </div>
+      </SectionContainer>
 
       {/* Content */}
-      <div className="container mx-auto -mt-96 max-w-7xl py-16">
-        <div className="mt-24">
-          <Image
-            src={staffSpeaker.src}
-            alt="Schroedinger Hat"
-            width={1000}
-            height={400}
-            className="h-[400px] w-full overflow-hidden rounded-lg object-cover object-center"
-            withContainer={false}
-          />
-        </div>
+      <SectionContainer size="wide">
+        <Image
+          src={staffSpeaker.src}
+          alt="Schroedinger Hat"
+          width={1000}
+          height={400}
+          className="h-[400px] w-full overflow-hidden rounded-lg object-cover object-center"
+          withContainer={false}
+        />
 
         <div className="py-16 pt-32">
           <Heading level={2} className="mb-0">
@@ -200,7 +200,7 @@ export default async function AboutUsPage() {
 
         <div className="py-16">
           <div className="mb-16 text-center">
-            <Heading level={1}>Meet the people behind Schroedinger Hat</Heading>
+            <Heading level={2}>Meet the people behind Schroedinger Hat</Heading>
           </div>
 
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
@@ -209,17 +209,18 @@ export default async function AboutUsPage() {
             ))}
           </div>
         </div>
-      </div>
-      <div className="bg-slate-200">
-        <div className="container mx-auto max-w-7xl space-y-12 py-16">
-          <div className="mb-16">
-            <Heading level={2}>I dig it! How I can join the gang?</Heading>
-          </div>
+      </SectionContainer>
 
-          <div className="flex flex-col items-stretch gap-4 lg:h-full lg:flex-row">
-            <div className="flex-1">
-              <div className="h-full rounded-2xl bg-slate-50 p-8">
-                <Heading level={3}>Low Effort: Activate a Membership</Heading>
+      <SectionContainer size="wide" withBackground>
+        <Heading level={2} className="pb-8 text-center">
+          I dig it! How I can join the gang?
+        </Heading>
+
+        <div className="space-y-8">
+          <ImageContent
+            title="Low Effort: Activate a Membership"
+            content={
+              <>
                 <Paragraph>
                   If you like our idea but don't have enough time to contribute
                   and work on our projects you may consider becoming a member.
@@ -235,42 +236,23 @@ export default async function AboutUsPage() {
                     <ArrowRight className="h-5 w-5" />
                   </Button>
                 </Link>
-              </div>
-            </div>
-            <div className="flex-1">
-              <div className="h-full overflow-hidden rounded-2xl">
-                <Image
-                  src={os2Public.src}
-                  alt="Schroedinger Hat community members on stage"
-                  width={600}
-                  height={300}
-                  className="h-[300px] w-full object-cover opacity-90"
-                  withContainer={false}
-                />
-              </div>
-            </div>
-          </div>
+              </>
+            }
+            imageSrc={os2Public.src}
+            imageAlt="Schroedinger Hat community members on stage"
+            imagePosition="right"
+          />
 
           <div className="text-center">
-            <Heading level={2}>or</Heading>
+            <Heading level={2} className="mb-0">
+              or
+            </Heading>
           </div>
 
-          <div className="flex flex-col gap-4 lg:flex-row">
-            <div className="flex-1">
-              <div className="h-full overflow-hidden rounded-2xl">
-                <Image
-                  src={joinTheTeam.src}
-                  alt="Schroedinger Hat community members on stage"
-                  width={600}
-                  height={300}
-                  className="h-[300px] w-full object-cover opacity-90"
-                  withContainer={false}
-                />
-              </div>
-            </div>
-            <div className="flex-1">
-              <div className="h-full rounded-2xl bg-slate-50 p-8">
-                <Heading level={3}>High Effort: Join the Team</Heading>
+          <ImageContent
+            title="High Effort: Join the Team"
+            content={
+              <>
                 <Paragraph>
                   We're always looking for new people to join our team. If you
                   think you have what it takes, please send us an email.
@@ -286,11 +268,14 @@ export default async function AboutUsPage() {
                     <ArrowRight className="h-5 w-5" />
                   </Button>
                 </a>
-              </div>
-            </div>
-          </div>
+              </>
+            }
+            imageSrc={joinTheTeam.src}
+            imageAlt="Schroedinger Hat staff handing out badges"
+            imagePosition="left"
+          />
         </div>
-      </div>
+      </SectionContainer>
     </main>
   );
 }

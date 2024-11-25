@@ -6,60 +6,56 @@ import { cn } from "@/lib/utils";
  * HighlightItem
  */
 interface HighlightItem {
-    title: string;
-    href: string;
-    description: string;
-    icon?: React.ReactNode;
-  }
-  
-  interface HighlightSubMenuProps {
-    data: HighlightItem[]
-  }
-  
+  title: string;
+  href: string;
+  description: string;
+  icon?: React.ReactNode;
+}
+
+interface HighlightSubMenuProps {
+  data: HighlightItem[];
+}
+
 export function HighlightSubMenu({ data }: HighlightSubMenuProps) {
-    const [featured, ...items] = data;
-    
-    return (
-      <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-        <li className="row-span-4">
-          {featured && (
-            <NavigationMenuLink asChild>
-              <a
-                className="flex h-full w-full select-none flex-col justify-end rounded-md transition-colors hover:bg-gradient-to-b hover:from-muted/75 hover:to-muted border border-border p-6 no-underline outline-none focus:shadow-md"
+  const [featured, ...items] = data;
+
+  return (
+    <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+      <li className="row-span-4">
+        {featured && (
+          <NavigationMenuLink asChild>
+            <a
+              className="flex h-full w-full select-none flex-col justify-end rounded-md border border-border p-6 no-underline outline-none transition-colors hover:bg-gradient-to-b hover:from-muted/75 hover:to-muted focus:shadow-md"
               href={featured.href}
             >
-                {featured.icon && (
-                    <div className="mb-2 text-center flex justify-center">
-                        {featured.icon}
-                    </div>
-                )}
+              {featured.icon && (
+                <div className="mb-2 flex justify-center text-center">
+                  {featured.icon}
+                </div>
+              )}
               <div className="mb-2 mt-4 text-lg font-medium">
                 {featured.title}
               </div>
               <p className="text-sm leading-tight text-muted-foreground">
                 {featured.description}
               </p>
-              </a>
-            </NavigationMenuLink>
-          )}
-        </li>
-        {items.map((item) => (
-          <ListItem 
-            key={item.title} 
-            href={item.href} 
-            title={item.title}
-          >
-            {item.description}
-          </ListItem>
-        ))}
-      </ul>
-    );
-  }
+            </a>
+          </NavigationMenuLink>
+        )}
+      </li>
+      {items.map((item) => (
+        <ListItem key={item.title} href={item.href} title={item.title}>
+          {item.description}
+        </ListItem>
+      ))}
+    </ul>
+  );
+}
 
 /**
  * ListItem
  */
-  export const ListItem = forwardRef<
+export const ListItem = forwardRef<
   React.ElementRef<"a">,
   React.ComponentPropsWithoutRef<"a">
 >(({ className, title, children, ...props }, ref) => {

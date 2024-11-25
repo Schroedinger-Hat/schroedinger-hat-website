@@ -1,7 +1,7 @@
 "use client";
 
-import { forwardRef, useState, useEffect } from "react";
-import { MessageCircleIcon, Menu, X } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Menu } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import {
@@ -15,7 +15,11 @@ import {
 } from "@/components/ui/navigation-menu";
 import { Image } from "../../atoms/media/Image";
 import { Button } from "../../molecules/button";
-import { partecipateMenuData, contributeMenuData, associationMenuData } from "./data";
+import {
+  partecipateMenuData,
+  contributeMenuData,
+  associationMenuData,
+} from "./data";
 
 // Image
 import logo from "@/images/logo.png";
@@ -49,16 +53,15 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-
   return (
-    <header 
+    <header
       className={cn(
         "sticky top-0 z-50 w-full transition-all duration-200",
         "border-b",
         {
-          "bg-white border-slate-200": isScrolled,
-          "bg-transparent border-transparent": !isScrolled
-        }
+          "border-slate-200 bg-white": isScrolled,
+          "border-transparent bg-transparent": !isScrolled,
+        },
       )}
     >
       <nav
@@ -83,12 +86,12 @@ export function Header() {
                 <Menu className="size-6" />
               </button>
             </SheetTrigger>
-            <SheetContent 
-              side="left" 
+            <SheetContent
+              side="left"
               className={cn(
-                "w-full h-full border-0",  // Make it fullscreen
-                "data-[state=open]:animate-none data-[state=closed]:animate-none", // Remove animations
-                "transition-none" // Remove transition
+                "h-full w-full border-0", // Make it fullscreen
+                "data-[state=closed]:animate-none data-[state=open]:animate-none", // Remove animations
+                "transition-none", // Remove transition
               )}
             >
               <SheetHeader className="border-b pb-4">
@@ -98,13 +101,13 @@ export function Header() {
                 </SheetTitle>
               </SheetHeader>
               <div className="mt-6 flex flex-col gap-4">
-                <Link 
+                <Link
                   href="/watch"
                   className="text-sm font-medium transition-colors hover:text-primary"
                 >
                   Watch
                 </Link>
-                
+
                 <Accordion type="single" collapsible>
                   <AccordionItem value="participate">
                     <AccordionTrigger>Participate</AccordionTrigger>
@@ -158,17 +161,14 @@ export function Header() {
                   </AccordionItem>
                 </Accordion>
 
-                <Link 
+                <Link
                   href="/docs"
                   className="text-sm font-medium transition-colors hover:text-primary"
                 >
                   Merch
                 </Link>
 
-                <Link 
-                  href="https://shop.schrodinger-hat.it/"
-                  className="mt-4"
-                >
+                <Link href="https://shop.schrodinger-hat.it/" className="mt-4">
                   <Button className="w-full">Join</Button>
                 </Link>
               </div>
@@ -178,37 +178,44 @@ export function Header() {
 
         <NavigationMenu className="hidden lg:block">
           <NavigationMenuList>
-          <NavigationMenuItem>
-              <Link href="/watch" >
+            <NavigationMenuItem>
+              <Link href="/watch">
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  <Typography as="span" variant="navigation">Watch</Typography>
+                  <Typography as="span" variant="navigation">
+                    Watch
+                  </Typography>
                 </NavigationMenuLink>
               </Link>
             </NavigationMenuItem>
 
             <NavigationMenuItem>
               <NavigationMenuTrigger>
-                <Typography as="span" variant="navigation">Partecipate</Typography>
+                <Typography as="span" variant="navigation">
+                  Partecipate
+                </Typography>
               </NavigationMenuTrigger>
               <NavigationMenuContent>
                 <HighlightSubMenu data={partecipateMenuData} />
               </NavigationMenuContent>
             </NavigationMenuItem>
 
-
             <NavigationMenuItem>
               <NavigationMenuTrigger>
-                <Typography as="span" variant="navigation">Contribute</Typography>
-                </NavigationMenuTrigger>
+                <Typography as="span" variant="navigation">
+                  Contribute
+                </Typography>
+              </NavigationMenuTrigger>
               <NavigationMenuContent>
                 <HighlightSubMenu data={contributeMenuData} />
               </NavigationMenuContent>
             </NavigationMenuItem>
-            
+
             <NavigationMenuItem>
               <NavigationMenuTrigger>
-                <Typography as="span" variant="navigation">Association</Typography>
-                </NavigationMenuTrigger>
+                <Typography as="span" variant="navigation">
+                  Association
+                </Typography>
+              </NavigationMenuTrigger>
               <NavigationMenuContent>
                 <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
                   {associationMenuData.map((associationMenuItem) => (
@@ -227,7 +234,9 @@ export function Header() {
             <NavigationMenuItem>
               <Link href="/docs">
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  <Typography as="span" variant="navigation">Merch</Typography>
+                  <Typography as="span" variant="navigation">
+                    Merch
+                  </Typography>
                 </NavigationMenuLink>
               </Link>
             </NavigationMenuItem>
@@ -235,7 +244,10 @@ export function Header() {
         </NavigationMenu>
 
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <Link href="https://shop.schrodinger-hat.it/" className="text-sm/6 font-semibold text-gray-900">
+          <Link
+            href="https://shop.schrodinger-hat.it/"
+            className="text-sm/6 font-semibold text-gray-900"
+          >
             <Button>Join</Button>
           </Link>
         </div>

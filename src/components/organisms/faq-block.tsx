@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/accordion";
 import { PortableText } from "@portabletext/react";
 import { sanityClient } from "@/sanity/lib/client";
+import { SectionContainer } from "../atoms/layout/SectionContainer";
 
 type FAQ = {
   _id: string;
@@ -42,7 +43,7 @@ export async function FaqBlock({
   const faqs: FAQ[] = await getFAQs(groupKey);
 
   return (
-    <div className="container mx-auto max-w-2xl py-16">
+    <SectionContainer size="narrow">
       <div className="pb-4 text-center">
         <Heading level={2}>{title}</Heading>
         {description && (
@@ -61,6 +62,6 @@ export async function FaqBlock({
           </AccordionItem>
         ))}
       </Accordion>
-    </div>
+    </SectionContainer>
   );
 }

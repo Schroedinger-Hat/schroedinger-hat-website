@@ -6,7 +6,6 @@ import { List } from "@/components/atoms/lists/List";
 import { ListItem } from "@/components/atoms/lists/ListItem";
 import { InlineText } from "@/components/atoms/typography/InlineText";
 import { Link } from "@/components/atoms/links/Link";
-import { cn } from "@/lib/utils";
 
 export const createPortableTextComponents = (
   className?: string,

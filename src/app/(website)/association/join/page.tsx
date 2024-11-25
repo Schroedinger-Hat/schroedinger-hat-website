@@ -2,15 +2,7 @@ import { Heading } from "@/components/atoms/typography/Heading";
 import { BlurredBackground } from "@/components/organisms/blurred-background";
 import { Typography } from "@/components/atoms/typography/Typography";
 import { Image } from "@/components/atoms/media/Image";
-import ReviewCard from "@/components/organisms/review-card";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 import { MembershipCheckoutButton } from "./components/membership-checkout-button";
-import { PortableText } from "@portabletext/react";
 import { ReviewsSection } from "./components/reviews-section";
 import { FaqBlock } from "@/components/organisms/faq-block";
 
@@ -20,6 +12,7 @@ import perkEarlyAccess from "@/images/membership/perk_early_access.svg";
 import perkFood from "@/images/membership/perk_food.svg";
 import perkVote from "@/images/membership/perk_vote.svg";
 import { sanityClient } from "@/sanity/lib/client";
+import { SectionContainer } from "@/components/atoms/layout/SectionContainer";
 
 // Add these types at the top of the file
 type FAQ = {
@@ -45,7 +38,7 @@ export default async function BecomeMemberPage() {
   return (
     <main>
       {/* Hero */}
-      <div className="relative w-full overflow-visible pb-48 pt-32">
+      <SectionContainer size="full">
         <BlurredBackground
           points={3}
           colors={["#f75ccb", "#639aff", "#C81824", "#830B16"]}
@@ -74,9 +67,9 @@ export default async function BecomeMemberPage() {
             </div>
           </div>
         </div>
-      </div>
+      </SectionContainer>
 
-      <div className="container mx-auto max-w-7xl space-y-4">
+      <SectionContainer size="wide" className="space-y-4">
         {/* First row - 1/4, 2/4, 1/4 split */}
         <div className="grid grid-cols-4 gap-4">
           <div className="flex h-[350px] flex-col justify-end rounded-lg bg-white pb-8 pl-16">
@@ -163,9 +156,9 @@ export default async function BecomeMemberPage() {
             </p>
           </div>
         </div>
-      </div>
+      </SectionContainer>
 
-      <div className="container mx-auto max-w-7xl py-16 pt-24">
+      <SectionContainer size="wide">
         <div className="text-center">
           <Heading level={2}>All this for some money</Heading>
         </div>
@@ -196,7 +189,7 @@ export default async function BecomeMemberPage() {
             </Typography>
           </div>
         </div>
-      </div>
+      </SectionContainer>
 
       <ReviewsSection />
 

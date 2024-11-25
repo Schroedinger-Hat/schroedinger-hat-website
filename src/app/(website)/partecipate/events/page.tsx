@@ -3,6 +3,7 @@ import type { Event } from "@/sanity/sanity.types";
 import { Heading } from "@/components/atoms/typography/Heading";
 import { Link } from "@/components/atoms/links/Link";
 import { EventCard, FeaturedEventCard } from "./components/event-cards";
+import { SectionContainer } from "@/components/atoms/layout/SectionContainer";
 
 export default async function EventsPage() {
   const events: Event[] = await sanityClient.fetch(
@@ -39,58 +40,60 @@ export default async function EventsPage() {
   const otherUpcomingEvents = upcomingEvents.slice(1);
 
   return (
-    <main className="container mx-auto py-16">
-      {featuredEvent && (
-        <>
-          <Heading level={2} className="mb-6">
-            Featured
-          </Heading>
-          <Link
-            href={`/attend/events/${featuredEvent.slug!.current}`}
-            className="hover:no-underline"
-          >
-            <FeaturedEventCard event={featuredEvent} />
-          </Link>
-        </>
-      )}
+    <main>
+      <SectionContainer size="wide">
+        {featuredEvent && (
+          <>
+            <Heading level={2} className="mb-6">
+              Featured
+            </Heading>
+            <Link
+              href={`/partecipate/events/${featuredEvent.slug!.current}`}
+              className="hover:no-underline"
+            >
+              <FeaturedEventCard event={featuredEvent} />
+            </Link>
+          </>
+        )}
 
-      {otherUpcomingEvents.length > 0 && (
-        <>
-          <Heading level={2} className="mb-6">
-            Upcoming
-          </Heading>
-          <div className="mb-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {otherUpcomingEvents.map((event) => (
-              <Link
-                href={`/attend/events/${event.slug!.current}`}
-                key={event._id}
-                className="hover:no-underline"
-              >
-                <EventCard event={event} />
-              </Link>
-            ))}
-          </div>
-        </>
-      )}
+        {otherUpcomingEvents.length > 0 && (
+          <>
+            <Heading level={2} className="mb-6">
+              Upcoming
+            </Heading>
+            <div className="mb-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {otherUpcomingEvents.map((event) => (
+                <Link
+                  href={`/partecipate/events/${event.slug!.current}`}
+                  key={event._id}
+                  className="hover:no-underline"
+                >
+                  <EventCard event={event} />
+                </Link>
+              ))}
+            </div>
+          </>
+        )}
 
-      {pastEvents.length > 0 && (
-        <>
-          <Heading level={2} className="mb-6">
-            Past events
-          </Heading>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {pastEvents.map((event) => (
-              <Link
-                href={`/attend/events/${event.slug!.current}`}
-                key={event._id}
-                className="hover:no-underline"
-              >
-                <EventCard event={event} />
-              </Link>
-            ))}
-          </div>
-        </>
-      )}
+        {pastEvents.length > 0 && (
+          <>
+            <Heading level={2} className="mb-6">
+              Past events
+            </Heading>
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {pastEvents.map((event) => (
+                <Link
+                  href={`/partecipate/events/${event.slug!.current}`}
+                  key={event._id}
+                  className="hover:no-underline"
+                >
+                  <EventCard event={event} />
+                </Link>
+              ))}
+            </div>
+          </>
+        )}
+      </SectionContainer>
     </main>
   );
 }

@@ -5,6 +5,7 @@ import type { Event, Author } from "@/sanity/sanity.types";
 import { createPortableTextComponents } from "@/app/(website)/page/[slug]/portableTextComponents";
 import { EventHero } from "@/components/organisms/event-hero";
 import { AuthorCard } from "@/components/molecules/author-card";
+import { SectionContainer } from "@/components/atoms/layout/SectionContainer";
 
 interface EventWithAuthors extends Omit<Event, "authors"> {
   authors?: Author[];
@@ -37,7 +38,7 @@ export default async function SingleEventPage({ params }: PageProps) {
 
   return (
     <main>
-      <div className="container mx-auto max-w-6xl pt-16">
+      <SectionContainer size="wide" className="pb-0">
         <EventHero
           title={event.title}
           cover={event.cover}
@@ -46,27 +47,29 @@ export default async function SingleEventPage({ params }: PageProps) {
           cta={event.cta}
           organiser={event.organiser!}
         />
-      </div>
+      </SectionContainer>
 
-      <div className="container mx-auto max-w-4xl py-16">
+      <SectionContainer size="narrow">
         {event.abstract && (
           <PortableText
             value={event.abstract}
             components={createPortableTextComponents()}
           />
         )}
+      </SectionContainer>
 
+      <SectionContainer size="narrow" padding="little" withBackground>
         {event.authors && event.authors.length > 0 && (
-          <div className="mt-12">
+          <>
             <h2 className="mb-6 text-2xl font-semibold">Guests</h2>
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
               {event.authors.map((author) => (
                 <AuthorCard key={author._id} author={author} />
               ))}
             </div>
-          </div>
+          </>
         )}
-      </div>
+      </SectionContainer>
     </main>
   );
 }
