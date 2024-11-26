@@ -5,6 +5,7 @@ import FeaturesList from "@/components/organisms/features-list";
 import { ImageHero } from "@/components/organisms/image-hero";
 import {
   AirplaneSeatIcon,
+  Mic01Icon,
   Mortarboard02Icon,
   Pizza01Icon,
   UserMultiple02Icon,
@@ -111,86 +112,97 @@ export default function BecomeSpeakerPage() {
 
       <SectionContainer>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-          <div className="space-y-6 rounded-2xl bg-[#74B9FF] p-6 text-white">
-            <Heading level={2} className="text-center text-white">
-              Session
-            </Heading>
+          <div className="rounded-xl bg-slate-300 p-4 text-white shadow-xl">
+            <div className="flex min-h-[180px] flex-row items-center justify-center rounded-xl bg-[#74B9FF] p-4">
+              <Mic01Icon className="mb-2 h-16 w-16" />
+              <Heading level={1} className="mb-0 pl-2 font-light text-white">
+                Session
+              </Heading>
+            </div>
 
-            <Heading level={4} className="text-white">
-              What is it?
-            </Heading>
-            <Typography variant="p" className="text-white opacity-90">
-              A Talk is a traditional conference-style presentation, lasting 30
-              to 60 minutes. It focuses on a single topic, idea, or story,
-              delivered with accompanying slides to inspire the audience.
-            </Typography>
+            <div className="mt-0 p-4">
+              <Heading level={4} className="">
+                What is it?
+              </Heading>
+              <Typography variant="p" className="opacity-90">
+                A Talk is a traditional conference-style presentation, lasting
+                30 to 60 minutes. It focuses on a single topic, idea, or story,
+                delivered with accompanying slides to inspire the audience.
+              </Typography>
 
-            <Heading level={4} className="text-white">
-              Features / Is this for you?
-            </Heading>
-            <List variant="bullet">
-              <ListItem className="text-white">
-                Ideal for sharing insights, stories, or lessons learned from
-                your experiences.
-              </ListItem>
-              <ListItem className="text-white">
-                Perfect for a wide range of topics, from personal journeys to
-                deep dives into specific areas.
-              </ListItem>
-              <ListItem className="text-white">
-                Suitable for all skill levels in the audience.
-              </ListItem>
-            </List>
-            <Heading level={4} className="text-white">
-              Why choose this?
-            </Heading>
-            <Typography variant="p" className="text-white opacity-90">
-              Choosing a Talk allows you to share your expertise and passion in
-              a structured and impactful way. It’s perfect for reaching a broad
-              audience, delivering clear insights, and sparking curiosity about
-              your topic.
-            </Typography>
+              <Heading level={4} className="">
+                Is this for you?
+              </Heading>
+              <List variant="bullet">
+                <ListItem className="">
+                  Ideal for sharing insights, stories, or lessons learned from
+                  your experiences.
+                </ListItem>
+                <ListItem className="">
+                  Perfect for a wide range of topics, from personal journeys to
+                  deep dives into specific areas.
+                </ListItem>
+                <ListItem className="">
+                  Suitable for all skill levels in the audience.
+                </ListItem>
+              </List>
+
+              <Heading level={4} className="">
+                Why choose this?
+              </Heading>
+              <Typography variant="p" className="opacity-90">
+                Choosing a Talk allows you to share your expertise and passion
+                in a structured and impactful way. It’s perfect for reaching a
+                broad audience, delivering clear insights, and sparking
+                curiosity about your topic.
+              </Typography>
+            </div>
           </div>
-          <div className="space-y-6 rounded-2xl bg-[#00B894] p-6 text-white">
-            <Heading level={2} className="text-center text-white">
-              Workshop
-            </Heading>
+          <div className="rounded-xl bg-slate-300 p-4 text-white shadow-xl">
+            <div className="flex min-h-[180px] flex-row items-center justify-center rounded-xl bg-[#00BB94] p-4">
+              <Mic01Icon className="mb-2 h-16 w-16" />
+              <Heading level={1} className="mb-0 pl-2 font-light text-white">
+                Workshop
+              </Heading>
+            </div>
 
-            <Heading level={4} className="text-white">
-              What is it?
-            </Heading>
-            <Typography variant="p" className="text-white opacity-90">
-              A Workshop is an interactive session lasting 2 to 8 hours,
-              designed to delve deeply into a specific topic, technology, or
-              framework. Workshops emphasize hands-on learning, often guiding
-              participants through a project or task, such as building an app
-              together.
-            </Typography>
-            <Heading level={4} className="text-white">
-              Features / Is this for you?
-            </Heading>
-            <List variant="bullet">
-              <ListItem className="text-white">
-                Ideal for teaching practical skills or hands-on techniques.
-              </ListItem>
-              <ListItem className="text-white">
-                Great for in-depth exploration of a specific technology or
-                methodology.
-              </ListItem>
-              <ListItem className="text-white">
-                Best suited for a smaller, focused group of attendees.
-              </ListItem>
-            </List>
-            <Heading level={4} className="text-white">
-              Why choose this?
-            </Heading>
-            <Typography variant="p" className="text-white opacity-90">
-              Opting for a Workshop enables you to dive deep into a subject and
-              provide tangible value to attendees. With a focus on hands-on
-              learning and collaboration, this format is ideal for fostering
-              practical skills and creating meaningful connections with
-              participants.
-            </Typography>
+            <div className="mt-0 p-4">
+              <Heading level={4} className="">
+                What is it?
+              </Heading>
+              <Typography variant="p" className="opacity-90">
+                A Workshop is an interactive session lasting 2 to 8 hours,
+                designed to delve deeply into a specific topic, technology, or
+                framework. Workshops emphasize hands-on learning, often guiding
+                participants through a project or task, such as building an app
+                together.
+              </Typography>
+              <Heading level={4} className="">
+                Is this for you?
+              </Heading>
+              <List variant="bullet">
+                <ListItem className="">
+                  Ideal for teaching practical skills or hands-on techniques.
+                </ListItem>
+                <ListItem className="">
+                  Great for in-depth exploration of a specific technology or
+                  methodology.
+                </ListItem>
+                <ListItem className="">
+                  Best suited for a smaller, focused group of attendees.
+                </ListItem>
+              </List>
+              <Heading level={4} className="">
+                Why choose this?
+              </Heading>
+              <Typography variant="p" className="opacity-90">
+                Opting for a Workshop enables you to dive deep into a subject
+                and provide tangible value to attendees. With a focus on
+                hands-on learning and collaboration, this format is ideal for
+                fostering practical skills and creating meaningful connections
+                with participants.
+              </Typography>
+            </div>
           </div>
         </div>
       </SectionContainer>

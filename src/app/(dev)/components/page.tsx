@@ -11,7 +11,6 @@ import { InlineText } from "@/components/atoms/typography/InlineText";
 import { Link } from "@/components/atoms/links/Link";
 import { Image } from "@/components/atoms/media/Image";
 import GradientCard from "@/components/organisms/gradient-card";
-import FeaturesList from "@/components/organisms/features-list";
 import ImageCard from "@/components/organisms/image-card";
 import { ImageLabel } from "@/components/organisms/image-label";
 import { BulletPoint } from "@/components/organisms/bullet-point";
@@ -142,9 +141,6 @@ export default function ComponentsPage() {
             description="Lorem ipsum dolor. The weighty euismod. However, the lion remains. Lorem ipsum still cohabitates with the context."
           />
         </div>
-
-        <Heading level={3}>Features</Heading>
-        <FeaturesList />
 
         <Heading level={3}>Image Card</Heading>
         <ImageCard

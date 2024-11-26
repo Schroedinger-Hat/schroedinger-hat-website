@@ -6,12 +6,14 @@ import { sanityClient } from "@/sanity/lib/client";
 import { Badge } from "../ui/badge";
 import { Button } from "../ui/button";
 
+type EffortLevel = 'low' | 'moderate' | 'elevate';
+
 interface JobPost {
   _id: string;
   title: string;
   description: any[];
   location: string;
-  effort: string;
+  effort: EffortLevel;
   publishedAt: string;
 }
 
@@ -28,17 +30,17 @@ async function getJobPosts() {
   return sanityClient.fetch<JobPost[]>(query);
 }
 
-const effortColorMap = {
+const effortColorMap: Record<EffortLevel, 'green' | 'yellow' | 'red'> = {
   low: "green",
   moderate: "yellow",
   elevate: "red",
-};
+} as const;
 
-const effortLabelMap = {
+const effortLabelMap: Record<EffortLevel, string> = {
   low: "Low effort (<4 hours/month)",
   moderate: "Moderate effort (4-8 hours/month)",
   elevate: "High effort (>8 hours/month)",
-};
+} as const;
 
 export async function JobPosts() {
   const jobs = await getJobPosts();
@@ -66,12 +68,10 @@ export async function JobPosts() {
               <div className="mb-4 flex items-center gap-4">
                 <Badge>{job.location}</Badge>
                 <Badge
-                  variant={
-                    effortColorMap[job.effort as keyof typeof effortColorMap]
-                  }
+                  variant={effortColorMap[job.effort]}
                 >
                   <Clock4 className="mr-1 h-3 w-3" />
-                  {effortLabelMap[job.effort as keyof typeof effortLabelMap]}
+                  {effortLabelMap[job.effort]}
                 </Badge>
                 <a
                   href={`mailto:hello@schroedinger-hat.org?subject=Application for ${job.title}`}
