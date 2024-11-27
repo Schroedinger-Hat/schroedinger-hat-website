@@ -1,6 +1,7 @@
 import OSDay2021 from '@/i18n/events/event/osday-21.json'
 import OSDay2023 from '@/i18n/events/event/osday-23.json'
 import OSDay2024 from '@/i18n/events/event/osday-24.json'
+import OSDay2025 from '@/i18n/events/event/osday-25.json'
 import Florence123 from '@/i18n/events/session/florence1-06-23.json'
 import Florence223 from '@/i18n/events/session/florence2-11-23.json'
 import Verona123 from '@/i18n/events/session/verona1-23.json'
@@ -77,6 +78,7 @@ const eventsJSON: EventJSON[] = [
   OSDay2021,
   OSDay2023,
   OSDay2024,
+  OSDay2025,
   Florence123,
   Florence223,
   Verona123,
