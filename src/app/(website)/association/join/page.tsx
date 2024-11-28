@@ -5,14 +5,15 @@ import { Image } from "@/components/atoms/media/Image";
 import { MembershipCheckoutButton } from "./components/membership-checkout-button";
 import { ReviewsSection } from "./components/reviews-section";
 import { FaqBlock } from "@/components/organisms/faq-block";
+import { sanityClient } from "@/sanity/lib/client";
+import { SectionContainer } from "@/components/atoms/layout/SectionContainer";
+import { type Metadata } from "next";
 
 // Images
 import perkBox from "@/images/membership/perk_box.svg";
 import perkEarlyAccess from "@/images/membership/perk_early_access.svg";
 import perkFood from "@/images/membership/perk_food.svg";
 import perkVote from "@/images/membership/perk_vote.svg";
-import { sanityClient } from "@/sanity/lib/client";
-import { SectionContainer } from "@/components/atoms/layout/SectionContainer";
 
 // Add these types at the top of the file
 type FAQ = {
@@ -31,6 +32,11 @@ async function getMembershipFAQs(): Promise<FAQ[]> {
     }
   `);
 }
+
+export const metadata: Metadata = {
+  title: "Schrödinger Hat: Join the Association",
+  description: "Learn more about how to join Schroedinger Hat as a member.",
+};
 
 export default async function BecomeMemberPage() {
   const faqs: FAQ[] = await getMembershipFAQs();

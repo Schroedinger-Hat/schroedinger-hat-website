@@ -14,6 +14,13 @@ import { BlackCTA } from "@/components/organisms/black-cta";
 import veronaPublic from "@/images/local-communities/verona_public.jpg";
 import miskoWorkshop from "@/images/local-communities/misko_workshop.jpg";
 import { SectionContainer } from "@/components/atoms/layout/SectionContainer";
+import { type Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Schrödinger Hat: Local Communities",
+  description:
+    "Learn more about our local communities and how to get involved.",
+};
 
 export default async function LocalCommunitiesPage() {
   return (

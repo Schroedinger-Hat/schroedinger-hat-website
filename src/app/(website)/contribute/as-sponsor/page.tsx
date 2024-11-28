@@ -8,10 +8,17 @@ import { BulletPoint } from "@/components/organisms/bullet-point";
 import { ImageContent } from "@/components/organisms/image-content";
 import { ImageHero } from "@/components/organisms/image-hero";
 import { StatBlocks } from "@/components/organisms/stat-block";
+import { type Metadata } from "next";
 
 // Images
 import asSponsor from "@/images/contribute/as_sponsor.jpg";
 import platea from "@/images/contribute/sponsor/os24_platea.jpg";
+
+export const metadata: Metadata = {
+  title: "Schrödinger Hat: Contribute as Sponsor",
+  description:
+    "Learn more about how to contribute to Schroedinger Hat as a sponsor.",
+};
 
 export default function BecomeSponsorPage() {
   return (

@@ -6,6 +6,13 @@ import { getAuthorNames, getVideoThumbnailUrl } from "@/lib/utils/videoContent";
 import type { Author, Video } from "@/sanity/sanity.types";
 import { SectionContainer } from "@/components/atoms/layout/SectionContainer";
 import { cn } from "@/lib/utils";
+import { type Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Schrödinger Hat: Watch",
+  description:
+    "Watch Schroedinger Hat videos, talks, workshops, podcasts and more.",
+};
 
 // Update the getVideos function to be more type-safe
 async function getVideos() {

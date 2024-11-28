@@ -9,9 +9,25 @@ import { formatDateTime } from "@/lib/utils/date";
 import { Typography } from "@/components/atoms/typography/Typography";
 import type { Page } from "@/sanity/sanity.types";
 import { SectionContainer } from "@/components/atoms/layout/SectionContainer";
+import { type Metadata } from "next";
+import { extractFirstParagraph } from "@/lib/seo";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
+}
+
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const pageData = await sanityClient.fetch<Page | null>(
+    `*[_type == "page" && slug.current == $slug][0]`,
+    { slug },
+  );
+  return {
+    title: `${pageData?.title} | Schroedinger Hat`,
+    description: extractFirstParagraph(pageData?.content ?? []),
+  };
 }
 
 export default async function Page({ params }: PageProps) {

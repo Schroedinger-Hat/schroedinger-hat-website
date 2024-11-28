@@ -8,9 +8,6 @@ import FeaturesList from "@/components/organisms/features-list";
 import { ImageHero } from "@/components/organisms/image-hero";
 import { sanityClient } from "@/sanity/lib/client";
 import { type Partner } from "@/sanity/sanity.types";
-
-// Images
-import asPartner from "@/images/contribute/as_partner.jpg";
 import {
   Knowledge01Icon,
   Mic01Icon,
@@ -23,6 +20,16 @@ import { BlackCTA } from "@/components/organisms/black-cta";
 import { LogoGallery } from "@/components/organisms/logo-gallery";
 import { urlFor } from "@/sanity/lib/image";
 import { FaqBlock } from "@/components/organisms/faq-block";
+import { type Metadata } from "next";
+
+// Images
+import asPartner from "@/images/contribute/as_partner.jpg";
+
+export const metadata: Metadata = {
+  title: "Schrödinger Hat: Contribute as Partner",
+  description:
+    "Learn more about how to contribute to Schroedinger Hat as a partner.",
+};
 
 export default async function BecomePartnerPage() {
   const partners: Partner[] = await sanityClient.fetch(

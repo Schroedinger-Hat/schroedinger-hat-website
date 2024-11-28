@@ -2,6 +2,7 @@ import { SectionContainer } from "@/components/atoms/layout/SectionContainer";
 import { Image } from "@/components/atoms/media/Image";
 import { Heading } from "@/components/atoms/typography/Heading";
 import { Typography } from "@/components/atoms/typography/Typography";
+import { type Metadata } from "next";
 
 // Images
 import logoBackground from "@/images/press-kit/logo - background - rounded - flat background.svg";
@@ -11,6 +12,11 @@ import logoBlackPng from "@/images/press-kit/logo - no background - no padding.p
 import logoWhite from "@/images/press-kit/logo white - no background - no padding.svg";
 import logoWhitePng from "@/images/press-kit/logo white - no background - no padding.png";
 import { Linkedin01Icon, NewTwitterIcon, YoutubeIcon } from "hugeicons-react";
+
+export const metadata: Metadata = {
+  title: "Schrödinger Hat: Press Kit",
+  description: "Download our press kit assets.",
+};
 
 export default function PressKitPage() {
   return (

@@ -13,10 +13,23 @@ import {
 import { VideoCard } from "@/components/molecules/video-card";
 import { EventCard } from "@/app/(website)/partecipate/events/components/event-cards";
 import { SectionContainer } from "@/components/atoms/layout/SectionContainer";
+import { type Metadata } from "next";
+import { extractFirstParagraph } from "@/lib/seo";
 
 interface AuthorWithVideosAndEvents extends Author {
   videos?: Video[];
   events?: Event[];
+}
+
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const speaker = await getSpeaker(slug);
+  return {
+    title: `${speaker?.title} | Speaker | Schroedinger Hat`,
+    description: extractFirstParagraph(speaker?.biography ?? []),
+  };
 }
 
 async function getSpeaker(slug: string) {

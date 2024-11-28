@@ -6,6 +6,8 @@ import { createPortableTextComponents } from "@/app/(website)/page/[slug]/portab
 import { EventHero } from "@/components/organisms/event-hero";
 import { AuthorCard } from "@/components/molecules/author-card";
 import { SectionContainer } from "@/components/atoms/layout/SectionContainer";
+import { type Metadata } from "next";
+import { extractFirstParagraph } from "@/lib/seo";
 
 interface EventWithAuthors extends Omit<Event, "authors"> {
   authors?: Author[];
@@ -26,6 +28,17 @@ async function getEvent(slug: string) {
 
 interface PageProps {
   params: Promise<{ slug: string }>;
+}
+
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const event = await getEvent(slug);
+  return {
+    title: `${event?.title} | Event | Schroedinger Hat`,
+    description: extractFirstParagraph(event?.abstract ?? []),
+  };
 }
 
 export default async function SingleEventPage({ params }: PageProps) {
