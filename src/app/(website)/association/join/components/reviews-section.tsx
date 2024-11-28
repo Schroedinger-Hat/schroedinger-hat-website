@@ -21,7 +21,7 @@ export function ReviewsSection() {
 
   return (
     <SectionContainer size="wide">
-      <div className="mb-12 text-center">
+      <div className="mb-12 md:text-center">
         <Heading level={2}>What people say about it</Heading>
         <Typography variant="medium">
           Truth be told, we don't have many reviews yet.
@@ -32,10 +32,14 @@ export function ReviewsSection() {
           So we asked ChatGTP to imagine what people would say about it.
         </Typography>
       </div>
-      <div className="relative left-1/2 right-1/2 -mx-[50vw] w-screen">
-        <div className="reviews-scroll flex snap-x snap-mandatory gap-2 overflow-x-auto px-16 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+
+      <div className="w-full overflow-hidden">
+        <div className="reviews-scroll flex snap-x snap-mandatory gap-2 overflow-x-auto pb-4 [-ms-overflow-style:none] [scrollbar-width:none] md:px-4 [&::-webkit-scrollbar]:hidden">
           {selectedReviews.map((review) => (
-            <div key={review.name} className="flex-none snap-center">
+            <div
+              key={review.name}
+              className="flex-none snap-center first:pl-4 last:pr-4 md:first:pl-0 md:last:pr-0"
+            >
               <ReviewCard
                 name={review.name}
                 rating={5}

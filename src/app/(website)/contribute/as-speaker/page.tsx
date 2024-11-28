@@ -112,7 +112,7 @@ export default function BecomeSpeakerPage() {
 
       <SectionContainer>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-          <div className="rounded-xl bg-slate-300 p-4 text-white shadow-xl">
+          <div className="rounded-xl bg-slate-300 p-2 text-white shadow-xl md:p-4">
             <div className="flex min-h-[180px] flex-row items-center justify-center rounded-xl bg-[#74B9FF] p-4">
               <Mic01Icon className="mb-2 h-16 w-16" />
               <Heading level={1} className="mb-0 pl-2 font-light text-white">
@@ -120,7 +120,7 @@ export default function BecomeSpeakerPage() {
               </Heading>
             </div>
 
-            <div className="mt-0 p-4">
+            <div className="px-4 py-6">
               <Heading level={4} className="">
                 What is it?
               </Heading>
@@ -158,7 +158,7 @@ export default function BecomeSpeakerPage() {
               </Typography>
             </div>
           </div>
-          <div className="rounded-xl bg-slate-300 p-4 text-white shadow-xl">
+          <div className="rounded-xl bg-slate-300 p-2 text-white shadow-xl md:p-4">
             <div className="flex min-h-[180px] flex-row items-center justify-center rounded-xl bg-[#00BB94] p-4">
               <Mic01Icon className="mb-2 h-16 w-16" />
               <Heading level={1} className="mb-0 pl-2 font-light text-white">
@@ -166,7 +166,7 @@ export default function BecomeSpeakerPage() {
               </Heading>
             </div>
 
-            <div className="mt-0 p-4">
+            <div className="px-4 py-6">
               <Heading level={4} className="">
                 What is it?
               </Heading>

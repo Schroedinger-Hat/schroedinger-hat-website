@@ -65,59 +65,56 @@ export function CardSection({
         className,
       )}
     >
-      <div className="container">
-        <div className="grid min-h-[400px] items-center gap-6 md:grid-cols-2 md:gap-12">
-          <div className="flex flex-col justify-center pl-16">
-            <div className="space-y-2">
-              <Heading
-                level={3}
-                className={cn(
-                  "text-lg font-medium leading-none",
-                  textOpacityStyles[variant],
-                )}
-              >
-                {topText}
-              </Heading>
-              <Heading
-                level={1}
-                className={cn("tracking-tighter", textStyles[variant])}
-              >
-                {title}
-              </Heading>
-              <Paragraph
-                className={cn(
-                  "max-w-[400px] md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed",
-                  textOpacityStyles[variant],
-                )}
-              >
-                {subtitle}
-              </Paragraph>
-            </div>
-            <div className="mt-2 flex flex-col gap-2 min-[400px]:flex-row">
-              <Link
-                href={ctaHref}
-                className={cn(
-                  "inline-flex h-12 items-center justify-center rounded-full px-8 text-lg font-medium shadow transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50",
-                  variant === "shop"
-                    ? "bg-gray-900 text-white hover:bg-gray-800"
-                    : "bg-white text-gray-900 hover:bg-gray-100",
-                )}
-              >
-                {ctaText}
-              </Link>
-            </div>
-          </div>
+      <div className="grid items-center gap-0 md:min-h-[400px] md:grid-cols-2 md:gap-12">
+        <div className="order-first flex justify-end md:order-last">
+          <Image
+            src={typeof image === "string" ? image : image.src}
+            alt={imageAlt}
+            withContainer={false}
+            width={600}
+            height={400}
+            className="w-full md:mt-0"
+          />
+        </div>
 
-          <div className="flex justify-end">
-            <Image
-              src={typeof image === "string" ? image : image.src}
-              alt={imageAlt}
-              width={600}
-              height={400}
-              priority
-              className="h-[400px]"
-              withContainer={false}
-            />
+        <div className="flex flex-col justify-center px-4 py-8 md:pl-16 md:pr-0">
+          <div className="space-y-0 md:space-y-2">
+            <Heading
+              level={3}
+              className={cn(
+                "text-lg font-medium leading-none",
+                textOpacityStyles[variant],
+              )}
+            >
+              {topText}
+            </Heading>
+            <Heading
+              level={1}
+              className={cn("tracking-tighter", textStyles[variant])}
+            >
+              {title}
+            </Heading>
+            <Paragraph
+              className={cn(
+                "max-w-[400px] md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed",
+                textOpacityStyles[variant],
+              )}
+            >
+              {subtitle}
+            </Paragraph>
+          </div>
+          <div className="mt-2 flex flex-col gap-2 min-[400px]:flex-row">
+            <Link
+              href={ctaHref}
+              className={cn(
+                "inline-flex h-12 items-center justify-center rounded-full px-8 text-lg font-medium shadow transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50",
+                variant === "shop"
+                  ? "bg-gray-900 text-white hover:bg-gray-800"
+                  : "bg-white text-gray-900 hover:bg-gray-100",
+              )}
+            >
+              {ctaText}
+            </Link>
           </div>
         </div>
       </div>

@@ -28,7 +28,8 @@ export function ImageContent({
         className={cn(
           "grid items-center gap-12",
           "lg:grid-cols-2",
-          imagePosition === "right" && "lg:[&>*:first-child]:order-last",
+          imagePosition === "right" ? "lg:[&>*:first-child]:order-last" : "",
+          "[&>*:nth-child(2)]:order-last lg:[&>*:nth-child(2)]:order-none",
         )}
       >
         <div className="relative aspect-[4/2] w-full overflow-hidden rounded-xl">
@@ -37,7 +38,6 @@ export function ImageContent({
             alt={imageAlt}
             fill
             className="object-cover"
-            // TODO: Width must be fixed to 668 on desktop and full on mobile
             sizes="(min-width: 1024px) 668px, 100vw"
           />
         </div>

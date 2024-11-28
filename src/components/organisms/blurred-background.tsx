@@ -1,5 +1,6 @@
 "use client";
 
+import { cn } from "@/lib/utils";
 import { useEffect, useRef } from "react";
 
 interface BlurredBackgroundProps {
@@ -132,9 +133,14 @@ export const BlurredBackground = ({
     <div
       id="blurred-background"
       ref={containerRef}
-      className={`absolute inset-0 -z-10 ${
-        canOverflow ? "" : "overflow-hidden"
-      } ${className}`}
+      className={cn(
+        "absolute inset-0 -z-10",
+        {
+          "overflow-hidden md:overflow-visible": canOverflow,
+          "overflow-hidden": !canOverflow,
+        },
+        className,
+      )}
       aria-hidden="true"
     />
   );

@@ -43,8 +43,8 @@ export async function FaqBlock({
   const faqs: FAQ[] = await getFAQs(groupKey);
 
   return (
-    <SectionContainer size="narrow">
-      <div className="pb-4 text-center">
+    <div>
+      <div className="pb-0 text-left md:pb-4 md:text-center">
         <Heading level={2}>{title}</Heading>
         {description && (
           <Typography variant="medium" className="text-left">
@@ -52,16 +52,18 @@ export async function FaqBlock({
           </Typography>
         )}
       </div>
-      <Accordion type="single" collapsible>
+      <Accordion type="single" collapsible className="">
         {faqs.map((faq) => (
           <AccordionItem key={faq._id} value={faq._id}>
-            <AccordionTrigger>{faq.question}</AccordionTrigger>
+            <AccordionTrigger className="text-left md:text-center">
+              {faq.question}
+            </AccordionTrigger>
             <AccordionContent>
               <PortableText value={faq.answer} />
             </AccordionContent>
           </AccordionItem>
         ))}
       </Accordion>
-    </SectionContainer>
+    </div>
   );
 }

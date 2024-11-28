@@ -68,37 +68,41 @@ export default function ContributeIndividualPage() {
 
       <SectionContainer>
         <div className="mb-8 grid grid-cols-1 gap-8">
-          <div className="relative flex h-[300px] flex-col content-end justify-end rounded-lg bg-black p-8 pl-80">
-            <Heading level={3} className="mb-0 text-white">
-              Activate a Membership
-            </Heading>
-            <Typography className="text-white">
-              Financially support the community and help sustain our nonprofit
-              initiatives.
-              <br />
-              As a member you are involved in steering the organization and help
-              shape our future.
-            </Typography>
-            <Link href="/associazione/diventa-socio">
-              <Button className="mt-4" variant="secondary">
-                Become a member
-                <ArrowRight className="h-5 w-5" />
-              </Button>
-            </Link>
+          <div className="relative flex flex-col content-start justify-start rounded-lg bg-black p-8 md:h-[300px] md:content-end md:justify-end md:pl-80">
+            <div className="flex h-full flex-col">
+              <Heading level={3} className="mb-0 text-white">
+                Activate a Membership
+              </Heading>
+              <Typography className="text-white">
+                Financially support the community and help sustain our nonprofit
+                initiatives.
+                <br />
+                As a member you are involved in steering the organization and
+                help shape our future.
+              </Typography>
+              <div className="mt-auto pt-4">
+                <Link href="/associazione/diventa-socio">
+                  <Button className="w-full sm:w-auto" variant="secondary">
+                    Become a member
+                    <ArrowRight className="h-5 w-5" />
+                  </Button>
+                </Link>
+              </div>
+            </div>
             <Image
               src={activateMembership.src}
               width={260}
               height={260}
               alt="Activate a Membership"
-              className="flip-x absolute -left-2 top-1/2 -translate-y-1/2 rounded-lg"
+              className="flip-x absolute -left-2 top-1/2 hidden -translate-y-1/2 rounded-lg md:block"
               withContainer={false}
             />
           </div>
         </div>
 
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
-          <div className="relative h-[280px] rounded-lg bg-orange-400 p-8">
-            <div className="flex w-1/2 flex-col">
+          <div className="relative rounded-lg bg-orange-400 p-8 md:h-[280px]">
+            <div className="flex w-full flex-col md:w-1/2">
               <Heading level={3} className="mb-0 text-white">
                 Volunteer
               </Heading>
@@ -117,12 +121,12 @@ export default function ContributeIndividualPage() {
               width={200}
               height={200}
               alt="Volunteer at our events"
-              className="absolute bottom-0 right-5 rounded-lg"
+              className="absolute bottom-0 right-5 hidden rounded-lg md:block"
               withContainer={false}
             />
           </div>
-          <div className="relative h-[280px] rounded-lg bg-green-400 p-8">
-            <div className="flex w-1/2 flex-col">
+          <div className="relative rounded-lg bg-green-400 p-8 md:h-[280px]">
+            <div className="flex w-full flex-col md:w-1/2">
               <Heading level={3} className="mb-0 text-white">
                 Develop code
               </Heading>
@@ -141,7 +145,7 @@ export default function ContributeIndividualPage() {
               width={200}
               height={200}
               alt="Contribute to projects"
-              className="absolute right-8 top-1/2 -translate-y-1/2 rounded-lg"
+              className="absolute right-8 top-1/2 hidden -translate-y-1/2 rounded-lg md:block"
               withContainer={false}
             />
           </div>
@@ -153,96 +157,97 @@ export default function ContributeIndividualPage() {
         <JobPosts />
       </SectionContainer>
 
+      {/* Gallery */}
       <SectionContainer size="wide">
         <Heading level={2} className="mb-8 text-center">
           Driven by Purpose, Fueled by Fun
         </Heading>
-        <div className="grid grid-cols-6 gap-4">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-6">
           {/* Row 1 */}
-          <div className="col-span-1"></div>
-          <div className="col-span-1">
+          <div className="hidden sm:col-span-1 sm:block"></div>
+          <div className="sm:col-span-1">
             <Image
               src={friends1.src}
               alt="Image 1"
               width={200}
               height={200}
-              className="h-full w-full rounded-lg bg-slate-200 object-cover shadow-xl"
+              className="aspect-[4/3] h-full w-full rounded-lg bg-slate-200 object-cover shadow-xl"
               withContainer={false}
             />
           </div>
-          <div className="col-span-2">
+          <div className="sm:col-span-2">
             <Image
               src={friends2.src}
               alt="Image 2"
               width={400}
               height={200}
-              className="h-full w-full rounded-lg bg-slate-200 object-cover shadow-xl"
+              className="aspect-[4/3] h-full w-full rounded-lg bg-slate-200 object-cover shadow-xl sm:aspect-[2/1]"
               withContainer={false}
             />
           </div>
-          <div className="col-span-1 row-span-2">
+          <div className="hidden sm:col-span-1 sm:row-span-2 sm:block">
             <Image
               src={friends3.src}
               alt="Image 3"
               width={200}
               height={400}
-              className="h-full w-full rounded-lg bg-slate-200 object-cover shadow-xl"
+              className="aspect-[4/3] h-full w-full rounded-lg bg-slate-200 object-cover shadow-xl sm:aspect-[1/2]"
               withContainer={false}
             />
           </div>
-          <div className="col-span-1"></div>
+          <div className="hidden sm:col-span-1 sm:block"></div>
 
           {/* Row 2 */}
-          <div className="col-span-1">
+          <div className="sm:col-span-1">
             <Image
               src={friends4.src}
               alt="Image 4"
               width={200}
               height={200}
-              className="h-full w-full rounded-lg bg-slate-200 object-cover shadow-xl"
+              className="aspect-[4/3] h-full w-full rounded-lg bg-slate-200 object-cover shadow-xl"
               withContainer={false}
             />
           </div>
-          <div className="col-span-2">
+          <div className="sm:col-span-2">
             <Image
               src={friends5.src}
               alt="Image 5"
               width={400}
               height={200}
-              className="h-full w-full rounded-lg bg-slate-200 object-cover shadow-xl"
+              className="aspect-[4/3] h-full w-full rounded-lg bg-slate-200 object-cover shadow-xl sm:aspect-[2/1]"
               withContainer={false}
             />
           </div>
-          <div className="col-span-1">
+          <div className="sm:col-span-1">
             <Image
               src={friends6.src}
               alt="Image 6"
               width={200}
               height={200}
-              className="h-full w-full rounded-lg bg-slate-200 object-cover shadow-xl"
+              className="aspect-[4/3] h-full w-full rounded-lg bg-slate-200 object-cover shadow-xl"
               withContainer={false}
             />
           </div>
 
           {/* Row 3 */}
-          <div className="col-span-2"></div>
-          <div className="col-span-2">
+          <div className="hidden sm:col-span-2 sm:block"></div>
+          <div className="sm:col-span-2">
             <Image
               src={friends7.src}
               alt="Image 7"
               width={400}
               height={200}
-              className="h-full w-full rounded-lg bg-slate-200 object-cover shadow-xl"
+              className="aspect-[4/3] h-full w-full rounded-lg bg-slate-200 object-cover shadow-xl sm:aspect-[2/1]"
               withContainer={false}
             />
           </div>
-          <div className="col-span-2">
+          <div className="sm:col-span-2">
             <Image
               src={friends8.src}
               alt="Image 8"
               width={400}
               height={200}
-              className="h-full w-full rounded-lg bg-slate-200 object-cover shadow-xl"
+              className="aspect-[4/3] h-full w-full rounded-lg bg-slate-200 object-cover shadow-xl sm:aspect-[2/1]"
               withContainer={false}
             />
           </div>

@@ -5,6 +5,7 @@ import { sanityClient } from "@/sanity/lib/client";
 import { getAuthorNames, getVideoThumbnailUrl } from "@/lib/utils/videoContent";
 import type { Author, Video } from "@/sanity/sanity.types";
 import { SectionContainer } from "@/components/atoms/layout/SectionContainer";
+import { cn } from "@/lib/utils";
 
 // Update the getVideos function to be more type-safe
 async function getVideos() {
@@ -45,39 +46,30 @@ export default async function WatchPage() {
                 title={video.shortTitle ?? video.title ?? ""}
                 subtitle={getAuthorNames(video.authors)}
                 imageUrl={getVideoThumbnailUrl(video)}
-                className={index === 0 ? "col-span-2" : ""}
+                className={cn({ "md:col-span-2": index === 0 })}
                 slug={video.slug?.current ?? ""}
               />
             ))}
         </div>
 
-        <div className="mb-8 mt-24 flex gap-8">
-          <Link href="/guarda/talks" className="text-center hover:bg-slate-200">
-            <Heading level={3} className="mb-4 text-slate-800">
+        <div className="mb-8 mt-24 grid grid-cols-2 gap-2 md:grid-cols-4 md:gap-8">
+          <Link href="/watch" className="text-center hover:bg-slate-200">
+            <Heading level={3} className="text-slate-800">
               Talks
             </Heading>
           </Link>
-          <Link
-            href="/guarda/workshops"
-            className="text-center hover:bg-slate-200"
-          >
-            <Heading level={3} className="mb-4 text-slate-400">
+          <Link href="/watch" className="text-center hover:bg-slate-200">
+            <Heading level={3} className="text-slate-400">
               Workshops
             </Heading>
           </Link>
-          <Link
-            href="/guarda/podcasts"
-            className="text-center hover:bg-slate-200"
-          >
-            <Heading level={3} className="mb-4 text-slate-400">
+          <Link href="/watch" className="text-center hover:bg-slate-200">
+            <Heading level={3} className="text-slate-400">
               Podcasts
             </Heading>
           </Link>
-          <Link
-            href="/guarda/generic"
-            className="text-center hover:bg-slate-200"
-          >
-            <Heading level={3} className="mb-4 text-slate-400">
+          <Link href="/watch" className="text-center hover:bg-slate-200">
+            <Heading level={3} className="text-slate-400">
               Generic
             </Heading>
           </Link>

@@ -5,10 +5,11 @@ import { Youtube, Twitter } from "lucide-react";
 import { inDevEnvironment } from "@/app/consts";
 import { Heading } from "@/components/atoms/typography/Heading";
 import { Paragraph } from "@/components/atoms/typography/Paragraph";
+import { Typography } from "../atoms/typography/Typography";
 
 export function Footer() {
   return (
-    <footer className="w-full border-t">
+    <footer className="border-t">
       <div className="container mx-auto max-w-7xl">
         <div className="container px-4 py-8 md:px-6 md:py-12">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
@@ -103,16 +104,19 @@ export function Footer() {
           <div className="mt-12 border-t py-4"> </div>
 
           {/* Bottom Links */}
-          <div className="flex flex-wrap gap-x-4 gap-y-2 text-sm text-muted-foreground">
-            <Paragraph className="m-0 text-sm">
+          <div className="flex flex-wrap justify-center gap-x-8 gap-y-2 text-muted-foreground md:justify-between">
+            <Typography variant="muted" className="m-0">
               © 2024, Schroedinger Hat
-            </Paragraph>
+            </Typography>
+
             <Link
               href="https://nextjs.org"
-              className="hover:underline"
+              className="hidden hover:underline md:block"
               target="_blank"
             >
-              <Paragraph className="m-0 text-sm">Powered by Next.js</Paragraph>
+              <Typography variant="muted" className="m-0">
+                Powered by Next.js
+              </Typography>
             </Link>
           </div>
         </div>

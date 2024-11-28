@@ -32,7 +32,6 @@ export function Image({
       height={height}
       priority={priority}
       className={cn(rounded && "rounded-lg", !withContainer && className)}
-      // fill={!width || !height}
     />
   );
 

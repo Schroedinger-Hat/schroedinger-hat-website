@@ -41,11 +41,11 @@ export function LogoGallery({
 
   return (
     <section className={cn("w-full", className)}>
-      <div className="container px-4 md:px-6">
+      <div className="container">
         {title && <Heading level={2}>{title}</Heading>}
         <div
           className={cn(
-            "grid grid-cols-1 items-center justify-center gap-8 sm:grid-cols-2",
+            "grid grid-cols-1 items-center justify-center gap-4 sm:grid-cols-2",
             {
               "md:grid-cols-3 lg:grid-cols-4": maxCols === 4,
               "md:grid-cols-3": maxCols === 3,

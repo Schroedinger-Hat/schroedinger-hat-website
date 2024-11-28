@@ -66,7 +66,7 @@ export default function BecomeSponsorPage() {
       </SectionContainer>
 
       <SectionContainer>
-        <div className="rounded-2xl bg-slate-100 p-8">
+        <div className="rounded-xl bg-slate-100 p-6 md:p-8">
           <BulletPoint
             title="Reasons to Sponsor"
             features={[
@@ -111,8 +111,8 @@ export default function BecomeSponsorPage() {
       </SectionContainer>
 
       <SectionContainer>
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-          {/* TODO: Must use a dark yellow background */}
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+          {/* Gold tier */}
           <div className="space-y-6 rounded-2xl bg-gradient-to-b from-[#DAA520] to-[#B98B15] p-6 text-white shadow-lg">
             <Heading level={2} className="text-center text-white">
               Gold
@@ -136,6 +136,7 @@ export default function BecomeSponsorPage() {
             </Heading>
           </div>
 
+          {/* Diamond tier */}
           <div className="space-y-6 rounded-2xl bg-gradient-to-b from-[#B8B8B8] to-[#999696] p-6 text-white shadow-lg">
             <Heading level={2} className="text-center text-white">
               Diamond
@@ -160,8 +161,12 @@ export default function BecomeSponsorPage() {
             </Heading>
           </div>
 
-          <div className="col-span-2">
-            <Typography className="text-center" variant="muted" as="p">
+          <div className="col-span-1 md:col-span-2">
+            <Typography
+              className="text-left md:text-center"
+              variant="muted"
+              as="p"
+            >
               Some events may offer additional perks for sponsors, but we strive
               to keep our packages straightforward and lean.
               <br />

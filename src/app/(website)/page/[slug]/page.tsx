@@ -31,7 +31,7 @@ export default async function Page({ params }: PageProps) {
     : null;
 
   return (
-    <SectionContainer size="medium">
+    <SectionContainer size="medium" className="px-8 md:px-0">
       <Heading level={1} className="mb-4">
         {pageData.title}
       </Heading>

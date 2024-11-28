@@ -56,7 +56,7 @@ export function Header() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 w-full transition-all duration-200",
+        "sticky top-0 z-50 px-4 py-2 transition-all duration-200 lg:p-0",
         "border-b",
         {
           "border-slate-200 bg-white": isScrolled,
@@ -64,10 +64,7 @@ export function Header() {
         },
       )}
     >
-      <nav
-        aria-label="Global"
-        className="mx-auto flex max-w-7xl items-center justify-between p-2 lg:px-8"
-      >
+      <nav className="mx-auto flex max-w-7xl items-center justify-between p-2 lg:px-8">
         <div className="flex lg:flex-1">
           <a href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">Schrödinger Hat</span>
@@ -97,7 +94,6 @@ export function Header() {
               <SheetHeader className="border-b pb-4">
                 <SheetTitle className="flex items-center gap-2">
                   <Image src={logo.src} alt="Logo" width={24} height={24} />
-                  <span>Menu</span>
                 </SheetTitle>
               </SheetHeader>
               <div className="mt-6 flex flex-col gap-4">
@@ -108,7 +104,7 @@ export function Header() {
                   Watch
                 </Link>
 
-                <Accordion type="single" collapsible>
+                <Accordion type="single">
                   <AccordionItem value="participate">
                     <AccordionTrigger>Participate</AccordionTrigger>
                     <AccordionContent>

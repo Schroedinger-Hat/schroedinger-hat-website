@@ -96,7 +96,11 @@ export default {
           to: {
             height: "0",
           },
-        }
+        },
+      },
+      fontSize: {
+        "8xl": ["80px", "1"],
+        "9xl": ["100px", "1"],
       },
     },
   },

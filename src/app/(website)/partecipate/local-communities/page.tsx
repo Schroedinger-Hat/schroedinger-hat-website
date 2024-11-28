@@ -69,43 +69,43 @@ export default async function LocalCommunitiesPage() {
           imageAlt="Team"
           imagePosition="right"
         />
+      </SectionContainer>
 
-        <div className="py-16">
-          <Heading level={2} className="mb-8">
-            Onboarding process
-          </Heading>
-          <StatBlocks
-            centered={false}
-            blocks={[
-              {
-                number: "1.",
-                title: "Register",
-                description:
-                  "Fill the form to express your interest in starting a local community in your area or joining us.",
-              },
-              {
-                number: "2.",
-                title: "Plan",
-                description:
-                  "We review your application and if approved, we will have a set of calls where we will help you plan your first meetup with Schroedinger Hat.",
-              },
-              {
-                number: "3.",
-                title: "Meetup",
-                description:
-                  "We will assist you during the organization, do promotions on our channels and help you to find speakers.",
-              },
-              {
-                number: "4.",
-                title: "Future",
-                description:
-                  "After the meetup we will give you feedback and continue to work with you to grow your community.",
-              },
-            ]}
-          />
-        </div>
+      <SectionContainer size="wide" spacing="medium">
+        <Heading level={2} className="mb-8">
+          Onboarding process
+        </Heading>
+        <StatBlocks
+          centered={false}
+          blocks={[
+            {
+              number: "1.",
+              title: "Register",
+              description:
+                "Fill the form to express your interest in starting a local community in your area or joining us.",
+            },
+            {
+              number: "2.",
+              title: "Plan",
+              description:
+                "We review your application and if approved, we will have a set of calls where we will help you plan your first meetup with Schroedinger Hat.",
+            },
+            {
+              number: "3.",
+              title: "Meetup",
+              description:
+                "We will assist you during the organization, do promotions on our channels and help you to find speakers.",
+            },
+            {
+              number: "4.",
+              title: "Future",
+              description:
+                "After the meetup we will give you feedback and continue to work with you to grow your community.",
+            },
+          ]}
+        />
 
-        <div className="container mx-auto max-w-7xl py-16">
+        <div className="container mx-auto max-w-7xl">
           <BlackCTA
             leftContent={
               <Heading
@@ -131,7 +131,9 @@ export default async function LocalCommunitiesPage() {
             }
           />
         </div>
+      </SectionContainer>
 
+      <SectionContainer size="narrow">
         <FaqBlock groupKey="local-community" />
       </SectionContainer>
     </main>

@@ -57,9 +57,9 @@ export default async function AboutUsPage() {
         <div className="container mx-auto px-4">
           <div className="flex flex-col items-center text-center">
             <div className="max-w-4xl">
-              <h1 className="mb-8 font-lexend text-[100px] font-medium leading-none tracking-[-7px] text-slate-800">
+              <Heading level={1} huge={true}>
                 Loving Open Source since 2020
-              </h1>
+              </Heading>
             </div>
             <div className="max-w-2xl">
               <h2 className="text-[22px] font-normal text-slate-800">
@@ -78,7 +78,7 @@ export default async function AboutUsPage() {
           alt="Schroedinger Hat"
           width={1000}
           height={400}
-          className="h-[400px] w-full overflow-hidden rounded-lg object-cover object-center"
+          className="aspect-[4/3] w-full overflow-hidden rounded-lg object-cover object-center md:aspect-[10/4]"
           withContainer={false}
         />
 
@@ -160,7 +160,7 @@ export default async function AboutUsPage() {
               alt="Schroedinger Hat community members on stage"
               width={600}
               height={500}
-              className="h-[500px] w-full object-cover"
+              className="aspect-[4/3] w-full object-cover md:aspect-auto md:h-[500px]"
               withContainer={false}
             />
           </div>

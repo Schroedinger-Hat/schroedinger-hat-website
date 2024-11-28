@@ -1,4 +1,5 @@
 import { Image } from "@/components/atoms/media/Image";
+import { Heading } from "../atoms/typography/Heading";
 
 interface ImageHeroProps {
   title: React.ReactNode;
@@ -19,7 +20,7 @@ export function ImageHero({
 }: ImageHeroProps) {
   return (
     <div
-      className="rounded-xl text-white shadow-xl"
+      className="overflow-hidden rounded-xl text-white shadow-xl"
       style={{ backgroundColor }}
     >
       <div className="flex flex-col md:flex-row">
@@ -29,13 +30,13 @@ export function ImageHero({
           width={500}
           height={500}
           withContainer={false}
-          className="rounded-l-xl"
+          className="rounded-t-xl md:rounded-none"
         />
 
         <div className="flex w-full flex-col justify-end space-y-4 py-2 pl-4 md:w-1/2">
-          <h1 className="mb-8 font-lexend text-[80px] font-medium leading-none tracking-[-7px] text-slate-200">
+          <Heading level={1} boost className="text-slate-200">
             {title}
-          </h1>
+          </Heading>
           {subtitle && <div className="text-slate-200">{subtitle}</div>}
         </div>
       </div>

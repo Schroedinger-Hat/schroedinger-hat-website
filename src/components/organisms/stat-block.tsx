@@ -23,17 +23,13 @@ export function StatBlocks({
         className={cn(
           "grid grid-cols-1 gap-8",
           "sm:grid-cols-[repeat(auto-fit,minmax(240px,1fr))]",
-          centered && "text-center",
+          centered && "text-left md:text-center",
         )}
       >
         {blocks.map((block, index) => (
-          <div key={index} className="space-y-2">
-            <Heading level={2} className="text-4xl lg:text-5xl">
-              {block.number}
-            </Heading>
-            <Heading level={3} className="text-xl">
-              {block.title}
-            </Heading>
+          <div key={index} className="space-y-0 md:space-y-2">
+            <Heading level={1}>{block.number}</Heading>
+            <Heading level={3}>{block.title}</Heading>
             <Paragraph className="text-muted-foreground">
               {block.description}
             </Paragraph>

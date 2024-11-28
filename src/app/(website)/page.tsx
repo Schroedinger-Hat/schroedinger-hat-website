@@ -35,12 +35,12 @@ export default async function Home() {
         />
 
         <div className="container mx-auto px-4">
-          <div className="flex flex-col items-center text-center">
+          <div className="flex flex-col items-center text-left md:text-center">
             <div className="max-w-4xl">
-              <h1 className="mb-8 font-lexend text-[100px] font-medium leading-none tracking-[-7px] text-slate-800">
+              <Heading level={1} huge={true}>
                 Where we talk <br />
                 open source
-              </h1>
+              </Heading>
             </div>
             <div className="max-w-2xl">
               <h2 className="text-[22px] font-normal text-slate-800">
@@ -48,16 +48,15 @@ export default async function Home() {
                 <br /> we organizes events and write software.
               </h2>
             </div>
-            <div className="mx-auto pt-16">
+            <div className="mx-auto hidden pt-16 md:block">
               <TrackingCat />
             </div>
           </div>
         </div>
       </SectionContainer>
 
-      <SectionContainer size="wide" className="-mt-24">
+      <SectionContainer size="wide" className="md:-mt-24" spacing="medium">
         <ImageContent
-          className="py-16"
           title="The collective"
           content={
             <>
@@ -87,7 +86,6 @@ export default async function Home() {
         />
 
         <StatBlocks
-          className="py-16"
           blocks={[
             {
               number: "20k",
@@ -115,12 +113,9 @@ export default async function Home() {
         />
       </SectionContainer>
 
-      <SectionContainer withBackground size="wide">
-        <Heading className="m-0" level={2}>
-          You may know us for
-        </Heading>
+      <SectionContainer withBackground size="wide" spacing="medium">
+        <Heading level={2}>You may know us for</Heading>
         <ImageContent
-          className="py-16"
           title="OSDay"
           content={
             <>
@@ -150,7 +145,6 @@ export default async function Home() {
           imagePosition="left"
         />
         <ImageContent
-          className="py-16"
           title="ImageGoNord"
           content={
             <>
@@ -199,7 +193,7 @@ export default async function Home() {
 
         {/* Inform user that we have on online shop where they can buy merch and t-shirts */}
         <CardSection
-          className="my-8"
+          className=""
           topText="eCommerce"
           title="Merch and T-Shirts"
           subtitle="Wanna dress like a Schroedinger Hat fan? Visit our online shop where you can buy our merch and t-shirts."

@@ -17,7 +17,7 @@ export const BulletPoint: FC<BulletPointProps> = ({
   className,
 }) => {
   return (
-    <div className={cn("flex flex-col gap-8", className)}>
+    <div className={cn("flex flex-col gap-2", className)}>
       {title && (
         <Heading level={2} className={cn("mb-0", className)}>
           {title}
