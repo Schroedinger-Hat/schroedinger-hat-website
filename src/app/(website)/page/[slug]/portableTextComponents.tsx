@@ -6,6 +6,22 @@ import { List } from "@/components/atoms/lists/List";
 import { ListItem } from "@/components/atoms/lists/ListItem";
 import { InlineText } from "@/components/atoms/typography/InlineText";
 import { Link } from "@/components/atoms/links/Link";
+import { Image } from "@/components/atoms/media/Image";
+import { urlFor } from "@/sanity/lib/image";
+
+// Define the type for link value
+interface LinkValue {
+  href: string;
+}
+
+// Define the type for image value
+interface ImageValue {
+  asset: {
+    _ref: string;
+  };
+  alt?: string;
+  caption?: string;
+}
 
 export const createPortableTextComponents = (
   className?: string,
@@ -70,9 +86,30 @@ export const createPortableTextComponents = (
       </InlineText>
     ),
     link: ({ value, children }) => (
-      <Link href={value?.href || ""} className={className}>
+      <Link href={(value as LinkValue)?.href ?? "#"} className={className}>
         {children}
       </Link>
     ),
+  },
+  types: {
+    image: ({ value }: { value: ImageValue }) => {
+      return (
+        <figure className="-mx-0 my-0 md:-mx-8 lg:-mx-16">
+          <Image
+            src={urlFor(value).url()}
+            alt={value.alt ?? ""}
+            width={1200}
+            height={800}
+            className="mx-auto w-full rounded-lg"
+            withContainer={false}
+          />
+          {value.caption && (
+            <figcaption className="mt-2 text-center text-sm text-gray-500">
+              {value.caption}
+            </figcaption>
+          )}
+        </figure>
+      );
+    },
   },
 });

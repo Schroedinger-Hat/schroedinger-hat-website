@@ -129,10 +129,8 @@ export default async function BecomePartnerPage() {
             href: "mailto:us@schroedinger-hat.org",
           }}
         >
-          <BlackCTAHeading>
-            Team up?
-          </BlackCTAHeading>
-        </BlackCTA> 
+          <BlackCTAHeading>Team up?</BlackCTAHeading>
+        </BlackCTA>
       </SectionContainer>
 
       <SectionContainer size="wide">

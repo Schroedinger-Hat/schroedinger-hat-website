@@ -77,7 +77,7 @@ export default async function BecomeMemberPage() {
         </div>
       </SectionContainer>
 
-      <SectionContainer size="wide" className="space-y-4 hidden md:block">
+      <SectionContainer size="wide" className="hidden space-y-4 md:block">
         {/* First row - stacks vertically on mobile */}
         <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
           <div className="flex flex-col justify-end rounded-lg bg-white p-6 md:h-[350px] md:p-8 md:pb-8 md:pl-16">
@@ -183,7 +183,7 @@ export default async function BecomeMemberPage() {
 
         <div className="flex flex-col gap-4 rounded-xl bg-[#4B4EE4] p-6">
           <div className="flex justify-center">
-            <div className="w-1/2 aspect-square">
+            <div className="aspect-square w-1/2">
               <Image
                 src={perkEarlyAccess}
                 alt="Early access"
@@ -192,14 +192,14 @@ export default async function BecomeMemberPage() {
               />
             </div>
           </div>
-          <Typography variant="lead" className="text-white text-center">
+          <Typography variant="lead" className="text-center text-white">
             Early access to event ticket, news and merch drops
           </Typography>
         </div>
 
         <div className="flex flex-col gap-4 rounded-xl bg-[#E67E22] p-6">
           <div className="flex justify-center">
-            <div className="w-1/2 aspect-square">
+            <div className="aspect-square w-1/2">
               <Image
                 src={perkBox}
                 alt="Merch discounts"
@@ -207,14 +207,14 @@ export default async function BecomeMemberPage() {
               />
             </div>
           </div>
-          <Typography variant="lead" className="text-white text-center">
+          <Typography variant="lead" className="text-center text-white">
             Merch store discounts and free shipping!
           </Typography>
         </div>
 
         <div className="flex flex-col gap-4 rounded-xl bg-[#DDA0DD] p-6">
           <div className="flex justify-center">
-            <div className="w-1/2 aspect-square">
+            <div className="aspect-square w-1/2">
               <Image
                 src={perkFood}
                 alt="Members only dinners"
@@ -235,7 +235,7 @@ export default async function BecomeMemberPage() {
 
         <div className="flex flex-col gap-4 rounded-xl bg-[#B6D9A5] p-6">
           <div className="flex justify-center">
-            <div className="w-1/2 aspect-square">
+            <div className="aspect-square w-1/2">
               <Image
                 src={perkVote}
                 alt="Voting rights"
@@ -243,8 +243,9 @@ export default async function BecomeMemberPage() {
               />
             </div>
           </div>
-          <Typography variant="lead" className="text-white text-center">
-            Votations to drive our organization and choose speakers for our major events
+          <Typography variant="lead" className="text-center text-white">
+            Votations to drive our organization and choose speakers for our
+            major events
           </Typography>
         </div>
       </SectionContainer>

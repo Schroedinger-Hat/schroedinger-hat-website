@@ -123,16 +123,14 @@ export default function BecomeSpeakerPage() {
           <div className="rounded-xl bg-slate-300 p-2 text-white shadow-xl md:p-4">
             <div className="flex min-h-[180px] flex-row items-center justify-center rounded-xl bg-[#74B9FF] p-4">
               <Mic01Icon className="mb-2 h-16 w-16" />
-              <Heading level={1} className="md:mb-0 pl-2 font-light text-white">
+              <Heading level={1} className="pl-2 font-light text-white md:mb-0">
                 Session
               </Heading>
             </div>
 
             <div className="px-4 py-6">
-              <Heading level={4}>
-                What is it?
-              </Heading>
-              <Typography >
+              <Heading level={4}>What is it?</Heading>
+              <Typography>
                 A Talk is a traditional conference-style presentation, lasting
                 30 to 60 minutes. It focuses on a single topic, idea, or story,
                 delivered with accompanying slides to inspire the audience.
@@ -158,7 +156,7 @@ export default function BecomeSpeakerPage() {
               <Heading level={4} className="pt-4">
                 Why choose this?
               </Heading>
-              <Typography >
+              <Typography>
                 Choosing a Talk allows you to share your expertise and passion
                 in a structured and impactful way. It’s perfect for reaching a
                 broad audience, delivering clear insights, and sparking
@@ -169,15 +167,13 @@ export default function BecomeSpeakerPage() {
           <div className="rounded-xl bg-slate-300 p-2 text-white shadow-xl md:p-4">
             <div className="flex min-h-[180px] flex-row items-center justify-center rounded-xl bg-[#00BB94] p-4">
               <Wrench01Icon className="mb-2 h-16 w-16" />
-              <Heading level={1} className="md:mb-0 pl-2 font-light text-white">
+              <Heading level={1} className="pl-2 font-light text-white md:mb-0">
                 Workshop
               </Heading>
             </div>
 
             <div className="px-4 py-6">
-              <Heading level={4}>
-                What is it?
-              </Heading>
+              <Heading level={4}>What is it?</Heading>
               <Typography>
                 A Workshop is an interactive session lasting 2 to 8 hours,
                 designed to delve deeply into a specific topic, technology, or
@@ -252,13 +248,11 @@ export default function BecomeSpeakerPage() {
       <SectionContainer>
         <BlackCTA
           cta={{
-            text: "Write us",   
+            text: "Write us",
             href: "mailto:event@schroedinger-hat.org",
           }}
         >
-          <BlackCTAHeading>
-            Interested?
-          </BlackCTAHeading>
+          <BlackCTAHeading>Interested?</BlackCTAHeading>
         </BlackCTA>
       </SectionContainer>
 

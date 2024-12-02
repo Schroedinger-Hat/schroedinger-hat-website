@@ -42,12 +42,23 @@ export default async function Page({ params }: PageProps) {
     notFound();
   }
 
-  const imageUrl = pageData.headerImage?.asset
+  const headerImage = pageData.headerImage?.asset
     ? urlFor(pageData.headerImage.asset).width(1000).url()
     : null;
 
   return (
     <SectionContainer size="medium" className="px-8 md:px-0">
+      {headerImage && (
+        <Image
+          src={headerImage}
+          alt={pageData.title!}
+          width={1000}
+          height={500}
+          withContainer={false}
+          className="mb-8 h-auto w-full rounded-xl shadow-xl"
+        />
+      )}
+
       <Heading level={1} className="mb-4">
         {pageData.title}
       </Heading>
@@ -59,15 +70,6 @@ export default async function Page({ params }: PageProps) {
 
       <hr className="my-8" />
 
-      {imageUrl && (
-        <Image
-          src={imageUrl}
-          alt={pageData.title!}
-          width={1000}
-          height={500}
-          className="mb-8 h-auto w-full rounded-lg shadow-lg"
-        />
-      )}
       <div className="prose prose-lg max-w-none">
         <PortableText
           value={pageData.content!}

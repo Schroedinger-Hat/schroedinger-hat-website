@@ -86,110 +86,118 @@ export function Header() {
               </button>
             </SheetTrigger>
             <SheetContent
-      side="left"
-      className={cn(
-        "h-full w-full border-0",
-        "data-[state=closed]:animate-none data-[state=open]:animate-none",
-        "transition-none",
-      )}
-    >
-      <SheetHeader className="pb-4">
-        <SheetTitle className="flex items-center">
-          <Image src={logo.src} alt="Logo" width={32} height={32}/>
-        </SheetTitle>
-      </SheetHeader>
-      <div className="mt-6 flex flex-col gap-4">
-        <SheetClose asChild>
-          <Link
-            href="/watch"
-            className="text-sm font-medium transition-colors hover:text-primary"
-          >
-           <Typography variant="navigationMobile">
-            Watch
-           </Typography>
-          </Link>
-        </SheetClose>
+              side="left"
+              className={cn(
+                "h-full w-full border-0",
+                "data-[state=closed]:animate-none data-[state=open]:animate-none",
+                "transition-none",
+              )}
+            >
+              <SheetHeader className="pb-4">
+                <SheetTitle className="flex items-center">
+                  <Image src={logo.src} alt="Logo" width={32} height={32} />
+                </SheetTitle>
+              </SheetHeader>
+              <div className="mt-6 flex flex-col gap-4">
+                <SheetClose asChild>
+                  <Link
+                    href="/watch"
+                    className="text-sm font-medium transition-colors hover:text-primary"
+                  >
+                    <Typography variant="navigationMobile">Watch</Typography>
+                  </Link>
+                </SheetClose>
 
-        <Accordion type="single">
-          <AccordionItem value="participate" className="border-b-0">
-            <AccordionTrigger>
-              <Typography variant="navigationMobile">
-                Participate
-              </Typography>
-            </AccordionTrigger>
-            <AccordionContent className="border-none">
-              <div className="flex flex-col gap-2">
-                {partecipateMenuData.map((item) => (
-                  <SheetClose key={item.title} asChild>
-                    <Link
-                      href={item.href}
-                      className="pl-4 text-sm text-muted-foreground hover:text-primary"
-                    >
-                      <Typography variant="navigationMobile">{item.title}</Typography>
-                    </Link>
-                  </SheetClose>
-                ))}
+                <Accordion type="single">
+                  <AccordionItem value="participate" className="border-b-0">
+                    <AccordionTrigger>
+                      <Typography variant="navigationMobile">
+                        Participate
+                      </Typography>
+                    </AccordionTrigger>
+                    <AccordionContent className="border-none">
+                      <div className="flex flex-col gap-2">
+                        {partecipateMenuData.map((item) => (
+                          <SheetClose key={item.title} asChild>
+                            <Link
+                              href={item.href}
+                              className="pl-4 text-sm text-muted-foreground hover:text-primary"
+                            >
+                              <Typography variant="navigationMobile">
+                                {item.title}
+                              </Typography>
+                            </Link>
+                          </SheetClose>
+                        ))}
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  <AccordionItem value="contribute" className="border-b-0">
+                    <AccordionTrigger>
+                      <Typography variant="navigationMobile">
+                        Contribute
+                      </Typography>
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      <div className="flex flex-col gap-2">
+                        {contributeMenuData.map((item) => (
+                          <SheetClose key={item.title} asChild>
+                            <Link
+                              href={item.href}
+                              className="pl-4 text-sm text-muted-foreground hover:text-primary"
+                            >
+                              <Typography variant="navigationMobile">
+                                {item.title}
+                              </Typography>
+                            </Link>
+                          </SheetClose>
+                        ))}
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  <AccordionItem value="association" className="border-b-0">
+                    <AccordionTrigger>
+                      <Typography variant="navigationMobile">
+                        Association
+                      </Typography>
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      <div className="flex flex-col gap-2">
+                        {associationMenuData.map((item) => (
+                          <SheetClose key={item.title} asChild>
+                            <Link
+                              href={item.href}
+                              className="pl-4 text-sm text-muted-foreground hover:text-primary"
+                            >
+                              <Typography variant="navigationMobile">
+                                {item.title}
+                              </Typography>
+                            </Link>
+                          </SheetClose>
+                        ))}
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
+
+                <SheetClose asChild>
+                  <Link
+                    href="/docs"
+                    className="text-sm font-medium transition-colors hover:text-primary"
+                  >
+                    <Typography variant="navigationMobile">Merch</Typography>
+                  </Link>
+                </SheetClose>
+
+                <SheetClose asChild>
+                  <Link href="/association/join" className="mt-4">
+                    <Button className="w-full">Join</Button>
+                  </Link>
+                </SheetClose>
               </div>
-            </AccordionContent>
-          </AccordionItem>
-
-          <AccordionItem value="contribute" className="border-b-0">
-            <AccordionTrigger>
-              <Typography variant="navigationMobile">Contribute</Typography>
-            </AccordionTrigger>
-            <AccordionContent>
-              <div className="flex flex-col gap-2">
-                {contributeMenuData.map((item) => (
-                  <SheetClose key={item.title} asChild>
-                    <Link
-                      href={item.href}
-                      className="pl-4 text-sm text-muted-foreground hover:text-primary"
-                    >
-                      <Typography variant="navigationMobile">{item.title}</Typography>
-                    </Link>
-                  </SheetClose>
-                ))}
-              </div>
-            </AccordionContent>
-          </AccordionItem>
-
-          <AccordionItem value="association" className="border-b-0">
-              <AccordionTrigger>
-              <Typography variant="navigationMobile">Association</Typography>
-            </AccordionTrigger>
-            <AccordionContent>
-              <div className="flex flex-col gap-2">
-                {associationMenuData.map((item) => (
-                  <SheetClose key={item.title} asChild>
-                    <Link
-                      href={item.href}
-                      className="pl-4 text-sm text-muted-foreground hover:text-primary"
-                    >
-                      <Typography variant="navigationMobile">{item.title}</Typography>
-                    </Link>
-                  </SheetClose>
-                ))}
-              </div>
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
-
-        <SheetClose asChild>
-          <Link
-            href="/docs"
-            className="text-sm font-medium transition-colors hover:text-primary"
-          >
-            <Typography variant="navigationMobile">Merch</Typography>
-          </Link>
-        </SheetClose>
-
-        <SheetClose asChild>
-          <Link href="/association/join" className="mt-4">
-            <Button className="w-full">Join</Button>
-          </Link>
-        </SheetClose>
-      </div>
-    </SheetContent>
+            </SheetContent>
           </Sheet>
         </div>
 

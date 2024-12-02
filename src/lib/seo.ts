@@ -30,23 +30,25 @@ export function extractFirstParagraph(
   if (!description?.length) return "";
 
   // Find first text block using type assertion
-  const firstParagraph = description.find((block): block is any => 
-    block._type === "block" && 
-    Array.isArray((block as PortableTextBlockExtended).children) &&
-    ((block as PortableTextBlockExtended).children?.length ?? 0) > 0
+  const firstParagraph = description.find(
+    (block): block is any =>
+      block._type === "block" &&
+      Array.isArray((block as PortableTextBlockExtended).children) &&
+      ((block as PortableTextBlockExtended).children?.length ?? 0) > 0,
   );
 
   if (!firstParagraph) return "";
 
   // Combine all text from child spans
-  const fullText = firstParagraph.children
-    ?.filter((child: any) => 
-      child._type === "span" && 
-      typeof child.text === "string"
-    )
-    .map((child: any) => child.text)
-    .join(" ")
-    .trim() ?? "";
+  const fullText =
+    firstParagraph.children
+      ?.filter(
+        (child: any) =>
+          child._type === "span" && typeof child.text === "string",
+      )
+      .map((child: any) => child.text)
+      .join(" ")
+      .trim() ?? "";
 
   if (!fullText) return "";
 

@@ -1,6 +1,6 @@
 import { draftMode } from "next/headers";
 import { sanityClient } from "@/sanity/lib/client";
-import { SanityImageObject } from "@sanity/image-url/lib/types/types";
+import { type SanityImageObject } from "@sanity/image-url/lib/types/types";
 import { urlFor } from "@/sanity/lib/image";
 import Image from "next/image";
 
