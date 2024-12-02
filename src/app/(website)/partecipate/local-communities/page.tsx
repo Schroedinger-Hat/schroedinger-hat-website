@@ -8,7 +8,7 @@ import { Typography } from "@/components/atoms/typography/Typography";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { FaqBlock } from "@/components/organisms/faq-block";
-import { BlackCTA } from "@/components/organisms/black-cta";
+import { BlackCTA, BlackCTAHeading } from "@/components/organisms/black-cta";
 
 // Images
 import veronaPublic from "@/images/local-communities/verona_public.jpg";
@@ -112,32 +112,16 @@ export default async function LocalCommunitiesPage() {
           ]}
         />
 
-        <div className="container mx-auto max-w-7xl">
+        <SectionContainer size="medium">
           <BlackCTA
-            leftContent={
-              <Heading
-                level={1}
-                className="mb-0 font-lexend text-[80px] tracking-tight text-white"
-              >
-                Ready?
-              </Heading>
-            }
-            rightContent={
-              <Link
-                href="https://forms.gle/25meVEFGiKU8pki7A"
-                className="h-full max-w-48"
-              >
-                <Button
-                  size="lg"
-                  variant="secondary"
-                  className="h-full max-w-48"
-                >
-                  Register
-                </Button>
-              </Link>
-            }
-          />
-        </div>
+            cta={{
+              text: "Get in touch",
+              href: "https://forms.gle/25meVEFGiKU8pki7A",
+            }}
+          >
+            <BlackCTAHeading>Ready?</BlackCTAHeading>
+          </BlackCTA>
+        </SectionContainer>
       </SectionContainer>
 
       <SectionContainer size="narrow">

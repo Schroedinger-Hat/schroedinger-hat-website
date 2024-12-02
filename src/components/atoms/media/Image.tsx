@@ -11,6 +11,7 @@ interface ImageProps {
   rounded?: boolean;
   relative?: boolean;
   withContainer?: boolean;
+  fill?: boolean;
 }
 
 export function Image({
@@ -23,15 +24,21 @@ export function Image({
   rounded = false,
   relative = false,
   withContainer = true,
+  fill = false,
 }: ImageProps) {
   const imageElement = (
     <NextImage
       src={src}
       alt={alt}
-      width={width}
-      height={height}
+      width={!fill ? width : undefined}
+      height={!fill ? height : undefined}
+      fill={fill}
       priority={priority}
-      className={cn(rounded && "rounded-lg", !withContainer && className)}
+      className={cn(
+        rounded && "rounded-lg",
+        fill && "object-cover",
+        !withContainer && className
+      )}
     />
   );
 
@@ -41,11 +48,19 @@ export function Image({
 
   return (
     <div
-      className={cn(relative && "relative", rounded && "rounded-lg", className)}
-      style={{
-        width: width ? `${width}px` : "100%",
-        height: height ? `${height}px` : "100%",
-      }}
+      className={cn(
+        relative && "relative",
+        rounded && "rounded-lg",
+        className
+      )}
+      style={
+        !fill
+          ? {
+              width: width ? `${width}px` : "100%",
+              height: height ? `${height}px` : "100%",
+            }
+          : undefined
+      }
     >
       {imageElement}
     </div>

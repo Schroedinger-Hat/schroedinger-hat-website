@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Menu } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
@@ -31,6 +31,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
+  SheetClose,
 } from "@/components/ui/sheet";
 import {
   Accordion,
@@ -56,7 +57,7 @@ export function Header() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 px-4 py-2 transition-all duration-200 lg:p-0",
+        "sticky top-0 z-50 p-4 transition-all duration-200 lg:p-0",
         "border-b",
         {
           "border-slate-200 bg-white": isScrolled,
@@ -66,12 +67,13 @@ export function Header() {
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-2 lg:px-8">
         <div className="flex lg:flex-1">
-          <a href="/" className="-m-1.5 p-1.5">
+          <a href="/" className="">
             <span className="sr-only">Schrödinger Hat</span>
             <Image src={logo.src} alt="Logo" width={32} height={32} />
           </a>
         </div>
 
+        {/* Mobile menu */}
         <div className="flex lg:hidden">
           <Sheet>
             <SheetTrigger asChild>
@@ -84,94 +86,114 @@ export function Header() {
               </button>
             </SheetTrigger>
             <SheetContent
-              side="left"
-              className={cn(
-                "h-full w-full border-0", // Make it fullscreen
-                "data-[state=closed]:animate-none data-[state=open]:animate-none", // Remove animations
-                "transition-none", // Remove transition
-              )}
-            >
-              <SheetHeader className="border-b pb-4">
-                <SheetTitle className="flex items-center gap-2">
-                  <Image src={logo.src} alt="Logo" width={24} height={24} />
-                </SheetTitle>
-              </SheetHeader>
-              <div className="mt-6 flex flex-col gap-4">
-                <Link
-                  href="/watch"
-                  className="text-sm font-medium transition-colors hover:text-primary"
-                >
-                  Watch
-                </Link>
+      side="left"
+      className={cn(
+        "h-full w-full border-0",
+        "data-[state=closed]:animate-none data-[state=open]:animate-none",
+        "transition-none",
+      )}
+    >
+      <SheetHeader className="pb-4">
+        <SheetTitle className="flex items-center">
+          <Image src={logo.src} alt="Logo" width={32} height={32}/>
+        </SheetTitle>
+      </SheetHeader>
+      <div className="mt-6 flex flex-col gap-4">
+        <SheetClose asChild>
+          <Link
+            href="/watch"
+            className="text-sm font-medium transition-colors hover:text-primary"
+          >
+           <Typography variant="navigationMobile">
+            Watch
+           </Typography>
+          </Link>
+        </SheetClose>
 
-                <Accordion type="single">
-                  <AccordionItem value="participate">
-                    <AccordionTrigger>Participate</AccordionTrigger>
-                    <AccordionContent>
-                      <div className="flex flex-col gap-2">
-                        {partecipateMenuData.map((item) => (
-                          <Link
-                            key={item.title}
-                            href={item.href}
-                            className="pl-4 text-sm text-muted-foreground hover:text-primary"
-                          >
-                            {item.title}
-                          </Link>
-                        ))}
-                      </div>
-                    </AccordionContent>
-                  </AccordionItem>
-
-                  <AccordionItem value="contribute">
-                    <AccordionTrigger>Contribute</AccordionTrigger>
-                    <AccordionContent>
-                      <div className="flex flex-col gap-2">
-                        {contributeMenuData.map((item) => (
-                          <Link
-                            key={item.title}
-                            href={item.href}
-                            className="pl-4 text-sm text-muted-foreground hover:text-primary"
-                          >
-                            {item.title}
-                          </Link>
-                        ))}
-                      </div>
-                    </AccordionContent>
-                  </AccordionItem>
-
-                  <AccordionItem value="association">
-                    <AccordionTrigger>Association</AccordionTrigger>
-                    <AccordionContent>
-                      <div className="flex flex-col gap-2">
-                        {associationMenuData.map((item) => (
-                          <Link
-                            key={item.title}
-                            href={item.href}
-                            className="pl-4 text-sm text-muted-foreground hover:text-primary"
-                          >
-                            {item.title}
-                          </Link>
-                        ))}
-                      </div>
-                    </AccordionContent>
-                  </AccordionItem>
-                </Accordion>
-
-                <Link
-                  href="/docs"
-                  className="text-sm font-medium transition-colors hover:text-primary"
-                >
-                  Merch
-                </Link>
-
-                <Link href="https://shop.schrodinger-hat.it/" className="mt-4">
-                  <Button className="w-full">Join</Button>
-                </Link>
+        <Accordion type="single">
+          <AccordionItem value="participate" className="border-b-0">
+            <AccordionTrigger>
+              <Typography variant="navigationMobile">
+                Participate
+              </Typography>
+            </AccordionTrigger>
+            <AccordionContent className="border-none">
+              <div className="flex flex-col gap-2">
+                {partecipateMenuData.map((item) => (
+                  <SheetClose key={item.title} asChild>
+                    <Link
+                      href={item.href}
+                      className="pl-4 text-sm text-muted-foreground hover:text-primary"
+                    >
+                      <Typography variant="navigationMobile">{item.title}</Typography>
+                    </Link>
+                  </SheetClose>
+                ))}
               </div>
-            </SheetContent>
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem value="contribute" className="border-b-0">
+            <AccordionTrigger>
+              <Typography variant="navigationMobile">Contribute</Typography>
+            </AccordionTrigger>
+            <AccordionContent>
+              <div className="flex flex-col gap-2">
+                {contributeMenuData.map((item) => (
+                  <SheetClose key={item.title} asChild>
+                    <Link
+                      href={item.href}
+                      className="pl-4 text-sm text-muted-foreground hover:text-primary"
+                    >
+                      <Typography variant="navigationMobile">{item.title}</Typography>
+                    </Link>
+                  </SheetClose>
+                ))}
+              </div>
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem value="association" className="border-b-0">
+              <AccordionTrigger>
+              <Typography variant="navigationMobile">Association</Typography>
+            </AccordionTrigger>
+            <AccordionContent>
+              <div className="flex flex-col gap-2">
+                {associationMenuData.map((item) => (
+                  <SheetClose key={item.title} asChild>
+                    <Link
+                      href={item.href}
+                      className="pl-4 text-sm text-muted-foreground hover:text-primary"
+                    >
+                      <Typography variant="navigationMobile">{item.title}</Typography>
+                    </Link>
+                  </SheetClose>
+                ))}
+              </div>
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+
+        <SheetClose asChild>
+          <Link
+            href="/docs"
+            className="text-sm font-medium transition-colors hover:text-primary"
+          >
+            <Typography variant="navigationMobile">Merch</Typography>
+          </Link>
+        </SheetClose>
+
+        <SheetClose asChild>
+          <Link href="/association/join" className="mt-4">
+            <Button className="w-full">Join</Button>
+          </Link>
+        </SheetClose>
+      </div>
+    </SheetContent>
           </Sheet>
         </div>
 
+        {/* Desktop menu */}
         <NavigationMenu className="hidden lg:block">
           <NavigationMenuList>
             <NavigationMenuItem>
@@ -213,12 +235,13 @@ export function Header() {
                 </Typography>
               </NavigationMenuTrigger>
               <NavigationMenuContent>
-                <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-                  {associationMenuData.map((associationMenuItem) => (
+                <ul className="grid w-[350px] gap-2 p-4 md:w-[450px] md:grid-cols-2 lg:w-[550px]">
+                  {associationMenuData.map((associationMenuItem, index) => (
                     <ListItem
                       key={associationMenuItem.title}
                       title={associationMenuItem.title}
                       href={associationMenuItem.href}
+                      className={index <= 1 ? "bg-slate-50" : ""}
                     >
                       {associationMenuItem.description}
                     </ListItem>
@@ -228,7 +251,7 @@ export function Header() {
             </NavigationMenuItem>
 
             <NavigationMenuItem>
-              <Link href="/docs">
+              <Link href="https://shop.schrodinger-hat.it/">
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                   <Typography as="span" variant="navigation">
                     Merch
@@ -241,7 +264,7 @@ export function Header() {
 
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <Link
-            href="https://shop.schrodinger-hat.it/"
+            href="/association/join"
             className="text-sm/6 font-semibold text-gray-900"
           >
             <Button>Join</Button>

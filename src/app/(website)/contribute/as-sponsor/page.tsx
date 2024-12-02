@@ -2,7 +2,7 @@ import { SectionContainer } from "@/components/atoms/layout/SectionContainer";
 import { Link } from "@/components/atoms/links/Link";
 import { Heading } from "@/components/atoms/typography/Heading";
 import { Typography } from "@/components/atoms/typography/Typography";
-import { BlackCTA } from "@/components/organisms/black-cta";
+import { BlackCTA, BlackCTAHeading } from "@/components/organisms/black-cta";
 import { BlurredBackground } from "@/components/organisms/blurred-background";
 import { BulletPoint } from "@/components/organisms/bullet-point";
 import { ImageContent } from "@/components/organisms/image-content";
@@ -185,23 +185,16 @@ export default function BecomeSponsorPage() {
       </SectionContainer>
 
       <SectionContainer>
-        <BlackCTA
-          leftContent={
-            <>
-              <Link
-                href="mailto:us@schroedinger.hat?subject=Sponsorship%20Opportunity"
-                className=""
-              >
-                <Heading
-                  level={1}
-                  className="mb-0 font-lexend text-[80px] tracking-tight text-white"
-                >
-                  Get in touch
-                </Heading>
-              </Link>
-            </>
-          }
-        />
+        <BlackCTA 
+          cta={{
+            text: "Apply",
+            href: "mailto:us@schroedinger.hat?subject=Sponsorship%20Opportunity",
+          }}
+        >
+          <BlackCTAHeading>
+            Wanna Sponsor?
+          </BlackCTAHeading>
+        </BlackCTA>
       </SectionContainer>
     </main>
   );

@@ -32,7 +32,7 @@ export function ImageContent({
           "[&>*:nth-child(2)]:order-last lg:[&>*:nth-child(2)]:order-none",
         )}
       >
-        <div className="relative aspect-[4/2] w-full overflow-hidden rounded-xl">
+        <div className="relative aspect-[4/2] w-full overflow-hidden rounded-xl shadow-xl">
           <Image
             src={imageSrc}
             alt={imageAlt}

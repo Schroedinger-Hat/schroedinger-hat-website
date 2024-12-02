@@ -16,7 +16,7 @@ import {
   SmileIcon,
   UserMultiple02Icon,
 } from "hugeicons-react";
-import { BlackCTA } from "@/components/organisms/black-cta";
+import { BlackCTA, BlackCTAHeading } from "@/components/organisms/black-cta";
 import { LogoGallery } from "@/components/organisms/logo-gallery";
 import { urlFor } from "@/sanity/lib/image";
 import { FaqBlock } from "@/components/organisms/faq-block";
@@ -122,27 +122,17 @@ export default async function BecomePartnerPage() {
         />
       </SectionContainer>
 
-      <SectionContainer size="wide">
+      <SectionContainer>
         <BlackCTA
-          leftContent={
-            <Heading
-              level={1}
-              className="mb-0 font-lexend text-[80px] tracking-tight text-white"
-            >
-              Chat?
-            </Heading>
-          }
-          rightContent={
-            <Link
-              href="mailto:event@schroedinger-hat.org"
-              className="h-full max-w-48"
-            >
-              <Button size="lg" variant="secondary" className="h-full max-w-48">
-                Write us
-              </Button>
-            </Link>
-          }
-        />
+          cta={{
+            text: "Send email",
+            href: "mailto:us@schroedinger-hat.org",
+          }}
+        >
+          <BlackCTAHeading>
+            Team up?
+          </BlackCTAHeading>
+        </BlackCTA> 
       </SectionContainer>
 
       <SectionContainer size="wide">

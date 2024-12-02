@@ -21,6 +21,7 @@ const typographyVariants = cva("text-slate-900", {
       muted: "text-sm text-slate-500",
       link: "font-medium text-primary underline underline-offset-4 hover:text-primary/80",
       navigation: "text-sm font-semibold leading-none uppercase",
+      navigationMobile: "text-xl text-slate-800 font-semibold",
     },
     weight: {
       normal: "font-normal",

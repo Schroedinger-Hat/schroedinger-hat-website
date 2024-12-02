@@ -9,13 +9,14 @@ import {
   Mortarboard02Icon,
   Pizza01Icon,
   UserMultiple02Icon,
+  Wrench01Icon,
 } from "hugeicons-react";
 import { TeamCard } from "@/components/organisms/team-card";
 import { StatBlocks } from "@/components/organisms/stat-block";
 import { List } from "@/components/atoms/lists/List";
 import { ListItem } from "@/components/atoms/lists/ListItem";
 import { Button } from "@/components/ui/button";
-import { BlackCTA } from "@/components/organisms/black-cta";
+import { BlackCTA, BlackCTAHeading } from "@/components/organisms/black-cta";
 import { Link } from "@/components/atoms/links/Link";
 
 // Images
@@ -122,42 +123,42 @@ export default function BecomeSpeakerPage() {
           <div className="rounded-xl bg-slate-300 p-2 text-white shadow-xl md:p-4">
             <div className="flex min-h-[180px] flex-row items-center justify-center rounded-xl bg-[#74B9FF] p-4">
               <Mic01Icon className="mb-2 h-16 w-16" />
-              <Heading level={1} className="mb-0 pl-2 font-light text-white">
+              <Heading level={1} className="md:mb-0 pl-2 font-light text-white">
                 Session
               </Heading>
             </div>
 
             <div className="px-4 py-6">
-              <Heading level={4} className="">
+              <Heading level={4}>
                 What is it?
               </Heading>
-              <Typography variant="p" className="opacity-90">
+              <Typography >
                 A Talk is a traditional conference-style presentation, lasting
                 30 to 60 minutes. It focuses on a single topic, idea, or story,
                 delivered with accompanying slides to inspire the audience.
               </Typography>
 
-              <Heading level={4} className="">
+              <Heading level={4} className="pt-4">
                 Is this for you?
               </Heading>
               <List variant="bullet">
-                <ListItem className="">
+                <ListItem>
                   Ideal for sharing insights, stories, or lessons learned from
                   your experiences.
                 </ListItem>
-                <ListItem className="">
+                <ListItem>
                   Perfect for a wide range of topics, from personal journeys to
                   deep dives into specific areas.
                 </ListItem>
-                <ListItem className="">
+                <ListItem>
                   Suitable for all skill levels in the audience.
                 </ListItem>
               </List>
 
-              <Heading level={4} className="">
+              <Heading level={4} className="pt-4">
                 Why choose this?
               </Heading>
-              <Typography variant="p" className="opacity-90">
+              <Typography >
                 Choosing a Talk allows you to share your expertise and passion
                 in a structured and impactful way. It’s perfect for reaching a
                 broad audience, delivering clear insights, and sparking
@@ -167,39 +168,41 @@ export default function BecomeSpeakerPage() {
           </div>
           <div className="rounded-xl bg-slate-300 p-2 text-white shadow-xl md:p-4">
             <div className="flex min-h-[180px] flex-row items-center justify-center rounded-xl bg-[#00BB94] p-4">
-              <Mic01Icon className="mb-2 h-16 w-16" />
-              <Heading level={1} className="mb-0 pl-2 font-light text-white">
+              <Wrench01Icon className="mb-2 h-16 w-16" />
+              <Heading level={1} className="md:mb-0 pl-2 font-light text-white">
                 Workshop
               </Heading>
             </div>
 
             <div className="px-4 py-6">
-              <Heading level={4} className="">
+              <Heading level={4}>
                 What is it?
               </Heading>
-              <Typography variant="p" className="opacity-90">
+              <Typography>
                 A Workshop is an interactive session lasting 2 to 8 hours,
                 designed to delve deeply into a specific topic, technology, or
                 framework. Workshops emphasize hands-on learning, often guiding
                 participants through a project or task, such as building an app
                 together.
               </Typography>
-              <Heading level={4} className="">
+
+              <Heading level={4} className="pt-4">
                 Is this for you?
               </Heading>
               <List variant="bullet">
-                <ListItem className="">
+                <ListItem>
                   Ideal for teaching practical skills or hands-on techniques.
                 </ListItem>
-                <ListItem className="">
+                <ListItem>
                   Great for in-depth exploration of a specific technology or
                   methodology.
                 </ListItem>
-                <ListItem className="">
+                <ListItem>
                   Best suited for a smaller, focused group of attendees.
                 </ListItem>
               </List>
-              <Heading level={4} className="">
+
+              <Heading level={4} className="pt-4">
                 Why choose this?
               </Heading>
               <Typography variant="p" className="opacity-90">
@@ -246,27 +249,17 @@ export default function BecomeSpeakerPage() {
         />
       </SectionContainer>
 
-      <SectionContainer size="wide">
+      <SectionContainer>
         <BlackCTA
-          leftContent={
-            <Heading
-              level={1}
-              className="mb-0 font-lexend text-[80px] tracking-tight text-white"
-            >
-              Apply?
-            </Heading>
-          }
-          rightContent={
-            <Link
-              href="mailto:event@schroedinger-hat.org"
-              className="h-full max-w-48"
-            >
-              <Button size="lg" variant="secondary" className="h-full max-w-48">
-                Propose your talk
-              </Button>
-            </Link>
-          }
-        />
+          cta={{
+            text: "Write us",   
+            href: "mailto:event@schroedinger-hat.org",
+          }}
+        >
+          <BlackCTAHeading>
+            Interested?
+          </BlackCTAHeading>
+        </BlackCTA>
       </SectionContainer>
 
       <SectionContainer size="wide">

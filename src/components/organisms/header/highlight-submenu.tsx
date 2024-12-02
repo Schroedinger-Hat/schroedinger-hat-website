@@ -71,9 +71,11 @@ export const ListItem = forwardRef<
           {...props}
         >
           <div className="text-sm font-medium leading-none">{title}</div>
-          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-            {children}
-          </p>
+          {children && (
+            <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+              {children}
+            </p>
+          )}
         </a>
       </NavigationMenuLink>
     </li>

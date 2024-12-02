@@ -77,7 +77,7 @@ export default async function BecomeMemberPage() {
         </div>
       </SectionContainer>
 
-      <SectionContainer size="wide" className="space-y-4">
+      <SectionContainer size="wide" className="space-y-4 hidden md:block">
         {/* First row - stacks vertically on mobile */}
         <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
           <div className="flex flex-col justify-end rounded-lg bg-white p-6 md:h-[350px] md:p-8 md:pb-8 md:pl-16">
@@ -87,7 +87,7 @@ export default async function BecomeMemberPage() {
               We're all volunteers so we can't offer you lots of things, but we
               can offer you a lot of love
               <br />
-              Not just love, we prepared some perks for you
+              Ok not just love, we prepared some perks for you
             </Typography>
           </div>
 
@@ -115,7 +115,7 @@ export default async function BecomeMemberPage() {
                 variant="lead"
                 className="mb-4 text-left text-white md:text-center"
               >
-                eCommerce discounts and free shipping!
+                Merch store discounts and free shipping!
               </Typography>
               <div className="hidden flex-1 md:block">
                 <Image
@@ -135,7 +135,7 @@ export default async function BecomeMemberPage() {
             <div className="flex h-full flex-row">
               <div className="flex w-full flex-col justify-between md:w-[140px]">
                 <Typography variant="lead" className="text-white md:pr-4">
-                  Members dinners and parties
+                  Members only dinners and parties
                 </Typography>
                 <Typography
                   variant="small"
@@ -155,7 +155,7 @@ export default async function BecomeMemberPage() {
             </div>
           </div>
 
-          <div className="col-span-1 flex flex-col justify-between rounded-xl bg-[#B6D9A5] p-6 md:col-span-3 md:h-[350px] md:p-8">
+          <div className="col-span-1 flex flex-col justify-between rounded-xl bg-[#B6D9A5] p-6 md:col-span-3 md:p-8">
             <div className="mb-4 hidden md:block">
               <Image src={perkVote} alt="Early access" />
             </div>
@@ -166,6 +166,86 @@ export default async function BecomeMemberPage() {
               </Typography>
             </p>
           </div>
+        </div>
+      </SectionContainer>
+
+      <SectionContainer size="wide" className="space-y-4 md:hidden">
+        <div className="flex flex-col rounded-lg bg-white p-4">
+          <Typography variant="medium" className="text-slate-700">
+            The membership is an optional paid subscription
+            <br />
+            We're all volunteers so we can't offer you lots of things, but we
+            can offer you a lot of love
+            <br />
+            Ok not just love, we prepared some perks for you
+          </Typography>
+        </div>
+
+        <div className="flex flex-col gap-4 rounded-xl bg-[#4B4EE4] p-6">
+          <div className="flex justify-center">
+            <div className="w-1/2 aspect-square">
+              <Image
+                src={perkEarlyAccess}
+                alt="Early access"
+                withContainer={false}
+                className="h-full w-full object-contain"
+              />
+            </div>
+          </div>
+          <Typography variant="lead" className="text-white text-center">
+            Early access to event ticket, news and merch drops
+          </Typography>
+        </div>
+
+        <div className="flex flex-col gap-4 rounded-xl bg-[#E67E22] p-6">
+          <div className="flex justify-center">
+            <div className="w-1/2 aspect-square">
+              <Image
+                src={perkBox}
+                alt="Merch discounts"
+                className="h-full w-full object-contain"
+              />
+            </div>
+          </div>
+          <Typography variant="lead" className="text-white text-center">
+            Merch store discounts and free shipping!
+          </Typography>
+        </div>
+
+        <div className="flex flex-col gap-4 rounded-xl bg-[#DDA0DD] p-6">
+          <div className="flex justify-center">
+            <div className="w-1/2 aspect-square">
+              <Image
+                src={perkFood}
+                alt="Members only dinners"
+                className="h-full w-full object-contain"
+                withContainer={false}
+              />
+            </div>
+          </div>
+          <div className="text-center">
+            <Typography variant="lead" className="text-white">
+              Members only dinners and parties
+            </Typography>
+            <Typography variant="small" className="text-white">
+              *not just tacos, we promise
+            </Typography>
+          </div>
+        </div>
+
+        <div className="flex flex-col gap-4 rounded-xl bg-[#B6D9A5] p-6">
+          <div className="flex justify-center">
+            <div className="w-1/2 aspect-square">
+              <Image
+                src={perkVote}
+                alt="Voting rights"
+                className="h-full w-full object-contain"
+              />
+            </div>
+          </div>
+          <Typography variant="lead" className="text-white text-center">
+            Votations to drive our organization and choose speakers for our major events
+          </Typography>
         </div>
       </SectionContainer>
 
@@ -195,8 +275,8 @@ export default async function BecomeMemberPage() {
           <div className="pt-0 text-left md:text-center">
             <MembershipCheckoutButton />
             <Typography variant="medium" className="pt-8 text-white">
-              It keeps the lights on and help us pays for all the little things
-              that you need to run a nonprofit association.
+              Seriously, it keeps the lights on and help us pays for all the
+              little things that you need to run a nonprofit association.
             </Typography>
           </div>
         </div>
