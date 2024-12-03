@@ -125,7 +125,7 @@ export default async function LocalCommunitiesPage() {
       </SectionContainer>
 
       <SectionContainer size="narrow">
-        <FaqBlock groupKey="local-community" />
+        <FaqBlock groupKey="local-communities" />
       </SectionContainer>
     </main>
   );

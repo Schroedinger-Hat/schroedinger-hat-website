@@ -61,37 +61,6 @@ export type SanityFileAsset = {
   source?: SanityAssetSourceData;
 };
 
-export type GalleryImage = {
-  _id: string;
-  _type: "galleryImage";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  title?: string;
-  image?: {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-    };
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    _type: "image";
-  };
-  description?: string;
-  category?: "events" | "community" | "projects" | "other";
-  takenAt?: string;
-  photographer?: {
-    _ref: string;
-    _type: "reference";
-    _weak?: boolean;
-    [internalGroqTypeReferenceTo]?: "author";
-  };
-  featured?: boolean;
-  order?: number;
-};
-
 export type JobPost = {
   _id: string;
   _type: "jobPost";
@@ -211,7 +180,7 @@ export type Faq = {
     _key: string;
   }>;
   groupKey?: string;
-  order?: number;
+  orderRank?: string;
 };
 
 export type TeamMember = {
@@ -602,7 +571,6 @@ export type AllSanitySchemaTypes =
   | SanityImagePalette
   | SanityImageDimensions
   | SanityFileAsset
-  | GalleryImage
   | JobPost
   | Project
   | Faq

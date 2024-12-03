@@ -7,7 +7,6 @@ import { teamMemberType } from "./teamMemberType";
 import { faqType } from "./faqType";
 import { projectType } from "./projectType";
 import { jobPostType } from "./jobPostType";
-import { galleryImageType } from "./galleryImageType";
 
 export const schema = {
   types: [
@@ -20,6 +19,5 @@ export const schema = {
     faqType,
     projectType,
     jobPostType,
-    galleryImageType,
   ],
 };

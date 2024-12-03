@@ -137,6 +137,7 @@ export default async function BecomePartnerPage() {
         <LogoGallery
           title="We partnered with"
           blackAndWhite={true}
+          maxCols={5}
           logos={partners
             .filter(
               (

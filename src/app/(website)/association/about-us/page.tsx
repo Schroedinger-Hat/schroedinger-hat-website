@@ -37,7 +37,7 @@ export const metadata: Metadata = {
 export default async function AboutUsPage() {
   // Fetch business partners
   const partners: Partner[] = await sanityClient.fetch(
-    `*[_type == "partner" && isBusinessPartner] | order(orderRank asc)`,
+    `*[_type == "partner" && isBusinessPartner && "about" in visibility] | order(orderRank asc)`,
   );
 
   // New team members query

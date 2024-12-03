@@ -27,9 +27,10 @@ export const faqType = defineType({
       validation: (Rule) => Rule.required(),
     },
     {
-      name: "order",
+      name: "orderRank",
       title: "Order",
-      type: "number",
+      type: "string",
+      hidden: true,
       description: "Display order within the group",
     },
   ],

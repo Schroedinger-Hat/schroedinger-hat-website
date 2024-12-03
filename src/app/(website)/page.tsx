@@ -19,7 +19,7 @@ import { SectionContainer } from "@/components/atoms/layout/SectionContainer";
 
 export default async function Home() {
   const partners: Partner[] = await sanityClient.fetch(
-    `*[_type == "partner" && !isBusinessPartner] | order(orderRank asc)`,
+    `*[_type == "partner" && !isBusinessPartner && "homepage" in visibility] | order(orderRank asc)`,
   );
 
   return (

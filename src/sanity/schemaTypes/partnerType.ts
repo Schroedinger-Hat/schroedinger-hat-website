@@ -24,13 +24,13 @@ export const partnerType = defineType({
     },
     {
       name: "isBusinessPartner",
-      title: "Is Business Partner",
+      title: "Is Business",
       type: "boolean",
       initialValue: false,
     },
     {
       name: "businessTier",
-      title: "Business Partnership Tier",
+      title: "Partnership Tier",
       type: "string",
       options: {
         list: [
@@ -52,7 +52,7 @@ export const partnerType = defineType({
     },
     {
       name: "nonBusinessType",
-      title: "Non-Business Partner Type",
+      title: "Partner Type",
       type: "string",
       initialValue: "community",
       options: {
@@ -117,7 +117,24 @@ export const partnerType = defineType({
       name: "orderRank",
       title: "Order Rank",
       type: "string",
+      hidden: true,
       description: "Used to control the display order of partners",
+    },
+    {
+      name: "visibility",
+      title: "Visibility",
+      type: "array",
+      of: [{ type: "string" }],
+      options: {
+        list: [
+          { title: "Homepage", value: "homepage" },
+          { title: "As Sponsors", value: "sponsors" },
+          { title: "As Partners", value: "partners" },
+          { title: "About Us", value: "about" },
+        ],
+        layout: "checkbox",
+      },
+      description: "Select where this partner should be displayed",
     },
   ],
   initialValue: {

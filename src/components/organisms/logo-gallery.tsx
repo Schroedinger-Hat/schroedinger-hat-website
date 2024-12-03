@@ -58,7 +58,7 @@ export function LogoGallery({
           {logos.map((logo, index) => (
             <div
               key={index}
-              className="flex items-center justify-center rounded-lg bg-slate-50 p-8"
+              className="flex items-center justify-center rounded-lg bg-slate-50 p-2"
             >
               <Image
                 src={logo.src}
@@ -66,7 +66,7 @@ export function LogoGallery({
                 width={300}
                 height={150}
                 className={cn(
-                  "h-16 w-auto",
+                  "h-24 w-auto",
                   getOpacityClass(imageOpacity),
                   blackAndWhite && "grayscale",
                 )}

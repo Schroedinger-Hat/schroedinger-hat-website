@@ -28,7 +28,7 @@ async function getFAQs(groupKey: string): Promise<FAQ[]> {
     *[_type == "faq" && groupKey == $groupKey] | order(order asc) {
       _id,
       question,
-      answer
+      answer,
     }
   `,
     { groupKey },

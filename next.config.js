@@ -33,6 +33,7 @@ if (process.env.NODE_ENV === "development") {
 
 /** @type {import("next").NextConfig} */
 const config = {
+  transpilePackages: ["three"],
   eslint: {
     ignoreDuringBuilds: true, // TODO: remove this
   },
