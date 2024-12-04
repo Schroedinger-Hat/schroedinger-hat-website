@@ -24,23 +24,24 @@ export const eventType = defineType({
       title: "Slug",
       type: "slug",
       options: {
-        source: async (doc, { getClient }) => {
+        source: async (
+          doc: { series?: { _ref: string }; title?: string },
+          { getClient },
+        ) => {
           const client = getClient({ apiVersion: "2023-05-03" });
 
           if (!doc.series || !doc.title) return "";
 
-          // Fetch the series document to get its slug
           const series = await client.fetch(
             `*[_type == "eventSeries" && _id == $seriesId][0].slug.current`,
             { seriesId: doc.series._ref },
           );
 
-          // Combine series slug with event title
           return series ? `${series}/${doc.title}` : doc.title;
         },
         maxLength: 96,
       },
-      validation: (Rule: SlugRule) => Rule.required(),
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "organiser",

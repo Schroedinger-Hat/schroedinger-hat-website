@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
 import type { StructureResolver } from "sanity/structure";
 import { orderableDocumentListDeskItem } from "@sanity/orderable-document-list";
 import { schemaIcons } from "./icons/schemaIcons";
@@ -58,7 +61,11 @@ export const structure: StructureResolver = async (S, context) => {
       S.listItem()
         .title("FAQs")
         .icon(schemaIcons.faq)
-        .child(S.list().title("FAQ Groups").items(faqGroups)),
+        .child(
+          S.list()
+            .title("FAQ Groups")
+            .items(faqGroups as any),
+        ),
       S.documentTypeListItem("jobPost").icon(schemaIcons.jobPost),
       S.documentTypeListItem("page").icon(schemaIcons.page),
 

@@ -2,13 +2,18 @@ import { type Event } from "@/sanity/sanity.types";
 import { formatDateTime } from "@/lib/utils/date";
 import { Heading } from "@/components/atoms/typography/Heading";
 import { Image } from "@/components/atoms/media/Image";
-import { Calendar01Icon, Location01Icon, MapPinIcon } from "hugeicons-react";
+import { Calendar01Icon, Location01Icon } from "hugeicons-react";
 import { urlFor } from "@/sanity/lib/image";
 import { Typography } from "@/components/atoms/typography/Typography";
-import { Debug } from "@/components/atoms/debug";
 
 export function EventCard({ event }: { event: Event }) {
-  if (!event.title || !event.slug) return null;
+  if (
+    !event.title ||
+    !event.slug ||
+    !event.eventPeriod?.startDate ||
+    !event.location?.city
+  )
+    return null;
 
   const imageAsset =
     event.cardImage === "cover" && event.cover?.asset
@@ -58,6 +63,14 @@ export function EventCard({ event }: { event: Event }) {
 }
 
 export function FeaturedEventCard({ event }: { event: Event }) {
+  if (
+    !event.title ||
+    !event.slug ||
+    !event.eventPeriod?.startDate ||
+    !event.location?.city
+  )
+    return null;
+
   const imageAsset =
     event.cardImage === "cover" && event.cover?.asset
       ? event.cover.asset
