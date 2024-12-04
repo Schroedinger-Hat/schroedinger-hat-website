@@ -17,7 +17,7 @@ import platea from "@/images/contribute/sponsor/os24_platea.jpg";
 export const metadata: Metadata = {
   title: "Schrödinger Hat: Contribute as Sponsor",
   description:
-    "Learn more about how to contribute to Schroedinger Hat as a sponsor.",
+    "Learn more about how to contribute to Schrödinger Hat as a sponsor.",
 };
 
 export default function BecomeSponsorPage() {

@@ -51,7 +51,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const video = await getVideo(slug);
   return {
-    title: `${video?.title} | Watch |Schroedinger Hat`,
+    title: `${video?.title} | Watch |Schrödinger Hat`,
     description: extractFirstParagraph(video?.description ?? []),
   };
 }
@@ -96,20 +96,30 @@ export default async function SingleVideoPage({ params }: PageProps) {
         )}
 
         {video.authors && video.authors.length > 0 && (
-          <div className="mb-8 space-y-6">
-            {video.authors.map((author) => (
-              <AuthorCard key={author._id} author={author} />
-            ))}
-          </div>
+          <>
+            <Heading level={3} className="mb-2">
+              {video.authors.length > 1 ? "Speakers" : "Speaker"}
+            </Heading>
+            <div className="mb-8 space-y-6">
+              {video.authors.map((author) => (
+                <AuthorCard key={author._id} author={author} />
+              ))}
+            </div>
+          </>
         )}
 
         {video.description && (
-          <div className="prose max-w-none">
-            <PortableText
-              value={video.description}
-              components={createPortableTextComponents()}
-            />
-          </div>
+          <>
+            <Heading level={3} className="mb-2">
+              Description
+            </Heading>
+            <div className="prose max-w-none">
+              <PortableText
+                value={video.description}
+                components={createPortableTextComponents()}
+              />
+            </div>
+          </>
         )}
       </SectionContainer>
     </main>

@@ -55,16 +55,16 @@ export default async function LocalCommunitiesPage() {
           content={
             <>
               <Typography>
-                <b>SH Groups</b> are local initiatives by Schroedinger Hat APS
+                <b>SH Groups</b> are local initiatives by Schrödinger Hat APS
                 members, aimed at fostering workshops, talks, and events
                 tailored to their communities. These groups create spaces for
                 collaboration and innovation while staying connected to the
-                broader Schroedinger Hat mission.
+                broader Schrödinger Hat mission.
               </Typography>
               <Typography>
                 With autonomy to shape their activities, <b>SH Groups</b>{" "}
                 reflect the unique needs of their cities while upholding the
-                organization’s values and Code of Conduct. Schroedinger Hat
+                organization’s values and Code of Conduct. Schrödinger Hat
                 supports these groups with resources like branding,
                 communication tools, and event platforms, empowering them to
                 thrive as part of a global network inspiring tech communities
@@ -95,7 +95,7 @@ export default async function LocalCommunitiesPage() {
               number: "2.",
               title: "Plan",
               description:
-                "We review your application and if approved, we will have a set of calls where we will help you plan your first meetup with Schroedinger Hat.",
+                "We review your application and if approved, we will have a set of calls where we will help you plan your first meetup with Schrödinger Hat.",
             },
             {
               number: "3.",

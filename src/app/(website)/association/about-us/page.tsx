@@ -31,7 +31,7 @@ import { ImageContent } from "@/components/organisms/image-content";
 
 export const metadata: Metadata = {
   title: "Schrödinger Hat: About Us",
-  description: "Learn more about Schroedinger Hat and our mission.",
+  description: "Learn more about Schrödinger Hat and our mission.",
 };
 
 export default async function AboutUsPage() {
@@ -81,7 +81,7 @@ export default async function AboutUsPage() {
       <SectionContainer size="wide">
         <Image
           src={staffSpeaker.src}
-          alt="Schroedinger Hat"
+          alt="Schrödinger Hat"
           width={1000}
           height={400}
           className="aspect-[4/3] w-full overflow-hidden rounded-lg object-cover object-center md:aspect-[10/4]"
@@ -163,7 +163,7 @@ export default async function AboutUsPage() {
           <div className="overflow-hidden rounded-2xl">
             <Image
               src={gabriMikiStage.src}
-              alt="Schroedinger Hat community members on stage"
+              alt="Schrödinger Hat community members on stage"
               width={600}
               height={500}
               className="aspect-[4/3] w-full object-cover md:aspect-auto md:h-[500px]"
@@ -206,7 +206,7 @@ export default async function AboutUsPage() {
 
         <div className="py-16">
           <div className="mb-16 text-center">
-            <Heading level={2}>Meet the people behind Schroedinger Hat</Heading>
+            <Heading level={2}>Meet the people behind Schrödinger Hat</Heading>
           </div>
 
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
@@ -245,7 +245,7 @@ export default async function AboutUsPage() {
               </>
             }
             imageSrc={os2Public.src}
-            imageAlt="Schroedinger Hat community members on stage"
+            imageAlt="Schrödinger Hat community members on stage"
             imagePosition="right"
           />
 
@@ -277,7 +277,7 @@ export default async function AboutUsPage() {
               </>
             }
             imageSrc={joinTheTeam.src}
-            imageAlt="Schroedinger Hat staff handing out badges"
+            imageAlt="Schrödinger Hat staff handing out badges"
             imagePosition="left"
           />
         </div>

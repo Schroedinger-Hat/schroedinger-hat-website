@@ -29,7 +29,7 @@ import friends8 from "@/images/contribute/individual/individual_8.jpg";
 export const metadata: Metadata = {
   title: "Schrödinger Hat: Contribute as Individual",
   description:
-    "Learn more about how to contribute to Schroedinger Hat as an individual.",
+    "Learn more about how to contribute to Schrödinger Hat as an individual.",
 };
 
 export default function ContributeIndividualPage() {
@@ -88,7 +88,7 @@ export default function ContributeIndividualPage() {
                 help shape our future.
               </Typography>
               <div className="mt-auto pt-4">
-                <Link href="/associazione/diventa-socio">
+                <Link href="/association/join">
                   <Button className="w-full sm:w-auto" variant="secondary">
                     Become a member
                     <ArrowRight className="h-5 w-5" />
@@ -140,7 +140,7 @@ export default function ContributeIndividualPage() {
               <Typography className="mb-8 text-white">
                 Work on issues and features on our projects.
               </Typography>
-              <Link href="/contribute/projects">
+              <Link href="/partecipate/projects">
                 <Typography variant="link" className="text-white">
                   View active projects
                   <ArrowRightIcon className="ml-1 inline h-5 w-5" />

@@ -106,7 +106,7 @@ export function Footer() {
           {/* Bottom Links */}
           <div className="flex flex-wrap justify-center gap-x-8 gap-y-2 text-muted-foreground md:justify-between">
             <Typography variant="muted" className="m-0">
-              © 2024, Schroedinger Hat
+              © 2024, Schrödinger Hat
             </Typography>
 
             <Link

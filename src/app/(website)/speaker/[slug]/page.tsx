@@ -27,7 +27,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const speaker = await getSpeaker(slug);
   return {
-    title: `${speaker?.title} | Speaker | Schroedinger Hat`,
+    title: `${speaker?.title} | Speaker | Schrödinger Hat`,
     description: extractFirstParagraph(speaker?.biography ?? []),
   };
 }

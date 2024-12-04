@@ -28,7 +28,7 @@ import asPartner from "@/images/contribute/as_partner.jpg";
 export const metadata: Metadata = {
   title: "Schrödinger Hat: Contribute as Partner",
   description:
-    "Learn more about how to contribute to Schroedinger Hat as a partner.",
+    "Learn more about how to contribute to Schrödinger Hat as a partner.",
 };
 
 export default async function BecomePartnerPage() {

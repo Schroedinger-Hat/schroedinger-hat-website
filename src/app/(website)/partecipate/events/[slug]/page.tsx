@@ -8,6 +8,7 @@ import { AuthorCard } from "@/components/molecules/author-card";
 import { SectionContainer } from "@/components/atoms/layout/SectionContainer";
 import { type Metadata } from "next";
 import { extractFirstParagraph } from "@/lib/seo";
+import { Heading } from "@/components/atoms/typography/Heading";
 
 interface EventWithAuthors extends Omit<Event, "authors"> {
   authors?: Author[];
@@ -36,7 +37,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const event = await getEvent(slug);
   return {
-    title: `${event?.title} | Event | Schroedinger Hat`,
+    title: `${event?.title} | Event | Schrödinger Hat`,
     description: extractFirstParagraph(event?.abstract ?? []),
   };
 }
@@ -74,8 +75,10 @@ export default async function SingleEventPage({ params }: PageProps) {
       <SectionContainer size="narrow" padding="little" withBackground>
         {event.authors && event.authors.length > 0 && (
           <>
-            <h2 className="mb-6 text-2xl font-semibold">Guests</h2>
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+            <Heading level={2} className="mb-6">
+              Guests
+            </Heading>
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
               {event.authors.map((author) => (
                 <AuthorCard key={author._id} author={author} />
               ))}

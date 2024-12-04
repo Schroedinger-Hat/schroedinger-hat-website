@@ -44,7 +44,7 @@ export default async function Home() {
             </div>
             <div className="max-w-2xl">
               <h2 className="text-[22px] font-normal text-slate-800">
-                Schroedinger Hat is a community of open source enthusiasts,
+                Schrödinger Hat is a community of open source enthusiasts,
                 <br /> we organizes events and write software.
               </h2>
             </div>
@@ -61,7 +61,7 @@ export default async function Home() {
           content={
             <>
               <Typography>
-                Based in Tuscany, Schroedinger Hat is a non-profit organization
+                Based in Tuscany, Schrödinger Hat is a non-profit organization
                 spreading the love for open-source software across Europe. Our
                 mission is to inspire, educate, and connect open-source
                 technology enthusiasts through free events like conferences and
@@ -196,7 +196,7 @@ export default async function Home() {
           className=""
           topText="eCommerce"
           title="Merch and T-Shirts"
-          subtitle="Wanna dress like a Schroedinger Hat fan? Visit our online shop where you can buy our merch and t-shirts."
+          subtitle="Wanna dress like a Schrödinger Hat fan? Visit our online shop where you can buy our merch and t-shirts."
           ctaText="Visit Shop"
           ctaHref="https://shop.schroedinger-hat.org/"
           image={shopCallout}

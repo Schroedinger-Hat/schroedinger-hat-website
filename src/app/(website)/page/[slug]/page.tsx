@@ -25,7 +25,7 @@ export async function generateMetadata({
     { slug },
   );
   return {
-    title: `${pageData?.title} | Schroedinger Hat`,
+    title: `${pageData?.title} | Schrödinger Hat`,
     description: extractFirstParagraph(pageData?.content ?? []),
   };
 }

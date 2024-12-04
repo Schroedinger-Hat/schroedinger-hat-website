@@ -35,7 +35,7 @@ async function getMembershipFAQs(): Promise<FAQ[]> {
 
 export const metadata: Metadata = {
   title: "Schrödinger Hat: Join the Association",
-  description: "Learn more about how to join Schroedinger Hat as a member.",
+  description: "Learn more about how to join Schrödinger Hat as a member.",
 };
 
 export default async function BecomeMemberPage() {

@@ -66,7 +66,7 @@ const famousSpeakers = [
 export const metadata: Metadata = {
   title: "Schrödinger Hat: Contribute as Speaker",
   description:
-    "Learn more about how to contribute to Schroedinger Hat as a speaker.",
+    "Learn more about how to contribute to Schrödinger Hat as a speaker.",
 };
 
 export default function BecomeSpeakerPage() {

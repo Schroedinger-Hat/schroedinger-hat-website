@@ -11,7 +11,7 @@ import { type Metadata } from "next";
 export const metadata: Metadata = {
   title: "Schrödinger Hat: Watch",
   description:
-    "Watch Schroedinger Hat videos, talks, workshops, podcasts and more.",
+    "Watch Schrödinger Hat videos, talks, workshops, podcasts and more.",
 };
 
 // Update the getVideos function to be more type-safe
