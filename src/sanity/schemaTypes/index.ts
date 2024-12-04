@@ -7,6 +7,7 @@ import { teamMemberType } from "./teamMemberType";
 import { faqType } from "./faqType";
 import { projectType } from "./projectType";
 import { jobPostType } from "./jobPostType";
+import { eventSeriesType } from "./eventSeriesType";
 
 export const schema = {
   types: [
@@ -19,5 +20,6 @@ export const schema = {
     faqType,
     projectType,
     jobPostType,
+    eventSeriesType,
   ],
 };

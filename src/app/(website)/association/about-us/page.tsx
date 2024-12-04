@@ -42,7 +42,7 @@ export default async function AboutUsPage() {
 
   // New team members query
   const teamMembers: TeamMember[] = await sanityClient.fetch(`
-    *[_type == "teamMember"] | order(name asc, surname asc) {
+    *[_type == "teamMember"] | order(orderRank asc) {
       ...
     }
   `);

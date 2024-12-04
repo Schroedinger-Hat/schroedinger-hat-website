@@ -18,6 +18,7 @@ interface EventHeroProps {
   location?: Event["location"];
   cta?: Event["cta"];
   organiser: string;
+  series?: Event["series"];
 }
 
 export function EventHero({
@@ -27,6 +28,7 @@ export function EventHero({
   location,
   cta,
   organiser,
+  series,
 }: EventHeroProps) {
   return (
     <section className="relative max-h-[600px] min-h-[400px] overflow-hidden rounded-lg bg-slate-800">
@@ -35,10 +37,10 @@ export function EventHero({
         <>
           <div className="absolute inset-0">
             <Image
-              src={urlFor(cover).auto("format").width(1920).height(500).url()}
+              src={urlFor(cover).auto("format").width(1600).height(500).url()}
               alt={title}
               withContainer={false}
-              width={1920}
+              width={1600}
               height={500}
               className="h-full w-full object-cover"
             />
@@ -53,6 +55,13 @@ export function EventHero({
           <div className="flex flex-col justify-end">
             {/* Basic Info */}
             <div className="md:pb-4">
+              <Typography
+                as="span"
+                variant="small"
+                className="mb-1 inline-block rounded-full border border-slate-200 px-3 py-1 text-slate-200"
+              >
+                {series?.title}
+              </Typography>
               <Heading
                 level={title.length < 40 ? 1 : 2}
                 className="mb-2 mt-4 text-white md:mt-0"
@@ -78,7 +87,7 @@ export function EventHero({
                   <div className="flex gap-4">
                     <div className="flex-1">
                       <Typography variant="muted" className="text-md">
-                        {location.name}
+                        <b>{location.name}</b>
                       </Typography>
                       {location.address && (
                         <Typography variant="muted" className="text-md">

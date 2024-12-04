@@ -34,7 +34,7 @@ export function GitHubStars({ url }: { url: string }) {
   if (stars === null) return null;
 
   return (
-    <Typography variant="small" className="text-white">
+    <Typography variant="small">
       <div className="flex items-center gap-1">
         <StarIcon className="h-4 w-4" />
         <span>{stars.toLocaleString()}</span>

@@ -19,12 +19,19 @@ export default async function EventsPage() {
       title,
       slug,
       abstract,
+      cardImage,
       cover {
+        asset->
+      },
+      background {
         asset->
       },
       location,
       eventPeriod,
-      cta
+      cta,
+      series->{
+        title
+      }
     }`,
   );
 

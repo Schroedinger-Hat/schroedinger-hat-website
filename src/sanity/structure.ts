@@ -42,12 +42,19 @@ export const structure: StructureResolver = async (S, context) => {
       // Talks Group
       S.documentTypeListItem("video").icon(schemaIcons.video),
       S.documentTypeListItem("event").icon(schemaIcons.event),
+      S.documentTypeListItem("eventSeries").icon(schemaIcons.eventSeries),
       S.documentTypeListItem("author").icon(schemaIcons.author),
 
       S.divider(),
 
       // Website Group
-      S.documentTypeListItem("teamMember").icon(schemaIcons.teamMember),
+      orderableDocumentListDeskItem({
+        type: "teamMember",
+        S,
+        context,
+        title: "Team Members",
+        icon: schemaIcons.teamMember,
+      }),
       S.listItem()
         .title("FAQs")
         .icon(schemaIcons.faq)

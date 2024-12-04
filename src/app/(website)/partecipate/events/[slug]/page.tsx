@@ -9,18 +9,24 @@ import { SectionContainer } from "@/components/atoms/layout/SectionContainer";
 import { type Metadata } from "next";
 import { extractFirstParagraph } from "@/lib/seo";
 import { Heading } from "@/components/atoms/typography/Heading";
+import { urlFor } from "@/sanity/lib/image";
 
 interface EventWithAuthors extends Omit<Event, "authors"> {
   authors?: Author[];
+  ogImage?: any;
 }
 
 async function getEvent(slug: string) {
   const event = await sanityClient.fetch<EventWithAuthors>(
     `*[_type == "event" && slug.current == $slug][0]{
       ...,
+      series->{
+        title
+      },
       "authors": coalesce(authors[]-> {
         ...
-      } | order(firstName asc, lastName asc), [])
+      } | order(firstName asc, lastName asc), []),
+      "ogImage": coalesce(cover, background)
     }`,
     { slug },
   );
@@ -36,9 +42,32 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const event = await getEvent(slug);
+
+  if (!event) return {};
+
+  const ogImage = event.ogImage
+    ? {
+        url: urlFor(event.ogImage).width(1200).height(630).url(),
+        width: 1200,
+        height: 630,
+        alt: event.title,
+      }
+    : undefined;
+
   return {
-    title: `${event?.title} | Event | Schrödinger Hat`,
-    description: extractFirstParagraph(event?.abstract ?? []),
+    title: `${event.title} | Event | Schrödinger Hat`,
+    description: extractFirstParagraph(event.abstract ?? []),
+    openGraph: {
+      title: event.title,
+      description: extractFirstParagraph(event.abstract ?? []),
+      images: ogImage ? [ogImage] : [],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: event.title,
+      description: extractFirstParagraph(event.abstract ?? []),
+      images: ogImage ? [ogImage] : [],
+    },
   };
 }
 
@@ -50,16 +79,56 @@ export default async function SingleEventPage({ params }: PageProps) {
     notFound();
   }
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    name: event.title,
+    description: event.abstract
+      ? extractFirstParagraph(event.abstract)
+      : undefined,
+    image: event.ogImage ? urlFor(event.ogImage).url() : undefined,
+    startDate: event.eventPeriod?.startDate,
+    endDate: event.eventPeriod?.endDate,
+    location: event.location
+      ? {
+          "@type": "Place",
+          name: event.location.name,
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: event.location.address,
+            addressLocality: event.location.city,
+          },
+          ...(event.location.coordinates && {
+            geo: {
+              "@type": "GeoCoordinates",
+              latitude: event.location.coordinates.lat,
+              longitude: event.location.coordinates.lng,
+            },
+          }),
+        }
+      : undefined,
+    organizer: {
+      "@type": "Organization",
+      name: event.organiser,
+    },
+  };
+
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       <SectionContainer size="wide" className="pb-0">
         <EventHero
           title={event.title}
-          cover={event.cover}
+          cover={event.ogImage}
           eventPeriod={event.eventPeriod}
           location={event.location}
           cta={event.cta}
           organiser={event.organiser!}
+          series={event.series}
         />
       </SectionContainer>
 

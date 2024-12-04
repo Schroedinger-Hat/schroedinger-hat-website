@@ -22,13 +22,6 @@ export const projectType = defineType({
       validation: (Rule) => Rule.required(),
     },
     {
-      name: "abstract",
-      title: "Abstract",
-      type: "array",
-      of: [{ type: "block" }],
-      validation: (Rule) => Rule.required(),
-    },
-    {
       name: "description",
       title: "Description",
       type: "array",
@@ -63,8 +56,8 @@ export const projectType = defineType({
       description: "Show the GitHub stars badge",
     },
     {
-      name: "technologies",
-      title: "Technologies",
+      name: "techStack",
+      title: "Tech Stack",
       type: "array",
       description: "List of technologies used in the project",
       of: [{ type: "string" }],
@@ -73,16 +66,40 @@ export const projectType = defineType({
       },
     },
     {
-      name: "coverImage",
-      title: "Cover Image",
-      type: "image",
-      validation: (Rule) => Rule.required(),
+      name: "launchedAt",
+      title: "Launched On",
+      type: "date",
+      options: {
+        dateFormat: "YYYY-MM-DD",
+      },
     },
     {
-      name: "order",
-      title: "Display Order",
-      type: "number",
-      description: "Controls the display order (lower numbers appear first)",
+      name: "lookingFor",
+      title: "Looking For",
+      type: "array",
+      of: [{ type: "string" }],
+      options: {
+        list: [
+          { title: "Contributors", value: "contributors" },
+          { title: "Maintainers", value: "maintainers" },
+        ],
+      },
+      validation: (Rule) => Rule.unique(),
+    },
+    {
+      name: "language",
+      title: "Primary Language",
+      type: "string",
+      options: {
+        list: [
+          { title: "TypeScript", value: "typescript" },
+          { title: "JavaScript", value: "javascript" },
+          { title: "Python", value: "python" },
+          { title: "Go", value: "go" },
+          { title: "Rust", value: "rust" },
+        ],
+      },
+      validation: (Rule) => Rule.required(),
     },
   ],
   preview: {

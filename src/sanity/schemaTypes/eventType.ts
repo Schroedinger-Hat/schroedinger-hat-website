@@ -1,4 +1,5 @@
 import { defineType } from "sanity";
+import { type SlugRule } from "sanity";
 
 export const eventType = defineType({
   name: "event",
@@ -12,14 +13,34 @@ export const eventType = defineType({
       validation: (Rule) => Rule.required(),
     },
     {
+      name: "series",
+      title: "Series",
+      type: "reference",
+      to: [{ type: "eventSeries" }],
+      validation: (Rule) => Rule.required(),
+    },
+    {
       name: "slug",
       title: "Slug",
       type: "slug",
       options: {
-        source: "title",
+        source: async (doc, { getClient }) => {
+          const client = getClient({ apiVersion: "2023-05-03" });
+
+          if (!doc.series || !doc.title) return "";
+
+          // Fetch the series document to get its slug
+          const series = await client.fetch(
+            `*[_type == "eventSeries" && _id == $seriesId][0].slug.current`,
+            { seriesId: doc.series._ref },
+          );
+
+          // Combine series slug with event title
+          return series ? `${series}/${doc.title}` : doc.title;
+        },
         maxLength: 96,
       },
-      validation: (Rule) => Rule.required(),
+      validation: (Rule: SlugRule) => Rule.required(),
     },
     {
       name: "organiser",
@@ -47,6 +68,29 @@ export const eventType = defineType({
       },
     },
     {
+      name: "background",
+      title: "Background",
+      type: "image",
+      options: {
+        hotspot: true,
+      },
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: "cardImage",
+      title: "Card Image",
+      description:
+        "The image used for the event card, social sharing always uses cover if available",
+      type: "string",
+      options: {
+        list: [
+          { title: "Background", value: "background" },
+          { title: "Cover", value: "cover" },
+        ],
+      },
+      validation: (Rule) => Rule.required(),
+    },
+    {
       name: "location",
       title: "Location",
       type: "object",
@@ -60,6 +104,11 @@ export const eventType = defineType({
         {
           name: "address",
           title: "Address",
+          type: "string",
+        },
+        {
+          name: "city",
+          title: "City",
           type: "string",
         },
         {
@@ -121,17 +170,26 @@ export const eventType = defineType({
     select: {
       title: "title",
       authors: "authors",
-      media: "cover",
+      media: "background",
+      series: "series.title",
     },
     prepare(selection) {
-      const { title, authors, media } = selection;
+      const { title, authors, media, series } = selection;
+
+      const authorText = authors?.length
+        ? `${authors.length} authors`
+        : "No authors";
+
+      const subtitle = series ? `[${series}] ${authorText}` : authorText;
+
       return {
         title,
-        subtitle: Array.isArray(authors)
-          ? `Authors: ${authors.length}`
-          : "No authors",
+        subtitle,
         media,
       };
     },
+  },
+  initialValue: {
+    cardImage: "background",
   },
 });

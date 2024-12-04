@@ -100,24 +100,6 @@ export type Project = {
   _rev: string;
   title?: string;
   slug?: Slug;
-  abstract?: Array<{
-    children?: Array<{
-      marks?: Array<string>;
-      text?: string;
-      _type: "span";
-      _key: string;
-    }>;
-    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
-    listItem?: "bullet" | "number";
-    markDefs?: Array<{
-      href?: string;
-      _type: "link";
-      _key: string;
-    }>;
-    level?: number;
-    _type: "block";
-    _key: string;
-  }>;
   description?: Array<{
     children?: Array<{
       marks?: Array<string>;
@@ -139,19 +121,10 @@ export type Project = {
   url?: string;
   repositoryUrl?: string;
   showStars?: boolean;
-  technologies?: Array<string>;
-  coverImage?: {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-    };
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    _type: "image";
-  };
-  order?: number;
+  techStack?: Array<string>;
+  launchedAt?: string;
+  lookingFor?: Array<string>;
+  language?: "typescript" | "javascript" | "python" | "go" | "rust";
 };
 
 export type Faq = {
@@ -204,6 +177,7 @@ export type TeamMember = {
     backgroundColor?: string;
     _type: "image";
   };
+  orderRank?: string;
 };
 
 export type Author = {
@@ -401,6 +375,7 @@ export type Partner = {
     email?: string;
   };
   orderRank?: string;
+  visibility?: Array<string>;
 };
 
 export type Event = {
@@ -410,6 +385,12 @@ export type Event = {
   _updatedAt: string;
   _rev: string;
   title?: string;
+  series?: {
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    [internalGroqTypeReferenceTo]?: "eventSeries";
+  };
   slug?: Slug;
   organiser?: string;
   abstract?: Array<{
@@ -441,9 +422,22 @@ export type Event = {
     crop?: SanityImageCrop;
     _type: "image";
   };
+  background?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  cardImage?: "background" | "cover";
   location?: {
     name?: string;
     address?: string;
+    city?: string;
     coordinates?: Geopoint;
   };
   eventPeriod?: {
@@ -527,6 +521,17 @@ export type SanityImageMetadata = {
   isOpaque?: boolean;
 };
 
+export type EventSeries = {
+  _id: string;
+  _type: "eventSeries";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
+  slug?: Slug;
+  description?: string;
+};
+
 export type Slug = {
   _type: "slug";
   current?: string;
@@ -586,6 +591,7 @@ export type AllSanitySchemaTypes =
   | SanityImageAsset
   | SanityAssetSourceData
   | SanityImageMetadata
+  | EventSeries
   | Slug
   | Color
   | RgbaColor

@@ -8,6 +8,7 @@ import {
   Notebook02Icon,
   CodeIcon,
   QuestionIcon,
+  Layers02Icon,
 } from "hugeicons-react";
 
 // Create a mapping of schema type to icon component
@@ -21,4 +22,5 @@ export const schemaIcons = {
   page: Notebook02Icon,
   partner: Building02Icon,
   project: CodeIcon,
+  eventSeries: Layers02Icon,
 } as const;

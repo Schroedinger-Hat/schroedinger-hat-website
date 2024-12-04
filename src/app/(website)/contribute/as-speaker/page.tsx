@@ -263,6 +263,13 @@ export default function BecomeSpeakerPage() {
             <TeamCard key={index} {...speaker} />
           ))}
         </div>
+        <div className="mt-4 text-center">
+          <Link href="/speaker">
+            <Heading level={4} className="text-slate-700">
+              Browse all speakers
+            </Heading>
+          </Link>
+        </div>
       </SectionContainer>
 
       <SectionContainer>

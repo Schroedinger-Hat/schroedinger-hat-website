@@ -40,6 +40,13 @@ export const teamMemberType = defineType({
       ],
       validation: (Rule) => Rule.required(),
     },
+    {
+      name: "orderRank",
+      title: "Order",
+      type: "string",
+      hidden: true,
+      description: "Display order within the group",
+    },
   ],
   preview: {
     select: {
