@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Typography } from "@/components/atoms/typography/Typography";
 import { Heading } from "@/components/atoms/typography/Heading";
 import { formatDateTime } from "@/lib/utils/date";
-import type { Event } from "@/sanity/sanity.types";
+import type { Event, internalGroqTypeReferenceTo } from "@/sanity/sanity.types";
 import { urlFor } from "@/sanity/lib/image";
 import { Image } from "@/components/atoms/media/Image";
 import {
@@ -11,6 +11,15 @@ import {
   ArrowRight01Icon,
 } from "hugeicons-react";
 
+type EventWithExpandedSeries = Omit<Event, "series"> & {
+  series?: {
+    _ref: string;
+    _type: "reference";
+    title?: string;
+    [internalGroqTypeReferenceTo]?: "eventSeries";
+  };
+};
+
 interface EventHeroProps {
   title: string;
   cover?: Event["cover"];
@@ -18,7 +27,7 @@ interface EventHeroProps {
   location?: Event["location"];
   cta?: Event["cta"];
   organiser: string;
-  series?: Event["series"];
+  series?: EventWithExpandedSeries["series"];
 }
 
 export function EventHero({

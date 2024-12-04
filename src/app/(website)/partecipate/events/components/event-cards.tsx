@@ -1,4 +1,7 @@
-import { type Event } from "@/sanity/sanity.types";
+import {
+  type internalGroqTypeReferenceTo,
+  type Event,
+} from "@/sanity/sanity.types";
 import { formatDateTime } from "@/lib/utils/date";
 import { Heading } from "@/components/atoms/typography/Heading";
 import { Image } from "@/components/atoms/media/Image";
@@ -6,7 +9,16 @@ import { Calendar01Icon, Location01Icon } from "hugeicons-react";
 import { urlFor } from "@/sanity/lib/image";
 import { Typography } from "@/components/atoms/typography/Typography";
 
-export function EventCard({ event }: { event: Event }) {
+type EventWithExpandedSeries = Omit<Event, "series"> & {
+  series?: {
+    _ref: string;
+    _type: "reference";
+    title?: string;
+    [internalGroqTypeReferenceTo]?: "eventSeries";
+  };
+};
+
+export function EventCard({ event }: { event: EventWithExpandedSeries }) {
   if (
     !event.title ||
     !event.slug ||
@@ -62,7 +74,11 @@ export function EventCard({ event }: { event: Event }) {
   );
 }
 
-export function FeaturedEventCard({ event }: { event: Event }) {
+export function FeaturedEventCard({
+  event,
+}: {
+  event: EventWithExpandedSeries;
+}) {
   if (
     !event.title ||
     !event.slug ||
