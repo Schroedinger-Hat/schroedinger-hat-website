@@ -55,7 +55,7 @@ export default async function SpeakersPage() {
                   withContainer={false}
                 />
               ) : (
-                <div className="flex aspect-square w-full max-w-[200px] items-center justify-center rounded-full bg-slate-100 transition-transform group-hover:scale-105">
+                <div className="flex aspect-square w-full max-w-[200px] items-center justify-center rounded-lg bg-slate-100 transition-transform group-hover:scale-105">
                   <span className="text-4xl text-slate-500">
                     {getAuthorInitials(speaker)}
                   </span>

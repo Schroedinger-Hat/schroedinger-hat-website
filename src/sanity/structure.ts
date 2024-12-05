@@ -47,6 +47,7 @@ export const structure: StructureResolver = async (S, context) => {
       S.documentTypeListItem("event").icon(schemaIcons.event),
       S.documentTypeListItem("eventSeries").icon(schemaIcons.eventSeries),
       S.documentTypeListItem("author").icon(schemaIcons.author),
+      S.documentTypeListItem("blogPost").icon(schemaIcons.blogPost),
 
       S.divider(),
 

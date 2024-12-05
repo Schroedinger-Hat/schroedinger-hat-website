@@ -52,6 +52,9 @@ export function Footer() {
               >
                 <Paragraph className="m-0 text-sm">ImageGoNord</Paragraph>
               </Link>
+              <Link className="block text-sm hover:underline" href="/blog">
+                <Paragraph className="m-0 text-sm">Blog</Paragraph>
+              </Link>
               {inDevEnvironment && (
                 <>
                   <Link

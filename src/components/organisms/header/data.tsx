@@ -83,8 +83,8 @@ export const associationMenuData: {
     description: "",
   },
   {
-    title: "Code of Conduct",
-    href: "/page/code-of-conduct",
+    title: "Blog",
+    href: "/blog",
     description: "",
   },
 ];

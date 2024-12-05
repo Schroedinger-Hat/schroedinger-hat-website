@@ -10,7 +10,11 @@ export const metadata: Metadata = {
   title: "Schrödinger Hat: Where we talk Open Source",
   description:
     "Schrödinger Hat is a non-profit community advancing open-source software through inspiring events and impactful projects.",
-  metadataBase: new URL("https://schrodinger-hat.org"),
+  metadataBase: new URL(
+    process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : "http://localhost:3000",
+  ),
   openGraph: {
     type: "website",
     locale: "en_US",
