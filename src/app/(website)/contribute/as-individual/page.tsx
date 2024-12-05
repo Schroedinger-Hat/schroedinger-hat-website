@@ -53,7 +53,7 @@ export default function ContributeIndividualPage() {
               Contribute <br /> as <br /> Individual
             </>
           }
-          imageSrc={asIndividual.src}
+          imageSrc={asIndividual}
           imageAlt="Speaker"
         />
       </SectionContainer>

@@ -1,6 +1,4 @@
-"use client";
-
-import Image from "next/image";
+import Image, { type StaticImageData } from "next/image";
 import { cn } from "@/lib/utils";
 import { Heading } from "../atoms/typography/Heading";
 import { Typography } from "../atoms/typography/Typography";
@@ -8,8 +6,8 @@ import { Typography } from "../atoms/typography/Typography";
 interface ImageContentProps {
   title: string;
   content: string | React.ReactNode;
-  imageSrc?: string;
-  imageAlt?: string;
+  imageSrc: string | StaticImageData;
+  imageAlt: string;
   imagePosition?: "left" | "right";
   className?: string;
 }
@@ -17,8 +15,8 @@ interface ImageContentProps {
 export function ImageContent({
   title,
   content,
-  imageSrc = "/placeholder.svg",
-  imageAlt = "Content image",
+  imageSrc,
+  imageAlt,
   imagePosition = "left",
   className,
 }: ImageContentProps) {

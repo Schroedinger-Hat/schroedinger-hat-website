@@ -225,8 +225,8 @@ export default function PressKitPage() {
             <Heading level={2}>Contact</Heading>
             <Typography>
               For any press inquiries, please contact us at{" "}
-              <a href="mailto:us@schroedingershat.com">
-                us@schroedingershat.com
+              <a href="mailto:event@schroedingershat.com">
+                event@schroedingershat.com
               </a>
             </Typography>
           </div>

@@ -40,6 +40,7 @@ const config = {
   images: {
     dangerouslyAllowSVG: true,
     remotePatterns,
+    formats: ["image/avif", "image/webp"],
   },
 };
 

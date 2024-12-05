@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { Menu } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
@@ -20,9 +20,6 @@ import {
   contributeMenuData,
   associationMenuData,
 } from "./data";
-
-// Image
-import logo from "@/images/logo.png";
 import { HighlightSubMenu, ListItem } from "./highlight-submenu";
 import { Typography } from "@/components/atoms/typography/Typography";
 import {
@@ -39,6 +36,9 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+
+// Image
+import logo from "@/images/logo.png";
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -67,10 +67,10 @@ export function Header() {
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-2 lg:px-8">
         <div className="flex lg:flex-1">
-          <a href="/" className="">
+          <Link href="/" className="">
             <span className="sr-only">Schrödinger Hat</span>
-            <Image src={logo.src} alt="Logo" width={32} height={32} />
-          </a>
+            <Image src={logo} alt="Logo" width={32} height={32} />
+          </Link>
         </div>
 
         {/* Mobile menu */}
@@ -259,7 +259,7 @@ export function Header() {
             </NavigationMenuItem>
 
             <NavigationMenuItem>
-              <Link href="https://shop.schrodinger-hat.it/">
+              <Link href="https://shop.schrodinger-hat.org/">
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                   <Typography as="span" variant="navigation">
                     Merch

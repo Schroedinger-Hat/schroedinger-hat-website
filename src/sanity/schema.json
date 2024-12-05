@@ -3072,6 +3072,16 @@
         },
         "optional": true
       },
+      "coolBecause": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "array",
+          "of": {
+            "type": "string"
+          }
+        },
+        "optional": true
+      },
       "authors": {
         "type": "objectAttribute",
         "value": {

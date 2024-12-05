@@ -155,6 +155,20 @@ export const eventType = defineType({
       ],
     },
     {
+      name: "coolBecause",
+      title: "Cool Because",
+      description:
+        "Explain why visitors should join this event (marketing pitch)",
+      type: "array",
+      of: [
+        {
+          type: "string",
+        },
+      ],
+      validation: (Rule) =>
+        Rule.max(3).warning("Consider keeping it to 3 key points"),
+    },
+    {
       name: "authors",
       title: "Authors",
       type: "array",

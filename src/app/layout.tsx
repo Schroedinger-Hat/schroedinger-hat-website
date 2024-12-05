@@ -7,9 +7,39 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const lexend = Lexend({ subsets: ["latin"], variable: "--font-lexend" });
 
 export const metadata: Metadata = {
-  title: "Schrödinger Hat: Open Source Community and Events",
+  title: "Schrödinger Hat: Where we talk Open Source",
   description:
     "Schrödinger Hat is a non-profit community advancing open-source software through inspiring events and impactful projects.",
+  metadataBase: new URL("https://schrodinger-hat.org"),
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://schrodinger-hat.org",
+    siteName: "Schrödinger Hat",
+    title: "Schrödinger Hat: Where we talk Open Source",
+    description:
+      "Schrödinger Hat is a non-profit community advancing open-source software through inspiring events and impactful projects.",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Schrödinger Hat Open Source Community",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Schrödinger Hat: Where we talk Open Source",
+    description:
+      "Schrödinger Hat is a non-profit community advancing open-source software through inspiring events and impactful projects.",
+    images: ["/og-image.png"],
+    creator: "@schrodinger_hat",
+  },
+  robots: "index, follow",
+  alternates: {
+    canonical: "https://schrodinger-hat.org",
+  },
 };
 
 export default function RootLayout({

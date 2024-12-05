@@ -244,7 +244,7 @@ export default async function AboutUsPage() {
                 </Link>
               </>
             }
-            imageSrc={os2Public.src}
+            imageSrc={os2Public}
             imageAlt="Schrödinger Hat community members on stage"
             imagePosition="right"
           />
@@ -276,7 +276,7 @@ export default async function AboutUsPage() {
                 </a>
               </>
             }
-            imageSrc={joinTheTeam.src}
+            imageSrc={joinTheTeam}
             imageAlt="Schrödinger Hat staff handing out badges"
             imagePosition="left"
           />

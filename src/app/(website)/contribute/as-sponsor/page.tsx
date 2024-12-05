@@ -41,7 +41,7 @@ export default function BecomeSponsorPage() {
               Contribute <br /> as <br /> Sponsor
             </>
           }
-          imageSrc={asSponsor.src}
+          imageSrc={asSponsor}
           imageAlt="Speaker"
         />
       </SectionContainer>
@@ -188,7 +188,7 @@ export default function BecomeSponsorPage() {
         <BlackCTA
           cta={{
             text: "Apply",
-            href: "mailto:us@schroedinger.hat?subject=Sponsorship%20Opportunity",
+            href: "mailto:event@schroedinger.hat?subject=Sponsorship%20Opportunity",
           }}
         >
           <BlackCTAHeading>Wanna Sponsor?</BlackCTAHeading>

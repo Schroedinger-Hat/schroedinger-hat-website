@@ -38,7 +38,7 @@ const famousSpeakers = [
     },
   },
   {
-    name: "Misko",
+    name: "Miško",
     surname: "Hevery",
     role: "Creator of Angular.js",
     image: {
@@ -90,35 +90,25 @@ export default function BecomeSpeakerPage() {
               Contribute <br /> as <br /> Speaker
             </>
           }
-          imageSrc={asSpeaker.src}
+          imageSrc={asSpeaker}
           imageAlt="Speaker"
         />
       </SectionContainer>
 
       <SectionContainer size="narrow">
         <Typography>
-          We are always excited to welcome passionate and knowledgeable speakers
-          to our events. If you have a story to tell, insights to share, or
-          skills to teach, this is your opportunity to connect with a vibrant
-          and curious community of learners and professionals.
-        </Typography>
-        <Typography>
           We believe that great ideas are worth sharing, and your unique
           perspective can help spark meaningful discussions, new discoveries,
           and collaborative growth. Whether you’re a seasoned speaker or
           stepping onto the stage for the first time, we’re here to support you
           in creating a memorable and impactful experience.
-        </Typography>
-        <Typography className="mb-0">
-          To make your contributions as effective and engaging as possible, we
-          offer two distinct formats for sharing your knowledge: Talks and
-          Workshops. Each format is designed to cater to different styles,
-          audiences, and levels of interaction, ensuring you can find the
-          perfect way to connect with our community.
+          <br />
+          We do organise two types of events: Talks and Workshops, explore them
+          below.
         </Typography>
       </SectionContainer>
 
-      <SectionContainer>
+      <SectionContainer className="pt-0 md:pt-0">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           <div className="rounded-xl bg-slate-300 p-2 text-white shadow-xl md:p-4">
             <div className="flex min-h-[180px] flex-row items-center justify-center rounded-xl bg-[#74B9FF] p-4">
@@ -220,7 +210,7 @@ export default function BecomeSpeakerPage() {
             {
               name: "Travel & Accommodation",
               description:
-                "We will help you with travel and accommodation. We also have great restaurant suggestions.",
+                "We can assist with organizing your travel. While costs aren’t covered, we have great restaurant suggestions!",
               icon: <AirplaneSeatIcon className="h-10 w-10" />,
             },
             {
@@ -281,7 +271,7 @@ export default function BecomeSpeakerPage() {
             {
               number: "28",
               title: "Events",
-              description: "Talks and eventswe have organised",
+              description: "Talks and events we have organised",
             },
             {
               number: "100",

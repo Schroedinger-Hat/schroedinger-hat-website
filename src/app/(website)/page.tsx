@@ -80,7 +80,7 @@ export default async function Home() {
               </Typography>
             </>
           }
-          imageSrc={team.src}
+          imageSrc={team}
           imageAlt="Team"
           imagePosition="left"
         />
@@ -140,7 +140,7 @@ export default async function Home() {
               </p>
             </>
           }
-          imageSrc={osday.src}
+          imageSrc={osday}
           imageAlt="OSDay"
           imagePosition="left"
         />
@@ -166,7 +166,7 @@ export default async function Home() {
               </p>
             </>
           }
-          imageSrc={imageGoNord.src}
+          imageSrc={imageGoNord}
           imageAlt="ImageGoNord"
           imagePosition="right"
         />

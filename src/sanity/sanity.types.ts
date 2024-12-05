@@ -448,6 +448,7 @@ export type Event = {
     text?: string;
     url?: string;
   };
+  coolBecause?: Array<string>;
   authors?: Array<{
     _ref: string;
     _type: "reference";

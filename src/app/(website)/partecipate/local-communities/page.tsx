@@ -43,7 +43,7 @@ export default async function LocalCommunitiesPage() {
               About <br /> Local <br /> Communities
             </>
           }
-          imageSrc={veronaPublic.src}
+          imageSrc={veronaPublic}
           imageAlt="Community locali"
         />
       </SectionContainer>
@@ -72,7 +72,7 @@ export default async function LocalCommunitiesPage() {
               </Typography>
             </>
           }
-          imageSrc={miskoWorkshop.src}
+          imageSrc={miskoWorkshop}
           imageAlt="Team"
           imagePosition="right"
         />

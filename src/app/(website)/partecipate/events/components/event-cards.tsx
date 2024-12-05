@@ -58,15 +58,34 @@ export function EventCard({ event }: { event: EventWithExpandedSeries }) {
             {event.title}
           </Heading>
 
-          <div className="space-y-1.5 text-sm text-slate-200">
-            <div className="inline-flex items-center gap-1">
-              <Calendar01Icon className="h-4 w-4" />
-              {formatDateTime(event.eventPeriod.startDate, "d MMMM yyyy")}
-            </div>
-            <div className="inline-flex items-center gap-1 overflow-hidden truncate pl-4">
-              <Location01Icon className="h-4 w-4" />
-              {event.location.city}
-            </div>
+          <div className="space-y-1.5">
+            <Typography variant="small" className="text-slate-200">
+              <div className="inline-flex items-center gap-1">
+                <Calendar01Icon className="h-4 w-4" />
+                {formatDateTime(event.eventPeriod.startDate, "d MMMM yyyy")}
+              </div>
+            </Typography>
+            <Typography variant="small" className="text-slate-200">
+              <div className="inline-flex items-center gap-1 overflow-hidden truncate pl-4">
+                <Location01Icon className="h-4 w-4" />
+                {event.location.city}
+              </div>
+            </Typography>
+
+            {event.coolBecause && event.coolBecause.length > 0 && (
+              <div className="mt-3 space-y-1">
+                {event.coolBecause.map((reason, index) => (
+                  <Typography
+                    key={index}
+                    variant="small"
+                    className="inline-flex items-start gap-1.5 text-emerald-300"
+                  >
+                    <span className="mt-1 block h-1.5 w-1.5 rounded-full bg-emerald-300" />
+                    {reason}
+                  </Typography>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -123,15 +142,34 @@ export function FeaturedEventCard({
             {event.title}
           </Heading>
 
-          <div className="space-y-1.5 text-sm text-slate-200">
-            <div className="inline-flex items-center gap-1">
-              <Calendar01Icon className="h-4 w-4" />
-              {formatDateTime(event.eventPeriod.startDate, "d MMMM yyyy")}
-            </div>
-            <div className="inline-flex items-center gap-1 overflow-hidden truncate pl-4">
-              <Location01Icon className="h-4 w-4" />
-              {event.location.city}
-            </div>
+          <div className="space-y-1.5">
+            <Typography variant="small" className="text-slate-200">
+              <div className="inline-flex items-center gap-1">
+                <Calendar01Icon className="h-4 w-4" />
+                {formatDateTime(event.eventPeriod.startDate, "d MMMM yyyy")}
+              </div>
+            </Typography>
+            <Typography variant="small" className="text-slate-200">
+              <div className="inline-flex items-center gap-1 overflow-hidden truncate pl-4">
+                <Location01Icon className="h-4 w-4" />
+                {event.location.city}
+              </div>
+            </Typography>
+
+            {event.coolBecause && event.coolBecause.length > 0 && (
+              <div className="mt-4 space-y-2">
+                {event.coolBecause.map((reason, index) => (
+                  <Typography
+                    key={index}
+                    variant="small"
+                    className="inline-flex items-start gap-2 text-emerald-300"
+                  >
+                    <span className="mt-1 block h-1.5 w-1.5 rounded-full bg-emerald-300" />
+                    {reason}
+                  </Typography>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </div>
