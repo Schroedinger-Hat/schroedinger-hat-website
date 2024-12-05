@@ -6,15 +6,18 @@ import { TRPCReactProvider } from "@/trpc/react";
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const lexend = Lexend({ subsets: ["latin"], variable: "--font-lexend" });
 
+const baseUrl =
+  process.env.VERCEL_ENV === "preview"
+    ? `https://${process.env.VERCEL_URL}`
+    : process.env.VERCEL_ENV === "production"
+      ? "https://schroedinger-hat-website.vercel.app/"
+      : "http://localhost:3000";
+
 export const metadata: Metadata = {
   title: "Schrödinger Hat: Where we talk Open Source",
   description:
     "Schrödinger Hat is a non-profit community advancing open-source software through inspiring events and impactful projects.",
-  metadataBase: new URL(
-    process.env.VERCEL_URL
-      ? `https://${process.env.VERCEL_URL}`
-      : "http://localhost:3000",
-  ),
+  metadataBase: new URL(baseUrl),
   openGraph: {
     type: "website",
     locale: "en_US",
