@@ -22,7 +22,7 @@ async function getSpeakers() {
       lastName,
       title,
       photo,
-      "slug": slug.current
+      slug
     }`,
   );
   return speakers;
@@ -35,14 +35,14 @@ export default async function SpeakersPage() {
     <main>
       <SectionContainer>
         <Heading level={2} className="mb-8 md:mb-8">
-          Spoke with us
+          We hosted
         </Heading>
 
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:gap-8 lg:grid-cols-5">
           {speakers.map((speaker) => (
             <Link
               key={speaker._id}
-              href={`/speaker/${speaker.slug}`}
+              href={`/speaker/${speaker.slug?.current}`}
               className="group flex flex-col items-center rounded-lg transition-colors hover:bg-slate-50"
             >
               {speaker.photo ? (

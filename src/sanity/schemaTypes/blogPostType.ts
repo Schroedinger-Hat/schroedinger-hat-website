@@ -37,7 +37,8 @@ export const blogPostType = defineType({
       name: "excerpt",
       title: "Excerpt",
       type: "text",
-      description: "A short summary of the blog post",
+      description:
+        "A short summary of the blog post. This will be used in the RSS feed and social media previews.",
       validation: (Rule) => Rule.max(200),
     },
     {
@@ -47,12 +48,21 @@ export const blogPostType = defineType({
       options: {
         hotspot: true,
       },
+      fields: [
+        {
+          name: "caption",
+          type: "string",
+          title: "Caption",
+          description: "Optional caption to display below the header image",
+        },
+      ],
     },
     {
       name: "publishedAt",
       title: "Published At",
       type: "datetime",
       initialValue: () => new Date().toISOString(),
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "content",
@@ -81,6 +91,22 @@ export const blogPostType = defineType({
               description: "Optional caption for the image",
             },
           ],
+        },
+        {
+          type: "code",
+          options: {
+            language: "typescript",
+            languageAlternatives: [
+              { title: "TypeScript", value: "typescript" },
+              { title: "JavaScript", value: "javascript" },
+              { title: "HTML", value: "html" },
+              { title: "CSS", value: "css" },
+              { title: "JSON", value: "json" },
+              { title: "Bash", value: "bash" },
+              { title: "Markdown", value: "markdown" },
+            ],
+            withFilename: true,
+          },
         },
       ],
       validation: (Rule) => Rule.required(),

@@ -12,10 +12,15 @@ import { type Metadata } from "next";
 import { extractFirstParagraph } from "@/lib/seo";
 import { getAuthorFullName } from "@/lib/utils/videoContent";
 import type { Author, BlogPost } from "@/sanity/sanity.types";
+import { CodeBlock } from "@/components/atoms/content/CodeBlock";
 
 // Add this type to ensure we get the exact fields we need from the query
 type BlogPostWithAuthors = BlogPost & {
   authors: Array<Pick<Author, "firstName" | "lastName">>;
+  headerImage?: {
+    asset: any;
+    caption?: string;
+  };
 };
 
 interface BlogPostPageProps {
@@ -57,7 +62,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const post = await sanityClient.fetch<BlogPostWithAuthors | null>(
     `*[_type == "blogPost" && slug.current == $slug][0]{
       title,
-      headerImage,
+      headerImage{
+        asset,
+        caption
+      },
       content,
       publishedAt,
       "authors": authors[]->{
@@ -76,18 +84,25 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     <SectionContainer size="wide">
       <SectionContainer size="medium" padding="none">
         {post.headerImage && (
-          <Image
-            src={urlFor(post.headerImage.asset)
-              .auto("format")
-              .width(1000)
-              .height(500)
-              .url()}
-            alt={post.title!}
-            width={1000}
-            height={500}
-            withContainer={false}
-            className="mb-8 h-auto w-full rounded-xl shadow-xl"
-          />
+          <div className="mb-8">
+            <Image
+              src={urlFor(post.headerImage.asset)
+                .auto("format")
+                .width(1000)
+                .height(500)
+                .url()}
+              alt={post.headerImage.caption ?? post.title!}
+              width={1000}
+              height={500}
+              withContainer={false}
+              className="h-auto w-full rounded-xl shadow-xl"
+            />
+            {post.headerImage.caption && (
+              <Typography variant="muted" className="mt-2 text-center">
+                {post.headerImage.caption}
+              </Typography>
+            )}
+          </div>
         )}
       </SectionContainer>
 

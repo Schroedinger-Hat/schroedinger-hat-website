@@ -205,13 +205,14 @@ export function Header() {
         <NavigationMenu className="hidden lg:block">
           <NavigationMenuList>
             <NavigationMenuItem>
-              <Link href="/watch">
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  <Typography as="span" variant="navigation">
-                    Watch
-                  </Typography>
-                </NavigationMenuLink>
-              </Link>
+              <NavigationMenuLink
+                className={navigationMenuTriggerStyle()}
+                href="/watch"
+              >
+                <Typography as="span" variant="navigation">
+                  Watch
+                </Typography>
+              </NavigationMenuLink>
             </NavigationMenuItem>
 
             <NavigationMenuItem>
@@ -259,13 +260,14 @@ export function Header() {
             </NavigationMenuItem>
 
             <NavigationMenuItem>
-              <Link href="https://shop.schrodinger-hat.org/">
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  <Typography as="span" variant="navigation">
-                    Merch
-                  </Typography>
-                </NavigationMenuLink>
-              </Link>
+              <NavigationMenuLink
+                className={navigationMenuTriggerStyle()}
+                href="https://shop.schrodinger-hat.org/"
+              >
+                <Typography as="span" variant="navigation">
+                  Merch
+                </Typography>
+              </NavigationMenuLink>
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>

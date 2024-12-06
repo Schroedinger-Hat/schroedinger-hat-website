@@ -46,6 +46,14 @@ export const metadata: Metadata = {
   robots: "index, follow",
   alternates: {
     canonical: "https://schrodinger-hat.org",
+    types: {
+      "application/rss+xml": [
+        {
+          url: "/feed.xml",
+          title: "Schrödinger Hat Blog RSS Feed",
+        },
+      ],
+    },
   },
 };
 

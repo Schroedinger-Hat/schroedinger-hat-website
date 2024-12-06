@@ -9,6 +9,7 @@ import { defineConfig } from "sanity";
 import { structureTool } from "sanity/structure";
 import { colorInput } from "@sanity/color-input";
 import { googleMapsInput } from "@sanity/google-maps-input";
+import { codeInput } from "@sanity/code-input";
 
 // Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
 import { apiVersion, dataset, projectId } from "./src/sanity/env";
@@ -30,5 +31,6 @@ export default defineConfig({
     googleMapsInput({
       apiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY!,
     }),
+    codeInput(),
   ],
 });

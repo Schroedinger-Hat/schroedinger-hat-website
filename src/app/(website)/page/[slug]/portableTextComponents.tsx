@@ -8,6 +8,8 @@ import { InlineText } from "@/components/atoms/typography/InlineText";
 import { Link } from "@/components/atoms/links/Link";
 import { Image } from "@/components/atoms/media/Image";
 import { urlFor } from "@/sanity/lib/image";
+import { CodeBlock } from "@/components/atoms/content/CodeBlock";
+import { cn } from "@/lib/utils";
 
 // Define the type for link value
 interface LinkValue {
@@ -31,22 +33,22 @@ export const createPortableTextComponents = (
       <Paragraph className={className}>{children}</Paragraph>
     ),
     h1: ({ children }) => (
-      <Heading level={1} className={className}>
+      <Heading level={1} className={cn(className, "mt-8")}>
         {children}
       </Heading>
     ),
     h2: ({ children }) => (
-      <Heading level={2} className={className}>
+      <Heading level={2} className={cn(className, "mt-8")}>
         {children}
       </Heading>
     ),
     h3: ({ children }) => (
-      <Heading level={3} className={className}>
+      <Heading level={3} className={cn(className, "mt-8")}>
         {children}
       </Heading>
     ),
     h4: ({ children }) => (
-      <Heading level={4} className={className}>
+      <Heading level={4} className={cn(className, "mt-8")}>
         {children}
       </Heading>
     ),
@@ -111,5 +113,6 @@ export const createPortableTextComponents = (
         </figure>
       );
     },
+    code: ({ value }: any) => <CodeBlock value={value} />,
   },
 });
