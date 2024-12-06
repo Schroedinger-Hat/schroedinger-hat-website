@@ -1,5 +1,5 @@
-import { createEnv } from "@t3-oss/env-nextjs";
-import { z } from "zod";
+import { createEnv } from "@t3-oss/env-nextjs"
+import { z } from "zod"
 
 export const env = createEnv({
   /**
@@ -31,12 +31,11 @@ export const env = createEnv({
     STRIPE_MEMBERSHIP_PRICE_ID: process.env.STRIPE_MEMBERSHIP_PRICE_ID,
     NEXT_PUBLIC_SANITY_PROJECT_ID: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
     NEXT_PUBLIC_SANITY_DATASET: process.env.NEXT_PUBLIC_SANITY_DATASET,
-    NEXT_PUBLIC_GOOGLE_MAPS_API_KEY:
-      process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
+    NEXT_PUBLIC_GOOGLE_MAPS_API_KEY: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
     NEXT_PUBLIC_GA_ID: process.env.NEXT_PUBLIC_GA_ID,
     VERCEL_URL: process.env.VERCEL_URL,
   },
 
   skipValidation: !!process.env.SKIP_ENV_VALIDATION,
   emptyStringAsUndefined: true,
-});
+})

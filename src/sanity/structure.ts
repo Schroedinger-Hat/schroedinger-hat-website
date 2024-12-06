@@ -1,16 +1,16 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-call */
-import type { StructureResolver } from "sanity/structure";
-import { orderableDocumentListDeskItem } from "@sanity/orderable-document-list";
-import { schemaIcons } from "./icons/schemaIcons";
+import type { StructureResolver } from "sanity/structure"
+import { orderableDocumentListDeskItem } from "@sanity/orderable-document-list"
+import { schemaIcons } from "./icons/schemaIcons"
 
 export const structure: StructureResolver = async (S, context) => {
   // Fetch all unique groupKeys
-  const client = context.getClient({ apiVersion: "2023-01-01" });
+  const client = context.getClient({ apiVersion: "2023-01-01" })
   const groupKeys = await client.fetch(`
     array::unique(*[_type == "faq"].groupKey | order(@))
-  `);
+  `)
 
   // Add type for the items array
   const faqGroups = [
@@ -20,9 +20,7 @@ export const structure: StructureResolver = async (S, context) => {
         type: "faq",
         S,
         context,
-        title: `${groupKey.charAt(0).toUpperCase()}${groupKey
-          .slice(1)
-          .replace(/-/g, " ")} FAQs`,
+        title: `${groupKey.charAt(0).toUpperCase()}${groupKey.slice(1).replace(/-/g, " ")} FAQs`,
         filter: `groupKey == "${groupKey}"`,
         id: `faq-group-${groupKey}`,
         icon: schemaIcons.faq,
@@ -37,7 +35,7 @@ export const structure: StructureResolver = async (S, context) => {
       id: "faq-group-all",
       icon: schemaIcons.faq,
     }),
-  ] as const;
+  ] as const
 
   return S.list()
     .title("Content")
@@ -101,5 +99,5 @@ export const structure: StructureResolver = async (S, context) => {
             ]),
         ),
       S.documentTypeListItem("project").icon(schemaIcons.project),
-    ]);
-};
+    ])
+}

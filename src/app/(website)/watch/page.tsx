@@ -1,23 +1,21 @@
-import Link from "next/link";
-import { Heading } from "@/components/atoms/typography/Heading";
-import { VideoCard } from "@/components/molecules/video-card";
-import { sanityClient } from "@/sanity/lib/client";
-import { getAuthorNames, getVideoThumbnailUrl } from "@/lib/utils/videoContent";
-import type { Author, Video } from "@/sanity/sanity.types";
-import { SectionContainer } from "@/components/atoms/layout/SectionContainer";
-import { cn } from "@/lib/utils";
-import { constructMetadata } from "@/lib/utils/metadata";
+import Link from "next/link"
+import { Heading } from "@/components/atoms/typography/Heading"
+import { VideoCard } from "@/components/molecules/video-card"
+import { sanityClient } from "@/sanity/lib/client"
+import { getAuthorNames, getVideoThumbnailUrl } from "@/lib/utils/videoContent"
+import type { Author, Video } from "@/sanity/sanity.types"
+import { SectionContainer } from "@/components/atoms/layout/SectionContainer"
+import { cn } from "@/lib/utils"
+import { constructMetadata } from "@/lib/utils/metadata"
 
 export const metadata = constructMetadata({
   title: "Schrödinger Hat: Watch",
-  description:
-    "Watch Schrödinger Hat videos, talks, workshops, podcasts and more.",
-});
+  description: "Watch Schrödinger Hat videos, talks, workshops, podcasts and more.",
+})
 
 // Update the getVideos function to be more type-safe
 async function getVideos() {
-  const videos: (Video & { authors: Author[] })[] =
-    await sanityClient.fetch(`*[_type == "video"]{
+  const videos: (Video & { authors: Author[] })[] = await sanityClient.fetch(`*[_type == "video"]{
     ...,
     authors[]->{
       _id,
@@ -26,12 +24,12 @@ async function getVideos() {
       pronouns,
       slug
     }
-  } | order(order asc)`);
-  return videos;
+  } | order(order asc)`)
+  return videos
 }
 
 export default async function WatchPage() {
-  const videos = await getVideos();
+  const videos = await getVideos()
 
   return (
     <main>
@@ -98,5 +96,5 @@ export default async function WatchPage() {
         </div>
       </SectionContainer>
     </main>
-  );
+  )
 }

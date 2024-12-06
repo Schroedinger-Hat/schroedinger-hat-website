@@ -1,21 +1,21 @@
-import { type Project } from "@/sanity/sanity.types";
-import { PortableText } from "next-sanity";
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { createPortableTextComponents } from "../../../page/[slug]/portableTextComponents";
-import { CalendarIcon, UsersIcon } from "lucide-react";
-import { GitHubStars } from "@/components/organisms/github-stars";
-import { formatDateTime } from "@/lib/utils/date";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import { type Project } from "@/sanity/sanity.types"
+import { PortableText } from "next-sanity"
+import { Badge } from "@/components/ui/badge"
+import { Card, CardContent, CardHeader } from "@/components/ui/card"
+import { createPortableTextComponents } from "../../../page/[slug]/portableTextComponents"
+import { CalendarIcon, UsersIcon } from "lucide-react"
+import { GitHubStars } from "@/components/organisms/github-stars"
+import { formatDateTime } from "@/lib/utils/date"
+import { Button } from "@/components/ui/button"
+import Link from "next/link"
 
-import { TypescriptIcon } from "../assets/Typescripticon";
-import { JavascriptIcon } from "../assets/JavascriptIcon";
-import { PythonIcon } from "../assets/PythonIcon";
-import { GolandIcon } from "../assets/GolangIcon";
-import { RustIcon } from "../assets/RustIcon";
-import { Typography } from "@/components/atoms/typography/Typography";
-import { Heading } from "@/components/atoms/typography/Heading";
+import { TypescriptIcon } from "../assets/Typescripticon"
+import { JavascriptIcon } from "../assets/JavascriptIcon"
+import { PythonIcon } from "../assets/PythonIcon"
+import { GolandIcon } from "../assets/GolangIcon"
+import { RustIcon } from "../assets/RustIcon"
+import { Typography } from "@/components/atoms/typography/Typography"
+import { Heading } from "@/components/atoms/typography/Heading"
 
 const LANGUAGE_ICONS: Record<string, React.ComponentType> = {
   typescript: TypescriptIcon,
@@ -23,16 +23,16 @@ const LANGUAGE_ICONS: Record<string, React.ComponentType> = {
   python: PythonIcon,
   go: GolandIcon,
   rust: RustIcon,
-};
+}
 
 interface ProjectCardProps {
-  project: Project;
+  project: Project
 }
 
 export function ProjectCard({ project }: ProjectCardProps) {
-  if (!project.language) return null;
+  if (!project.language) return null
 
-  const Icon = LANGUAGE_ICONS[project.language];
+  const Icon = LANGUAGE_ICONS[project.language]
 
   return (
     <Card className="w-full">
@@ -47,10 +47,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
           </CardHeader>
           <CardContent>
             <div className="prose prose-gray dark:prose-invert">
-              <PortableText
-                value={project.description!}
-                components={createPortableTextComponents()}
-              />
+              <PortableText value={project.description!} components={createPortableTextComponents()} />
             </div>
           </CardContent>
         </div>
@@ -65,11 +62,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
               </Typography>
               <div className="flex flex-wrap gap-1.5">
                 {project.techStack?.map((technology) => (
-                  <Badge
-                    key={technology}
-                    variant="secondary"
-                    className="text-sm"
-                  >
+                  <Badge key={technology} variant="secondary" className="text-sm">
                     {technology}
                   </Badge>
                 ))}
@@ -92,9 +85,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
                 <Typography variant="small" className="font-semibold">
                   Launch Date
                 </Typography>
-                <Typography variant="small">
-                  {formatDateTime(project.launchedAt)}
-                </Typography>
+                <Typography variant="small">{formatDateTime(project.launchedAt)}</Typography>
               </div>
             )}
 
@@ -119,11 +110,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             {project.repositoryUrl && (
               <div className="mt-auto">
                 <Button asChild className="w-full">
-                  <Link
-                    href={project.repositoryUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                  <Link href={project.repositoryUrl} target="_blank" rel="noopener noreferrer">
                     Contribute
                   </Link>
                 </Button>
@@ -133,5 +120,5 @@ export function ProjectCard({ project }: ProjectCardProps) {
         </div>
       </div>
     </Card>
-  );
+  )
 }

@@ -1,6 +1,6 @@
-import { type Config } from "tailwindcss";
-import { fontFamily } from "tailwindcss/defaultTheme";
-import animate from "tailwindcss-animate";
+import { type Config } from "tailwindcss"
+import { fontFamily } from "tailwindcss/defaultTheme"
+import animate from "tailwindcss-animate"
 
 export default {
   darkMode: ["class"],
@@ -70,12 +70,10 @@ export default {
             transform: "translate(-50%, -50%) scale(1)",
           },
           "33%": {
-            transform:
-              "translate(-50%, -50%) translate(20px, -20px) scale(1.3)",
+            transform: "translate(-50%, -50%) translate(20px, -20px) scale(1.3)",
           },
           "66%": {
-            transform:
-              "translate(-50%, -50%) translate(-20px, 20px) scale(0.7)",
+            transform: "translate(-50%, -50%) translate(-20px, 20px) scale(0.7)",
           },
           "100%": {
             transform: "translate(-50%, -50%) scale(1)",
@@ -105,4 +103,4 @@ export default {
     },
   },
   plugins: [animate],
-} satisfies Config;
+} satisfies Config

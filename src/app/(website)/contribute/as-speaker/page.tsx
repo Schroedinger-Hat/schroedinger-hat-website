@@ -1,8 +1,8 @@
-import { Heading } from "@/components/atoms/typography/Heading";
-import { Typography } from "@/components/atoms/typography/Typography";
-import { BlurredBackground } from "@/components/organisms/blurred-background";
-import FeaturesList from "@/components/organisms/features-list";
-import { ImageHero } from "@/components/organisms/image-hero";
+import { Heading } from "@/components/atoms/typography/Heading"
+import { Typography } from "@/components/atoms/typography/Typography"
+import { BlurredBackground } from "@/components/organisms/blurred-background"
+import FeaturesList from "@/components/organisms/features-list"
+import { ImageHero } from "@/components/organisms/image-hero"
 import {
   AirplaneSeatIcon,
   Mic01Icon,
@@ -10,22 +10,22 @@ import {
   Pizza01Icon,
   UserMultiple02Icon,
   Wrench01Icon,
-} from "hugeicons-react";
-import { TeamCard } from "@/components/organisms/team-card";
-import { StatBlocks } from "@/components/organisms/stat-block";
-import { List } from "@/components/atoms/lists/List";
-import { ListItem } from "@/components/atoms/lists/ListItem";
-import { BlackCTA, BlackCTAHeading } from "@/components/organisms/black-cta";
-import { Link } from "@/components/atoms/links/Link";
-import { SectionContainer } from "@/components/atoms/layout/SectionContainer";
-import { constructMetadata } from "@/lib/utils/metadata";
+} from "hugeicons-react"
+import { TeamCard } from "@/components/organisms/team-card"
+import { StatBlocks } from "@/components/organisms/stat-block"
+import { List } from "@/components/atoms/lists/List"
+import { ListItem } from "@/components/atoms/lists/ListItem"
+import { BlackCTA, BlackCTAHeading } from "@/components/organisms/black-cta"
+import { Link } from "@/components/atoms/links/Link"
+import { SectionContainer } from "@/components/atoms/layout/SectionContainer"
+import { constructMetadata } from "@/lib/utils/metadata"
 
 // Images
-import asSpeaker from "@/images/contribute/as_speaker.jpg";
-import famouseCollina from "@/images/contribute/speaker/famous_collina.jpg";
-import famouseHevery from "@/images/contribute/speaker/famous_hevery.jpg";
-import famouseCorti from "@/images/contribute/speaker/famous_corti.jpg";
-import famouseTerzi from "@/images/contribute/speaker/famous_terzi.jpg";
+import asSpeaker from "@/images/contribute/as_speaker.jpg"
+import famouseCollina from "@/images/contribute/speaker/famous_collina.jpg"
+import famouseHevery from "@/images/contribute/speaker/famous_hevery.jpg"
+import famouseCorti from "@/images/contribute/speaker/famous_corti.jpg"
+import famouseTerzi from "@/images/contribute/speaker/famous_terzi.jpg"
 
 const famousSpeakers = [
   {
@@ -60,13 +60,12 @@ const famousSpeakers = [
       src: famouseTerzi.src,
     },
   },
-];
+]
 
 export const metadata = constructMetadata({
   title: "Contribute as Speaker | Schrödinger Hat",
-  description:
-    "Learn more about how to contribute to Schrödinger Hat as a speaker.",
-});
+  description: "Learn more about how to contribute to Schrödinger Hat as a speaker.",
+})
 
 export default function BecomeSpeakerPage() {
   return (
@@ -96,14 +95,12 @@ export default function BecomeSpeakerPage() {
 
       <SectionContainer size="narrow">
         <Typography>
-          We believe that great ideas are worth sharing, and your unique
-          perspective can help spark meaningful discussions, new discoveries,
-          and collaborative growth. Whether you’re a seasoned speaker or
-          stepping onto the stage for the first time, we’re here to support you
-          in creating a memorable and impactful experience.
+          We believe that great ideas are worth sharing, and your unique perspective can help spark meaningful
+          discussions, new discoveries, and collaborative growth. Whether you’re a seasoned speaker or
+          stepping onto the stage for the first time, we’re here to support you in creating a memorable and
+          impactful experience.
           <br />
-          We do organise two types of events: Talks and Workshops, explore them
-          below.
+          We do organise two types of events: Talks and Workshops, explore them below.
         </Typography>
       </SectionContainer>
 
@@ -120,9 +117,8 @@ export default function BecomeSpeakerPage() {
             <div className="px-4 py-6">
               <Heading level={4}>What is it?</Heading>
               <Typography>
-                A Talk is a traditional conference-style presentation, lasting
-                30 to 60 minutes. It focuses on a single topic, idea, or story,
-                delivered with accompanying slides to inspire the audience.
+                A Talk is a traditional conference-style presentation, lasting 30 to 60 minutes. It focuses on
+                a single topic, idea, or story, delivered with accompanying slides to inspire the audience.
               </Typography>
 
               <Heading level={4} className="pt-4">
@@ -130,25 +126,21 @@ export default function BecomeSpeakerPage() {
               </Heading>
               <List variant="bullet">
                 <ListItem>
-                  Ideal for sharing insights, stories, or lessons learned from
-                  your experiences.
+                  Ideal for sharing insights, stories, or lessons learned from your experiences.
                 </ListItem>
                 <ListItem>
-                  Perfect for a wide range of topics, from personal journeys to
-                  deep dives into specific areas.
+                  Perfect for a wide range of topics, from personal journeys to deep dives into specific
+                  areas.
                 </ListItem>
-                <ListItem>
-                  Suitable for all skill levels in the audience.
-                </ListItem>
+                <ListItem>Suitable for all skill levels in the audience.</ListItem>
               </List>
 
               <Heading level={4} className="pt-4">
                 Why choose this?
               </Heading>
               <Typography>
-                Choosing a Talk allows you to share your expertise and passion
-                in a structured and impactful way. It’s perfect for reaching a
-                broad audience, delivering clear insights, and sparking
+                Choosing a Talk allows you to share your expertise and passion in a structured and impactful
+                way. It’s perfect for reaching a broad audience, delivering clear insights, and sparking
                 curiosity about your topic.
               </Typography>
             </div>
@@ -164,38 +156,27 @@ export default function BecomeSpeakerPage() {
             <div className="px-4 py-6">
               <Heading level={4}>What is it?</Heading>
               <Typography>
-                A Workshop is an interactive session lasting 2 to 8 hours,
-                designed to delve deeply into a specific topic, technology, or
-                framework. Workshops emphasize hands-on learning, often guiding
-                participants through a project or task, such as building an app
-                together.
+                A Workshop is an interactive session lasting 2 to 8 hours, designed to delve deeply into a
+                specific topic, technology, or framework. Workshops emphasize hands-on learning, often guiding
+                participants through a project or task, such as building an app together.
               </Typography>
 
               <Heading level={4} className="pt-4">
                 Is this for you?
               </Heading>
               <List variant="bullet">
-                <ListItem>
-                  Ideal for teaching practical skills or hands-on techniques.
-                </ListItem>
-                <ListItem>
-                  Great for in-depth exploration of a specific technology or
-                  methodology.
-                </ListItem>
-                <ListItem>
-                  Best suited for a smaller, focused group of attendees.
-                </ListItem>
+                <ListItem>Ideal for teaching practical skills or hands-on techniques.</ListItem>
+                <ListItem>Great for in-depth exploration of a specific technology or methodology.</ListItem>
+                <ListItem>Best suited for a smaller, focused group of attendees.</ListItem>
               </List>
 
               <Heading level={4} className="pt-4">
                 Why choose this?
               </Heading>
               <Typography variant="p" className="opacity-90">
-                Opting for a Workshop enables you to dive deep into a subject
-                and provide tangible value to attendees. With a focus on
-                hands-on learning and collaboration, this format is ideal for
-                fostering practical skills and creating meaningful connections
-                with participants.
+                Opting for a Workshop enables you to dive deep into a subject and provide tangible value to
+                attendees. With a focus on hands-on learning and collaboration, this format is ideal for
+                fostering practical skills and creating meaningful connections with participants.
               </Typography>
             </div>
           </div>
@@ -220,8 +201,7 @@ export default function BecomeSpeakerPage() {
             },
             {
               name: "Coaching",
-              description:
-                "First talk? We will help you prepare and practice. Some of use are speakers too",
+              description: "First talk? We will help you prepare and practice. Some of use are speakers too",
               icon: <Mortarboard02Icon className="h-10 w-10" />,
             },
             {
@@ -275,8 +255,7 @@ export default function BecomeSpeakerPage() {
             {
               number: "100",
               title: "Speakers",
-              description:
-                "Industry leaders that gave a talk from one of our events stage",
+              description: "Industry leaders that gave a talk from one of our events stage",
             },
             {
               number: "49",
@@ -287,5 +266,5 @@ export default function BecomeSpeakerPage() {
         />
       </SectionContainer>
     </main>
-  );
+  )
 }

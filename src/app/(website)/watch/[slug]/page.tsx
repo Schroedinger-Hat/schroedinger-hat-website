@@ -1,21 +1,21 @@
-import { notFound } from "next/navigation";
-import { PortableText } from "@portabletext/react";
-import { YouTubePlayer } from "@/components/molecules/youtube-player";
-import { sanityClient } from "@/sanity/lib/client";
-import type { Author, Video } from "@/sanity/sanity.types";
-import { Heading } from "@/components/atoms/typography/Heading";
-import { AuthorCard } from "@/components/molecules/author-card";
-import { formatDateTime } from "@/lib/utils/date";
-import { createPortableTextComponents } from "../../page/[slug]/portableTextComponents";
-import { BlurredBackground } from "@/components/organisms/blurred-background";
-import { getYoutubeVideoId } from "@/lib/utils/videoContent";
-import { SectionContainer } from "@/components/atoms/layout/SectionContainer";
-import { type Metadata } from "next";
-import { extractFirstParagraph } from "@/lib/seo";
-import { constructMetadata } from "@/lib/utils/metadata";
+import { notFound } from "next/navigation"
+import { PortableText } from "@portabletext/react"
+import { YouTubePlayer } from "@/components/molecules/youtube-player"
+import { sanityClient } from "@/sanity/lib/client"
+import type { Author, Video } from "@/sanity/sanity.types"
+import { Heading } from "@/components/atoms/typography/Heading"
+import { AuthorCard } from "@/components/molecules/author-card"
+import { formatDateTime } from "@/lib/utils/date"
+import { createPortableTextComponents } from "../../page/[slug]/portableTextComponents"
+import { BlurredBackground } from "@/components/organisms/blurred-background"
+import { getYoutubeVideoId } from "@/lib/utils/videoContent"
+import { SectionContainer } from "@/components/atoms/layout/SectionContainer"
+import { type Metadata } from "next"
+import { extractFirstParagraph } from "@/lib/seo"
+import { constructMetadata } from "@/lib/utils/metadata"
 
 interface VideoWithAuthors extends Omit<Video, "authors"> {
-  authors?: Author[];
+  authors?: Author[]
 }
 
 async function getVideo(slug: string) {
@@ -37,31 +37,29 @@ async function getVideo(slug: string) {
       }, [])
     }`,
     { slug },
-  );
-  return video;
+  )
+  return video
 }
 
 interface PageProps {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ slug: string }>
 }
 
-export async function generateMetadata({
-  params,
-}: PageProps): Promise<Metadata> {
-  const { slug } = await params;
-  const video = await getVideo(slug);
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params
+  const video = await getVideo(slug)
   return constructMetadata({
     title: `${video?.title} | Watch |Schrödinger Hat`,
     description: extractFirstParagraph(video?.description ?? []),
-  });
+  })
 }
 
 export default async function SingleVideoPage({ params }: PageProps) {
-  const { slug } = await params;
-  const video = await getVideo(slug);
+  const { slug } = await params
+  const video = await getVideo(slug)
 
   if (!video) {
-    notFound();
+    notFound()
   }
 
   return (
@@ -84,10 +82,7 @@ export default async function SingleVideoPage({ params }: PageProps) {
         </Heading>
 
         {/* // Must extract video id since there's no guarantes it's going to be without url */}
-        <YouTubePlayer
-          videoId={getYoutubeVideoId(video.youtubeId!)}
-          className="mb-6"
-        />
+        <YouTubePlayer videoId={getYoutubeVideoId(video.youtubeId!)} className="mb-6" />
 
         {video.publishedAt && (
           <Heading level={3} className="mb-4">
@@ -114,16 +109,13 @@ export default async function SingleVideoPage({ params }: PageProps) {
               Description
             </Heading>
             <div className="prose max-w-none">
-              <PortableText
-                value={video.description}
-                components={createPortableTextComponents()}
-              />
+              <PortableText value={video.description} components={createPortableTextComponents()} />
             </div>
           </>
         )}
       </SectionContainer>
     </main>
-  );
+  )
 }
 
 export async function generateStaticParams() {
@@ -131,9 +123,9 @@ export async function generateStaticParams() {
     `*[_type == "video"] | order(publishedAt desc)[0...1000]{
       slug
     }`,
-  );
+  )
 
   return videos.map((video) => ({
     slug: video.slug.current,
-  }));
+  }))
 }

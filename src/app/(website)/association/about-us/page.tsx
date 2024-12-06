@@ -1,52 +1,46 @@
-import { Image } from "@/components/atoms/media/Image";
-import { BlurredBackground } from "@/components/organisms/blurred-background";
-import { Typography } from "@/components/atoms/typography/Typography";
-import { Link } from "@/components/atoms/links/Link";
-import { ArrowRight } from "lucide-react";
-import {
-  MentorIcon,
-  Mic01Icon,
-  SchoolTieIcon,
-  UserMultipleIcon,
-} from "hugeicons-react";
-import { Heading } from "@/components/atoms/typography/Heading";
-import { StatBlocks } from "@/components/organisms/stat-block";
-import { sanityClient } from "@/sanity/lib/client";
-import { urlFor } from "@/sanity/lib/image";
-import type { Partner } from "@/sanity/sanity.types";
-import { LogoGallery } from "@/components/organisms/logo-gallery";
-import { TeamMemberCard } from "@/components/organisms/team-card";
-import type { TeamMember } from "@/sanity/sanity.types";
-import { Paragraph } from "@/components/atoms/typography/Paragraph";
-import { Button } from "@/components/molecules/button";
-import { constructMetadata } from "@/lib/utils/metadata";
+import { Image } from "@/components/atoms/media/Image"
+import { BlurredBackground } from "@/components/organisms/blurred-background"
+import { Typography } from "@/components/atoms/typography/Typography"
+import { Link } from "@/components/atoms/links/Link"
+import { ArrowRight } from "lucide-react"
+import { MentorIcon, Mic01Icon, SchoolTieIcon, UserMultipleIcon } from "hugeicons-react"
+import { Heading } from "@/components/atoms/typography/Heading"
+import { StatBlocks } from "@/components/organisms/stat-block"
+import { sanityClient } from "@/sanity/lib/client"
+import { urlFor } from "@/sanity/lib/image"
+import type { Partner } from "@/sanity/sanity.types"
+import { LogoGallery } from "@/components/organisms/logo-gallery"
+import { TeamMemberCard } from "@/components/organisms/team-card"
+import type { TeamMember } from "@/sanity/sanity.types"
+import { Paragraph } from "@/components/atoms/typography/Paragraph"
+import { Button } from "@/components/molecules/button"
+import { constructMetadata } from "@/lib/utils/metadata"
 
 // Images
-import staffSpeaker from "@/images/about/os23_staff_speaker.jpg";
-import gabriMikiStage from "@/images/about/os24_gabri-miki_stage.jpg";
-import joinTheTeam from "@/images/about/os24_join-the-team.jpg";
-import os2Public from "@/images/about/os24_public.jpg";
-import { SectionContainer } from "@/components/atoms/layout/SectionContainer";
-import { ImageContent } from "@/components/organisms/image-content";
+import staffSpeaker from "@/images/about/os23_staff_speaker.jpg"
+import gabriMikiStage from "@/images/about/os24_gabri-miki_stage.jpg"
+import joinTheTeam from "@/images/about/os24_join-the-team.jpg"
+import os2Public from "@/images/about/os24_public.jpg"
+import { SectionContainer } from "@/components/atoms/layout/SectionContainer"
+import { ImageContent } from "@/components/organisms/image-content"
 
 export const metadata = constructMetadata({
   title: "Schrödinger Hat: About Us",
-  description:
-    "Learn more about Schrödinger Hat, our mission, and the team behind the organization.",
-});
+  description: "Learn more about Schrödinger Hat, our mission, and the team behind the organization.",
+})
 
 export default async function AboutUsPage() {
   // Fetch business partners
   const partners: Partner[] = await sanityClient.fetch(
     `*[_type == "partner" && isBusinessPartner && "about" in visibility] | order(orderRank asc)`,
-  );
+  )
 
   // New team members query
   const teamMembers: TeamMember[] = await sanityClient.fetch(`
     *[_type == "teamMember"] | order(orderRank asc) {
       ...
     }
-  `);
+  `)
 
   return (
     <main>
@@ -70,8 +64,8 @@ export default async function AboutUsPage() {
             </div>
             <div className="max-w-2xl">
               <h2 className="text-[22px] font-normal text-slate-800">
-                We created an ever-growing community of developers and creators
-                to spread our passion of open source.
+                We created an ever-growing community of developers and creators to spread our passion of open
+                source.
               </h2>
             </div>
           </div>
@@ -101,26 +95,22 @@ export default async function AboutUsPage() {
               {
                 number: <UserMultipleIcon className="h-10 w-10" />,
                 title: "Meetup",
-                description:
-                  "Organise speakers, logistic, marketing for conferences all across Europe.",
+                description: "Organise speakers, logistic, marketing for conferences all across Europe.",
               },
               {
                 number: <MentorIcon className="h-10 w-10" />,
                 title: "Workshops",
-                description:
-                  "We invite special guests to teach new things to our community.",
+                description: "We invite special guests to teach new things to our community.",
               },
               {
                 number: <Mic01Icon className="h-10 w-10" />,
                 title: "Podcasts",
-                description:
-                  "Chilling and talking about open source projects and news.",
+                description: "Chilling and talking about open source projects and news.",
               },
               {
                 number: <SchoolTieIcon className="h-10 w-10" />,
                 title: "Consulting",
-                description:
-                  "We help companies to organise all of the previous activities.",
+                description: "We help companies to organise all of the previous activities.",
               },
             ]}
           />
@@ -137,18 +127,13 @@ export default async function AboutUsPage() {
                 Our story
               </Typography>
 
-              <Typography
-                as="h2"
-                variant="h2"
-                className="text-4xl font-bold leading-tight text-white"
-              >
+              <Typography as="h2" variant="h2" className="text-4xl font-bold leading-tight text-white">
                 It all started with an idea that became a family
               </Typography>
 
               <Typography variant="p" className="text-lg text-white opacity-90">
-                We started as a group of friends who shared a passion for open
-                source and technology during Covid-19 lockdown. Over time, we
-                grew into a community of developers and creators who are
+                We started as a group of friends who shared a passion for open source and technology during
+                Covid-19 lockdown. Over time, we grew into a community of developers and creators who are
                 dedicated to spreading the message of open source.
               </Typography>
 
@@ -179,8 +164,8 @@ export default async function AboutUsPage() {
             <div className="lg:w-1/3">
               <Heading level={2}>Trusted by the big players</Heading>
               <Paragraph>
-                We received sponsorship and support from industry leading
-                companies to organise our events and activities.
+                We received sponsorship and support from industry leading companies to organise our events and
+                activities.
               </Paragraph>
             </div>
             <div className="lg:flex-1">
@@ -194,7 +179,7 @@ export default async function AboutUsPage() {
                     (
                       partner,
                     ): partner is Partner & {
-                      image: NonNullable<Partner["image"]>;
+                      image: NonNullable<Partner["image"]>
                     } => partner.image !== undefined && partner.image !== null,
                   )
                   .map((partner) => ({
@@ -230,14 +215,12 @@ export default async function AboutUsPage() {
             content={
               <>
                 <Paragraph>
-                  If you like our idea but don&apos;t have enough time to
-                  contribute and work on our projects you may consider becoming
-                  a member.
+                  If you like our idea but don&apos;t have enough time to contribute and work on our projects
+                  you may consider becoming a member.
                 </Paragraph>
                 <Paragraph>
-                  Membership requires a small fee to support our expenses and
-                  gives you back some perks like early access to tickets and
-                  discounts for our shop.
+                  Membership requires a small fee to support our expenses and gives you back some perks like
+                  early access to tickets and discounts for our shop.
                 </Paragraph>
                 <Link href="/association/join">
                   <Button className="mt-4">
@@ -263,13 +246,12 @@ export default async function AboutUsPage() {
             content={
               <>
                 <Paragraph>
-                  We&apos;re always looking for new people to join our team. If
-                  you think you have what it takes, please send us an email.
+                  We&apos;re always looking for new people to join our team. If you think you have what it
+                  takes, please send us an email.
                 </Paragraph>
                 <Paragraph>
-                  We have no fixed roles, we just need people who are willing to
-                  help us out with the organisation of our events and
-                  activities.
+                  We have no fixed roles, we just need people who are willing to help us out with the
+                  organisation of our events and activities.
                 </Paragraph>
                 <a href="mailto:hello@schroedinger-hat.org?subject=I want to join the team">
                   <Button className="mt-4">
@@ -286,5 +268,5 @@ export default async function AboutUsPage() {
         </div>
       </SectionContainer>
     </main>
-  );
+  )
 }

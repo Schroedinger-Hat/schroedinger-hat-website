@@ -1,9 +1,9 @@
-import { Heading } from "@/components/atoms/typography/Heading";
-import { cn } from "@/lib/utils";
+import { Heading } from "@/components/atoms/typography/Heading"
+import { cn } from "@/lib/utils"
 
 interface TitleProps {
-  children: React.ReactNode;
-  className?: string;
+  children: React.ReactNode
+  className?: string
 }
 
 export function Title({ children, className }: TitleProps) {
@@ -11,5 +11,5 @@ export function Title({ children, className }: TitleProps) {
     <Heading level={2} className={cn("text-3xl font-bold", className)}>
       {children}
     </Heading>
-  );
+  )
 }

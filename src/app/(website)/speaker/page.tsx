@@ -1,18 +1,18 @@
-import { sanityClient } from "@/sanity/lib/client";
-import type { Author } from "@/sanity/sanity.types";
-import { SectionContainer } from "@/components/atoms/layout/SectionContainer";
-import { Heading } from "@/components/atoms/typography/Heading";
-import { Image } from "@/components/atoms/media/Image";
-import { urlFor } from "@/sanity/lib/image";
-import { getAuthorFullName, getAuthorInitials } from "@/lib/utils/videoContent";
-import Link from "next/link";
-import { Typography } from "@/components/atoms/typography/Typography";
-import { constructMetadata } from "@/lib/utils/metadata";
+import { sanityClient } from "@/sanity/lib/client"
+import type { Author } from "@/sanity/sanity.types"
+import { SectionContainer } from "@/components/atoms/layout/SectionContainer"
+import { Heading } from "@/components/atoms/typography/Heading"
+import { Image } from "@/components/atoms/media/Image"
+import { urlFor } from "@/sanity/lib/image"
+import { getAuthorFullName, getAuthorInitials } from "@/lib/utils/videoContent"
+import Link from "next/link"
+import { Typography } from "@/components/atoms/typography/Typography"
+import { constructMetadata } from "@/lib/utils/metadata"
 
 export const metadata = constructMetadata({
   title: "Speakers | Schrödinger Hat",
   description: "Meet our amazing speakers and community contributors",
-});
+})
 
 async function getSpeakers() {
   const speakers = await sanityClient.fetch<Author[]>(
@@ -24,12 +24,12 @@ async function getSpeakers() {
       photo,
       slug
     }`,
-  );
-  return speakers;
+  )
+  return speakers
 }
 
 export default async function SpeakersPage() {
-  const speakers = await getSpeakers();
+  const speakers = await getSpeakers()
 
   return (
     <main>
@@ -56,28 +56,20 @@ export default async function SpeakersPage() {
                 />
               ) : (
                 <div className="flex aspect-square w-full max-w-[200px] items-center justify-center rounded-lg bg-slate-100 transition-transform group-hover:scale-105">
-                  <span className="text-4xl text-slate-500">
-                    {getAuthorInitials(speaker)}
-                  </span>
+                  <span className="text-4xl text-slate-500">{getAuthorInitials(speaker)}</span>
                 </div>
               )}
 
               <div className="mt-4 text-center">
-                <Typography
-                  variant="medium"
-                  weight="semibold"
-                  className="mb-0 md:mb-0"
-                >
+                <Typography variant="medium" weight="semibold" className="mb-0 md:mb-0">
                   {getAuthorFullName(speaker)}
                 </Typography>
-                {speaker.title && (
-                  <Typography variant="muted">{speaker.title}</Typography>
-                )}
+                {speaker.title && <Typography variant="muted">{speaker.title}</Typography>}
               </div>
             </Link>
           ))}
         </div>
       </SectionContainer>
     </main>
-  );
+  )
 }

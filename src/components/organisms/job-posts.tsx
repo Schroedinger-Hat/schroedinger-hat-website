@@ -1,20 +1,20 @@
-import { Typography } from "@/components/atoms/typography/Typography";
-import { Heading } from "@/components/atoms/typography/Heading";
-import { PortableText } from "@portabletext/react";
-import { Clock4 } from "lucide-react";
-import { sanityClient } from "@/sanity/lib/client";
-import { Badge } from "../ui/badge";
-import { Button } from "../ui/button";
+import { Typography } from "@/components/atoms/typography/Typography"
+import { Heading } from "@/components/atoms/typography/Heading"
+import { PortableText } from "@portabletext/react"
+import { Clock4 } from "lucide-react"
+import { sanityClient } from "@/sanity/lib/client"
+import { Badge } from "../ui/badge"
+import { Button } from "../ui/button"
 
-type EffortLevel = "low" | "moderate" | "elevate";
+type EffortLevel = "low" | "moderate" | "elevate"
 
 interface JobPost {
-  _id: string;
-  title: string;
-  description: any[];
-  location: string;
-  effort: EffortLevel;
-  publishedAt: string;
+  _id: string
+  title: string
+  description: any[]
+  location: string
+  effort: EffortLevel
+  publishedAt: string
 }
 
 async function getJobPosts() {
@@ -25,28 +25,28 @@ async function getJobPosts() {
     location,
     effort,
     publishedAt
-  }`;
+  }`
 
-  return sanityClient.fetch<JobPost[]>(query);
+  return sanityClient.fetch<JobPost[]>(query)
 }
 
 const effortColorMap: Record<EffortLevel, "green" | "yellow" | "red"> = {
   low: "green",
   moderate: "yellow",
   elevate: "red",
-} as const;
+} as const
 
 const effortLabelMap: Record<EffortLevel, string> = {
   low: "Low effort (<4 hours/month)",
   moderate: "Moderate effort (4-8 hours/month)",
   elevate: "High effort (>8 hours/month)",
-} as const;
+} as const
 
 export async function JobPosts() {
-  const jobs = await getJobPosts();
+  const jobs = await getJobPosts()
 
   if (!jobs.length) {
-    return null;
+    return null
   }
 
   return (
@@ -55,8 +55,8 @@ export async function JobPosts() {
         Skilled Opportunities
       </Heading>
       <Typography className="mb-8">
-        If you're a professional looking to contribute we have a series of
-        specialized roles that may be of interest.
+        If you're a professional looking to contribute we have a series of specialized roles that may be of
+        interest.
       </Typography>
       <div className="grid gap-8 space-y-8">
         {jobs.map((job) => (
@@ -78,9 +78,7 @@ export async function JobPosts() {
 
               {/* Apply button */}
               <div className="hidden sm:block sm:flex-shrink-0">
-                <a
-                  href={`mailto:hello@schroedinger-hat.org?subject=Application for ${job.title}`}
-                >
+                <a href={`mailto:hello@schroedinger-hat.org?subject=Application for ${job.title}`}>
                   <Button variant="default">Apply</Button>
                 </a>
               </div>
@@ -92,9 +90,7 @@ export async function JobPosts() {
             </div>
 
             <div className="mt-4 block sm:hidden">
-              <a
-                href={`mailto:hello@schroedinger-hat.org?subject=Application for ${job.title}`}
-              >
+              <a href={`mailto:hello@schroedinger-hat.org?subject=Application for ${job.title}`}>
                 <Button variant="default">Apply</Button>
               </a>
             </div>
@@ -102,5 +98,5 @@ export async function JobPosts() {
         ))}
       </div>
     </div>
-  );
+  )
 }

@@ -1,17 +1,13 @@
-import { Heading } from "../atoms/typography/Heading";
-import { Typography } from "../atoms/typography/Typography";
+import { Heading } from "../atoms/typography/Heading"
+import { Typography } from "../atoms/typography/Typography"
 
 interface FeatureCardProps {
-  name: string;
-  description: string;
-  icon: React.ReactNode;
+  name: string
+  description: string
+  icon: React.ReactNode
 }
 
-export function FeatureCard({
-  name,
-  description,
-  icon: icon,
-}: FeatureCardProps) {
+export function FeatureCard({ name, description, icon: icon }: FeatureCardProps) {
   return (
     <div className="flex items-start gap-4 rounded-lg p-4">
       <div>{icon}</div>
@@ -22,12 +18,12 @@ export function FeatureCard({
         <Typography variant="medium">{description}</Typography>
       </div>
     </div>
-  );
+  )
 }
 
 interface FeaturesListProps {
-  title: string;
-  features: FeatureCardProps[];
+  title: string
+  features: FeatureCardProps[]
 }
 
 export default function FeaturesList({ title, features }: FeaturesListProps) {
@@ -42,5 +38,5 @@ export default function FeaturesList({ title, features }: FeaturesListProps) {
         ))}
       </div>
     </div>
-  );
+  )
 }

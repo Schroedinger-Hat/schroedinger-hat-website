@@ -1,26 +1,25 @@
-import { Image } from "@/components/atoms/media/Image";
-import { Heading } from "@/components/atoms/typography/Heading";
-import { BlurredBackground } from "@/components/organisms/blurred-background";
-import { ImageContent } from "@/components/organisms/image-content";
-import { StatBlocks } from "@/components/organisms/stat-block";
-import { ImageHero } from "@/components/organisms/image-hero";
-import { Typography } from "@/components/atoms/typography/Typography";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import { FaqBlock } from "@/components/organisms/faq-block";
-import { BlackCTA, BlackCTAHeading } from "@/components/organisms/black-cta";
+import { Image } from "@/components/atoms/media/Image"
+import { Heading } from "@/components/atoms/typography/Heading"
+import { BlurredBackground } from "@/components/organisms/blurred-background"
+import { ImageContent } from "@/components/organisms/image-content"
+import { StatBlocks } from "@/components/organisms/stat-block"
+import { ImageHero } from "@/components/organisms/image-hero"
+import { Typography } from "@/components/atoms/typography/Typography"
+import { Button } from "@/components/ui/button"
+import Link from "next/link"
+import { FaqBlock } from "@/components/organisms/faq-block"
+import { BlackCTA, BlackCTAHeading } from "@/components/organisms/black-cta"
 
 // Images
-import veronaPublic from "@/images/local-communities/verona_public.jpg";
-import miskoWorkshop from "@/images/local-communities/misko_workshop.jpg";
-import { SectionContainer } from "@/components/atoms/layout/SectionContainer";
-import { constructMetadata } from "@/lib/utils/metadata";
+import veronaPublic from "@/images/local-communities/verona_public.jpg"
+import miskoWorkshop from "@/images/local-communities/misko_workshop.jpg"
+import { SectionContainer } from "@/components/atoms/layout/SectionContainer"
+import { constructMetadata } from "@/lib/utils/metadata"
 
 export const metadata = constructMetadata({
   title: "Local Communities | Schrödinger Hat",
-  description:
-    "Learn more about our local communities and how to get involved.",
-});
+  description: "Learn more about our local communities and how to get involved.",
+})
 
 export default async function LocalCommunitiesPage() {
   return (
@@ -55,20 +54,15 @@ export default async function LocalCommunitiesPage() {
           content={
             <>
               <Typography>
-                <b>SH Groups</b> are local initiatives by Schrödinger Hat APS
-                members, aimed at fostering workshops, talks, and events
-                tailored to their communities. These groups create spaces for
-                collaboration and innovation while staying connected to the
-                broader Schrödinger Hat mission.
+                <b>SH Groups</b> are local initiatives by Schrödinger Hat APS members, aimed at fostering
+                workshops, talks, and events tailored to their communities. These groups create spaces for
+                collaboration and innovation while staying connected to the broader Schrödinger Hat mission.
               </Typography>
               <Typography>
-                With autonomy to shape their activities, <b>SH Groups</b>{" "}
-                reflect the unique needs of their cities while upholding the
-                organization’s values and Code of Conduct. Schrödinger Hat
-                supports these groups with resources like branding,
-                communication tools, and event platforms, empowering them to
-                thrive as part of a global network inspiring tech communities
-                everywhere.
+                With autonomy to shape their activities, <b>SH Groups</b> reflect the unique needs of their
+                cities while upholding the organization’s values and Code of Conduct. Schrödinger Hat supports
+                these groups with resources like branding, communication tools, and event platforms,
+                empowering them to thrive as part of a global network inspiring tech communities everywhere.
               </Typography>
             </>
           }
@@ -128,5 +122,5 @@ export default async function LocalCommunitiesPage() {
         <FaqBlock groupKey="local-communities" />
       </SectionContainer>
     </main>
-  );
+  )
 }

@@ -1,37 +1,37 @@
-"use client";
+"use client"
 
-import { Typography } from "@/components/atoms/typography/Typography";
-import { StarIcon } from "lucide-react";
-import { useEffect, useState } from "react";
+import { Typography } from "@/components/atoms/typography/Typography"
+import { StarIcon } from "lucide-react"
+import { useEffect, useState } from "react"
 
 // Helper function to extract owner and repo from GitHub URL
 function extractGitHubInfo(url: string) {
   try {
-    const match = /github\.com\/([^/]+)\/([^/]+)/.exec(url);
-    return match ? { owner: match[1], repo: match[2] } : null;
+    const match = /github\.com\/([^/]+)\/([^/]+)/.exec(url)
+    return match ? { owner: match[1], repo: match[2] } : null
   } catch {
-    return null;
+    return null
   }
 }
 
 export function GitHubStars({ url }: { url: string }) {
-  const [stars, setStars] = useState<number | null>(null);
+  const [stars, setStars] = useState<number | null>(null)
 
   useEffect(() => {
-    const githubInfo = extractGitHubInfo(url);
-    if (!githubInfo) return;
+    const githubInfo = extractGitHubInfo(url)
+    if (!githubInfo) return
 
     fetch(`https://api.github.com/repos/${githubInfo.owner}/${githubInfo.repo}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.stargazers_count) {
-          setStars(data.stargazers_count);
+          setStars(data.stargazers_count)
         }
       })
-      .catch((error) => console.error("Error fetching GitHub stars:", error));
-  }, [url]);
+      .catch((error) => console.error("Error fetching GitHub stars:", error))
+  }, [url])
 
-  if (stars === null) return null;
+  if (stars === null) return null
 
   return (
     <Typography variant="small">
@@ -40,5 +40,5 @@ export function GitHubStars({ url }: { url: string }) {
         <span>{stars.toLocaleString()}</span>
       </div>
     </Typography>
-  );
+  )
 }

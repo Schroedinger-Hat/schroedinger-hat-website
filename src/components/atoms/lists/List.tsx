@@ -1,15 +1,15 @@
-"use client";
+"use client"
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils"
 
 interface ListProps {
-  children: React.ReactNode;
-  variant: "bullet" | "number" | "none";
-  className?: string;
+  children: React.ReactNode
+  variant: "bullet" | "number" | "none"
+  className?: string
 }
 
 export function List({ children, variant, className }: ListProps) {
-  const Component = variant === "bullet" ? "ul" : "ol";
+  const Component = variant === "bullet" ? "ul" : "ol"
 
   return (
     <Component
@@ -25,5 +25,5 @@ export function List({ children, variant, className }: ListProps) {
     >
       {children}
     </Component>
-  );
+  )
 }

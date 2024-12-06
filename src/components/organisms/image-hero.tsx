@@ -1,16 +1,16 @@
-import { Image } from "@/components/atoms/media/Image";
-import { Heading } from "../atoms/typography/Heading";
-import { Typography } from "../atoms/typography/Typography";
-import { type StaticImageData } from "next/image";
-import { cn } from "@/lib/utils";
+import { Image } from "@/components/atoms/media/Image"
+import { Heading } from "../atoms/typography/Heading"
+import { Typography } from "../atoms/typography/Typography"
+import { type StaticImageData } from "next/image"
+import { cn } from "@/lib/utils"
 
 interface ImageHeroProps {
-  title: React.ReactNode;
-  subtitle?: React.ReactNode;
-  imageSrc: string | StaticImageData;
-  imageAlt: string;
-  backgroundColor?: string;
-  className?: string;
+  title: React.ReactNode
+  subtitle?: React.ReactNode
+  imageSrc: string | StaticImageData
+  imageAlt: string
+  backgroundColor?: string
+  className?: string
 }
 
 export function ImageHero({
@@ -23,10 +23,7 @@ export function ImageHero({
 }: ImageHeroProps) {
   return (
     <div
-      className={cn(
-        "overflow-hidden rounded-xl text-white shadow-xl",
-        className,
-      )}
+      className={cn("overflow-hidden rounded-xl text-white shadow-xl", className)}
       style={{ backgroundColor }}
     >
       <div className="flex flex-col md:flex-row">
@@ -56,5 +53,5 @@ export function ImageHero({
         </div>
       </div>
     </div>
-  );
+  )
 }

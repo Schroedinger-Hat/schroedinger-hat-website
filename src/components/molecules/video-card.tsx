@@ -1,29 +1,21 @@
-import { Heading } from "@/components/atoms/typography/Heading";
-import { Paragraph } from "@/components/atoms/typography/Paragraph";
-import { Image } from "@/components/atoms/media/Image";
-import { cn } from "@/lib/utils";
-import { PlayCircle02Icon } from "hugeicons-react";
-import Link from "next/link";
+import { Heading } from "@/components/atoms/typography/Heading"
+import { Paragraph } from "@/components/atoms/typography/Paragraph"
+import { Image } from "@/components/atoms/media/Image"
+import { cn } from "@/lib/utils"
+import { PlayCircle02Icon } from "hugeicons-react"
+import Link from "next/link"
 
 interface VideoCardProps {
-  title: string;
-  subtitle: string;
-  imageUrl: string;
-  className?: string;
-  slug?: string;
+  title: string
+  subtitle: string
+  imageUrl: string
+  className?: string
+  slug?: string
 }
 
-export function VideoCard({
-  title,
-  subtitle,
-  imageUrl,
-  className,
-  slug,
-}: VideoCardProps) {
+export function VideoCard({ title, subtitle, imageUrl, className, slug }: VideoCardProps) {
   return (
-    <div
-      className={cn("relative w-full overflow-hidden rounded-lg", className)}
-    >
+    <div className={cn("relative w-full overflow-hidden rounded-lg", className)}>
       <Link href={`/watch/${slug}`}>
         <div className="group relative flex min-h-[300px] flex-col justify-end bg-gradient-to-t from-slate-900/90 to-slate-900/0 p-6">
           {/* Background Image */}
@@ -42,9 +34,7 @@ export function VideoCard({
               {title}
             </Heading>
 
-            {subtitle && (
-              <Paragraph className="mb-0 text-slate-200">{subtitle}</Paragraph>
-            )}
+            {subtitle && <Paragraph className="mb-0 text-slate-200">{subtitle}</Paragraph>}
           </div>
 
           {/* Play Button center card on mouse hover , over everything*/}
@@ -57,5 +47,5 @@ export function VideoCard({
         </div>
       </Link>
     </div>
-  );
+  )
 }

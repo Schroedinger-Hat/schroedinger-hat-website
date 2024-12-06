@@ -1,12 +1,12 @@
-"use client";
+"use client"
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils"
 
 interface ListItemProps {
-  children: React.ReactNode;
-  className?: string;
+  children: React.ReactNode
+  className?: string
 }
 
 export function ListItem({ children, className }: ListItemProps) {
-  return <li className={cn(className)}>{children}</li>;
+  return <li className={cn(className)}>{children}</li>
 }

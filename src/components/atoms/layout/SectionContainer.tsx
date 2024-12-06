@@ -1,13 +1,13 @@
-import { cn } from "@/lib/utils";
-import { type ReactNode } from "react";
+import { cn } from "@/lib/utils"
+import { type ReactNode } from "react"
 
 interface SectionContainerProps {
-  children: ReactNode;
-  className?: string;
-  size?: "narrow" | "medium" | "wide" | "full";
-  padding?: "header" | "default" | "little" | "none";
-  spacing?: "small" | "medium" | "large" | "none";
-  withBackground?: boolean;
+  children: ReactNode
+  className?: string
+  size?: "narrow" | "medium" | "wide" | "full"
+  padding?: "header" | "default" | "little" | "none"
+  spacing?: "small" | "medium" | "large" | "none"
+  withBackground?: boolean
 }
 
 const sizes = {
@@ -15,21 +15,21 @@ const sizes = {
   medium: "max-w-5xl",
   wide: "max-w-7xl",
   full: "",
-};
+}
 
 const paddings = {
   header: "py-16 md:py-24",
   default: "py-8 md:py-16",
   little: "py-4 md:py-8",
   none: "py-0",
-};
+}
 
 const spacings = {
   small: "space-y-4 md:space-y-8",
   medium: "space-y-8 md:space-y-16",
   large: "space-y-16 md:space-y-24",
   none: "",
-};
+}
 
 export function SectionContainer({
   children,
@@ -54,11 +54,11 @@ export function SectionContainer({
     >
       {children}
     </div>
-  );
+  )
 
   if (withBackground) {
-    return <div className="bg-slate-100">{contentDiv}</div>;
+    return <div className="bg-slate-100">{contentDiv}</div>
   }
 
-  return contentDiv;
+  return contentDiv
 }

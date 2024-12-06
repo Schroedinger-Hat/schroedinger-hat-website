@@ -1,25 +1,25 @@
-"use client";
+"use client"
 
-import { type StaticImageData } from "next/image";
-import Link from "next/link";
-import { cn } from "@/lib/utils";
-import { Heading } from "@/components/atoms/typography/Heading";
-import { Paragraph } from "@/components/atoms/typography/Paragraph";
-import { Image } from "@/components/atoms/media/Image";
+import { type StaticImageData } from "next/image"
+import Link from "next/link"
+import { cn } from "@/lib/utils"
+import { Heading } from "@/components/atoms/typography/Heading"
+import { Paragraph } from "@/components/atoms/typography/Paragraph"
+import { Image } from "@/components/atoms/media/Image"
 
-type CardVariant = "primary" | "secondary" | "gradient" | "dark" | "shop";
+type CardVariant = "primary" | "secondary" | "gradient" | "dark" | "shop"
 
 interface CardSectionProps {
-  topText?: string;
-  title?: string;
-  subtitle?: string;
-  ctaText?: string;
-  ctaHref?: string;
-  image?: string | StaticImageData;
-  imageAlt?: string;
-  onctaClick?: () => void;
-  variant?: CardVariant;
-  className?: string;
+  topText?: string
+  title?: string
+  subtitle?: string
+  ctaText?: string
+  ctaHref?: string
+  image?: string | StaticImageData
+  imageAlt?: string
+  onctaClick?: () => void
+  variant?: CardVariant
+  className?: string
 }
 
 const variantStyles: Record<CardVariant, string> = {
@@ -28,7 +28,7 @@ const variantStyles: Record<CardVariant, string> = {
   shop: "bg-[#FFDBAF]",
   gradient: "bg-gradient-to-r from-blue-600 to-indigo-600",
   dark: "bg-gray-900",
-};
+}
 
 const textStyles: Record<CardVariant, string> = {
   primary: "text-white",
@@ -36,7 +36,7 @@ const textStyles: Record<CardVariant, string> = {
   gradient: "text-white",
   dark: "text-white",
   shop: "text-gray-900",
-};
+}
 
 const textOpacityStyles: Record<CardVariant, string> = {
   primary: "text-white/80",
@@ -44,7 +44,7 @@ const textOpacityStyles: Record<CardVariant, string> = {
   gradient: "text-white/80",
   dark: "text-white/80",
   shop: "text-gray-900/80",
-};
+}
 
 export function CardSection({
   topText = "",
@@ -58,13 +58,7 @@ export function CardSection({
   className = "",
 }: CardSectionProps) {
   return (
-    <section
-      className={cn(
-        "overflow-hidden rounded-2xl",
-        variantStyles[variant],
-        className,
-      )}
-    >
+    <section className={cn("overflow-hidden rounded-2xl", variantStyles[variant], className)}>
       <div className="grid items-center gap-0 md:min-h-[400px] md:grid-cols-2 md:gap-12">
         <div className="order-first flex justify-end md:order-last">
           <Image
@@ -79,19 +73,10 @@ export function CardSection({
 
         <div className="flex flex-col justify-center px-4 py-8 md:pl-16 md:pr-0">
           <div className="space-y-0 md:space-y-2">
-            <Heading
-              level={3}
-              className={cn(
-                "text-lg font-medium leading-none",
-                textOpacityStyles[variant],
-              )}
-            >
+            <Heading level={3} className={cn("text-lg font-medium leading-none", textOpacityStyles[variant])}>
               {topText}
             </Heading>
-            <Heading
-              level={1}
-              className={cn("tracking-tighter", textStyles[variant])}
-            >
+            <Heading level={1} className={cn("tracking-tighter", textStyles[variant])}>
               {title}
             </Heading>
             <Paragraph
@@ -119,5 +104,5 @@ export function CardSection({
         </div>
       </div>
     </section>
-  );
+  )
 }

@@ -1,21 +1,18 @@
-import Link from "next/link";
-import { Image } from "@/components/atoms/media/Image";
-import { Typography } from "@/components/atoms/typography/Typography";
-import { Heading } from "@/components/atoms/typography/Heading";
-import { urlFor } from "@/sanity/lib/image";
-import { formatDateTime } from "@/lib/utils/date";
-import { getAuthorFullName } from "@/lib/utils/videoContent";
-import type { BlogPost, Author } from "@/sanity/sanity.types";
+import Link from "next/link"
+import { Image } from "@/components/atoms/media/Image"
+import { Typography } from "@/components/atoms/typography/Typography"
+import { Heading } from "@/components/atoms/typography/Heading"
+import { urlFor } from "@/sanity/lib/image"
+import { formatDateTime } from "@/lib/utils/date"
+import { getAuthorFullName } from "@/lib/utils/videoContent"
+import type { BlogPost, Author } from "@/sanity/sanity.types"
 
 interface BlogPostCardProps {
-  post: BlogPost & { authors: Author[] };
-  displayAuthor?: boolean;
+  post: BlogPost & { authors: Author[] }
+  displayAuthor?: boolean
 }
 
-export function BlogPostCard({
-  post,
-  displayAuthor = true,
-}: BlogPostCardProps) {
+export function BlogPostCard({ post, displayAuthor = true }: BlogPostCardProps) {
   return (
     <Link
       href={`/blog/${post.slug!.current}`}
@@ -24,11 +21,7 @@ export function BlogPostCard({
       {post.headerImage && (
         <div className="relative aspect-[16/9] w-full overflow-hidden">
           <Image
-            src={urlFor(post.headerImage.asset)
-              .auto("format")
-              .width(800)
-              .height(450)
-              .url()}
+            src={urlFor(post.headerImage.asset).auto("format").width(800).height(450).url()}
             alt={post.title!}
             fill
             className="object-cover"
@@ -40,18 +33,13 @@ export function BlogPostCard({
           {post.publishedAt && formatDateTime(post.publishedAt, "d MMMM, yyyy")}
         </Typography>
         <Heading level={2}>{post.title}</Heading>
-        {post.excerpt && (
-          <Typography className="mb-4 text-gray-600">{post.excerpt}</Typography>
-        )}
+        {post.excerpt && <Typography className="mb-4 text-gray-600">{post.excerpt}</Typography>}
         {displayAuthor && post.authors.length > 0 && (
           <Typography variant="small" className="text-gray-500">
-            By{" "}
-            {post.authors
-              .map((author) => getAuthorFullName(author as unknown as Author))
-              .join(", ")}
+            By {post.authors.map((author) => getAuthorFullName(author as unknown as Author)).join(", ")}
           </Typography>
         )}
       </div>
     </Link>
-  );
+  )
 }

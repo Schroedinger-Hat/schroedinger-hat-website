@@ -1,15 +1,15 @@
-import { sanityClient } from "@/sanity/lib/client";
-import type { Event } from "@/sanity/sanity.types";
-import { Heading } from "@/components/atoms/typography/Heading";
-import { Link } from "@/components/atoms/links/Link";
-import { EventCard, FeaturedEventCard } from "./components/event-cards";
-import { SectionContainer } from "@/components/atoms/layout/SectionContainer";
-import { constructMetadata } from "@/lib/utils/metadata";
+import { sanityClient } from "@/sanity/lib/client"
+import type { Event } from "@/sanity/sanity.types"
+import { Heading } from "@/components/atoms/typography/Heading"
+import { Link } from "@/components/atoms/links/Link"
+import { EventCard, FeaturedEventCard } from "./components/event-cards"
+import { SectionContainer } from "@/components/atoms/layout/SectionContainer"
+import { constructMetadata } from "@/lib/utils/metadata"
 
 export const metadata = constructMetadata({
   title: "Events | Schrödinger Hat",
   description: "Explore our upcoming and past events.",
-});
+})
 
 export default async function EventsPage() {
   const events: Event[] = await sanityClient.fetch(
@@ -34,24 +34,18 @@ export default async function EventsPage() {
         title
       }
     }`,
-  );
+  )
 
-  const now = new Date();
+  const now = new Date()
   const upcomingEvents = events.filter(
-    (event) =>
-      event.eventPeriod?.startDate &&
-      new Date(event.eventPeriod.startDate) > now,
-  );
+    (event) => event.eventPeriod?.startDate && new Date(event.eventPeriod.startDate) > now,
+  )
   const pastEvents = events
-    .filter(
-      (event) =>
-        event.eventPeriod?.startDate &&
-        new Date(event.eventPeriod.startDate) <= now,
-    )
-    .reverse();
+    .filter((event) => event.eventPeriod?.startDate && new Date(event.eventPeriod.startDate) <= now)
+    .reverse()
 
-  const featuredEvent = upcomingEvents[0];
-  const otherUpcomingEvents = upcomingEvents.slice(1);
+  const featuredEvent = upcomingEvents[0]
+  const otherUpcomingEvents = upcomingEvents.slice(1)
 
   return (
     <main>
@@ -61,10 +55,7 @@ export default async function EventsPage() {
             <Heading level={2} className="mb-6">
               Featured
             </Heading>
-            <Link
-              href={`/partecipate/events/${featuredEvent.slug!.current}`}
-              className="hover:no-underline"
-            >
+            <Link href={`/partecipate/events/${featuredEvent.slug!.current}`} className="hover:no-underline">
               <FeaturedEventCard event={featuredEvent} />
             </Link>
           </>
@@ -109,5 +100,5 @@ export default async function EventsPage() {
         )}
       </SectionContainer>
     </main>
-  );
+  )
 }

@@ -1,44 +1,32 @@
-import { Button } from "@/components/ui/button";
-import { Typography } from "@/components/atoms/typography/Typography";
-import { Heading } from "@/components/atoms/typography/Heading";
-import { formatDateTime } from "@/lib/utils/date";
-import type { Event, internalGroqTypeReferenceTo } from "@/sanity/sanity.types";
-import { urlFor } from "@/sanity/lib/image";
-import { Image } from "@/components/atoms/media/Image";
-import {
-  AirplaneLanding01Icon,
-  AirplaneTakeOff01Icon,
-  ArrowRight01Icon,
-} from "hugeicons-react";
+import { Button } from "@/components/ui/button"
+import { Typography } from "@/components/atoms/typography/Typography"
+import { Heading } from "@/components/atoms/typography/Heading"
+import { formatDateTime } from "@/lib/utils/date"
+import type { Event, internalGroqTypeReferenceTo } from "@/sanity/sanity.types"
+import { urlFor } from "@/sanity/lib/image"
+import { Image } from "@/components/atoms/media/Image"
+import { AirplaneLanding01Icon, AirplaneTakeOff01Icon, ArrowRight01Icon } from "hugeicons-react"
 
 type EventWithExpandedSeries = Omit<Event, "series"> & {
   series?: {
-    _ref: string;
-    _type: "reference";
-    title?: string;
-    [internalGroqTypeReferenceTo]?: "eventSeries";
-  };
-};
-
-interface EventHeroProps {
-  title: string;
-  cover?: Event["cover"];
-  eventPeriod?: Event["eventPeriod"];
-  location?: Event["location"];
-  cta?: Event["cta"];
-  organiser: string;
-  series?: EventWithExpandedSeries["series"];
+    _ref: string
+    _type: "reference"
+    title?: string
+    [internalGroqTypeReferenceTo]?: "eventSeries"
+  }
 }
 
-export function EventHero({
-  title,
-  cover,
-  eventPeriod,
-  location,
-  cta,
-  organiser,
-  series,
-}: EventHeroProps) {
+interface EventHeroProps {
+  title: string
+  cover?: Event["cover"]
+  eventPeriod?: Event["eventPeriod"]
+  location?: Event["location"]
+  cta?: Event["cta"]
+  organiser: string
+  series?: EventWithExpandedSeries["series"]
+}
+
+export function EventHero({ title, cover, eventPeriod, location, cta, organiser, series }: EventHeroProps) {
   return (
     <section className="relative max-h-[600px] min-h-[400px] overflow-hidden rounded-lg bg-slate-800">
       {/* Background image with gradient overlay */}
@@ -71,10 +59,7 @@ export function EventHero({
               >
                 {series?.title}
               </Typography>
-              <Heading
-                level={title.length < 40 ? 1 : 2}
-                className="mb-2 mt-4 text-white md:mt-0"
-              >
+              <Heading level={title.length < 40 ? 1 : 2} className="mb-2 mt-4 text-white md:mt-0">
                 {title}
               </Heading>
 
@@ -170,11 +155,7 @@ export function EventHero({
 
               {/* CTA Button */}
               {cta?.url && (
-                <Button
-                  className="w-full bg-primary hover:bg-primary/80"
-                  size="lg"
-                  asChild
-                >
+                <Button className="w-full bg-primary hover:bg-primary/80" size="lg" asChild>
                   <a href={cta.url} target="_blank" rel="noopener noreferrer">
                     {cta.text || "Registrati all'evento"}
                   </a>
@@ -185,5 +166,5 @@ export function EventHero({
         </div>
       </div>
     </section>
-  );
+  )
 }

@@ -1,25 +1,20 @@
-import { Heading } from "@/components/atoms/typography/Heading";
-import { Typography } from "@/components/atoms/typography/Typography";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import { PortableText } from "@portabletext/react";
-import { sanityClient } from "@/sanity/lib/client";
-import { SectionContainer } from "../atoms/layout/SectionContainer";
+import { Heading } from "@/components/atoms/typography/Heading"
+import { Typography } from "@/components/atoms/typography/Typography"
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
+import { PortableText } from "@portabletext/react"
+import { sanityClient } from "@/sanity/lib/client"
+import { SectionContainer } from "../atoms/layout/SectionContainer"
 
 type FAQ = {
-  _id: string;
-  question: string;
-  answer: any[]; // Portable Text content
-};
+  _id: string
+  question: string
+  answer: any[] // Portable Text content
+}
 
 interface FaqBlockProps {
-  groupKey: string;
-  title?: string;
-  description?: string;
+  groupKey: string
+  title?: string
+  description?: string
 }
 
 async function getFAQs(groupKey: string): Promise<FAQ[]> {
@@ -32,15 +27,11 @@ async function getFAQs(groupKey: string): Promise<FAQ[]> {
     }
   `,
     { groupKey },
-  );
+  )
 }
 
-export async function FaqBlock({
-  groupKey,
-  title = "FAQ",
-  description,
-}: FaqBlockProps) {
-  const faqs: FAQ[] = await getFAQs(groupKey);
+export async function FaqBlock({ groupKey, title = "FAQ", description }: FaqBlockProps) {
+  const faqs: FAQ[] = await getFAQs(groupKey)
 
   return (
     <div>
@@ -55,9 +46,7 @@ export async function FaqBlock({
       <Accordion type="single" collapsible className="">
         {faqs.map((faq) => (
           <AccordionItem key={faq._id} value={faq._id}>
-            <AccordionTrigger className="text-left md:text-center">
-              {faq.question}
-            </AccordionTrigger>
+            <AccordionTrigger className="text-left md:text-center">{faq.question}</AccordionTrigger>
             <AccordionContent>
               <PortableText value={faq.answer} />
             </AccordionContent>
@@ -65,5 +54,5 @@ export async function FaqBlock({
         ))}
       </Accordion>
     </div>
-  );
+  )
 }

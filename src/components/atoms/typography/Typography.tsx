@@ -1,8 +1,8 @@
-"use client";
+"use client"
 
-import { cn } from "@/lib/utils";
-import { type VariantProps, cva } from "class-variance-authority";
-import { type ElementType } from "react";
+import { cn } from "@/lib/utils"
+import { type VariantProps, cva } from "class-variance-authority"
+import { type ElementType } from "react"
 
 const typographyVariants = cva("text-slate-900", {
   variants: {
@@ -34,18 +34,15 @@ const typographyVariants = cva("text-slate-900", {
     variant: "p",
     weight: "normal",
   },
-});
+})
 
 type TypographyProps<C extends ElementType> = {
-  children: React.ReactNode;
-  as?: C;
-  variant?: VariantProps<typeof typographyVariants>["variant"];
-  weight?: VariantProps<typeof typographyVariants>["weight"];
-  className?: string;
-} & Omit<
-  React.ComponentPropsWithoutRef<C>,
-  "as" | "variant" | "weight" | "className"
->;
+  children: React.ReactNode
+  as?: C
+  variant?: VariantProps<typeof typographyVariants>["variant"]
+  weight?: VariantProps<typeof typographyVariants>["weight"]
+  className?: string
+} & Omit<React.ComponentPropsWithoutRef<C>, "as" | "variant" | "weight" | "className">
 
 export function Typography<C extends ElementType = "p">({
   children,
@@ -55,33 +52,30 @@ export function Typography<C extends ElementType = "p">({
   className,
   ...props
 }: TypographyProps<C>) {
-  const Component = as || getDefaultElement(variant);
+  const Component = as || getDefaultElement(variant)
 
   return (
-    <Component
-      className={cn(typographyVariants({ variant, weight }), className)}
-      {...props}
-    >
+    <Component className={cn(typographyVariants({ variant, weight }), className)} {...props}>
       {children}
     </Component>
-  );
+  )
 }
 
 function getDefaultElement(variant: string | null | undefined): ElementType {
   switch (variant) {
     case "h1":
-      return "h1";
+      return "h1"
     case "h2":
-      return "h2";
+      return "h2"
     case "h3":
-      return "h3";
+      return "h3"
     case "h4":
-      return "h4";
+      return "h4"
     case "blockquote":
-      return "blockquote";
+      return "blockquote"
     case "list":
-      return "ul";
+      return "ul"
     default:
-      return "p";
+      return "p"
   }
 }

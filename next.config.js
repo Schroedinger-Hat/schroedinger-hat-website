@@ -2,7 +2,7 @@
  * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially useful
  * for Docker builds.
  */
-import "./src/env.js";
+import "./src/env.js"
 
 /** @type {import('next/dist/shared/lib/image-config').RemotePattern[]} */
 const remotePatterns = [
@@ -22,13 +22,13 @@ const remotePatterns = [
     protocol: "https",
     hostname: "picsum.photos",
   },
-];
+]
 
 if (process.env.NODE_ENV === "development") {
   remotePatterns.push({
     protocol: "https",
     hostname: "placehold.co",
-  });
+  })
 }
 
 /** @type {import("next").NextConfig} */
@@ -42,6 +42,6 @@ const config = {
     remotePatterns,
     formats: ["image/avif", "image/webp"],
   },
-};
+}
 
-export default config;
+export default config

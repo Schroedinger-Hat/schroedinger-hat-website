@@ -1,23 +1,23 @@
-"use client";
+"use client"
 
-import { useEffect, useState } from "react";
-import { Heading } from "@/components/atoms/typography/Heading";
-import { Typography } from "@/components/atoms/typography/Typography";
-import ReviewCard from "@/components/organisms/review-card";
-import type { Review } from "../types";
-import reviews from "../reviews.json";
-import { SectionContainer } from "@/components/atoms/layout/SectionContainer";
+import { useEffect, useState } from "react"
+import { Heading } from "@/components/atoms/typography/Heading"
+import { Typography } from "@/components/atoms/typography/Typography"
+import ReviewCard from "@/components/organisms/review-card"
+import type { Review } from "../types"
+import reviews from "../reviews.json"
+import { SectionContainer } from "@/components/atoms/layout/SectionContainer"
 
 function getRandomReviews(reviews: Review[], count: number) {
-  return [...reviews].sort(() => 0.5 - Math.random()).slice(0, count);
+  return [...reviews].sort(() => 0.5 - Math.random()).slice(0, count)
 }
 
 export function ReviewsSection() {
-  const [selectedReviews, setSelectedReviews] = useState<Review[]>([]);
+  const [selectedReviews, setSelectedReviews] = useState<Review[]>([])
 
   useEffect(() => {
-    setSelectedReviews(getRandomReviews(reviews, 12));
-  }, []);
+    setSelectedReviews(getRandomReviews(reviews, 12))
+  }, [])
 
   return (
     <SectionContainer size="wide">
@@ -26,8 +26,7 @@ export function ReviewsSection() {
         <Typography variant="medium">
           Truth be told, we don&apos;t have many reviews yet.
           <br />
-          And your nonprofit membership is not something that you talk about
-          everyday or review on Google.
+          And your nonprofit membership is not something that you talk about everyday or review on Google.
           <br />
           So we asked ChatGTP to imagine what people would say about it.
         </Typography>
@@ -40,15 +39,11 @@ export function ReviewsSection() {
               key={review.name}
               className="flex-none snap-center first:pl-4 last:pr-4 md:first:pl-0 md:last:pr-0"
             >
-              <ReviewCard
-                name={review.name}
-                rating={5}
-                description={review.review}
-              />
+              <ReviewCard name={review.name} rating={5} description={review.review} />
             </div>
           ))}
         </div>
       </div>
     </SectionContainer>
-  );
+  )
 }

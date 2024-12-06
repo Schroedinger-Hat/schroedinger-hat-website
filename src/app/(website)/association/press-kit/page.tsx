@@ -1,26 +1,25 @@
-import { SectionContainer } from "@/components/atoms/layout/SectionContainer";
-import { Image } from "@/components/atoms/media/Image";
-import { Heading } from "@/components/atoms/typography/Heading";
-import { Typography } from "@/components/atoms/typography/Typography";
-import { Linkedin01Icon, NewTwitterIcon, YoutubeIcon } from "hugeicons-react";
-import { constructMetadata } from "@/lib/utils/metadata";
-import type { FC, SVGProps } from "react";
+import { SectionContainer } from "@/components/atoms/layout/SectionContainer"
+import { Image } from "@/components/atoms/media/Image"
+import { Heading } from "@/components/atoms/typography/Heading"
+import { Typography } from "@/components/atoms/typography/Typography"
+import { Linkedin01Icon, NewTwitterIcon, YoutubeIcon } from "hugeicons-react"
+import { constructMetadata } from "@/lib/utils/metadata"
+import type { FC, SVGProps } from "react"
 
 // Images
-type LogoType = FC<SVGProps<SVGElement>> & { src: string };
+type LogoType = FC<SVGProps<SVGElement>> & { src: string }
 
-import logoBackground from "@/images/press-kit/logo - background - rounded - flat background.svg";
-import logoBackgroundPng from "@/images/press-kit/logo - background - rounded - flat background.png";
-import logoBlack from "@/images/press-kit/logo - no background - no padding.svg";
-import logoBlackPng from "@/images/press-kit/logo - no background - no padding.png";
-import logoWhite from "@/images/press-kit/logo white - no background - no padding.svg";
-import logoWhitePng from "@/images/press-kit/logo white - no background - no padding.png";
+import logoBackground from "@/images/press-kit/logo - background - rounded - flat background.svg"
+import logoBackgroundPng from "@/images/press-kit/logo - background - rounded - flat background.png"
+import logoBlack from "@/images/press-kit/logo - no background - no padding.svg"
+import logoBlackPng from "@/images/press-kit/logo - no background - no padding.png"
+import logoWhite from "@/images/press-kit/logo white - no background - no padding.svg"
+import logoWhitePng from "@/images/press-kit/logo white - no background - no padding.png"
 
 export const metadata = constructMetadata({
   title: "Schrödinger Hat: Press Kit",
-  description:
-    "Download our brand assets, logos, and official press materials.",
-});
+  description: "Download our brand assets, logos, and official press materials.",
+})
 
 export default function PressKitPage() {
   return (
@@ -190,34 +189,28 @@ export default function PressKitPage() {
           <div className="flex-1">
             <Heading level={2}>What we do, in a nutshell</Heading>
             <Typography variant="blockquote">
-              Schrödinger&apos;s Hat is a nonprofit collective dedicated to
-              fostering innovation, inclusivity, and collaboration in the tech
-              world. Rooted in the principles of open-source, we empower
-              individuals and communities by making knowledge and resources
-              universally accessible.
+              Schrödinger&apos;s Hat is a nonprofit collective dedicated to fostering innovation, inclusivity,
+              and collaboration in the tech world. Rooted in the principles of open-source, we empower
+              individuals and communities by making knowledge and resources universally accessible.
             </Typography>
           </div>
           <div className="flex-1">
             <Heading level={2}>What we do, in detail</Heading>
             <Typography variant="blockquote">
-              &quot;Schrödinger&apos;s Hat is a nonprofit organization and a
-              thriving collective of developers, innovators, and community
-              leaders driven by a shared vision: to create an inclusive,
+              &quot;Schrödinger&apos;s Hat is a nonprofit organization and a thriving collective of
+              developers, innovators, and community leaders driven by a shared vision: to create an inclusive,
               sustainable, and open-source-driven tech ecosystem.
               <br />
               <br />
-              Founded with the belief that collaboration and shared knowledge
-              are the keys to meaningful innovation, we go beyond software. We
-              empower individuals and communities by making resources,
+              Founded with the belief that collaboration and shared knowledge are the keys to meaningful
+              innovation, we go beyond software. We empower individuals and communities by making resources,
               knowledge, and opportunities universally accessible.
               <br />
               <br />
-              At the heart of our mission lies Open Source Day, our flagship
-              international event that gathers thousands of participants and
-              thought leaders to inspire, engage, and innovate. Complementing
-              this are our workshops, meetups, and community-driven projects
-              that offer hands-on learning, networking opportunities, and a
-              platform to discuss and shape the future of technology.
+              At the heart of our mission lies Open Source Day, our flagship international event that gathers
+              thousands of participants and thought leaders to inspire, engage, and innovate. Complementing
+              this are our workshops, meetups, and community-driven projects that offer hands-on learning,
+              networking opportunities, and a platform to discuss and shape the future of technology.
             </Typography>
           </div>
         </div>
@@ -229,9 +222,7 @@ export default function PressKitPage() {
             <Heading level={2}>Contact</Heading>
             <Typography>
               For any press inquiries, please contact us at{" "}
-              <a href="mailto:event@schroedingershat.com">
-                event@schroedingershat.com
-              </a>
+              <a href="mailto:event@schroedingershat.com">event@schroedingershat.com</a>
             </Typography>
           </div>
           <div className="flex-1">
@@ -244,10 +235,7 @@ export default function PressKitPage() {
                   rel="noopener noreferrer"
                   className="block"
                 >
-                  <Typography
-                    className="flex items-center gap-2"
-                    variant="large"
-                  >
+                  <Typography className="flex items-center gap-2" variant="large">
                     <Linkedin01Icon className="h-6 w-6" />
                     LinkedIn
                   </Typography>
@@ -258,10 +246,7 @@ export default function PressKitPage() {
                   rel="noopener noreferrer"
                   className="block"
                 >
-                  <Typography
-                    className="flex items-center gap-2"
-                    variant="large"
-                  >
+                  <Typography className="flex items-center gap-2" variant="large">
                     <NewTwitterIcon className="h-6 w-6" />X
                   </Typography>
                 </a>
@@ -271,10 +256,7 @@ export default function PressKitPage() {
                   rel="noopener noreferrer"
                   className="block"
                 >
-                  <Typography
-                    className="flex items-center gap-2"
-                    variant="large"
-                  >
+                  <Typography className="flex items-center gap-2" variant="large">
                     <YoutubeIcon className="h-6 w-6" />
                     YouTube
                   </Typography>
@@ -285,5 +267,5 @@ export default function PressKitPage() {
         </div>
       </SectionContainer>
     </main>
-  );
+  )
 }

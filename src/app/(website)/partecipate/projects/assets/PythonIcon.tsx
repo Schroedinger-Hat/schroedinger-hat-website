@@ -1,8 +1,6 @@
-import { type JSX, type SVGProps } from "react";
+import { type JSX, type SVGProps } from "react"
 
-export const PythonIcon = (
-  props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>,
-) => (
+export const PythonIcon = (props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 128 128" {...props}>
     <linearGradient
       id="python-original-a"
@@ -55,4 +53,4 @@ export const PythonIcon = (
       d="M97.309 119.597c0 3.543-14.816 6.416-33.091 6.416-18.276 0-33.092-2.873-33.092-6.416 0-3.544 14.815-6.417 33.092-6.417 18.275 0 33.091 2.872 33.091 6.417z"
     ></path>
   </svg>
-);
+)

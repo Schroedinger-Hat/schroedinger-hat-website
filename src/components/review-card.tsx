@@ -1,14 +1,14 @@
-"use client";
+"use client"
 
-import { Star } from "lucide-react";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Star } from "lucide-react"
+import { Avatar, AvatarFallback } from "@/components/ui/avatar"
+import { Card, CardContent, CardHeader } from "@/components/ui/card"
 
 interface ReviewCardProps {
-  name: string;
-  rating: number;
-  date: string;
-  description: string;
+  name: string
+  rating: number
+  date: string
+  description: string
 }
 
 export function ReviewCard(
@@ -24,7 +24,7 @@ export function ReviewCard(
     .split(" ")
     .map((n) => n[0])
     .join("")
-    .toUpperCase();
+    .toUpperCase()
 
   return (
     <Card className="mx-auto w-full max-w-md">
@@ -49,5 +49,5 @@ export function ReviewCard(
         <p className="text-sm text-gray-600">{description}</p>
       </CardContent>
     </Card>
-  );
+  )
 }

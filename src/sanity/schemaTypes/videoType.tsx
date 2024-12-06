@@ -1,35 +1,35 @@
-import { defineType } from "sanity";
-import React from "react";
+import { defineType } from "sanity"
+import React from "react"
 
 // Helper function to extract YouTube video ID from various URL formats
 const extractYouTubeId = (url: string): string => {
   try {
-    const urlObj = new URL(url);
+    const urlObj = new URL(url)
 
     // Handle youtu.be
     if (urlObj.hostname === "youtu.be") {
-      return urlObj.pathname.slice(1);
+      return urlObj.pathname.slice(1)
     }
 
     // Handle youtube.com
     if (urlObj.hostname.includes("youtube.com")) {
       // Handle /watch?v=
-      const searchParams = new URLSearchParams(urlObj.search);
-      const videoId = searchParams.get("v");
-      if (videoId) return videoId;
+      const searchParams = new URLSearchParams(urlObj.search)
+      const videoId = searchParams.get("v")
+      if (videoId) return videoId
 
       // Handle /shorts/ or /embed/
-      const regex = new RegExp(/\/(shorts|embed)\/([^/?]+)/);
-      const execResult = regex.exec(urlObj.pathname);
-      if (execResult?.[2]) return execResult[2];
+      const regex = new RegExp(/\/(shorts|embed)\/([^/?]+)/)
+      const execResult = regex.exec(urlObj.pathname)
+      if (execResult?.[2]) return execResult[2]
     }
 
-    return url;
+    return url
   } catch {
     // If URL parsing fails, return the original string
-    return url;
+    return url
   }
-};
+}
 
 export const videoType = defineType({
   name: "video",
@@ -80,8 +80,7 @@ export const videoType = defineType({
       name: "thumbnail",
       title: "Custom Thumbnail",
       type: "image",
-      description:
-        "Optional custom thumbnail. If not provided, the YouTube thumbnail will be used",
+      description: "Optional custom thumbnail. If not provided, the YouTube thumbnail will be used",
       options: {
         hotspot: true,
       },
@@ -126,8 +125,7 @@ export const videoType = defineType({
       name: "order",
       title: "Display Order",
       type: "number",
-      description:
-        "Used to control the display order of videos (lower numbers appear first)",
+      description: "Used to control the display order of videos (lower numbers appear first)",
     },
   ],
   preview: {
@@ -141,29 +139,18 @@ export const videoType = defineType({
       thumbnail: "thumbnail",
     },
     prepare: (selection) => {
-      const {
-        title,
-        shortTitle,
-        youtubeId,
-        authorFirstName,
-        authorLastName,
-        thumbnail,
-      } = selection;
-      const safeYoutubeId =
-        youtubeId ?? extractYouTubeId(youtubeId as unknown as string);
+      const { title, shortTitle, youtubeId, authorFirstName, authorLastName, thumbnail } = selection
+      const safeYoutubeId = youtubeId ?? extractYouTubeId(youtubeId as unknown as string)
 
       return {
         title: shortTitle ?? title ?? "Untitled Video",
         subtitle: `${authorFirstName} ${authorLastName}`,
         media: !thumbnail ? (
-          <img
-            src={`https://img.youtube.com/vi/${safeYoutubeId}/mqdefault.jpg`}
-            alt="YouTube Thumbnail"
-          />
+          <img src={`https://img.youtube.com/vi/${safeYoutubeId}/mqdefault.jpg`} alt="YouTube Thumbnail" />
         ) : (
           thumbnail
         ),
-      };
+      }
     },
   },
   orderings: [
@@ -178,4 +165,4 @@ export const videoType = defineType({
       by: [{ field: "publishedAt", direction: "desc" }],
     },
   ],
-});
+})

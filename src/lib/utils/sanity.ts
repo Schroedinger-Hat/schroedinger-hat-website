@@ -1,20 +1,18 @@
 interface SanityTextBlock {
-  _type?: string;
+  _type?: string
   children?: Array<{
-    _type?: string;
-    _key?: string;
-    text?: string;
-    marks?: string[];
-  }>;
+    _type?: string
+    _key?: string
+    text?: string
+    marks?: string[]
+  }>
 }
 
 /**
  * Converts Sanity Portable Text to plain text
  */
-export function getPortableTextPlainText(
-  blocks: SanityTextBlock[] | undefined,
-): string {
-  if (!blocks) return "";
+export function getPortableTextPlainText(blocks: SanityTextBlock[] | undefined): string {
+  if (!blocks) return ""
 
   return blocks
     .map((block) => {
@@ -22,10 +20,10 @@ export function getPortableTextPlainText(
         return block.children
           .map((child) => child.text)
           .filter(Boolean)
-          .join("");
+          .join("")
       }
-      return "";
+      return ""
     })
     .filter(Boolean)
-    .join(" ");
+    .join(" ")
 }

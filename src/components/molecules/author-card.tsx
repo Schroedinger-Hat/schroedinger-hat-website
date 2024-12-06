@@ -1,24 +1,21 @@
-import type { Author } from "@/sanity/sanity.types";
-import { urlFor } from "@/sanity/lib/image";
-import { Heading } from "@/components/atoms/typography/Heading";
-import { Paragraph } from "@/components/atoms/typography/Paragraph";
-import { Link } from "@/components/atoms/links/Link";
-import { Image } from "@/components/atoms/media/Image";
-import { getAuthorInitials, getAuthorFullName } from "@/lib/utils/videoContent";
-import { Typography } from "../atoms/typography/Typography";
+import type { Author } from "@/sanity/sanity.types"
+import { urlFor } from "@/sanity/lib/image"
+import { Heading } from "@/components/atoms/typography/Heading"
+import { Paragraph } from "@/components/atoms/typography/Paragraph"
+import { Link } from "@/components/atoms/links/Link"
+import { Image } from "@/components/atoms/media/Image"
+import { getAuthorInitials, getAuthorFullName } from "@/lib/utils/videoContent"
+import { Typography } from "../atoms/typography/Typography"
 
 interface AuthorCardProps {
-  author: Author;
+  author: Author
 }
 
 export function AuthorCard({ author }: AuthorCardProps) {
-  if (!author) return null;
+  if (!author) return null
 
   return (
-    <Link
-      href={`/speaker/${author.slug!.current}`}
-      className="hover:no-underline"
-    >
+    <Link href={`/speaker/${author.slug!.current}`} className="hover:no-underline">
       <div className="flex overflow-hidden rounded-lg bg-white">
         <div className="aspect-square w-20 flex-shrink-0">
           {author.photo ? (
@@ -32,9 +29,7 @@ export function AuthorCard({ author }: AuthorCardProps) {
             />
           ) : (
             <div className="flex h-full w-full items-center justify-center bg-slate-100">
-              <span className="text-xl text-slate-500">
-                {getAuthorInitials(author)}
-              </span>
+              <span className="text-xl text-slate-500">{getAuthorInitials(author)}</span>
             </div>
           )}
         </div>
@@ -50,5 +45,5 @@ export function AuthorCard({ author }: AuthorCardProps) {
         </div>
       </div>
     </Link>
-  );
+  )
 }

@@ -1,26 +1,26 @@
-import { LogoGallery } from "@/components/organisms/logo-gallery";
-import { sanityClient } from "@/sanity/lib/client";
-import { urlFor } from "@/sanity/lib/image";
-import { ImageContent } from "@/components/organisms/image-content";
-import { StatBlocks } from "@/components/organisms/stat-block";
-import { CardSection } from "@/components/organisms/card-section";
-import { Heading } from "@/components/atoms/typography/Heading";
-import { TrackingCat } from "@/components/organisms/tracking-cat";
-import { BlurredBackground } from "@/components/organisms/blurred-background";
-import type { Partner } from "@/sanity/sanity.types";
+import { LogoGallery } from "@/components/organisms/logo-gallery"
+import { sanityClient } from "@/sanity/lib/client"
+import { urlFor } from "@/sanity/lib/image"
+import { ImageContent } from "@/components/organisms/image-content"
+import { StatBlocks } from "@/components/organisms/stat-block"
+import { CardSection } from "@/components/organisms/card-section"
+import { Heading } from "@/components/atoms/typography/Heading"
+import { TrackingCat } from "@/components/organisms/tracking-cat"
+import { BlurredBackground } from "@/components/organisms/blurred-background"
+import type { Partner } from "@/sanity/sanity.types"
 
 // Images
-import team from "@/images/homepage/team.png";
-import shopCallout from "@/images/homepage/shop-callout.png";
-import imageGoNord from "@/images/homepage/imageGoNord.png";
-import osday from "@/images/homepage/osday.jpg";
-import { Typography } from "@/components/atoms/typography/Typography";
-import { SectionContainer } from "@/components/atoms/layout/SectionContainer";
+import team from "@/images/homepage/team.png"
+import shopCallout from "@/images/homepage/shop-callout.png"
+import imageGoNord from "@/images/homepage/imageGoNord.png"
+import osday from "@/images/homepage/osday.jpg"
+import { Typography } from "@/components/atoms/typography/Typography"
+import { SectionContainer } from "@/components/atoms/layout/SectionContainer"
 
 export default async function Home() {
   const partners: Partner[] = await sanityClient.fetch(
     `*[_type == "partner" && !isBusinessPartner && "homepage" in visibility] | order(orderRank asc)`,
-  );
+  )
 
   return (
     <main>
@@ -61,22 +61,18 @@ export default async function Home() {
           content={
             <>
               <Typography>
-                Based in Tuscany, Schrödinger Hat is a non-profit organization
-                spreading the love for open-source software across Europe. Our
-                mission is to inspire, educate, and connect open-source
-                technology enthusiasts through free events like conferences and
-                meetups.
+                Based in Tuscany, Schrödinger Hat is a non-profit organization spreading the love for
+                open-source software across Europe. Our mission is to inspire, educate, and connect
+                open-source technology enthusiasts through free events like conferences and meetups.
               </Typography>
               <Typography>
-                We actively contribute to the open-source ecosystem. Among our
-                projects, ImageGoNord stands out, boasting over 1,000 stars on
-                GitHub.
+                We actively contribute to the open-source ecosystem. Among our projects, ImageGoNord stands
+                out, boasting over 1,000 stars on GitHub.
               </Typography>
               <Typography>
-                Guided by the principles of open source, we believe in free
-                access to knowledge and promote inclusivity in all our
-                initiatives. Join us in building local communities, connecting
-                talent, and celebrating the power of open-source software!
+                Guided by the principles of open source, we believe in free access to knowledge and promote
+                inclusivity in all our initiatives. Join us in building local communities, connecting talent,
+                and celebrating the power of open-source software!
               </Typography>
             </>
           }
@@ -90,14 +86,12 @@ export default async function Home() {
             {
               number: "20k",
               title: "Reach",
-              description:
-                "Unique presences at our events, online and in-person",
+              description: "Unique presences at our events, online and in-person",
             },
             {
               number: "100",
               title: "Speakers",
-              description:
-                "Industry leaders that gave a talk from one of our events stage",
+              description: "Industry leaders that gave a talk from one of our events stage",
             },
             {
               number: "49",
@@ -120,23 +114,20 @@ export default async function Home() {
           content={
             <>
               <p>
-                Open Source Day is an international conference dedicated to
-                open-source solutions, scheduled for March, in Florence, Italy.
-                The event aims to introduce open-source technologies to public
-                and business institutions, promoting them as secure, efficient,
-                and cost-effective alternatives to proprietary software.
+                Open Source Day is an international conference dedicated to open-source solutions, scheduled
+                for March, in Florence, Italy. The event aims to introduce open-source technologies to public
+                and business institutions, promoting them as secure, efficient, and cost-effective
+                alternatives to proprietary software.
               </p>
               <p>
-                Attendees, including managers, developers, and technical
-                officers from various industries, will have the opportunity to
-                exchange experiences and explore use cases in areas such as
-                virtualization, cloud computing, databases, big data, and
-                information security.
+                Attendees, including managers, developers, and technical officers from various industries,
+                will have the opportunity to exchange experiences and explore use cases in areas such as
+                virtualization, cloud computing, databases, big data, and information security.
               </p>
               <p>
-                The conference serves as a platform for fostering local
-                communities and encouraging the development of small businesses
-                that provide support and development for open-source solutions.
+                The conference serves as a platform for fostering local communities and encouraging the
+                development of small businesses that provide support and development for open-source
+                solutions.
               </p>
             </>
           }
@@ -149,20 +140,17 @@ export default async function Home() {
           content={
             <>
               <p>
-                ImageGoNord is a SaaS tool designed to convert RGB images into
-                color palettes inspired by the NordTheme and other themes like
-                Gruvbox. The NordTheme is a well-known color palette originally
-                created for coding environments. It focuses on subtle, cool
-                tones like blue, grey, and white, offering a minimalist and
-                visually cohesive aesthetic that prioritizes readability and
-                reduces visual fatigue.
+                ImageGoNord is a SaaS tool designed to convert RGB images into color palettes inspired by the
+                NordTheme and other themes like Gruvbox. The NordTheme is a well-known color palette
+                originally created for coding environments. It focuses on subtle, cool tones like blue, grey,
+                and white, offering a minimalist and visually cohesive aesthetic that prioritizes readability
+                and reduces visual fatigue.
               </p>
               <p>
-                ImageGoNord allows users to upload images or videos and apply
-                these palettes to create customized wallpapers, visuals, or
-                design elements. The tool offers flexibility for users to refine
-                the output to match their preferences while maintaining the
-                selected theme&apos;s characteristics.
+                ImageGoNord allows users to upload images or videos and apply these palettes to create
+                customized wallpapers, visuals, or design elements. The tool offers flexibility for users to
+                refine the output to match their preferences while maintaining the selected theme&apos;s
+                characteristics.
               </p>
             </>
           }
@@ -182,7 +170,7 @@ export default async function Home() {
               (
                 partner,
               ): partner is Partner & {
-                image: NonNullable<Partner["image"]>;
+                image: NonNullable<Partner["image"]>
               } => partner.image !== undefined && partner.image !== null,
             )
             .map((partner) => ({
@@ -204,5 +192,5 @@ export default async function Home() {
         />
       </SectionContainer>
     </main>
-  );
+  )
 }

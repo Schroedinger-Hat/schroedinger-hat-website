@@ -1,17 +1,17 @@
-import NextImage, { type StaticImageData } from "next/image";
-import { cn } from "@/lib/utils";
+import NextImage, { type StaticImageData } from "next/image"
+import { cn } from "@/lib/utils"
 
 interface ImageProps {
-  src: string | StaticImageData;
-  alt: string;
-  width?: number;
-  height?: number;
-  className?: string;
-  priority?: boolean;
-  rounded?: boolean;
-  relative?: boolean;
-  withContainer?: boolean;
-  fill?: boolean;
+  src: string | StaticImageData
+  alt: string
+  width?: number
+  height?: number
+  className?: string
+  priority?: boolean
+  rounded?: boolean
+  relative?: boolean
+  withContainer?: boolean
+  fill?: boolean
 }
 
 export function Image({
@@ -34,16 +34,12 @@ export function Image({
       height={!fill ? height : undefined}
       fill={fill}
       priority={priority}
-      className={cn(
-        rounded && "rounded-lg",
-        fill && "object-cover",
-        !withContainer && className,
-      )}
+      className={cn(rounded && "rounded-lg", fill && "object-cover", !withContainer && className)}
     />
-  );
+  )
 
   if (!withContainer) {
-    return imageElement;
+    return imageElement
   }
 
   return (
@@ -60,5 +56,5 @@ export function Image({
     >
       {imageElement}
     </div>
-  );
+  )
 }

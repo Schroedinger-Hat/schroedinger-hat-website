@@ -1,12 +1,12 @@
-import { Star } from "lucide-react";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { Typography } from "../atoms/typography/Typography";
+import { Star } from "lucide-react"
+import { Avatar, AvatarFallback } from "@/components/ui/avatar"
+import { Card, CardContent, CardHeader } from "@/components/ui/card"
+import { Typography } from "../atoms/typography/Typography"
 
 interface ReviewCardProps {
-  name: string;
-  rating: number;
-  description: string;
+  name: string
+  rating: number
+  description: string
 }
 
 export default function ReviewCard(
@@ -20,7 +20,7 @@ export default function ReviewCard(
     .split(" ")
     .map((n) => n[0])
     .join("")
-    .toUpperCase();
+    .toUpperCase()
 
   return (
     <Card className="w-[300px]">
@@ -44,5 +44,5 @@ export default function ReviewCard(
         <Typography variant="medium">{description}</Typography>
       </CardContent>
     </Card>
-  );
+  )
 }

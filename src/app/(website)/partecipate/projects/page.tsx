@@ -1,29 +1,29 @@
-import { sanityClient } from "@/sanity/lib/client";
-import { Heading } from "@/components/atoms/typography/Heading";
-import { type Project } from "@/sanity/sanity.types";
-import { Typography } from "@/components/atoms/typography/Typography";
-import { SectionContainer } from "@/components/atoms/layout/SectionContainer";
-import { type Metadata } from "next";
-import Link from "next/link";
-import { ProjectCard } from "./components/project-card";
-import { constructMetadata } from "@/lib/utils/metadata";
+import { sanityClient } from "@/sanity/lib/client"
+import { Heading } from "@/components/atoms/typography/Heading"
+import { type Project } from "@/sanity/sanity.types"
+import { Typography } from "@/components/atoms/typography/Typography"
+import { SectionContainer } from "@/components/atoms/layout/SectionContainer"
+import { type Metadata } from "next"
+import Link from "next/link"
+import { ProjectCard } from "./components/project-card"
+import { constructMetadata } from "@/lib/utils/metadata"
 
 async function getProjects() {
   const projects = await sanityClient.fetch<Project[]>(`*[_type == "project"] {
     ...
-  } | order(order asc, publishedAt desc)`);
+  } | order(order asc, publishedAt desc)`)
 
-  return projects;
+  return projects
 }
 
 export const metadata: Metadata = constructMetadata({
   title: "Projects | Schrödinger Hat",
   description:
     "This is a list of all the projects we're currently contributing to. You can find more information about each project by clicking on the project card.",
-});
+})
 
 export default async function ProjectsPage() {
-  const projects = await getProjects();
+  const projects = await getProjects()
 
   return (
     <main>
@@ -32,9 +32,8 @@ export default async function ProjectsPage() {
           All Projects
         </Heading>
         <Typography variant="medium">
-          This is a list of all the projects we&apos;re currently contributing
-          to. You can find more information about each project by clicking on
-          the project card.
+          This is a list of all the projects we&apos;re currently contributing to. You can find more
+          information about each project by clicking on the project card.
         </Typography>
 
         <div className="mt-8 grid grid-cols-1 gap-8">
@@ -44,5 +43,5 @@ export default async function ProjectsPage() {
         </div>
       </SectionContainer>
     </main>
-  );
+  )
 }

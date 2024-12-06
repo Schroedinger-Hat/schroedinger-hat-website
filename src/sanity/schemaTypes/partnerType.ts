@@ -1,4 +1,4 @@
-import { defineType, type ConditionalPropertyCallback } from "sanity";
+import { defineType, type ConditionalPropertyCallback } from "sanity"
 
 export const partnerType = defineType({
   name: "partner",
@@ -40,14 +40,13 @@ export const partnerType = defineType({
           { title: "Diamond", value: "diamond" },
         ],
       },
-      hidden: (({ document }) =>
-        !document?.isBusinessPartner) as ConditionalPropertyCallback,
+      hidden: (({ document }) => !document?.isBusinessPartner) as ConditionalPropertyCallback,
       validation: (Rule) =>
         Rule.custom((value, context) => {
           if (context.document?.isBusinessPartner && !value) {
-            return "Business partners must have a tier selected";
+            return "Business partners must have a tier selected"
           }
-          return true;
+          return true
         }),
     },
     {
@@ -61,14 +60,13 @@ export const partnerType = defineType({
           { title: "Media", value: "media" },
         ],
       },
-      hidden: (({ document }) =>
-        document?.isBusinessPartner) as ConditionalPropertyCallback,
+      hidden: (({ document }) => document?.isBusinessPartner) as ConditionalPropertyCallback,
       validation: (Rule) =>
         Rule.custom((value, context) => {
           if (!context.document?.isBusinessPartner && !value) {
-            return "Non-business partners must have a type selected";
+            return "Non-business partners must have a type selected"
           }
-          return true;
+          return true
         }),
     },
     {
@@ -108,8 +106,7 @@ export const partnerType = defineType({
           name: "email",
           title: "Email",
           type: "string",
-          validation: (Rule) =>
-            Rule.email().error("Please enter a valid email address"),
+          validation: (Rule) => Rule.email().error("Please enter a valid email address"),
         },
       ],
     },
@@ -150,17 +147,14 @@ export const partnerType = defineType({
       media: "image",
     },
     prepare: (selection) => {
-      const { title, subtitle, businessTier, nonBusinessType, media } =
-        selection;
-      const partnerType = subtitle
-        ? `Business - ${businessTier}`
-        : `Non-Business - ${nonBusinessType}`;
+      const { title, subtitle, businessTier, nonBusinessType, media } = selection
+      const partnerType = subtitle ? `Business - ${businessTier}` : `Non-Business - ${nonBusinessType}`
 
       return {
         title,
         subtitle: partnerType,
         media,
-      } as const;
+      } as const
     },
   },
   orderings: [
@@ -175,4 +169,4 @@ export const partnerType = defineType({
       by: [{ field: "name", direction: "asc" }],
     },
   ],
-});
+})

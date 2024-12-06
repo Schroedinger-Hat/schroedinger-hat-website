@@ -1,18 +1,18 @@
-"use client";
+"use client"
 
-import { useEffect, useState } from "react";
+import { useEffect, useState } from "react"
 
 interface YouTubePlayerProps {
-  videoId: string;
-  className?: string;
+  videoId: string
+  className?: string
 }
 
 export function YouTubePlayer({ videoId, className = "" }: YouTubePlayerProps) {
-  const [isClient, setIsClient] = useState(false);
+  const [isClient, setIsClient] = useState(false)
 
   useEffect(() => {
-    setIsClient(true);
-  }, []);
+    setIsClient(true)
+  }, [])
 
   if (!isClient) {
     return (
@@ -21,7 +21,7 @@ export function YouTubePlayer({ videoId, className = "" }: YouTubePlayerProps) {
           <span className="text-gray-500">Loading player...</span>
         </div>
       </div>
-    );
+    )
   }
 
   return (
@@ -34,5 +34,5 @@ export function YouTubePlayer({ videoId, className = "" }: YouTubePlayerProps) {
         allowFullScreen
       />
     </div>
-  );
+  )
 }

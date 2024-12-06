@@ -1,28 +1,25 @@
-import { Card, CardContent, CardHeader } from "../ui/card";
-import { Image } from "../atoms/media/Image";
-import { Typography } from "../atoms/typography/Typography";
-import { type TeamMember } from "@/sanity/sanity.types";
-import { urlFor } from "@/sanity/lib/image";
+import { Card, CardContent, CardHeader } from "../ui/card"
+import { Image } from "../atoms/media/Image"
+import { Typography } from "../atoms/typography/Typography"
+import { type TeamMember } from "@/sanity/sanity.types"
+import { urlFor } from "@/sanity/lib/image"
 
 interface TeamCardProps {
-  name: string;
-  surname: string;
-  role: string;
+  name: string
+  surname: string
+  role: string
   image: {
-    src: string;
-    alt?: string;
-    backgroundColor?: string;
-  };
+    src: string
+    alt?: string
+    backgroundColor?: string
+  }
 }
 
 export function TeamCard({ name, surname, role, image }: TeamCardProps) {
   return (
     <Card className="max-w-sm overflow-hidden bg-white">
       <CardHeader className="p-0">
-        <div
-          className="aspect-square w-full"
-          style={{ backgroundColor: image.backgroundColor }}
-        >
+        <div className="aspect-square w-full" style={{ backgroundColor: image.backgroundColor }}>
           <Image
             src={image.src}
             alt={image.alt ?? `${name} ${surname}`}
@@ -42,12 +39,12 @@ export function TeamCard({ name, surname, role, image }: TeamCardProps) {
         </div>
       </CardContent>
     </Card>
-  );
+  )
 }
 
 export function TeamMemberCard({ member }: { member: TeamMember }) {
   if (!member.image?.asset || !member.name || !member.surname || !member.role) {
-    return null;
+    return null
   }
 
   return (
@@ -60,5 +57,5 @@ export function TeamMemberCard({ member }: { member: TeamMember }) {
         backgroundColor: member.image.backgroundColor,
       }}
     />
-  );
+  )
 }

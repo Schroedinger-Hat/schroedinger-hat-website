@@ -1,23 +1,19 @@
-import { stripe } from "@/lib/stripe";
-import { Heading } from "@/components/atoms/typography/Heading";
-import { Paragraph } from "@/components/atoms/typography/Paragraph";
-import { SuccessConfetti } from "./success-confetti";
-import {
-  CheckmarkBadge01Icon,
-  UserMultipleIcon,
-  WavingHand01Icon,
-} from "hugeicons-react";
+import { stripe } from "@/lib/stripe"
+import { Heading } from "@/components/atoms/typography/Heading"
+import { Paragraph } from "@/components/atoms/typography/Paragraph"
+import { SuccessConfetti } from "./success-confetti"
+import { CheckmarkBadge01Icon, UserMultipleIcon, WavingHand01Icon } from "hugeicons-react"
 interface SuccessPageProps {
-  searchParams: Promise<{ session_id: string }>;
+  searchParams: Promise<{ session_id: string }>
 }
 
 export default async function SuccessPage({ searchParams }: SuccessPageProps) {
-  const { session_id: sessionId } = await searchParams;
+  const { session_id: sessionId } = await searchParams
 
-  let customerEmail = "";
+  let customerEmail = ""
   if (sessionId) {
-    const session = await stripe.checkout.sessions.retrieve(sessionId);
-    customerEmail = session.customer_details?.email ?? "";
+    const session = await stripe.checkout.sessions.retrieve(sessionId)
+    customerEmail = session.customer_details?.email ?? ""
   }
 
   return (
@@ -50,8 +46,7 @@ export default async function SuccessPage({ searchParams }: SuccessPageProps) {
               Confirmation
             </Heading>
             <Paragraph className="text-slate-800">
-              {customerEmail &&
-                `We have sent a confirmation to ${customerEmail}`}
+              {customerEmail && `We have sent a confirmation to ${customerEmail}`}
             </Paragraph>
           </div>
 
@@ -87,5 +82,5 @@ export default async function SuccessPage({ searchParams }: SuccessPageProps) {
         </div>
       </div>
     </main>
-  );
+  )
 }

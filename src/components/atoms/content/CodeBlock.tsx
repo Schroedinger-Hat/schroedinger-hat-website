@@ -1,19 +1,19 @@
-"use client";
+"use client"
 
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
-import { cn } from "@/lib/utils";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
+import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism"
+import { cn } from "@/lib/utils"
 
 interface CodeBlockProps {
   value: {
-    code: string;
-    language?: string;
-    filename?: string;
-  };
+    code: string
+    language?: string
+    filename?: string
+  }
 }
 
 export function CodeBlock({ value }: CodeBlockProps) {
-  const { code, language = "typescript", filename } = value;
+  const { code, language = "typescript", filename } = value
 
   return (
     <div className="group relative my-6 rounded-lg bg-gray-900">
@@ -38,5 +38,5 @@ export function CodeBlock({ value }: CodeBlockProps) {
         {code}
       </SyntaxHighlighter>
     </div>
-  );
+  )
 }

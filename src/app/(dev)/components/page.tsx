@@ -1,24 +1,24 @@
-"use client";
+"use client"
 
-import { inDevEnvironment } from "@/app/consts";
-import { redirect } from "next/navigation";
-import { Paragraph } from "@/components/atoms/typography/Paragraph";
-import { Heading } from "@/components/atoms/typography/Heading";
-import { Blockquote } from "@/components/atoms/typography/Blockquote";
-import { List } from "@/components/atoms/lists/List";
-import { ListItem } from "@/components/atoms/lists/ListItem";
-import { InlineText } from "@/components/atoms/typography/InlineText";
-import { Link } from "@/components/atoms/links/Link";
-import { Image } from "@/components/atoms/media/Image";
-import GradientCard from "@/components/organisms/gradient-card";
-import ImageCard from "@/components/organisms/image-card";
-import { ImageLabel } from "@/components/organisms/image-label";
-import { BulletPoint } from "@/components/organisms/bullet-point";
+import { inDevEnvironment } from "@/app/consts"
+import { redirect } from "next/navigation"
+import { Paragraph } from "@/components/atoms/typography/Paragraph"
+import { Heading } from "@/components/atoms/typography/Heading"
+import { Blockquote } from "@/components/atoms/typography/Blockquote"
+import { List } from "@/components/atoms/lists/List"
+import { ListItem } from "@/components/atoms/lists/ListItem"
+import { InlineText } from "@/components/atoms/typography/InlineText"
+import { Link } from "@/components/atoms/links/Link"
+import { Image } from "@/components/atoms/media/Image"
+import GradientCard from "@/components/organisms/gradient-card"
+import ImageCard from "@/components/organisms/image-card"
+import { ImageLabel } from "@/components/organisms/image-label"
+import { BulletPoint } from "@/components/organisms/bullet-point"
 
 export default function ComponentsPage() {
   // Redirect if not in development environment
   if (!inDevEnvironment) {
-    redirect("/");
+    redirect("/")
   }
 
   return (
@@ -39,8 +39,7 @@ export default function ComponentsPage() {
       <section className="space-y-4">
         <Heading level={2}>Paragraphs</Heading>
         <Paragraph>
-          This is a standard paragraph with some text. It demonstrates the
-          default text styling.
+          This is a standard paragraph with some text. It demonstrates the default text styling.
         </Paragraph>
       </section>
       <hr />
@@ -49,8 +48,7 @@ export default function ComponentsPage() {
       <section className="space-y-4">
         <Heading level={2}>Blockquote</Heading>
         <Blockquote>
-          This is a blockquote. It&apos;s used to highlight important quotes or
-          statements.
+          This is a blockquote. It&apos;s used to highlight important quotes or statements.
         </Blockquote>
       </section>
       <hr />
@@ -79,8 +77,7 @@ export default function ComponentsPage() {
       <section className="space-y-4">
         <Heading level={2}>Inline Text Styles</Heading>
         <Paragraph>
-          This paragraph contains{" "}
-          <InlineText variant="strong">bold text</InlineText>,{" "}
+          This paragraph contains <InlineText variant="strong">bold text</InlineText>,{" "}
           <InlineText variant="em">italic text</InlineText>, and{" "}
           <InlineText variant="code">code text</InlineText>.
         </Paragraph>
@@ -91,8 +88,7 @@ export default function ComponentsPage() {
       <section className="space-y-4">
         <Heading level={2}>Links</Heading>
         <Paragraph>
-          Here is an example of a{" "}
-          <Link href="https://example.com">hyperlink</Link>.
+          Here is an example of a <Link href="https://example.com">hyperlink</Link>.
         </Paragraph>
       </section>
       <hr />
@@ -123,9 +119,7 @@ export default function ComponentsPage() {
             className="aspect-square w-[300px]"
           />
 
-          <Paragraph className="text-sm text-gray-500">
-            Square image with custom dimensions
-          </Paragraph>
+          <Paragraph className="text-sm text-gray-500">Square image with custom dimensions</Paragraph>
         </div>
       </section>
 
@@ -143,33 +137,21 @@ export default function ComponentsPage() {
         </div>
 
         <Heading level={3}>Image Card</Heading>
-        <ImageCard
-          image="https://picsum.photos/400/250"
-          title="Image Card Title"
-        />
+        <ImageCard image="https://picsum.photos/400/250" title="Image Card Title" />
 
         <Heading level={3}>Image Label</Heading>
         <div className="flex flex-row gap-4">
           <div className="h-[400px] w-[400px]">
-            <ImageLabel
-              src="https://picsum.photos/400/400"
-              label="Image Label long long long"
-            />
+            <ImageLabel src="https://picsum.photos/400/400" label="Image Label long long long" />
           </div>
           <div className="h-[400px] w-[400px]">
-            <ImageLabel
-              src="https://picsum.photos/400/400"
-              label="Image Label"
-            />
+            <ImageLabel src="https://picsum.photos/400/400" label="Image Label" />
           </div>
         </div>
 
         <Heading level={3}>Bullet Point</Heading>
-        <BulletPoint
-          title="Bullet Point Title"
-          features={["Feature 1", "Feature 2", "Feature 3"]}
-        />
+        <BulletPoint title="Bullet Point Title" features={["Feature 1", "Feature 2", "Feature 3"]} />
       </section>
     </div>
-  );
+  )
 }

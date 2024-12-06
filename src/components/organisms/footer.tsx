@@ -1,11 +1,11 @@
-"use client";
+"use client"
 
-import Link from "next/link";
-import { Youtube, Twitter } from "lucide-react";
-import { inDevEnvironment } from "@/app/consts";
-import { Heading } from "@/components/atoms/typography/Heading";
-import { Paragraph } from "@/components/atoms/typography/Paragraph";
-import { Typography } from "../atoms/typography/Typography";
+import Link from "next/link"
+import { Youtube, Twitter } from "lucide-react"
+import { inDevEnvironment } from "@/app/consts"
+import { Heading } from "@/components/atoms/typography/Heading"
+import { Paragraph } from "@/components/atoms/typography/Paragraph"
+import { Typography } from "../atoms/typography/Typography"
 
 export function Footer() {
   return (
@@ -15,28 +15,16 @@ export function Footer() {
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             {/* Policy Links */}
             <div className="space-y-3">
-              <Link
-                className="block text-sm hover:underline"
-                href="/page/cookie-policy"
-              >
+              <Link className="block text-sm hover:underline" href="/page/cookie-policy">
                 <Paragraph className="m-0 text-sm">Cookie policy</Paragraph>
               </Link>
-              <Link
-                className="block text-sm hover:underline"
-                href="/page/privacy"
-              >
+              <Link className="block text-sm hover:underline" href="/page/privacy">
                 <Paragraph className="m-0 text-sm">Privacy policy</Paragraph>
               </Link>
-              <Link
-                className="block text-sm hover:underline"
-                href="/page/contacts"
-              >
+              <Link className="block text-sm hover:underline" href="/page/contacts">
                 <Paragraph className="m-0 text-sm">Contatti</Paragraph>
               </Link>
-              <Link
-                className="block text-sm hover:underline"
-                href="/page/code-of-conduct"
-              >
+              <Link className="block text-sm hover:underline" href="/page/code-of-conduct">
                 <Paragraph className="m-0 text-sm">Code of Conduct</Paragraph>
               </Link>
               <Link className="block text-sm hover:underline" href="/page/faq">
@@ -46,10 +34,7 @@ export function Footer() {
 
             {/* Shop & Account Links */}
             <div className="space-y-3">
-              <Link
-                className="block text-sm hover:underline"
-                href="https://ign.schroedinger-hat.org/"
-              >
+              <Link className="block text-sm hover:underline" href="https://ign.schroedinger-hat.org/">
                 <Paragraph className="m-0 text-sm">ImageGoNord</Paragraph>
               </Link>
               <Link className="block text-sm hover:underline" href="/blog">
@@ -57,16 +42,10 @@ export function Footer() {
               </Link>
               {inDevEnvironment && (
                 <>
-                  <Link
-                    href="/sanity-cms"
-                    className="block text-sm hover:underline"
-                  >
+                  <Link href="/sanity-cms" className="block text-sm hover:underline">
                     <Paragraph className="m-0 text-sm">CMS</Paragraph>
                   </Link>
-                  <Link
-                    href="/components"
-                    className="block text-sm hover:underline"
-                  >
+                  <Link href="/components" className="block text-sm hover:underline">
                     <Paragraph className="m-0 text-sm">Components</Paragraph>
                   </Link>
                 </>
@@ -78,24 +57,14 @@ export function Footer() {
               <Heading level={3} className="text-sm font-semibold">
                 SCHROEDINGER HAT APS
               </Heading>
-              <Paragraph className="text-sm text-muted-foreground">
-                Via Pino Arpioni 1, Pelago (FI)
-              </Paragraph>
-              <Paragraph className="text-sm text-muted-foreground">
-                IT07355400487
-              </Paragraph>
+              <Paragraph className="text-sm text-muted-foreground">Via Pino Arpioni 1, Pelago (FI)</Paragraph>
+              <Paragraph className="text-sm text-muted-foreground">IT07355400487</Paragraph>
               <div className="mt-4 flex space-x-4">
-                <Link
-                  href="https://youtube.com"
-                  className="text-muted-foreground hover:text-foreground"
-                >
+                <Link href="https://youtube.com" className="text-muted-foreground hover:text-foreground">
                   <Youtube className="h-5 w-5" />
                   <span className="sr-only">YouTube</span>
                 </Link>
-                <Link
-                  href="https://twitter.com"
-                  className="text-muted-foreground hover:text-foreground"
-                >
+                <Link href="https://twitter.com" className="text-muted-foreground hover:text-foreground">
                   <Twitter className="h-5 w-5" />
                   <span className="sr-only">Twitter</span>
                 </Link>
@@ -112,11 +81,7 @@ export function Footer() {
               © 2024, Schrödinger Hat
             </Typography>
 
-            <Link
-              href="https://nextjs.org"
-              className="hidden hover:underline md:block"
-              target="_blank"
-            >
+            <Link href="https://nextjs.org" className="hidden hover:underline md:block" target="_blank">
               <Typography variant="muted" className="m-0">
                 Powered by Next.js
               </Typography>
@@ -125,5 +90,5 @@ export function Footer() {
         </div>
       </div>
     </footer>
-  );
+  )
 }

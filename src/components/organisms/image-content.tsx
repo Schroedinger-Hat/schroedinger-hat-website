@@ -1,15 +1,15 @@
-import Image, { type StaticImageData } from "next/image";
-import { cn } from "@/lib/utils";
-import { Heading } from "../atoms/typography/Heading";
-import { Typography } from "../atoms/typography/Typography";
+import Image, { type StaticImageData } from "next/image"
+import { cn } from "@/lib/utils"
+import { Heading } from "../atoms/typography/Heading"
+import { Typography } from "../atoms/typography/Typography"
 
 interface ImageContentProps {
-  title: string;
-  content: string | React.ReactNode;
-  imageSrc: string | StaticImageData;
-  imageAlt: string;
-  imagePosition?: "left" | "right";
-  className?: string;
+  title: string
+  content: string | React.ReactNode
+  imageSrc: string | StaticImageData
+  imageAlt: string
+  imagePosition?: "left" | "right"
+  className?: string
 }
 
 export function ImageContent({
@@ -43,13 +43,9 @@ export function ImageContent({
           <Heading level={2} className="m-0">
             {title}
           </Heading>
-          {typeof content === "string" ? (
-            <Typography variant="muted">{content}</Typography>
-          ) : (
-            content
-          )}
+          {typeof content === "string" ? <Typography variant="muted">{content}</Typography> : content}
         </div>
       </div>
     </div>
-  );
+  )
 }

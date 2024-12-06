@@ -1,13 +1,13 @@
-import Image from "next/image";
-import { cn } from "@/lib/utils";
+import Image from "next/image"
+import { cn } from "@/lib/utils"
 
 interface ImageWrapperProps {
-  src: string;
-  alt: string;
-  width?: number;
-  height?: number;
-  className?: string;
-  imageClassName?: string;
+  src: string
+  alt: string
+  width?: number
+  height?: number
+  className?: string
+  imageClassName?: string
 }
 
 export function ImageWrapper({
@@ -19,12 +19,7 @@ export function ImageWrapper({
   imageClassName,
 }: ImageWrapperProps) {
   return (
-    <div
-      className={cn(
-        "flex items-center justify-center rounded-lg bg-slate-50 p-8",
-        className,
-      )}
-    >
+    <div className={cn("flex items-center justify-center rounded-lg bg-slate-50 p-8", className)}>
       <Image
         src={src}
         alt={alt}
@@ -33,5 +28,5 @@ export function ImageWrapper({
         className={cn("h-16 w-auto object-contain", imageClassName)}
       />
     </div>
-  );
+  )
 }

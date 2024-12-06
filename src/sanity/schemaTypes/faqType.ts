@@ -1,4 +1,4 @@
-import { defineType } from "sanity";
+import { defineType } from "sanity"
 
 export const faqType = defineType({
   name: "faq",
@@ -22,8 +22,7 @@ export const faqType = defineType({
       name: "groupKey",
       title: "Group Key",
       type: "string",
-      description:
-        "Key to group FAQs for different pages (e.g., 'membership', 'general', 'local-community')",
+      description: "Key to group FAQs for different pages (e.g., 'membership', 'general', 'local-community')",
       validation: (Rule) => Rule.required(),
     },
     {
@@ -50,4 +49,4 @@ export const faqType = defineType({
       ],
     },
   ],
-});
+})

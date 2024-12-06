@@ -1,29 +1,19 @@
-"use client";
+"use client"
 
-import Image from "next/image";
-import { cn } from "@/lib/utils";
-import { Typography } from "@/components/atoms/typography/Typography";
+import Image from "next/image"
+import { cn } from "@/lib/utils"
+import { Typography } from "@/components/atoms/typography/Typography"
 
 interface ImageLabelProps {
-  src: string;
-  label: string;
-  className?: string;
-  labelClassName?: string;
+  src: string
+  label: string
+  className?: string
+  labelClassName?: string
 }
 
-export function ImageLabel({
-  src,
-  label,
-  className,
-  labelClassName,
-}: ImageLabelProps) {
+export function ImageLabel({ src, label, className, labelClassName }: ImageLabelProps) {
   return (
-    <div
-      className={cn(
-        "relative aspect-square overflow-hidden rounded-lg",
-        className,
-      )}
-    >
+    <div className={cn("relative aspect-square overflow-hidden rounded-lg", className)}>
       <Image src={src} alt={label} fill className="object-cover" />
       <div
         className={cn(
@@ -36,5 +26,5 @@ export function ImageLabel({
         </Typography>
       </div>
     </div>
-  );
+  )
 }

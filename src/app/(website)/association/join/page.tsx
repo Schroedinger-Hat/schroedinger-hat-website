@@ -1,24 +1,23 @@
-import { Heading } from "@/components/atoms/typography/Heading";
-import { BlurredBackground } from "@/components/organisms/blurred-background";
-import { Typography } from "@/components/atoms/typography/Typography";
-import { Image } from "@/components/atoms/media/Image";
-import { MembershipCheckoutButton } from "./components/membership-checkout-button";
-import { ReviewsSection } from "./components/reviews-section";
-import { FaqBlock } from "@/components/organisms/faq-block";
-import { SectionContainer } from "@/components/atoms/layout/SectionContainer";
-import { constructMetadata } from "@/lib/utils/metadata";
+import { Heading } from "@/components/atoms/typography/Heading"
+import { BlurredBackground } from "@/components/organisms/blurred-background"
+import { Typography } from "@/components/atoms/typography/Typography"
+import { Image } from "@/components/atoms/media/Image"
+import { MembershipCheckoutButton } from "./components/membership-checkout-button"
+import { ReviewsSection } from "./components/reviews-section"
+import { FaqBlock } from "@/components/organisms/faq-block"
+import { SectionContainer } from "@/components/atoms/layout/SectionContainer"
+import { constructMetadata } from "@/lib/utils/metadata"
 
 // Images
-import perkBox from "@/images/membership/perk_box.svg";
-import perkEarlyAccess from "@/images/membership/perk_early_access.svg";
-import perkFood from "@/images/membership/perk_food.svg";
-import perkVote from "@/images/membership/perk_vote.svg";
+import perkBox from "@/images/membership/perk_box.svg"
+import perkEarlyAccess from "@/images/membership/perk_early_access.svg"
+import perkFood from "@/images/membership/perk_food.svg"
+import perkVote from "@/images/membership/perk_vote.svg"
 
 export const metadata = constructMetadata({
   title: "Schrödinger Hat: Join Us",
-  description:
-    "Become a member of Schrödinger Hat and join our community of open source enthusiasts.",
-});
+  description: "Become a member of Schrödinger Hat and join our community of open source enthusiasts.",
+})
 
 export default async function BecomeMemberPage() {
   return (
@@ -46,8 +45,8 @@ export default async function BecomeMemberPage() {
             </div>
             <div className="max-w-2xl">
               <h2 className="text-[22px] font-normal text-slate-800">
-                You already have a lot of subscriptions. And we don&apos;t offer
-                you new Marvel contents or extra GB on the cloud
+                You already have a lot of subscriptions. And we don&apos;t offer you new Marvel contents or
+                extra GB on the cloud
                 <br />
                 <br />
                 But hear us out on why you should join us
@@ -64,8 +63,8 @@ export default async function BecomeMemberPage() {
             <Typography variant="medium" className="text-slate-700">
               The membership is an optional paid subscription
               <br />
-              We&apos;re all volunteers so we can&apos;t offer you lots of
-              things, but we can offer you a lot of love
+              We&apos;re all volunteers so we can&apos;t offer you lots of things, but we can offer you a lot
+              of love
               <br />
               Ok not just love, we prepared some perks for you
             </Typography>
@@ -91,10 +90,7 @@ export default async function BecomeMemberPage() {
 
           <div className="rounded-xl bg-[#E67E22] p-6 md:h-[350px] md:p-8">
             <div className="flex h-full flex-col md:justify-between">
-              <Typography
-                variant="lead"
-                className="mb-4 text-left text-white md:text-center"
-              >
+              <Typography variant="lead" className="mb-4 text-left text-white md:text-center">
                 Merch store discounts and free shipping!
               </Typography>
               <div className="hidden flex-1 md:block">
@@ -117,10 +113,7 @@ export default async function BecomeMemberPage() {
                 <Typography variant="lead" className="text-white md:pr-4">
                   Members only dinners and parties
                 </Typography>
-                <Typography
-                  variant="small"
-                  className="hidden text-white md:block md:pr-4"
-                >
+                <Typography variant="small" className="hidden text-white md:block md:pr-4">
                   *not just tacos, we promise
                 </Typography>
               </div>
@@ -141,8 +134,7 @@ export default async function BecomeMemberPage() {
             </div>
             <p className="text-white">
               <Typography variant="lead" className="text-white">
-                Votations to drive our organization and choose speakers for our
-                major events
+                Votations to drive our organization and choose speakers for our major events
               </Typography>
             </p>
           </div>
@@ -154,8 +146,8 @@ export default async function BecomeMemberPage() {
           <Typography variant="medium" className="text-slate-700">
             The membership is an optional paid subscription
             <br />
-            We&apos;re all volunteers so we can&apos;t offer you lots of things,
-            but we can offer you a lot of love
+            We&apos;re all volunteers so we can&apos;t offer you lots of things, but we can offer you a lot of
+            love
             <br />
             Ok not just love, we prepared some perks for you
           </Typography>
@@ -180,11 +172,7 @@ export default async function BecomeMemberPage() {
         <div className="flex flex-col gap-4 rounded-xl bg-[#E67E22] p-6">
           <div className="flex justify-center">
             <div className="aspect-square w-1/2">
-              <Image
-                src={perkBox}
-                alt="Merch discounts"
-                className="h-full w-full object-contain"
-              />
+              <Image src={perkBox} alt="Merch discounts" className="h-full w-full object-contain" />
             </div>
           </div>
           <Typography variant="lead" className="text-center text-white">
@@ -216,16 +204,11 @@ export default async function BecomeMemberPage() {
         <div className="flex flex-col gap-4 rounded-xl bg-[#B6D9A5] p-6">
           <div className="flex justify-center">
             <div className="aspect-square w-1/2">
-              <Image
-                src={perkVote}
-                alt="Voting rights"
-                className="h-full w-full object-contain"
-              />
+              <Image src={perkVote} alt="Voting rights" className="h-full w-full object-contain" />
             </div>
           </div>
           <Typography variant="lead" className="text-center text-white">
-            Votations to drive our organization and choose speakers for our
-            major events
+            Votations to drive our organization and choose speakers for our major events
           </Typography>
         </div>
       </SectionContainer>
@@ -237,10 +220,7 @@ export default async function BecomeMemberPage() {
         <div className="rounded-xl bg-black p-8">
           <div className="flex flex-col gap-8 md:flex-row">
             <div className="text-left text-white md:flex-1 md:pl-12 md:text-right">
-              <Heading
-                level={1}
-                className="mb-0 font-lexend text-[100px] tracking-tight text-white"
-              >
+              <Heading level={1} className="mb-0 font-lexend text-[100px] tracking-tight text-white">
                 24<span className="text-[50px]">€/year</span>
               </Heading>
             </div>
@@ -256,8 +236,8 @@ export default async function BecomeMemberPage() {
           <div className="pt-0 text-left md:text-center">
             <MembershipCheckoutButton />
             <Typography variant="medium" className="pt-8 text-white">
-              Seriously, it keeps the lights on and help us pays for all the
-              little things that you need to run a nonprofit association.
+              Seriously, it keeps the lights on and help us pays for all the little things that you need to
+              run a nonprofit association.
             </Typography>
           </div>
         </div>
@@ -273,5 +253,5 @@ export default async function BecomeMemberPage() {
         />
       </SectionContainer>
     </main>
-  );
+  )
 }

@@ -1,10 +1,10 @@
-import Image from "next/image";
-import { Heading } from "../atoms/typography/Heading";
+import Image from "next/image"
+import { Heading } from "../atoms/typography/Heading"
 
 interface ImageCardProps {
-  image: string;
-  title: string;
-  content?: React.ReactNode;
+  image: string
+  title: string
+  content?: React.ReactNode
 }
 
 export default function ImageCard({ image, title, content }: ImageCardProps) {
@@ -32,5 +32,5 @@ export default function ImageCard({ image, title, content }: ImageCardProps) {
         </div>
       </div>
     </div>
-  );
+  )
 }

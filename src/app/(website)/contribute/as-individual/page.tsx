@@ -1,36 +1,35 @@
-import { Heading } from "@/components/atoms/typography/Heading";
-import { Typography } from "@/components/atoms/typography/Typography";
-import { BlurredBackground } from "@/components/organisms/blurred-background";
-import { ImageHero } from "@/components/organisms/image-hero";
-import { Image } from "@/components/atoms/media/Image";
-import Link from "next/link";
-import { ArrowRight, Section } from "lucide-react";
-import { ArrowRightIcon } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Mail01Icon } from "hugeicons-react";
-import { JobPosts } from "@/components/organisms/job-posts";
-import { SectionContainer } from "@/components/atoms/layout/SectionContainer";
+import { Heading } from "@/components/atoms/typography/Heading"
+import { Typography } from "@/components/atoms/typography/Typography"
+import { BlurredBackground } from "@/components/organisms/blurred-background"
+import { ImageHero } from "@/components/organisms/image-hero"
+import { Image } from "@/components/atoms/media/Image"
+import Link from "next/link"
+import { ArrowRight, Section } from "lucide-react"
+import { ArrowRightIcon } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { Mail01Icon } from "hugeicons-react"
+import { JobPosts } from "@/components/organisms/job-posts"
+import { SectionContainer } from "@/components/atoms/layout/SectionContainer"
 
 // Image
-import asIndividual from "@/images/contribute/as_individual.jpg";
-import activateMembership from "@/images/contribute/individual/activate_membership.svg";
-import contributeToProjects from "@/images/contribute/individual/contribute_to_projects.svg";
-import volunteerAtOurEvents from "@/images/contribute/individual/volunteer_at_our_events.svg";
-import friends1 from "@/images/contribute/individual/individual_1.jpg";
-import friends2 from "@/images/contribute/individual/individual_2.jpg";
-import friends3 from "@/images/contribute/individual/individual_3.jpg";
-import friends4 from "@/images/contribute/individual/individual_4.jpg";
-import friends5 from "@/images/contribute/individual/individual_5.jpg";
-import friends6 from "@/images/contribute/individual/individual_6.jpg";
-import friends7 from "@/images/contribute/individual/individual_7.jpg";
-import friends8 from "@/images/contribute/individual/individual_8.jpg";
-import { constructMetadata } from "@/lib/utils/metadata";
+import asIndividual from "@/images/contribute/as_individual.jpg"
+import activateMembership from "@/images/contribute/individual/activate_membership.svg"
+import contributeToProjects from "@/images/contribute/individual/contribute_to_projects.svg"
+import volunteerAtOurEvents from "@/images/contribute/individual/volunteer_at_our_events.svg"
+import friends1 from "@/images/contribute/individual/individual_1.jpg"
+import friends2 from "@/images/contribute/individual/individual_2.jpg"
+import friends3 from "@/images/contribute/individual/individual_3.jpg"
+import friends4 from "@/images/contribute/individual/individual_4.jpg"
+import friends5 from "@/images/contribute/individual/individual_5.jpg"
+import friends6 from "@/images/contribute/individual/individual_6.jpg"
+import friends7 from "@/images/contribute/individual/individual_7.jpg"
+import friends8 from "@/images/contribute/individual/individual_8.jpg"
+import { constructMetadata } from "@/lib/utils/metadata"
 
 export const metadata = constructMetadata({
   title: "Contribute as Individual | Schrödinger Hat",
-  description:
-    "Learn more about how to contribute to Schrödinger Hat as an individual.",
-});
+  description: "Learn more about how to contribute to Schrödinger Hat as an individual.",
+})
 
 export default function ContributeIndividualPage() {
   return (
@@ -60,16 +59,13 @@ export default function ContributeIndividualPage() {
 
       <SectionContainer size="narrow">
         <Typography>
-          Our community relies on the dedication and generosity of individual
-          contributors. Whether it’s through time, expertise, or support, every
-          contribution plays a vital role in sustaining and growing what we do.
-          Together, we create opportunities to learn, connect, and build
-          something meaningful.
+          Our community relies on the dedication and generosity of individual contributors. Whether it’s
+          through time, expertise, or support, every contribution plays a vital role in sustaining and growing
+          what we do. Together, we create opportunities to learn, connect, and build something meaningful.
         </Typography>
         <Typography>
-          Your involvement, no matter the form, helps keep our projects moving
-          forward and our events welcoming to all. Here are the ways you can
-          contribute:
+          Your involvement, no matter the form, helps keep our projects moving forward and our events
+          welcoming to all. Here are the ways you can contribute:
         </Typography>
       </SectionContainer>
 
@@ -81,11 +77,9 @@ export default function ContributeIndividualPage() {
                 Activate a Membership
               </Heading>
               <Typography className="text-white">
-                Financially support the community and help sustain our nonprofit
-                initiatives.
+                Financially support the community and help sustain our nonprofit initiatives.
                 <br />
-                As a member you are involved in steering the organization and
-                help shape our future.
+                As a member you are involved in steering the organization and help shape our future.
               </Typography>
               <div className="mt-auto pt-4">
                 <Link href="/association/join">
@@ -261,5 +255,5 @@ export default function ContributeIndividualPage() {
         </div>
       </SectionContainer>
     </main>
-  );
+  )
 }

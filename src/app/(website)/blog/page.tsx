@@ -1,17 +1,17 @@
-import { sanityClient } from "@/sanity/lib/client";
-import { BlogPostCard } from "@/components/molecules/cards/BlogPostCard";
-import type { Author, BlogPost } from "@/sanity/sanity.types";
-import { SectionContainer } from "@/components/atoms/layout/SectionContainer";
-import { Heading } from "@/components/atoms/typography/Heading";
-import { constructMetadata } from "@/lib/utils/metadata";
+import { sanityClient } from "@/sanity/lib/client"
+import { BlogPostCard } from "@/components/molecules/cards/BlogPostCard"
+import type { Author, BlogPost } from "@/sanity/sanity.types"
+import { SectionContainer } from "@/components/atoms/layout/SectionContainer"
+import { Heading } from "@/components/atoms/typography/Heading"
+import { constructMetadata } from "@/lib/utils/metadata"
 
 // Use intersection type to define exactly what we get from the query
-type BlogPostWithAuthors = BlogPost & { authors: Author[] };
+type BlogPostWithAuthors = BlogPost & { authors: Author[] }
 
 export const metadata = constructMetadata({
   title: "Blog | Schrödinger Hat",
   description: "Latest articles, tutorials and news from Schrödinger Hat",
-});
+})
 
 export default async function BlogPage() {
   const posts = await sanityClient.fetch<BlogPostWithAuthors[]>(`
@@ -22,7 +22,7 @@ export default async function BlogPage() {
         lastName
       }
     }
-  `);
+  `)
 
   return (
     <SectionContainer size="wide">
@@ -36,5 +36,5 @@ export default async function BlogPage() {
         ))}
       </div>
     </SectionContainer>
-  );
+  )
 }

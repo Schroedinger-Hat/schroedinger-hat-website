@@ -1,21 +1,21 @@
-import type { Metadata } from "next";
+import type { Metadata } from "next"
 
 interface MetadataProps {
-  title?: string;
-  description?: string;
-  overrides?: Partial<Metadata>;
+  title?: string
+  description?: string
+  overrides?: Partial<Metadata>
 }
 
-const defaultTitle = "Schrödinger Hat: Where we talk Open Source";
+const defaultTitle = "Schrödinger Hat: Where we talk Open Source"
 const defaultDescription =
-  "Schrödinger Hat is a non-profit community advancing open-source software through inspiring events and impactful projects.";
+  "Schrödinger Hat is a non-profit community advancing open-source software through inspiring events and impactful projects."
 
 const baseUrl =
   process.env.VERCEL_ENV === "preview"
     ? `https://${process.env.VERCEL_URL}`
     : process.env.VERCEL_ENV === "production"
       ? "https://schroedinger-hat-website.vercel.app/"
-      : "http://localhost:3000";
+      : "http://localhost:3000"
 
 export function constructMetadata({
   title = defaultTitle,
@@ -61,7 +61,7 @@ export function constructMetadata({
       },
     },
     ...overrides,
-  };
+  }
 
-  return metadata;
+  return metadata
 }

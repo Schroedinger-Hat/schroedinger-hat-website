@@ -1,36 +1,25 @@
-import {
-  type internalGroqTypeReferenceTo,
-  type Event,
-} from "@/sanity/sanity.types";
-import { formatDateTime } from "@/lib/utils/date";
-import { Heading } from "@/components/atoms/typography/Heading";
-import { Image } from "@/components/atoms/media/Image";
-import { Calendar01Icon, Location01Icon } from "hugeicons-react";
-import { urlFor } from "@/sanity/lib/image";
-import { Typography } from "@/components/atoms/typography/Typography";
+import { type internalGroqTypeReferenceTo, type Event } from "@/sanity/sanity.types"
+import { formatDateTime } from "@/lib/utils/date"
+import { Heading } from "@/components/atoms/typography/Heading"
+import { Image } from "@/components/atoms/media/Image"
+import { Calendar01Icon, Location01Icon } from "hugeicons-react"
+import { urlFor } from "@/sanity/lib/image"
+import { Typography } from "@/components/atoms/typography/Typography"
 
 type EventWithExpandedSeries = Omit<Event, "series"> & {
   series?: {
-    _ref: string;
-    _type: "reference";
-    title?: string;
-    [internalGroqTypeReferenceTo]?: "eventSeries";
-  };
-};
+    _ref: string
+    _type: "reference"
+    title?: string
+    [internalGroqTypeReferenceTo]?: "eventSeries"
+  }
+}
 
 export function EventCard({ event }: { event: EventWithExpandedSeries }) {
-  if (
-    !event.title ||
-    !event.slug ||
-    !event.eventPeriod?.startDate ||
-    !event.location?.city
-  )
-    return null;
+  if (!event.title || !event.slug || !event.eventPeriod?.startDate || !event.location?.city) return null
 
   const imageAsset =
-    event.cardImage === "cover" && event.cover?.asset
-      ? event.cover.asset
-      : event.background?.asset;
+    event.cardImage === "cover" && event.cover?.asset ? event.cover.asset : event.background?.asset
 
   return (
     <div className="relative w-full overflow-hidden rounded-lg">
@@ -75,37 +64,21 @@ export function EventCard({ event }: { event: EventWithExpandedSeries }) {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export function FeaturedEventCard({
-  event,
-}: {
-  event: EventWithExpandedSeries;
-}) {
-  if (
-    !event.title ||
-    !event.slug ||
-    !event.eventPeriod?.startDate ||
-    !event.location?.city
-  )
-    return null;
+export function FeaturedEventCard({ event }: { event: EventWithExpandedSeries }) {
+  if (!event.title || !event.slug || !event.eventPeriod?.startDate || !event.location?.city) return null
 
   const imageAsset =
-    event.cardImage === "cover" && event.cover?.asset
-      ? event.cover.asset
-      : event.background?.asset;
+    event.cardImage === "cover" && event.cover?.asset ? event.cover.asset : event.background?.asset
 
   return (
     <div className="relative mb-12 w-full overflow-hidden rounded-lg">
       <div className="group relative flex min-h-[400px] flex-col justify-end bg-gradient-to-t from-slate-900/95 to-slate-900/40 p-8">
         {imageAsset && (
           <Image
-            src={urlFor(imageAsset)
-              .auto("format")
-              .width(1200)
-              .height(800)
-              .url()}
+            src={urlFor(imageAsset).auto("format").width(1200).height(800).url()}
             alt={event.title ?? ""}
             className="absolute inset-0 -z-10 h-full w-full object-cover brightness-75 transition-all duration-300 group-hover:brightness-50"
             withContainer={false}
@@ -144,5 +117,5 @@ export function FeaturedEventCard({
         </div>
       </div>
     </div>
-  );
+  )
 }

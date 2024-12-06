@@ -1,20 +1,20 @@
-import { notFound } from "next/navigation";
-import { PortableText } from "@portabletext/react";
-import { sanityClient } from "@/sanity/lib/client";
-import type { Event, Author } from "@/sanity/sanity.types";
-import { createPortableTextComponents } from "@/app/(website)/page/[slug]/portableTextComponents";
-import { EventHero } from "@/components/organisms/event-hero";
-import { AuthorCard } from "@/components/molecules/author-card";
-import { SectionContainer } from "@/components/atoms/layout/SectionContainer";
-import { type Metadata } from "next";
-import { extractFirstParagraph } from "@/lib/seo";
-import { Heading } from "@/components/atoms/typography/Heading";
-import { urlFor } from "@/sanity/lib/image";
-import { constructMetadata } from "@/lib/utils/metadata";
+import { notFound } from "next/navigation"
+import { PortableText } from "@portabletext/react"
+import { sanityClient } from "@/sanity/lib/client"
+import type { Event, Author } from "@/sanity/sanity.types"
+import { createPortableTextComponents } from "@/app/(website)/page/[slug]/portableTextComponents"
+import { EventHero } from "@/components/organisms/event-hero"
+import { AuthorCard } from "@/components/molecules/author-card"
+import { SectionContainer } from "@/components/atoms/layout/SectionContainer"
+import { type Metadata } from "next"
+import { extractFirstParagraph } from "@/lib/seo"
+import { Heading } from "@/components/atoms/typography/Heading"
+import { urlFor } from "@/sanity/lib/image"
+import { constructMetadata } from "@/lib/utils/metadata"
 
 interface EventWithAuthors extends Omit<Event, "authors"> {
-  authors?: Author[];
-  ogImage?: any;
+  authors?: Author[]
+  ogImage?: any
 }
 
 async function getEvent(slug: string) {
@@ -30,21 +30,19 @@ async function getEvent(slug: string) {
       "ogImage": coalesce(cover, background)
     }`,
     { slug },
-  );
-  return event;
+  )
+  return event
 }
 
 interface PageProps {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ slug: string }>
 }
 
-export async function generateMetadata({
-  params,
-}: PageProps): Promise<Metadata> {
-  const { slug } = await params;
-  const event = await getEvent(slug);
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params
+  const event = await getEvent(slug)
 
-  if (!event) return {};
+  if (!event) return {}
 
   const ogImage = event.ogImage
     ? {
@@ -53,7 +51,7 @@ export async function generateMetadata({
         height: 630,
         alt: event.title,
       }
-    : undefined;
+    : undefined
 
   return constructMetadata({
     title: `${event.title} | Event | Schrödinger Hat`,
@@ -67,24 +65,22 @@ export async function generateMetadata({
         images: ogImage ? [ogImage] : [],
       },
     },
-  });
+  })
 }
 
 export default async function SingleEventPage({ params }: PageProps) {
-  const { slug } = await params;
-  const event = await getEvent(slug);
+  const { slug } = await params
+  const event = await getEvent(slug)
 
   if (!event?.title) {
-    notFound();
+    notFound()
   }
 
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Event",
     name: event.title,
-    description: event.abstract
-      ? extractFirstParagraph(event.abstract)
-      : undefined,
+    description: event.abstract ? extractFirstParagraph(event.abstract) : undefined,
     image: event.ogImage ? urlFor(event.ogImage).url() : undefined,
     startDate: event.eventPeriod?.startDate,
     endDate: event.eventPeriod?.endDate,
@@ -110,14 +106,11 @@ export default async function SingleEventPage({ params }: PageProps) {
       "@type": "Organization",
       name: event.organiser,
     },
-  };
+  }
 
   return (
     <main>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       <SectionContainer size="wide" className="pb-0">
         <EventHero
@@ -133,10 +126,7 @@ export default async function SingleEventPage({ params }: PageProps) {
 
       <SectionContainer size="narrow">
         {event.abstract && (
-          <PortableText
-            value={event.abstract}
-            components={createPortableTextComponents()}
-          />
+          <PortableText value={event.abstract} components={createPortableTextComponents()} />
         )}
       </SectionContainer>
 
@@ -155,7 +145,7 @@ export default async function SingleEventPage({ params }: PageProps) {
         )}
       </SectionContainer>
     </main>
-  );
+  )
 }
 
 export async function generateStaticParams() {
@@ -163,9 +153,9 @@ export async function generateStaticParams() {
     `*[_type == "event"] {
       slug
     }`,
-  );
+  )
 
   return events.map((event) => ({
     slug: event.slug.current,
-  }));
+  }))
 }

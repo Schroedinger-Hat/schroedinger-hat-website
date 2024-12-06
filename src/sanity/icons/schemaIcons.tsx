@@ -10,7 +10,7 @@ import {
   QuestionIcon,
   Layers02Icon,
   LicenseDraftIcon,
-} from "hugeicons-react";
+} from "hugeicons-react"
 
 // Create a mapping of schema type to icon component
 export const schemaIcons = {
@@ -25,4 +25,4 @@ export const schemaIcons = {
   project: CodeIcon,
   eventSeries: Layers02Icon,
   blogPost: LicenseDraftIcon,
-} as const;
+} as const

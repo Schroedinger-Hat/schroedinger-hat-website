@@ -1,5 +1,5 @@
-import { Calendar03Icon } from "hugeicons-react";
-import { UserLove01Icon } from "hugeicons-react";
+import { Calendar03Icon } from "hugeicons-react"
+import { UserLove01Icon } from "hugeicons-react"
 
 //* Partecipate Menu Data
 export const partecipateMenuData = [
@@ -24,7 +24,7 @@ export const partecipateMenuData = [
     href: "https://discord.gg/eK7bDYrnnR",
     description: "Be part of the conversation on our Discord server.",
   },
-];
+]
 
 //* Contribute Menu Data
 export const contributeMenuData = [
@@ -49,13 +49,13 @@ export const contributeMenuData = [
     href: "/contribute/as-partner",
     description: "Collaborate with us to strengthen and grow our community.",
   },
-];
+]
 
 //* Association Menu Data
 export const associationMenuData: {
-  title: string;
-  href: string;
-  description: string;
+  title: string
+  href: string
+  description: string
 }[] = [
   {
     title: "About Us",
@@ -87,4 +87,4 @@ export const associationMenuData: {
     href: "/blog",
     description: "",
   },
-];
+]

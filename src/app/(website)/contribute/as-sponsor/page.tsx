@@ -1,24 +1,23 @@
-import { SectionContainer } from "@/components/atoms/layout/SectionContainer";
-import { Link } from "@/components/atoms/links/Link";
-import { Heading } from "@/components/atoms/typography/Heading";
-import { Typography } from "@/components/atoms/typography/Typography";
-import { BlackCTA, BlackCTAHeading } from "@/components/organisms/black-cta";
-import { BlurredBackground } from "@/components/organisms/blurred-background";
-import { BulletPoint } from "@/components/organisms/bullet-point";
-import { ImageContent } from "@/components/organisms/image-content";
-import { ImageHero } from "@/components/organisms/image-hero";
-import { StatBlocks } from "@/components/organisms/stat-block";
-import { constructMetadata } from "@/lib/utils/metadata";
+import { SectionContainer } from "@/components/atoms/layout/SectionContainer"
+import { Link } from "@/components/atoms/links/Link"
+import { Heading } from "@/components/atoms/typography/Heading"
+import { Typography } from "@/components/atoms/typography/Typography"
+import { BlackCTA, BlackCTAHeading } from "@/components/organisms/black-cta"
+import { BlurredBackground } from "@/components/organisms/blurred-background"
+import { BulletPoint } from "@/components/organisms/bullet-point"
+import { ImageContent } from "@/components/organisms/image-content"
+import { ImageHero } from "@/components/organisms/image-hero"
+import { StatBlocks } from "@/components/organisms/stat-block"
+import { constructMetadata } from "@/lib/utils/metadata"
 
 // Images
-import asSponsor from "@/images/contribute/as_sponsor.jpg";
-import platea from "@/images/contribute/sponsor/os24_platea.jpg";
+import asSponsor from "@/images/contribute/as_sponsor.jpg"
+import platea from "@/images/contribute/sponsor/os24_platea.jpg"
 
 export const metadata = constructMetadata({
   title: "Contribute as Sponsor | Schrödinger Hat",
-  description:
-    "Learn more about how to contribute to Schrödinger Hat as a sponsor.",
-});
+  description: "Learn more about how to contribute to Schrödinger Hat as a sponsor.",
+})
 
 export default function BecomeSponsorPage() {
   return (
@@ -52,17 +51,14 @@ export default function BecomeSponsorPage() {
           content={
             <>
               <Typography>
-                Open source is more than code; it’s a way to connect, to
-                empower, and to make a difference. We’re dedicated to building a
-                future where technology serves everyone, regardless of who they
-                are or where they come from. With a deep commitment to
-                diversity, inclusion, and accessibility, we work to create
-                opportunities for all voices to be heard.
+                Open source is more than code; it’s a way to connect, to empower, and to make a difference.
+                We’re dedicated to building a future where technology serves everyone, regardless of who they
+                are or where they come from. With a deep commitment to diversity, inclusion, and
+                accessibility, we work to create opportunities for all voices to be heard.
               </Typography>
               <Typography>
-                We can’t do this alone. It’s your curiosity, your passion, and
-                your belief in a better future that inspire us to keep going.
-                Let’s make open source, together.
+                We can’t do this alone. It’s your curiosity, your passion, and your belief in a better future
+                that inspire us to keep going. Let’s make open source, together.
               </Typography>
             </>
           }
@@ -92,26 +88,22 @@ export default function BecomeSponsorPage() {
             {
               number: "750",
               title: "Participants",
-              description:
-                "Engaged in-person attendees connecting and sharing ideas.",
+              description: "Engaged in-person attendees connecting and sharing ideas.",
             },
             {
               number: "2000+",
               title: "Online Attendees",
-              description:
-                "Unique viewers from around the world joining our live streams.",
+              description: "Unique viewers from around the world joining our live streams.",
             },
             {
               number: "50+",
               title: "International Speakers",
-              description:
-                "Leading voices in open-source, tech, and DEI inspiring our audience.",
+              description: "Leading voices in open-source, tech, and DEI inspiring our audience.",
             },
             {
               number: "3",
               title: "Flagship Conferences",
-              description:
-                "An annual series shaping the future of tech innovation and collaboration.",
+              description: "An annual series shaping the future of tech innovation and collaboration.",
             },
           ]}
         />
@@ -169,16 +161,11 @@ export default function BecomeSponsorPage() {
           </div>
 
           <div className="col-span-1 md:col-span-2">
-            <Typography
-              className="text-left md:text-center"
-              variant="muted"
-              as="p"
-            >
-              Some events may offer additional perks for sponsors, but we strive
-              to keep our packages straightforward and lean.
+            <Typography className="text-left md:text-center" variant="muted" as="p">
+              Some events may offer additional perks for sponsors, but we strive to keep our packages
+              straightforward and lean.
               <br />
-              Pricing adjustments might be made based on the event's scale to
-              account for varying expenses.
+              Pricing adjustments might be made based on the event's scale to account for varying expenses.
             </Typography>
           </div>
         </div>
@@ -195,5 +182,5 @@ export default function BecomeSponsorPage() {
         </BlackCTA>
       </SectionContainer>
     </main>
-  );
+  )
 }
