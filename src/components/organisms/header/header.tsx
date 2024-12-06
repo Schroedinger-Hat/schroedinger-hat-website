@@ -45,7 +45,7 @@ export function Header() {
         "border-transparent bg-transparent": !isScrolled,
       })}
     >
-      <nav className="mx-auto flex max-w-7xl items-center justify-between p-2 lg:px-8">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between p-2 lg:px-8 bg-background">
         <div className="flex lg:flex-1">
           <Link href="/" className="">
             <span className="sr-only">Schrödinger Hat</span>
