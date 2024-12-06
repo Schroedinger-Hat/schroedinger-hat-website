@@ -19,7 +19,7 @@ import { TeamMemberCard } from "@/components/organisms/team-card";
 import type { TeamMember } from "@/sanity/sanity.types";
 import { Paragraph } from "@/components/atoms/typography/Paragraph";
 import { Button } from "@/components/molecules/button";
-import { type Metadata } from "next";
+import { constructMetadata } from "@/lib/metadata";
 
 // Images
 import staffSpeaker from "@/images/about/os23_staff_speaker.jpg";
@@ -29,10 +29,11 @@ import os2Public from "@/images/about/os24_public.jpg";
 import { SectionContainer } from "@/components/atoms/layout/SectionContainer";
 import { ImageContent } from "@/components/organisms/image-content";
 
-export const metadata: Metadata = {
+export const metadata = constructMetadata({
   title: "Schrödinger Hat: About Us",
-  description: "Learn more about Schrödinger Hat and our mission.",
-};
+  description:
+    "Learn more about Schrödinger Hat, our mission, and the team behind the organization.",
+});
 
 export default async function AboutUsPage() {
   // Fetch business partners

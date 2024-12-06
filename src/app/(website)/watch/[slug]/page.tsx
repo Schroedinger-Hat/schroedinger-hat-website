@@ -11,8 +11,8 @@ import { BlurredBackground } from "@/components/organisms/blurred-background";
 import { getYoutubeVideoId } from "@/lib/utils/videoContent";
 import { SectionContainer } from "@/components/atoms/layout/SectionContainer";
 import { type Metadata } from "next";
-import { PortableTextBlock } from "sanity";
 import { extractFirstParagraph } from "@/lib/seo";
+import { constructMetadata } from "@/lib/utils/metadata";
 
 interface VideoWithAuthors extends Omit<Video, "authors"> {
   authors?: Author[];
@@ -50,10 +50,10 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const video = await getVideo(slug);
-  return {
+  return constructMetadata({
     title: `${video?.title} | Watch |Schrödinger Hat`,
     description: extractFirstParagraph(video?.description ?? []),
-  };
+  });
 }
 
 export default async function SingleVideoPage({ params }: PageProps) {

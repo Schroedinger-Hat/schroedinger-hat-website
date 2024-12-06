@@ -14,6 +14,8 @@ import { createPortableTextComponents } from "../../page/[slug]/portableTextComp
 import { VideoCard } from "@/components/molecules/video-card";
 import { getVideoThumbnailUrl } from "@/lib/utils/videoContent";
 import { BlogPostCard } from "@/components/molecules/cards/BlogPostCard";
+import { constructMetadata } from "@/lib/utils/metadata";
+import { getPortableTextPlainText } from "@/lib/utils/sanity";
 
 interface SpeakerPageProps {
   params: Promise<{ slug: string }>;
@@ -41,11 +43,14 @@ export async function generateMetadata({
 
   if (!speaker) return {};
 
-  return {
+  const biographyText = getPortableTextPlainText(speaker.biography);
+
+  return constructMetadata({
     title: `${getAuthorFullName(speaker)} | Schrödinger Hat Speaker`,
     description:
-      speaker.biography || `${getAuthorFullName(speaker)} - ${speaker.title}`,
-  };
+      biographyText ||
+      `Discover all the contributions created by ${getAuthorFullName(speaker)}`,
+  });
 }
 
 export default async function SpeakerPage({ params }: SpeakerPageProps) {

@@ -13,10 +13,11 @@ import logoWhite from "@/images/press-kit/logo white - no background - no paddin
 import logoWhitePng from "@/images/press-kit/logo white - no background - no padding.png";
 import { Linkedin01Icon, NewTwitterIcon, YoutubeIcon } from "hugeicons-react";
 
-export const metadata: Metadata = {
+export const metadata = constructMetadata({
   title: "Schrödinger Hat: Press Kit",
-  description: "Download our press kit assets.",
-};
+  description:
+    "Download our brand assets, logos, and official press materials.",
+});
 
 export default function PressKitPage() {
   return (

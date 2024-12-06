@@ -8,6 +8,7 @@ import { FaqBlock } from "@/components/organisms/faq-block";
 import { sanityClient } from "@/sanity/lib/client";
 import { SectionContainer } from "@/components/atoms/layout/SectionContainer";
 import { type Metadata } from "next";
+import { constructMetadata } from "@/lib/metadata";
 
 // Images
 import perkBox from "@/images/membership/perk_box.svg";
@@ -33,10 +34,11 @@ async function getMembershipFAQs(): Promise<FAQ[]> {
   `);
 }
 
-export const metadata: Metadata = {
-  title: "Schrödinger Hat: Join the Association",
-  description: "Learn more about how to join Schrödinger Hat as a member.",
-};
+export const metadata = constructMetadata({
+  title: "Schrödinger Hat: Join Us",
+  description:
+    "Become a member of Schrödinger Hat and join our community of open source enthusiasts.",
+});
 
 export default async function BecomeMemberPage() {
   const faqs: FAQ[] = await getMembershipFAQs();

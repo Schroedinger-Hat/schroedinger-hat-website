@@ -26,7 +26,7 @@ import famouseHevery from "@/images/contribute/speaker/famous_hevery.jpg";
 import famouseCorti from "@/images/contribute/speaker/famous_corti.jpg";
 import famouseTerzi from "@/images/contribute/speaker/famous_terzi.jpg";
 import { SectionContainer } from "@/components/atoms/layout/SectionContainer";
-import { type Metadata } from "next";
+import { constructMetadata } from "@/lib/metadata";
 
 const famousSpeakers = [
   {
@@ -63,11 +63,11 @@ const famousSpeakers = [
   },
 ];
 
-export const metadata: Metadata = {
-  title: "Schrödinger Hat: Contribute as Speaker",
+export const metadata = constructMetadata({
+  title: "Contribute as Speaker | Schrödinger Hat",
   description:
     "Learn more about how to contribute to Schrödinger Hat as a speaker.",
-};
+});
 
 export default function BecomeSpeakerPage() {
   return (

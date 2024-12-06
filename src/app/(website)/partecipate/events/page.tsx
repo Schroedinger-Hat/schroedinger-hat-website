@@ -4,12 +4,12 @@ import { Heading } from "@/components/atoms/typography/Heading";
 import { Link } from "@/components/atoms/links/Link";
 import { EventCard, FeaturedEventCard } from "./components/event-cards";
 import { SectionContainer } from "@/components/atoms/layout/SectionContainer";
-import { type Metadata } from "next";
+import { constructMetadata } from "@/lib/utils/metadata";
 
-export const metadata: Metadata = {
-  title: "Schrödinger Hat: Events",
+export const metadata = constructMetadata({
+  title: "Events | Schrödinger Hat",
   description: "Explore our upcoming and past events.",
-};
+});
 
 export default async function EventsPage() {
   const events: Event[] = await sanityClient.fetch(

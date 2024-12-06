@@ -12,7 +12,7 @@ import { type Metadata } from "next";
 import { extractFirstParagraph } from "@/lib/seo";
 import { getAuthorFullName } from "@/lib/utils/videoContent";
 import type { Author, BlogPost } from "@/sanity/sanity.types";
-import { CodeBlock } from "@/components/atoms/content/CodeBlock";
+import { constructMetadata } from "@/lib/utils/metadata";
 
 // Add this type to ensure we get the exact fields we need from the query
 type BlogPostWithAuthors = BlogPost & {
@@ -49,11 +49,13 @@ export async function generateMetadata({
     .map((author) => getAuthorFullName(author as unknown as Author))
     .join(", ");
 
-  return {
+  return constructMetadata({
     title: `${post.title} | Schrödinger Hat Blog`,
     description: extractFirstParagraph(post.content),
-    authors: [{ name: authors }],
-  };
+    overrides: {
+      authors: [{ name: authors }],
+    },
+  });
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {

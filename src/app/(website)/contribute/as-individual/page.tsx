@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Mail01Icon } from "hugeicons-react";
 import { JobPosts } from "@/components/organisms/job-posts";
 import { SectionContainer } from "@/components/atoms/layout/SectionContainer";
-import { type Metadata } from "next";
+import { constructMetadata } from "@/lib/metadata";
 
 // Image
 import asIndividual from "@/images/contribute/as_individual.jpg";
@@ -26,11 +26,11 @@ import friends6 from "@/images/contribute/individual/individual_6.jpg";
 import friends7 from "@/images/contribute/individual/individual_7.jpg";
 import friends8 from "@/images/contribute/individual/individual_8.jpg";
 
-export const metadata: Metadata = {
-  title: "Schrödinger Hat: Contribute as Individual",
+export const metadata = constructMetadata({
+  title: "Contribute as Individual | Schrödinger Hat",
   description:
     "Learn more about how to contribute to Schrödinger Hat as an individual.",
-};
+});
 
 export default function ContributeIndividualPage() {
   return (

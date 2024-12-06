@@ -6,13 +6,13 @@ import { Image } from "@/components/atoms/media/Image";
 import { urlFor } from "@/sanity/lib/image";
 import { getAuthorFullName, getAuthorInitials } from "@/lib/utils/videoContent";
 import Link from "next/link";
-import type { Metadata } from "next";
 import { Typography } from "@/components/atoms/typography/Typography";
+import { constructMetadata } from "@/lib/utils/metadata";
 
-export const metadata: Metadata = {
+export const metadata = constructMetadata({
   title: "Speakers | Schrödinger Hat",
   description: "Meet our amazing speakers and community contributors",
-};
+});
 
 async function getSpeakers() {
   const speakers = await sanityClient.fetch<Author[]>(

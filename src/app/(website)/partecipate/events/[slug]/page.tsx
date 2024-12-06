@@ -10,6 +10,7 @@ import { type Metadata } from "next";
 import { extractFirstParagraph } from "@/lib/seo";
 import { Heading } from "@/components/atoms/typography/Heading";
 import { urlFor } from "@/sanity/lib/image";
+import { constructMetadata } from "@/lib/utils/metadata";
 
 interface EventWithAuthors extends Omit<Event, "authors"> {
   authors?: Author[];
@@ -54,21 +55,19 @@ export async function generateMetadata({
       }
     : undefined;
 
-  return {
+  return constructMetadata({
     title: `${event.title} | Event | Schrödinger Hat`,
     description: extractFirstParagraph(event.abstract ?? []),
-    openGraph: {
-      title: event.title,
-      description: extractFirstParagraph(event.abstract ?? []),
-      images: ogImage ? [ogImage] : [],
+    overrides: {
+      openGraph: {
+        images: ogImage ? [ogImage] : [],
+      },
+      twitter: {
+        card: "summary_large_image",
+        images: ogImage ? [ogImage] : [],
+      },
     },
-    twitter: {
-      card: "summary_large_image",
-      title: event.title,
-      description: extractFirstParagraph(event.abstract ?? []),
-      images: ogImage ? [ogImage] : [],
-    },
-  };
+  });
 }
 
 export default async function SingleEventPage({ params }: PageProps) {

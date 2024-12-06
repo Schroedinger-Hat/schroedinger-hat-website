@@ -28,7 +28,7 @@ export function YouTubePlayer({ videoId, className = "" }: YouTubePlayerProps) {
     <div className={`aspect-video w-full ${className}`}>
       <iframe
         className="h-full w-full"
-        src={`https://www.youtube.com/embed/${videoId}?modestbranding=1&rel=0&showinfo=0&autoplay=1`}
+        src={`https://www.youtube.com/embed/${videoId}?modestbranding=1&rel=0&showinfo=0`}
         title="YouTube video player"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen

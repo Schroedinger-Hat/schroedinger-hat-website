@@ -20,16 +20,16 @@ import { BlackCTA, BlackCTAHeading } from "@/components/organisms/black-cta";
 import { LogoGallery } from "@/components/organisms/logo-gallery";
 import { urlFor } from "@/sanity/lib/image";
 import { FaqBlock } from "@/components/organisms/faq-block";
-import { type Metadata } from "next";
+import { constructMetadata } from "@/lib/metadata";
 
 // Images
 import asPartner from "@/images/contribute/as_partner.jpg";
 
-export const metadata: Metadata = {
-  title: "Schrödinger Hat: Contribute as Partner",
+export const metadata = constructMetadata({
+  title: "Contribute as Partner | Schrödinger Hat",
   description:
     "Learn more about how to contribute to Schrödinger Hat as a partner.",
-};
+});
 
 export default async function BecomePartnerPage() {
   const partners: Partner[] = await sanityClient.fetch(

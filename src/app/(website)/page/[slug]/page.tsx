@@ -11,6 +11,7 @@ import type { Page } from "@/sanity/sanity.types";
 import { SectionContainer } from "@/components/atoms/layout/SectionContainer";
 import { type Metadata } from "next";
 import { extractFirstParagraph } from "@/lib/seo";
+import { constructMetadata } from "@/lib/utils/metadata";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -24,10 +25,10 @@ export async function generateMetadata({
     `*[_type == "page" && slug.current == $slug][0]`,
     { slug },
   );
-  return {
+  return constructMetadata({
     title: `${pageData?.title} | Schrödinger Hat`,
     description: extractFirstParagraph(pageData?.content ?? []),
-  };
+  });
 }
 
 export default async function Page({ params }: PageProps) {

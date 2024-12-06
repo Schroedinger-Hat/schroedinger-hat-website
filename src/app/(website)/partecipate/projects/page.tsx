@@ -6,6 +6,7 @@ import { SectionContainer } from "@/components/atoms/layout/SectionContainer";
 import { type Metadata } from "next";
 import Link from "next/link";
 import { ProjectCard } from "./components/project-card";
+import { constructMetadata } from "@/lib/utils/metadata";
 
 async function getProjects() {
   const projects = await sanityClient.fetch<Project[]>(`*[_type == "project"] {
@@ -15,11 +16,11 @@ async function getProjects() {
   return projects;
 }
 
-export const metadata: Metadata = {
-  title: "Schrödinger Hat: Projects",
+export const metadata: Metadata = constructMetadata({
+  title: "Projects | Schrödinger Hat",
   description:
-    "This is a list of all the projects we&apos;re currently contributing to. You can find more information about each project by clicking on the project card.",
-};
+    "This is a list of all the projects we're currently contributing to. You can find more information about each project by clicking on the project card.",
+});
 
 export default async function ProjectsPage() {
   const projects = await getProjects();
