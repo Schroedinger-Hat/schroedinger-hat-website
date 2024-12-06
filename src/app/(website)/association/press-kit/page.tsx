@@ -2,16 +2,19 @@ import { SectionContainer } from "@/components/atoms/layout/SectionContainer";
 import { Image } from "@/components/atoms/media/Image";
 import { Heading } from "@/components/atoms/typography/Heading";
 import { Typography } from "@/components/atoms/typography/Typography";
-import { type Metadata } from "next";
+import { Linkedin01Icon, NewTwitterIcon, YoutubeIcon } from "hugeicons-react";
+import { constructMetadata } from "@/lib/utils/metadata";
+import type { FC, SVGProps } from "react";
 
 // Images
+type LogoType = FC<SVGProps<SVGElement>> & { src: string };
+
 import logoBackground from "@/images/press-kit/logo - background - rounded - flat background.svg";
 import logoBackgroundPng from "@/images/press-kit/logo - background - rounded - flat background.png";
 import logoBlack from "@/images/press-kit/logo - no background - no padding.svg";
 import logoBlackPng from "@/images/press-kit/logo - no background - no padding.png";
 import logoWhite from "@/images/press-kit/logo white - no background - no padding.svg";
 import logoWhitePng from "@/images/press-kit/logo white - no background - no padding.png";
-import { Linkedin01Icon, NewTwitterIcon, YoutubeIcon } from "hugeicons-react";
 
 export const metadata = constructMetadata({
   title: "Schrödinger Hat: Press Kit",
@@ -52,7 +55,7 @@ export default function PressKitPage() {
               <div className="mt-4 text-center">
                 <p className="text-sm text-gray-600">With Background</p>
                 <br />
-                <a href={logoBackground.src} download>
+                <a href={(logoBackground as LogoType).src} download>
                   <Typography as="span" variant="small">
                     Download SVG
                   </Typography>
@@ -75,7 +78,7 @@ export default function PressKitPage() {
               <div className="mt-4 text-center">
                 <p className="text-sm text-gray-600">Black</p>
                 <br />
-                <a href={logoBlack.src} download>
+                <a href={(logoBlack as LogoType).src} download>
                   <Typography as="span" variant="small">
                     Download SVG
                   </Typography>
@@ -98,7 +101,7 @@ export default function PressKitPage() {
               <div className="mt-4 text-center">
                 <p className="text-sm text-gray-600">White</p>
                 <br />
-                <a href={logoWhite.src} download>
+                <a href={(logoWhite as LogoType).src} download>
                   <Typography as="span" variant="small">
                     Download SVG
                   </Typography>
@@ -187,20 +190,20 @@ export default function PressKitPage() {
           <div className="flex-1">
             <Heading level={2}>What we do, in a nutshell</Heading>
             <Typography variant="blockquote">
-              Schrödinger’s Hat is a nonprofit collective dedicated to fostering
-              innovation, inclusivity, and collaboration in the tech world.
-              Rooted in the principles of open-source, we empower individuals
-              and communities by making knowledge and resources universally
-              accessible.
+              Schrödinger&apos;s Hat is a nonprofit collective dedicated to
+              fostering innovation, inclusivity, and collaboration in the tech
+              world. Rooted in the principles of open-source, we empower
+              individuals and communities by making knowledge and resources
+              universally accessible.
             </Typography>
           </div>
           <div className="flex-1">
             <Heading level={2}>What we do, in detail</Heading>
             <Typography variant="blockquote">
-              "Schrödinger’s Hat is a nonprofit organization and a thriving
-              collective of developers, innovators, and community leaders driven
-              by a shared vision: to create an inclusive, sustainable, and
-              open-source-driven tech ecosystem.
+              &quot;Schrödinger&apos;s Hat is a nonprofit organization and a
+              thriving collective of developers, innovators, and community
+              leaders driven by a shared vision: to create an inclusive,
+              sustainable, and open-source-driven tech ecosystem.
               <br />
               <br />
               Founded with the belief that collaboration and shared knowledge

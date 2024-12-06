@@ -51,7 +51,6 @@ export function constructMetadata({
     },
     robots: "index, follow",
     alternates: {
-      canonical: "https://schrodinger-hat.org",
       types: {
         "application/rss+xml": [
           {

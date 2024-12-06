@@ -23,7 +23,7 @@ export function MembershipCheckoutButton() {
   };
 
   return (
-    <Link href="/associazione/diventa-socio">
+    <Link href="/association/join">
       <Button
         variant="secondary"
         onClick={handleSubscribe}

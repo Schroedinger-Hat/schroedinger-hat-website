@@ -22,7 +22,7 @@ interface SpeakerPageProps {
 }
 
 type AuthorWithContent = Author & {
-  blogPosts: Array<BlogPost>;
+  blogPosts: Array<BlogPost & { authors: Author[] }>;
   videoContent: Array<Video>;
   events: Array<Event>;
 };
@@ -73,7 +73,7 @@ export default async function SpeakerPage({ params }: SpeakerPageProps) {
       "blogPosts": *[_type == "blogPost" && references(^._id)] | order(publishedAt desc) {
         ...,
         title,
-        "slug": slug.current,
+        slug,
         headerImage,
         excerpt,
         publishedAt,
@@ -83,7 +83,7 @@ export default async function SpeakerPage({ params }: SpeakerPageProps) {
           firstName,
           lastName,
           title,
-          "slug": slug.current,
+          slug,
           photo
         }, [])
       },
@@ -91,14 +91,14 @@ export default async function SpeakerPage({ params }: SpeakerPageProps) {
         _id,
         title,
         shortTitle,
-        "slug": slug.current,
+        slug,
         publishedAt,
         youtubeId,
         thumbnail
       },
       "events": *[_type == "event" && references(^._id)] | order(eventPeriod.startDate desc) {
         title,
-        "slug": slug.current,
+        slug,
         eventPeriod,
         location,
         cardImage,
@@ -176,10 +176,10 @@ export default async function SpeakerPage({ params }: SpeakerPageProps) {
               {speaker.videoContent.map((video) => (
                 <VideoCard
                   key={video._id}
-                  title={video.shortTitle ?? video.title}
+                  title={video.shortTitle ?? video.title!}
                   subtitle={getAuthorFullName(speaker)}
                   imageUrl={getVideoThumbnailUrl(video)}
-                  slug={video.slug}
+                  slug={video.slug!.current}
                 />
               ))}
             </div>

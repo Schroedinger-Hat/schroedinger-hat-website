@@ -19,7 +19,7 @@ import { TeamMemberCard } from "@/components/organisms/team-card";
 import type { TeamMember } from "@/sanity/sanity.types";
 import { Paragraph } from "@/components/atoms/typography/Paragraph";
 import { Button } from "@/components/molecules/button";
-import { constructMetadata } from "@/lib/metadata";
+import { constructMetadata } from "@/lib/utils/metadata";
 
 // Images
 import staffSpeaker from "@/images/about/os23_staff_speaker.jpg";
@@ -81,10 +81,11 @@ export default async function AboutUsPage() {
       {/* Content */}
       <SectionContainer size="wide">
         <Image
-          src={staffSpeaker.src}
+          src={staffSpeaker}
           alt="Schrödinger Hat"
           width={1000}
           height={400}
+          priority
           className="aspect-[4/3] w-full overflow-hidden rounded-lg object-cover object-center md:aspect-[10/4]"
           withContainer={false}
         />
@@ -163,7 +164,7 @@ export default async function AboutUsPage() {
           </div>
           <div className="overflow-hidden rounded-2xl">
             <Image
-              src={gabriMikiStage.src}
+              src={gabriMikiStage}
               alt="Schrödinger Hat community members on stage"
               width={600}
               height={500}
@@ -229,15 +230,16 @@ export default async function AboutUsPage() {
             content={
               <>
                 <Paragraph>
-                  If you like our idea but don't have enough time to contribute
-                  and work on our projects you may consider becoming a member.
+                  If you like our idea but don&apos;t have enough time to
+                  contribute and work on our projects you may consider becoming
+                  a member.
                 </Paragraph>
                 <Paragraph>
                   Membership requires a small fee to support our expenses and
                   gives you back some perks like early access to tickets and
                   discounts for our shop.
                 </Paragraph>
-                <Link href="/associazione/diventa-socio">
+                <Link href="/association/join">
                   <Button className="mt-4">
                     Become a member
                     <ArrowRight className="h-5 w-5" />
@@ -261,8 +263,8 @@ export default async function AboutUsPage() {
             content={
               <>
                 <Paragraph>
-                  We're always looking for new people to join our team. If you
-                  think you have what it takes, please send us an email.
+                  We&apos;re always looking for new people to join our team. If
+                  you think you have what it takes, please send us an email.
                 </Paragraph>
                 <Paragraph>
                   We have no fixed roles, we just need people who are willing to

@@ -1,10 +1,18 @@
-import type { PortableTextBlock } from "@sanity/types";
+interface SanityTextBlock {
+  _type?: string;
+  children?: Array<{
+    _type?: string;
+    _key?: string;
+    text?: string;
+    marks?: string[];
+  }>;
+}
 
 /**
  * Converts Sanity Portable Text to plain text
  */
 export function getPortableTextPlainText(
-  blocks: PortableTextBlock[] | undefined,
+  blocks: SanityTextBlock[] | undefined,
 ): string {
   if (!blocks) return "";
 

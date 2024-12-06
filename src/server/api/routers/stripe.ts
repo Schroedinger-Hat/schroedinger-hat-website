@@ -29,7 +29,7 @@ export const stripeRouter = createTRPCRouter({
         ],
         mode: "subscription",
         success_url: `${baseUrl}/success?session_id={CHECKOUT_SESSION_ID}`,
-        cancel_url: `${baseUrl}/associazione/diventa-socio`,
+        cancel_url: `${baseUrl}/association/join`,
       });
 
       return { url: session.url };

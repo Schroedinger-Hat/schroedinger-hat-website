@@ -8,7 +8,7 @@ import { BulletPoint } from "@/components/organisms/bullet-point";
 import { ImageContent } from "@/components/organisms/image-content";
 import { ImageHero } from "@/components/organisms/image-hero";
 import { StatBlocks } from "@/components/organisms/stat-block";
-import { constructMetadata } from "@/lib/metadata";
+import { constructMetadata } from "@/lib/utils/metadata";
 
 // Images
 import asSponsor from "@/images/contribute/as_sponsor.jpg";

@@ -17,7 +17,7 @@ export default async function SuccessPage({ searchParams }: SuccessPageProps) {
   let customerEmail = "";
   if (sessionId) {
     const session = await stripe.checkout.sessions.retrieve(sessionId);
-    customerEmail = session.customer_details?.email || "";
+    customerEmail = session.customer_details?.email ?? "";
   }
 
   return (
@@ -28,12 +28,12 @@ export default async function SuccessPage({ searchParams }: SuccessPageProps) {
       {/* Header Section */}
       <div className="relative z-10 mx-auto max-w-3xl bg-white/90 text-center">
         <Heading level={1} className="mb-4">
-          Iscrizione Completata!
+          Subscription completed!
         </Heading>
         <Paragraph className="mb-12">
-          La tua richiesta è stata inviata con successo!
+          Your request has been sent successfully!
           <br />
-          Cosa succede ora?
+          What happens now?
         </Paragraph>
       </div>
       <div className="relative z-10 mx-auto max-w-5xl text-center">
@@ -47,11 +47,11 @@ export default async function SuccessPage({ searchParams }: SuccessPageProps) {
               </div>
             </div>
             <Heading level={4} className="mb-2">
-              Conferma
+              Confirmation
             </Heading>
             <Paragraph className="text-slate-800">
               {customerEmail &&
-                `Abbiamo inviato una conferma a ${customerEmail}`}
+                `We have sent a confirmation to ${customerEmail}`}
             </Paragraph>
           </div>
 
@@ -63,10 +63,10 @@ export default async function SuccessPage({ searchParams }: SuccessPageProps) {
               </div>
             </div>
             <Heading level={4} className="mb-2">
-              Approvazione
+              Approval
             </Heading>
             <Paragraph className="text-slate-800">
-              I soci dell'associazione approveranno la tua richiesta.
+              The association members will approve your request.
             </Paragraph>
           </div>
 
@@ -78,10 +78,10 @@ export default async function SuccessPage({ searchParams }: SuccessPageProps) {
               </div>
             </div>
             <Heading level={4} className="mb-2">
-              Benvenuto
+              Welcome
             </Heading>
             <Paragraph className="text-slate-800">
-              Riceverai il tuo numero socio nelle prossime settimane.
+              You will receive your membership number in the next weeks.
             </Paragraph>
           </div>
         </div>

@@ -2,6 +2,7 @@ import { Image } from "@/components/atoms/media/Image";
 import { Heading } from "../atoms/typography/Heading";
 import { Typography } from "../atoms/typography/Typography";
 import { type StaticImageData } from "next/image";
+import { cn } from "@/lib/utils";
 
 interface ImageHeroProps {
   title: React.ReactNode;
@@ -22,7 +23,10 @@ export function ImageHero({
 }: ImageHeroProps) {
   return (
     <div
-      className="overflow-hidden rounded-xl text-white shadow-xl"
+      className={cn(
+        "overflow-hidden rounded-xl text-white shadow-xl",
+        className,
+      )}
       style={{ backgroundColor }}
     >
       <div className="flex flex-col md:flex-row">

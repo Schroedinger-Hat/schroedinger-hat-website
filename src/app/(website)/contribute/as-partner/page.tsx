@@ -1,7 +1,4 @@
 import { SectionContainer } from "@/components/atoms/layout/SectionContainer";
-import { Link } from "@/components/atoms/links/Link";
-import { Button } from "@/components/molecules/button";
-import { Heading } from "@/components/atoms/typography/Heading";
 import { Typography } from "@/components/atoms/typography/Typography";
 import { BlurredBackground } from "@/components/organisms/blurred-background";
 import FeaturesList from "@/components/organisms/features-list";
@@ -20,8 +17,7 @@ import { BlackCTA, BlackCTAHeading } from "@/components/organisms/black-cta";
 import { LogoGallery } from "@/components/organisms/logo-gallery";
 import { urlFor } from "@/sanity/lib/image";
 import { FaqBlock } from "@/components/organisms/faq-block";
-import { constructMetadata } from "@/lib/metadata";
-
+import { constructMetadata } from "@/lib/utils/metadata";
 // Images
 import asPartner from "@/images/contribute/as_partner.jpg";
 

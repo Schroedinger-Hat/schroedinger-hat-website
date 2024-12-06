@@ -5,34 +5,14 @@ import { Image } from "@/components/atoms/media/Image";
 import { MembershipCheckoutButton } from "./components/membership-checkout-button";
 import { ReviewsSection } from "./components/reviews-section";
 import { FaqBlock } from "@/components/organisms/faq-block";
-import { sanityClient } from "@/sanity/lib/client";
 import { SectionContainer } from "@/components/atoms/layout/SectionContainer";
-import { type Metadata } from "next";
-import { constructMetadata } from "@/lib/metadata";
+import { constructMetadata } from "@/lib/utils/metadata";
 
 // Images
 import perkBox from "@/images/membership/perk_box.svg";
 import perkEarlyAccess from "@/images/membership/perk_early_access.svg";
 import perkFood from "@/images/membership/perk_food.svg";
 import perkVote from "@/images/membership/perk_vote.svg";
-
-// Add these types at the top of the file
-type FAQ = {
-  _id: string;
-  question: string;
-  answer: any[]; // Portable Text content
-};
-
-// Add this query function
-async function getMembershipFAQs(): Promise<FAQ[]> {
-  return sanityClient.fetch(`
-    *[_type == "faq" && groupKey == "membership"] | order(order asc) {
-      _id,
-      question,
-      answer
-    }
-  `);
-}
 
 export const metadata = constructMetadata({
   title: "Schrödinger Hat: Join Us",
@@ -41,8 +21,6 @@ export const metadata = constructMetadata({
 });
 
 export default async function BecomeMemberPage() {
-  const faqs: FAQ[] = await getMembershipFAQs();
-
   return (
     <main>
       {/* Hero */}
@@ -68,8 +46,8 @@ export default async function BecomeMemberPage() {
             </div>
             <div className="max-w-2xl">
               <h2 className="text-[22px] font-normal text-slate-800">
-                You already have a lot of subscriptions. And we don't offer you
-                new Marvel contents or extra GB on the cloud
+                You already have a lot of subscriptions. And we don&apos;t offer
+                you new Marvel contents or extra GB on the cloud
                 <br />
                 <br />
                 But hear us out on why you should join us
@@ -86,8 +64,8 @@ export default async function BecomeMemberPage() {
             <Typography variant="medium" className="text-slate-700">
               The membership is an optional paid subscription
               <br />
-              We're all volunteers so we can't offer you lots of things, but we
-              can offer you a lot of love
+              We&apos;re all volunteers so we can&apos;t offer you lots of
+              things, but we can offer you a lot of love
               <br />
               Ok not just love, we prepared some perks for you
             </Typography>
@@ -176,8 +154,8 @@ export default async function BecomeMemberPage() {
           <Typography variant="medium" className="text-slate-700">
             The membership is an optional paid subscription
             <br />
-            We're all volunteers so we can't offer you lots of things, but we
-            can offer you a lot of love
+            We&apos;re all volunteers so we can&apos;t offer you lots of things,
+            but we can offer you a lot of love
             <br />
             Ok not just love, we prepared some perks for you
           </Typography>

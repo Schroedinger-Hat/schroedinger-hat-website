@@ -1,5 +1,5 @@
 import { sanityClient } from "@/sanity/lib/client";
-import { type BlogPost } from "@/sanity/sanity.types";
+import type { Author, BlogPost } from "@/sanity/sanity.types";
 import { getAuthorFullName } from "@/lib/utils/videoContent";
 import { extractFirstParagraph } from "@/lib/seo";
 
@@ -7,14 +7,14 @@ type BlogPostWithAuthors = Pick<
   BlogPost,
   "title" | "slug" | "content" | "publishedAt" | "excerpt"
 > & {
-  authors: Array<{ firstName: string; lastName: string }>;
+  authors: Array<Pick<Author, "firstName" | "lastName">>;
 };
 
 export async function GET() {
   const posts = await sanityClient.fetch<BlogPostWithAuthors[]>(
     `*[_type == "blogPost"] | order(publishedAt desc) {
       title,
-      "slug": slug.current,
+      slug,
       content,
       publishedAt,
       excerpt,
@@ -42,14 +42,14 @@ export async function GET() {
         (post) => `
     <item>
       <title><![CDATA[${post.title}]]></title>
-      <link>${baseUrl}/blog/${post.slug}</link>
-      <guid isPermaLink="true">${baseUrl}/blog/${post.slug}</guid>
-      <pubDate>${new Date(post.publishedAt).toUTCString()}</pubDate>
+      <link>${baseUrl}/blog/${post.slug?.current}</link>
+      <guid isPermaLink="true">${baseUrl}/blog/${post.slug?.current}</guid>
+      <pubDate>${new Date(post.publishedAt!).toUTCString()}</pubDate>
       <description><![CDATA[${
         post.excerpt ?? extractFirstParagraph(post.content)
       }]]></description>
       <author>${post.authors
-        .map((author) => getAuthorFullName(author))
+        .map((author) => getAuthorFullName(author as Author))
         .join(", ")}</author>
     </item>`,
       )

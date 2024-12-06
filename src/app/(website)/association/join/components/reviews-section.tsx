@@ -24,7 +24,7 @@ export function ReviewsSection() {
       <div className="mb-12 md:text-center">
         <Heading level={2}>What people say about it</Heading>
         <Typography variant="medium">
-          Truth be told, we don't have many reviews yet.
+          Truth be told, we don&apos;t have many reviews yet.
           <br />
           And your nonprofit membership is not something that you talk about
           everyday or review on Google.

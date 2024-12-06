@@ -1,8 +1,9 @@
 import "@/styles/globals.css";
 import { Inter, Lexend } from "next/font/google";
-import { type Metadata } from "next";
 import { TRPCReactProvider } from "@/trpc/react";
 import { constructMetadata } from "@/lib/utils/metadata";
+import { GoogleAnalytics } from "@next/third-parties/google";
+import { env } from "@/env.js";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const lexend = Lexend({ subsets: ["latin"], variable: "--font-lexend" });
@@ -34,6 +35,7 @@ export default function RootLayout({
       <body>
         <TRPCReactProvider>{children}</TRPCReactProvider>
       </body>
+      <GoogleAnalytics gaId={env.NEXT_PUBLIC_GA_ID} />
     </html>
   );
 }

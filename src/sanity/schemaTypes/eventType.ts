@@ -1,5 +1,4 @@
 import { defineType } from "sanity";
-import { type SlugRule } from "sanity";
 
 export const eventType = defineType({
   name: "event",

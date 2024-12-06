@@ -15,9 +15,10 @@ import { TeamCard } from "@/components/organisms/team-card";
 import { StatBlocks } from "@/components/organisms/stat-block";
 import { List } from "@/components/atoms/lists/List";
 import { ListItem } from "@/components/atoms/lists/ListItem";
-import { Button } from "@/components/ui/button";
 import { BlackCTA, BlackCTAHeading } from "@/components/organisms/black-cta";
 import { Link } from "@/components/atoms/links/Link";
+import { SectionContainer } from "@/components/atoms/layout/SectionContainer";
+import { constructMetadata } from "@/lib/utils/metadata";
 
 // Images
 import asSpeaker from "@/images/contribute/as_speaker.jpg";
@@ -25,8 +26,6 @@ import famouseCollina from "@/images/contribute/speaker/famous_collina.jpg";
 import famouseHevery from "@/images/contribute/speaker/famous_hevery.jpg";
 import famouseCorti from "@/images/contribute/speaker/famous_corti.jpg";
 import famouseTerzi from "@/images/contribute/speaker/famous_terzi.jpg";
-import { SectionContainer } from "@/components/atoms/layout/SectionContainer";
-import { constructMetadata } from "@/lib/metadata";
 
 const famousSpeakers = [
   {
