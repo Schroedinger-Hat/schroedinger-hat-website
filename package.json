@@ -18,13 +18,22 @@
     "sanity:schema": "cd src/sanity && sanity schema extract",
     "sanity:types": "cd src/sanity && sanity typegen generate",
     "sanity:pipeline": "cd src/sanity && npm run sanity:schema && npm run sanity:types",
-    "precommit": "npm run sanity:pipeline && npm run format:write && npm run lint:fix"
+    "precommit": "npm run sanity:pipeline && npm run format:write && npm run lint:fix",
+    "db:generate": "prisma migrate dev",
+    "db:migrate": "prisma migrate deploy",
+    "db:push": "prisma db push",
+    "db:studio": "prisma studio",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.9.1",
     "@next/third-parties": "^15.0.4",
+    "@prisma/client": "^6.0.1",
     "@radix-ui/react-accordion": "^1.2.1",
     "@radix-ui/react-avatar": "^1.1.1",
+    "@radix-ui/react-checkbox": "^1.1.2",
     "@radix-ui/react-dialog": "^1.1.2",
+    "@radix-ui/react-label": "^2.1.0",
     "@radix-ui/react-navigation-menu": "^1.2.1",
     "@radix-ui/react-slot": "^1.1.0",
     "@sanity/code-input": "^5.0.0",
@@ -50,6 +59,7 @@
     "react": "^18.3.1",
     "react-confetti": "^6.1.0",
     "react-dom": "^18.3.1",
+    "react-hook-form": "^7.53.2",
     "react-syntax-highlighter": "^15.6.1",
     "sanity": "^3.64.1",
     "server-only": "^0.0.1",
@@ -58,7 +68,7 @@
     "superjson": "^2.2.1",
     "tailwind-merge": "^2.5.4",
     "tailwindcss-animate": "^1.0.7",
-    "zod": "^3.23.3"
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@types/eslint": "^8.56.10",
@@ -73,6 +83,7 @@
     "postcss": "^8.4.39",
     "prettier": "^3.3.2",
     "prettier-plugin-tailwindcss": "^0.6.5",
+    "prisma": "^6.0.1",
     "tailwindcss": "^3.4.3",
     "typescript": "^5.5.3"
   },

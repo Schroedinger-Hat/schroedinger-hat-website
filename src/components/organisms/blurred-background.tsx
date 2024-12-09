@@ -1,7 +1,7 @@
 "use client"
 
 import { cn } from "@/lib/utils"
-import { useEffect, useRef } from "react"
+import { useCallback, useEffect, useRef } from "react"
 
 interface BlurredBackgroundProps {
   points: number
@@ -42,17 +42,20 @@ export const BlurredBackground = ({
     return Math.random() * 4 + 6 // Random duration between 6-10s
   }
 
-  // New function to calculate centered position with offset
-  const getCenteredPosition = (index: number, totalPoints: number) => {
-    const angleStep = (2 * Math.PI) / totalPoints
-    const angle = index * angleStep
-    const radius = size * 0.4 // 30% offset from center
+  // Memoize the getCenteredPosition function
+  const getCenteredPosition = useCallback(
+    (index: number, totalPoints: number) => {
+      const angleStep = (2 * Math.PI) / totalPoints
+      const angle = index * angleStep
+      const radius = size * 0.4 // 30% offset from center
 
-    return {
-      x: Math.cos(angle) * radius,
-      y: Math.sin(angle) * radius,
-    }
-  }
+      return {
+        x: Math.cos(angle) * radius,
+        y: Math.sin(angle) * radius,
+      }
+    },
+    [size],
+  )
 
   useEffect(() => {
     if (!containerRef.current) return

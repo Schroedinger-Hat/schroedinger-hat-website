@@ -4,7 +4,6 @@ import { type Project } from "@/sanity/sanity.types"
 import { Typography } from "@/components/atoms/typography/Typography"
 import { SectionContainer } from "@/components/atoms/layout/SectionContainer"
 import { type Metadata } from "next"
-import Link from "next/link"
 import { ProjectCard } from "./components/project-card"
 import { constructMetadata } from "@/lib/utils/metadata"
 

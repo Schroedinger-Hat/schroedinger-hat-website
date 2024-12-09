@@ -52,7 +52,7 @@ export function Typography<C extends ElementType = "p">({
   className,
   ...props
 }: TypographyProps<C>) {
-  const Component = as || getDefaultElement(variant)
+  const Component = as ?? getDefaultElement(variant)
 
   return (
     <Component className={cn(typographyVariants({ variant, weight }), className)} {...props}>

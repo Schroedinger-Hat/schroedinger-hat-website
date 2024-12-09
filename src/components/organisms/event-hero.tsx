@@ -157,7 +157,7 @@ export function EventHero({ title, cover, eventPeriod, location, cta, organiser,
               {cta?.url && (
                 <Button className="w-full bg-primary hover:bg-primary/80" size="lg" asChild>
                   <a href={cta.url} target="_blank" rel="noopener noreferrer">
-                    {cta.text || "Registrati all'evento"}
+                    {cta.text ?? "Registrati all'evento"}
                   </a>
                 </Button>
               )}

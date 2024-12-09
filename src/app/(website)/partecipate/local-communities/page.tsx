@@ -1,12 +1,9 @@
-import { Image } from "@/components/atoms/media/Image"
 import { Heading } from "@/components/atoms/typography/Heading"
 import { BlurredBackground } from "@/components/organisms/blurred-background"
 import { ImageContent } from "@/components/organisms/image-content"
 import { StatBlocks } from "@/components/organisms/stat-block"
 import { ImageHero } from "@/components/organisms/image-hero"
 import { Typography } from "@/components/atoms/typography/Typography"
-import { Button } from "@/components/ui/button"
-import Link from "next/link"
 import { FaqBlock } from "@/components/organisms/faq-block"
 import { BlackCTA, BlackCTAHeading } from "@/components/organisms/black-cta"
 

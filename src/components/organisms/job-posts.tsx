@@ -55,8 +55,8 @@ export async function JobPosts() {
         Skilled Opportunities
       </Heading>
       <Typography className="mb-8">
-        If you're a professional looking to contribute we have a series of specialized roles that may be of
-        interest.
+        If you&apos;re a professional looking to contribute we have a series of specialized roles that may be
+        of interest.
       </Typography>
       <div className="grid gap-8 space-y-8">
         {jobs.map((job) => (

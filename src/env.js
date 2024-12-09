@@ -1,5 +1,14 @@
-import { createEnv } from "@t3-oss/env-nextjs";
-import { z } from "zod";
+import { createEnv } from "@t3-oss/env-nextjs"
+import { z } from "zod"
+
+/** @param {string | undefined} value */
+const isRequiredInProduction = (value) => {
+  // Required in production, optional in development/test
+  if (process.env.NODE_ENV === "production") {
+    return value !== undefined && value.length > 0
+  }
+  return true
+}
 
 export const env = createEnv({
   /**
@@ -7,9 +16,15 @@ export const env = createEnv({
    */
   server: {
     NODE_ENV: z.enum(["development", "test", "production"]),
-    STRIPE_SECRET_KEY: z.string().min(1),
+    STRIPE_SECRET_KEY: z
+      .string()
+      .min(1)
+      .optional()
+      .refine(isRequiredInProduction, "STRIPE_SECRET_KEY is required in production"),
     STRIPE_MEMBERSHIP_PRICE_ID: z.string().min(1),
     VERCEL_URL: z.string().optional(),
+    DATABASE_URL: z.string().url(),
+    CRON_SECRET: z.string().min(1),
   },
 
   /**
@@ -18,7 +33,11 @@ export const env = createEnv({
   client: {
     NEXT_PUBLIC_SANITY_PROJECT_ID: z.string().min(1),
     NEXT_PUBLIC_SANITY_DATASET: z.string().min(1),
-    NEXT_PUBLIC_GOOGLE_MAPS_API_KEY: z.string().min(1),
+    NEXT_PUBLIC_GOOGLE_MAPS_API_KEY: z
+      .string()
+      .min(1)
+      .optional()
+      .refine(isRequiredInProduction, "NEXT_PUBLIC_GOOGLE_MAPS_API_KEY is required in production"),
     NEXT_PUBLIC_GA_ID: z.string().min(1).optional(),
   },
 
@@ -31,12 +50,13 @@ export const env = createEnv({
     STRIPE_MEMBERSHIP_PRICE_ID: process.env.STRIPE_MEMBERSHIP_PRICE_ID,
     NEXT_PUBLIC_SANITY_PROJECT_ID: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
     NEXT_PUBLIC_SANITY_DATASET: process.env.NEXT_PUBLIC_SANITY_DATASET,
-    NEXT_PUBLIC_GOOGLE_MAPS_API_KEY:
-      process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
+    NEXT_PUBLIC_GOOGLE_MAPS_API_KEY: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
     NEXT_PUBLIC_GA_ID: process.env.NEXT_PUBLIC_GA_ID,
     VERCEL_URL: process.env.VERCEL_URL,
+    DATABASE_URL: process.env.DATABASE_URL,
+    CRON_SECRET: process.env.CRON_SECRET,
   },
 
   skipValidation: !!process.env.SKIP_ENV_VALIDATION,
   emptyStringAsUndefined: true,
-});
+})

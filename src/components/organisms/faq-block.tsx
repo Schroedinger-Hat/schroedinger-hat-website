@@ -3,7 +3,6 @@ import { Typography } from "@/components/atoms/typography/Typography"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { PortableText } from "@portabletext/react"
 import { sanityClient } from "@/sanity/lib/client"
-import { SectionContainer } from "../atoms/layout/SectionContainer"
 
 type FAQ = {
   _id: string

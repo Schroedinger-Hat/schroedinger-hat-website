@@ -2,7 +2,7 @@ import { Heading } from "@/components/atoms/typography/Heading"
 import { BlurredBackground } from "@/components/organisms/blurred-background"
 import { Typography } from "@/components/atoms/typography/Typography"
 import { Image } from "@/components/atoms/media/Image"
-import { MembershipCheckoutButton } from "./components/membership-checkout-button"
+import { MembershipFormModal } from "./components/membership-form-modal"
 import { ReviewsSection } from "./components/reviews-section"
 import { FaqBlock } from "@/components/organisms/faq-block"
 import { SectionContainer } from "@/components/atoms/layout/SectionContainer"
@@ -13,6 +13,7 @@ import perkBox from "@/images/membership/perk_box.svg"
 import perkEarlyAccess from "@/images/membership/perk_early_access.svg"
 import perkFood from "@/images/membership/perk_food.svg"
 import perkVote from "@/images/membership/perk_vote.svg"
+import { PriceCard } from "./components/price-card"
 
 export const metadata = constructMetadata({
   title: "Schrödinger Hat: Join Us",
@@ -213,37 +214,26 @@ export default async function BecomeMemberPage() {
         </div>
       </SectionContainer>
 
+      <ReviewsSection />
+
       <SectionContainer size="wide">
         <div className="text-left md:text-center">
           <Heading level={2}>All this for some money</Heading>
         </div>
-        <div className="rounded-xl bg-black p-8">
-          <div className="flex flex-col gap-8 md:flex-row">
-            <div className="text-left text-white md:flex-1 md:pl-12 md:text-right">
-              <Heading level={1} className="mb-0 font-lexend text-[100px] tracking-tight text-white">
-                24<span className="text-[50px]">€/year</span>
-              </Heading>
-            </div>
-            <div className="flex flex-col justify-center text-white md:flex-1">
-              <Typography variant="lead" className="italic text-white">
-                <br />
-                Not much
-                <br />
-                not little
-              </Typography>
-            </div>
-          </div>
-          <div className="pt-0 text-left md:text-center">
-            <MembershipCheckoutButton />
-            <Typography variant="medium" className="pt-8 text-white">
-              Seriously, it keeps the lights on and help us pays for all the little things that you need to
-              run a nonprofit association.
-            </Typography>
-          </div>
+        <div>
+          <PriceCard
+            price={24}
+            cta={<MembershipFormModal />}
+            legalInfo="It keeps the lights on and help us pays for all the little things that you need to run a nonprofit"
+            benefits={[
+              "Early access to event ticket",
+              "Merch store discounts",
+              "Members only dinners",
+              "Votations to drive our organization",
+            ]}
+          />
         </div>
       </SectionContainer>
-
-      <ReviewsSection />
 
       <SectionContainer size="narrow">
         <FaqBlock

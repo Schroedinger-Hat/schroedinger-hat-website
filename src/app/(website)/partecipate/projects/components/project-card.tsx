@@ -3,19 +3,17 @@ import { PortableText } from "next-sanity"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { createPortableTextComponents } from "../../../page/[slug]/portableTextComponents"
-import { CalendarIcon, UsersIcon } from "lucide-react"
+import { UsersIcon } from "lucide-react"
 import { GitHubStars } from "@/components/organisms/github-stars"
 import { formatDateTime } from "@/lib/utils/date"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
-
 import { TypescriptIcon } from "../assets/Typescripticon"
 import { JavascriptIcon } from "../assets/JavascriptIcon"
 import { PythonIcon } from "../assets/PythonIcon"
 import { GolandIcon } from "../assets/GolangIcon"
 import { RustIcon } from "../assets/RustIcon"
 import { Typography } from "@/components/atoms/typography/Typography"
-import { Heading } from "@/components/atoms/typography/Heading"
 
 const LANGUAGE_ICONS: Record<string, React.ComponentType> = {
   typescript: TypescriptIcon,

@@ -1,9 +1,9 @@
-"use client";
+"use client"
 
-import { useState, useEffect } from "react";
-import { Menu } from "lucide-react";
-import Link from "next/link";
-import { cn } from "@/lib/utils";
+import { useState, useEffect } from "react"
+import { Menu } from "lucide-react"
+import Link from "next/link"
+import { cn } from "@/lib/utils"
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -12,60 +12,40 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
-import { Image } from "../../atoms/media/Image";
-import { Button } from "../../molecules/button";
-import {
-  partecipateMenuData,
-  contributeMenuData,
-  associationMenuData,
-} from "./data";
-import { HighlightSubMenu, ListItem } from "./highlight-submenu";
-import { Typography } from "@/components/atoms/typography/Typography";
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-  SheetClose,
-} from "@/components/ui/sheet";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+} from "@/components/ui/navigation-menu"
+import { Image } from "../../atoms/media/Image"
+import { Button } from "../../molecules/button"
+import { partecipateMenuData, contributeMenuData, associationMenuData } from "./data"
+import { HighlightSubMenu, ListItem } from "./highlight-submenu"
+import { Typography } from "@/components/atoms/typography/Typography"
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, SheetClose } from "@/components/ui/sheet"
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 
 // Image
-import logo from "@/images/logo.png";
+import logo from "@/images/logo.png"
 
 export function Header() {
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      setIsScrolled(scrollPosition > 0);
-    };
+      const scrollPosition = window.scrollY
+      setIsScrolled(scrollPosition > 0)
+    }
 
     // Check initial scroll position
-    handleScroll();
+    handleScroll()
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
   return (
     <header
-      className={cn(
-        "sticky top-0 z-50 p-4 transition-all duration-200 lg:p-0",
-        "border-b",
-        {
-          "border-slate-200 bg-white": isScrolled,
-          "border-transparent bg-transparent": !isScrolled,
-        },
-      )}
+      className={cn("sticky top-0 z-50 p-4 transition-all duration-200 lg:p-0", "border-b", {
+        "border-slate-200 bg-white": isScrolled,
+        "border-transparent bg-transparent": !isScrolled,
+      })}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-2 lg:px-8">
         <div className="flex lg:flex-1">
@@ -102,10 +82,7 @@ export function Header() {
               </SheetHeader>
               <div className="mt-6 flex flex-col gap-4">
                 <SheetClose asChild>
-                  <Link
-                    href="/watch"
-                    className="text-sm font-medium transition-colors hover:text-primary"
-                  >
+                  <Link href="/watch" className="text-sm font-medium transition-colors hover:text-primary">
                     <Typography variant="navigationMobile">Watch</Typography>
                   </Link>
                 </SheetClose>
@@ -113,9 +90,7 @@ export function Header() {
                 <Accordion type="single">
                   <AccordionItem value="participate" className="border-b-0">
                     <AccordionTrigger>
-                      <Typography variant="navigationMobile">
-                        Participate
-                      </Typography>
+                      <Typography variant="navigationMobile">Participate</Typography>
                     </AccordionTrigger>
                     <AccordionContent className="border-none">
                       <div className="flex flex-col gap-2">
@@ -125,9 +100,7 @@ export function Header() {
                               href={item.href}
                               className="pl-4 text-sm text-muted-foreground hover:text-primary"
                             >
-                              <Typography variant="navigationMobile">
-                                {item.title}
-                              </Typography>
+                              <Typography variant="navigationMobile">{item.title}</Typography>
                             </Link>
                           </SheetClose>
                         ))}
@@ -137,9 +110,7 @@ export function Header() {
 
                   <AccordionItem value="contribute" className="border-b-0">
                     <AccordionTrigger>
-                      <Typography variant="navigationMobile">
-                        Contribute
-                      </Typography>
+                      <Typography variant="navigationMobile">Contribute</Typography>
                     </AccordionTrigger>
                     <AccordionContent>
                       <div className="flex flex-col gap-2">
@@ -149,9 +120,7 @@ export function Header() {
                               href={item.href}
                               className="pl-4 text-sm text-muted-foreground hover:text-primary"
                             >
-                              <Typography variant="navigationMobile">
-                                {item.title}
-                              </Typography>
+                              <Typography variant="navigationMobile">{item.title}</Typography>
                             </Link>
                           </SheetClose>
                         ))}
@@ -161,9 +130,7 @@ export function Header() {
 
                   <AccordionItem value="association" className="border-b-0">
                     <AccordionTrigger>
-                      <Typography variant="navigationMobile">
-                        Association
-                      </Typography>
+                      <Typography variant="navigationMobile">Association</Typography>
                     </AccordionTrigger>
                     <AccordionContent>
                       <div className="flex flex-col gap-2">
@@ -173,9 +140,7 @@ export function Header() {
                               href={item.href}
                               className="pl-4 text-sm text-muted-foreground hover:text-primary"
                             >
-                              <Typography variant="navigationMobile">
-                                {item.title}
-                              </Typography>
+                              <Typography variant="navigationMobile">{item.title}</Typography>
                             </Link>
                           </SheetClose>
                         ))}
@@ -185,10 +150,7 @@ export function Header() {
                 </Accordion>
 
                 <SheetClose asChild>
-                  <Link
-                    href="/docs"
-                    className="text-sm font-medium transition-colors hover:text-primary"
-                  >
+                  <Link href="/docs" className="text-sm font-medium transition-colors hover:text-primary">
                     <Typography variant="navigationMobile">Merch</Typography>
                   </Link>
                 </SheetClose>
@@ -207,10 +169,7 @@ export function Header() {
         <NavigationMenu className="hidden lg:block">
           <NavigationMenuList>
             <NavigationMenuItem>
-              <NavigationMenuLink
-                className={navigationMenuTriggerStyle()}
-                href="/watch"
-              >
+              <NavigationMenuLink className={navigationMenuTriggerStyle()} href="/watch">
                 <Typography as="span" variant="navigation">
                   Watch
                 </Typography>
@@ -275,14 +234,11 @@ export function Header() {
         </NavigationMenu>
 
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <Link
-            href="/association/join"
-            className="text-sm/6 font-semibold text-gray-900"
-          >
+          <Link href="/association/join" className="text-sm/6 font-semibold text-gray-900">
             <Button>Join</Button>
           </Link>
         </div>
       </nav>
     </header>
-  );
+  )
 }

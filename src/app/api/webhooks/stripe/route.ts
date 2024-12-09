@@ -1,16 +1,22 @@
-import { stripe } from "@/lib/stripe"
+import { getStripe, isStripeAvailable } from "@/lib/stripe"
 import { headers } from "next/headers"
 import type { Stripe } from "stripe"
+import { db } from "@/server/db"
 
 export async function POST(req: Request) {
+  if (!isStripeAvailable()) {
+    return Response.json({ error: "PaymentGateway is not available" }, { status: 500 })
+  }
+
+  const stripe = getStripe()
   const body = await req.text()
   const headersList = await headers()
-  const signature = headersList.get("stripe-signature") || ""
+  const signature = headersList.get("stripe-signature") ?? ""
 
   let event: Stripe.Event
 
   try {
-    event = stripe.webhooks.constructEvent(body, signature, process.env.STRIPE_WEBHOOK_SECRET || "")
+    event = stripe.webhooks.constructEvent(body, signature, process.env.STRIPE_WEBHOOK_SECRET ?? "")
   } catch (err) {
     const error = err as Error
     console.error(`Webhook signature verification failed: ${error.message}`)
@@ -44,33 +50,72 @@ export async function POST(req: Request) {
 }
 
 async function handleSubscriptionCreated(subscription: Stripe.Subscription) {
-  // Here you would typically:
-  // 1. Create a new member record in your database
-  // 2. Send welcome email
-  // 3. Set up any additional member resources
-  console.log("Subscription created:", subscription.id)
+  const { customer, metadata } = subscription
+  if (typeof customer !== "string") return
+
+  // If this subscription should have its billing cycle updated
+  if (metadata?.shouldUpdateBillingCycle === "true" && metadata.nextBillingDate) {
+    const nextBillingDate = parseInt(metadata.nextBillingDate)
+
+    try {
+      const stripe = getStripe()
+      await stripe.subscriptions.update(subscription.id, {
+        proration_behavior: "none",
+        billing_cycle_anchor: nextBillingDate,
+      })
+    } catch (error) {
+      console.error("Failed to update subscription billing cycle:", error)
+    }
+  }
+
+  await db.member.update({
+    where: { stripeCustomerId: customer },
+    data: {
+      stripeSubscriptionId: subscription.id,
+      status: "COMPLETED",
+    },
+  })
 }
 
 async function handleSubscriptionUpdated(subscription: Stripe.Subscription) {
-  // Handle subscription updates:
-  // 1. Update member status
-  // 2. Handle payment method changes
-  // 3. Handle plan changes
-  console.log("Subscription updated:", subscription.id)
+  const { customer, status } = subscription
+  if (typeof customer !== "string") return
+
+  // Update member status based on subscription status
+  await db.member.update({
+    where: { stripeCustomerId: customer },
+    data: {
+      status: status === "active" ? "COMPLETED" : "PENDING",
+    },
+  })
 }
 
 async function handleSubscriptionDeleted(subscription: Stripe.Subscription) {
-  // Handle subscription cancellation:
-  // 1. Update member status
-  // 2. Send cancellation email
-  // 3. Clean up member resources
-  console.log("Subscription deleted:", subscription.id)
+  const { customer } = subscription
+  if (typeof customer !== "string") return
+
+  // Mark member as inactive when subscription is cancelled
+  await db.member.update({
+    where: { stripeCustomerId: customer },
+    data: {
+      status: "PENDING",
+      stripeSubscriptionId: null,
+    },
+  })
 }
 
 async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
-  // Handle successful checkout:
-  // 1. Verify payment status
-  // 2. Create initial member record
-  // 3. Send confirmation email
-  console.log("Checkout completed:", session.id)
+  if (session.mode !== "subscription") return
+
+  const { customer, metadata } = session
+  if (!metadata?.memberId || typeof customer !== "string") return
+
+  // Update member with subscription details
+  await db.member.update({
+    where: { id: metadata.memberId },
+    data: {
+      stripeCustomerId: customer,
+      status: "COMPLETED",
+    },
+  })
 }

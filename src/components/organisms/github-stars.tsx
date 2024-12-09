@@ -14,6 +14,10 @@ function extractGitHubInfo(url: string) {
   }
 }
 
+interface GitHubRepo {
+  stargazers_count: number
+}
+
 export function GitHubStars({ url }: { url: string }) {
   const [stars, setStars] = useState<number | null>(null)
 
@@ -23,7 +27,7 @@ export function GitHubStars({ url }: { url: string }) {
 
     fetch(`https://api.github.com/repos/${githubInfo.owner}/${githubInfo.repo}`)
       .then((res) => res.json())
-      .then((data) => {
+      .then((data: GitHubRepo) => {
         if (data.stargazers_count) {
           setStars(data.stargazers_count)
         }

@@ -58,7 +58,7 @@ export default async function BecomePartnerPage() {
 
       <SectionContainer size="narrow">
         <Typography>
-          At Schrödinger's Hat, partnerships are built on shared values, not transactions. We seek
+          At Schrödinger&apos;s Hat, partnerships are built on shared values, not transactions. We seek
           collaborations with communities and media organizations that share our passion for open-source
           innovation, inclusivity, and giving back. Together, we aim to amplify impact, empower individuals,
           and create a more sustainable and inclusive tech ecosystem.
