@@ -5,7 +5,7 @@ import { env } from "@/env"
 
 // Vercel cron job configuration
 export const dynamic = "force-dynamic"
-export const maxDuration = 300 // 5 minutes max duration
+export const maxDuration = 59
 
 export async function GET() {
   try {
