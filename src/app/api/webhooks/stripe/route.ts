@@ -61,7 +61,8 @@ async function handleSubscriptionCreated(subscription: Stripe.Subscription) {
       const stripe = getStripe()
       await stripe.subscriptions.update(subscription.id, {
         proration_behavior: "none",
-        billing_cycle_anchor: nextBillingDate,
+        billing_cycle_anchor:
+          nextBillingDate as unknown as Stripe.SubscriptionUpdateParams.BillingCycleAnchor,
       })
     } catch (error) {
       console.error("Failed to update subscription billing cycle:", error)
