@@ -4,6 +4,7 @@ import { TRPCReactProvider } from "@/trpc/react"
 import { constructMetadata } from "@/lib/utils/metadata"
 import { GoogleAnalytics } from "@next/third-parties/google"
 import { env } from "@/env.js"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 const lexend = Lexend({ subsets: ["latin"], variable: "--font-lexend" })
