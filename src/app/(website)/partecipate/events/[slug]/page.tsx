@@ -11,6 +11,7 @@ import { extractFirstParagraph } from "@/lib/seo"
 import { Heading } from "@/components/atoms/typography/Heading"
 import { urlFor } from "@/sanity/lib/image"
 import { constructMetadata } from "@/lib/utils/metadata"
+import { cn } from "@/lib/utils"
 
 interface EventWithAuthors extends Omit<Event, "authors"> {
   authors?: Author[]
@@ -130,16 +131,34 @@ export default async function SingleEventPage({ params }: PageProps) {
         )}
       </SectionContainer>
 
-      <SectionContainer size="narrow" padding="little" withBackground>
+      <SectionContainer
+        size={event.authors?.length && event.authors.length > 6 ? "wide" : "medium"}
+        withBackground
+        className="md:pb-32"
+      >
         {event.authors && event.authors.length > 0 && (
           <>
-            <Heading level={2} className="mb-6">
+            <Heading level={2} className="mb-6 md:-mb-6">
               Guests
             </Heading>
-            <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-              {event.authors.map((author) => (
-                <AuthorCard key={author._id} author={author} />
-              ))}
+            <div
+              className={cn("grid grid-cols-1 gap-4 md:grid-cols-2", {
+                "lg:grid-cols-3": event.authors?.length && event.authors.length > 6,
+              })}
+            >
+              {event.authors.map((author, index) => {
+                const isFirstOrLastColumn = index % 3 === 0 || index % 3 === 2
+                return (
+                  <div
+                    key={author._id}
+                    className={cn("transition-all duration-300", {
+                      "lg:translate-y-[50%]": isFirstOrLastColumn,
+                    })}
+                  >
+                    <AuthorCard author={author} />
+                  </div>
+                )
+              })}
             </div>
           </>
         )}

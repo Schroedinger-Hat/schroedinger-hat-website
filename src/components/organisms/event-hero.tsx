@@ -28,7 +28,7 @@ interface EventHeroProps {
 
 export function EventHero({ title, cover, eventPeriod, location, cta, organiser, series }: EventHeroProps) {
   return (
-    <section className="relative max-h-[600px] min-h-[400px] overflow-hidden rounded-lg bg-slate-800">
+    <section className="relative max-h-[800px] min-h-[400px] overflow-hidden rounded-lg bg-slate-800">
       {/* Background image with gradient overlay */}
       {cover && (
         <>
@@ -79,26 +79,16 @@ export function EventHero({ title, cover, eventPeriod, location, cta, organiser,
                     Location
                   </Heading>
                   <div className="flex gap-4">
-                    <div className="flex-1">
-                      <Typography variant="muted" className="text-md">
-                        <b>{location.name}</b>
-                      </Typography>
-                      {location.address && (
-                        <Typography variant="muted" className="text-md">
-                          {location.address}
-                        </Typography>
-                      )}
-                    </div>
                     {location.coordinates && (
                       <div className="flex-shrink-0">
                         <a
                           href={`https://www.google.com/maps?q=${location.coordinates.lat},${location.coordinates.lng}`}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="block overflow-hidden rounded-md"
+                          className="block overflow-hidden rounded-md border border-slate-200 shadow-md"
                         >
                           <Image
-                            src={`https://maps.googleapis.com/maps/api/staticmap?center=${location.coordinates.lat},${location.coordinates.lng}&zoom=15&size=120x100&markers=color:red%7C${location.coordinates.lat},${location.coordinates.lng}&key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}`}
+                            src={`https://maps.googleapis.com/maps/api/staticmap?center=${location.coordinates.lat},${location.coordinates.lng}&zoom=14&size=120x100&markers=color:red%7C${location.coordinates.lat},${location.coordinates.lng}&key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}`}
                             alt={`Map showing location of ${location.name}`}
                             width={120}
                             height={80}
@@ -107,6 +97,16 @@ export function EventHero({ title, cover, eventPeriod, location, cta, organiser,
                         </a>
                       </div>
                     )}
+                    <div className="flex-1">
+                      <Typography variant="muted" className="text-md">
+                        <b>{location.name}</b>
+                      </Typography>
+                      {location.address && (
+                        <Typography variant="muted" className="text-md">
+                          <i>{location.address}</i>
+                        </Typography>
+                      )}
+                    </div>
                   </div>
                 </div>
               )}
