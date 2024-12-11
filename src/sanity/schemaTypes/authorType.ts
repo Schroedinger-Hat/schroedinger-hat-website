@@ -73,4 +73,11 @@ export const authorType = defineType({
       media: selection.image,
     }),
   },
+  orderings: [
+    {
+      title: "First Name",
+      name: "firstNameAsc",
+      by: [{ field: "firstName", direction: "asc" }],
+    },
+  ],
 })
