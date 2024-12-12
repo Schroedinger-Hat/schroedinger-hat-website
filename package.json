@@ -24,7 +24,8 @@
     "sanity:types": "cd src/sanity && sanity typegen generate",
     "start": "next start",
     "typecheck": "tsc --noEmit",
-    "vercel-build": "prisma generate && prisma migrate deploy && next build"
+    "vercel-build": "prisma generate && prisma migrate deploy && next build",
+    "email:dev": "email dev --dir src/emails --port 3001"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
@@ -37,6 +38,8 @@
     "@radix-ui/react-label": "^2.1.0",
     "@radix-ui/react-navigation-menu": "^1.2.1",
     "@radix-ui/react-slot": "^1.1.0",
+    "@react-email/components": "^0.0.31",
+    "@react-email/render": "^1.0.3",
     "@sanity/code-input": "^5.0.0",
     "@sanity/color-input": "^4.0.1",
     "@sanity/google-maps-input": "^4.0.1",
@@ -56,11 +59,13 @@
     "geist": "^1.3.0",
     "hugeicons-react": "^0.3.0",
     "lucide-react": "^0.459.0",
-    "next": "^15.0.1",
+    "next": "^15.1.0",
     "next-sanity": "^9.8.13",
+    "postmark": "^4.0.5",
     "react": "^18.3.1",
     "react-confetti": "^6.1.0",
     "react-dom": "^18.3.1",
+    "react-email": "^3.0.4",
     "react-hook-form": "^7.53.2",
     "react-syntax-highlighter": "^15.6.1",
     "sanity": "^3.64.1",

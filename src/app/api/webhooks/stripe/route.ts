@@ -2,6 +2,7 @@ import { getStripe, isStripeAvailable } from "@/lib/stripe"
 import { headers } from "next/headers"
 import type { Stripe } from "stripe"
 import { db } from "@/server/db"
+import { sendMembershipSignupEmail } from "@/server/postmark"
 
 export async function POST(req: Request) {
   if (!isStripeAvailable()) {
@@ -69,13 +70,24 @@ async function handleSubscriptionCreated(subscription: Stripe.Subscription) {
     }
   }
 
-  await db.member.update({
+  // Get the member to access their email and name
+  const member = await db.member.update({
     where: { stripeCustomerId: customer },
     data: {
       stripeSubscriptionId: subscription.id,
       status: "COMPLETED",
     },
   })
+
+  // Send welcome email
+  if (member.email) {
+    try {
+      await sendMembershipSignupEmail(member.name ?? "", member.email)
+    } catch (error) {
+      console.error("Failed to send welcome email:", error)
+      // Don't throw error to avoid failing the webhook
+    }
+  }
 }
 
 async function handleSubscriptionUpdated(subscription: Stripe.Subscription) {

@@ -25,6 +25,7 @@ export const env = createEnv({
     VERCEL_URL: z.string().optional(),
     DATABASE_URL: z.string().url(),
     CRON_SECRET: z.string().min(1),
+    POSTMARK_API_KEY: z.string().min(1).optional(),
   },
 
   /**
@@ -55,6 +56,7 @@ export const env = createEnv({
     VERCEL_URL: process.env.VERCEL_URL,
     DATABASE_URL: process.env.DATABASE_URL,
     CRON_SECRET: process.env.CRON_SECRET,
+    POSTMARK_API_KEY: process.env.POSTMARK_API_KEY,
   },
 
   skipValidation: !!process.env.SKIP_ENV_VALIDATION,

@@ -48,6 +48,9 @@ export function Footer() {
                   <Link href="/components" className="block text-sm hover:underline">
                     <Paragraph className="m-0 text-sm">Components</Paragraph>
                   </Link>
+                  <Link href="http://localhost:3001" className="block text-sm hover:underline">
+                    <Paragraph className="m-0 text-sm">Email Dev</Paragraph>
+                  </Link>
                 </>
               )}
             </div>
