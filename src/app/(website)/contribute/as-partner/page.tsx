@@ -117,7 +117,7 @@ export default async function BecomePartnerPage() {
         <BlackCTA
           cta={{
             text: "Send email",
-            href: "mailto:event@schroedinger-hat.org",
+            href: "mailto:events@schroedinger-hat.org",
           }}
         >
           <BlackCTAHeading>Team up?</BlackCTAHeading>

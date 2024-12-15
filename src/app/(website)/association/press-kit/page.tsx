@@ -222,7 +222,7 @@ export default function PressKitPage() {
             <Heading level={2}>Contact</Heading>
             <Typography>
               For any press inquiries, please contact us at{" "}
-              <a href="mailto:event@schroedingershat.com">event@schroedingershat.com</a>
+              <a href="mailto:events@schroedingershat.com">events@schroedingershat.com</a>
             </Typography>
           </div>
           <div className="flex-1">
@@ -230,7 +230,7 @@ export default function PressKitPage() {
             <Typography>
               <div className="space-y-4">
                 <a
-                  href="https://www.linkedin.com/company/schroedingershat/"
+                  href="https://www.linkedin.com/company/schroedinger-hat/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block"
@@ -241,17 +241,7 @@ export default function PressKitPage() {
                   </Typography>
                 </a>
                 <a
-                  href="https://twitter.com/schroedingershat"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block"
-                >
-                  <Typography className="flex items-center gap-2" variant="large">
-                    <NewTwitterIcon className="h-6 w-6" />X
-                  </Typography>
-                </a>
-                <a
-                  href="https://x.com/schroedingershat"
+                  href="https://www.youtube.com/c/schrodingerhat"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block"

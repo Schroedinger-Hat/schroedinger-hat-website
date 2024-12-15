@@ -61,13 +61,16 @@ export function Footer() {
               <Paragraph className="text-sm text-muted-foreground">IT07355400487</Paragraph>
               <div className="mt-4 flex space-x-4">
                 <Link
-                  href="https://www.linkedin.com/company/schroedinger-hat-aps"
+                  href="https://www.linkedin.com/company/schroedinger-hat/"
                   className="text-muted-foreground hover:text-foreground"
                 >
                   <Linkedin className="h-5 w-5" />
                   <span className="sr-only">Linkedin</span>
                 </Link>
-                <Link href="https://youtube.com" className="text-muted-foreground hover:text-foreground">
+                <Link
+                  href="https://www.youtube.com/c/schrodingerhat"
+                  className="text-muted-foreground hover:text-foreground"
+                >
                   <Youtube className="h-5 w-5" />
                   <span className="sr-only">YouTube</span>
                 </Link>

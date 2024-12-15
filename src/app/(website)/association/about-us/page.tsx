@@ -140,7 +140,7 @@ export default async function AboutUsPage() {
               <br />
               <Link
                 href="#"
-                className="inline-flex items-center gap-2 text-lg font-medium text-white transition-opacity hover:opacity-90"
+                className="inline-flex hidden items-center gap-2 text-lg font-medium text-white transition-opacity hover:opacity-90"
               >
                 Read post
                 <ArrowRight className="h-5 w-5" />

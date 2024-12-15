@@ -34,11 +34,9 @@ export default async function WatchPage() {
   return (
     <main>
       <SectionContainer size="wide">
-        <div className="mb-8">
-          <Heading level={2} className="mb-4">
-            Featured
-          </Heading>
-        </div>
+        <Heading level={2} className="mb-4">
+          Featured
+        </Heading>
 
         {/* Pick the first three featured videos and show them in row, first videos has col-span-2 the other are normals */}
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
@@ -56,8 +54,10 @@ export default async function WatchPage() {
               />
             ))}
         </div>
+      </SectionContainer>
 
-        <div className="mb-8 mt-24 grid grid-cols-2 gap-2 md:grid-cols-4 md:gap-8">
+      <SectionContainer padding="none" className="hidden">
+        <div className="grid grid-cols-2 gap-2 md:grid-cols-4 md:gap-8">
           <Link href="/watch" className="text-center hover:bg-slate-200">
             <Heading level={3} className="text-slate-800">
               Talks
@@ -74,8 +74,13 @@ export default async function WatchPage() {
             </Heading>
           </Link>
         </div>
+      </SectionContainer>
 
-        {/* Show all videos that are not featured */}
+      {/* Show all videos that are not featured */}
+      <SectionContainer size="wide" padding="little">
+        <Heading level={2} className="mb-4">
+          Talks
+        </Heading>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
           {videos
             .filter((video) => !video.featured)

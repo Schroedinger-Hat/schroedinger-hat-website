@@ -222,7 +222,7 @@ export default function BecomeSpeakerPage() {
         <BlackCTA
           cta={{
             text: "Write us",
-            href: "mailto:event@schroedinger-hat.org",
+            href: "mailto:events@schroedinger-hat.org",
           }}
         >
           <BlackCTAHeading>Interested?</BlackCTAHeading>

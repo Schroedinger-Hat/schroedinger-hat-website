@@ -109,6 +109,9 @@ export default async function SingleEventPage({ params }: PageProps) {
     },
   }
 
+  const hasAuthors = event.authors && event.authors.length > 0
+  const withLotsOfAuthors = hasAuthors && event.authors!.length > 6
+
   return (
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
@@ -134,28 +137,26 @@ export default async function SingleEventPage({ params }: PageProps) {
         )}
       </SectionContainer>
 
-      <SectionContainer
-        size={event.authors?.length && event.authors.length > 6 ? "wide" : "medium"}
-        withBackground
-        className="md:pb-32"
-      >
-        {event.authors && event.authors.length > 0 && (
+      <SectionContainer size={withLotsOfAuthors ? "wide" : "medium"} withBackground className="md:pb-32">
+        {hasAuthors && (
           <>
-            <Heading level={2} className="mb-6 md:-mb-6">
+            <Heading level={2} className={cn("mb-6", { "md:-mb-6": withLotsOfAuthors })}>
               Guests
             </Heading>
             <div
               className={cn("grid grid-cols-1 gap-4 md:grid-cols-2", {
-                "lg:grid-cols-3": event.authors?.length && event.authors.length > 6,
+                "lg:grid-cols-3": withLotsOfAuthors,
               })}
             >
-              {event.authors.map((author, index) => {
+              {event.authors!.map((author, index) => {
                 const isFirstOrLastColumn = index % 3 === 0 || index % 3 === 2
+                const shouldTranslateY = withLotsOfAuthors && isFirstOrLastColumn
+
                 return (
                   <div
                     key={author._id}
-                    className={cn("transition-all duration-300", {
-                      "lg:translate-y-[50%]": isFirstOrLastColumn,
+                    className={cn("", {
+                      "lg:translate-y-[50%]": shouldTranslateY,
                     })}
                   >
                     <AuthorCard author={author} />

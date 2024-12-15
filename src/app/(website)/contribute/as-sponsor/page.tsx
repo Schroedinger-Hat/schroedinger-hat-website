@@ -175,7 +175,7 @@ export default function BecomeSponsorPage() {
         <BlackCTA
           cta={{
             text: "Apply",
-            href: "mailto:event@schroedinger.hat?subject=Sponsorship%20Opportunity",
+            href: "mailto:events@schroedinger.hat?subject=Sponsorship%20Opportunity",
           }}
         >
           <BlackCTAHeading>Wanna Sponsor?</BlackCTAHeading>

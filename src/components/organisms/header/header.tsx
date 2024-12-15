@@ -223,7 +223,7 @@ export function Header() {
             <NavigationMenuItem>
               <NavigationMenuLink
                 className={navigationMenuTriggerStyle()}
-                href="https://shop.schrodinger-hat.org/"
+                href="https://shop.schroedinger-hat.org/"
               >
                 <Typography as="span" variant="navigation">
                   Merch
