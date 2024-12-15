@@ -32,6 +32,7 @@ const famousSpeakers = [
     name: "Matteo",
     surname: "Collina",
     role: " Node.js TSC member",
+    slug: "matteo-collina",
     image: {
       src: famouseCollina.src,
     },
@@ -40,6 +41,7 @@ const famousSpeakers = [
     name: "Miško",
     surname: "Hevery",
     role: "Creator of Angular.js",
+    slug: "misko-hevery",
     image: {
       src: famouseHevery.src,
     },
@@ -47,7 +49,8 @@ const famousSpeakers = [
   {
     name: "Francesco",
     surname: "Corti",
-    role: "Principal Product Manager @Docker",
+    role: "Principal Product Manager",
+    slug: "francesco-corti",
     image: {
       src: famouseCorti.src,
     },
@@ -55,7 +58,8 @@ const famousSpeakers = [
   {
     name: "Federico",
     surname: "Terzi",
-    role: "Software Architect @anima",
+    role: "Software Architect",
+    slug: "federico-terzi",
     image: {
       src: famouseTerzi.src,
     },
@@ -229,7 +233,9 @@ export default function BecomeSpeakerPage() {
         <Heading level={2}>Spoke with us</Heading>
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {famousSpeakers.map((speaker, index) => (
-            <TeamCard key={index} {...speaker} />
+            <Link key={index} href={`/speaker/${speaker.slug}`} className="hover:no-underline">
+              <TeamCard {...speaker} />
+            </Link>
           ))}
         </div>
         <div className="mt-4 text-center">

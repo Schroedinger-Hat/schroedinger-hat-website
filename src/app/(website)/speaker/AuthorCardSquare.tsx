@@ -17,7 +17,7 @@ export function AuthorCardSquare({ author }: AuthorCardSquareProps) {
     >
       {author.photo ? (
         <Image
-          src={urlFor(author.photo).width(200).height(200).url()}
+          src={urlFor(author.photo).auto("format").width(200).height(200).url()}
           alt={getAuthorFullName(author)}
           width={200}
           height={200}
