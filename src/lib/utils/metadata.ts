@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { BASE_URL } from "./withFullUrl"
 
 interface MetadataProps {
   title?: string
@@ -10,13 +11,6 @@ const defaultTitle = "Schrödinger Hat: Where we talk Open Source"
 const defaultDescription =
   "Schrödinger Hat is a non-profit community advancing open-source software through inspiring events and impactful projects."
 
-const baseUrl =
-  process.env.VERCEL_ENV === "preview"
-    ? `https://${process.env.VERCEL_URL}`
-    : process.env.VERCEL_ENV === "production"
-      ? "https://schroedinger-hat-website.vercel.app/"
-      : "http://localhost:3000"
-
 export function constructMetadata({
   title = defaultTitle,
   description = defaultDescription,
@@ -25,11 +19,11 @@ export function constructMetadata({
   const metadata: Metadata = {
     title,
     description,
-    metadataBase: new URL(baseUrl),
+    metadataBase: new URL(BASE_URL),
     openGraph: {
       type: "website",
       locale: "en_US",
-      url: "https://schrodinger-hat.org",
+      url: BASE_URL,
       siteName: "Schrödinger Hat",
       title,
       description,
