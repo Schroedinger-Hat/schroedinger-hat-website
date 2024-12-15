@@ -21,11 +21,15 @@ export function getAuthorInitials(author: Author): string {
 /**
  * Gets the video thumbnail URL, falling back to YouTube thumbnail if none provided
  */
-export function getVideoThumbnailUrl(video: Video): string {
+export function getVideoThumbnailUrl(video: Video, square = true): string {
   if (!video) return ""
 
   return video.thumbnail
-    ? urlFor(video.thumbnail).width(600).height(400).url()
+    ? urlFor(video.thumbnail)
+        .auto("format")
+        .width(square ? 400 : 600)
+        .height(square ? 400 : 300)
+        .url()
     : video.youtubeId
       ? `https://img.youtube.com/vi/${video.youtubeId}/mqdefault.jpg`
       : ""

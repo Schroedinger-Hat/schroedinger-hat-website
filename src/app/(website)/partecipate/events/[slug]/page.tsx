@@ -125,9 +125,12 @@ export default async function SingleEventPage({ params }: PageProps) {
         />
       </SectionContainer>
 
-      <SectionContainer size="narrow">
+      <SectionContainer size="tiny">
         {event.abstract && (
-          <PortableText value={event.abstract} components={createPortableTextComponents()} />
+          <PortableText
+            value={event.abstract}
+            components={createPortableTextComponents("md:text-lg md:leading-relaxed")}
+          />
         )}
       </SectionContainer>
 

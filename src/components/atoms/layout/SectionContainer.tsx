@@ -4,13 +4,14 @@ import { type ReactNode } from "react"
 interface SectionContainerProps {
   children: ReactNode
   className?: string
-  size?: "narrow" | "medium" | "wide" | "full"
+  size?: "tiny" | "narrow" | "medium" | "wide" | "full"
   padding?: "header" | "default" | "little" | "none"
   spacing?: "small" | "medium" | "large" | "none"
   withBackground?: boolean
 }
 
 const sizes = {
+  tiny: "max-w-2xl",
   narrow: "max-w-3xl",
   medium: "max-w-5xl",
   wide: "max-w-7xl",

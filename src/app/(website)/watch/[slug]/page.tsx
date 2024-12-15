@@ -13,6 +13,9 @@ import { SectionContainer } from "@/components/atoms/layout/SectionContainer"
 import { type Metadata } from "next"
 import { extractFirstParagraph } from "@/lib/seo"
 import { constructMetadata } from "@/lib/utils/metadata"
+import { AuthorCardSquare } from "../../speaker/AuthorCardSquare"
+import { Label } from "@/components/ui/label"
+import { Badge } from "@/components/ui/badge"
 
 interface VideoWithAuthors extends Omit<Video, "authors"> {
   authors?: Author[]
@@ -77,7 +80,7 @@ export default async function SingleVideoPage({ params }: PageProps) {
       </SectionContainer>
 
       <SectionContainer className="-mt-24" size="medium">
-        <Heading level={2} className="mb-4">
+        <Heading level={1} className="mb-4">
           {video.title}
         </Heading>
 
@@ -90,29 +93,52 @@ export default async function SingleVideoPage({ params }: PageProps) {
           </Heading>
         )}
 
-        {video.authors && video.authors.length > 0 && (
-          <>
-            <Heading level={3} className="mb-2">
-              {video.authors.length > 1 ? "Speakers" : "Speaker"}
-            </Heading>
-            <div className="mb-8 space-y-6">
-              {video.authors.map((author) => (
-                <AuthorCard key={author._id} author={author} />
-              ))}
+        <div className="grid grid-cols-1 gap-8 pt-4 md:grid-cols-3 md:[&>*:first-child]:order-2 md:[&>*:last-child]:order-1">
+          {video.authors && video.authors.length > 0 && (
+            <div className="md:col-span-1">
+              <Heading level={3} className="mb-2">
+                {video.authors.length > 1 ? "Speakers" : "Speaker"}
+              </Heading>
+              <div className="mb-8 space-y-6">
+                {video.authors.map((author) => (
+                  <AuthorCardSquare key={author._id} author={author} />
+                ))}
+              </div>
+              {video.tags && video.tags.length > 0 && (
+                <div className="mb-8">
+                  <Heading level={3} className="mb-2">
+                    Tags
+                  </Heading>
+                  <div className="flex flex-wrap gap-2">
+                    {video.tags.map((tag) => (
+                      <Badge key={tag} variant="outline">
+                        {tag}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
-          </>
-        )}
+          )}
 
-        {video.description && (
-          <>
-            <Heading level={3} className="mb-2">
-              Description
-            </Heading>
-            <div className="prose max-w-none">
-              <PortableText value={video.description} components={createPortableTextComponents()} />
-            </div>
-          </>
-        )}
+          <div className="md:col-span-2">
+            {video.description && (
+              <div className="prose max-w-none">
+                <PortableText value={video.description} components={createPortableTextComponents()} />
+              </div>
+            )}
+            {video.whyShouldWatch && (
+              <div className="md:col-span-2">
+                <Heading level={4} className="mb-2 pt-4">
+                  Why you should watch
+                </Heading>
+                <div className="prose max-w-none">
+                  <PortableText value={video.whyShouldWatch} components={createPortableTextComponents()} />
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
       </SectionContainer>
     </main>
   )

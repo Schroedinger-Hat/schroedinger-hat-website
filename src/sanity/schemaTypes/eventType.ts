@@ -197,4 +197,11 @@ export const eventType = defineType({
   initialValue: {
     cardImage: "background",
   },
+  orderings: [
+    {
+      title: "Start Date, Desc",
+      name: "startDateDesc",
+      by: [{ field: "eventPeriod.startDate", direction: "desc" }],
+    },
+  ],
 })

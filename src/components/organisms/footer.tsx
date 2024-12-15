@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { Youtube, Twitter } from "lucide-react"
+import { Youtube, Twitter, Linkedin } from "lucide-react"
 import { inDevEnvironment } from "@/app/consts"
 import { Heading } from "@/components/atoms/typography/Heading"
 import { Paragraph } from "@/components/atoms/typography/Paragraph"
@@ -22,13 +22,10 @@ export function Footer() {
                 <Paragraph className="m-0 text-sm">Privacy policy</Paragraph>
               </Link>
               <Link className="block text-sm hover:underline" href="/page/contacts">
-                <Paragraph className="m-0 text-sm">Contatti</Paragraph>
+                <Paragraph className="m-0 text-sm">Contacts</Paragraph>
               </Link>
               <Link className="block text-sm hover:underline" href="/page/code-of-conduct">
                 <Paragraph className="m-0 text-sm">Code of Conduct</Paragraph>
-              </Link>
-              <Link className="block text-sm hover:underline" href="/page/faq">
-                <Paragraph className="m-0 text-sm">FAQ</Paragraph>
               </Link>
             </div>
 
@@ -46,10 +43,10 @@ export function Footer() {
                     <Paragraph className="m-0 text-sm">CMS</Paragraph>
                   </Link>
                   <Link href="/components" className="block text-sm hover:underline">
-                    <Paragraph className="m-0 text-sm">Components</Paragraph>
+                    <Paragraph className="m-0 text-sm">Web Components</Paragraph>
                   </Link>
                   <Link href="http://localhost:3001" className="block text-sm hover:underline">
-                    <Paragraph className="m-0 text-sm">Email Dev</Paragraph>
+                    <Paragraph className="m-0 text-sm">Email Preview</Paragraph>
                   </Link>
                 </>
               )}
@@ -63,13 +60,16 @@ export function Footer() {
               <Paragraph className="text-sm text-muted-foreground">Via Pino Arpioni 1, Pelago (FI)</Paragraph>
               <Paragraph className="text-sm text-muted-foreground">IT07355400487</Paragraph>
               <div className="mt-4 flex space-x-4">
+                <Link
+                  href="https://www.linkedin.com/company/schroedinger-hat-aps"
+                  className="text-muted-foreground hover:text-foreground"
+                >
+                  <Linkedin className="h-5 w-5" />
+                  <span className="sr-only">Linkedin</span>
+                </Link>
                 <Link href="https://youtube.com" className="text-muted-foreground hover:text-foreground">
                   <Youtube className="h-5 w-5" />
                   <span className="sr-only">YouTube</span>
-                </Link>
-                <Link href="https://twitter.com" className="text-muted-foreground hover:text-foreground">
-                  <Twitter className="h-5 w-5" />
-                  <span className="sr-only">Twitter</span>
                 </Link>
               </div>
             </div>

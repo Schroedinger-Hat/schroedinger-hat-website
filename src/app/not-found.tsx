@@ -38,7 +38,7 @@ export default function NotFound() {
           />
 
           <div className="flex flex-col items-center justify-center">
-            <Image src={notFound.src} alt="Not Found" width={256} height={256} className="mt-8" />
+            <Image src={notFound.src} alt="Not Found" width={256} height={256} className="mt-8" priority />
             <Heading level={1} className="mt-8">
               Not Found
             </Heading>

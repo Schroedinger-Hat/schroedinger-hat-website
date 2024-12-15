@@ -96,6 +96,18 @@ export const videoType = defineType({
       ],
     },
     {
+      name: "whyShouldWatch",
+      title: "Why Should Watch",
+      type: "array",
+      of: [{ type: "block" }],
+    },
+    {
+      name: "tags",
+      title: "Tags",
+      type: "array",
+      of: [{ type: "string" }],
+    },
+    {
       name: "publishedAt",
       title: "Published Date",
       type: "datetime",

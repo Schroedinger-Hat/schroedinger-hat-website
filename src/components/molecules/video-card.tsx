@@ -11,6 +11,7 @@ interface VideoCardProps {
   imageUrl: string
   className?: string
   slug?: string
+  isSquare?: boolean
 }
 
 export function VideoCard({ title, subtitle, imageUrl, className, slug }: VideoCardProps) {

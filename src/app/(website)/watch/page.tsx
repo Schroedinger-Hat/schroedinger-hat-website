@@ -50,7 +50,7 @@ export default async function WatchPage() {
                 key={video._id}
                 title={video.shortTitle ?? video.title ?? ""}
                 subtitle={getAuthorNames(video.authors)}
-                imageUrl={getVideoThumbnailUrl(video)}
+                imageUrl={getVideoThumbnailUrl(video, index !== 0)}
                 className={cn({ "md:col-span-2": index === 0 })}
                 slug={video.slug?.current ?? ""}
               />
@@ -73,11 +73,6 @@ export default async function WatchPage() {
               Podcasts
             </Heading>
           </Link>
-          <Link href="/watch" className="text-center hover:bg-slate-200">
-            <Heading level={3} className="text-slate-400">
-              Generic
-            </Heading>
-          </Link>
         </div>
 
         {/* Show all videos that are not featured */}
@@ -89,7 +84,7 @@ export default async function WatchPage() {
                 key={video._id}
                 title={video.shortTitle ?? video.title ?? ""}
                 subtitle={getAuthorNames(video.authors)}
-                imageUrl={getVideoThumbnailUrl(video)}
+                imageUrl={getVideoThumbnailUrl(video, true)}
                 slug={video.slug?.current ?? ""}
               />
             ))}
