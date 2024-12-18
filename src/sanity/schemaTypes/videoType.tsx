@@ -1,5 +1,6 @@
 import { defineType } from "sanity"
 import React from "react"
+import type { Author, Video } from "../sanity.types"
 
 // Helper function to extract YouTube video ID from various URL formats
 const extractYouTubeId = (url: string): string => {
@@ -52,7 +53,18 @@ export const videoType = defineType({
       title: "Slug",
       type: "slug",
       options: {
-        source: "title",
+        source: async (doc: Video, { getClient }) => {
+          // Get the first author reference
+          const authorRef = doc.authors?.[0]?._ref
+          if (!authorRef) return doc.title
+
+          // Fetch the author document
+          const client = getClient({ apiVersion: "2024-03-01" })
+          const author = await client.fetch<Author>(`*[_id == $authorRef][0]{slug}`, { authorRef })
+
+          // Combine author slug with title
+          return `${author?.slug?.current ?? ""}-${doc.title}`
+        },
         maxLength: 96,
       },
       validation: (Rule) => Rule.required(),

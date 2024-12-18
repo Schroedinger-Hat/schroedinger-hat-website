@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils"
 import { type ReactNode } from "react"
+import { AnimatedSection } from "./AnimatedSection"
 
 interface SectionContainerProps {
   children: ReactNode
@@ -8,6 +9,7 @@ interface SectionContainerProps {
   padding?: "header" | "default" | "little" | "none"
   spacing?: "small" | "medium" | "large" | "none"
   withBackground?: boolean
+  notAnimated?: boolean
 }
 
 const sizes = {
@@ -39,8 +41,26 @@ export function SectionContainer({
   padding = "default",
   spacing = "none",
   withBackground = false,
+  notAnimated = false,
 }: SectionContainerProps) {
-  const contentDiv = (
+  const contentDiv = !notAnimated ? (
+    <AnimatedSection>
+      <div
+        className={cn(
+          "mx-auto px-4 md:px-0",
+          sizes[size],
+          paddings[padding],
+          spacings[spacing],
+          {
+            container: size !== "full",
+          },
+          className,
+        )}
+      >
+        {children}
+      </div>
+    </AnimatedSection>
+  ) : (
     <div
       className={cn(
         "mx-auto px-4 md:px-0",

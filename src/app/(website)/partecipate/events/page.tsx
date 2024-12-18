@@ -5,6 +5,8 @@ import { Link } from "@/components/atoms/links/Link"
 import { EventCard, FeaturedEventCard } from "./components/event-cards"
 import { SectionContainer } from "@/components/atoms/layout/SectionContainer"
 import { constructMetadata } from "@/lib/utils/metadata"
+import { AnimatedSection } from "@/components/atoms/layout/AnimatedSection"
+import { DURATION_TWO_FRAMES } from "@/components/atoms/layout/const"
 
 export const metadata = constructMetadata({
   title: "Events | Schrödinger Hat",
@@ -56,7 +58,9 @@ export default async function EventsPage() {
               Featured
             </Heading>
             <Link href={`/partecipate/events/${featuredEvent.slug!.current}`} className="hover:no-underline">
-              <FeaturedEventCard event={featuredEvent} />
+              <AnimatedSection>
+                <FeaturedEventCard event={featuredEvent} />
+              </AnimatedSection>
             </Link>
           </>
         )}
@@ -86,13 +90,15 @@ export default async function EventsPage() {
               Past events
             </Heading>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {pastEvents.map((event) => (
+              {pastEvents.map((event, index) => (
                 <Link
                   href={`/partecipate/events/${event.slug!.current}`}
                   key={event._id}
                   className="hover:no-underline"
                 >
-                  <EventCard event={event} />
+                  <AnimatedSection key={event._id} delay={(1 + index) * DURATION_TWO_FRAMES}>
+                    <EventCard event={event} />
+                  </AnimatedSection>
                 </Link>
               ))}
             </div>

@@ -14,6 +14,8 @@ import perkEarlyAccess from "@/images/membership/perk_early_access.svg"
 import perkFood from "@/images/membership/perk_food.svg"
 import perkVote from "@/images/membership/perk_vote.svg"
 import { PriceCard } from "./components/price-card"
+import { AnimatedSection } from "@/components/atoms/layout/AnimatedSection"
+import { DURATION_TWO_FRAMES } from "@/components/atoms/layout/const"
 
 export const metadata = constructMetadata({
   title: "Schrödinger Hat: Join Us",
@@ -24,7 +26,7 @@ export default async function BecomeMemberPage() {
   return (
     <main>
       {/* Hero */}
-      <SectionContainer size="full">
+      <SectionContainer size="full" padding="header" notAnimated>
         <div>
           <BlurredBackground
             points={3}
@@ -57,10 +59,11 @@ export default async function BecomeMemberPage() {
         </div>
       </SectionContainer>
 
-      <SectionContainer size="wide" className="hidden space-y-4 md:block">
+      {/* Perks Desktop */}
+      <SectionContainer size="wide" className="hidden space-y-4 md:block" notAnimated>
         {/* First row - stacks vertically on mobile */}
         <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
-          <div className="flex flex-col justify-end rounded-lg bg-white p-6 md:h-[350px] md:p-8 md:pb-8 md:pl-16">
+          <AnimatedSection className="flex flex-col justify-end rounded-lg bg-white p-6 md:h-[350px] md:p-8 md:pb-8 md:pl-16">
             <Typography variant="medium" className="text-slate-700">
               The membership is an optional paid subscription
               <br />
@@ -69,11 +72,14 @@ export default async function BecomeMemberPage() {
               <br />
               Ok not just love, we prepared some perks for you
             </Typography>
-          </div>
+          </AnimatedSection>
 
-          <div className="col-span-1 rounded-xl bg-[#4B4EE4] p-6 md:col-span-2 md:h-[350px] md:p-8">
+          <AnimatedSection
+            delay={DURATION_TWO_FRAMES}
+            className="col-span-1 rounded-xl bg-[#4B4EE4] p-6 md:col-span-2 md:h-[350px] md:p-8"
+          >
             <div className="grid h-full grid-cols-1 gap-4 md:grid-cols-3">
-              <div className="col-span-1 hidden overflow-hidden md:col-span-2 md:block">
+              <div className="col-span-1 overflow-hidden md:col-span-2">
                 <Image
                   src={perkEarlyAccess}
                   alt="Early access"
@@ -87,14 +93,17 @@ export default async function BecomeMemberPage() {
                 </Typography>
               </div>
             </div>
-          </div>
+          </AnimatedSection>
 
-          <div className="rounded-xl bg-[#E67E22] p-6 md:h-[350px] md:p-8">
+          <AnimatedSection
+            delay={DURATION_TWO_FRAMES * 2}
+            className="rounded-xl bg-[#E67E22] p-6 md:h-[350px] md:p-8"
+          >
             <div className="flex h-full flex-col md:justify-between">
               <Typography variant="lead" className="mb-4 text-left text-white md:text-center">
                 Merch store discounts and free shipping!
               </Typography>
-              <div className="hidden flex-1 md:block">
+              <div className="flex-1">
                 <Image
                   src={perkBox}
                   alt="Early access"
@@ -103,12 +112,15 @@ export default async function BecomeMemberPage() {
                 />
               </div>
             </div>
-          </div>
+          </AnimatedSection>
         </div>
 
         {/* Second row - stacks vertically on mobile */}
         <div className="grid grid-cols-1 gap-4 md:grid-cols-8">
-          <div className="col-span-1 rounded-xl bg-[#DDA0DD] p-6 md:col-span-3 md:col-start-2 md:h-[350px] md:p-8">
+          <AnimatedSection
+            delay={DURATION_TWO_FRAMES * 3}
+            className="col-span-1 rounded-xl bg-[#DDA0DD] p-6 md:col-span-3 md:col-start-2 md:h-[350px] md:p-8"
+          >
             <div className="flex h-full flex-row">
               <div className="flex w-full flex-col justify-between md:w-[140px]">
                 <Typography variant="lead" className="text-white md:pr-4">
@@ -118,7 +130,7 @@ export default async function BecomeMemberPage() {
                   *not just tacos, we promise
                 </Typography>
               </div>
-              <div className="hidden overflow-hidden md:block">
+              <div className="overflow-hidden">
                 <Image
                   src={perkFood}
                   alt="Early access"
@@ -127,22 +139,24 @@ export default async function BecomeMemberPage() {
                 />
               </div>
             </div>
-          </div>
+          </AnimatedSection>
 
-          <div className="col-span-1 flex flex-col justify-between rounded-xl bg-[#B6D9A5] p-6 md:col-span-3 md:p-8">
-            <div className="mb-4 hidden md:block">
+          <AnimatedSection
+            delay={DURATION_TWO_FRAMES * 4}
+            className="col-span-1 flex flex-col justify-between rounded-xl bg-[#B6D9A5] p-6 md:col-span-3 md:p-8"
+          >
+            <div className="mb-4">
               <Image src={perkVote} alt="Early access" />
             </div>
-            <p className="text-white">
-              <Typography variant="lead" className="text-white">
-                Votations to drive our organization and choose speakers for our major events
-              </Typography>
-            </p>
-          </div>
+            <Typography variant="lead" className="text-white">
+              Votations to drive our organization and choose speakers for our major events
+            </Typography>
+          </AnimatedSection>
         </div>
       </SectionContainer>
 
-      <SectionContainer size="wide" className="space-y-4 md:hidden">
+      {/* Perks Mobile */}
+      <SectionContainer size="wide" className="space-y-4 md:hidden" notAnimated>
         <div className="flex flex-col rounded-lg bg-white p-4">
           <Typography variant="medium" className="text-slate-700">
             The membership is an optional paid subscription
@@ -214,8 +228,6 @@ export default async function BecomeMemberPage() {
         </div>
       </SectionContainer>
 
-      <ReviewsSection />
-
       <SectionContainer size="wide">
         <div className="text-left md:text-center">
           <Heading level={2}>All this for some money</Heading>
@@ -234,6 +246,8 @@ export default async function BecomeMemberPage() {
           />
         </div>
       </SectionContainer>
+
+      <ReviewsSection />
 
       <SectionContainer size="narrow">
         <FaqBlock

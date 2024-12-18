@@ -45,7 +45,7 @@ export default async function AboutUsPage() {
   return (
     <main>
       {/* Hero */}
-      <SectionContainer size="wide">
+      <SectionContainer size="wide" notAnimated padding="header">
         <BlurredBackground
           points={3}
           colors={["#f75ccb", "#639aff", "#C81824", "#830B16"]}

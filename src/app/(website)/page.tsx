@@ -24,7 +24,7 @@ export default async function Home() {
 
   return (
     <main>
-      <SectionContainer>
+      <SectionContainer notAnimated>
         <BlurredBackground
           points={2}
           colors={["#f75ccb", "#639aff", "#C81824", "#830B16"]}

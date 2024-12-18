@@ -7,6 +7,8 @@ import type { Author, Video } from "@/sanity/sanity.types"
 import { SectionContainer } from "@/components/atoms/layout/SectionContainer"
 import { cn } from "@/lib/utils"
 import { constructMetadata } from "@/lib/utils/metadata"
+import { AnimatedSection } from "@/components/atoms/layout/AnimatedSection"
+import { DURATION_ONE_FRAME } from "@/components/atoms/layout/const"
 
 export const metadata = constructMetadata({
   title: "Schrödinger Hat: Watch",
@@ -31,6 +33,10 @@ async function getVideos() {
 export default async function WatchPage() {
   const videos = await getVideos()
 
+  const allFeaturedVideos = videos.filter((video) => video.featured)
+  const featuredVideos = allFeaturedVideos.slice(0, 3)
+  const otherVideos = [...allFeaturedVideos.slice(3), ...videos.filter((video) => !video.featured)]
+
   return (
     <main>
       <SectionContainer size="wide">
@@ -40,19 +46,20 @@ export default async function WatchPage() {
 
         {/* Pick the first three featured videos and show them in row, first videos has col-span-2 the other are normals */}
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {videos
-            .filter((video) => video.featured)
-            .slice(0, 3)
-            .map((video, index) => (
+          {featuredVideos.map((video, index) => (
+            <AnimatedSection
+              key={video._id}
+              delay={index * DURATION_ONE_FRAME}
+              className={cn({ "md:col-span-2": index === 0 })}
+            >
               <VideoCard
-                key={video._id}
                 title={video.shortTitle ?? video.title ?? ""}
                 subtitle={getAuthorNames(video.authors)}
                 imageUrl={getVideoThumbnailUrl(video, index !== 0)}
-                className={cn({ "md:col-span-2": index === 0 })}
                 slug={video.slug?.current ?? ""}
               />
-            ))}
+            </AnimatedSection>
+          ))}
         </div>
       </SectionContainer>
 
@@ -82,17 +89,16 @@ export default async function WatchPage() {
           Talks
         </Heading>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {videos
-            .filter((video) => !video.featured)
-            .map((video) => (
+          {otherVideos.map((video, index) => (
+            <AnimatedSection key={video._id} delay={(featuredVideos.length + index) * DURATION_ONE_FRAME}>
               <VideoCard
-                key={video._id}
                 title={video.shortTitle ?? video.title ?? ""}
                 subtitle={getAuthorNames(video.authors)}
                 imageUrl={getVideoThumbnailUrl(video, true)}
                 slug={video.slug?.current ?? ""}
               />
-            ))}
+            </AnimatedSection>
+          ))}
         </div>
       </SectionContainer>
     </main>
