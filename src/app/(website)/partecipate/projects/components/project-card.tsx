@@ -14,6 +14,7 @@ import { PythonIcon } from "../assets/PythonIcon"
 import { GolandIcon } from "../assets/GolangIcon"
 import { RustIcon } from "../assets/RustIcon"
 import { Typography } from "@/components/atoms/typography/Typography"
+import { cn } from "@/lib/utils"
 
 const LANGUAGE_ICONS: Record<string, React.ComponentType> = {
   typescript: TypescriptIcon,
@@ -33,12 +34,22 @@ export function ProjectCard({ project }: ProjectCardProps) {
   const Icon = LANGUAGE_ICONS[project.language]
 
   return (
-    <Card className="w-full">
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-4">
+    <div className="rounded-lg bg-slate-50">
+      <div className="grid grid-cols-1 gap-2 md:grid-cols-4">
         {/* Main Content Column - 3/4 width */}
         <div className="md:col-span-3">
           <CardHeader className="flex flex-row items-center gap-4">
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary/10 p-2 text-primary">
+            <div
+              className={cn(
+                "flex h-12 w-12 shrink-0 items-center justify-center rounded-full p-2 text-primary",
+                {
+                  "bg-[#007ACC]": project.language === "typescript",
+                  "bg-[#EFDB50]": project.language === "javascript",
+                  "bg-primary/10":
+                    project.language === "python" || project.language === "go" || project.language === "rust",
+                },
+              )}
+            >
               {Icon && <Icon />}
             </div>
             <h3 className="text-xl font-semibold">{project.title}</h3>
@@ -52,7 +63,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
         {/* Meta Column - 1/4 width */}
         <div className="p-6 pt-0 md:col-span-1 md:pt-6">
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-6 rounded-lg border bg-white p-4">
             {/* Tech Stack */}
             <div className="space-y-2">
               <Typography variant="small" className="font-semibold">
@@ -87,23 +98,6 @@ export function ProjectCard({ project }: ProjectCardProps) {
               </div>
             )}
 
-            {/* Looking For */}
-            {project.lookingFor && project.lookingFor.length > 0 && (
-              <div className="space-y-2">
-                <Typography variant="small" className="font-semibold">
-                  Looking for
-                </Typography>
-                <div className="flex flex-col gap-1">
-                  {project.lookingFor.map((role) => (
-                    <div key={role} className="flex items-center gap-2 text-sm">
-                      <UsersIcon className="h-4 w-4 text-muted-foreground" />
-                      <span className="capitalize">{role}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-
             {/* Add Contribute Button */}
             {project.repositoryUrl && (
               <div className="mt-auto">
@@ -117,6 +111,6 @@ export function ProjectCard({ project }: ProjectCardProps) {
           </div>
         </div>
       </div>
-    </Card>
+    </div>
   )
 }
