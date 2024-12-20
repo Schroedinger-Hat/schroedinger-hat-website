@@ -16,6 +16,7 @@ import { getVideoThumbnailUrl } from "@/lib/utils/videoContent"
 import { BlogPostCard } from "@/components/molecules/cards/BlogPostCard"
 import { constructMetadata } from "@/lib/utils/metadata"
 import { getPortableTextPlainText } from "@/lib/utils/sanity"
+import { DURATION_TWO_FRAMES } from "@/components/atoms/layout/const"
 
 interface SpeakerPageProps {
   params: Promise<{ slug: string }>
@@ -115,7 +116,7 @@ export default async function SpeakerPage({ params }: SpeakerPageProps) {
   }
 
   return (
-    <SectionContainer padding="none">
+    <SectionContainer padding="none" notAnimated>
       {/* Author basic info */}
       <SectionContainer size="narrow">
         <div className="flex flex-col gap-8 md:flex-row md:gap-12">
@@ -156,52 +157,50 @@ export default async function SpeakerPage({ params }: SpeakerPageProps) {
       </SectionContainer>
 
       {/* Author content */}
-      <SectionContainer size="medium">
-        {speaker.videoContent.length > 0 && (
-          <>
-            <Heading level={2} className="mb-4">
-              Video Content
-            </Heading>
-            <div className="mb-8 grid grid-cols-1 gap-6 md:grid-cols-2">
-              {speaker.videoContent.map((video) => (
-                <VideoCard
-                  key={video._id}
-                  title={video.shortTitle ?? video.title!}
-                  subtitle={getAuthorFullName(speaker)}
-                  imageUrl={getVideoThumbnailUrl(video)}
-                  slug={video.slug!.current}
-                />
-              ))}
-            </div>
-          </>
-        )}
+      {speaker.videoContent.length > 0 && (
+        <SectionContainer size="medium" animationDelay={DURATION_TWO_FRAMES}>
+          <Heading level={2} className="mb-4">
+            Video Content
+          </Heading>
+          <div className="mb-8 grid grid-cols-1 gap-6 md:grid-cols-2">
+            {speaker.videoContent.map((video) => (
+              <VideoCard
+                key={video._id}
+                title={video.shortTitle ?? video.title!}
+                subtitle={getAuthorFullName(speaker)}
+                imageUrl={getVideoThumbnailUrl(video)}
+                slug={video.slug!.current}
+              />
+            ))}
+          </div>
+        </SectionContainer>
+      )}
 
-        {speaker.events && speaker.events.length > 0 && (
-          <>
-            <Heading level={2} className="mb-4">
-              Events
-            </Heading>
-            <div className="mb-8 grid gap-4 sm:grid-cols-2">
-              {speaker.events.map((event) => (
-                <EventCard key={event.slug?.current} event={event} />
-              ))}
-            </div>
-          </>
-        )}
+      {speaker.events && speaker.events.length > 0 && (
+        <SectionContainer size="medium" animationDelay={DURATION_TWO_FRAMES}>
+          <Heading level={2} className="mb-4">
+            Events
+          </Heading>
+          <div className="mb-8 grid gap-4 sm:grid-cols-2">
+            {speaker.events.map((event) => (
+              <EventCard key={event.slug?.current} event={event} />
+            ))}
+          </div>
+        </SectionContainer>
+      )}
 
-        {speaker.blogPosts.length > 0 && (
-          <>
-            <Heading level={2} className="mb-4">
-              Blog Posts
-            </Heading>
-            <div className="mb-8 grid gap-6 sm:grid-cols-2">
-              {speaker.blogPosts.map((post) => (
-                <BlogPostCard key={post.slug?.current} post={post} displayAuthor={false} />
-              ))}
-            </div>
-          </>
-        )}
-      </SectionContainer>
+      {speaker.blogPosts.length > 0 && (
+        <SectionContainer size="medium" animationDelay={DURATION_TWO_FRAMES}>
+          <Heading level={2} className="mb-4">
+            Blog Posts
+          </Heading>
+          <div className="mb-8 grid gap-6 sm:grid-cols-2">
+            {speaker.blogPosts.map((post) => (
+              <BlogPostCard key={post.slug?.current} post={post} displayAuthor={false} />
+            ))}
+          </div>
+        </SectionContainer>
+      )}
     </SectionContainer>
   )
 }

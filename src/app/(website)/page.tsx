@@ -45,7 +45,7 @@ export default async function Home() {
             <div className="max-w-2xl">
               <h2 className="text-[22px] font-normal text-slate-800">
                 Schrödinger Hat is a community of open source enthusiasts,
-                <br /> we organizes events and write software.
+                <br /> we organize events and write software.
               </h2>
             </div>
             <div className="mx-auto hidden pt-16 md:block">

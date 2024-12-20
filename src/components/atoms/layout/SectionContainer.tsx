@@ -10,6 +10,7 @@ interface SectionContainerProps {
   spacing?: "small" | "medium" | "large" | "none"
   withBackground?: boolean
   notAnimated?: boolean
+  animationDelay?: number
 }
 
 const sizes = {
@@ -42,9 +43,10 @@ export function SectionContainer({
   spacing = "none",
   withBackground = false,
   notAnimated = false,
+  animationDelay = 0,
 }: SectionContainerProps) {
   const contentDiv = !notAnimated ? (
-    <AnimatedSection>
+    <AnimatedSection delay={animationDelay}>
       <div
         className={cn(
           "mx-auto px-4 md:px-0",
