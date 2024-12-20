@@ -40,8 +40,8 @@ export function LogoGallery({
   }
 
   return (
-    <section className={cn("w-full", className)}>
-      <div className="container">
+    <section className={className}>
+      <div className="container flex flex-col items-center">
         {title && <Heading level={2}>{title}</Heading>}
         <div
           className={cn("grid grid-cols-1 items-center justify-center gap-4 sm:grid-cols-2", {

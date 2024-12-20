@@ -55,7 +55,7 @@ export default async function Home() {
         </div>
       </SectionContainer>
 
-      <SectionContainer size="wide" className="md:-mt-24" spacing="medium">
+      <SectionContainer size="wide" spacing="medium" className="flex flex-col items-center justify-center">
         <ImageContent
           title="The collective"
           content={
@@ -107,7 +107,7 @@ export default async function Home() {
         />
       </SectionContainer>
 
-      <SectionContainer withBackground size="wide" spacing="medium">
+      <SectionContainer withBackground size="wide" spacing="medium" className="flex flex-col items-center justify-center">
         <Heading level={2}>You may know us for</Heading>
         <ImageContent
           title="OSDay"
@@ -160,7 +160,7 @@ export default async function Home() {
         />
       </SectionContainer>
 
-      <SectionContainer size="wide">
+      <SectionContainer size="wide" className="flex flex-col items-center justify-center">
         <LogoGallery
           className="py-24"
           title="Community Partners"
