@@ -9,7 +9,17 @@ import reviews from "../reviews.json"
 import { SectionContainer } from "@/components/atoms/layout/SectionContainer"
 
 function getRandomReviews(reviews: Review[], count: number) {
-  return [...reviews].sort(() => 0.5 - Math.random()).slice(0, count)
+  const shuffled = [...reviews]
+  const reviewCount = Math.min(count, reviews.length)
+
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    const temp = shuffled[i]!
+    shuffled[i] = shuffled[j]!
+    shuffled[j] = temp
+  }
+
+  return shuffled.slice(0, reviewCount)
 }
 
 export function ReviewsSection() {

@@ -148,9 +148,7 @@ export default async function SpeakerPage({ params }: SpeakerPageProps) {
               </Typography>
             )}
             {speaker.biography && (
-              <Typography className="whitespace-pre-wrap">
-                <PortableText value={speaker.biography} components={createPortableTextComponents()} />
-              </Typography>
+              <PortableText value={speaker.biography} components={createPortableTextComponents()} />
             )}
           </div>
         </div>

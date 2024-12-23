@@ -2,8 +2,9 @@
 
 import { motion, useInView } from "framer-motion"
 import { useRef, useEffect, useState } from "react"
-import { cn } from "@/lib/utils"
+import { cn, disableAnimations } from "@/lib/utils"
 import { DURATION_TEN_FRAMES } from "./const"
+import { env } from "@/env"
 
 interface AnimatedSectionProps {
   children: React.ReactNode
@@ -14,16 +15,23 @@ interface AnimatedSectionProps {
 export function AnimatedSection({ children, className, delay = 0 }: AnimatedSectionProps) {
   const ref = useRef<HTMLDivElement>(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
-  const [shouldAnimate, setShouldAnimate] = useState(false)
+  const [shouldAnimate, setShouldAnimate] = useState(disableAnimations ? true : false)
 
   useEffect(() => {
-    // Apply delay only on initial mount
-    const timer = setTimeout(() => {
-      setShouldAnimate(true)
-    }, delay * 1000)
+    // Apply delay only on initial mount and when not in CI
+    if (!disableAnimations) {
+      const timer = setTimeout(() => {
+        setShouldAnimate(true)
+      }, delay * 1000)
 
-    return () => clearTimeout(timer)
+      return () => clearTimeout(timer)
+    }
   }, [delay])
+
+  // In CI, render without animation wrapper
+  if (disableAnimations) {
+    return <div className={cn(className)}>{children}</div>
+  }
 
   return (
     <motion.div

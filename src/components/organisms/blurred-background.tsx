@@ -1,6 +1,7 @@
 "use client"
 
-import { cn } from "@/lib/utils"
+import { env } from "@/env"
+import { cn, disableAnimations } from "@/lib/utils"
 import { useCallback, useEffect, useRef } from "react"
 
 interface BlurredBackgroundProps {
@@ -15,7 +16,7 @@ interface BlurredBackgroundProps {
   canOverflow?: boolean
 }
 
-export const BlurredBackground = ({
+const BlurredBackgroundContent = ({
   points,
   colors,
   blur = 100,
@@ -92,7 +93,8 @@ export const BlurredBackground = ({
       const delay = Math.random() * -duration
 
       circle.className = "absolute rounded-full"
-      if (!disableAnimation) {
+      // Only add animation class if not in CI and animations aren't disabled
+      if (!disableAnimations && !disableAnimation) {
         circle.className += " animate-blob"
       }
 
@@ -106,7 +108,7 @@ export const BlurredBackground = ({
         filter: `blur(${blur}px)`,
         transform: "translate(-50%, -50%)",
         willChange: "transform",
-        ...(disableAnimation
+        ...(disableAnimations || disableAnimation
           ? {}
           : {
               animation: `blob ${duration}s infinite ${delay}s`,
@@ -132,4 +134,9 @@ export const BlurredBackground = ({
       aria-hidden="true"
     />
   )
+}
+
+export const BlurredBackground = (props: BlurredBackgroundProps) => {
+  if (disableAnimations) return null
+  return <BlurredBackgroundContent {...props} />
 }

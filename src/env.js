@@ -40,6 +40,7 @@ export const env = createEnv({
       .optional()
       .refine(isRequiredInProduction, "NEXT_PUBLIC_GOOGLE_MAPS_API_KEY is required in production"),
     NEXT_PUBLIC_GA_ID: z.string().min(1).optional(),
+    NEXT_PUBLIC_DISABLE_ANIMATIONS: z.string().optional(),
   },
 
   /**
@@ -53,6 +54,7 @@ export const env = createEnv({
     NEXT_PUBLIC_SANITY_DATASET: process.env.NEXT_PUBLIC_SANITY_DATASET,
     NEXT_PUBLIC_GOOGLE_MAPS_API_KEY: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
     NEXT_PUBLIC_GA_ID: process.env.NEXT_PUBLIC_GA_ID,
+    NEXT_PUBLIC_DISABLE_ANIMATIONS: process.env.NEXT_PUBLIC_DISABLE_ANIMATIONS,
     VERCEL_URL: process.env.VERCEL_URL,
     DATABASE_URL: process.env.DATABASE_URL,
     CRON_SECRET: process.env.CRON_SECRET,

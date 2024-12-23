@@ -227,32 +227,30 @@ export default function PressKitPage() {
           </div>
           <div className="flex-1">
             <Heading level={2}>Socials</Heading>
-            <Typography>
-              <div className="space-y-4">
-                <a
-                  href="https://www.linkedin.com/company/schroedinger-hat/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block"
-                >
-                  <Typography className="flex items-center gap-2" variant="large">
-                    <Linkedin01Icon className="h-6 w-6" />
-                    LinkedIn
-                  </Typography>
-                </a>
-                <a
-                  href="https://www.youtube.com/c/schrodingerhat"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block"
-                >
-                  <Typography className="flex items-center gap-2" variant="large">
-                    <YoutubeIcon className="h-6 w-6" />
-                    YouTube
-                  </Typography>
-                </a>
-              </div>
-            </Typography>
+            <div className="space-y-4">
+              <a
+                href="https://www.linkedin.com/company/schroedinger-hat/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block"
+              >
+                <Typography className="flex items-center gap-2" variant="large">
+                  <Linkedin01Icon className="h-6 w-6" />
+                  LinkedIn
+                </Typography>
+              </a>
+              <a
+                href="https://www.youtube.com/c/schrodingerhat"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block"
+              >
+                <Typography className="flex items-center gap-2" variant="large">
+                  <YoutubeIcon className="h-6 w-6" />
+                  YouTube
+                </Typography>
+              </a>
+            </div>
           </div>
         </div>
       </SectionContainer>

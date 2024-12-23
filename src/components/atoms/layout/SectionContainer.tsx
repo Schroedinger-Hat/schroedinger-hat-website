@@ -49,7 +49,7 @@ export function SectionContainer({
     <AnimatedSection delay={animationDelay}>
       <div
         className={cn(
-          "mx-auto px-4 md:px-0",
+          "mx-auto px-4 md:px-6 lg:px-8 2xl:px-0",
           sizes[size],
           paddings[padding],
           spacings[spacing],
@@ -65,7 +65,7 @@ export function SectionContainer({
   ) : (
     <div
       className={cn(
-        "mx-auto px-4 md:px-0",
+        "mx-auto px-4 md:px-6 lg:px-8 2xl:px-0",
         sizes[size],
         paddings[padding],
         spacings[spacing],
