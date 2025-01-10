@@ -1,0 +1,90 @@
+{
+  "en": {
+    "id": "osday2025",
+    "category": "event",
+    "featured": true,
+    "headline": null,
+    "ticketsURL": "https://www.eventbrite.it/e/open-source-day-2025-tickets-1044930835257",
+    "title": "Open Source Day 2025",
+    "details": [
+      {
+        "id": "date",
+        "value": "2025-03-21"
+      },
+      {
+        "id": "time",
+        "value": "9:30 - 21:00"
+      },
+      {
+        "id": "tag",
+        "value": "Open Source Software"
+      },
+      {
+        "id": "location",
+        "value": "Nana Bianca, Florence"
+      }
+    ],
+    "description": {
+      "long": "The event based around OSS",
+      "short": "Join us for a day filled with passionate open source contributors: maintainers, developers of all levels, engineering managers, and full-stack developers. Connect with speakers and sponsors while enjoying coffee breaks and lunch throughout the day."
+    },
+    "image": {
+      "URL": "https://osday.dev/intro-2025.png",
+      "alt": "Schrödinger Hat"
+    },
+    "location": {
+      "name": "Nana Bianca",
+      "city": "Florence",
+      "URL": "https://goo.gl/maps/jEwB3GoBdF2ueNGY8"
+    },
+    "schedule": {
+      "date": "2025-03-21",
+      "start": "9:30",
+      "end": "18:00"
+    }
+  },
+  "it": {
+    "id": "osday2025",
+    "category": "event",
+    "featured": true,
+    "headline": null,
+    "ticketsURL": "https://www.eventbrite.it/e/open-source-day-2025-tickets-1044930835257",
+    "title": "Open Source Day 2025",
+    "details": [
+      {
+        "id": "date",
+        "value": "2025-03-21"
+      },
+      {
+        "id": "time",
+        "value": "9:30 - 21:00"
+      },
+      {
+        "id": "tag",
+        "value": "Open Source Software"
+      },
+      {
+        "id": "location",
+        "value": "Nana Bianca, Florence"
+      }
+    ],
+    "description": {
+      "long": "L'evento incentrato su OSS",
+      "short": "Unisciti a noi per una giornata ricca di appassionati contributori open source: maintainer, sviluppatori di tutti i livelli, engineering manager e sviluppatori full-stack. Connettiti con speaker e sponsor mentre ti godi pause caffè e pranzo durante la giornata."
+    },
+    "image": {
+      "URL": "https://osday.dev/intro-2025.png",
+      "alt": "Schrödinger Hat"
+    },
+    "location": {
+      "name": "Nana Bianca",
+      "city": "Firenze",
+      "URL": "https://goo.gl/maps/jEwB3GoBdF2ueNGY8"
+    },
+    "schedule": {
+      "date": "2025-03-21",
+      "start": "9:30",
+      "end": "18:00"
+    }
+  }
+}
