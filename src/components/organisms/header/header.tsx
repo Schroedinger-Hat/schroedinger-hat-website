@@ -150,7 +150,10 @@ export function Header() {
                 </Accordion>
 
                 <SheetClose asChild>
-                  <Link href="/docs" className="text-sm font-medium transition-colors hover:text-primary">
+                  <Link
+                    href="https://shop.schroedinger-hat.org/"
+                    className="text-sm font-medium transition-colors hover:text-primary"
+                  >
                     <Typography variant="navigationMobile">Merch</Typography>
                   </Link>
                 </SheetClose>
