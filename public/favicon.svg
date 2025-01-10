@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" width="256" height="256"><svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_4_11)">
+<mask id="SvgjsMask1047" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="1" width="256" height="257">
+<path d="M0 1.02399H256V257.024H0V1.02399Z" fill="white"></path>
+</mask>
+<g mask="url(#mask0_4_11)">
+<path d="M255.571 130.866C255.96 129.334 256.106 127.698 255.904 125.98L245.95 41.4986C245.051 33.8665 236.227 30.0699 230.067 34.6642L194.843 60.939C175.387 52.4818 152.499 47.6021 128 47.6021C104.453 47.6021 82.3955 52.112 63.442 59.9713L25.9326 31.9927C19.7727 27.398 10.9487 31.1945 10.0496 38.8266L0.0961738 123.308C-0.143352 125.34 0.0869955 127.265 0.659584 129.025C0.223368 132.072 0 135.161 0 138.289C0 188.374 57.3074 228.975 128 228.975C198.693 228.975 256 188.374 256 138.289C256 135.789 255.851 133.314 255.571 130.866Z" fill="black"></path>
+<path d="M83.1291 119.146C83.1291 130.493 73.9305 139.692 62.5832 139.692C51.2354 139.692 42.0369 130.493 42.0369 119.146C42.0369 107.799 51.2354 98.6 62.5832 98.6C73.9305 98.6 83.1291 107.799 83.1291 119.146Z" fill="white"></path>
+<path d="M199.1 139.82L186.253 126.974L173.646 139.581L166.237 132.173L178.845 119.565L165.997 106.717L174.243 98.4721L187.091 111.32L199.698 98.7107L207.107 106.119L194.5 118.729L207.346 131.575L199.1 139.82Z" fill="white"></path>
+</g>
+</g>
+<defs>
+<clipPath id="SvgjsClipPath1046">
+<rect width="256" height="256" fill="white"></rect>
+</clipPath>
+</defs>
+</svg><style>@media (prefers-color-scheme: light) { :root { filter: none; } }
+@media (prefers-color-scheme: dark) { :root { filter: none; } }
+</style></svg>

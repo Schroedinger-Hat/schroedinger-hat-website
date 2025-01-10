@@ -1,0 +1,38 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+model Member {
+    id            String   @id @default(cuid())
+    name          String
+    surname       String
+    email         String
+    codiceFiscale String   @unique
+    status        String   @default("PENDING") // PENDING, COMPLETED, REJECTED
+    stripeCustomerId String?   @unique
+    stripeSubscriptionId String?
+    createdAt     DateTime @default(now())
+    updatedAt     DateTime @updatedAt
+
+    @@index([codiceFiscale])
+    @@index([email])
+    @@index([status])
+}
+
+model Health {
+    id             Int      @id @default(autoincrement())
+    date           DateTime @default(now())
+    deletedRecords Int
+    error          String?  @db.Text
+    createdAt      DateTime @default(now())
+
+    @@index([date])
+}
