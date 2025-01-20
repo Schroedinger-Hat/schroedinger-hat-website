@@ -1,5 +1,5 @@
 import { db } from "@/server/db"
-import { headers } from "next/headers"
+import type { NextRequest } from "next/server"
 import { NextResponse } from "next/server"
 import { env } from "@/env"
 
@@ -7,14 +7,15 @@ import { env } from "@/env"
 export const dynamic = "force-dynamic"
 export const maxDuration = 59
 
-export async function GET() {
+export async function GET(request: NextRequest) {
   try {
     // Verify cron secret in production only
-    if (env.NODE_ENV === "production") {
-      const headersList = await headers()
-      const cronSecret = headersList.get("x-vercel-cron")
-      if (cronSecret !== env.CRON_SECRET) {
-        return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
+    if (env.VERCEL_ENV === "production") {
+      const authHeader = request.headers.get("authorization")
+      if (authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
+        return new Response("Unauthorized", {
+          status: 401,
+        })
       }
     }
 
