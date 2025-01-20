@@ -3,6 +3,16 @@ on: workflow_dispatch
 jobs:
   lost-pixel-update:
     runs-on: ubuntu-latest
+
+    env:
+      STRIPE_SECRET_KEY: ${{ secrets.STRIPE_SECRET_KEY }}
+      STRIPE_MEMBERSHIP_PRICE_ID: ${{ secrets.STRIPE_MEMBERSHIP_PRICE_ID }}
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      CRON_SECRET: ${{ secrets.CRON_SECRET }}
+      NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
+      NEXT_PUBLIC_SANITY_DATASET: ${{ secrets.NEXT_PUBLIC_SANITY_DATASET }}
+      NEXT_PUBLIC_GOOGLE_MAPS_API_KEY: ${{ secrets.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY }}
+
     steps:
       - name: Checkout
         uses: actions/checkout@v3
