@@ -2,7 +2,7 @@ import { getStripe, isStripeAvailable } from "@/lib/stripe"
 import { headers } from "next/headers"
 import type { Stripe } from "stripe"
 import { db } from "@/server/db"
-import { sendMembershipSignupEmail } from "@/server/postmark"
+import { sendMembershipSignupEmail } from "@/server/email"
 
 export async function POST(req: Request) {
   if (!isStripeAvailable()) {
