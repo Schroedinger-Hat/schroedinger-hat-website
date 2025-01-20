@@ -15,13 +15,13 @@ jobs:
           cache: "npm"
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
-      - name: Build ladle
+      - name: Build Next app
         run: npm run build
 
-      - name: Serve ladle
-        run: npm run serve &
+      - name: Run Next app
+        run: npm run start &
 
       - name: Lost Pixel
         uses: lost-pixel/lost-pixel@v3.4.0
