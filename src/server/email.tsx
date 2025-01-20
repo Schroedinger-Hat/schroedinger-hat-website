@@ -3,8 +3,9 @@ import { render } from "@react-email/render"
 import { MembershipSignupEmail } from "@/emails/membership-signup"
 import { env } from "@/env"
 import React from "react"
+import { v4 as uuidv4 } from "uuid"
 
-let _resend: any = null
+let _resend: any
 
 function resendIsConfigured() {
   return _resend !== null
@@ -14,7 +15,8 @@ function configureResend() {
     throw new Error("RESEND_API_KEY not set")
   }
 
-  _resend = new Resend(env.RESEND_API_KEY as unknown as string)
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+  _resend = new Resend(env.RESEND_API_KEY)
   return _resend
 }
 
@@ -37,11 +39,16 @@ async function sendEmail(payload: EmailPayload) {
   const resend = configureResend()
 
   try {
+    // eslint-disable-next-line
     const { data, error } = await resend.emails.send({
       from,
+      replyTo: from,
       to,
       subject,
       html,
+      headers: {
+        "X-Entity-Ref-ID": uuidv4(), // Prevent Gmail from threading emails with same subject
+      },
     })
 
     if (error) {
