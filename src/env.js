@@ -22,6 +22,11 @@ export const env = createEnv({
       .min(1)
       .optional()
       .refine(isRequiredInProduction, "STRIPE_SECRET_KEY is required in production"),
+    STRIPE_WEBHOOK_SECRET: z
+      .string()
+      .min(1)
+      .optional()
+      .refine(isRequiredInProduction, "STRIPE_WEBHOOK_SECRET is required in production"),
     STRIPE_MEMBERSHIP_PRICE_ID: z.string().min(1),
     RESEND_API_KEY: z.string().min(1).optional(),
     VERCEL_URL: z.string().optional(),
@@ -51,6 +56,7 @@ export const env = createEnv({
     NODE_ENV: process.env.NODE_ENV,
     VERCEL_ENV: process.env.VERCEL_ENV,
     STRIPE_SECRET_KEY: process.env.STRIPE_SECRET_KEY,
+    STRIPE_WEBHOOK_SECRET: process.env.STRIPE_WEBHOOK_SECRET,
     STRIPE_MEMBERSHIP_PRICE_ID: process.env.STRIPE_MEMBERSHIP_PRICE_ID,
     RESEND_API_KEY: process.env.RESEND_API_KEY,
     NEXT_PUBLIC_SANITY_PROJECT_ID: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
