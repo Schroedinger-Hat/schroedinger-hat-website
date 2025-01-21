@@ -28,8 +28,7 @@ export const config: CustomProjectConfig = {
       },
     ],
     // IP should be localhost when running locally & 172.17.0.1 when running in GitHub action
-
-    baseUrl: "http://10.45.3.180:3000",
+    baseUrl: "http://172.17.0.1:3000",
     breakpoints: [375, 414, 768, 1024, 1280, 1440, 1920, 2560],
   },
   // OSS mode
