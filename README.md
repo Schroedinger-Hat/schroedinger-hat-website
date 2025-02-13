@@ -53,6 +53,7 @@
 Project description
 
 ### Tech stack
+
 - [Next.js](https://nextjs.org)
 - [Tailwind CSS](https://tailwindcss.com)
 - [tRPC](https://trpc.io)
@@ -67,6 +68,7 @@ Project description
 ### Project setup
 
 Ensure you have installed
+
 ```
 node >= 20.10.0
 npm >= 10.2.3
@@ -96,9 +98,24 @@ npm run build
 npm run lint:fix
 ```
 
+<!-- DATABASE -->
+
+## Database
+
+If you have Docker installed, you can create a database with the following command:
+
+```
+./start-database.sh
+```
+
+```
+npm run db:migrate
+```
+
 <!-- ROADMAP -->
 
 ## Roadmap
+
 Currently working on some improvements after initial release.
 
 Check out the [milestone](https://github.com/schroedinger-Hat/schroedinger-hat-website/milestones) and the the [open issues](https://github.com/schroedinger-Hat/schroedinger-hat-website/issues) if you would like to contribute.
