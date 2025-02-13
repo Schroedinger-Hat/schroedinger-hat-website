@@ -107,7 +107,12 @@ export default async function Home() {
         />
       </SectionContainer>
 
-      <SectionContainer withBackground size="wide" spacing="medium" className="flex flex-col items-center justify-center">
+      <SectionContainer
+        withBackground
+        size="wide"
+        spacing="medium"
+        className="flex flex-col items-center justify-center"
+      >
         <Heading level={2}>You may know us for</Heading>
         <ImageContent
           title="OSDay"
@@ -163,7 +168,7 @@ export default async function Home() {
       <SectionContainer size="wide" className="flex flex-col items-center justify-center">
         <LogoGallery
           className="py-24"
-          title="Community Partners"
+          title="Our Partners"
           blackAndWhite={true}
           logos={partners
             .filter(
