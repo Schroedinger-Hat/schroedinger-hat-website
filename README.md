@@ -16,9 +16,6 @@
   </a>
 
   <p align="center">
-    <!-- <br />
-    <a href="https://github.com/schroedinger-Hat/schroedinger-hat-website/wiki"><strong>Explore the docs »</strong></a>
-    <br /> -->
     <br />
     <a href="https://github.com/schroedinger-Hat/schroedinger-hat-website">Visit repository</a>
     ·
