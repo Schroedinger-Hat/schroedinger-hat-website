@@ -171,26 +171,8 @@ export default async function Home() {
 
       <SectionContainer size="wide" className="flex flex-col items-center justify-center">
         <LogoGallery
-          className="py-24"
-          title="Our Supporters"
-          blackAndWhite={true}
-          logos={supporters
-            .filter(
-              (
-                partner,
-              ): partner is Partner & {
-                image: NonNullable<Partner["image"]>
-              } => partner.image !== undefined && partner.image !== null,
-            )
-            .map((partner) => ({
-              src: urlFor(partner.image).height(150).url(),
-              alt: partner.description ?? "Supporter logo",
-            }))}
-        />
-
-        <LogoGallery
-          className="py-24"
-          title="Our Partners"
+          className="py-8 pb-24 md:py-16"
+          title="We partner with"
           blackAndWhite={true}
           logos={partners
             .filter(
@@ -203,6 +185,24 @@ export default async function Home() {
             .map((partner) => ({
               src: urlFor(partner.image).height(150).url(),
               alt: partner.description ?? "Partner logo",
+            }))}
+        />
+
+        <LogoGallery
+          className="pb-16 md:pb-24"
+          title="Our supporters"
+          blackAndWhite={true}
+          logos={supporters
+            .filter(
+              (
+                partner,
+              ): partner is Partner & {
+                image: NonNullable<Partner["image"]>
+              } => partner.image !== undefined && partner.image !== null,
+            )
+            .map((partner) => ({
+              src: urlFor(partner.image).height(150).url(),
+              alt: partner.description ?? "Supporter logo",
             }))}
         />
 
