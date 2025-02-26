@@ -12,6 +12,10 @@ const getBaseUrl = () => {
 
   const port = process.env.PORT ?? 3000
 
+  if (env.VERCEL_PROJECT_PRODUCTION_URL) {
+    return env.VERCEL_PROJECT_PRODUCTION_URL.includes("localhost") ? `http://localhost:${port}` : `https://${env.VERCEL_PROJECT_PRODUCTION_URL}`
+  }
+
   if (env.VERCEL_URL) {
     return env.VERCEL_URL.includes("localhost") ? `http://localhost:${port}` : `https://${env.VERCEL_URL}`
   }
