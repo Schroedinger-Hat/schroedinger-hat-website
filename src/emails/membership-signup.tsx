@@ -1,3 +1,4 @@
+import { BASE_URL } from "@/lib/utils/withFullUrl"
 import {
   Body,
   Column,
@@ -23,7 +24,6 @@ interface MembershipSignupEmailProps {
   firstName: string
 }
 
-const baseUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : ""
 const steps = [
   {
     id: 2,
@@ -71,7 +71,7 @@ export function MembershipSignupEmail({ firstName }: MembershipSignupEmailProps)
       >
         <Body className="bg-offwhite font-sans text-base">
           <Img
-            src={`${baseUrl}/static/logo.png`}
+            src={`${BASE_URL}/email-assets/logo.png`}
             width="64"
             height="64"
             alt="Schroedinger Hat Logo"

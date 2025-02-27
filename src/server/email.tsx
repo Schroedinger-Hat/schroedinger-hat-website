@@ -28,7 +28,7 @@ interface EmailPayload {
 }
 
 async function sendEmail(payload: EmailPayload) {
-  const { from = "hello@schroedinger-hat.org", to, subject, html } = payload
+  const { from = "Schrödinger Hat <hello@schroedinger-hat.org>", to, subject, html } = payload
 
   if (!resendIsConfigured()) {
     console.log("RESEND_API_KEY not set. Email would have been sent with the following details:")
@@ -67,7 +67,7 @@ export async function sendMembershipSignupEmail(firstName: string, email: string
 
   return sendEmail({
     to: email,
-    subject: "Welcome to Schrödinger Hat!",
+    subject: `Welcome to Schrödinger Hat, ${firstName}!`,
     html: emailHtml,
   })
 }
