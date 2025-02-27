@@ -5,6 +5,20 @@ import { BASE_URL } from "../lib/utils/withFullUrl"
 
 const STATIC_LAST_MODIFIED = new Date("2024-12-01")
 
+/**
+ * Encodes special characters in URLs for XML compatibility
+ * Used to ensure sitemap URLs are properly escaped
+ */
+function encodeXMLUrl(url: string): string {
+  return url
+    .replace(/&/g, "&amp;")
+    .replace(/'/g, "&apos;")
+    .replace(/"/g, "&quot;")
+    .replace(/>/g, "&gt;")
+    .replace(/</g, "&lt;")
+}
+
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Core website pages
   const mainRoutes = [
@@ -13,56 +27,56 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     */
     // Home page
     {
-      url: BASE_URL,
+      url: encodeXMLUrl(BASE_URL),
       lastModified: STATIC_LAST_MODIFIED,
     },
     // Association pages
     {
-      url: `${BASE_URL}/association/about-us`,
+      url: encodeXMLUrl(`${BASE_URL}/association/about-us`),
       lastModified: STATIC_LAST_MODIFIED,
     },
     {
-      url: `${BASE_URL}/association/join`,
+      url: encodeXMLUrl(`${BASE_URL}/association/join`),
       lastModified: STATIC_LAST_MODIFIED,
     },
     {
-      url: `${BASE_URL}/association/press-kit`,
+      url: encodeXMLUrl(`${BASE_URL}/association/press-kit`),
       lastModified: STATIC_LAST_MODIFIED,
     },
     // Contribute pages
     {
-      url: `${BASE_URL}/contribute/as-individual`,
+      url: encodeXMLUrl(`${BASE_URL}/contribute/as-individual`),
       lastModified: STATIC_LAST_MODIFIED,
     },
     {
-      url: `${BASE_URL}/contribute/as-partner`,
+      url: encodeXMLUrl(`${BASE_URL}/contribute/as-partner`),
       lastModified: STATIC_LAST_MODIFIED,
     },
     {
-      url: `${BASE_URL}/contribute/as-speaker`,
+      url: encodeXMLUrl(`${BASE_URL}/contribute/as-speaker`),
       lastModified: STATIC_LAST_MODIFIED,
     },
     {
-      url: `${BASE_URL}/contribute/as-sponsor`,
+      url: encodeXMLUrl(`${BASE_URL}/contribute/as-sponsor`),
       lastModified: STATIC_LAST_MODIFIED,
     },
     // Partecipate section
     {
-      url: `${BASE_URL}/partecipate/local-communities`,
+      url: encodeXMLUrl(`${BASE_URL}/partecipate/local-communities`),
       lastModified: STATIC_LAST_MODIFIED,
     },
     {
-      url: `${BASE_URL}/partecipate/projects`,
+      url: encodeXMLUrl(`${BASE_URL}/partecipate/projects`),
       lastModified: STATIC_LAST_MODIFIED,
     },
     // Speakers section
     {
-      url: `${BASE_URL}/speakers`,
+      url: encodeXMLUrl(`${BASE_URL}/speakers`),
       lastModified: STATIC_LAST_MODIFIED,
     },
     // Watch section
     {
-      url: `${BASE_URL}/watch`,
+      url: encodeXMLUrl(`${BASE_URL}/watch`),
       lastModified: STATIC_LAST_MODIFIED,
     },
   ]
@@ -124,49 +138,49 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // Map generic CMS pages
   const pageRoutes = pages.map((page) => ({
-    url: `${BASE_URL}/page/${page.slug.current}`,
+    url: encodeXMLUrl(`${BASE_URL}/page/${page.slug.current}`),
     lastModified: new Date(page._updatedAt),
     ...(page.headerImage?.asset && {
-      images: [urlFor(page.headerImage.asset).format("jpg").width(800).height(450).url()],
+      images: [encodeXMLUrl(urlFor(page.headerImage.asset).format("jpg").width(800).height(450).url())],
     }),
   }))
 
   // Map blog posts
   const blogRoutes = blogPosts.map((post) => ({
-    url: `${BASE_URL}/blog/${post.slug.current}`,
+    url: encodeXMLUrl(`${BASE_URL}/blog/${post.slug.current}`),
     lastModified: new Date(post._updatedAt),
     ...(post.headerImage?.asset && {
-      images: [urlFor(post.headerImage.asset).format("jpg").width(800).height(450).url()],
+      images: [encodeXMLUrl(urlFor(post.headerImage.asset).format("jpg").width(800).height(450).url())],
     }),
   }))
 
   // Map speaker profiles
   const speakerRoutes = speakers.map((speaker) => ({
-    url: `${BASE_URL}/speaker/${speaker.slug.current}`,
+    url: encodeXMLUrl(`${BASE_URL}/speaker/${speaker.slug.current}`),
     lastModified: new Date(speaker._updatedAt),
     ...(speaker.photo?.asset && {
-      images: [urlFor(speaker.photo.asset).format("jpg").width(800).height(450).url()],
+      images: [encodeXMLUrl(urlFor(speaker.photo.asset).format("jpg").width(800).height(450).url())],
     }),
   }))
 
   // Map events
   const eventRoutes = events.map((event) => ({
-    url: `${BASE_URL}/partecipate/events/${event.slug.current}`,
+    url: encodeXMLUrl(`${BASE_URL}/partecipate/events/${event.slug.current}`),
     lastModified: new Date(event._updatedAt),
     ...((event.cover?.asset || event.background?.asset) && {
       images: [
-        urlFor(event.cover?.asset || event.background?.asset)
+        encodeXMLUrl(urlFor(event.cover?.asset || event.background?.asset)
           .format("jpg")
           .width(800)
           .height(450)
-          .url(),
+          .url()),
       ],
     }),
   }))
 
   // Map videos
   const videoRoutes = videos.map((video) => ({
-    url: `${BASE_URL}/watch/${video.slug.current}`,
+    url: encodeXMLUrl(`${BASE_URL}/watch/${video.slug.current}`),
     lastModified: new Date(video._updatedAt),
   }))
 
