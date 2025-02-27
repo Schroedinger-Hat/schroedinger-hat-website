@@ -37,4 +37,11 @@ export const config: CustomProjectConfig = {
 
   lostPixelProjectId: "cm4xebtf70p3a49r7n8buzwah",
   apiKey: process.env.LOST_PIXEL_API_KEY,
+
+  beforeScreenshot: async (page) => {
+    await page.waitForSelector("body")
+    await page.waitForTimeout(100)
+    await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight))
+    await page.waitForTimeout(1000)
+  },
 }
