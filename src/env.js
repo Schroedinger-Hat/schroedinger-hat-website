@@ -22,12 +22,17 @@ export const env = createEnv({
       .min(1)
       .optional()
       .refine(isRequiredInProduction, "STRIPE_SECRET_KEY is required in production"),
+    STRIPE_WEBHOOK_SECRET: z
+      .string()
+      .min(1)
+      .optional()
+      .refine(isRequiredInProduction, "STRIPE_WEBHOOK_SECRET is required in production"),
     STRIPE_MEMBERSHIP_PRICE_ID: z.string().min(1),
+    RESEND_API_KEY: z.string().min(1).optional(),
     VERCEL_URL: z.string().optional(),
     VERCEL_PROJECT_PRODUCTION_URL: z.string().optional(),
     DATABASE_URL: z.string().url(),
     CRON_SECRET: z.string().min(1),
-    POSTMARK_API_KEY: z.string().min(1).optional(),
   },
 
   /**
@@ -52,7 +57,9 @@ export const env = createEnv({
     NODE_ENV: process.env.NODE_ENV,
     VERCEL_ENV: process.env.VERCEL_ENV,
     STRIPE_SECRET_KEY: process.env.STRIPE_SECRET_KEY,
+    STRIPE_WEBHOOK_SECRET: process.env.STRIPE_WEBHOOK_SECRET,
     STRIPE_MEMBERSHIP_PRICE_ID: process.env.STRIPE_MEMBERSHIP_PRICE_ID,
+    RESEND_API_KEY: process.env.RESEND_API_KEY,
     NEXT_PUBLIC_SANITY_PROJECT_ID: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
     NEXT_PUBLIC_SANITY_DATASET: process.env.NEXT_PUBLIC_SANITY_DATASET,
     NEXT_PUBLIC_GOOGLE_MAPS_API_KEY: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
@@ -62,7 +69,6 @@ export const env = createEnv({
     VERCEL_PROJECT_PRODUCTION_URL: process.env.VERCEL_PROJECT_PRODUCTION_URL,
     DATABASE_URL: process.env.DATABASE_URL,
     CRON_SECRET: process.env.CRON_SECRET,
-    POSTMARK_API_KEY: process.env.POSTMARK_API_KEY,
   },
 
   skipValidation: !!process.env.SKIP_ENV_VALIDATION,

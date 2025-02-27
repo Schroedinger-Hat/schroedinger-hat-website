@@ -28,14 +28,13 @@ export const config: CustomProjectConfig = {
       },
     ],
     // IP should be localhost when running locally & 172.17.0.1 when running in GitHub action
-
-    baseUrl: "http://10.45.3.180:3000",
+    baseUrl: "http://172.17.0.1:3000",
     breakpoints: [375, 414, 768, 1024, 1280, 1440, 1920, 2560],
   },
   // OSS mode
   generateOnly: false,
   failOnDifference: true,
 
-  // lostPixelProjectId: "cm4xebtf70p3a49r7n8buzwah",
-  // apiKey: process.env.LOST_PIXEL_API_KEY,
+  lostPixelProjectId: "cm4xebtf70p3a49r7n8buzwah",
+  apiKey: process.env.LOST_PIXEL_API_KEY,
 }

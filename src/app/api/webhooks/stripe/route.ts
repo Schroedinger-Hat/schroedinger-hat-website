@@ -2,7 +2,8 @@ import { getStripe, isStripeAvailable } from "@/lib/stripe"
 import { headers } from "next/headers"
 import type { Stripe } from "stripe"
 import { db } from "@/server/db"
-import { sendMembershipSignupEmail } from "@/server/postmark"
+import { sendMembershipSignupEmail } from "@/server/email"
+import { env } from "@/env"
 
 export async function POST(req: Request) {
   if (!isStripeAvailable()) {
@@ -17,7 +18,7 @@ export async function POST(req: Request) {
   let event: Stripe.Event
 
   try {
-    event = stripe.webhooks.constructEvent(body, signature, process.env.STRIPE_WEBHOOK_SECRET ?? "")
+    event = stripe.webhooks.constructEvent(body, signature, env.STRIPE_WEBHOOK_SECRET ?? "")
   } catch (err) {
     const error = err as Error
     console.error(`Webhook signature verification failed: ${error.message}`)
