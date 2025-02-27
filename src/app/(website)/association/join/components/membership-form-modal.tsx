@@ -19,6 +19,7 @@ import { Checkbox } from "@/components/ui/checkbox"
 import { type RouterOutputs, api } from "@/trpc/react"
 import { Typography } from "@/components/atoms/typography/Typography"
 import { Heading } from "@/components/atoms/typography/Heading"
+import { Link } from "@/components/atoms/links/Link"
 
 interface FieldProps {
   field: {
@@ -182,7 +183,7 @@ export function MembershipFormModal() {
                       <Checkbox checked={field.value} onCheckedChange={field.onChange} />
                     </FormControl>
                     <div className="space-y-1 leading-none">
-                      <FormLabel>I have read and accept terms and conditions</FormLabel>
+                      <FormLabel>I have read and accept <Link href="/page/statute">the Statute</Link></FormLabel>
                     </div>
                   </FormItem>
                   <FormMessage className="text-xs" />
