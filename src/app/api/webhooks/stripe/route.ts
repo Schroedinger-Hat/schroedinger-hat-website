@@ -110,7 +110,7 @@ async function handleSubscriptionDeleted(subscription: Stripe.Subscription) {
   await db.member.update({
     where: { stripeCustomerId: customer },
     data: {
-      status: "PENDING",
+      status: "REJECTED",
       stripeSubscriptionId: null,
     },
   })
