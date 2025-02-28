@@ -36,9 +36,6 @@ export async function POST(req: Request) {
       case "customer.subscription.deleted":
         await handleSubscriptionDeleted(event.data.object)
         break
-      case "checkout.session.completed":
-        await handleCheckoutCompleted(event.data.object)
-        break
       default:
         console.log(`Unhandled event type: ${event.type}`)
     }
@@ -52,56 +49,57 @@ export async function POST(req: Request) {
 }
 
 async function handleSubscriptionCreated(subscription: Stripe.Subscription) {
-  const { customer, metadata } = subscription
+  const { customer } = subscription
   if (typeof customer !== "string") return
 
-  // If this subscription should have its billing cycle updated
-  if (metadata?.shouldUpdateBillingCycle === "true" && metadata.nextBillingDate) {
-    const nextBillingDate = parseInt(metadata.nextBillingDate)
-
-    try {
-      const stripe = getStripe()
-      await stripe.subscriptions.update(subscription.id, {
-        proration_behavior: "none",
-        billing_cycle_anchor:
-          nextBillingDate as unknown as Stripe.SubscriptionUpdateParams.BillingCycleAnchor,
-      })
-    } catch (error) {
-      console.error("Failed to update subscription billing cycle:", error)
-    }
-  }
-
   // Get the member to access their email and name
-  const member = await db.member.update({
+  await db.member.update({
     where: { stripeCustomerId: customer },
     data: {
       stripeSubscriptionId: subscription.id,
-      status: "COMPLETED",
+      status: "PENDING",
     },
   })
-
-  // Send welcome email
-  if (member.email) {
-    try {
-      await sendMembershipSignupEmail(member.name ?? "", member.email)
-    } catch (error) {
-      console.error("Failed to send welcome email:", error)
-      // Don't throw error to avoid failing the webhook
-    }
-  }
 }
 
 async function handleSubscriptionUpdated(subscription: Stripe.Subscription) {
-  const { customer, status } = subscription
+  const { customer, status, metadata } = subscription
   if (typeof customer !== "string") return
 
   // Update member status based on subscription status
-  await db.member.update({
+  const member = await db.member.update({
     where: { stripeCustomerId: customer },
     data: {
       status: status === "active" ? "COMPLETED" : "PENDING",
     },
   })
+
+  if (status === "active") {
+    // Send welcome email
+    if (member.email) {
+      try {
+        await sendMembershipSignupEmail(member.name ?? "", member.email)
+      } catch (error) {
+        console.error("Failed to send welcome email:", error)
+      }
+    }
+
+    // If this subscription should have its billing cycle updated
+    if (metadata?.shouldUpdateBillingCycle === "true" && metadata.nextBillingDate) {
+      const nextBillingDate = parseInt(metadata.nextBillingDate)
+
+      try {
+        const stripe = getStripe()
+        await stripe.subscriptions.update(subscription.id, {
+          proration_behavior: "none",
+          billing_cycle_anchor:
+            nextBillingDate as unknown as Stripe.SubscriptionUpdateParams.BillingCycleAnchor,
+        })
+      } catch (error) {
+        console.error("Failed to update subscription billing cycle:", error)
+      }
+    }
+  }
 }
 
 async function handleSubscriptionDeleted(subscription: Stripe.Subscription) {
@@ -112,24 +110,8 @@ async function handleSubscriptionDeleted(subscription: Stripe.Subscription) {
   await db.member.update({
     where: { stripeCustomerId: customer },
     data: {
-      status: "PENDING",
+      status: "REJECTED",
       stripeSubscriptionId: null,
-    },
-  })
-}
-
-async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
-  if (session.mode !== "subscription") return
-
-  const { customer, metadata } = session
-  if (!metadata?.memberId || typeof customer !== "string") return
-
-  // Update member with subscription details
-  await db.member.update({
-    where: { id: metadata.memberId },
-    data: {
-      stripeCustomerId: customer,
-      status: "COMPLETED",
     },
   })
 }
