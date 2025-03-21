@@ -2,7 +2,7 @@ import { Calendar03Icon } from "hugeicons-react"
 import { UserLove01Icon } from "hugeicons-react"
 
 //* Participate Menu Data
-export const partecipateMenuData = [
+export const participateMenuData = [
   {
     title: "Events",
     href: "/participate/events",
