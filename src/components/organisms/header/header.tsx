@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/navigation-menu"
 import { Image } from "../../atoms/media/Image"
 import { Button } from "../../molecules/button"
-import { partecipateMenuData, contributeMenuData, associationMenuData } from "./data"
+import { participateMenuData, contributeMenuData, associationMenuData } from "./data"
 import { HighlightSubMenu, ListItem } from "./highlight-submenu"
 import { Typography } from "@/components/atoms/typography/Typography"
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, SheetClose } from "@/components/ui/sheet"
@@ -94,7 +94,7 @@ export function Header() {
                     </AccordionTrigger>
                     <AccordionContent className="border-none">
                       <div className="flex flex-col gap-2">
-                        {partecipateMenuData.map((item) => (
+                        {participateMenuData.map((item) => (
                           <SheetClose key={item.title} asChild>
                             <Link
                               href={item.href}
@@ -182,11 +182,11 @@ export function Header() {
             <NavigationMenuItem>
               <NavigationMenuTrigger>
                 <Typography as="span" variant="navigation">
-                  Partecipate
+                  Participate
                 </Typography>
               </NavigationMenuTrigger>
               <NavigationMenuContent>
-                <HighlightSubMenu data={partecipateMenuData} />
+                <HighlightSubMenu data={participateMenuData} />
               </NavigationMenuContent>
             </NavigationMenuItem>
 

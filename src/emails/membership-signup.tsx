@@ -99,7 +99,7 @@ export function MembershipSignupEmail({ firstName }: MembershipSignupEmailProps)
                 <Text className="text-base font-bold">In the Meantime</Text>
                 <Text className="text-base">
                   Feel free to explore our{" "}
-                  <Link href="https://schroedinger-hat.org/partecipate/events">events and activities</Link> or
+                  <Link href="https://schroedinger-hat.org/participate/events">events and activities</Link> or
                   visit our <Link href="https://shop.schroedinger-hat.org">store</Link> to get inspired by
                   what’s in store (pun intended) for our members.
                   <br />
