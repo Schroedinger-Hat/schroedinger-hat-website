@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { Youtube, Twitter, Linkedin } from "lucide-react"
+import { Youtube, Github, Linkedin } from "lucide-react"
 import { inDevEnvironment } from "@/app/consts"
 import { Heading } from "@/components/atoms/typography/Heading"
 import { Paragraph } from "@/components/atoms/typography/Paragraph"
@@ -63,6 +63,7 @@ export function Footer() {
                 <Link
                   href="https://www.linkedin.com/company/schroedinger-hat/"
                   className="text-muted-foreground hover:text-foreground"
+                  target="_blank"
                 >
                   <Linkedin className="h-5 w-5" />
                   <span className="sr-only">Linkedin</span>
@@ -70,9 +71,18 @@ export function Footer() {
                 <Link
                   href="https://www.youtube.com/c/schrodingerhat"
                   className="text-muted-foreground hover:text-foreground"
+                  target="_blank"
                 >
                   <Youtube className="h-5 w-5" />
                   <span className="sr-only">YouTube</span>
+                </Link>
+                <Link
+                  href="https://github.com/Schroedinger-Hat"
+                  className="text-muted-foreground hover:text-foreground"
+                  target="_blank"
+                >
+                  <Github className="h-5 w-5" />
+                  <span className="sr-only">GitHub</span>
                 </Link>
               </div>
             </div>
