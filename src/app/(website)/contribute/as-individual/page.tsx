@@ -134,7 +134,7 @@ export default function ContributeIndividualPage() {
               <Typography className="mb-8 text-white">
                 Work on issues and features on our projects.
               </Typography>
-              <Link href="/partecipate/projects">
+              <Link href="/participate/projects">
                 <Typography variant="link" className="text-white">
                   View active projects
                   <ArrowRightIcon className="ml-1 inline h-5 w-5" />

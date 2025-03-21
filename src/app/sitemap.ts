@@ -60,13 +60,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: encodeXMLUrl(`${BASE_URL}/contribute/as-sponsor`),
       lastModified: STATIC_LAST_MODIFIED,
     },
-    // Partecipate section
+    // Participate section
     {
-      url: encodeXMLUrl(`${BASE_URL}/partecipate/local-communities`),
+      url: encodeXMLUrl(`${BASE_URL}/participate/local-communities`),
       lastModified: STATIC_LAST_MODIFIED,
     },
     {
-      url: encodeXMLUrl(`${BASE_URL}/partecipate/projects`),
+      url: encodeXMLUrl(`${BASE_URL}/participate/projects`),
       lastModified: STATIC_LAST_MODIFIED,
     },
     // Speakers section
@@ -165,7 +165,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // Map events
   const eventRoutes = events.map((event) => ({
-    url: encodeXMLUrl(`${BASE_URL}/partecipate/events/${event.slug.current}`),
+    url: encodeXMLUrl(`${BASE_URL}/participate/events/${event.slug.current}`),
     lastModified: new Date(event._updatedAt),
     ...((event.cover?.asset || event.background?.asset) && {
       images: [

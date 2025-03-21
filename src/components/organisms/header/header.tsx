@@ -182,7 +182,7 @@ export function Header() {
             <NavigationMenuItem>
               <NavigationMenuTrigger>
                 <Typography as="span" variant="navigation">
-                  Partecipate
+                  Participate
                 </Typography>
               </NavigationMenuTrigger>
               <NavigationMenuContent>
