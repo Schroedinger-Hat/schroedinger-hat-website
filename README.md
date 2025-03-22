@@ -115,13 +115,13 @@ npm run db:migrate
 
 Currently working on some improvements after initial release.
 
-Check out the [milestone](https://github.com/schroedinger-Hat/schroedinger-hat-website/milestones) and the the [open issues](https://github.com/schroedinger-Hat/schroedinger-hat-website/issues) if you would like to contribute.
+Check out the [milestone](https://github.com/schroedinger-Hat/schroedinger-hat-website/milestones) and the [open issues](https://github.com/schroedinger-Hat/schroedinger-hat-website/issues) if you would like to contribute.
 
 <!-- CONTRIBUTING -->
 
 ## Contributing
 
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+Contributions are what makes the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
 If you have a suggestion that would make this repository better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
 Don't forget to give the project a star! Thanks again!
