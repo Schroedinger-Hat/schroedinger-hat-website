@@ -50,3 +50,9 @@ yarn-error.log*
 
 # history VSC plugin
 .history
+
+# sanity
+.sanity
+
+# dist
+dist/ 
