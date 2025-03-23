@@ -2,7 +2,7 @@
 ☝️ PR title should follow conventional commits (https://conventionalcommits.org)
 
 Please carefully read the code of conduct before creating a pull request
- 👉 https://schroedinger-hat.org/code-of-conduct
+ 👉 https://schroedinger-hat.org/page/code-of-conduct
 -->
 
 ### 🔗 Linked issue
