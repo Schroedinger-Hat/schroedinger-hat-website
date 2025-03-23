@@ -135,8 +135,8 @@ Don't forget to give the project a star! Thanks again!
 ## Contact
 
 - Team - [Organization repo](https://github.com/orgs/schroedinger-Hat/people)
-- LinkedIn - [Schrödinger Hat](https://www.linkedin.com/company/schroedinger-hat/mycompany/)
-- Twitter - [@schrodinger_hat](https://twitter.com/schrodinger_hat)
+- LinkedIn - [Schrödinger Hat](https://www.linkedin.com/company/schroedinger-hat/)
+- X/Twitter- [@schrodinger_hat](https://x.com/schrodinger_hat)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
