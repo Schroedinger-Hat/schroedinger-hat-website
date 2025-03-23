@@ -12,7 +12,7 @@
   <h1>Schrödinger's Hat Website</h1>
 
   <a href="https://schroedinger-hat.org/">
-    <img src="src/assets/sh-logo-small.png" alt="Logo" width="80" height="80">
+    <img src="src/assets/logos/sh-logo-new.svg" alt="Logo" width="80" height="80">
   </a>
 
   <p align="center">
