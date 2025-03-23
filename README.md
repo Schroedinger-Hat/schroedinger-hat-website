@@ -12,7 +12,7 @@
   <h1>Schrödinger's Hat Website</h1>
 
   <a href="https://schroedinger-hat.org/">
-    <img src="src/assets/sh-logo-small.png" alt="Logo" width="80" height="80">
+    <img src="src/assets/logos/sh-logo-new.png" alt="Logo" width="180" height="180">
   </a>
 
   <p align="center">
@@ -135,8 +135,8 @@ Don't forget to give the project a star! Thanks again!
 ## Contact
 
 - Team - [Organization repo](https://github.com/orgs/schroedinger-Hat/people)
-- LinkedIn - [Schrödinger Hat](https://www.linkedin.com/company/schroedinger-hat/mycompany/)
-- Twitter - [@schrodinger_hat](https://twitter.com/schrodinger_hat)
+- LinkedIn - [Schrödinger Hat](https://www.linkedin.com/company/schroedinger-hat/)
+- X/Twitter- [@schrodinger_hat](https://x.com/schrodinger_hat)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
