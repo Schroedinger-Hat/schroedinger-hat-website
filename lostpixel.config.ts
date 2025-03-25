@@ -5,9 +5,9 @@ export const config: CustomProjectConfig = {
     pages: [
       { path: "/", name: "homepage" },
       { path: "/watch", name: "watch" },
-      { path: "/partecipate/events", name: "partecipate-events" },
-      { path: "/partecipate/projects", name: "partecipate-projects" },
-      { path: "/partecipate/local-communities", name: "partecipate-local-communities" },
+      { path: "/participate/events", name: "participate-events" },
+      { path: "/participate/projects", name: "participate-projects" },
+      { path: "/participate/local-communities", name: "participate-local-communities" },
       { path: "/contribute/as-individual", name: "contribute--as-individual" },
       { path: "/contribute/as-speaker", name: "contribute--as-speaker" },
       { path: "/contribute/as-partner", name: "contribute--as-partner" },
@@ -21,10 +21,10 @@ export const config: CustomProjectConfig = {
       },
       { path: "/speaker/costa-tsaousis", name: "speaker--costa-tsaousis" },
 
-      { path: "/partecipate/events/open-source-day-2024", name: "partecipate--events--open-source-day-2024" },
+      { path: "/participate/events/open-source-day-2024", name: "participate--events--open-source-day-2024" },
       {
-        path: "/partecipate/events/sh-session-dev-devrel-nel-2024",
-        name: "partecipate--events--sh-session-dev-devrel-nel-2024",
+        path: "/participate/events/sh-session-dev-devrel-nel-2024",
+        name: "participate--events--sh-session-dev-devrel-nel-2024",
       },
     ],
     // IP should be localhost when running locally & 172.17.0.1 when running in GitHub action

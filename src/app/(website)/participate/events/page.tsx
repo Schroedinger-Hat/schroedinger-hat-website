@@ -57,7 +57,7 @@ export default async function EventsPage() {
             <Heading level={2} className="mb-6">
               Featured
             </Heading>
-            <Link href={`/partecipate/events/${featuredEvent.slug!.current}`} className="hover:no-underline">
+            <Link href={`/participate/events/${featuredEvent.slug!.current}`} className="hover:no-underline">
               <AnimatedSection>
                 <FeaturedEventCard event={featuredEvent} />
               </AnimatedSection>
@@ -73,7 +73,7 @@ export default async function EventsPage() {
             <div className="mb-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {otherUpcomingEvents.map((event) => (
                 <Link
-                  href={`/partecipate/events/${event.slug!.current}`}
+                  href={`/participate/events/${event.slug!.current}`}
                   key={event._id}
                   className="hover:no-underline"
                 >
@@ -92,7 +92,7 @@ export default async function EventsPage() {
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {pastEvents.map((event, index) => (
                 <Link
-                  href={`/partecipate/events/${event.slug!.current}`}
+                  href={`/participate/events/${event.slug!.current}`}
                   key={event._id}
                   className="hover:no-underline"
                 >

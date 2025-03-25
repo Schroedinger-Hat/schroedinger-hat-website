@@ -1,22 +1,22 @@
 import { Calendar03Icon } from "hugeicons-react"
 import { UserLove01Icon } from "hugeicons-react"
 
-//* Partecipate Menu Data
-export const partecipateMenuData = [
+//* Participate Menu Data
+export const participateMenuData = [
   {
     title: "Events",
-    href: "/partecipate/events",
+    href: "/participate/events",
     description: "Discover upcoming events and opportunities to connect.",
     icon: <Calendar03Icon className="h-20 w-20 opacity-70" />,
   },
   {
     title: "Projects",
-    href: "/partecipate/projects",
+    href: "/participate/projects",
     description: "Collaborate on impactful open-source projects.",
   },
   {
     title: "Local Communities",
-    href: "/partecipate/local-communities",
+    href: "/participate/local-communities",
     description: "Connect with thriving local tech communities near you.",
   },
   {
