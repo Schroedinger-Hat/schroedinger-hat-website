@@ -14,8 +14,9 @@ model Member {
     id            String   @id @default(cuid())
     name          String
     surname       String
-    email         String
-    codiceFiscale String   @unique
+    email         String    @unique
+    codiceFiscale String?   @unique
+    nationality   String
     status        String   @default("PENDING") // PENDING, COMPLETED, REJECTED
     stripeCustomerId String?   @unique
     stripeSubscriptionId String?
