@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
+import { useForm, type ControllerRenderProps } from "react-hook-form"
 import { z } from "zod"
 import { Button } from "@/components/molecules/button"
 import {
@@ -18,8 +18,8 @@ import { Input } from "@/components/ui/input"
 import { Checkbox } from "@/components/ui/checkbox"
 import { type RouterOutputs, api } from "@/trpc/react"
 import { Typography } from "@/components/atoms/typography/Typography"
-import { Heading } from "@/components/atoms/typography/Heading"
 import { Link } from "@/components/atoms/links/Link"
+import { Select } from "@/components/ui/select"
 
 interface FieldProps {
   field: {
@@ -47,14 +47,32 @@ const formSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
   surname: z.string().min(2, "Surname must be at least 2 characters"),
   email: z.string().email("Invalid email address"),
-  codiceFiscale: z
-    .string()
-    .length(16, "Codice Fiscale must be 16 characters")
-    .regex(/^[A-Z0-9]+$/, "Codice Fiscale must contain only uppercase letters and numbers"),
+  nationality: z.string().min(2, "Nationality is required"),
+  codiceFiscale: z.string().optional(),
   acceptTerms: z.boolean().refine((val) => val === true, {
     message: "This is required",
   }),
-})
+}).refine(
+  (data) => {
+    const isItalian = data.nationality.toLowerCase() === "it"
+    if (isItalian) {
+      if (!data.codiceFiscale) {
+        return false
+      }
+      if (data.codiceFiscale.length !== 16) {
+        return false
+      }
+      if (!/^[A-Z0-9]+$/.test(data.codiceFiscale)) {
+        return false
+      }
+    }
+    return true
+  },
+  {
+    message: "Codice Fiscale is required for Italian citizens and must be 16 uppercase letters and numbers",
+    path: ["codiceFiscale"],
+  }
+)
 
 type FormValues = z.infer<typeof formSchema>
 
@@ -78,6 +96,7 @@ export function MembershipFormModal() {
       surname: "",
       email: "",
       codiceFiscale: "",
+      nationality: "",
       acceptTerms: false,
     },
   })
@@ -88,6 +107,7 @@ export function MembershipFormModal() {
       surname: data.surname,
       email: data.email,
       codiceFiscale: data.codiceFiscale,
+      nationality: data.nationality,
     })
   }
 
@@ -156,23 +176,45 @@ export function MembershipFormModal() {
             />
             <FormField
               control={form.control}
-              name="codiceFiscale"
+              name="nationality"
               render={({ field }: { field: FieldProps["field"] }) => (
                 <FormItem>
                   <FormLabel>
-                    <Typography variant="medium">Codice Fiscale</Typography>
+                    <Typography variant="medium">Nationality</Typography>
                   </FormLabel>
                   <FormControl>
-                    <Input
-                      {...field}
-                      placeholder="ABCDEF12G34H567I"
-                      onChange={(e) => field.onChange(e.target.value.toUpperCase())}
-                    />
+                    <Select {...field}>
+                      <option value="">Select your nationality</option>
+                      <option value="IT">Italian</option>
+                      <option value="Other">Other</option>
+                    </Select>
                   </FormControl>
                   <FormMessage className="text-xs" />
                 </FormItem>
               )}
             />
+            {form.watch("nationality") === "IT" && (
+              <FormField
+                control={form.control}
+                name="codiceFiscale"
+                render={({ field }: { field: ControllerRenderProps<FormValues, "codiceFiscale"> }) => (
+                  <FormItem>
+                    <FormLabel>
+                      <Typography variant="medium">Codice Fiscale</Typography>
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                        {...field}
+                        value={field.value ?? ""}
+                        placeholder="ABCDEF12G34H567I"
+                        onChange={(e) => field.onChange(e.target.value.toUpperCase())}
+                      />
+                    </FormControl>
+                    <FormMessage className="text-xs" />
+                  </FormItem>
+                )}
+              />
+            )}
             <FormField
               control={form.control}
               name="acceptTerms"
