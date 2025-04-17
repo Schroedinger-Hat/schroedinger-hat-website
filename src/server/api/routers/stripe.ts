@@ -31,7 +31,9 @@ const membershipFormSchema = z.object({
   codiceFiscale: z
     .string()
     .length(16)
-    .regex(/^[A-Z0-9]+$/),
+    .regex(/^[A-Z0-9]+$/)
+    .optional(),
+  nationality: z.string().min(2),
 })
 
 // Add this type
@@ -68,7 +70,7 @@ export const stripeRouter = createTRPCRouter({
         // Check for existing completed membership
         const existingMember = await ctx.db.member.findFirst({
           where: {
-            codiceFiscale: input.codiceFiscale,
+            email: input.email,
             status: "COMPLETED",
           },
         })
@@ -83,18 +85,20 @@ export const stripeRouter = createTRPCRouter({
         // Find or create pending member
         const member = await ctx.db.member.upsert({
           where: {
-            codiceFiscale: input.codiceFiscale,
+            email: input.email,
           },
           update: {
             name: input.name,
             surname: input.surname,
             email: input.email,
+            nationality: input.nationality,
           },
           create: {
             name: input.name,
             surname: input.surname,
             email: input.email,
             codiceFiscale: input.codiceFiscale,
+            nationality: input.nationality,
           },
         })
 
@@ -107,7 +111,7 @@ export const stripeRouter = createTRPCRouter({
             email: input.email,
             name: `${input.name} ${input.surname}`,
             metadata: {
-              codiceFiscale: input.codiceFiscale,
+              codiceFiscale: input.codiceFiscale ?? "",
               memberId: member.id,
             },
           })
@@ -145,7 +149,7 @@ export const stripeRouter = createTRPCRouter({
           },
           metadata: {
             memberId: member.id,
-            codiceFiscale: input.codiceFiscale,
+            codiceFiscale: input.codiceFiscale ?? "",
           },
         })
 
