@@ -15,7 +15,7 @@ model Member {
     name          String
     surname       String
     email         String    @unique
-    codiceFiscale String?   @unique
+    codiceFiscale String?
     nationality   String
     status        String   @default("PENDING") // PENDING, COMPLETED, REJECTED
     stripeCustomerId String?   @unique

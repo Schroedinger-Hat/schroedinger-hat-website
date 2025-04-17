@@ -28,12 +28,40 @@ const membershipFormSchema = z.object({
   name: z.string().min(2),
   surname: z.string().min(2),
   email: z.string().email(),
-  codiceFiscale: z
-    .string()
-    .length(16)
-    .regex(/^[A-Z0-9]+$/)
-    .optional(),
+  codiceFiscale: z.string().optional(),
   nationality: z.string().min(2),
+}).superRefine((data, ctx) => {
+  if (data.nationality.toLowerCase() === "it") {
+    if (!data.codiceFiscale) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ["codiceFiscale"],
+        message: "Codice Fiscale is required for Italian citizens",
+      })
+      return
+    }
+    
+    if (data.codiceFiscale.length !== 16) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.too_small,
+        minimum: 16,
+        type: "string",
+        inclusive: true,
+        exact: true,
+        path: ["codiceFiscale"],
+        message: "Codice Fiscale must contain exactly 16 characters",
+      })
+    }
+    
+    if (!/^[A-Z0-9]+$/.test(data.codiceFiscale)) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.invalid_string,
+        validation: "regex",
+        path: ["codiceFiscale"],
+        message: "Codice Fiscale must contain only uppercase letters and numbers",
+      })
+    }
+  }
 })
 
 // Add this type
@@ -78,7 +106,7 @@ export const stripeRouter = createTRPCRouter({
         if (existingMember) {
           throw new TRPCError({
             code: "CONFLICT",
-            message: "A completed membership already exists for this Codice Fiscale",
+            message: "A completed membership already exists for this email",
           })
         }
 

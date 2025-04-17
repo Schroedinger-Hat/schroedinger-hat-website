@@ -5,6 +5,7 @@ import { constructMetadata } from "@/lib/utils/metadata"
 import { GoogleAnalytics } from "@next/third-parties/google"
 import { env } from "@/env.js"
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { ToastContainer } from "@/components/ui/toast"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 const lexend = Lexend({ subsets: ["latin"], variable: "--font-lexend" })
@@ -24,7 +25,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
       <body>
-        <TRPCReactProvider>{children}</TRPCReactProvider>
+        <ToastContainer>
+          <TRPCReactProvider>{children}</TRPCReactProvider>
+        </ToastContainer>
         <SpeedInsights />
       </body>
       {env.NEXT_PUBLIC_GA_ID && <GoogleAnalytics gaId={env.NEXT_PUBLIC_GA_ID} />}

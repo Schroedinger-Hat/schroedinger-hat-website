@@ -20,6 +20,7 @@ import { type RouterOutputs, api } from "@/trpc/react"
 import { Typography } from "@/components/atoms/typography/Typography"
 import { Link } from "@/components/atoms/links/Link"
 import { Select } from "@/components/ui/select"
+import { useToast } from "@/components/ui/toast"
 
 interface FieldProps {
   field: {
@@ -78,6 +79,7 @@ type FormValues = z.infer<typeof formSchema>
 
 export function MembershipFormModal() {
   const [open, setOpen] = useState(false)
+  const { addToast } = useToast()
   const { mutate: createCheckout, isPending } = api.stripe.createCheckoutSession.useMutation({
     onSuccess: (data: CheckoutResponse) => {
       if (data.status === "success") {
@@ -86,6 +88,15 @@ export function MembershipFormModal() {
     },
     onError: (error) => {
       console.error("Failed to create checkout session:", error)
+      addToast({
+        variant: "destructive",
+        children: (
+          <div>
+            <p className="font-semibold">Error</p>
+            <p className="text-sm">{error.message || "Failed to create checkout session. Please try again."}</p>
+          </div>
+        ),
+      })
     },
   })
 
