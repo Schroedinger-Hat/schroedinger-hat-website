@@ -1,4 +1,25 @@
 import { NextResponse } from "next/server"
+import type { EmailOctopusErrorResponse } from "../route"
+
+export interface NewsletterContent {
+  id: string
+  name: string
+  sentAt: string
+  webViewUrl: string
+  content: {
+    html: string
+  }
+}
+
+export interface NewsletterSuccessApiResponse {
+  newsletters?: NewsletterContent[]
+  error?: string
+}
+
+export interface NewsletterErrorApiResponse {
+  error: string
+  status: string
+}
 
 type NewsletterCampaign = {
   id: string
@@ -10,13 +31,6 @@ type NewsletterCampaign = {
   to: string[] // Array of list IDs this campaign was sent to
   content?: {
     html: string
-  }
-}
-
-type EmailOctopusErrorResponse = {
-  error?: {
-    code?: number
-    message?: string
   }
 }
 
@@ -60,7 +74,7 @@ export async function GET() {
     ).slice(0, 6) // Limit to 5 for performance
     
     // Fetch the content for each campaign
-    const newslettersWithContent = await Promise.all(
+    const newslettersWithContent: NewsletterContent[] = await Promise.all(
       filteredCampaigns.map(async (campaign) => {
         // Get the complete campaign with content
         const contentResponse = await fetch(`https://emailoctopus.com/api/1.6/campaigns/${campaign.id}?api_key=${apiKey}`, {
@@ -87,7 +101,7 @@ export async function GET() {
           name: campaign.name,
           sentAt: campaign.sent_at,
           webViewUrl: campaign.web_view_url,
-          content: { html: fullCampaign.content?.html || '' }
+          content: { html: fullCampaign.content?.html ?? '' }
         }
       })
     )
