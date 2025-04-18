@@ -68,6 +68,11 @@ export const associationMenuData: {
     description: "Support our mission by becoming a Schroedinger member.",
   },
   {
+    title: "Newsletter",
+    href: "/association/newsletter",
+    description: "Subscribe to our newsletter and stay up to date.",
+  },
+  {
     title: "Statute",
     href: "/page/statute",
     description: "",
