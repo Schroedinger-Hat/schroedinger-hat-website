@@ -1,54 +1,67 @@
 "use client"
 
 import { useState } from "react"
+import { zodResolver } from "@hookform/resolvers/zod"
 import { Button } from "@/components/ui/button"
 import { Mail } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import { Typography } from "@/components/atoms/typography/Typography"
+import { useToast } from "@/components/ui/toast"
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+  FormDescription,
+} from "@/components/ui/form"
+import { useForm } from "react-hook-form"
+import { z } from "zod"
 
 interface NewsletterSignupProps {
-  title?: string
-  description?: string
-  successMessage?: string
   buttonText?: string
-  placeholderText?: string
   className?: string
+  description?: string
+  placeholderText?: string
+  successMessage?: string
+  title?: string
+  ctaDarkBg?: boolean
 }
 
 type ApiResponse = {
-  success?: boolean
-  message?: string
   error?: string
+  message?: string
+  success?: boolean
 }
 
 export function NewsletterSignup({
-  title = "Subscribe to our newsletter",
-  description = "Get the latest news and updates from Schrödinger Hat.",
-  successMessage = "Thank you for subscribing! You'll receive our updates soon.",
   buttonText = "Subscribe",
-  placeholderText = "Enter your email",
   className = "",
+  description,
+  placeholderText = "Enter your email",
+  successMessage = "Thank you for subscribing! You'll receive our updates soon.",
+  title,
+  ctaDarkBg,
 }: NewsletterSignupProps) {
-  const [email, setEmail] = useState("")
+  const { addToast } = useToast()
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [message, setMessage] = useState<{
-    type: "success" | "error"
-    content: string
-  } | null>(null)
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    
-    if (!email?.includes("@")) {
-      setMessage({
-        type: "error",
-        content: "Please enter a valid email address.",
-      })
-      return
-    }
+  const formSchema = z.object({
+    email: z.string().email(),
+  })
 
+  type FormValues = z.infer<typeof formSchema>
+
+  const form = useForm<FormValues>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      email: "",
+    },
+  })
+
+  async function onSubmit(values: FormValues) {
     setIsSubmitting(true)
-    setMessage(null)
 
     try {
       const response = await fetch("/api/email-octopus", {
@@ -56,37 +69,41 @@ export function NewsletterSignup({
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ email: values.email }),
       })
 
-      const data = await response.json() as ApiResponse
+      const data = (await response.json()) as ApiResponse
 
       if (!response.ok) {
         throw new Error(data.error ?? "Something went wrong")
       }
 
-      // Clear email and show success message
-      setEmail("")
-      setMessage({
-        type: "success",
-        content: successMessage,
+      addToast({
+        variant: "success",
+        children: (
+          <div>
+            <div>
+              <p className="font-semibold">Success</p>
+              <p className="text-sm">{successMessage}</p>
+            </div>
+          </div>
+        ),
       })
     } catch (error) {
-      let errorMessage = "Failed to subscribe. Please try again."
-      
       if (error instanceof Error) {
-        // If the error is about member already existing
-        if (error.message.includes("MEMBER_EXISTS_WITH_EMAIL_ADDRESS")) {
-          errorMessage = "You're already subscribed with this email address."
-        } else {
-          errorMessage = error.message
-        }
+        const errorMessage = error.message.includes("MEMBER_EXISTS_WITH_EMAIL_ADDRESS")
+          ? "You're already subscribed with this email address."
+          : error.message
+        addToast({
+          variant: "destructive",
+          children: (
+            <div>
+              <p className="font-semibold">Error</p>
+              <p className="text-sm">{errorMessage}</p>
+            </div>
+          ),
+        })
       }
-      
-      setMessage({
-        type: "error",
-        content: errorMessage,
-      })
     } finally {
       setIsSubmitting(false)
     }
@@ -105,41 +122,46 @@ export function NewsletterSignup({
         </Typography>
       )}
 
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div className="flex flex-col sm:flex-row gap-3">
-          <div className="flex-grow relative">
-            <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none">
-              <Mail className="h-4 w-4 text-gray-400" />
-            </div>
-            <Input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder={placeholderText}
-              disabled={isSubmitting}
-              required
-              className="w-full pl-10"
-            />
-          </div>
-          <Button
-            type="submit"
-            disabled={isSubmitting}
-            className="whitespace-nowrap"
-          >
-            {isSubmitting ? "Subscribing..." : buttonText}
-          </Button>
-        </div>
-
-        {message && (
-          <div
-            className={`text-sm mt-2 ${
-              message.type === "success" ? "text-green-600" : "text-red-600"
-            }`}
-          >
-            {message.content}
-          </div>
-        )}
-      </form>
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)}>
+          <FormField
+            control={form.control}
+            name="email"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel />
+                <FormControl>
+                  <div className="flex space-x-2 transition-colors">
+                    <div className="relative flex-grow">
+                      <div className="pointer-events-none absolute inset-y-0 left-3 flex items-center">
+                        <Mail className="h-4 w-4 text-gray-400" />
+                      </div>
+                      <Input
+                        type="email"
+                        placeholder={placeholderText}
+                        disabled={isSubmitting}
+                        required
+                        className="w-full pl-10"
+                        {...field}
+                      />
+                    </div>
+                    <Button
+                      type="submit"
+                      disabled={isSubmitting || !form.formState.isValid}
+                      className="whitespace-nowrap"
+                      variant={ctaDarkBg ? "outline-dark-bg" : "outline"}
+                    >
+                      {isSubmitting ? "Subscribing..." : buttonText}
+                    </Button>
+                  </div>
+                </FormControl>
+                <FormDescription />
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </form>
+      </Form>
     </div>
   )
-} 
+}
