@@ -1,9 +1,9 @@
 import { NextResponse } from "next/server"
 
-type EmailOctopusErrorResponse = {
+export type EmailOctopusErrorResponse = {
   error: {
-    code: number
-    message: string
+    code?: number
+    message?: string
   }
 }
 
@@ -59,7 +59,7 @@ export async function POST(request: Request) {
 
     if ('error' in data) {
       return NextResponse.json(
-        { error: data.error.message || "Failed to subscribe" },
+        { error: data.error.message ?? "Failed to subscribe" },
         { status: data.error.code ? 400 : 500 }
       )
     }
