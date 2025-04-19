@@ -18,7 +18,6 @@ function encodeXMLUrl(url: string): string {
     .replace(/</g, "&lt;")
 }
 
-
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Core website pages
   const mainRoutes = [
@@ -169,11 +168,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     lastModified: new Date(event._updatedAt),
     ...((event.cover?.asset || event.background?.asset) && {
       images: [
-        encodeXMLUrl(urlFor(event.cover?.asset || event.background?.asset)
-          .format("jpg")
-          .width(800)
-          .height(450)
-          .url()),
+        encodeXMLUrl(
+          urlFor(event.cover?.asset || event.background?.asset)
+            .format("jpg")
+            .width(800)
+            .height(450)
+            .url(),
+        ),
       ],
     }),
   }))

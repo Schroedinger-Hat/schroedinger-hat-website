@@ -44,36 +44,38 @@ interface CheckboxFieldProps {
   }
 }
 
-const formSchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters"),
-  surname: z.string().min(2, "Surname must be at least 2 characters"),
-  email: z.string().email("Invalid email address"),
-  nationality: z.string().min(2, "Nationality is required"),
-  codiceFiscale: z.string().optional(),
-  acceptTerms: z.boolean().refine((val) => val === true, {
-    message: "This is required",
-  }),
-}).refine(
-  (data) => {
-    const isItalian = data.nationality.toLowerCase() === "it"
-    if (isItalian) {
-      if (!data.codiceFiscale) {
-        return false
+const formSchema = z
+  .object({
+    name: z.string().min(2, "Name must be at least 2 characters"),
+    surname: z.string().min(2, "Surname must be at least 2 characters"),
+    email: z.string().email("Invalid email address"),
+    nationality: z.string().min(2, "Nationality is required"),
+    codiceFiscale: z.string().optional(),
+    acceptTerms: z.boolean().refine((val) => val === true, {
+      message: "This is required",
+    }),
+  })
+  .refine(
+    (data) => {
+      const isItalian = data.nationality.toLowerCase() === "it"
+      if (isItalian) {
+        if (!data.codiceFiscale) {
+          return false
+        }
+        if (data.codiceFiscale.length !== 16) {
+          return false
+        }
+        if (!/^[A-Z0-9]+$/.test(data.codiceFiscale)) {
+          return false
+        }
       }
-      if (data.codiceFiscale.length !== 16) {
-        return false
-      }
-      if (!/^[A-Z0-9]+$/.test(data.codiceFiscale)) {
-        return false
-      }
-    }
-    return true
-  },
-  {
-    message: "Codice Fiscale is required for Italian citizens and must be 16 uppercase letters and numbers",
-    path: ["codiceFiscale"],
-  }
-)
+      return true
+    },
+    {
+      message: "Codice Fiscale is required for Italian citizens and must be 16 uppercase letters and numbers",
+      path: ["codiceFiscale"],
+    },
+  )
 
 type FormValues = z.infer<typeof formSchema>
 
@@ -93,7 +95,9 @@ export function MembershipFormModal() {
         children: (
           <div>
             <p className="font-semibold">Error</p>
-            <p className="text-sm">{error.message || "Failed to create checkout session. Please try again."}</p>
+            <p className="text-sm">
+              {error.message || "Failed to create checkout session. Please try again."}
+            </p>
           </div>
         ),
       })
@@ -236,7 +240,9 @@ export function MembershipFormModal() {
                       <Checkbox checked={field.value} onCheckedChange={field.onChange} />
                     </FormControl>
                     <div className="space-y-1 leading-none">
-                      <FormLabel>I have read and accept <Link href="/page/statute">the Statute</Link></FormLabel>
+                      <FormLabel>
+                        I have read and accept <Link href="/page/statute">the Statute</Link>
+                      </FormLabel>
                     </div>
                   </FormItem>
                   <FormMessage className="text-xs" />
