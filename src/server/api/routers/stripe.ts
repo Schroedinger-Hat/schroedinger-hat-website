@@ -13,7 +13,9 @@ const getBaseUrl = () => {
   const port = process.env.PORT ?? 3000
 
   if (env.VERCEL_PROJECT_PRODUCTION_URL) {
-    return env.VERCEL_PROJECT_PRODUCTION_URL.includes("localhost") ? `http://localhost:${port}` : `https://${env.VERCEL_PROJECT_PRODUCTION_URL}`
+    return env.VERCEL_PROJECT_PRODUCTION_URL.includes("localhost")
+      ? `http://localhost:${port}`
+      : `https://${env.VERCEL_PROJECT_PRODUCTION_URL}`
   }
 
   if (env.VERCEL_URL) {
@@ -24,45 +26,47 @@ const getBaseUrl = () => {
   return `http://localhost:${port}`
 }
 
-const membershipFormSchema = z.object({
-  name: z.string().min(2),
-  surname: z.string().min(2),
-  email: z.string().email(),
-  codiceFiscale: z.string().optional(),
-  nationality: z.string().min(2),
-}).superRefine((data, ctx) => {
-  if (data.nationality.toLowerCase() === "it") {
-    if (!data.codiceFiscale) {
-      ctx.addIssue({
-        code: z.ZodIssueCode.custom,
-        path: ["codiceFiscale"],
-        message: "Codice Fiscale is required for Italian citizens",
-      })
-      return
+const membershipFormSchema = z
+  .object({
+    name: z.string().min(2),
+    surname: z.string().min(2),
+    email: z.string().email(),
+    codiceFiscale: z.string().optional(),
+    nationality: z.string().min(2),
+  })
+  .superRefine((data, ctx) => {
+    if (data.nationality.toLowerCase() === "it") {
+      if (!data.codiceFiscale) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          path: ["codiceFiscale"],
+          message: "Codice Fiscale is required for Italian citizens",
+        })
+        return
+      }
+
+      if (data.codiceFiscale.length !== 16) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.too_small,
+          minimum: 16,
+          type: "string",
+          inclusive: true,
+          exact: true,
+          path: ["codiceFiscale"],
+          message: "Codice Fiscale must contain exactly 16 characters",
+        })
+      }
+
+      if (!/^[A-Z0-9]+$/.test(data.codiceFiscale)) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.invalid_string,
+          validation: "regex",
+          path: ["codiceFiscale"],
+          message: "Codice Fiscale must contain only uppercase letters and numbers",
+        })
+      }
     }
-    
-    if (data.codiceFiscale.length !== 16) {
-      ctx.addIssue({
-        code: z.ZodIssueCode.too_small,
-        minimum: 16,
-        type: "string",
-        inclusive: true,
-        exact: true,
-        path: ["codiceFiscale"],
-        message: "Codice Fiscale must contain exactly 16 characters",
-      })
-    }
-    
-    if (!/^[A-Z0-9]+$/.test(data.codiceFiscale)) {
-      ctx.addIssue({
-        code: z.ZodIssueCode.invalid_string,
-        validation: "regex",
-        path: ["codiceFiscale"],
-        message: "Codice Fiscale must contain only uppercase letters and numbers",
-      })
-    }
-  }
-})
+  })
 
 // Add this type
 type CheckoutResult = { status: "success"; url: string } | { status: "error"; message: string }

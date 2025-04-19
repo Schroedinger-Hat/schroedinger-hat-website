@@ -31,12 +31,10 @@ const toastVariants = cva(
     defaultVariants: {
       variant: "default",
     },
-  }
+  },
 )
 
-export interface ToastProps
-  extends React.HTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof toastVariants> {
+export interface ToastProps extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof toastVariants> {
   onClose: () => void
 }
 
@@ -87,4 +85,4 @@ export function ToastContainer({ children }: ToastProviderProps) {
   )
 }
 
-export { Toast, toastVariants } 
+export { Toast, toastVariants }
