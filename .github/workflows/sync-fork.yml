@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Sync Fork with Upstream
     # Only run on forks, not on the original repository
-    if: github.repository != 'Schrodinger-Hat/schrodinger-hat-website'
+    if: github.repository != 'Schroedinger-Hat/schroedinger-hat-website'
 
     steps:
       - name: Checkout repository
@@ -22,7 +22,7 @@ jobs:
 
       - name: Add upstream remote
         run: |
-          git remote add upstream https://github.com/Schrodinger-Hat/schrodinger-hat-website.git
+          git remote add upstream https://github.com/Schroedinger-Hat/schroedinger-hat-website.git
           git fetch upstream
 
       - name: Sync fork with upstream main branch
