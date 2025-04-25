@@ -94,7 +94,7 @@ export function Footer() {
           {/* Bottom Links */}
           <div className="flex flex-wrap justify-center gap-x-8 gap-y-2 text-muted-foreground md:justify-between">
             <Typography variant="muted" className="m-0">
-              © 2024, Schrödinger Hat
+              © {new Date().getFullYear()}, Schrödinger Hat
             </Typography>
 
             <Link href="https://nextjs.org" className="hidden hover:underline md:block" target="_blank">
