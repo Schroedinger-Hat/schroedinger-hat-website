@@ -148,7 +148,6 @@ Don't forget to give the project a star! Thanks again!
 [issues-shield]: https://img.shields.io/github/issues/schroedinger-Hat/schroedinger-hat-website.svg?style=for-the-badge
 [issues-url]: https://github.com/schroedinger-Hat/schroedinger-hat-website/issues
 
-
 ## Maintainers 👨‍💻👩‍💻
 
 <div align="center">
