@@ -42,6 +42,15 @@ const config = {
     remotePatterns,
     formats: ["image/avif", "image/webp"],
   },
+  async redirects() {
+    return [
+      {
+        source: '/open-source-in-classroom',
+        destination: '/blog/open-source-in-classroom',
+        permanent: true,
+      }
+    ]
+  },
 }
 
 export default config
