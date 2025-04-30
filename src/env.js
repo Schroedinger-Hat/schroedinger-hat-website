@@ -45,12 +45,10 @@ export const env = createEnv({
     CRON_SECRET: z.string().min(1),
     ALGOLIA_ADMIN_API_KEY: z
       .string()
-      .min(1)
-      .optional()
-      .refine(isRequiredInProduction, "ALGOLIA_ADMIN_API_KEY is required in production"),
-    ALGOLIA_APP_ID: z.string().min(1),
-    ALGOLIA_SEARCH_API_KEY: z.string().min(1),
-    ALGOLIA_INDEX_NAME: z.string().min(1),
+      .optional(),
+    ALGOLIA_APP_ID: z.string().optional(),
+    ALGOLIA_SEARCH_API_KEY: z.string().optional(),
+    ALGOLIA_INDEX_NAME: z.string().optional(),
   },
 
   /**
@@ -68,12 +66,10 @@ export const env = createEnv({
     NEXT_PUBLIC_DISABLE_ANIMATIONS: z.string().optional(),
     NEXT_PUBLIC_ALGOLIA_ADMIN_API_KEY: z
       .string()
-      .min(1)
-      .optional()
-      .refine(isRequiredInProduction, "NEXT_PUBLIC_ALGOLIA_ADMIN_API_KEY is required in production"),
-    NEXT_PUBLIC_ALGOLIA_APP_ID: z.string().min(1),
-    NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY: z.string().min(1),
-    NEXT_PUBLIC_ALGOLIA_INDEX_NAME: z.string().min(1),
+      .optional(),
+    NEXT_PUBLIC_ALGOLIA_APP_ID: z.string().optional(),
+    NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY: z.string().optional(),
+    NEXT_PUBLIC_ALGOLIA_INDEX_NAME: z.string().optional(),
   },
 
   /**
