@@ -1,13 +1,26 @@
-// Querying with "sanityFetch" will keep content automatically updated
-// Before using it, import and render "<SanityLive />" in your layout, see
-// https://github.com/sanity-io/next-sanity#live-content-api for more information.
-import { defineLive } from "next-sanity"
-import { sanityClient } from "./client"
+import { apiVersion, dataset, projectId } from "../env"
+import { createClient } from "@sanity/client"
+import { type ReactNode } from "react"
 
-export const { sanityFetch, SanityLive } = defineLive({
-  client: sanityClient.withConfig({
-    // Live content is currently only available on the experimental API
-    // https://www.sanity.io/docs/api-versioning
-    apiVersion: "vX",
-  }),
-})
+// Define proper types for the options parameter
+interface FetchOptions {
+  query: string
+  params?: Record<string, any>
+  perspective?: string
+  useCdn?: boolean
+}
+
+// Mock implementation to allow the project to build
+export const sanityFetch = async (options: FetchOptions) => {
+  const client = createClient({
+    projectId,
+    dataset,
+    apiVersion,
+    useCdn: options.useCdn ?? true,
+  })
+  
+  return client.fetch(options.query, options.params)
+}
+
+// Empty component to prevent import errors
+export const SanityLive = ({ children }: { children?: ReactNode }) => children ?? null

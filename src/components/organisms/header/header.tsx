@@ -20,6 +20,7 @@ import { HighlightSubMenu, ListItem } from "./highlight-submenu"
 import { Typography } from "@/components/atoms/typography/Typography"
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, SheetClose } from "@/components/ui/sheet"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
+import { GlobalSearch } from "../global-search"
 
 // Image
 import logo from "@/images/logo.png"
@@ -159,7 +160,7 @@ export function Header() {
                 </SheetClose>
 
                 <SheetClose asChild>
-                  <Link href="/association/join" className="mt-4">
+                  <Link href="/association/join">
                     <Button className="w-full">Join</Button>
                   </Link>
                 </SheetClose>
@@ -236,7 +237,10 @@ export function Header() {
           </NavigationMenuList>
         </NavigationMenu>
 
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+        <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:gap-4">
+          <div className="mr-2">
+            <GlobalSearch />
+          </div>
           <Link href="/association/join" className="text-sm/6 font-semibold text-gray-900">
             <Button>Join</Button>
           </Link>

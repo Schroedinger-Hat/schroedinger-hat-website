@@ -43,6 +43,12 @@ export const env = createEnv({
     VERCEL_PROJECT_PRODUCTION_URL: z.string().optional(),
     DATABASE_URL: z.string().url(),
     CRON_SECRET: z.string().min(1),
+    ALGOLIA_ADMIN_API_KEY: z
+      .string()
+      .optional(),
+    ALGOLIA_APP_ID: z.string().optional(),
+    ALGOLIA_SEARCH_API_KEY: z.string().optional(),
+    ALGOLIA_INDEX_NAME: z.string().optional(),
   },
 
   /**
@@ -58,6 +64,12 @@ export const env = createEnv({
       .refine(isRequiredInProduction, "NEXT_PUBLIC_GOOGLE_MAPS_API_KEY is required in production"),
     NEXT_PUBLIC_GA_ID: z.string().min(1).optional(),
     NEXT_PUBLIC_DISABLE_ANIMATIONS: z.string().optional(),
+    NEXT_PUBLIC_ALGOLIA_ADMIN_API_KEY: z
+      .string()
+      .optional(),
+    NEXT_PUBLIC_ALGOLIA_APP_ID: z.string().optional(),
+    NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY: z.string().optional(),
+    NEXT_PUBLIC_ALGOLIA_INDEX_NAME: z.string().optional(),
   },
 
   /**
@@ -81,6 +93,14 @@ export const env = createEnv({
     VERCEL_PROJECT_PRODUCTION_URL: process.env.VERCEL_PROJECT_PRODUCTION_URL,
     DATABASE_URL: process.env.DATABASE_URL,
     CRON_SECRET: process.env.CRON_SECRET,
+    ALGOLIA_ADMIN_API_KEY: process.env.ALGOLIA_ADMIN_API_KEY,
+    ALGOLIA_APP_ID: process.env.ALGOLIA_APP_ID,
+    ALGOLIA_SEARCH_API_KEY: process.env.ALGOLIA_SEARCH_API_KEY,
+    ALGOLIA_INDEX_NAME: process.env.ALGOLIA_INDEX_NAME,
+    NEXT_PUBLIC_ALGOLIA_ADMIN_API_KEY: process.env.NEXT_PUBLIC_ALGOLIA_ADMIN_API_KEY,
+    NEXT_PUBLIC_ALGOLIA_APP_ID: process.env.NEXT_PUBLIC_ALGOLIA_APP_ID,
+    NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY: process.env.NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY,
+    NEXT_PUBLIC_ALGOLIA_INDEX_NAME: process.env.NEXT_PUBLIC_ALGOLIA_INDEX_NAME,
   },
 
   skipValidation: !!process.env.SKIP_ENV_VALIDATION,
