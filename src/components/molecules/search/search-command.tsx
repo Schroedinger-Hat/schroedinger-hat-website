@@ -6,13 +6,13 @@ import { SearchIcon } from "lucide-react"
 
 import { type SearchResult, searchService } from "@/lib/search-service"
 import { useDebounce } from "@/lib/hooks/use-debounce"
-import { 
-  CommandDialog, 
-  CommandEmpty, 
-  CommandGroup, 
-  CommandInput, 
-  CommandItem, 
-  CommandList 
+import {
+  CommandDialog,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
 } from "@/components/ui/command"
 import { cn } from "@/lib/utils"
 
@@ -44,7 +44,7 @@ export function SearchCommand() {
       setResults([])
       return
     }
-    
+
     const performSearch = async () => {
       setIsLoading(true)
       try {
@@ -59,7 +59,7 @@ export function SearchCommand() {
         setIsLoading(false)
       }
     }
-    
+
     void performSearch()
   }, [debouncedQuery])
 
@@ -80,8 +80,8 @@ export function SearchCommand() {
         className={cn(
           "inline-flex items-center justify-center rounded-md font-medium ring-offset-background transition-colors",
           "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
-          "border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2",
-          "text-sm"
+          "h-10 border border-input bg-background px-4 py-2 hover:bg-accent hover:text-accent-foreground",
+          "text-sm",
         )}
       >
         <SearchIcon className="mr-2 h-4 w-4" />
@@ -90,24 +90,17 @@ export function SearchCommand() {
           <span className="text-xs">⌘</span>K
         </kbd>
       </button>
-      
+
       <CommandDialog open={open} onOpenChange={setOpen}>
-        <CommandInput
-          ref={inputRef}
-          placeholder="Search content..."
-          value={query}
-          onValueChange={setQuery}
-        />
-        
+        <CommandInput ref={inputRef} placeholder="Search content..." value={query} onValueChange={setQuery} />
+
         <CommandList className="max-h-[300px] overflow-y-auto overflow-x-hidden">
-          {isLoading && (
-            <div className="py-6 text-center text-sm">Loading...</div>
-          )}
-          
+          {isLoading && <div className="py-6 text-center text-sm">Loading...</div>}
+
           {!isLoading && query.length > 0 && results.length === 0 && (
             <CommandEmpty>No results found.</CommandEmpty>
           )}
-          
+
           {!isLoading && results.length > 0 && (
             <CommandGroup heading="Results" className="overflow-visible">
               {results.map((result) => (
@@ -124,9 +117,7 @@ export function SearchCommand() {
                   <div className="flex flex-col py-1">
                     <span className="font-medium">{result.title}</span>
                     {result.body && (
-                      <span className="text-sm text-muted-foreground line-clamp-1">
-                        {result.body}
-                      </span>
+                      <span className="line-clamp-1 text-sm text-muted-foreground">{result.body}</span>
                     )}
                   </div>
                 </CommandItem>
@@ -137,4 +128,4 @@ export function SearchCommand() {
       </CommandDialog>
     </>
   )
-} 
+}
