@@ -45,10 +45,10 @@ const config = {
   async redirects() {
     return [
       {
-        source: '/open-source-in-classroom',
-        destination: '/blog/open-source-in-classroom',
+        source: "/open-source-in-classroom",
+        destination: "/blog/open-source-in-classroom",
         permanent: true,
-      }
+      },
     ]
   },
 }

@@ -43,9 +43,7 @@ export const env = createEnv({
     VERCEL_PROJECT_PRODUCTION_URL: z.string().optional(),
     DATABASE_URL: z.string().url(),
     CRON_SECRET: z.string().min(1),
-    ALGOLIA_ADMIN_API_KEY: z
-      .string()
-      .optional(),
+    ALGOLIA_ADMIN_API_KEY: z.string().optional(),
     ALGOLIA_APP_ID: z.string().optional(),
     ALGOLIA_SEARCH_API_KEY: z.string().optional(),
     ALGOLIA_INDEX_NAME: z.string().optional(),
@@ -64,9 +62,7 @@ export const env = createEnv({
       .refine(isRequiredInProduction, "NEXT_PUBLIC_GOOGLE_MAPS_API_KEY is required in production"),
     NEXT_PUBLIC_GA_ID: z.string().min(1).optional(),
     NEXT_PUBLIC_DISABLE_ANIMATIONS: z.string().optional(),
-    NEXT_PUBLIC_ALGOLIA_ADMIN_API_KEY: z
-      .string()
-      .optional(),
+    NEXT_PUBLIC_ALGOLIA_ADMIN_API_KEY: z.string().optional(),
     NEXT_PUBLIC_ALGOLIA_APP_ID: z.string().optional(),
     NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY: z.string().optional(),
     NEXT_PUBLIC_ALGOLIA_INDEX_NAME: z.string().optional(),

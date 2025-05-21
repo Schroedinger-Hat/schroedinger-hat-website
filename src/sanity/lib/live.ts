@@ -18,7 +18,7 @@ export const sanityFetch = async (options: FetchOptions) => {
     apiVersion,
     useCdn: options.useCdn ?? true,
   })
-  
+
   return client.fetch(options.query, options.params)
 }
 

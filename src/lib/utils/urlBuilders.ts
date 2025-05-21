@@ -47,7 +47,7 @@ export function encodeUrl(url: string): string {
 export function buildUrl(type: ContentType, slug?: string, encode = false): string {
   let url: string
 
-switch (slug) {
+  switch (slug) {
     case "about-us":
       url = `${BASE_URL}/association/about-us`
       break
@@ -82,10 +82,10 @@ switch (slug) {
       url = `${BASE_URL}/watch`
       break
     default:
-        url = ""
-      break;
+      url = ""
+      break
   }
-  
+
   switch (type) {
     // Static pages
     case "home":
@@ -115,8 +115,8 @@ switch (slug) {
       break
     default:
       url = ""
-      break;
+      break
   }
 
-  return encode ? encodeUrl(url) : url;
-} 
+  return encode ? encodeUrl(url) : url
+}

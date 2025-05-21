@@ -5,10 +5,7 @@ import { projectId, dataset, apiVersion } from "@/sanity/env"
 import { buildUrl, type ContentType } from "@/lib/utils/urlBuilders"
 
 // Initialize the Algolia client
-const algoliaClient = algoliasearch(
-  process.env.ALGOLIA_APP_ID ?? "",
-  process.env.ALGOLIA_ADMIN_API_KEY ?? ""
-)
+const algoliaClient = algoliasearch(process.env.ALGOLIA_APP_ID ?? "", process.env.ALGOLIA_ADMIN_API_KEY ?? "")
 const indexName = process.env.ALGOLIA_INDEX_NAME ?? ""
 
 // Sanity client
@@ -74,16 +71,16 @@ export async function POST(req: NextRequest) {
   try {
     const body = await req.text()
     const parsedBody = JSON.parse(body || "{}")
-    
+
     // Check if this is a request for initial indexing
     const urlParams = new URL(req.url).searchParams
     const initialIndex = urlParams.get("initialIndex") === "true"
-    
+
     if (initialIndex) {
       // Fetch all documents from Sanity and index them
       return await handleInitialIndexing()
     }
-    
+
     // Handle incremental updates from webhook
     return await handleWebhookRequest(parsedBody)
   } catch (error) {
@@ -111,46 +108,46 @@ async function handleInitialIndexing() {
       _createdAt, 
       _updatedAt 
     }`
-    
+
     const documents = await sanityClient.fetch<SanityDocument[]>(query)
-    
+
     // Format documents for Algolia with truncated fields to ensure size limits
-    const records = documents.map((doc) => {
-      // Generate URL based on document type and slug
-      const contentType = mapDocTypeToContentType(doc._type)
-      const url = contentType && doc.slug?.current 
-        ? buildUrl(contentType, doc.slug.current)
-        : ""
+    const records = documents
+      .map((doc) => {
+        // Generate URL based on document type and slug
+        const contentType = mapDocTypeToContentType(doc._type)
+        const url = contentType && doc.slug?.current ? buildUrl(contentType, doc.slug.current) : ""
 
-      if (url === "") {
-        return;
-      }
+        if (url === "") {
+          return
+        }
 
-      return {
-        objectID: doc._id,
-        _type: doc._type,
-        title: doc.title ?? "",
-        slug: doc.slug?.current ? { current: doc.slug.current } : "",
-        body: truncate(doc.body, MAX_BODY_LENGTH),
-        subtitle: doc.subtitle ?? "",
-        description: truncate(doc.description, MAX_DESCRIPTION_LENGTH),
-        tags: doc.tags ?? [],
-        location: doc.location ?? "",
-        startDate: doc.startDate ?? "",
-        endDate: doc.endDate ?? "",
-        url, // Use the dynamically generated URL
-        _createdAt: doc._createdAt ?? "",
-        _updatedAt: doc._updatedAt ?? "",
-        source: "sh-website"
-      }
-    }).filter((record) => record !== undefined)
+        return {
+          objectID: doc._id,
+          _type: doc._type,
+          title: doc.title ?? "",
+          slug: doc.slug?.current ? { current: doc.slug.current } : "",
+          body: truncate(doc.body, MAX_BODY_LENGTH),
+          subtitle: doc.subtitle ?? "",
+          description: truncate(doc.description, MAX_DESCRIPTION_LENGTH),
+          tags: doc.tags ?? [],
+          location: doc.location ?? "",
+          startDate: doc.startDate ?? "",
+          endDate: doc.endDate ?? "",
+          url, // Use the dynamically generated URL
+          _createdAt: doc._createdAt ?? "",
+          _updatedAt: doc._updatedAt ?? "",
+          source: "sh-website",
+        }
+      })
+      .filter((record) => record !== undefined)
 
     // Use the saveObjects method
     await algoliaClient.saveObjects({
       indexName,
       objects: records,
     })
-    
+
     return NextResponse.json({ success: true, message: `Indexed ${records.length} documents` })
   } catch (error) {
     console.error("Error during initial indexing:", error)
@@ -161,7 +158,7 @@ async function handleInitialIndexing() {
 async function handleWebhookRequest(body: any) {
   try {
     const { _id, operation, value } = body
-    
+
     // Handle the operation based on whether it's a create, update, or delete
     if (operation === "delete") {
       // Delete the document from Algolia
@@ -180,20 +177,19 @@ async function handleWebhookRequest(body: any) {
           slug?: { current: string }
           body?: string
           description?: string
-          [key: string]: any,
+          [key: string]: any
           source?: string
         }
-        
+
         // Generate URL for the document
         const contentType = mapDocTypeToContentType(documentValue._type)
-        const url = contentType && documentValue.slug?.current 
-          ? buildUrl(contentType, documentValue.slug.current)
-          : ""
+        const url =
+          contentType && documentValue.slug?.current ? buildUrl(contentType, documentValue.slug.current) : ""
 
         if (url === "") {
-          return;
+          return
         }
-        
+
         // Process the value to ensure it meets size limits
         const processedValue = {
           ...documentValue,
@@ -201,9 +197,9 @@ async function handleWebhookRequest(body: any) {
           description: truncate(documentValue.description, MAX_DESCRIPTION_LENGTH),
           objectID: documentValue._id,
           url, // Add the dynamically generated URL
-          source: "sh-website"
+          source: "sh-website",
         }
-        
+
         // Save or update the document in Algolia
         await algoliaClient.saveObject({
           indexName,
@@ -213,20 +209,14 @@ async function handleWebhookRequest(body: any) {
       } else {
         return NextResponse.json(
           { success: false, error: "Missing _id or invalid value in payload" },
-          { status: 400 }
+          { status: 400 },
         )
       }
     } else {
-      return NextResponse.json(
-        { success: false, error: "Unknown operation" },
-        { status: 400 }
-      )
+      return NextResponse.json({ success: false, error: "Unknown operation" }, { status: 400 })
     }
   } catch (error) {
     console.error("Error handling webhook request:", error)
-    return NextResponse.json(
-      { success: false, error: "Failed to process webhook" },
-      { status: 500 }
-    )
+    return NextResponse.json({ success: false, error: "Failed to process webhook" }, { status: 500 })
   }
-} 
+}
