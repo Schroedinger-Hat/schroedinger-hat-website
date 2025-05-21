@@ -13,8 +13,8 @@ jobs:
       NEXT_PUBLIC_SANITY_DATASET: ${{ secrets.NEXT_PUBLIC_SANITY_DATASET }}
       NEXT_PUBLIC_GOOGLE_MAPS_API_KEY: ${{ secrets.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY }}
       STRIPE_WEBHOOK_SECRET: ${{ secrets.STRIPE_WEBHOOK_SECRET }}
-      EMAIL_OCTOPUS_API_KEY: ${{ secrets.EMAIL_OCTOPUS_API_KEY }} 
-      EMAIL_OCTOPUS_LIST_ID: ${{ secrets.EMAIL_OCTOPUS_LIST_ID}} 
+      EMAIL_OCTOPUS_API_KEY: ${{ secrets.EMAIL_OCTOPUS_API_KEY }}
+      EMAIL_OCTOPUS_LIST_ID: ${{ secrets.EMAIL_OCTOPUS_LIST_ID}}
       ALGOLIA_ADMIN_API_KEY: ${{ secrets.ALGOLIA_ADMIN_API_KEY }}
       ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
       ALGOLIA_SEARCH_API_KEY: ${{ secrets.ALGOLIA_SEARCH_API_KEY }}
@@ -41,8 +41,3 @@ jobs:
 
       - name: Run Next app
         run: npm run start &
-
-      - name: Lost Pixel
-        uses: lost-pixel/lost-pixel@v3.4.0
-        env:
-          LOST_PIXEL_API_KEY: ${{ secrets.LOST_PIXEL_API_KEY }}

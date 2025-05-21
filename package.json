@@ -25,9 +25,7 @@
     "start": "next start",
     "typecheck": "tsc --noEmit",
     "vercel-build": "prisma generate && prisma migrate deploy && next build",
-    "email:dev": "email dev --dir src/emails --port 3001",
-    "lost-pixel": "lost-pixel",
-    "lost-pixel:update": "lost-pixel update"
+    "email:dev": "email dev --dir src/emails --port 3001"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
@@ -94,7 +92,6 @@
     "@typescript-eslint/parser": "^8.1.0",
     "eslint": "^8.57.0",
     "eslint-config-next": "^15.0.1",
-    "lost-pixel": "^3.22.0",
     "postcss": "^8.4.39",
     "prettier": "^3.3.2",
     "prettier-plugin-tailwindcss": "^0.6.5",
