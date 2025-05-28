@@ -242,6 +242,7 @@ export type TeamMember = {
   name?: string
   surname?: string
   role?: string
+  githubUrl?: string
   image?: {
     asset?: {
       _ref: string
@@ -707,7 +708,7 @@ export type AllSanitySchemaTypes =
 export declare const internalGroqTypeReferenceTo: unique symbol
 // Source: ./queries/projects.ts
 // Variable: projectsQuery
-// Query: *[_type == "project"] | order(order asc, publishedAt desc) {    ...,    maintainers[]->{      _id,      name,      surname,      role,      image {        "dimensions": asset->metadata.dimensions,        "url": asset->url,        backgroundColor      }    }  }
+// Query: *[_type == "project"] | order(order asc, publishedAt desc) {    ...,    maintainers[]->{      _id,      name,      surname,      role,      githubUrl,      image {        "dimensions": asset->metadata.dimensions,        "url": asset->url,        backgroundColor      }    }  }
 export type ProjectsQueryResult = Array<{
   _id: string
   _type: "project"
@@ -746,6 +747,7 @@ export type ProjectsQueryResult = Array<{
     name: string | null
     surname: string | null
     role: string | null
+    githubUrl: string | null
     image: {
       dimensions: SanityImageDimensions | null
       url: string | null
@@ -758,6 +760,6 @@ export type ProjectsQueryResult = Array<{
 import "@sanity/client"
 declare module "@sanity/client" {
   interface SanityQueries {
-    '*[_type == "project"] | order(order asc, publishedAt desc) {\n    ...,\n    maintainers[]->{\n      _id,\n      name,\n      surname,\n      role,\n      image {\n        "dimensions": asset->metadata.dimensions,\n        "url": asset->url,\n        backgroundColor\n      }\n    }\n  }': ProjectsQueryResult
+    '*[_type == "project"] | order(order asc, publishedAt desc) {\n    ...,\n    maintainers[]->{\n      _id,\n      name,\n      surname,\n      role,\n      githubUrl,\n      image {\n        "dimensions": asset->metadata.dimensions,\n        "url": asset->url,\n        backgroundColor\n      }\n    }\n  }': ProjectsQueryResult
   }
 }
