@@ -7,6 +7,7 @@ const projectsQuery = defineQuery(`*[_type == "project"] | order(order asc, publ
       name,
       surname,
       role,
+      githubUrl,
       image {
         "dimensions": asset->metadata.dimensions,
         "url": asset->url,
