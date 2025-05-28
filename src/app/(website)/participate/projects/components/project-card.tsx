@@ -1,9 +1,10 @@
-import { type Project } from "@/sanity/sanity.types"
+import { type ProjectsQueryResult } from "@/sanity/sanity.types"
+import type { ArrayElement } from "@/app/types/utils"
+import { MaintainerItem } from "./MaintainerItem"
 import { PortableText } from "next-sanity"
 import { Badge } from "@/components/ui/badge"
-import { Card, CardContent, CardHeader } from "@/components/ui/card"
+import { CardContent, CardHeader } from "@/components/ui/card"
 import { createPortableTextComponents } from "../../../page/[slug]/portableTextComponents"
-import { UsersIcon } from "lucide-react"
 import { GitHubStars } from "@/components/organisms/github-stars"
 import { formatDateTime } from "@/lib/utils/date"
 import { Button } from "@/components/ui/button"
@@ -24,11 +25,7 @@ const LANGUAGE_ICONS: Record<string, React.ComponentType> = {
   rust: RustIcon,
 }
 
-interface ProjectCardProps {
-  project: Project
-}
-
-export function ProjectCard({ project }: ProjectCardProps) {
+export function ProjectCard(project: ArrayElement<ProjectsQueryResult>) {
   if (!project.language) return null
 
   const Icon = LANGUAGE_ICONS[project.language]
@@ -95,6 +92,24 @@ export function ProjectCard({ project }: ProjectCardProps) {
                   Launch Date
                 </Typography>
                 <Typography variant="small">{formatDateTime(project.launchedAt)}</Typography>
+              </div>
+            )}
+
+            {/* Maintainers */}
+            {project.maintainers && project.maintainers.length > 0 && (
+              <div className="space-y-2">
+                <Typography variant="small" className="font-semibold">
+                  Maintainers
+                </Typography>
+                <div className="space-y-2 pt-1">
+                  {project.maintainers.map((maintainer) => (
+                    <MaintainerItem
+                      key={maintainer._id}
+                      maintainer={maintainer}
+                      className="block transition-transform duration-500 ease-in-out hover:-translate-y-0.5"
+                    />
+                  ))}
+                </div>
               </div>
             )}
 

@@ -84,6 +84,7 @@ export type BlogPost = {
       _weak?: boolean
       [internalGroqTypeReferenceTo]?: "sanity.imageAsset"
     }
+    media?: unknown
     hotspot?: SanityImageHotspot
     crop?: SanityImageCrop
     caption?: string
@@ -116,6 +117,7 @@ export type BlogPost = {
           _weak?: boolean
           [internalGroqTypeReferenceTo]?: "sanity.imageAsset"
         }
+        media?: unknown
         hotspot?: SanityImageHotspot
         crop?: SanityImageCrop
         alt?: string
@@ -167,6 +169,7 @@ export type Project = {
   _updatedAt: string
   _rev: string
   title?: string
+  sortIndex?: number
   slug?: Slug
   description?: Array<{
     children?: Array<{
@@ -193,6 +196,13 @@ export type Project = {
   launchedAt?: string
   lookingFor?: Array<string>
   language?: "typescript" | "javascript" | "python" | "go" | "rust"
+  maintainers?: Array<{
+    _ref: string
+    _type: "reference"
+    _weak?: boolean
+    _key: string
+    [internalGroqTypeReferenceTo]?: "teamMember"
+  }>
 }
 
 export type Faq = {
@@ -233,6 +243,7 @@ export type TeamMember = {
   name?: string
   surname?: string
   role?: string
+  githubUrl?: string
   image?: {
     asset?: {
       _ref: string
@@ -240,6 +251,7 @@ export type TeamMember = {
       _weak?: boolean
       [internalGroqTypeReferenceTo]?: "sanity.imageAsset"
     }
+    media?: unknown
     hotspot?: SanityImageHotspot
     crop?: SanityImageCrop
     backgroundColor?: string
@@ -265,6 +277,7 @@ export type Author = {
       _weak?: boolean
       [internalGroqTypeReferenceTo]?: "sanity.imageAsset"
     }
+    media?: unknown
     hotspot?: SanityImageHotspot
     crop?: SanityImageCrop
     _type: "image"
@@ -314,6 +327,7 @@ export type Video = {
       _weak?: boolean
       [internalGroqTypeReferenceTo]?: "sanity.imageAsset"
     }
+    media?: unknown
     hotspot?: SanityImageHotspot
     crop?: SanityImageCrop
     _type: "image"
@@ -396,6 +410,7 @@ export type Page = {
           _weak?: boolean
           [internalGroqTypeReferenceTo]?: "sanity.imageAsset"
         }
+        media?: unknown
         hotspot?: SanityImageHotspot
         crop?: SanityImageCrop
         alt?: string
@@ -411,6 +426,7 @@ export type Page = {
       _weak?: boolean
       [internalGroqTypeReferenceTo]?: "sanity.imageAsset"
     }
+    media?: unknown
     hotspot?: SanityImageHotspot
     crop?: SanityImageCrop
     _type: "image"
@@ -436,6 +452,7 @@ export type Partner = {
       _weak?: boolean
       [internalGroqTypeReferenceTo]?: "sanity.imageAsset"
     }
+    media?: unknown
     hotspot?: SanityImageHotspot
     crop?: SanityImageCrop
     _type: "image"
@@ -497,6 +514,7 @@ export type Event = {
       _weak?: boolean
       [internalGroqTypeReferenceTo]?: "sanity.imageAsset"
     }
+    media?: unknown
     hotspot?: SanityImageHotspot
     crop?: SanityImageCrop
     _type: "image"
@@ -508,6 +526,7 @@ export type Event = {
       _weak?: boolean
       [internalGroqTypeReferenceTo]?: "sanity.imageAsset"
     }
+    media?: unknown
     hotspot?: SanityImageHotspot
     crop?: SanityImageCrop
     _type: "image"
@@ -688,3 +707,61 @@ export type AllSanitySchemaTypes =
   | HsvaColor
   | HslaColor
 export declare const internalGroqTypeReferenceTo: unique symbol
+// Source: ./queries/projects.ts
+// Variable: projectsQuery
+// Query: *[_type == "project"] | order(sortIndex asc) {    ...,    maintainers[]->{      _id,      name,      surname,      role,      githubUrl,      image {        "dimensions": asset->metadata.dimensions,        "url": asset->url,        backgroundColor      }    }  }
+export type ProjectsQueryResult = Array<{
+  _id: string
+  _type: "project"
+  _createdAt: string
+  _updatedAt: string
+  _rev: string
+  title?: string
+  sortIndex?: number
+  slug?: Slug
+  description?: Array<{
+    children?: Array<{
+      marks?: Array<string>
+      text?: string
+      _type: "span"
+      _key: string
+    }>
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal"
+    listItem?: "bullet" | "number"
+    markDefs?: Array<{
+      href?: string
+      _type: "link"
+      _key: string
+    }>
+    level?: number
+    _type: "block"
+    _key: string
+  }>
+  url?: string
+  repositoryUrl?: string
+  showStars?: boolean
+  techStack?: Array<string>
+  launchedAt?: string
+  lookingFor?: Array<string>
+  language?: "go" | "javascript" | "python" | "rust" | "typescript"
+  maintainers: Array<{
+    _id: string
+    name: string | null
+    surname: string | null
+    role: string | null
+    githubUrl: string | null
+    image: {
+      dimensions: SanityImageDimensions | null
+      url: string | null
+      backgroundColor: string | null
+    } | null
+  }> | null
+}>
+
+// Query TypeMap
+import "@sanity/client"
+declare module "@sanity/client" {
+  interface SanityQueries {
+    '*[_type == "project"] | order(sortIndex asc) {\n    ...,\n    maintainers[]->{\n      _id,\n      name,\n      surname,\n      role,\n      githubUrl,\n      image {\n        "dimensions": asset->metadata.dimensions,\n        "url": asset->url,\n        backgroundColor\n      }\n    }\n  }': ProjectsQueryResult
+  }
+}
