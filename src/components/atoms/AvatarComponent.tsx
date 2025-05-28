@@ -10,6 +10,7 @@ interface AvatarComponentProps {
   } | null
   name: string | null
   surname: string | null
+  className?: string
 }
 
 function getInitials(name: string | null, surname: string | null) {
@@ -19,9 +20,9 @@ function getInitials(name: string | null, surname: string | null) {
   return `${nameInitial}${surnameInitial}`
 }
 
-export function AvatarComponent({ image, name, surname, displayName }: AvatarComponentProps) {
+export function AvatarComponent({ image, name, surname, displayName, className }: AvatarComponentProps) {
   return (
-    <div className="flex items-center justify-start gap-x-2">
+    <div className={`${className} flex items-center justify-start gap-x-2`}>
       <Avatar
         className="size-10 border-2 border-black/20"
         style={{
