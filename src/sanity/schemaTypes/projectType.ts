@@ -12,6 +12,12 @@ export const projectType = defineType({
       validation: (Rule) => Rule.required(),
     },
     {
+      name: "sortIndex",
+      title: "Appearance in list (the lowest, the better)",
+      type: "number",
+      validation: (Rule) => Rule.required().min(0).max(1000),
+    },
+    {
       name: "slug",
       title: "Slug",
       type: "slug",

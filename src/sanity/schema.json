@@ -1070,6 +1070,13 @@
         },
         "optional": true
       },
+      "sortIndex": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "number"
+        },
+        "optional": true
+      },
       "slug": {
         "type": "objectAttribute",
         "value": {

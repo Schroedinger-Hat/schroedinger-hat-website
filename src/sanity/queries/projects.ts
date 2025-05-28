@@ -1,6 +1,6 @@
 import { defineQuery } from "next-sanity"
 
-const projectsQuery = defineQuery(`*[_type == "project"] | order(order asc, publishedAt desc) {
+const projectsQuery = defineQuery(`*[_type == "project"] | order(sortIndex asc) {
     ...,
     maintainers[]->{
       _id,
