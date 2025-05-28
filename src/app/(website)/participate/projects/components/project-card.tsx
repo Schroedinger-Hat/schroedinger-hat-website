@@ -1,6 +1,6 @@
 import { type ProjectsQueryResult } from "@/sanity/sanity.types"
 import type { ArrayElement } from "@/app/types/utils"
-import { AvatarComponent } from "@/components/atoms/AvatarComponent"
+import { MaintainerItem } from "./MaintainerItem"
 import { PortableText } from "next-sanity"
 import { Badge } from "@/components/ui/badge"
 import { CardContent, CardHeader } from "@/components/ui/card"
@@ -101,14 +101,12 @@ export function ProjectCard(project: ArrayElement<ProjectsQueryResult>) {
                 <Typography variant="small" className="font-semibold">
                   Maintainers
                 </Typography>
-                <div className="space-y-1 pt-1">
+                <div className="space-y-2 pt-1">
                   {project.maintainers.map((maintainer) => (
-                    <AvatarComponent
+                    <MaintainerItem
                       key={maintainer._id}
-                      displayName={true}
-                      image={maintainer.image}
-                      name={maintainer.name}
-                      surname={maintainer.surname}
+                      maintainer={maintainer}
+                      className="block transition-transform duration-500 ease-in-out hover:-translate-y-0.5"
                     />
                   ))}
                 </div>
