@@ -1,6 +1,5 @@
 import { sanityClient } from "@/sanity/lib/client"
 import { Heading } from "@/components/atoms/typography/Heading"
-import { type Project } from "@/sanity/sanity.types"
 import { Typography } from "@/components/atoms/typography/Typography"
 import { SectionContainer } from "@/components/atoms/layout/SectionContainer"
 import { type Metadata } from "next"
@@ -8,13 +7,10 @@ import { ProjectCard } from "./components/project-card"
 import { constructMetadata } from "@/lib/utils/metadata"
 import { AnimatedSection } from "@/components/atoms/layout/AnimatedSection"
 import { DURATION_TWO_FRAMES } from "@/components/atoms/layout/const"
+import { projectsQuery } from "@/sanity/queries"
 
 async function getProjects() {
-  const projects = await sanityClient.fetch<Project[]>(`*[_type == "project"] {
-    ...
-  } | order(order asc, publishedAt desc)`)
-
-  return projects
+  return await sanityClient.fetch(projectsQuery)
 }
 
 export const metadata: Metadata = constructMetadata({
@@ -41,7 +37,7 @@ export default async function ProjectsPage() {
         <div className="grid grid-cols-1 gap-4">
           {projects.map((project, index) => (
             <AnimatedSection key={project._id} delay={index * DURATION_TWO_FRAMES * 4}>
-              <ProjectCard key={project._id} project={project} />
+              <ProjectCard key={project._id} {...project} />
             </AnimatedSection>
           ))}
         </div>
