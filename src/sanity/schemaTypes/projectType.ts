@@ -99,6 +99,18 @@ export const projectType = defineType({
       },
       validation: (Rule) => Rule.required(),
     },
+    {
+      name: "maintainers",
+      title: "Maintainers",
+      type: "array",
+      of: [
+        {
+          type: "reference",
+          to: [{ type: "teamMember" }],
+        },
+      ],
+      validation: (Rule) => Rule.required().min(1).max(3),
+    },
   ],
   preview: {
     select: {
