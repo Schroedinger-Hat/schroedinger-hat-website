@@ -21,9 +21,21 @@ import { Typography } from "@/components/atoms/typography/Typography"
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, SheetClose } from "@/components/ui/sheet"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { GlobalSearch } from "../global-search"
+import { BannerCode } from "@/components/organisms/header/banner-code"
+import { useIsClient } from "@uidotdev/usehooks"
 
 // Image
 import logo from "@/images/logo.png"
+
+function ClientBanner() {
+  // We do this because: https://github.com/uidotdev/usehooks/issues/254
+  const isClient = useIsClient()
+  if (isClient === false) {
+    return null
+  } else {
+    return <BannerCode />
+  }
+}
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -48,6 +60,7 @@ export function Header() {
         "border-transparent bg-transparent": !isScrolled,
       })}
     >
+      <ClientBanner />
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-2 lg:px-8">
         <div className="flex lg:flex-1">
           <Link href="/" className="">
