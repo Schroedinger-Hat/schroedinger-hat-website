@@ -99,5 +99,6 @@ export const structure: StructureResolver = async (S, context) => {
             ]),
         ),
       S.documentTypeListItem("project").icon(schemaIcons.project),
+      S.documentTypeListItem("eventCode").icon(schemaIcons.discount),
     ])
 }
