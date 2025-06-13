@@ -1,7 +1,8 @@
 "use client"
 import { cn } from "@/lib/utils"
 import { useToast } from "@/components/ui/toast"
-import { X, Copy, Check, Tag, Gift, Sparkles } from "lucide-react"
+import { formatDateTime } from "@/lib/utils/date"
+import { X, Copy, Check, Tag, Gift, Sparkles, Calendar } from "lucide-react"
 import { useLocalStorage, useCopyToClipboard } from "@uidotdev/usehooks"
 import { useEffect, useMemo } from "react"
 import {
@@ -25,7 +26,7 @@ function createEventCodesHash(eventCodes: EventCodesQueryResult): string {
   return JSON.stringify(dataToHash)
 }
 
-function EventCode({ code }: { code: string }) {
+function EventCode({ code, description }: { code: string; description: string }) {
   const [copiedText, copyToClipboard] = useCopyToClipboard()
   const [hasCopiedText, setHasCopiedText] = useState(Boolean(copiedText))
   const { addToast } = useToast()
@@ -60,6 +61,11 @@ function EventCode({ code }: { code: string }) {
         <div className="mb-1 flex items-center gap-2">
           <Tag className="h-3 w-3 text-gray-500" />
           <span className="text-xs font-medium uppercase tracking-wider text-gray-600">Promo Code</span>
+          <div className="flex items-center">
+            <div className="rounded-full bg-green-100 px-3 py-0.5 text-xs font-medium text-green-800">
+              {description}
+            </div>
+          </div>
         </div>
         <code
           className={cn(
@@ -97,7 +103,7 @@ function PartnerIcon({ partnerName }: { partnerName: string }) {
   return (
     <div
       className={cn(
-        "flex h-10 w-10 items-center justify-center rounded-lg text-sm font-semibold text-white",
+        "flex h-10 w-10 items-center justify-center overflow-hidden rounded-lg text-sm font-semibold text-white",
         getPartnerColor(partnerName),
       )}
     >
@@ -143,7 +149,7 @@ export function BannerCode({ eventCodes }: { eventCodes: EventCodesQueryResult }
           </DialogTrigger>
 
           <DialogContent className="max-h-[80vh] max-w-2xl overflow-y-auto">
-            <DialogHeader className="pb-6">
+            <DialogHeader className="pb-1">
               <DialogTitle className="flex items-center gap-2 text-xl">
                 <Gift className="h-5 w-5 text-purple-600" />
                 Available Discount Codes
@@ -170,20 +176,33 @@ export function BannerCode({ eventCodes }: { eventCodes: EventCodesQueryResult }
                       </h3>
                       {event.name && (
                         <p className="flex items-center gap-1 text-sm text-gray-600">
-                          <Sparkles className="h-3 w-3" />
-                          {event.name}
+                          <Sparkles className="size-3" />
+                          {event.url ? (
+                            <a
+                              href={event.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="underline decoration-gray-300 underline-offset-2 transition-colors duration-150 hover:decoration-gray-500"
+                            >
+                              {event.name}
+                            </a>
+                          ) : (
+                            event.name
+                          )}
+                          -
+                          {event.date && (
+                            <>
+                              <Calendar className="size-3" />
+                              <span className="text-sm">{formatDateTime(event.date, "d MMMM, yyyy")}</span>
+                            </>
+                          )}
                         </p>
                       )}
                     </div>
-                    {event.description && (
-                      <div className="mb-2 flex items-center gap-2">
-                        <div className="rounded-full bg-green-100 px-3 py-1 text-sm font-medium text-green-800">
-                          {event.description}
-                        </div>
-                      </div>
-                    )}
                   </div>
-                  {event.code && event.name && <EventCode code={event.code} />}
+                  {event.code && event.description && (
+                    <EventCode code={event.code} description={event.description} />
+                  )}
                 </div>
               ))}
             </div>
