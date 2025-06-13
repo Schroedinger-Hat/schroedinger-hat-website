@@ -1,6 +1,7 @@
+"use client"
 import { cn } from "@/lib/utils"
-import { X } from "lucide-react"
-import { useLocalStorage } from "@uidotdev/usehooks"
+import { X, Copy, Check } from "lucide-react"
+import { useLocalStorage, useCopyToClipboard } from "@uidotdev/usehooks"
 import {
   Dialog,
   DialogContent,
@@ -9,8 +10,37 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
+import type { EventCodesQueryResult } from "@/sanity/sanity.types"
+import { useState } from "react"
+import { setTimeout } from "node:timers"
 
-export function BannerCode() {
+function EventCode({ code, title }: { code: string; title: string }) {
+  const [copiedText, copyToClipboard] = useCopyToClipboard()
+  const [hasCopiedText, setHasCopiedText] = useState(Boolean(copiedText))
+
+  async function handleCopyToClipboard(code: string) {
+    await copyToClipboard(code)
+    setHasCopiedText(true)
+
+    setTimeout(() => {
+      setHasCopiedText(false)
+    }, 2000)
+  }
+
+  return (
+    <div className={cn("flex justify-between")}>
+      <dt className={cn("text-sm")}>{title}</dt>
+      <div className={cn("flex items-center space-x-2 rounded-md border p-1")}>
+        <dd className={cn("text-xs")}>{code}</dd>
+        <button onClick={() => handleCopyToClipboard(code)}>
+          {hasCopiedText ? <Check className={cn("size-4")} /> : <Copy className={cn("size-4")} />}
+        </button>
+      </div>
+    </div>
+  )
+}
+
+export function BannerCode({ eventCodes }: { eventCodes: EventCodesQueryResult }) {
   const [isBannerVisible, setIsBannerVisible] = useLocalStorage("banner-visible", true)
 
   if (!isBannerVisible) {
@@ -30,10 +60,20 @@ export function BannerCode() {
         </DialogTrigger>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>Available codes:</DialogTitle>
-            <DialogDescription>
-              This action cannot be undone. This will permanently delete your account and remove your data
-              from our servers.
+            <DialogTitle>Available codes</DialogTitle>
+            <DialogDescription asChild>
+              <div className={cn("space-y-2 divide-y")}>
+                {eventCodes.map((event) => (
+                  <div key={event._id} className={cn(":not(:last):pt-0 pt-2")}>
+                    <span className={cn("mb-1 block text-base font-medium text-black/80")}>
+                      {event.partner?.name}
+                    </span>
+                    {event.eventCode && event.eventName && (
+                      <EventCode code={event.eventCode} title={event.eventName} />
+                    )}
+                  </div>
+                ))}
+              </div>
             </DialogDescription>
           </DialogHeader>
         </DialogContent>
