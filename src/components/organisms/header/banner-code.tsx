@@ -1,7 +1,7 @@
 "use client"
 import { cn } from "@/lib/utils"
 import { useToast } from "@/components/ui/toast"
-import { X, Copy, Check } from "lucide-react"
+import { X, Copy, Check, Tag, Gift, Sparkles } from "lucide-react"
 import { useLocalStorage, useCopyToClipboard } from "@uidotdev/usehooks"
 import { useEffect, useMemo } from "react"
 import {
@@ -18,15 +18,14 @@ import { useState } from "react"
 function createEventCodesHash(eventCodes: EventCodesQueryResult): string {
   const dataToHash = eventCodes.map((event) => ({
     id: event._id,
-    code: event.eventCode,
-    name: event.eventName,
+    code: event.code,
+    name: event.name,
     partner: event.partner?.name,
   }))
   return JSON.stringify(dataToHash)
 }
-import { setTimeout } from "node:timers"
 
-function EventCode({ code, title }: { code: string; title: string }) {
+function EventCode({ code }: { code: string }) {
   const [copiedText, copyToClipboard] = useCopyToClipboard()
   const [hasCopiedText, setHasCopiedText] = useState(Boolean(copiedText))
   const { addToast } = useToast()
@@ -51,14 +50,58 @@ function EventCode({ code, title }: { code: string; title: string }) {
   }
 
   return (
-    <div className={cn("flex justify-between")}>
-      <dt className={cn("text-sm")}>{title}</dt>
-      <div className={cn("flex items-center space-x-2 rounded-md border p-1")}>
-        <dd className={cn("text-xs")}>{code}</dd>
-        <button onClick={() => handleCopyToClipboard(code)}>
-          {hasCopiedText ? <Check className={cn("size-4")} /> : <Copy className={cn("size-4")} />}
-        </button>
+    <div
+      className={cn(
+        "group relative flex items-center gap-3 rounded-lg border border-gray-200 bg-gray-50/50 p-3",
+        "transition-all duration-200 hover:border-gray-300 hover:bg-gray-50",
+      )}
+    >
+      <div className="flex-1">
+        <div className="mb-1 flex items-center gap-2">
+          <Tag className="h-3 w-3 text-gray-500" />
+          <span className="text-xs font-medium uppercase tracking-wider text-gray-600">Promo Code</span>
+        </div>
+        <code
+          className={cn(
+            "break-all font-mono text-sm font-semibold text-gray-900",
+            "rounded border bg-white px-2 py-1",
+          )}
+        >
+          {code}
+        </code>
       </div>
+
+      <button
+        onClick={() => handleCopyToClipboard(code)}
+        className={cn(
+          "flex h-8 w-8 items-center justify-center rounded-md border transition-all duration-200",
+          hasCopiedText
+            ? "border-green-200 bg-green-50 text-green-600"
+            : "border-gray-200 bg-white text-gray-500 hover:border-gray-300 hover:bg-gray-50",
+        )}
+        title={hasCopiedText ? "Copied!" : "Copy code"}
+      >
+        {hasCopiedText ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+      </button>
+    </div>
+  )
+}
+
+function PartnerIcon({ partnerName }: { partnerName: string }) {
+  const getPartnerColor = (name: string) => {
+    const colors = ["bg-blue-500", "bg-purple-500", "bg-green-500", "bg-orange-500", "bg-pink-500"]
+    const index = name.length % colors.length
+    return colors[index]
+  }
+
+  return (
+    <div
+      className={cn(
+        "flex h-10 w-10 items-center justify-center rounded-lg text-sm font-semibold text-white",
+        getPartnerColor(partnerName),
+      )}
+    >
+      {partnerName.charAt(0).toUpperCase()}
     </div>
   )
 }
@@ -78,39 +121,91 @@ export function BannerCode({ eventCodes }: { eventCodes: EventCodesQueryResult }
 
   if (!isBannerVisible) {
     return null
-  } else {
-    return (
-      <Dialog>
-        <DialogTrigger
-          className={cn(
-            "sticky top-0 flex w-full items-center justify-center bg-black p-4 text-center text-sm text-white",
-          )}
-        >
-          <p>&#127881; We have some discount codes available from our parnters, use them now! &#127881;</p>
-          <div className={cn("absolute right-2")} onClick={() => setIsBannerVisible(false)}>
-            <X />
-          </div>
-        </DialogTrigger>
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle>Available codes</DialogTitle>
-            <DialogDescription asChild>
-              <div className={cn("space-y-2 divide-y")}>
-                {eventCodes.map((event) => (
-                  <div key={event._id} className={cn(":not(:last):pt-0 pt-2")}>
-                    <span className={cn("mb-1 block text-base font-medium text-black/80")}>
-                      {event.partner?.name}
-                    </span>
-                    {event.eventCode && event.eventName && (
-                      <EventCode code={event.eventCode} title={event.eventName} />
+  }
+
+  return (
+    <div className="sticky top-0 w-full">
+      <div
+        className={cn(
+          "relative flex w-full items-center justify-center",
+          "bg-gradient-to-r from-purple-600 to-blue-600 p-4 text-center text-sm text-white",
+        )}
+      >
+        <Dialog>
+          <DialogTrigger
+            className={cn(
+              "flex items-center gap-2 transition-all duration-300 hover:from-purple-700 hover:to-blue-700",
+            )}
+          >
+            <Gift className="size-4" />
+            <p className="font-medium">Special discount codes available from our partners - Click to view!</p>
+            <Gift className="size-4" />
+          </DialogTrigger>
+
+          <DialogContent className="max-h-[80vh] max-w-2xl overflow-y-auto">
+            <DialogHeader className="pb-6">
+              <DialogTitle className="flex items-center gap-2 text-xl">
+                <Gift className="h-5 w-5 text-purple-600" />
+                Available Discount Codes
+              </DialogTitle>
+              <DialogDescription className="text-gray-600">
+                Use these exclusive codes from our partners to attend their events
+              </DialogDescription>
+            </DialogHeader>
+
+            <div className="space-y-6">
+              {eventCodes.map((event) => (
+                <div
+                  key={event._id}
+                  className={cn(
+                    "rounded-xl border border-gray-200 bg-white p-6 shadow-sm",
+                    "transition-shadow duration-200 hover:shadow-md",
+                  )}
+                >
+                  <div className="mb-4 flex items-start gap-4">
+                    {event.partner?.name && <PartnerIcon partnerName={event.partner.name} />}
+                    <div className="flex-1">
+                      <h3 className="mb-1 text-lg font-semibold text-gray-900">
+                        {event.partner?.name ?? "Partner"}
+                      </h3>
+                      {event.name && (
+                        <p className="flex items-center gap-1 text-sm text-gray-600">
+                          <Sparkles className="h-3 w-3" />
+                          {event.name}
+                        </p>
+                      )}
+                    </div>
+                    {event.description && (
+                      <div className="mb-2 flex items-center gap-2">
+                        <div className="rounded-full bg-green-100 px-3 py-1 text-sm font-medium text-green-800">
+                          {event.description}
+                        </div>
+                      </div>
                     )}
                   </div>
-                ))}
+                  {event.code && event.name && <EventCode code={event.code} />}
+                </div>
+              ))}
+            </div>
+
+            {eventCodes.length === 0 && (
+              <div className="py-12 text-center">
+                <Gift className="mx-auto mb-4 size-12 text-gray-300" />
+                <p className="text-gray-500">No codes available at the moment</p>
               </div>
-            </DialogDescription>
-          </DialogHeader>
-        </DialogContent>
-      </Dialog>
-    )
-  }
+            )}
+          </DialogContent>
+        </Dialog>
+
+        <button
+          onClick={() => setIsBannerVisible(false)}
+          className={cn(
+            "absolute right-2 flex size-6 items-center justify-center rounded-md transition-colors hover:bg-white/20",
+          )}
+        >
+          <X className="size-4" />
+        </button>
+      </div>
+    </div>
+  )
 }
