@@ -17,6 +17,7 @@ import { Image } from "../../atoms/media/Image"
 import { Button } from "../../molecules/button"
 import { participateMenuData, contributeMenuData, associationMenuData } from "./data"
 import { HighlightSubMenu, ListItem } from "./highlight-submenu"
+import type { EventCodesQueryResult } from "@/sanity/sanity.types"
 import { Typography } from "@/components/atoms/typography/Typography"
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, SheetClose } from "@/components/ui/sheet"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
@@ -27,17 +28,17 @@ import { useIsClient } from "@uidotdev/usehooks"
 // Image
 import logo from "@/images/logo.png"
 
-function ClientBanner() {
+function ClientBanner({ eventCodes }: { eventCodes: EventCodesQueryResult }) {
   // We do this because: https://github.com/uidotdev/usehooks/issues/254
   const isClient = useIsClient()
   if (isClient === false) {
     return null
   } else {
-    return <BannerCode />
+    return <BannerCode eventCodes={eventCodes} />
   }
 }
 
-export function Header() {
+export function Header({ eventCodes }: { eventCodes: EventCodesQueryResult }) {
   const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {
@@ -60,7 +61,7 @@ export function Header() {
         "border-transparent bg-transparent": !isScrolled,
       })}
     >
-      <ClientBanner />
+      <ClientBanner eventCodes={eventCodes} />
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-2 lg:px-8">
         <div className="flex lg:flex-1">
           <Link href="/" className="">
