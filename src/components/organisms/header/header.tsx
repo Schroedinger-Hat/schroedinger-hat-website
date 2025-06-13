@@ -56,13 +56,13 @@ export function Header({ eventCodes }: { eventCodes: EventCodesQueryResult }) {
 
   return (
     <header
-      className={cn("sticky top-0 z-50 p-4 transition-all duration-200 lg:p-0", "border-b", {
+      className={cn("sticky top-0 z-50 transition-all duration-200", "border-b", {
         "border-slate-200 bg-white": isScrolled,
         "border-transparent bg-transparent": !isScrolled,
       })}
     >
       <ClientBanner eventCodes={eventCodes} />
-      <nav className="mx-auto flex max-w-7xl items-center justify-between p-2 lg:px-8">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8 lg:py-2">
         <div className="flex lg:flex-1">
           <Link href="/" className="">
             <span className="sr-only">Schrödinger Hat</span>
