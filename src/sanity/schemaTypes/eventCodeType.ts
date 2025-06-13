@@ -28,7 +28,7 @@ export const eventCodeType = defineType({
       name: "validFrom",
       title: "Valid From",
       type: "date",
-      validation: (Rule) => Rule.required().min(new Date().toISOString()),
+      validation: (Rule) => Rule.required().min(new Date().toISOString().substring(0, 10)),
     },
     {
       name: "validThru",
