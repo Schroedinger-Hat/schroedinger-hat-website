@@ -9,19 +9,21 @@ import { projectType } from "./projectType"
 import { jobPostType } from "./jobPostType"
 import { eventSeriesType } from "./eventSeriesType"
 import { blogPostType } from "./blogPostType"
+import { eventCodeType } from "./eventCodeType"
 
 export const schema = {
   types: [
-    eventType,
-    partnerType,
-    pageType,
-    videoType,
     authorType,
-    teamMemberType,
-    faqType,
-    projectType,
-    jobPostType,
-    eventSeriesType,
     blogPostType,
+    eventCodeType,
+    eventSeriesType,
+    eventType,
+    faqType,
+    jobPostType,
+    pageType,
+    partnerType,
+    projectType,
+    teamMemberType,
+    videoType,
   ],
 }
