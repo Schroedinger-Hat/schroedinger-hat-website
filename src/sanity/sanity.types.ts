@@ -731,7 +731,7 @@ export type AllSanitySchemaTypes =
 export declare const internalGroqTypeReferenceTo: unique symbol
 // Source: ./queries/eventCodes.ts
 // Variable: eventCodesQuery
-// Query: *[_type == "eventCode" && validThru >= now()] {    _id,    name,    description,    url,    date,    code,    partner->{      name,      image {        "dimensions": asset->metadata.dimensions,        "url": asset->url,        backgroundColor        }      },    validFrom,    validThru,  }
+// Query: *[_type == "eventCode" && validThru >= now()] {    _id,    name,    description,    url,    date,    code,    partner->{      name    },    validFrom,    validThru,  }
 export type EventCodesQueryResult = Array<{
   _id: string
   name: string | null
@@ -741,11 +741,6 @@ export type EventCodesQueryResult = Array<{
   code: string | null
   partner: {
     name: string | null
-    image: {
-      dimensions: SanityImageDimensions | null
-      url: string | null
-      backgroundColor: null
-    } | null
   } | null
   validFrom: string | null
   validThru: string | null
@@ -806,7 +801,7 @@ export type ProjectsQueryResult = Array<{
 import "@sanity/client"
 declare module "@sanity/client" {
   interface SanityQueries {
-    '\n  *[_type == "eventCode" && validThru >= now()] {\n    _id,\n    name,\n    description,\n    url,\n    date,\n    code,\n    partner->{\n      name,\n      image {\n        "dimensions": asset->metadata.dimensions,\n        "url": asset->url,\n        backgroundColor\n        }\n      },\n    validFrom,\n    validThru,\n  }\n': EventCodesQueryResult
+    '\n  *[_type == "eventCode" && validThru >= now()] {\n    _id,\n    name,\n    description,\n    url,\n    date,\n    code,\n    partner->{\n      name\n    },\n    validFrom,\n    validThru,\n  }\n': EventCodesQueryResult
     '*[_type == "project"] | order(sortIndex asc) {\n    ...,\n    maintainers[]->{\n      _id,\n      name,\n      surname,\n      role,\n      githubUrl,\n      image {\n        "dimensions": asset->metadata.dimensions,\n        "url": asset->url,\n        backgroundColor\n      }\n    }\n  }': ProjectsQueryResult
   }
 }
