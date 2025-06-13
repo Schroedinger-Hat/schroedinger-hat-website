@@ -1,7 +1,7 @@
 import { Image } from "@/components/atoms/media/Image"
 import { Heading } from "@/components/atoms/typography/Heading"
 import { Typography } from "@/components/atoms/typography/Typography"
-import { Header } from "@/components/organisms/header/header"
+import { HeaderWrapper } from "@/components/organisms/header/header-wrapper"
 import { Inter } from "next/font/google"
 import { Lexend } from "next/font/google"
 import { type Metadata } from "next"
@@ -26,7 +26,7 @@ export default function NotFound() {
   return (
     <html lang="en" className={`${inter.variable} ${lexend.variable}`}>
       <body>
-        <Header />
+        <HeaderWrapper />
         <main className="py-24 pb-48">
           <BlurredBackground
             points={3}

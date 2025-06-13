@@ -61,7 +61,8 @@ export const eventCodeType = defineType({
       subtitle: "partner",
       validThru: "validThru",
     },
-    prepare({ title, validThru }: { title: string; subtitle: string; validThru: string }) {
+    prepare(selection) {
+      const { title, validThru } = selection
       const isValid = validThru ? new Date(validThru) >= new Date() : false
       return {
         title: `${title} ${isValid ? "✅" : "❌"}`,
