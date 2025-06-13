@@ -31,7 +31,7 @@ import logo from "@/images/logo.png"
 function ClientBanner({ eventCodes }: { eventCodes: EventCodesQueryResult }) {
   // We do this because: https://github.com/uidotdev/usehooks/issues/254
   const isClient = useIsClient()
-  if (isClient === false) {
+  if (isClient === false || !eventCodes.length) {
     return null
   } else {
     return <BannerCode eventCodes={eventCodes} />
