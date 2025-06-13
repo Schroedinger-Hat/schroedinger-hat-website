@@ -1,5 +1,6 @@
 "use client"
 import { cn } from "@/lib/utils"
+import { useToast } from "@/components/ui/toast"
 import { X, Copy, Check } from "lucide-react"
 import { useLocalStorage, useCopyToClipboard } from "@uidotdev/usehooks"
 import {
@@ -17,10 +18,21 @@ import { setTimeout } from "node:timers"
 function EventCode({ code, title }: { code: string; title: string }) {
   const [copiedText, copyToClipboard] = useCopyToClipboard()
   const [hasCopiedText, setHasCopiedText] = useState(Boolean(copiedText))
+  const { addToast } = useToast()
 
   async function handleCopyToClipboard(code: string) {
     await copyToClipboard(code)
     setHasCopiedText(true)
+
+    addToast({
+      variant: "success",
+      children: (
+        <div className={cn("w-96")}>
+          <p className="font-semibold">Copied!</p>
+          <p className="text-sm">Code copied to clipboard</p>
+        </div>
+      ),
+    })
 
     setTimeout(() => {
       setHasCopiedText(false)
