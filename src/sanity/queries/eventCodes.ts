@@ -8,7 +8,6 @@ const eventCodesQuery = defineQuery(`
     partner->{name},
     validFrom,
     validThru,
-    "isValid": validThru >= now()
   }
 `)
 
