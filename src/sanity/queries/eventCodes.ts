@@ -5,8 +5,12 @@ const eventCodesQuery = defineQuery(`
     _id,
     name,
     description,
+    url,
+    date,
     code,
-    partner->{name},
+    partner->{
+      name
+    },
     validFrom,
     validThru,
   }

@@ -3023,6 +3023,20 @@
         },
         "optional": true
       },
+      "url": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "date": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
       "partner": {
         "type": "objectAttribute",
         "value": {

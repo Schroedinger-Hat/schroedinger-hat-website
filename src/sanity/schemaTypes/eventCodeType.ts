@@ -25,6 +25,17 @@ export const eventCodeType = defineType({
       validation: (Rule) => Rule.required(),
     },
     {
+      name: "url",
+      title: "Event URL",
+      type: "string",
+    },
+    {
+      name: "date",
+      title: "Date of event",
+      type: "date",
+      validation: (Rule) => Rule.required(),
+    },
+    {
       name: "partner",
       title: "Partner",
       type: "reference",
@@ -46,7 +57,7 @@ export const eventCodeType = defineType({
   ],
   preview: {
     select: {
-      title: "eventName",
+      title: "name",
       subtitle: "partner",
       validThru: "validThru",
     },
