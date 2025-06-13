@@ -1,7 +1,7 @@
 import { defineQuery } from "next-sanity"
 
 const eventCodesQuery = defineQuery(`
-  *[_type == "eventCode"] {
+  *[_type == "eventCode" && validThru >= now()] {
     _id,
     eventName,
     eventCode,
