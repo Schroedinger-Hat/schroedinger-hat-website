@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils"
 import { useToast } from "@/components/ui/toast"
 import { X, Copy, Check } from "lucide-react"
 import { useLocalStorage, useCopyToClipboard } from "@uidotdev/usehooks"
+import { useEffect, useMemo } from "react"
 import {
   Dialog,
   DialogContent,
@@ -13,6 +14,16 @@ import {
 } from "@/components/ui/dialog"
 import type { EventCodesQueryResult } from "@/sanity/sanity.types"
 import { useState } from "react"
+
+function createEventCodesHash(eventCodes: EventCodesQueryResult): string {
+  const dataToHash = eventCodes.map((event) => ({
+    id: event._id,
+    code: event.eventCode,
+    name: event.eventName,
+    partner: event.partner?.name,
+  }))
+  return JSON.stringify(dataToHash)
+}
 import { setTimeout } from "node:timers"
 
 function EventCode({ code, title }: { code: string; title: string }) {
@@ -54,6 +65,16 @@ function EventCode({ code, title }: { code: string; title: string }) {
 
 export function BannerCode({ eventCodes }: { eventCodes: EventCodesQueryResult }) {
   const [isBannerVisible, setIsBannerVisible] = useLocalStorage("banner-visible", true)
+  const [lastDataHash, setLastDataHash] = useLocalStorage("banner-data-hash", "")
+
+  const currentDataHash = useMemo(() => createEventCodesHash(eventCodes), [eventCodes])
+
+  useEffect(() => {
+    if (lastDataHash && lastDataHash !== currentDataHash) {
+      setIsBannerVisible(true)
+    }
+    setLastDataHash(currentDataHash)
+  }, [currentDataHash, lastDataHash, setIsBannerVisible, setLastDataHash])
 
   if (!isBannerVisible) {
     return null
