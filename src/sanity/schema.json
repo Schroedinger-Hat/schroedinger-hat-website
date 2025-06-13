@@ -3002,14 +3002,21 @@
           "type": "string"
         }
       },
-      "eventName": {
+      "name": {
         "type": "objectAttribute",
         "value": {
           "type": "string"
         },
         "optional": true
       },
-      "eventCode": {
+      "code": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "description": {
         "type": "objectAttribute",
         "value": {
           "type": "string"

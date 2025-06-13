@@ -431,8 +431,9 @@ export type EventCode = {
   _createdAt: string
   _updatedAt: string
   _rev: string
-  eventName?: string
-  eventCode?: string
+  name?: string
+  code?: string
+  description?: string
   partner?: {
     _ref: string
     _type: "reference"
@@ -728,17 +729,17 @@ export type AllSanitySchemaTypes =
 export declare const internalGroqTypeReferenceTo: unique symbol
 // Source: ./queries/eventCodes.ts
 // Variable: eventCodesQuery
-// Query: *[_type == "eventCode"] {    _id,    eventName,    eventCode,    partner->{name},    validFrom,    validThru,    "isValid": validThru >= now()  }
+// Query: *[_type == "eventCode" && validThru >= now()] {    _id,    name,    description,    code,    partner->{name},    validFrom,    validThru,  }
 export type EventCodesQueryResult = Array<{
   _id: string
-  eventName: string | null
-  eventCode: string | null
+  name: string | null
+  description: string | null
+  code: string | null
   partner: {
     name: string | null
   } | null
   validFrom: string | null
   validThru: string | null
-  isValid: boolean | null
 }>
 
 // Source: ./queries/projects.ts
@@ -796,7 +797,7 @@ export type ProjectsQueryResult = Array<{
 import "@sanity/client"
 declare module "@sanity/client" {
   interface SanityQueries {
-    '\n  *[_type == "eventCode"] {\n    _id,\n    eventName,\n    eventCode,\n    partner->{name},\n    validFrom,\n    validThru,\n    "isValid": validThru >= now()\n  }\n': EventCodesQueryResult
+    '\n  *[_type == "eventCode" && validThru >= now()] {\n    _id,\n    name,\n    description,\n    code,\n    partner->{name},\n    validFrom,\n    validThru,\n  }\n': EventCodesQueryResult
     '*[_type == "project"] | order(sortIndex asc) {\n    ...,\n    maintainers[]->{\n      _id,\n      name,\n      surname,\n      role,\n      githubUrl,\n      image {\n        "dimensions": asset->metadata.dimensions,\n        "url": asset->url,\n        backgroundColor\n      }\n    }\n  }': ProjectsQueryResult
   }
 }

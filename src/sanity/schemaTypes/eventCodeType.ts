@@ -6,14 +6,21 @@ export const eventCodeType = defineType({
   type: "document",
   fields: [
     {
-      name: "eventName",
+      name: "name",
       title: "Event Name",
       type: "string",
       validation: (Rule) => Rule.required(),
     },
     {
-      name: "eventCode",
+      name: "code",
       title: "Discount Code",
+      type: "string",
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: "description",
+      title: "Description of the benefit",
+      description: "Example: 20% Discount, 1 Ticket Free, etc.",
       type: "string",
       validation: (Rule) => Rule.required(),
     },
