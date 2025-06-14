@@ -1,10 +1,10 @@
-import { Header } from "@/components/organisms/header/header"
+import { HeaderWrapper } from "@/components/organisms/header/header-wrapper"
 import { Footer } from "@/components/organisms/footer"
 
 export default function WebsiteLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <>
-      <Header />
+      <HeaderWrapper />
       {children}
       <Footer />
     </>

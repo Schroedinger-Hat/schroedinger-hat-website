@@ -61,248 +61,6 @@ export type SanityFileAsset = {
   source?: SanityAssetSourceData
 }
 
-export type BlogPost = {
-  _id: string
-  _type: "blogPost"
-  _createdAt: string
-  _updatedAt: string
-  _rev: string
-  title?: string
-  slug?: Slug
-  authors?: Array<{
-    _ref: string
-    _type: "reference"
-    _weak?: boolean
-    _key: string
-    [internalGroqTypeReferenceTo]?: "author"
-  }>
-  excerpt?: string
-  headerImage?: {
-    asset?: {
-      _ref: string
-      _type: "reference"
-      _weak?: boolean
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset"
-    }
-    media?: unknown
-    hotspot?: SanityImageHotspot
-    crop?: SanityImageCrop
-    caption?: string
-    _type: "image"
-  }
-  publishedAt?: string
-  content?: Array<
-    | {
-        children?: Array<{
-          marks?: Array<string>
-          text?: string
-          _type: "span"
-          _key: string
-        }>
-        style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote"
-        listItem?: "bullet" | "number"
-        markDefs?: Array<{
-          href?: string
-          _type: "link"
-          _key: string
-        }>
-        level?: number
-        _type: "block"
-        _key: string
-      }
-    | {
-        asset?: {
-          _ref: string
-          _type: "reference"
-          _weak?: boolean
-          [internalGroqTypeReferenceTo]?: "sanity.imageAsset"
-        }
-        media?: unknown
-        hotspot?: SanityImageHotspot
-        crop?: SanityImageCrop
-        alt?: string
-        caption?: string
-        _type: "image"
-        _key: string
-      }
-    | ({
-        _key: string
-      } & Code)
-  >
-}
-
-export type JobPost = {
-  _id: string
-  _type: "jobPost"
-  _createdAt: string
-  _updatedAt: string
-  _rev: string
-  title?: string
-  description?: Array<{
-    children?: Array<{
-      marks?: Array<string>
-      text?: string
-      _type: "span"
-      _key: string
-    }>
-    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote"
-    listItem?: "bullet" | "number"
-    markDefs?: Array<{
-      href?: string
-      _type: "link"
-      _key: string
-    }>
-    level?: number
-    _type: "block"
-    _key: string
-  }>
-  location?: string
-  effort?: "low" | "moderate" | "elevate"
-  isActive?: boolean
-  publishedAt?: string
-}
-
-export type Project = {
-  _id: string
-  _type: "project"
-  _createdAt: string
-  _updatedAt: string
-  _rev: string
-  title?: string
-  sortIndex?: number
-  slug?: Slug
-  description?: Array<{
-    children?: Array<{
-      marks?: Array<string>
-      text?: string
-      _type: "span"
-      _key: string
-    }>
-    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote"
-    listItem?: "bullet" | "number"
-    markDefs?: Array<{
-      href?: string
-      _type: "link"
-      _key: string
-    }>
-    level?: number
-    _type: "block"
-    _key: string
-  }>
-  url?: string
-  repositoryUrl?: string
-  showStars?: boolean
-  techStack?: Array<string>
-  launchedAt?: string
-  lookingFor?: Array<string>
-  language?: "typescript" | "javascript" | "python" | "go" | "rust"
-  maintainers?: Array<{
-    _ref: string
-    _type: "reference"
-    _weak?: boolean
-    _key: string
-    [internalGroqTypeReferenceTo]?: "teamMember"
-  }>
-}
-
-export type Faq = {
-  _id: string
-  _type: "faq"
-  _createdAt: string
-  _updatedAt: string
-  _rev: string
-  question?: string
-  answer?: Array<{
-    children?: Array<{
-      marks?: Array<string>
-      text?: string
-      _type: "span"
-      _key: string
-    }>
-    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote"
-    listItem?: "bullet" | "number"
-    markDefs?: Array<{
-      href?: string
-      _type: "link"
-      _key: string
-    }>
-    level?: number
-    _type: "block"
-    _key: string
-  }>
-  groupKey?: string
-  orderRank?: string
-}
-
-export type TeamMember = {
-  _id: string
-  _type: "teamMember"
-  _createdAt: string
-  _updatedAt: string
-  _rev: string
-  name?: string
-  surname?: string
-  role?: string
-  githubUrl?: string
-  image?: {
-    asset?: {
-      _ref: string
-      _type: "reference"
-      _weak?: boolean
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset"
-    }
-    media?: unknown
-    hotspot?: SanityImageHotspot
-    crop?: SanityImageCrop
-    backgroundColor?: string
-    _type: "image"
-  }
-  orderRank?: string
-}
-
-export type Author = {
-  _id: string
-  _type: "author"
-  _createdAt: string
-  _updatedAt: string
-  _rev: string
-  firstName?: string
-  lastName?: string
-  pronouns?: string
-  title?: string
-  photo?: {
-    asset?: {
-      _ref: string
-      _type: "reference"
-      _weak?: boolean
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset"
-    }
-    media?: unknown
-    hotspot?: SanityImageHotspot
-    crop?: SanityImageCrop
-    _type: "image"
-  }
-  biography?: Array<{
-    children?: Array<{
-      marks?: Array<string>
-      text?: string
-      _type: "span"
-      _key: string
-    }>
-    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote"
-    listItem?: "bullet" | "number"
-    markDefs?: Array<{
-      href?: string
-      _type: "link"
-      _key: string
-    }>
-    level?: number
-    _type: "block"
-    _key: string
-  }>
-  slug?: Slug
-}
-
 export type Video = {
   _id: string
   _type: "video"
@@ -375,6 +133,75 @@ export type Video = {
   order?: number
 }
 
+export type TeamMember = {
+  _id: string
+  _type: "teamMember"
+  _createdAt: string
+  _updatedAt: string
+  _rev: string
+  name?: string
+  surname?: string
+  role?: string
+  githubUrl?: string
+  image?: {
+    asset?: {
+      _ref: string
+      _type: "reference"
+      _weak?: boolean
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset"
+    }
+    media?: unknown
+    hotspot?: SanityImageHotspot
+    crop?: SanityImageCrop
+    backgroundColor?: string
+    _type: "image"
+  }
+  orderRank?: string
+}
+
+export type Project = {
+  _id: string
+  _type: "project"
+  _createdAt: string
+  _updatedAt: string
+  _rev: string
+  title?: string
+  sortIndex?: number
+  slug?: Slug
+  description?: Array<{
+    children?: Array<{
+      marks?: Array<string>
+      text?: string
+      _type: "span"
+      _key: string
+    }>
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote"
+    listItem?: "bullet" | "number"
+    markDefs?: Array<{
+      href?: string
+      _type: "link"
+      _key: string
+    }>
+    level?: number
+    _type: "block"
+    _key: string
+  }>
+  url?: string
+  repositoryUrl?: string
+  showStars?: boolean
+  techStack?: Array<string>
+  launchedAt?: string
+  lookingFor?: Array<string>
+  language?: "typescript" | "javascript" | "python" | "go" | "rust"
+  maintainers?: Array<{
+    _ref: string
+    _type: "reference"
+    _weak?: boolean
+    _key: string
+    [internalGroqTypeReferenceTo]?: "teamMember"
+  }>
+}
+
 export type Page = {
   _id: string
   _type: "page"
@@ -438,40 +265,64 @@ export type Page = {
   }
 }
 
-export type Partner = {
+export type JobPost = {
   _id: string
-  _type: "partner"
+  _type: "jobPost"
   _createdAt: string
   _updatedAt: string
   _rev: string
-  name?: string
-  image?: {
-    asset?: {
-      _ref: string
-      _type: "reference"
-      _weak?: boolean
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset"
-    }
-    media?: unknown
-    hotspot?: SanityImageHotspot
-    crop?: SanityImageCrop
-    _type: "image"
-  }
-  description?: string
-  isBusinessPartner?: boolean
-  businessTier?: "silver" | "gold" | "platinum" | "diamond"
-  nonBusinessType?: "community" | "media"
-  website?: string
-  partnershipPeriod?: {
-    startDate?: string
-    endDate?: string
-  }
-  contact?: {
-    name?: string
-    email?: string
-  }
+  title?: string
+  description?: Array<{
+    children?: Array<{
+      marks?: Array<string>
+      text?: string
+      _type: "span"
+      _key: string
+    }>
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote"
+    listItem?: "bullet" | "number"
+    markDefs?: Array<{
+      href?: string
+      _type: "link"
+      _key: string
+    }>
+    level?: number
+    _type: "block"
+    _key: string
+  }>
+  location?: string
+  effort?: "low" | "moderate" | "elevate"
+  isActive?: boolean
+  publishedAt?: string
+}
+
+export type Faq = {
+  _id: string
+  _type: "faq"
+  _createdAt: string
+  _updatedAt: string
+  _rev: string
+  question?: string
+  answer?: Array<{
+    children?: Array<{
+      marks?: Array<string>
+      text?: string
+      _type: "span"
+      _key: string
+    }>
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote"
+    listItem?: "bullet" | "number"
+    markDefs?: Array<{
+      href?: string
+      _type: "link"
+      _key: string
+    }>
+    level?: number
+    _type: "block"
+    _key: string
+  }>
+  groupKey?: string
   orderRank?: string
-  visibility?: Array<string>
 }
 
 export type Event = {
@@ -563,6 +414,193 @@ export type Geopoint = {
   alt?: number
 }
 
+export type EventSeries = {
+  _id: string
+  _type: "eventSeries"
+  _createdAt: string
+  _updatedAt: string
+  _rev: string
+  title?: string
+  slug?: Slug
+  description?: string
+}
+
+export type EventCode = {
+  _id: string
+  _type: "eventCode"
+  _createdAt: string
+  _updatedAt: string
+  _rev: string
+  name?: string
+  code?: string
+  description?: string
+  url?: string
+  date?: string
+  partner?: {
+    _ref: string
+    _type: "reference"
+    _weak?: boolean
+    [internalGroqTypeReferenceTo]?: "partner"
+  }
+  validFrom?: string
+  validThru?: string
+}
+
+export type Partner = {
+  _id: string
+  _type: "partner"
+  _createdAt: string
+  _updatedAt: string
+  _rev: string
+  name?: string
+  image?: {
+    asset?: {
+      _ref: string
+      _type: "reference"
+      _weak?: boolean
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset"
+    }
+    media?: unknown
+    hotspot?: SanityImageHotspot
+    crop?: SanityImageCrop
+    _type: "image"
+  }
+  description?: string
+  isBusinessPartner?: boolean
+  businessTier?: "silver" | "gold" | "platinum" | "diamond"
+  nonBusinessType?: "community" | "media"
+  website?: string
+  partnershipPeriod?: {
+    startDate?: string
+    endDate?: string
+  }
+  contact?: {
+    name?: string
+    email?: string
+  }
+  orderRank?: string
+  visibility?: Array<string>
+}
+
+export type BlogPost = {
+  _id: string
+  _type: "blogPost"
+  _createdAt: string
+  _updatedAt: string
+  _rev: string
+  title?: string
+  slug?: Slug
+  authors?: Array<{
+    _ref: string
+    _type: "reference"
+    _weak?: boolean
+    _key: string
+    [internalGroqTypeReferenceTo]?: "author"
+  }>
+  excerpt?: string
+  headerImage?: {
+    asset?: {
+      _ref: string
+      _type: "reference"
+      _weak?: boolean
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset"
+    }
+    media?: unknown
+    hotspot?: SanityImageHotspot
+    crop?: SanityImageCrop
+    caption?: string
+    _type: "image"
+  }
+  publishedAt?: string
+  content?: Array<
+    | {
+        children?: Array<{
+          marks?: Array<string>
+          text?: string
+          _type: "span"
+          _key: string
+        }>
+        style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote"
+        listItem?: "bullet" | "number"
+        markDefs?: Array<{
+          href?: string
+          _type: "link"
+          _key: string
+        }>
+        level?: number
+        _type: "block"
+        _key: string
+      }
+    | {
+        asset?: {
+          _ref: string
+          _type: "reference"
+          _weak?: boolean
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset"
+        }
+        media?: unknown
+        hotspot?: SanityImageHotspot
+        crop?: SanityImageCrop
+        alt?: string
+        caption?: string
+        _type: "image"
+        _key: string
+      }
+    | ({
+        _key: string
+      } & Code)
+  >
+}
+
+export type Author = {
+  _id: string
+  _type: "author"
+  _createdAt: string
+  _updatedAt: string
+  _rev: string
+  firstName?: string
+  lastName?: string
+  pronouns?: string
+  title?: string
+  photo?: {
+    asset?: {
+      _ref: string
+      _type: "reference"
+      _weak?: boolean
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset"
+    }
+    media?: unknown
+    hotspot?: SanityImageHotspot
+    crop?: SanityImageCrop
+    _type: "image"
+  }
+  biography?: Array<{
+    children?: Array<{
+      marks?: Array<string>
+      text?: string
+      _type: "span"
+      _key: string
+    }>
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote"
+    listItem?: "bullet" | "number"
+    markDefs?: Array<{
+      href?: string
+      _type: "link"
+      _key: string
+    }>
+    level?: number
+    _type: "block"
+    _key: string
+  }>
+  slug?: Slug
+}
+
+export type Slug = {
+  _type: "slug"
+  current?: string
+  source?: string
+}
+
 export type SanityImageCrop = {
   _type: "sanity.imageCrop"
   top?: number
@@ -620,23 +658,6 @@ export type SanityImageMetadata = {
   isOpaque?: boolean
 }
 
-export type EventSeries = {
-  _id: string
-  _type: "eventSeries"
-  _createdAt: string
-  _updatedAt: string
-  _rev: string
-  title?: string
-  slug?: Slug
-  description?: string
-}
-
-export type Slug = {
-  _type: "slug"
-  current?: string
-  source?: string
-}
-
 export type Code = {
   _type: "code"
   language?: string
@@ -683,30 +704,48 @@ export type AllSanitySchemaTypes =
   | SanityImagePalette
   | SanityImageDimensions
   | SanityFileAsset
-  | BlogPost
-  | JobPost
-  | Project
-  | Faq
-  | TeamMember
-  | Author
   | Video
+  | TeamMember
+  | Project
   | Page
-  | Partner
+  | JobPost
+  | Faq
   | Event
   | Geopoint
+  | EventSeries
+  | EventCode
+  | Partner
+  | BlogPost
+  | Author
+  | Slug
   | SanityImageCrop
   | SanityImageHotspot
   | SanityImageAsset
   | SanityAssetSourceData
   | SanityImageMetadata
-  | EventSeries
-  | Slug
   | Code
   | Color
   | RgbaColor
   | HsvaColor
   | HslaColor
 export declare const internalGroqTypeReferenceTo: unique symbol
+// Source: ./queries/eventCodes.ts
+// Variable: eventCodesQuery
+// Query: *[_type == "eventCode" && validThru >= now()] {    _id,    name,    description,    url,    date,    code,    partner->{      name    },    validFrom,    validThru,  }
+export type EventCodesQueryResult = Array<{
+  _id: string
+  name: string | null
+  description: string | null
+  url: string | null
+  date: string | null
+  code: string | null
+  partner: {
+    name: string | null
+  } | null
+  validFrom: string | null
+  validThru: string | null
+}>
+
 // Source: ./queries/projects.ts
 // Variable: projectsQuery
 // Query: *[_type == "project"] | order(sortIndex asc) {    ...,    maintainers[]->{      _id,      name,      surname,      role,      githubUrl,      image {        "dimensions": asset->metadata.dimensions,        "url": asset->url,        backgroundColor      }    }  }
@@ -762,6 +801,7 @@ export type ProjectsQueryResult = Array<{
 import "@sanity/client"
 declare module "@sanity/client" {
   interface SanityQueries {
+    '\n  *[_type == "eventCode" && validThru >= now()] {\n    _id,\n    name,\n    description,\n    url,\n    date,\n    code,\n    partner->{\n      name\n    },\n    validFrom,\n    validThru,\n  }\n': EventCodesQueryResult
     '*[_type == "project"] | order(sortIndex asc) {\n    ...,\n    maintainers[]->{\n      _id,\n      name,\n      surname,\n      role,\n      githubUrl,\n      image {\n        "dimensions": asset->metadata.dimensions,\n        "url": asset->url,\n        backgroundColor\n      }\n    }\n  }': ProjectsQueryResult
   }
 }

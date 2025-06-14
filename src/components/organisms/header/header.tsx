@@ -17,15 +17,28 @@ import { Image } from "../../atoms/media/Image"
 import { Button } from "../../molecules/button"
 import { participateMenuData, contributeMenuData, associationMenuData } from "./data"
 import { HighlightSubMenu, ListItem } from "./highlight-submenu"
+import type { EventCodesQueryResult } from "@/sanity/sanity.types"
 import { Typography } from "@/components/atoms/typography/Typography"
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, SheetClose } from "@/components/ui/sheet"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { GlobalSearch } from "../global-search"
+import { BannerCode } from "@/components/organisms/header/banner-code"
+import { useIsClient } from "@uidotdev/usehooks"
 
 // Image
 import logo from "@/images/logo.png"
 
-export function Header() {
+function ClientBanner({ eventCodes }: { eventCodes: EventCodesQueryResult }) {
+  // We do this because: https://github.com/uidotdev/usehooks/issues/254
+  const isClient = useIsClient()
+  if (isClient === false || !eventCodes.length) {
+    return null
+  } else {
+    return <BannerCode eventCodes={eventCodes} />
+  }
+}
+
+export function Header({ eventCodes }: { eventCodes: EventCodesQueryResult }) {
   const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {
@@ -43,12 +56,13 @@ export function Header() {
 
   return (
     <header
-      className={cn("sticky top-0 z-50 p-4 transition-all duration-200 lg:p-0", "border-b", {
+      className={cn("sticky top-0 z-50 transition-all duration-200", "border-b", {
         "border-slate-200 bg-white": isScrolled,
         "border-transparent bg-transparent": !isScrolled,
       })}
     >
-      <nav className="mx-auto flex max-w-7xl items-center justify-between p-2 lg:px-8">
+      <ClientBanner eventCodes={eventCodes} />
+      <nav className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8 lg:py-2">
         <div className="flex lg:flex-1">
           <Link href="/" className="">
             <span className="sr-only">Schrödinger Hat</span>
