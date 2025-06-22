@@ -122,9 +122,11 @@ export function BannerCode({ eventCodes }: { eventCodes: EventCodesQueryResult }
       <div className="relative flex w-full items-center justify-center bg-gradient-to-r from-purple-600 to-blue-600 p-4 text-center text-sm text-white">
         <Dialog>
           <DialogTrigger className="flex items-center gap-2 transition-colors hover:text-purple-100">
-            <Gift className="size-4" />
-            <p className="font-medium">Special discount codes available from our partners - Click to view!</p>
-            <Gift className="size-4" />
+            <Gift className="hidden size-4 md:block" />
+            <p className="text-balance font-medium">
+              Special discount codes available from our partners - Click to view!
+            </p>
+            <Gift className="hidden size-4 md:block" />
           </DialogTrigger>
 
           <DialogContent className="max-h-[80vh] max-w-2xl overflow-y-auto">
@@ -133,7 +135,7 @@ export function BannerCode({ eventCodes }: { eventCodes: EventCodesQueryResult }
                 <Gift className="h-5 w-5 text-purple-600" />
                 Available Discount Codes
               </DialogTitle>
-              <DialogDescription className="text-gray-600">
+              <DialogDescription className="text-left text-gray-600">
                 Use these exclusive codes from our partners to attend their events
               </DialogDescription>
             </DialogHeader>
@@ -151,27 +153,30 @@ export function BannerCode({ eventCodes }: { eventCodes: EventCodesQueryResult }
                         {event.partner?.name ?? "Partner"}
                       </h3>
                       {event.name && (
-                        <p className="flex items-center gap-1 text-sm text-gray-600">
-                          <Sparkles className="size-3" />
-                          {event.url ? (
-                            <a
-                              href={event.url}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="underline decoration-gray-300 underline-offset-2 transition-colors duration-150 hover:decoration-gray-500"
-                            >
-                              {event.name}
-                            </a>
-                          ) : (
-                            event.name
-                          )}
+                        <div className="flex flex-col items-start justify-center gap-1 text-sm text-gray-600 md:flex-row md:justify-start">
+                          <div className="flex items-center gap-x-1">
+                            <Sparkles className="size-3" />
+                            {event.url ? (
+                              <a
+                                href={event.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="underline decoration-gray-300 underline-offset-2 transition-colors duration-150 hover:decoration-gray-500"
+                              >
+                                {event.name}
+                              </a>
+                            ) : (
+                              event.name
+                            )}
+                          </div>
                           {event.date && (
-                            <>
-                              - <Calendar className="size-3" />
+                            <div className="flex items-center gap-x-1">
+                              <span className="hidden md:block">-</span>
+                              <Calendar className="size-3" />
                               <span className="text-sm">{formatDateTime(event.date, "d MMMM, yyyy")}</span>
-                            </>
+                            </div>
                           )}
-                        </p>
+                        </div>
                       )}
                     </div>
                   </div>
