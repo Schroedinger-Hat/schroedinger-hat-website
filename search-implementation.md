@@ -5,7 +5,6 @@ This document outlines how to set up a global search feature powered by Algolia 
 ## Components Created
 
 1. **UI Components**:
-
    - `src/components/ui/command.tsx` - Command menu component using CMDK
    - `src/components/molecules/search-command.tsx` - Search component with keyboard shortcut listener
    - `src/components/organisms/global-search.tsx` - Wrapper for the search component
@@ -48,6 +47,7 @@ ALGOLIA_ADMIN_API_KEY="your-algolia-admin-api-key"
    ```
    _type == 'post'
    ```
+
    - **Projection**:
    ```
    {
@@ -86,7 +86,6 @@ This will fetch all published documents from Sanity and index them in Algolia.
 ## How It Works
 
 1. **Content Indexing**:
-
    - When content is published, updated, or deleted in Sanity, a webhook is triggered
    - The webhook calls our API route with details about the operation
    - The API route updates the Algolia index accordingly
