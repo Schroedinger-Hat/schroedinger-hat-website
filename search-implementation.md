@@ -44,11 +44,13 @@ ALGOLIA_ADMIN_API_KEY="your-algolia-admin-api-key"
    - **HTTP Method**: POST
    - **Trigger on**: Create, Update, Delete
    - **Filter**:
+
    ```
    _type == 'post'
    ```
 
    - **Projection**:
+
    ```
    {
      "transactionId": _rev,
