@@ -1,7 +1,6 @@
 import { getStripe, isStripeAvailable } from "@/lib/stripe"
 import { Heading } from "@/components/atoms/typography/Heading"
 import { Paragraph } from "@/components/atoms/typography/Paragraph"
-import { SuccessConfetti } from "./success-confetti"
 import { CheckmarkBadge01Icon, UserMultipleIcon, WavingHand01Icon } from "hugeicons-react"
 import { SectionContainer } from "@/components/atoms/layout/SectionContainer"
 import { BlurredBackground } from "@/components/organisms/blurred-background"
@@ -23,7 +22,7 @@ export default async function SuccessPage({ searchParams }: SuccessPageProps) {
   return (
     <main className="relative">
       <div className="absolute inset-0 overflow-hidden">
-        <SuccessConfetti />
+        <h1>Success!</h1>
       </div>
 
       {/* Header Section */}
