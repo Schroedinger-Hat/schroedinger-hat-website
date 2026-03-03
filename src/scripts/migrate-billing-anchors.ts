@@ -29,7 +29,7 @@ async function migrateBillingAnchors() {
   let errorCount = 0
 
   console.log("Starting billing anchor migration...")
-  console.log("=" .repeat(60))
+  console.log("=".repeat(60))
 
   while (hasMore) {
     const subscriptions = await stripe.subscriptions.list({
@@ -54,14 +54,12 @@ async function migrateBillingAnchors() {
 
       // Apply the algorithm: Oct-Dec gets year+2, Jan-Sep gets year+1
       const targetYear = createdMonth >= 10 ? createdYear + 2 : createdYear + 1
-      const correctBillingDate = Math.floor(
-        new Date(Date.UTC(targetYear, 0, 1, 0, 0, 0)).getTime() / 1000
-      )
+      const correctBillingDate = Math.floor(new Date(Date.UTC(targetYear, 0, 1, 0, 0, 0)).getTime() / 1000)
 
       console.log(
         `[${processedCount}] Subscription ${subscription.id}:\n` +
           `  Created: ${createdDate.toISOString()}\n` +
-          `  Setting anchor to: Jan 1 ${targetYear}`
+          `  Setting anchor to: Jan 1 ${targetYear}`,
       )
 
       try {
@@ -91,13 +89,13 @@ async function migrateBillingAnchors() {
     }
   }
 
-  console.log("=" .repeat(60))
+  console.log("=".repeat(60))
   console.log("=== Migration Complete ===")
   console.log(`Total processed: ${processedCount}`)
   console.log(`Updated: ${updatedCount}`)
   console.log(`Errors: ${errorCount}`)
   console.log(`Skipped (already v2): ${processedCount - updatedCount - errorCount}`)
-  console.log("=" .repeat(60))
+  console.log("=".repeat(60))
 }
 
 // Run the migration

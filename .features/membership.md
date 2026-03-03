@@ -31,11 +31,11 @@ model Member {
 
 ### Status values
 
-| Status | Meaning |
-|--------|---------|
-| `PENDING` | Record created, checkout not completed (or subscription not yet active) |
-| `COMPLETED` | Stripe subscription is `active` — member is in good standing |
-| `REJECTED` | Subscription cancelled or deleted — membership is no longer valid |
+| Status      | Meaning                                                                 |
+| ----------- | ----------------------------------------------------------------------- |
+| `PENDING`   | Record created, checkout not completed (or subscription not yet active) |
+| `COMPLETED` | Stripe subscription is `active` — member is in good standing            |
+| `REJECTED`  | Subscription cancelled or deleted — membership is no longer valid       |
 
 ### Italian compliance
 
@@ -48,6 +48,7 @@ The field carries a `@unique` constraint. PostgreSQL allows multiple `NULL` valu
 ## Membership creation flow
 
 **Key files:**
+
 - Form: `src/app/(website)/association/join/components/membership-form-modal.tsx`
 - Server mutation: `src/server/api/routers/stripe.ts` → `stripe.createCheckoutSession`
 - Success page: `src/app/(website)/association/join/success/page.tsx`
@@ -100,6 +101,7 @@ function calculateNextBillingDate() {
 `proration_behavior: "none"` is set on the subscription, meaning the user pays the full price at checkout and then again on every Jan 1st thereafter.
 
 The subscription metadata includes:
+
 ```json
 {
   "billingAlgorithmVersion": "2",
@@ -122,11 +124,11 @@ All incoming events are verified with `stripe.webhooks.constructEvent` using `ST
 
 ### Handled events
 
-| Event | Handler | Effect |
-|-------|---------|--------|
-| `customer.subscription.created` | `handleSubscriptionCreated` | Sets `stripeSubscriptionId` on the member; keeps `status = PENDING` |
+| Event                           | Handler                     | Effect                                                                                                           |
+| ------------------------------- | --------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `customer.subscription.created` | `handleSubscriptionCreated` | Sets `stripeSubscriptionId` on the member; keeps `status = PENDING`                                              |
 | `customer.subscription.updated` | `handleSubscriptionUpdated` | Sets `status = COMPLETED` if `subscription.status === "active"`, else `PENDING`; sends welcome email on `active` |
-| `customer.subscription.deleted` | `handleSubscriptionDeleted` | Sets `status = REJECTED`; clears `stripeSubscriptionId` |
+| `customer.subscription.deleted` | `handleSubscriptionDeleted` | Sets `status = REJECTED`; clears `stripeSubscriptionId`                                                          |
 
 > **Note:** `handleSubscriptionUpdated` sends the welcome email whenever `status` transitions to `active`. This fires during initial activation and could also fire on annual renewal if Stripe emits a `subscription.updated` event with `status: active` after a successful renewal payment. There is currently no deduplication guard on the email send.
 
@@ -135,6 +137,7 @@ All incoming events are verified with `stripe.webhooks.constructEvent` using `ST
 ## Email notifications
 
 **Files:**
+
 - `src/server/email.tsx` → `sendMembershipSignupEmail(firstName, email)`
 - `src/emails/membership-signup.tsx` → React Email template
 
@@ -142,6 +145,7 @@ All incoming events are verified with `stripe.webhooks.constructEvent` using `ST
 **From:** `Schrödinger Hat <hello@schroedinger-hat.org>`
 
 The welcome email is sent when `customer.subscription.updated` fires with `subscription.status === "active"`. It contains:
+
 - Personalised welcome greeting
 - Explanation of the two-step approval process (payment first, then review by association members)
 - Expectation on membership number delivery (manual, within weeks)
@@ -171,6 +175,7 @@ There is no application-level renewal UI, manual renewal process, or scheduled j
 This job deletes `Member` records that have been stuck in `PENDING` for more than 14 days. These are members who started checkout but never completed payment (abandoned checkouts).
 
 Results are logged to the `Health` table:
+
 ```prisma
 model Health {
     id             Int      @id @default(autoincrement())
@@ -187,15 +192,15 @@ model Health {
 
 ## Required environment variables
 
-| Variable | Required | Description |
-|----------|----------|-------------|
-| `STRIPE_SECRET_KEY` | Production only | Stripe secret key |
-| `STRIPE_MEMBERSHIP_PRICE_ID` | Always | Stripe Price ID for the annual membership product |
-| `STRIPE_WEBHOOK_SECRET` | Production only | Webhook endpoint signing secret |
-| `RESEND_API_KEY` | Production only | Resend API key for sending emails |
-| `DATABASE_URL` | Always | PostgreSQL connection string |
-| `CRON_SECRET` | Production only | Protects the cron endpoint from unauthorized calls |
-| `VERCEL_URL` / `VERCEL_PROJECT_PRODUCTION_URL` | Deployment | Used to build redirect URLs in checkout sessions |
+| Variable                                       | Required        | Description                                        |
+| ---------------------------------------------- | --------------- | -------------------------------------------------- |
+| `STRIPE_SECRET_KEY`                            | Production only | Stripe secret key                                  |
+| `STRIPE_MEMBERSHIP_PRICE_ID`                   | Always          | Stripe Price ID for the annual membership product  |
+| `STRIPE_WEBHOOK_SECRET`                        | Production only | Webhook endpoint signing secret                    |
+| `RESEND_API_KEY`                               | Production only | Resend API key for sending emails                  |
+| `DATABASE_URL`                                 | Always          | PostgreSQL connection string                       |
+| `CRON_SECRET`                                  | Production only | Protects the cron endpoint from unauthorized calls |
+| `VERCEL_URL` / `VERCEL_PROJECT_PRODUCTION_URL` | Deployment      | Used to build redirect URLs in checkout sessions   |
 
 `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`, and `RESEND_API_KEY` are optional in development (the app runs without Stripe/email functionality when not set) but are required in production via `isRequiredInProduction` validators in `src/env.js`.
 
@@ -216,20 +221,20 @@ It iterates all active Stripe subscriptions, skips those already marked `billing
 
 ## Key files reference
 
-| File | Purpose |
-|------|---------|
-| `prisma/schema.prisma` | `Member` and `Health` data models |
-| `src/server/api/routers/stripe.ts` | tRPC mutation: checkout session creation, billing algorithm |
-| `src/app/api/webhooks/stripe/route.ts` | Stripe webhook handler (subscription lifecycle) |
-| `src/app/(website)/association/join/components/membership-form-modal.tsx` | Membership signup form (client component) |
-| `src/app/(website)/association/join/success/page.tsx` | Post-checkout confirmation page |
-| `src/app/api/cron/health-check/route.ts` | Daily cron: cleanup abandoned PENDING members |
-| `src/server/email.tsx` | Email sending utility (`sendMembershipSignupEmail`) |
-| `src/emails/membership-signup.tsx` | Welcome email React template |
-| `src/scripts/migrate-billing-anchors.ts` | One-time billing anchor migration script |
-| `src/lib/stripe.ts` | Stripe client initialisation |
-| `src/env.js` | Environment variable schema and validation |
-| `vercel.json` | Cron job schedule configuration |
+| File                                                                      | Purpose                                                     |
+| ------------------------------------------------------------------------- | ----------------------------------------------------------- |
+| `prisma/schema.prisma`                                                    | `Member` and `Health` data models                           |
+| `src/server/api/routers/stripe.ts`                                        | tRPC mutation: checkout session creation, billing algorithm |
+| `src/app/api/webhooks/stripe/route.ts`                                    | Stripe webhook handler (subscription lifecycle)             |
+| `src/app/(website)/association/join/components/membership-form-modal.tsx` | Membership signup form (client component)                   |
+| `src/app/(website)/association/join/success/page.tsx`                     | Post-checkout confirmation page                             |
+| `src/app/api/cron/health-check/route.ts`                                  | Daily cron: cleanup abandoned PENDING members               |
+| `src/server/email.tsx`                                                    | Email sending utility (`sendMembershipSignupEmail`)         |
+| `src/emails/membership-signup.tsx`                                        | Welcome email React template                                |
+| `src/scripts/migrate-billing-anchors.ts`                                  | One-time billing anchor migration script                    |
+| `src/lib/stripe.ts`                                                       | Stripe client initialisation                                |
+| `src/env.js`                                                              | Environment variable schema and validation                  |
+| `vercel.json`                                                             | Cron job schedule configuration                             |
 
 ---
 
