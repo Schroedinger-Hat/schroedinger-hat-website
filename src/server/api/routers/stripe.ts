@@ -114,6 +114,23 @@ export const stripeRouter = createTRPCRouter({
           })
         }
 
+        // Check for existing completed membership by fiscal code
+        if (input.codiceFiscale) {
+          const existingMemberByCF = await ctx.db.member.findFirst({
+            where: {
+              codiceFiscale: input.codiceFiscale,
+              status: "COMPLETED",
+            },
+          })
+
+          if (existingMemberByCF) {
+            throw new TRPCError({
+              code: "CONFLICT",
+              message: "A completed membership already exists for this fiscal code",
+            })
+          }
+        }
+
         // Find or create pending member
         const member = await ctx.db.member.upsert({
           where: {
