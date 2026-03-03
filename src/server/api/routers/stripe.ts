@@ -76,12 +76,12 @@ function calculateNextBillingDate() {
   const currentYear = now.getFullYear()
   const currentMonth = now.getMonth() + 1 // JavaScript months are 0-based
 
-  // If we're between September and December, start billing the year after next
+  // If we're between October and December, start billing the year after next
   // Otherwise, start billing next year
-  const targetYear = currentMonth >= 9 ? currentYear + 2 : currentYear + 1
+  const targetYear = currentMonth >= 10 ? currentYear + 2 : currentYear + 1
 
-  // Set to January 1st 00:00:00 of target year
-  return Math.floor(new Date(targetYear, 0, 1).getTime() / 1000)
+  // Set to January 1st 00:00:00 of target year (using UTC to avoid timezone issues)
+  return Math.floor(new Date(Date.UTC(targetYear, 0, 1, 0, 0, 0)).getTime() / 1000)
 }
 
 export const stripeRouter = createTRPCRouter({
@@ -173,10 +173,12 @@ export const stripeRouter = createTRPCRouter({
           success_url: `${baseUrl}/association/join/success?session_id={CHECKOUT_SESSION_ID}`,
           cancel_url: `${baseUrl}/association/join`,
           subscription_data: {
+            billing_cycle_anchor: nextBillingDate,
+            proration_behavior: "none",
             metadata: {
-              nextBillingYear: new Date(nextBillingDate * 1000).getFullYear(),
-              shouldUpdateBillingCycle: "true",
-              nextBillingDate: nextBillingDate.toString(),
+              nextBillingYear: new Date(nextBillingDate * 1000).getFullYear().toString(),
+              memberId: member.id,
+              billingAlgorithmVersion: "2",
             },
           },
           metadata: {

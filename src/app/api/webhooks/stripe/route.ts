@@ -83,22 +83,6 @@ async function handleSubscriptionUpdated(subscription: Stripe.Subscription) {
         console.error("Failed to send welcome email:", error)
       }
     }
-
-    // If this subscription should have its billing cycle updated
-    if (metadata?.shouldUpdateBillingCycle === "true" && metadata.nextBillingDate) {
-      const nextBillingDate = parseInt(metadata.nextBillingDate)
-
-      try {
-        const stripe = getStripe()
-        await stripe.subscriptions.update(subscription.id, {
-          proration_behavior: "none",
-          billing_cycle_anchor:
-            nextBillingDate as unknown as Stripe.SubscriptionUpdateParams.BillingCycleAnchor,
-        })
-      } catch (error) {
-        console.error("Failed to update subscription billing cycle:", error)
-      }
-    }
   }
 }
 
