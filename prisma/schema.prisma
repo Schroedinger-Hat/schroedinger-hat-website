@@ -15,7 +15,7 @@ model Member {
     name          String
     surname       String
     email         String    @unique
-    codiceFiscale String?
+    codiceFiscale String?   @unique
     nationality   String
     status        String   @default("PENDING") // PENDING, COMPLETED, REJECTED
     stripeCustomerId String?   @unique
@@ -23,7 +23,6 @@ model Member {
     createdAt     DateTime @default(now())
     updatedAt     DateTime @updatedAt
 
-    @@index([codiceFiscale])
     @@index([email])
     @@index([status])
 }

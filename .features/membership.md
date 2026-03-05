@@ -19,7 +19,7 @@ model Member {
     name                 String
     surname              String
     email                String   @unique
-    codiceFiscale        String?
+    codiceFiscale        String?  @unique
     nationality          String
     status               String   @default("PENDING") // PENDING | COMPLETED | REJECTED
     stripeCustomerId     String?  @unique
@@ -41,6 +41,8 @@ model Member {
 
 The `codiceFiscale` field stores the Italian fiscal code. It is required for members with `nationality = "it"`, must be exactly 16 characters, and may only contain uppercase letters and digits (`/^[A-Z0-9]+$/`). Non-Italian members leave it null.
 
+The field carries a `@unique` constraint. PostgreSQL allows multiple `NULL` values in a unique index, so non-Italian members are unaffected. The constraint prevents two members from sharing the same fiscal code.
+
 ---
 
 ## Membership creation flow
@@ -58,6 +60,7 @@ The `codiceFiscale` field stores the Italian fiscal code. It is required for mem
 3. User accepts terms and submits → client calls the tRPC mutation `stripe.createCheckoutSession`.
 4. **Server-side checks and setup:**
    - If a `COMPLETED` member already exists for that email → throw `CONFLICT` (prevents duplicates).
+   - If `codiceFiscale` is provided and a `COMPLETED` member already has that fiscal code → throw `CONFLICT`.
    - Upsert `Member` record with `status = PENDING`. On re-attempt (e.g., user abandoned checkout), personal data is updated but the record is reused.
    - If no `stripeCustomerId` exists: create a Stripe Customer and persist the ID.
    - Calculate the next billing date (see [Billing cycle algorithm](#billing-cycle-algorithm)).
