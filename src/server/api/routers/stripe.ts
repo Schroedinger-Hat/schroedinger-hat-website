@@ -73,8 +73,8 @@ type CheckoutResult = { status: "success"; url: string } | { status: "error"; me
 
 function calculateNextBillingDate() {
   const now = new Date()
-  const currentYear = now.getFullYear()
-  const currentMonth = now.getMonth() + 1 // JavaScript months are 0-based
+  const currentYear = now.getUTCFullYear()
+  const currentMonth = now.getUTCMonth() + 1 // JavaScript months are 0-based
 
   // If we're between October and December, start billing the year after next
   // Otherwise, start billing next year
@@ -99,57 +99,43 @@ export const stripeRouter = createTRPCRouter({
         // Get Stripe instance
         const stripe = getStripe()
 
-        // Check for existing completed membership
-        const existingMember = await ctx.db.member.findFirst({
-          where: {
-            email: input.email,
-            status: "COMPLETED",
-          },
-        })
+        // Lookup by email first, then by CF (handles re-subscription with different email)
+        let existingMember = await ctx.db.member.findUnique({ where: { email: input.email } })
 
-        if (existingMember) {
+        if (!existingMember && input.codiceFiscale) {
+          existingMember = await ctx.db.member.findUnique({
+            where: { codiceFiscale: input.codiceFiscale },
+          })
+        }
+
+        // Block only active memberships
+        if (existingMember?.status === "COMPLETED") {
           throw new TRPCError({
             code: "CONFLICT",
-            message: "A completed membership already exists for this email",
+            message: "A completed membership already exists for this account",
           })
         }
 
-        // Check for existing completed membership by fiscal code
-        if (input.codiceFiscale) {
-          const existingMemberByCF = await ctx.db.member.findFirst({
-            where: {
-              codiceFiscale: input.codiceFiscale,
-              status: "COMPLETED",
-            },
-          })
-
-          if (existingMemberByCF) {
-            throw new TRPCError({
-              code: "CONFLICT",
-              message: "A completed membership already exists for this fiscal code",
+        // Reuse existing record (PENDING/REJECTED) or create new
+        const member = existingMember
+          ? await ctx.db.member.update({
+              where: { id: existingMember.id },
+              data: {
+                name: input.name,
+                surname: input.surname,
+                email: input.email,
+                nationality: input.nationality,
+              },
             })
-          }
-        }
-
-        // Find or create pending member
-        const member = await ctx.db.member.upsert({
-          where: {
-            email: input.email,
-          },
-          update: {
-            name: input.name,
-            surname: input.surname,
-            email: input.email,
-            nationality: input.nationality,
-          },
-          create: {
-            name: input.name,
-            surname: input.surname,
-            email: input.email,
-            codiceFiscale: input.codiceFiscale,
-            nationality: input.nationality,
-          },
-        })
+          : await ctx.db.member.create({
+              data: {
+                name: input.name,
+                surname: input.surname,
+                email: input.email,
+                codiceFiscale: input.codiceFiscale,
+                nationality: input.nationality,
+              },
+            })
 
         const baseUrl = getBaseUrl()
 

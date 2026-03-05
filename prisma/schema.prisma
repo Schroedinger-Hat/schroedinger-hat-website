@@ -22,9 +22,27 @@ model Member {
     stripeSubscriptionId String?
     createdAt     DateTime @default(now())
     updatedAt     DateTime @updatedAt
+    periods       MembershipPeriod[]
 
     @@index([email])
     @@index([status])
+}
+
+model MembershipPeriod {
+    id                   String   @id @default(cuid())
+    memberId             String
+    member               Member   @relation(fields: [memberId], references: [id])
+    year                 Int
+    stripeInvoiceId      String   @unique
+    stripeSubscriptionId String
+    amountPaid           Int
+    periodStart          DateTime
+    periodEnd            DateTime
+    billingReason        String
+    createdAt            DateTime @default(now())
+
+    @@index([memberId])
+    @@index([memberId, year])
 }
 
 model Health {

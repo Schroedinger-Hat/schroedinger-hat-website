@@ -1,9 +1,13 @@
 import { getStripe, isStripeAvailable } from "@/lib/stripe"
 import { headers } from "next/headers"
 import type { Stripe } from "stripe"
-import { db } from "@/server/db"
-import { sendMembershipSignupEmail } from "@/server/email"
 import { env } from "@/env"
+import {
+  handleSubscriptionCreated,
+  handleSubscriptionUpdated,
+  handleSubscriptionDeleted,
+  handleInvoicePaymentSucceeded,
+} from "./handlers"
 
 export async function POST(req: Request) {
   if (!isStripeAvailable()) {
@@ -36,6 +40,9 @@ export async function POST(req: Request) {
       case "customer.subscription.deleted":
         await handleSubscriptionDeleted(event.data.object)
         break
+      case "invoice.payment_succeeded":
+        await handleInvoicePaymentSucceeded(event.data.object)
+        break
       default:
         console.log(`Unhandled event type: ${event.type}`)
     }
@@ -46,56 +53,4 @@ export async function POST(req: Request) {
     console.error(`Error processing webhook: ${error.message}`)
     return Response.json({ error: "Error processing webhook" }, { status: 500 })
   }
-}
-
-async function handleSubscriptionCreated(subscription: Stripe.Subscription) {
-  const { customer } = subscription
-  if (typeof customer !== "string") return
-
-  // Get the member to access their email and name
-  await db.member.update({
-    where: { stripeCustomerId: customer },
-    data: {
-      stripeSubscriptionId: subscription.id,
-      status: "PENDING",
-    },
-  })
-}
-
-async function handleSubscriptionUpdated(subscription: Stripe.Subscription) {
-  const { customer, status, metadata } = subscription
-  if (typeof customer !== "string") return
-
-  // Update member status based on subscription status
-  const member = await db.member.update({
-    where: { stripeCustomerId: customer },
-    data: {
-      status: status === "active" ? "COMPLETED" : "PENDING",
-    },
-  })
-
-  if (status === "active") {
-    // Send welcome email
-    if (member.email) {
-      try {
-        await sendMembershipSignupEmail(member.name ?? "", member.email)
-      } catch (error) {
-        console.error("Failed to send welcome email:", error)
-      }
-    }
-  }
-}
-
-async function handleSubscriptionDeleted(subscription: Stripe.Subscription) {
-  const { customer } = subscription
-  if (typeof customer !== "string") return
-
-  // Mark member as inactive when subscription is cancelled
-  await db.member.update({
-    where: { stripeCustomerId: customer },
-    data: {
-      status: "REJECTED",
-      stripeSubscriptionId: null,
-    },
-  })
 }

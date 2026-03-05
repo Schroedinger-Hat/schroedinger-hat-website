@@ -15,17 +15,32 @@ There is **no authentication layer** in this flow — it is entirely public. Mem
 
 ```prisma
 model Member {
-    id                   String   @id @default(cuid())
+    id                   String             @id @default(cuid())
     name                 String
     surname              String
-    email                String   @unique
-    codiceFiscale        String?  @unique
+    email                String             @unique
+    codiceFiscale        String?            @unique
     nationality          String
-    status               String   @default("PENDING") // PENDING | COMPLETED | REJECTED
-    stripeCustomerId     String?  @unique
+    status               String             @default("PENDING") // PENDING | COMPLETED | REJECTED
+    stripeCustomerId     String?            @unique
     stripeSubscriptionId String?
+    createdAt            DateTime           @default(now())
+    updatedAt            DateTime           @updatedAt
+    periods              MembershipPeriod[]
+}
+
+model MembershipPeriod {
+    id                   String   @id @default(cuid())
+    memberId             String
+    member               Member   @relation(fields: [memberId], references: [id])
+    year                 Int      // UTC year of period_end (membership validity year)
+    stripeInvoiceId      String   @unique  // idempotency key
+    stripeSubscriptionId String
+    amountPaid           Int      // in cents
+    periodStart          DateTime
+    periodEnd            DateTime
+    billingReason        String   // "subscription_create" | "subscription_cycle"
     createdAt            DateTime @default(now())
-    updatedAt            DateTime @updatedAt
 }
 ```
 
@@ -42,6 +57,10 @@ model Member {
 The `codiceFiscale` field stores the Italian fiscal code. It is required for members with `nationality = "it"`, must be exactly 16 characters, and may only contain uppercase letters and digits (`/^[A-Z0-9]+$/`). Non-Italian members leave it null.
 
 The field carries a `@unique` constraint. PostgreSQL allows multiple `NULL` values in a unique index, so non-Italian members are unaffected. The constraint prevents two members from sharing the same fiscal code.
+
+### Re-subscription
+
+A `REJECTED` member (cancelled subscription) may re-subscribe. The checkout flow looks up the existing record by email first, then by `codiceFiscale` if not found by email. When a `REJECTED` (or `PENDING`) record is found, it is reused and updated rather than creating a new row. Only `COMPLETED` members are blocked from starting a new checkout. This avoids the unique-constraint violation that would otherwise prevent re-use of the same fiscal code.
 
 ---
 
@@ -114,7 +133,9 @@ The subscription metadata includes:
 
 ## Webhook events
 
-**File:** `src/app/api/webhooks/stripe/route.ts`
+**Files:**
+- `src/app/api/webhooks/stripe/route.ts` — thin dispatcher
+- `src/app/api/webhooks/stripe/handlers.ts` — individual handler functions
 
 **Endpoint:** `POST /api/webhooks/stripe`
 
@@ -127,8 +148,11 @@ All incoming events are verified with `stripe.webhooks.constructEvent` using `ST
 | `customer.subscription.created` | `handleSubscriptionCreated` | Sets `stripeSubscriptionId` on the member; keeps `status = PENDING` |
 | `customer.subscription.updated` | `handleSubscriptionUpdated` | Sets `status = COMPLETED` if `subscription.status === "active"`, else `PENDING`; sends welcome email on `active` |
 | `customer.subscription.deleted` | `handleSubscriptionDeleted` | Sets `status = REJECTED`; clears `stripeSubscriptionId` |
+| `invoice.payment_succeeded` | `handleInvoicePaymentSucceeded` | Creates a `MembershipPeriod` row for the payment (initial and annual renewals) |
 
 > **Note:** `handleSubscriptionUpdated` sends the welcome email whenever `status` transitions to `active`. This fires during initial activation and could also fire on annual renewal if Stripe emits a `subscription.updated` event with `status: active` after a successful renewal payment. There is currently no deduplication guard on the email send.
+
+> **Idempotency:** `handleInvoicePaymentSucceeded` uses `stripeInvoiceId` as a unique key on `MembershipPeriod`. A duplicate webhook delivery causes a unique-constraint violation, which the outer `try/catch` in `route.ts` swallows and responds with `200 OK`.
 
 ---
 
@@ -156,10 +180,16 @@ The welcome email is sent when `customer.subscription.updated` fires with `subsc
 Annual renewals are handled **entirely by Stripe** through its subscription billing engine. No application code needs to run proactively.
 
 1. On Jan 1st, Stripe attempts to charge the customer's card on file.
-2. **If payment succeeds:** Stripe fires `customer.subscription.updated` with `status: active` → member `status` stays (or returns to) `COMPLETED`.
+2. **If payment succeeds:**
+   - Stripe fires `invoice.payment_succeeded` → `handleInvoicePaymentSucceeded` creates a new `MembershipPeriod` row for the year (idempotent on invoice ID).
+   - Stripe fires `customer.subscription.updated` with `status: active` → member `status` stays (or returns to) `COMPLETED`.
 3. **If payment fails:** Stripe retries according to its Smart Retries settings. If all retries fail, Stripe fires `customer.subscription.deleted` → member `status` set to `REJECTED`.
 
 There is no application-level renewal UI, manual renewal process, or scheduled job for renewals. Everything is driven by the Stripe subscription and the webhook handler.
+
+### Membership history
+
+Every successful payment (initial signup and annual renewal) creates a `MembershipPeriod` row. This provides a complete audit trail even if a member leaves and re-joins years later. The `year` field (derived from `periodEnd.getUTCFullYear()`) is the membership validity year.
 
 ---
 
@@ -218,9 +248,10 @@ It iterates all active Stripe subscriptions, skips those already marked `billing
 
 | File | Purpose |
 |------|---------|
-| `prisma/schema.prisma` | `Member` and `Health` data models |
+| `prisma/schema.prisma` | `Member`, `MembershipPeriod`, and `Health` data models |
 | `src/server/api/routers/stripe.ts` | tRPC mutation: checkout session creation, billing algorithm |
-| `src/app/api/webhooks/stripe/route.ts` | Stripe webhook handler (subscription lifecycle) |
+| `src/app/api/webhooks/stripe/route.ts` | Stripe webhook dispatcher |
+| `src/app/api/webhooks/stripe/handlers.ts` | Webhook handler functions (subscription lifecycle + invoice history) |
 | `src/app/(website)/association/join/components/membership-form-modal.tsx` | Membership signup form (client component) |
 | `src/app/(website)/association/join/success/page.tsx` | Post-checkout confirmation page |
 | `src/app/api/cron/health-check/route.ts` | Daily cron: cleanup abandoned PENDING members |

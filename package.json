@@ -6,6 +6,9 @@
   "scripts": {
     "build": "next build",
     "check": "next lint && tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
     "db:generate": "prisma migrate dev",
     "db:migrate": "prisma migrate deploy",
     "db:push": "prisma db push",
@@ -91,6 +94,7 @@
     "@typescript-eslint/eslint-plugin": "^8.1.0",
     "@typescript-eslint/parser": "^8.1.0",
     "@uidotdev/usehooks": "^2.4.1",
+    "@vitest/coverage-v8": "^3.2.4",
     "eslint": "^8.57.0",
     "eslint-config-next": "^15.0.1",
     "postcss": "^8.4.39",
@@ -98,7 +102,9 @@
     "prettier-plugin-tailwindcss": "^0.6.5",
     "prisma": "^6.0.1",
     "tailwindcss": "^3.4.3",
-    "typescript": "^5.5.3"
+    "typescript": "^5.5.3",
+    "vite-tsconfig-paths": "^5.1.4",
+    "vitest": "^3.2.4"
   },
   "ct3aMetadata": {
     "initVersion": "7.38.1"
