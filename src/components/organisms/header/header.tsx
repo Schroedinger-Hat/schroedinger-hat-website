@@ -166,10 +166,10 @@ export function Header({ eventCodes }: { eventCodes: EventCodesQueryResult }) {
 
                 <SheetClose asChild>
                   <Link
-                    href="https://shop.schroedinger-hat.org/"
+                    href="/contribute/as-individual"
                     className="text-sm font-medium transition-colors hover:text-primary"
                   >
-                    <Typography variant="navigationMobile">Merch</Typography>
+                    <Typography variant="navigationMobile">Volunteer</Typography>
                   </Link>
                 </SheetClose>
 
@@ -239,12 +239,9 @@ export function Header({ eventCodes }: { eventCodes: EventCodesQueryResult }) {
             </NavigationMenuItem>
 
             <NavigationMenuItem>
-              <NavigationMenuLink
-                className={navigationMenuTriggerStyle()}
-                href="https://shop.schroedinger-hat.org/"
-              >
+              <NavigationMenuLink className={navigationMenuTriggerStyle()} href="/contribute/as-individual">
                 <Typography as="span" variant="navigation">
-                  Merch
+                  Become a Volunteer
                 </Typography>
               </NavigationMenuLink>
             </NavigationMenuItem>
