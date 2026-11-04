@@ -207,7 +207,7 @@ export default async function Home() {
         />
 
         {/* Inform user that we have on online shop where they can buy merch and t-shirts */}
-        <CardSection
+        {/* <CardSection
           className=""
           topText="eCommerce"
           title="Merch and T-Shirts"
@@ -216,7 +216,7 @@ export default async function Home() {
           ctaHref="https://shop.schroedinger-hat.org/"
           image={shopCallout}
           variant="shop"
-        />
+        /> */}
       </SectionContainer>
     </main>
   )
